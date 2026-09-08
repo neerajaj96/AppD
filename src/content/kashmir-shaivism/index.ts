@@ -1,6 +1,8 @@
 import { System, ClassicalText, SystemId } from '../../types/content';
 import { buildClassicalText, buildSystemThread } from '../factory';
 import { tantralokaConceptsEn, TantralokaConcept } from './tantraloka-concepts-en';
+import { tantralokaConceptsMl } from './tantraloka-concepts-ml';
+import { tantralokaThreadMl } from './tantraloka-thread-ml';
 import { tantralokaVersesEn } from './tantraloka-verses-en';
 
 const mappedConceptsEn = tantralokaConceptsEn.map((c: TantralokaConcept) => ({
@@ -11,12 +13,10 @@ const mappedConceptsEn = tantralokaConceptsEn.map((c: TantralokaConcept) => ({
   relatedConceptIds: c.relatedConcepts
 }));
 
-const mappedConceptsMl = tantralokaConceptsEn.map((c: TantralokaConcept) => ({
-  id: c.id,
-  title: `${c.sanskrit} (${c.iast}) - വിവർത്തനം ലഭ്യമാണ്`,
-  category: c.category,
-  summary: `ഈ ആശയത്തിന്റെ വിശദമായ മലയാളം അർത്ഥം ഉൾപ്പെടുത്തേണ്ടതുണ്ട്.`,
-  relatedConceptIds: c.relatedConcepts
+const mappedConceptsMl = Object.entries(tantralokaConceptsMl).map(([id, c]) => ({
+  id,
+  title: (c as { title: string }).title,
+  summary: (c as { summary: string }).summary,
 }));
 
 const mappedThreadEn = tantralokaConceptsEn.map((c: TantralokaConcept, index: number) => ({
@@ -26,11 +26,10 @@ const mappedThreadEn = tantralokaConceptsEn.map((c: TantralokaConcept, index: nu
   narrative: `Part of the master ontology of Kashmir Shaivism.\n\nCategory: ${c.category}\n\n${c.definition}\n\n${c.forBeginners ? "For Beginners: " + c.forBeginners : ""}`
 }));
 
-const mappedThreadMl = tantralokaConceptsEn.map((c: TantralokaConcept, index: number) => ({
-  id: `ks-step-${index + 1}`,
-  conceptId: c.id,
-  title: `${c.english} (Malayalam)`,
-  narrative: `ഈ ഭാഗം ഉടൻ മലയാളത്തിൽ ലഭ്യമാകും.`
+const mappedThreadMl = Object.entries(tantralokaThreadMl).map(([id, t]) => ({
+  id,
+  title: (t as { title: string }).title,
+  narrative: (t as { narrative: string }).narrative
 }));
 
 export const tantralokaText: ClassicalText = buildClassicalText(
