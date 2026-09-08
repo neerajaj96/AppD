@@ -43,7 +43,7 @@ export default function VerseDetail() {
   const isShowingFallback = !isCurrentLangAvailable && language === 'ml';
 
   const handleCopy = async () => {
-    const textToCopy = `${system.title} - ${text.transliteratedTitle}\n${verseTerm} ${verse.number}\n${verse.devanagari ? verse.devanagari + '\n' : ''}${verse.iast}\n\n${translation || ''}\n\n${commentary || ''}`;
+    const textToCopy = `${system.title} - ${text.transliteratedTitle}\n${verseTerm} ${verse.number}\n${verse.devanagari ? verse.devanagari + '\n' : ''}${verse.iast || ''}\n\n${translation || ''}\n\n${commentary || ''}`;
     try {
       if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(textToCopy);
@@ -144,9 +144,11 @@ export default function VerseDetail() {
             )}
             
             <div className="text-xl md:text-2xl text-sattva italic leading-relaxed">
-              {verse.iast.split('\n').map((line, i) => (
-                <div key={i}>{line}</div>
-              ))}
+              {verse.iast ? (
+                verse.iast.split('\n').map((line, i) => (
+                  <div key={i}>{line}</div>
+                ))
+              ) : null}
             </div>
           </div>
 

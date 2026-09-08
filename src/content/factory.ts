@@ -18,6 +18,8 @@ export interface RawVerse {
   number: string;
   section: string;
   devanagari?: string;
+  /** Legacy alias used by Brahma Sūtra sources. */
+  sanskrit?: string;
   iast: string;
   diagramId?: string;
   conceptIds?: string[];
@@ -35,6 +37,8 @@ export interface RawConcept {
   category?: string;
   relatedVerseIds?: string[];
   relatedConceptIds?: string[];
+  /** Legacy alias used by Brahma Sūtra concept sources. */
+  relatedConcepts?: string[];
 }
 
 export interface RawThreadStep {
@@ -120,10 +124,10 @@ export function buildClassicalText(
   baseVerses.forEach(base => {
     const v: Verse = {
       id: base.id as VerseId,
-      number: base.number,
-      section: base.section,
-      devanagari: base.devanagari,
-      iast: base.iast,
+      number: base.number ?? `${base.id}`,
+      section: base.section ?? '',
+      devanagari: base.devanagari ?? base.sanskrit,
+      iast: base.iast ?? '',
       diagramId: base.diagramId,
       conceptIds: (base.conceptIds || []) as ConceptId[],
       interpretiveNotes: base.interpretiveNotes,
@@ -170,7 +174,7 @@ export function buildClassicalText(
       diagramId: base.diagramId,
       category: base.category,
       relatedVerseIds: (base.relatedVerseIds || []) as VerseId[],
-      relatedConceptIds: (base.relatedConceptIds || []) as ConceptId[],
+      relatedConceptIds: ((base.relatedConceptIds ?? base.relatedConcepts) || []) as ConceptId[],
       content: {}
     };
 

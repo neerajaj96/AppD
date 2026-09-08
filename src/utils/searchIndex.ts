@@ -45,6 +45,7 @@ export function getOrBuildSearchIndex(): IndexedVerseItem[] {
         const enCommentary = en?.commentary || '';
         const mlTranslation = ml?.translation || '';
         const mlCommentary = ml?.commentary || '';
+        const numberStr = verse.number ?? verse.id ?? '';
 
         items.push({
           systemId: sys.id,
@@ -52,7 +53,7 @@ export function getOrBuildSearchIndex(): IndexedVerseItem[] {
           textId: text.id,
           textTitle: text.transliteratedTitle,
           verse,
-          numberLower: verse.number.toLowerCase(),
+          numberLower: numberStr.toLowerCase(),
           iastLower: iast.toLowerCase(),
           normIast: normalizeSanskrit(iast),
           devanagari: verse.devanagari || '',
