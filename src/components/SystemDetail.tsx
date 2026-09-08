@@ -280,7 +280,7 @@ export default function SystemDetail() {
                 value={conceptSearch}
                 onChange={(e) => setConceptSearch(e.target.value)}
                 placeholder="Filter concepts..."
-                className="w-full pl-9 pr-3 py-1.5 text-sm bg-avyakta-2 border border-tamas-deep rounded-lg focus:outline-none focus:ring-1 focus:ring-neutral-400"
+                className="w-full pl-9 pr-3 py-1.5 text-sm bg-avyakta-2 border border-tamas-deep rounded-lg focus:outline-none focus:ring-1 focus:ring-rajas"
               />
             </div>
           </div>
@@ -292,7 +292,7 @@ export default function SystemDetail() {
                 onClick={() => setSelectedCategory('all')}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                   selectedCategory === 'all'
-                    ? 'bg-neutral-900 text-sattva'
+                    ? 'bg-avyakta-4 text-sattva'
                     : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
                 }`}
               >
@@ -304,7 +304,7 @@ export default function SystemDetail() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                     selectedCategory === cat
-                      ? 'bg-neutral-900 text-sattva'
+                      ? 'bg-avyakta-4 text-sattva'
                       : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
                   }`}
                 >
@@ -355,7 +355,7 @@ export default function SystemDetail() {
                   {isExpanded && (
                     <div className="px-5 pb-5 pt-2 border-t border-tamas space-y-4 text-sattva">
                       {localized?.summary && (
-                        <div className="prose prose-sm prose-neutral max-w-none">
+                        <div className="prose prose-sm max-w-none">
                           <Markdown>{localized.summary}</Markdown>
                         </div>
                       )}

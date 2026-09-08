@@ -18,7 +18,7 @@ module.exports = {
       'warn',
       {
         selector: "Literal[value=/^#[0-9a-fA-F]{3,8}$/]",
-        message: "Do not use hardcoded hex colors. Use the Guna theme colors from useTheme()."
+        message: "Do not use hardcoded hex colors. Use Tailwind Guna classes (bg-avyakta-2, text-sattva, ...) backed by src/index.css, via getSystemAccent() in src/utils/theme.ts."
       }
     ]
   },

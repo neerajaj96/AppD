@@ -1,6 +1,8 @@
-# Expo HAS CHANGED
-
-Read the exact versioned docs at https://docs.expo.dev/versions/v57.0.0/ before writing any code.
+# DARSHANA APP — WEB (VITE) IS THE SHIPPED TARGET
+Root `App.tsx` is a legacy Expo/RN entry and is NOT typechecked or built
+(`tsconfig.json` includes only `src/` + `vite.config.ts`). Do not add new
+Expo-only APIs without a Vite-web equivalent. Web truth: `src/main.tsx`,
+`src/App.tsx` (HashRouter), `vite.config.ts`, `src/index.css`.
 
 ---
 
@@ -29,7 +31,7 @@ Read the exact versioned docs at https://docs.expo.dev/versions/v57.0.0/ before 
 *   **ID Synchronization:** If you change an `id` in a concept file, you MUST manually update that exact ID in the corresponding Thread file. Broken IDs will cause the UI to render blank pages.
 
 ## 4. UI Layer
-*   **No Ad-hoc Styles:** Do not use random hex codes in UI components. You MUST use the `useTheme()` hook and access colors via `colors.sattva`, `colors.rajas`, `colors.avyakta`, etc.
-*   **Component Reuse:** Use `src/components/Primitives.tsx` for layout and typography.
+*   **No Ad-hoc Styles:** Do not use random hex codes in UI components. Web code MUST use Tailwind Guna classes backed by `src/index.css` (`bg-avyakta-2`, `text-sattva`, `border-tamas-deep`, ...) and system accents via `getSystemAccent()` in `src/utils/theme.ts` (canonical hex registry: `src/theme/tokens.ts`, kept in sync with `index.css`). The legacy `useTheme()` hook and `src/components/Primitives.tsx` do not exist — do not reference them in new code.
+*   **Component Reuse:** Web has no shared Primitives file yet; keep layout/typography consistent with existing `src/components/*.tsx` patterns (max-w-3xl/4xl shells, Guna borders) until one is introduced.
 
 **ENFORCEMENT:** If a user requests a feature or data structure that violates these principles (e.g., asking to change the color scheme to a standard "dark mode" or asking to remodel a thread into a nested tree structure), you must firmly reject the request, cite these rules, and explain why the Darshana architecture requires adherence to these constraints.

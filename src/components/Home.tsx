@@ -27,9 +27,8 @@ export default function Home() {
                 className="absolute top-0 left-0 right-0 h-1 opacity-80 group-hover:opacity-100 transition-opacity"
                 style={{ backgroundColor: accent.primary }}
               />
-              <h2 
+              <h2
                 className="text-2xl font-serif font-bold text-sattva transition-colors mb-2"
-                style={{ color: undefined }}
               >
                 {system.title}
               </h2>

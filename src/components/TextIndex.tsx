@@ -22,6 +22,14 @@ export default function TextIndex() {
     setCollapsedSections(new Set());
   }, [systemId, textId]);
 
+  const hasVerses = (text?.verses.length ?? 0) > 0;
+  const hasConcepts = (text?.concepts.length ?? 0) > 0;
+  const [activeTab, setActiveTab] = useState<'verses' | 'concepts'>('verses');
+
+  useEffect(() => {
+    setActiveTab(hasVerses ? 'verses' : 'concepts');
+  }, [systemId, textId, hasVerses]);
+
   const toggleSection = (section: string) => {
     setCollapsedSections((prev) => {
       const next = new Set(prev);
@@ -34,10 +42,6 @@ export default function TextIndex() {
   if (!system || !text) {
     return <div className="text-center py-12">Text not found</div>;
   }
-
-  const hasVerses = text.verses.length > 0;
-  const hasConcepts = text.concepts.length > 0;
-  const [activeTab, setActiveTab] = useState<'verses' | 'concepts'>(hasVerses ? 'verses' : 'concepts');
 
   const showVerses = hasVerses && activeTab === 'verses';
 
@@ -161,7 +165,7 @@ export default function TextIndex() {
               onClick={() => setActiveTab('verses')}
               className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-colors ${
                 activeTab === 'verses'
-                  ? 'bg-neutral-900 text-sattva'
+                  ? 'bg-avyakta-4 text-sattva'
                   : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
               }`}
             >
@@ -172,7 +176,7 @@ export default function TextIndex() {
               onClick={() => setActiveTab('concepts')}
               className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-colors ${
                 activeTab === 'concepts'
-                  ? 'bg-neutral-900 text-sattva'
+                  ? 'bg-avyakta-4 text-sattva'
                   : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
               }`}
             >
@@ -222,7 +226,7 @@ export default function TextIndex() {
               onClick={() => setActiveSection('all')}
               className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                 activeSection === 'all'
-                  ? 'bg-neutral-900 text-sattva'
+                  ? 'bg-avyakta-4 text-sattva'
                   : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
               }`}
             >
@@ -234,7 +238,7 @@ export default function TextIndex() {
                 onClick={() => setActiveSection(section)}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                   activeSection === section
-                    ? 'bg-neutral-900 text-sattva'
+                    ? 'bg-avyakta-4 text-sattva'
                     : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
                 }`}
                 title={section}
@@ -246,7 +250,7 @@ export default function TextIndex() {
         </div>
       )}
 
-      <div className="bg-avyakta-2 rounded-xl shadow-xs border border-tamas-deep overflow-hidden divide-y divide-neutral-100">
+      <div className="bg-avyakta-2 rounded-xl shadow-xs border border-tamas-deep overflow-hidden divide-y divide-tamas-deep">
         {!showVerses ? (
           filteredConcepts.length === 0 ? (
             <div className="p-8 text-center text-sattva-dim">

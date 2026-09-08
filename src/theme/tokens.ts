@@ -1,5 +1,9 @@
 // ─────────────────────────────────────────────────────────────────────────
-// Darśana design tokens
+// Web truth lives in src/index.css (@theme). This file is the canonical
+// hex registry shared with native/RN code — keep values in sync with
+// index.css when adding or renaming tokens. Components must not hardcode
+// hexes; web code uses Tailwind classes (bg-avyakta-2, text-sattva, ...)
+// backed by index.css, via getSystemAccent in src/utils/theme.ts.
 //
 // The palette is named after the three guṇas of Sāṃkhya — sattva (clarity),
 // rajas (activity), tamas (inertia) — the three qualities said to compose
@@ -170,7 +174,12 @@ export function getSystemAccent(c: ColorPalette, systemId?: string) {
     case 'vedanta':
       return { primary: c.indigo, dim: c.indigoDim, glow: 'rgba(90, 90, 160, 0.22)', pair: [c.purusha, c.indigo, c.avyakta4] as [string, string, string] };
     case 'kashmir-shaivism':
-      return { primary: c.crimson, dim: c.crimsonDim, glow: 'rgba(199, 62, 74, 0.22)', pair: [c.purusha, c.crimson, c.avyakta4] as [string, string, string] };
+      // Pratyabhijñā / Spanda: the consciousness school. Purusha-violet is
+      // identity here, not a borrowed graph color — the school's subject
+      // matter IS witness-consciousness. Distinct from Mīmāṃsā crimson.
+      return { primary: c.purusha, dim: c.purushaDim, glow: c.purushaGlow, pair: [c.purusha, c.crimson, c.avyakta4] as [string, string, string] };
+    case 'shakta':
+      return { primary: c.rajas, dim: c.rajasDim, glow: c.rajasGlow, pair: [c.sattva, c.rajas, c.crimson] as [string, string, string] };
     default:
       return { primary: c.sattva, dim: c.sattvaDim, glow: c.sattvaGlow, pair: gunaStops(c) };
   }

@@ -15,7 +15,7 @@ const ThreadView = lazy(() => import('./components/ThreadView'));
 
 function ScreenFallback() {
   return (
-    <div className="py-16 text-center text-neutral-400 text-sm animate-pulse">
+    <div className="py-16 text-center text-tamas text-sm animate-pulse">
       Loading...
     </div>
   );

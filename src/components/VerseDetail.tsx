@@ -42,11 +42,24 @@ export default function VerseDetail() {
   const isCurrentLangAvailable = !!verse.content[language];
   const isShowingFallback = !isCurrentLangAvailable && language === 'ml';
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     const textToCopy = `${system.title} - ${text.transliteratedTitle}\n${verseTerm} ${verse.number}\n${verse.devanagari ? verse.devanagari + '\n' : ''}${verse.iast}\n\n${translation || ''}\n\n${commentary || ''}`;
-    navigator.clipboard.writeText(textToCopy);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(textToCopy);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = textToCopy;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
   };
 
   return (
@@ -69,7 +82,7 @@ export default function VerseDetail() {
             <button
               onClick={() => setLanguage('en')}
               className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
-                language === 'en' ? 'bg-neutral-900 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
+                language === 'en' ? 'bg-avyakta-4 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
               title="English translation"
             >
@@ -81,7 +94,7 @@ export default function VerseDetail() {
             <button
               onClick={() => setLanguage('ml')}
               className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
-                language === 'ml' ? 'bg-neutral-900 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
+                language === 'ml' ? 'bg-avyakta-4 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
               title="മലയാളം വിവർത്തനം"
             >
@@ -96,8 +109,8 @@ export default function VerseDetail() {
           >
             {copied ? (
               <>
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
-                <span className="text-emerald-600">Copied</span>
+                <Check className="w-3.5 h-3.5 text-teal" />
+                <span className="text-teal">Copied</span>
               </>
             ) : (
               <>
@@ -161,7 +174,7 @@ export default function VerseDetail() {
                     : 'Commentary'}
                 </h3>
               </div>
-              <div className="prose prose-neutral max-w-none text-sattva">
+              <div className="prose max-w-none text-sattva">
                 <Markdown>{commentary}</Markdown>
               </div>
             </div>

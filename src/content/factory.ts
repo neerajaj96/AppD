@@ -92,12 +92,16 @@ function extractThreadContent(item: any, lang: SupportedLanguage) {
   if (!item) return undefined;
   const direct = {
     title: item.title,
-    narrative: item.narrative
+    narrative: item.narrative,
+    summary: item.summary,
+    keyPoints: item.keyPoints
   };
   const nested = item.content?.[lang];
   return {
     title: direct.title || nested?.title,
-    narrative: direct.narrative || nested?.narrative
+    narrative: direct.narrative || nested?.narrative,
+    summary: direct.summary || nested?.summary,
+    keyPoints: direct.keyPoints || nested?.keyPoints
   };
 }
 
@@ -278,7 +282,7 @@ export function buildSystemThread(
     if ((base as any).content) {
       Object.keys((base as any).content).forEach(l => {
         const extracted = extractThreadContent(base, l as SupportedLanguage);
-        if (extracted && (extracted.title || extracted.narrative)) {
+        if (extracted && (extracted.title || extracted.narrative || extracted.summary || extracted.keyPoints)) {
           t.content[l as SupportedLanguage] = extracted;
         }
       });
@@ -290,16 +294,21 @@ export function buildSystemThread(
       
       let localized: any = null;
       if (Array.isArray(rawMap)) {
-        localized = rawMap.find((r: any) => `${r.id}` === `${base.id}`) || rawMap[index]; // fallback to index
+        localized = rawMap.find((r: any) => `${r.id}` === `${base.id}`);
+        if (!localized) {
+          console.warn(`ThreadStep ${base.id} missing '${lang}' entry; falling back to 'en'.`);
+        }
       } else {
         localized = rawMap[base.id];
       }
 
       const extracted = extractThreadContent(localized, lang) || extractThreadContent(base, lang);
-      if (extracted && (extracted.title || extracted.narrative)) {
+      if (extracted && (extracted.title || extracted.narrative || extracted.summary || extracted.keyPoints)) {
         t.content[lang] = {
           title: extracted.title || t.content[lang]?.title,
-          narrative: extracted.narrative || t.content[lang]?.narrative
+          narrative: extracted.narrative || t.content[lang]?.narrative,
+          summary: extracted.summary || t.content[lang]?.summary,
+          keyPoints: extracted.keyPoints || t.content[lang]?.keyPoints
         };
       }
     });

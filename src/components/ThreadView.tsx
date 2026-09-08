@@ -1,6 +1,5 @@
-import { getSystemAccent } from '../utils/theme';
-import React, { useState } from 'react';
-import { useParams, Link } from 'react-router';
+import React, { useState, useEffect } from 'react';
+import { useParams, Link, useSearchParams } from 'react-router';
 import { getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
 import Markdown from 'react-markdown';
@@ -11,17 +10,39 @@ export default function ThreadView() {
   const { systemId } = useParams();
   const { language } = useLanguage();
   const system = getSystem(systemId || '');
-  const [stepIndex, setStepIndex] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const totalSteps = system?.thread?.length ?? 0;
+  const [stepIndex, setStepIndex] = useState(() => {
+    const raw = Number(searchParams.get('step') ?? 1);
+    if (!Number.isFinite(raw)) return 0;
+    return Math.min(Math.max(Math.floor(raw) - 1, 0), Math.max(totalSteps - 1, 0));
+  });
+
+  useEffect(() => {
+    const raw = Number(searchParams.get('step') ?? 1);
+    if (!Number.isFinite(raw)) return;
+    const idx = Math.min(Math.max(Math.floor(raw) - 1, 0), Math.max(totalSteps - 1, 0));
+    setStepIndex((prev) => (prev === idx ? prev : idx));
+  }, [searchParams, totalSteps]);
+
+  useEffect(() => {
+    setStepIndex((prev) => Math.min(prev, Math.max(totalSteps - 1, 0)));
+  }, [systemId, totalSteps]);
 
   if (!system || !system.thread || system.thread.length === 0) {
     return <div className="text-center py-12">Thread not found</div>;
   }
 
-  const step = system.thread[stepIndex];
-  const totalSteps = system.thread.length;
+  const clampedIndex = Math.min(stepIndex, totalSteps - 1);
+  const step = system.thread[clampedIndex];
 
-  const handleNext = () => setStepIndex((i) => Math.min(i + 1, totalSteps - 1));
-  const handlePrev = () => setStepIndex((i) => Math.max(i - 1, 0));
+  const goToStep = (next: number) => {
+    const clamped = Math.min(Math.max(next, 0), totalSteps - 1);
+    setStepIndex(clamped);
+    setSearchParams({ step: String(clamped + 1) }, { replace: true });
+  };
+  const handleNext = () => goToStep(clampedIndex + 1);
+  const handlePrev = () => goToStep(clampedIndex - 1);
 
   const content = step.content[language] ?? step.content.en;
   const isFallback = language === 'ml' && !step.content.ml;
@@ -41,7 +62,7 @@ export default function ThreadView() {
           <span className="text-sattva font-medium">Thread</span>
         </div>
         <div className="font-medium text-tamas">
-          Step {stepIndex + 1} of {totalSteps}
+          Step {clampedIndex + 1} of {totalSteps}
         </div>
       </div>
 
@@ -56,7 +77,7 @@ export default function ThreadView() {
         <div className="h-1.5 w-full bg-avyakta-3">
           <div 
             className="h-full bg-rajas transition-all duration-300 ease-out" 
-            style={{ width: `${((stepIndex + 1) / totalSteps) * 100}%` }}
+            style={{ width: `${((clampedIndex + 1) / totalSteps) * 100}%` }}
           />
         </div>
 
@@ -76,7 +97,7 @@ export default function ThreadView() {
           {content?.summary && (
             <div className="pt-6 border-t border-tamas">
               <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">Summary</h3>
-              <div className="prose prose-neutral max-w-none text-sattva-dim">
+              <div className="prose max-w-none text-sattva-dim">
                 <Markdown>{content.summary}</Markdown>
               </div>
             </div>
@@ -117,7 +138,7 @@ export default function ThreadView() {
 
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-avyakta-2/80 backdrop-blur-md border-t border-tamas-deep">
         <div className="max-w-3xl mx-auto flex justify-between items-center">
-          {stepIndex > 0 ? (
+          {clampedIndex > 0 ? (
             <button
               onClick={handlePrev}
               className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors px-4 py-2"
@@ -137,7 +158,7 @@ export default function ThreadView() {
             <ArrowLeft className="w-5 h-5" />
           </Link>
 
-          {stepIndex < totalSteps - 1 ? (
+          {clampedIndex < totalSteps - 1 ? (
             <button
               onClick={handleNext}
               className="flex items-center text-sm font-medium text-rajas hover:text-rajas-dim transition-colors px-4 py-2"

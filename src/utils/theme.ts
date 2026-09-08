@@ -57,12 +57,12 @@ export const systemAccents: Record<string, SystemAccent> = {
     badge: 'bg-avyakta-4 text-indigo',
   },
   'kashmir-shaivism': {
-    primary: 'var(--color-crimson)',
-    secondary: 'var(--color-crimson-dim)',
+    primary: 'var(--color-purusha)',
+    secondary: 'var(--color-purusha-dim)',
     bgLight: 'bg-avyakta-3',
-    borderLight: 'border-crimson-dim',
-    text: 'text-crimson',
-    badge: 'bg-avyakta-4 text-crimson',
+    borderLight: 'border-purusha-dim',
+    text: 'text-purusha',
+    badge: 'bg-avyakta-4 text-purusha',
   },
   shakta: {
     primary: 'var(--color-rajas)',

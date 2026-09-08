@@ -39,7 +39,8 @@ export function linkifyReferences(raw: string): TextSegment[] {
   
   SAMKHYA_REF.lastIndex = 0;
   while ((m = SAMKHYA_REF.exec(raw))) {
-    // link only the roman-numeral portion, not the word "Kārikā" itself
+    // link only the numeric portion (arabic digits, e.g. "Kārikā 67"),
+    // not the word "Kārikā" itself
     const numStart = m.index + m[0].indexOf(m[1]);
     matches.push({
       start: numStart,

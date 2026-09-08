@@ -135,7 +135,8 @@ export function searchVerses(
     }
   }
 
-  // Sort descending by score
+  // Sort descending by score, cap so callers (TextIndex live search)
+  // never render an unbounded list.
   results.sort((a, b) => b.score - a.score);
-  return results;
+  return results.slice(0, 200);
 }
