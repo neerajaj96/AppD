@@ -4,6 +4,7 @@ import { tantralokaConceptsEn, TantralokaConcept } from './tantraloka-concepts-e
 import { tantralokaConceptsMl } from './tantraloka-concepts-ml';
 import { tantralokaThreadMl } from './tantraloka-thread-ml';
 import { tantralokaVersesEn } from './tantraloka-verses-en';
+import { tantralokaVersesMl } from './tantraloka-verses-ml';
 
 const mappedConceptsEn = tantralokaConceptsEn.map((c: TantralokaConcept) => ({
   id: c.id,
@@ -45,7 +46,7 @@ export const tantralokaText: ClassicalText = buildClassicalText(
   },
   {
     en: tantralokaVersesEn,
-    ml: {}
+    ml: tantralokaVersesMl
   },
   {
     en: mappedConceptsEn,
