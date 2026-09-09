@@ -22,6 +22,14 @@ export {
 };
 export type { UpodghataTopicEn };
 
+// Provenance: the Sadhana-Samara inner-war reading distilled here follows
+// Brahmarsi Satyadev (1883-1932, disciple of Bijoy Krishna Chattopadhyay),
+// 'Sadhan-Samar' (Hindi rendering ready 1927; Vol. 1: Brahmagranthi-bheda).
+// Author died 1932: public domain in India (life + 60) and the US (Indian
+// copyright expired before URAA restoration date). Retellings here are in
+// this project's own words; the Guptavati material is a separate,
+// much older commentary tradition (Bhaskararaya).
+
 export const deviMahatmyaText: ClassicalText = buildClassicalText(
   {
     id: 'devi-mahatmya',

@@ -4,6 +4,8 @@ import { getConcept, getText, getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
+import { t } from '../i18n/ui';
+import { getSystemDisplay } from '../i18n/systems';
 import RichText from './RichText';
 import {
   RelatedConceptsSection,
@@ -57,7 +59,7 @@ export default function ConceptDetail() {
   );
 
   if (!system || !text || !concept) {
-    return <div className="text-center py-12">Concept not found</div>;
+    return <div className="text-center py-12">{t(language, 'conceptNotFound')}</div>;
   }
 
   const content = concept.content[language] ?? concept.content.en;
@@ -65,12 +67,14 @@ export default function ConceptDetail() {
   const summary = content?.summary;
   const verseTermPlural = getVerseTerm(text, 2);
   const verseTermSingular = getVerseTerm(text, 1);
+  const systemDisplay = getSystemDisplay(system, language);
+  const isMlFallback = language === 'ml' && !concept.content.ml;
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-3xl mx-auto pb-24 select-text">
       <div className="flex items-center text-sm text-sattva-dim space-x-2 truncate">
         <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
-          {system.title}
+          {systemDisplay.title}
         </Link>
         <ChevronRight className="w-4 h-4 shrink-0" />
         <Link
@@ -84,10 +88,15 @@ export default function ConceptDetail() {
       </div>
 
       <div className="bg-avyakta-2 rounded-2xl shadow-xs border border-tamas-deep overflow-hidden">
+        {isMlFallback && (
+          <div className="mx-8 mt-8 md:mx-10 p-3 bg-amber-dim/20 border border-amber-dim rounded-lg text-xs text-amber">
+            {t(language, 'mlFallbackThread')}
+          </div>
+        )}
         <div className="p-8 md:p-10 space-y-8">
           <div className="space-y-3">
             <div className="text-xs font-semibold text-tamas uppercase tracking-widest">
-              Concept • {text.transliteratedTitle}
+              {t(language, 'conceptLabel')} • {text.transliteratedTitle}
             </div>
             <h1 className="text-3xl font-serif font-bold text-sattva leading-tight">{title}</h1>
             {concept.category && (
@@ -106,7 +115,7 @@ export default function ConceptDetail() {
           {verses.length > 0 && (
             <div className="pt-6 border-t border-tamas">
               <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">
-                Defining {verseTermPlural} ({verses.length})
+                {t(language, 'definingLabel', { term: verseTermPlural, count: verses.length })}
               </h3>
               <div className="space-y-3">
                 {verses.slice(0, 12).map(({ verse }) => {
@@ -158,7 +167,7 @@ export default function ConceptDetail() {
           <Link
             to={`/system/${system.id}/text/${text.id}`}
             className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors text-sattva-dim"
-            title="Back to Index"
+            title={t(language, 'backToIndex')}
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>

@@ -6,6 +6,7 @@
 import React, { Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route, Link } from 'react-router';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
+import { t } from './i18n/ui';
 
 const Home = lazy(() => import('./components/Home'));
 const SystemDetail = lazy(() => import('./components/SystemDetail'));
@@ -17,9 +18,14 @@ const ThreadView = lazy(() => import('./components/ThreadView'));
 function ScreenFallback() {
   return (
     <div className="py-16 text-center text-tamas text-sm animate-pulse">
-      Loading...
+      <FallbackText />
     </div>
   );
+}
+
+function FallbackText() {
+  const { language } = useLanguage();
+  return <>{t(language, 'loading')}</>;
 }
 
 
@@ -30,7 +36,7 @@ function HeaderNav() {
     <header className="bg-avyakta-2 border-b border-tamas-deep sticky top-0 z-10">
       <div className="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
         <Link to="/" className="text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors">
-          Darśana
+          {language === 'ml' ? 'ദർശന' : 'Darśana'}
         </Link>
         <div className="flex items-center space-x-1 bg-avyakta-3 p-1 rounded-lg border border-tamas-deep text-xs font-medium">
           <button

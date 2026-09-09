@@ -17,6 +17,8 @@ import {
 } from '../utils/references';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
+import { t } from '../i18n/ui';
+import { getSystemDisplay } from '../i18n/systems';
 
 export default function VerseDetail() {
   const { systemId, textId, verseId } = useParams();
@@ -29,7 +31,7 @@ export default function VerseDetail() {
   const verseTerm = getVerseTerm(text, 1);
 
   if (!system || !text || !verse) {
-    return <div className="text-center py-12">{verseTerm} not found</div>;
+    return <div className="text-center py-12">{t(language, 'verseNotFoundFallback', { term: getVerseTerm(text, 1) })}</div>;
   }
 
   // Memoize next/prev verses so we don't scan the entire array on every render
@@ -68,7 +70,7 @@ export default function VerseDetail() {
   );
 
   const handleCopy = async () => {
-    const textToCopy = `${system.title} - ${text.transliteratedTitle}\n${verseTerm} ${verse.number}\n${verse.devanagari ? verse.devanagari + '\n' : ''}${verse.iast || ''}\n\n${translation || ''}\n\n${commentary || ''}`;
+    const textToCopy = `${getSystemDisplay(system, language).title} - ${text.transliteratedTitle}\n${verseTerm} ${verse.number}\n${verse.devanagari ? verse.devanagari + '\n' : ''}${verse.iast || ''}\n\n${translation || ''}\n\n${commentary || ''}`;
     try {
       if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(textToCopy);
@@ -92,7 +94,7 @@ export default function VerseDetail() {
       <div className="flex items-center justify-between text-sm text-sattva-dim">
         <div className="flex items-center space-x-2 truncate">
           <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
-            {system.title}
+            {getSystemDisplay(system, language).title}
           </Link>
           <ChevronRight className="w-4 h-4 shrink-0" />
           <Link to={`/system/${system.id}/text/${text.id}`} className="hover:text-rajas transition-colors truncate">
@@ -121,7 +123,7 @@ export default function VerseDetail() {
               className={`text-xs px-2 py-1 rounded font-medium transition-colors ${
                 language === 'ml' ? 'bg-avyakta-4 text-sattva shadow-xs' : 'bg-avyakta-3 hover:bg-avyakta-4 text-sattva'
               }`}
-              title="മലയാളം വിവർത്തനം"
+              title={t(language, 'malayalamTranslationTitle')}
             >
               മലയാളം
             </button>
@@ -130,17 +132,17 @@ export default function VerseDetail() {
           <button
             onClick={handleCopy}
             className="flex items-center space-x-1 text-xs px-2.5 py-1 rounded bg-avyakta-3 hover:bg-avyakta-4 text-sattva font-medium transition-colors"
-            title="Copy or share verse text"
+            title={t(language, 'copyShareTitle')}
           >
             {copied ? (
               <>
                 <Check className="w-3.5 h-3.5 text-teal" />
-                <span className="text-teal">Copied</span>
+                <span className="text-teal">{t(language, 'copiedLabel')}</span>
               </>
             ) : (
               <>
                 <Share2 className="w-3.5 h-3.5" />
-                <span>Share</span>
+                <span>{t(language, 'shareLabel')}</span>
               </>
             )}
           </button>
@@ -149,7 +151,7 @@ export default function VerseDetail() {
 
       {isShowingFallback && (
         <div className="p-3 bg-amber-dim/20 border border-amber-dim rounded-lg text-xs text-amber flex items-center justify-between">
-          <span>Malayalam translation for this verse is pending. Displaying English version.</span>
+          <span>{t(language, 'mlFallbackVerse')}</span>
         </div>
       )}
 
@@ -182,8 +184,8 @@ export default function VerseDetail() {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
                   {language === 'ml' && verse.content.ml?.translation
-                    ? 'വിവർത്തനം (Translation)'
-                    : 'Translation'}
+                    ? `${t(language, 'translationLabel')} (Translation)`
+                    : t(language, 'translationLabel')}
                 </h3>
               </div>
               <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
@@ -197,8 +199,8 @@ export default function VerseDetail() {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
                   {language === 'ml' && verse.content.ml?.commentary
-                    ? 'ഭാഷ്യം / വ്യാഖ്യാനം (Commentary)'
-                    : 'Commentary'}
+                    ? `${t(language, 'commentaryLabel')} (Commentary)`
+                    : t(language, 'commentaryLabel')}
                 </h3>
               </div>
               <div className="prose max-w-none text-sattva">
@@ -216,8 +218,8 @@ export default function VerseDetail() {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
                   {language === 'ml' && verse.content.ml?.keyPoints
-                    ? 'പ്രധാന തത്ത്വങ്ങൾ (Key Points)'
-                    : 'Key Points'}
+                    ? `${t(language, 'keyPoints')} (Key Points)`
+                    : t(language, 'keyPoints')}
                 </h3>
               </div>
               <ul className="space-y-2">
@@ -260,7 +262,7 @@ export default function VerseDetail() {
           <Link
             to={`/system/${system.id}/text/${text.id}`}
             className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors text-sattva-dim"
-            title="Back to Index"
+            title={t(language, 'backToIndex')}
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>

@@ -1,7 +1,9 @@
 import { ClassicalText } from '../../types/content';
 import { buildClassicalText, buildSystemThread } from '../factory';
 import { kundaliniTantraConceptsEn } from './kundalini-tantra-concepts-en';
+import { kundaliniTantraConceptsMl } from './kundalini-tantra-concepts-ml';
 import { kundaliniTantraThreadEn } from './kundalini-tantra-thread-en';
+import { kundaliniTantraThreadMl } from './kundalini-tantra-thread-ml';
 
 // Traditional kuṇḍalinī teaching (no sutra verses): concepts-only text.
 // Summaries are original paraphrases in this app's own words.
@@ -20,9 +22,11 @@ export const kundaliniTantraText: ClassicalText = buildClassicalText(
   },
   {
     en: kundaliniTantraConceptsEn,
+    ml: kundaliniTantraConceptsMl,
   }
 );
 
 export const kundaliniTantraThread = buildSystemThread('kundalini-tantra', {
   en: kundaliniTantraThreadEn,
+  ml: kundaliniTantraThreadMl,
 });

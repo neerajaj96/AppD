@@ -9,6 +9,8 @@ import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { getSystemOverview } from '../content/systemOverviews';
 import { getVerseTerm } from '../utils/textTerminology';
+import { t } from '../i18n/ui';
+import { getSystemDisplay } from '../i18n/systems';
 
 export default function SystemDetail() {
   const { systemId } = useParams();
@@ -50,10 +52,11 @@ export default function SystemDetail() {
   }, [allConcepts, selectedCategory, conceptSearch, language]);
 
   if (!system) {
-    return <div className="text-center py-12">System not found</div>;
+    return <div className="text-center py-12">{t(language, 'systemNotFound')}</div>;
   }
 
   const accent = getSystemAccent(system.id);
+  const display = getSystemDisplay(system, language);
 
   const handlePillarClick = (conceptId?: string) => {
     if (!conceptId) return;
@@ -83,8 +86,8 @@ export default function SystemDetail() {
         >
           {system.id.toUpperCase()} DARŚANA
         </div>
-        <h1 className="text-4xl font-serif font-bold text-sattva mb-2">{system.title}</h1>
-        <p className="text-xl text-sattva-dim">{system.subtitle}</p>
+        <h1 className="text-4xl font-serif font-bold text-sattva mb-2">{display.title}</h1>
+        <p className="text-xl text-sattva-dim">{display.subtitle}</p>
       </div>
 
       {/* System Overview (Featured Foundations & Methodology) */}
@@ -93,7 +96,7 @@ export default function SystemDetail() {
           <div className="flex items-center justify-between">
             <h2 className="text-2xl font-serif font-bold text-sattva flex items-center">
               <Compass className="w-6 h-6 mr-2 text-sattva-dim" />
-              {language === 'ml' ? 'ദർശന ആമുഖവും അടിസ്ഥാന തത്ത്വങ്ങളും' : 'System Overview & Epistemic Foundations'}
+              {t(language, 'systemOverview')}
             </h2>
           </div>
 
@@ -114,7 +117,7 @@ export default function SystemDetail() {
             <div>
               <h4 className="text-xs font-semibold text-sattva-dim uppercase tracking-wider mb-4 flex items-center">
                 <Layers className="w-4 h-4 mr-1.5 text-tamas" />
-                {language === 'ml' ? 'മുഖ്യ തത്ത്വങ്ങൾ' : 'Core Philosophical Pillars'}
+                {t(language, 'corePillars')}
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {(overview.pillars[language] || overview.pillars.en).map((pillar, idx) => (
@@ -145,7 +148,7 @@ export default function SystemDetail() {
                         className="mt-3 text-xs font-semibold flex items-center hover:underline self-start pt-2"
                         style={{ color: accent.primary }}
                       >
-                        {language === 'ml' ? 'വിശദാംശങ്ങൾ കാണുക' : 'Explore Concept'}
+                        {language === 'ml' ? t(language, 'viewDetails') : t(language, 'exploreConcept')}
                         <ArrowRight className="w-3.5 h-3.5 ml-1" />
                       </button>
                     )}
@@ -161,7 +164,7 @@ export default function SystemDetail() {
       <div className="space-y-6 pt-4">
         <h2 className="text-2xl font-serif font-bold text-sattva flex items-center">
           <BookOpen className="w-6 h-6 mr-2 text-sattva-dim" />
-          Primary Texts
+          {t(language, 'primaryTexts')}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {system.texts.map((text) => (
@@ -176,7 +179,7 @@ export default function SystemDetail() {
               </h3>
               <p className="text-sattva-dim text-sm mb-3">{text.title}</p>
               <div className="text-sm text-sattva-dim">
-                <span className="font-medium text-sattva">Author:</span> {text.author}
+                <span className="font-medium text-sattva">{t(language, 'authorLabel')}:</span> {text.author}
               </div>
               <div className="text-sm text-sattva-dim mb-2">
                 {text.verses.length > 0 && (
@@ -187,7 +190,7 @@ export default function SystemDetail() {
                 {text.verses.length > 0 && text.concepts.length > 0 && <span> • </span>}
                 {text.concepts.length > 0 && (
                   <span>
-                    <span className="font-medium text-sattva">Concepts:</span> {text.concepts.length}
+                    <span className="font-medium text-sattva">{t(language, 'conceptsLabel')}:</span> {text.concepts.length}
                   </span>
                 )}
               </div>
@@ -201,23 +204,23 @@ export default function SystemDetail() {
         <div className="space-y-6 pt-6 border-t border-tamas-deep">
           <h2 className="text-2xl font-serif font-bold text-sattva flex items-center">
             <MapIcon className="w-6 h-6 mr-2 text-sattva-dim" />
-            Core Philosophy Thread
+            {t(language, 'coreThread')}
           </h2>
           <div 
             className="rounded-2xl p-6 md:p-8 text-sattva flex flex-col md:flex-row md:items-center justify-between shadow-xs"
             style={{ backgroundColor: accent.primary }}
           >
             <div>
-              <h3 className="text-2xl font-serif font-bold text-sattva mb-2">Explore the {system.title} Narrative</h3>
+              <h3 className="text-2xl font-serif font-bold text-sattva mb-2">{t(language, 'exploreNarrative', { title: display.title })}</h3>
               <p className="text-sattva/80 max-w-md text-sm md:text-base">
-                A structured, step-by-step thread tracing the foundational metaphysics and epistemology of {system.title} from initial commentary to supreme release.
+                {t(language, 'exploreNarrativeDesc', { title: display.title })}
               </p>
             </div>
             <Link
               to={`/system/${system.id}/thread`}
               className="mt-6 md:mt-0 inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-semibold rounded-lg text-sattva bg-avyakta-2 hover:bg-avyakta-3 shadow-xs transition-colors"
             >
-              Start Thread ({system.thread.length} Steps)
+              {t(language, 'startThread', { count: system.thread.length })}
             </Link>
           </div>
         </div>
@@ -229,7 +232,7 @@ export default function SystemDetail() {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <h2 className="text-2xl font-serif font-bold text-sattva flex items-center">
               <Sparkles className="w-6 h-6 mr-2 text-sattva-dim" />
-              Foundational Concepts ({allConcepts.length})
+              {t(language, 'foundationalConcepts', { count: allConcepts.length })}
             </h2>
 
             {/* Search Input */}
@@ -241,7 +244,7 @@ export default function SystemDetail() {
                 type="text"
                 value={conceptSearch}
                 onChange={(e) => setConceptSearch(e.target.value)}
-                placeholder="Filter concepts..."
+                placeholder={t(language, 'filterConcepts')}
                 className="w-full pl-9 pr-3 py-1.5 text-sm bg-avyakta-2 border border-tamas-deep rounded-lg focus:outline-none focus:ring-1 focus:ring-rajas"
               />
             </div>
@@ -258,7 +261,7 @@ export default function SystemDetail() {
                     : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
                 }`}
               >
-                All ({allConcepts.length})
+                {t(language, 'allLabel', { count: allConcepts.length })}
               </button>
               {categories.map((cat) => (
                 <button
@@ -307,7 +310,7 @@ export default function SystemDetail() {
                     <div className="flex items-center space-x-2 text-tamas">
                       {concept.relatedVerseIds && concept.relatedVerseIds.length > 0 && (
                         <span className="text-xs bg-avyakta-3 px-2 py-0.5 rounded text-sattva-dim">
-                          {concept.relatedVerseIds.length} verses
+                          {t(language, 'linkedVerses', { count: concept.relatedVerseIds.length, term: getVerseTerm(system.texts.find((tx) => tx.id === concept.textId), concept.relatedVerseIds.length).toLowerCase() })}
                         </span>
                       )}
                       {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
@@ -331,13 +334,13 @@ export default function SystemDetail() {
                           className="text-xs font-semibold hover:underline"
                           style={{ color: accent.primary }}
                         >
-                          Open full concept article →
+                          {t(language, 'openConceptArticle')}
                         </Link>
                       </div>
                       {concept.relatedVerseIds && concept.relatedVerseIds.length > 0 && (
                         <div className="pt-3 border-t border-tamas">
                           <div className="text-xs font-semibold text-sattva-dim uppercase tracking-wider mb-2">
-                            Cross-Referenced Verses
+                            {t(language, 'crossRefVerses')}
                           </div>
                           <div className="flex flex-wrap gap-2">
                             {concept.relatedVerseIds.map((vId) => (
@@ -362,7 +365,7 @@ export default function SystemDetail() {
                         return related.length > 0 ? (
                           <div className="pt-3 border-t border-tamas">
                             <div className="text-xs font-semibold text-sattva-dim uppercase tracking-wider mb-2">
-                              Related Concepts
+                              {t(language, 'relatedConcepts')}
                             </div>
                             <ConceptChips items={related} currentSystemId={system.id as string} />
                           </div>
@@ -377,7 +380,7 @@ export default function SystemDetail() {
                             style={{ color: accent.primary }}
                           >
                             <ChevronLeft className="w-4 h-4 mr-0.5" />
-                            {language === 'ml' ? 'മുമ്പത്തേത്' : 'Previous'}
+                            {t(language, 'previous')}
                           </button>
                           <span className="text-[11px] text-sattva-dim font-medium tabular-nums">
                             {idx + 1} / {filteredConcepts.length}
@@ -388,7 +391,7 @@ export default function SystemDetail() {
                             className="flex items-center text-xs font-semibold hover:underline disabled:opacity-40 disabled:no-underline disabled:cursor-default transition-opacity"
                             style={{ color: accent.primary }}
                           >
-                            {language === 'ml' ? 'അടുത്തത്' : 'Next'}
+                            {t(language, 'next')}
                             <ChevronRight className="w-4 h-4 ml-0.5" />
                           </button>
                         </div>

@@ -6,6 +6,8 @@ import { Search, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { searchVerses } from '../utils/searchIndex';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
+import { t } from '../i18n/ui';
+import { getSystemDisplay } from '../i18n/systems';
 
 export default function TextIndex() {
   const { systemId, textId } = useParams();
@@ -40,7 +42,7 @@ export default function TextIndex() {
   };
 
   if (!system || !text) {
-    return <div className="text-center py-12">Text not found</div>;
+    return <div className="text-center py-12">{t(language, 'textNotFound')}</div>;
   }
 
   const showVerses = hasVerses && activeTab === 'verses';
@@ -49,6 +51,7 @@ export default function TextIndex() {
   // to first-seen order. Grouping uses the existing Verse.section field —
   // no schema change.
   const SECTION_ORDER = useMemo(() => [
+    'Aṅga-Stotra: Devī Sūkta (Mūla-Upādāna)',
     'Aṅga-Stotra: Devī Kavaca (Mātṛ-Anubhūti)',
     'Aṅga-Stotra: Argala Stotra (Mātṛ-mukhī Gati)',
     'Aṅga-Stotra: Kīlaka Stotra (Adhikāra-Nirṇaya)',
@@ -58,6 +61,7 @@ export default function TextIndex() {
   ], []);
 
   const shortSectionLabel = (section: string) => {
+    if (section.includes('Sūkta') || section.includes('Sukta')) return language === 'ml' ? 'സൂക്തം' : 'Sūkta';
     if (section.includes('Kavaca')) return language === 'ml' ? 'കവചം' : 'Kavaca';
     if (section.includes('Argala')) return language === 'ml' ? 'അർഗല' : 'Argala';
     if (section.includes('Kīlaka') || section.includes('Kilaka')) return language === 'ml' ? 'കീലകം' : 'Kīlaka';
@@ -136,12 +140,13 @@ export default function TextIndex() {
   }, [hasConcepts, text.concepts, searchQuery]);
 
   const isMalayalam = language === 'ml';
+  const systemDisplay = system ? getSystemDisplay(system, language) : null;
 
   return (
     <div className="space-y-6 animate-in fade-in duration-500">
       <div className="flex items-center text-sm text-sattva-dim mb-2 space-x-2">
         <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
-          {system.title}
+          {systemDisplay?.title ?? system.title}
         </Link>
         <ChevronRight className="w-4 h-4" />
         <span className="text-sattva">{text.transliteratedTitle}</span>
@@ -152,10 +157,10 @@ export default function TextIndex() {
           {text.transliteratedTitle}
         </h1>
         <p className="text-sattva-dim">
-          {text.author ? `Author: ${text.author} • ` : ''}
+          {text.author ? `${t(language, 'authorLabel')}: ${text.author} • ` : ''}
           {hasVerses ? `${text.verses.length} ${getVerseTerm(text, text.verses.length).toLowerCase()}` : ''}
           {hasVerses && hasConcepts ? ' • ' : ''}
-          {hasConcepts ? `${text.concepts.length} philosophical concepts` : ''}
+          {hasConcepts ? `${text.concepts.length} ${t(language, 'philosophicalConcepts')}` : ''}
         </p>
 
         {hasVerses && hasConcepts && (
@@ -180,7 +185,7 @@ export default function TextIndex() {
                   : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
               }`}
             >
-              Concepts ({text.concepts.length})
+              {t(language, 'conceptsLabel')} ({text.concepts.length})
             </button>
           </div>
         )}
@@ -193,7 +198,7 @@ export default function TextIndex() {
         <input
           type="text"
           className="block w-full pl-10 pr-3 py-3 border border-tamas-deep rounded-lg focus:ring-rajas focus:border-rajas bg-avyakta-2"
-          placeholder={showVerses ? `Search ${getVerseTerm(text, 2).toLowerCase()} by term, number, or Sanskrit...` : "Search concepts, categories, or Sanskrit terms..."}
+          placeholder={showVerses ? t(language, 'searchVersesPlaceholder', { term: getVerseTerm(text, 2).toLowerCase() }) : t(language, 'searchConceptsPlaceholder')}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -203,21 +208,21 @@ export default function TextIndex() {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <div className="text-xs font-semibold text-sattva-dim uppercase tracking-wider">
-              {language === 'ml' ? 'വിഭാഗം തിരഞ്ഞെടുക്കുക' : 'Browse by section'}
+              {t(language, 'browseBySection')}
             </div>
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setCollapsedSections(new Set())}
                 className="text-[11px] font-semibold text-sattva-dim hover:text-sattva hover:underline transition-colors"
               >
-                {language === 'ml' ? 'എല്ലാം തുറക്കുക' : 'Expand all'}
+                {t(language, 'expandAll')}
               </button>
               <span className="text-tamas-deep">•</span>
               <button
                 onClick={() => setCollapsedSections(new Set(orderedSections))}
                 className="text-[11px] font-semibold text-sattva-dim hover:text-sattva hover:underline transition-colors"
               >
-                {language === 'ml' ? 'എല്ലാം അടയ്ക്കുക' : 'Collapse all'}
+                {t(language, 'collapseAll')}
               </button>
             </div>
           </div>
@@ -230,7 +235,7 @@ export default function TextIndex() {
                   : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
               }`}
             >
-              {language === 'ml' ? `എല്ലാം (${text.verses.length})` : `All (${text.verses.length})`}
+              {t(language, 'allVerses', { count: text.verses.length })}
             </button>
             {orderedSections.map((section) => (
               <button
@@ -254,7 +259,7 @@ export default function TextIndex() {
         {!showVerses ? (
           filteredConcepts.length === 0 ? (
             <div className="p-8 text-center text-sattva-dim">
-              No concepts found matching "{searchQuery}"
+              {t(language, 'noConceptsFound', { query: searchQuery })}
             </div>
           ) : (
             filteredConcepts.map((concept) => {
@@ -283,13 +288,13 @@ export default function TextIndex() {
                   {(concept.relatedVerseIds?.length || concept.relatedConceptIds?.length) ? (
                     <div className="mt-2 text-[11px] font-medium text-sattva-dim">
                       {(concept.relatedVerseIds?.length || 0) > 0 && (
-                        <span>{concept.relatedVerseIds!.length} linked {getVerseTerm(text, concept.relatedVerseIds!.length).toLowerCase()}</span>
+                        <span>{t(language, 'linkedVerses', { count: concept.relatedVerseIds!.length, term: getVerseTerm(text, concept.relatedVerseIds!.length).toLowerCase() })}</span>
                       )}
                       {(concept.relatedVerseIds?.length || 0) > 0 && (concept.relatedConceptIds?.length || 0) > 0 && (
                         <span> • </span>
                       )}
                       {(concept.relatedConceptIds?.length || 0) > 0 && (
-                        <span>{concept.relatedConceptIds!.length} related concepts</span>
+                        <span>{t(language, 'relatedConceptsCount', { count: concept.relatedConceptIds!.length })}</span>
                       )}
                     </div>
                   ) : null}
@@ -300,7 +305,7 @@ export default function TextIndex() {
         ) : (
           filteredVerses.length === 0 ? (
             <div className="p-8 text-center text-sattva-dim">
-              No {getVerseTerm(text, 2).toLowerCase()} found matching "{searchQuery}"
+              {t(language, 'noVersesFound', { query: searchQuery, term: getVerseTerm(text, 2).toLowerCase() })}
             </div>
           ) : (
             groupedVerses.map((group) => {

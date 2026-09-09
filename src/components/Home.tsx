@@ -2,21 +2,25 @@ import React from 'react';
 import { Link } from 'react-router';
 import { systems } from '../content';
 import { getSystemAccent } from '../utils/theme';
+import { useLanguage } from '../context/LanguageContext';
+import { t } from '../i18n/ui';
+import { getSystemDisplay } from '../i18n/systems';
 
 export default function Home() {
+  const { language } = useLanguage();
   return (
     <div className="space-y-8">
       <div className="text-center py-12">
-        <h1 className="text-4xl font-serif font-bold text-sattva mb-4">Darśana</h1>
+        <h1 className="text-4xl font-serif font-bold text-sattva mb-4">{language === 'ml' ? 'ദർശന' : 'Darśana'}</h1>
         <p className="text-lg text-sattva-dim max-w-2xl mx-auto">
-          An exploration of classical Indian philosophical systems (Darśanas), 
-          their foundational texts, and core concepts.
+          {t(language, 'appTagline')}
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {systems.map((system) => {
           const accent = getSystemAccent(system.id);
+          const display = getSystemDisplay(system, language);
           return (
             <Link
               key={system.id}
@@ -30,15 +34,15 @@ export default function Home() {
               <h2
                 className="text-2xl font-serif font-bold text-sattva transition-colors mb-2"
               >
-                {system.title}
+                {display.title}
               </h2>
               <p className="text-sattva-dim mb-4 h-12 overflow-hidden">
-                {system.subtitle}
+                {display.subtitle}
               </p>
               <div className="text-sm font-medium text-sattva-dim uppercase tracking-wider mb-2 flex items-center justify-between">
-                <span>Texts</span>
+                <span>{t(language, 'textsLabel')}</span>
                 <span className="text-xs font-normal text-tamas lowercase">
-                  {system.texts.reduce((acc, t) => acc + (t.concepts?.length || 0), 0)} concepts
+                  {system.texts.reduce((acc, t) => acc + (t.concepts?.length || 0), 0)} {t(language, 'conceptsCount')}
                 </span>
               </div>
               <ul className="space-y-1">

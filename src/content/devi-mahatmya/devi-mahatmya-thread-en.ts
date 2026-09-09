@@ -10,6 +10,22 @@ export interface RawThreadStepEn {
 
 export const deviMahatmyaThreadEn: RawThreadStepEn[] = [
   {
+    id: 'dm-step-0',
+    conceptId: 'devisukta',
+    verseIds: ['dm-devisukta-1', 'dm-devisukta-6', 'dm-devisukta-8'],
+    title: 'Prologue: The Root Hymn (Devī Sūkta)',
+    narrative: `Older than the battle-narrative by more than two thousand years, eight Rigvedic verses stand at the head of this telling - and Brahmarsi Satyadev insists they are not decoration but the seed. The seer Vak speaks as the Self itself: moving with the senses and the mind, upholding resolve and nourishment, reigning as Queen and as the Knowledge before all worship, carrying out every act, elevating whom She loves, stringing the bow of Om against the mind, birthing even the world-Father, and blowing through all worlds like the wind.
+
+Two lines in particular govern everything that follows. "I wage war for the people" (verse 6) is the charter of the entire inner reading: the war about to be narrated across thirteen chapters is Hers, fought on the aspirant's behalf at the auspicious crisis when the life-breaths resolve to enthrone the Self and the mind refuses. And "from which all this is born, in which it abides, into which it dissolves" needs no commentary - it is the Vedanta Sutra's definition of Brahman, packed into a wind-image, spoken here in the feminine.
+
+Read the hymn first, then watch for its echoes: the bow of Om restrung in every meditation instruction, the Queen of verse 3 returning as the sovereign who must be entreated before every battle, the wind of verse 8 moving through every liberation scene.`,
+    summary: 'Eight Rigvedic verses in which the Self introduces Herself - the seed-charter of the whole inner war, naming the bow, the battle, and the Queen before a single demon appears.',
+    keyPoints: [
+      '**Seed, not preface**: Satyadev reads the seven hundred verses as analysis of these eight.',
+      '**"I wage war for the people"**: The charter line - every later battle is Hers, fought for the aspirant.',
+    ],
+  },
+  {
     id: 'dm-step-1',
     conceptId: 'three-caritas',
     verseIds: ['dm-1-1', 'dm-2-1', 'dm-5-1'],

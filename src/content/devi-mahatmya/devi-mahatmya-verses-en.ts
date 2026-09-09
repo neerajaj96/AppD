@@ -1,4 +1,5 @@
 import { deviMahatmyaVersesEnKavaca } from './devi-mahatmya-verses-en-kavaca';
+import { deviMahatmyaVersesEnDevisukta } from './devi-mahatmya-verses-en-devisukta';
 import { deviMahatmyaVersesEnArgala } from './devi-mahatmya-verses-en-argala';
 import { deviMahatmyaVersesEnKilaka } from './devi-mahatmya-verses-en-kilaka';
 import {
@@ -32,10 +33,12 @@ export interface RawVerseEn {
   keyPoints?: string[];
 }
 
-// Canonical Devi Mahatmya order: Purvanga (Kavaca, Argala, Kilaka),
+// Canonical Devi Mahatmya order: Vedic root (Devi Sukta, the mula-upadana),
+// Purvanga (Kavaca, Argala, Kilaka),
 // Prathama Carita (ch.1), Madhyama Carita (ch.2-4), Uttama Carita (ch.5-13),
 // and Prayoga Vidhi ritual manual. Chapters live in ./chapters/ch01-ch13.
 export const deviMahatmyaVersesEn: RawVerseEn[] = [
+  ...deviMahatmyaVersesEnDevisukta,
   ...deviMahatmyaVersesEnKavaca,
   ...deviMahatmyaVersesEnArgala,
   ...deviMahatmyaVersesEnKilaka,

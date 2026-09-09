@@ -5,6 +5,8 @@ import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
 import RichText from './RichText';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
+import { t } from '../i18n/ui';
+import { getSystemDisplay } from '../i18n/systems';
 
 export default function ThreadView() {
   const { systemId } = useParams();
@@ -30,7 +32,7 @@ export default function ThreadView() {
   }, [systemId, totalSteps]);
 
   if (!system || !system.thread || system.thread.length === 0) {
-    return <div className="text-center py-12">Thread not found</div>;
+    return <div className="text-center py-12">{t(language, 'threadNotFound')}</div>;
   }
 
   const clampedIndex = Math.min(stepIndex, totalSteps - 1);
@@ -60,25 +62,26 @@ export default function ThreadView() {
     stepConcept?.content[language]?.title || stepConcept?.content.en?.title;
   const stepConceptSummary =
     stepConcept?.content[language]?.summary || stepConcept?.content.en?.summary;
+  const systemDisplay = getSystemDisplay(system, language);
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-3xl mx-auto pb-24">
       <div className="flex items-center justify-between text-sm text-sattva-dim mb-2">
         <div className="flex items-center space-x-2">
           <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
-            {system.title}
+            {systemDisplay.title}
           </Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-sattva font-medium">Thread</span>
+          <span className="text-sattva font-medium">{t(language, 'threadLabel')}</span>
         </div>
         <div className="font-medium text-tamas">
-          Step {clampedIndex + 1} of {totalSteps}
+          {t(language, 'stepOf', { current: clampedIndex + 1, total: totalSteps })}
         </div>
       </div>
 
       {isFallback && (
         <div className="p-3 bg-amber-dim/20 border border-amber-dim rounded-lg text-xs text-amber">
-          Malayalam translation for this thread step is pending. Displaying English version.
+          {t(language, 'mlFallbackThread')}
         </div>
       )}
 
@@ -111,7 +114,7 @@ export default function ThreadView() {
           {stepConcept && (
             <div className="pt-6 border-t border-tamas">
               <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">
-                Core Concept
+                {t(language, 'coreConcept')}
               </h3>
               <Link
                 to={`/system/${system.id}/text/${targetTextId}/concept/${stepConcept.id}`}
@@ -126,7 +129,7 @@ export default function ThreadView() {
                   </div>
                 )}
                 <div className="mt-2 text-xs font-semibold text-rajas">
-                  Open concept article →
+                  {t(language, 'openConceptArticleShort')}
                 </div>
               </Link>
             </div>
@@ -134,7 +137,7 @@ export default function ThreadView() {
 
           {content?.summary && (
             <div className="pt-6 border-t border-tamas">
-              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">Summary</h3>
+              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">{t(language, 'summaryLabel')}</h3>
               <div className="prose max-w-none text-sattva-dim">
                 <RichText
                   text={content.summary}
@@ -147,7 +150,7 @@ export default function ThreadView() {
           
           {content?.keyPoints && content.keyPoints.length > 0 && (
             <div className="pt-6 border-t border-tamas">
-              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">Key Insights</h3>
+              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">{t(language, 'keyInsights')}</h3>
               <ul className="space-y-3">
                 {content.keyPoints.map((point, idx) => (
                   <li key={idx} className="flex text-sattva items-start">
@@ -167,7 +170,7 @@ export default function ThreadView() {
           
           {step.verseIds && step.verseIds.length > 0 && targetTextId && (
             <div className="pt-6 border-t border-tamas">
-              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">Related {verseTermPlural}</h3>
+              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">{t(language, 'relatedVerses')} ({verseTermPlural})</h3>
               <div className="flex flex-wrap gap-2">
                 {step.verseIds.map((vId) => (
                   <Link 
@@ -192,7 +195,7 @@ export default function ThreadView() {
               className="flex items-center text-sm font-medium text-sattva-dim hover:text-rajas transition-colors px-4 py-2"
             >
               <ChevronLeft className="w-5 h-5 mr-1" />
-              <span className="hidden sm:inline">Previous</span>
+              <span className="hidden sm:inline">{t(language, 'previous')}</span>
             </button>
           ) : (
             <div className="w-24" />
@@ -201,7 +204,7 @@ export default function ThreadView() {
           <Link
             to={`/system/${system.id}`}
             className="flex flex-col items-center justify-center p-2 rounded-full hover:bg-avyakta-3 transition-colors text-sattva-dim"
-            title="Back to System"
+            title={t(language, 'backToSystem')}
           >
             <ArrowLeft className="w-5 h-5" />
           </Link>
@@ -211,7 +214,7 @@ export default function ThreadView() {
               onClick={handleNext}
               className="flex items-center text-sm font-medium text-rajas hover:text-rajas-dim transition-colors px-4 py-2"
             >
-              <span className="hidden sm:inline">Next</span>
+              <span className="hidden sm:inline">{t(language, 'next')}</span>
               <ChevronRight className="w-5 h-5 ml-1" />
             </button>
           ) : (
