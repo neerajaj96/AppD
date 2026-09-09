@@ -31,6 +31,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Why Inquire",
     "devanagari": "दृष्टवदानुश्रविकः स ह्यविशुद्धिक्षयातिशययुक्तः ।\nतद्विपरीतः श्रेयान् व्यक्ताव्यक्तज्ञविज्ञानात् ॥ २ ॥",
     "iast": "dṛṣṭavad-ānuśravikaḥ, sa hy-aviśuddhi-kṣayā'-tiśaya-yuktaḥ |\ntadviparītaḥ śreyān vyaktā-vyakta-jña-vijñānāt ||",
+    "conceptIds": [
+      "vyakta-avyakta-jna"
+    ],
     "translation": "The scriptural means (Vedic rituals and sacrifices) are just like the visible worldly means. They are linked with impurity (due to animal sacrifice), decay (since heavenly rewards eventually run out), and inequality (since varying rewards cause jealousy). What is opposite to this, and therefore superior, is the discriminative knowledge of the Manifest (Vyakta), the Unmanifest (Avyakta), and the Knower (Jña).",
     "commentary": "Sāṃkhya firmly rejects religious rituals as a final cure for suffering. Vedic sacrifices involve animal slaughter, making them inherently impure. The heavenly rewards they promise are temporary and exhaustible. Furthermore, because sacrifices yield different grades of results, they produce inequality and jealousy even in heaven. True, permanent release comes only from the discriminative knowledge of the physical world (Vyakta), its unmanifest root cause (Avyakta), and pure consciousness (Jña).",
     "keyPoints": [
@@ -117,6 +120,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Non-Perception & Causation",
     "devanagari": "अतिदूरात् सामीप्यात् इन्द्रियघातान्मनोऽनवस्थानात् ।\nसौक्ष्म्याद्व्यवधानात् अभिभवात् समानाभिहाराच्च ॥ ७ ॥",
     "iast": "atidūrāt sāmīpyād-indriyaghātān-mano'-navasthānāt |\nsaukṣmyād-vyavadhānād-abhibhavāt samānābhihārāc-ca ||",
+    "conceptIds": [
+      "anupalabdhi-causes"
+    ],
     "translation": "Non-perception of a thing that really exists can arise from seven causes: extreme distance, extreme proximity, injury to the sense-organs, inattention of the mind, extreme subtlety of the object, the object being obscured, or the object being mixed with similar things.",
     "commentary": "This verse anticipates an objection to the next kārikā: if Prakṛti truly exists, why can't it be perceived? The answer begins here — non-perception has many possible causes besides non-existence, and subtlety (saukṣmya) is the one that applies to Prakṛti itself.",
     "keyPoints": [
@@ -167,6 +173,10 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Vyakta & Avyakta",
     "devanagari": "हेतुमदनित्यमव्यापि सक्रियमनेकमाश्रितं लिङ्गम् ।\nसावयवं परतन्त्रं व्यक्तं, विपरीतमव्यक्तम् ॥ १० ॥",
     "iast": "hetumat, anityam, avyāpi, sakriyam, anekam, āśritam, liṅgam |\nsāvayavam, paratantram, vyaktam, viparītam avyaktam ||",
+    "conceptIds": [
+      "vyakta-avyakta-jna",
+      "mula-prakriti"
+    ],
     "translation": "The Vyakta (manifest) is caused, perishable, not all-pervading, active, manifold, dependent, a sign (of its cause), composed of parts, and supported by another. The Avyakta (unmanifest) is the reverse of all these.",
     "commentary": "Each attribute of the Vyakta follows necessarily from the fact of being caused: what is caused is limited by, and dependent on, its cause; being perishable, it must have activity inherent in it; being limited, it must have shape, and hence there can be many such shapes. By the same reasoning, the Avyakta is inferred to be unlimited, inactive, all-pervading, and necessarily one — since two separate all-pervading things cannot be conceived. In the next Kārikā 1t becomes clear that Avyakta is conscious and Vyakta non-conscious — the Seer and the seen.",
     "keyPoints": [
@@ -181,6 +191,10 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Vyakta & Avyakta",
     "devanagari": "त्रिगुणमविवेकि विषयः सामान्यमचेतनं प्रसवधर्मि ।\nव्यक्तं, तथा प्रधानम्, तद्विपरीतस्तथा च पुमान् ॥ ११ ॥",
     "iast": "triguṇam, aviveki viṣayaḥ sāmānyam, acetanam, prasavadharmi |\nvyaktam, tathā pradhānam, tadviparītas-tathā ca pumān ||",
+    "conceptIds": [
+      "vyakta-avyakta-jna",
+      "three-gunas"
+    ],
     "translation": "Notwithstanding all that has been said (in Kārikā 3, of Prakṛti and Puruṣa both being Avyakta), Pradhāna in its manifested state, like any Vyakta, is composed of the three Guṇas, inseparable from them, an object of the senses, common to all observers, non-conscious, and productive; Puruṣa, being the reverse of these, remains Avyakta.",
     "commentary": "Prakṛti's change of status from changeless to manifest happens because her three Guṇas begin operating (explained fully in Kārikā 14). Without the Guṇas nothing can be an object of cognition, nothing can be productive, and nothing could be 'seen' by a Seer. The word Pumān here caused disagreement among early commentators — Gauḍapāda read it as always singular, others as identical with the many individual Puruṣas (Kārikā 18).",
     "keyPoints": [
@@ -247,6 +261,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Avyakta as Root Cause",
     "devanagari": "भेदानां परिमाणात् समन्वयात् शक्तितः प्रवृत्तेश्च ।\nकारणकार्यविभागादविभागाद्वैश्वरूप्यस्य ॥ १५ ॥",
     "iast": "bhedānāṃ parimāṇāt, samanvayāt, śaktitaḥ pravṛtteś-ca |\nkāraṇa-kārya-vibhāgād avibhāgād-vaiśvarūpyasya |",
+    "conceptIds": [
+      "mula-prakriti-siddhi"
+    ],
     "translation": "That the Avyakta is the root cause of this creation can be inferred from five considerations: the finitude of the many diverse objects, their underlying sameness, the dependence of effect on the potency of its cause, the distinction always found between cause and effect, and the essential continuity running through the diversity of the universe.",
     "commentary": "Working backward from any finite, limited object, one reaches an uncaused cause — the Avyakta. Every object shares the common characteristic of being made of the three Guṇas; strip the Guṇas away and only the Avyakta remains. At dissolution, Mahābhūtas merge back into Tanmātras, Tanmātras into Ahaṃkāra, Ahaṃkāra into Pradhāna, and Pradhāna into the Avyakta — the same chain unwinding in reverse.",
     "keyPoints": [
@@ -261,6 +278,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Avyakta as Root Cause",
     "devanagari": "कारणमस्त्यव्यक्तम्, प्रवर्तते त्रिगुणतः समुदयाच्च ।\nपरिणामतः सलिलवत् प्रतिप्रतिगुणाश्रयविशेषात् ॥ १६ ॥",
     "iast": "kāraṇam-asty-avyaktam pravartate triguṇataḥ samudayāc-ca |\npariṇāmataḥ salilavat pratipratiguṇāśrayaviśeṣāt |",
+    "conceptIds": [
+      "mula-prakriti-siddhi"
+    ],
     "translation": "Diversity of colour, taste, smell and the rest arises from the three Guṇas acting in cooperation, in various ways, on various objects with which they come into contact — just as water gives rise to different tastes in the different plants that absorb it.",
     "commentary": "A ray of white light has no colour of its own until it passes through a prism and decomposes into its components; similarly the Tanmātras, mere particles of energy with no properties of their own, give rise to all colour, taste and sound when they interact with different substances. Phukan compares this directly to Fourier's theorem, reading the Viśeṣas of Sāṃkhya as the components into which an undifferentiated Aviśeṣa can be resolved.",
     "keyPoints": [
@@ -274,6 +294,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Existence of Puruṣa",
     "devanagari": "संघातपरार्थत्वात् त्रिगुणादिविपर्ययादधिष्ठानात् ।\nपुरुषोऽस्ति भोक्तृभावात्कैवल्यार्थं प्रवृत्तेश्च ॥ १७ ॥",
     "iast": "saṃghātaparārthatvāt, triguṇādiviparyayād-adhiṣṭhānāt |\npuruṣo-'sti bhoktṛbhāvāt kaivalyārthaṃ pravṛtteś-ca |",
+    "conceptIds": [
+      "purusha-proofs"
+    ],
     "translation": "Puruṣa must exist for five reasons: assemblages exist for another's sake; there must be something the reverse of the three-Guṇa world; there must be a governing presence; there must be someone to enjoy; and there is a drive toward final release.",
     "commentary": "An inanimate assemblage that shows order, symmetry and useful arrangement implies an intelligent arranger, as a motor car implies a driver. That arranged world must be the reverse of what it serves — conscious rather than non-conscious. And the desire for final release from misery, named already in Kārikā 1, cannot belong to Buddhi or any inanimate thing, since Buddhi cannot desire its own destruction; it must belong to something that is not Buddhi.",
     "keyPoints": [
@@ -288,6 +311,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Existence of Puruṣa",
     "devanagari": "जननमरणकरणानां प्रतिनियमादयुगपत्प्रवृत्तेश्च ।\nपुरुषबहुत्वं सिद्धं त्रैगुण्यविपर्ययाच्चैव ॥ १८ ॥",
     "iast": "janana-maraṇa-karaṇānāṃ pratiniyamād-ayugapat-pravṛtteś-ca |\npuruṣa-bahutvaṃ siddhaṃ traiguṇya-viparyayāc-caiva ||",
+    "conceptIds": [
+      "purusha-bahutva"
+    ],
     "translation": "Birth, death and the functioning of the sense-organs occur differently for each individual; not all people act at the same time; and the thoughts arising from the three Guṇas differ from person to person — it follows that Puruṣas are many, each person having a separate soul.",
     "commentary": "Having established that Puruṣa exists, the text now argues from ordinary observation — the sheer non-simultaneity and individuality of human birth, death and disposition — to the conclusion that Puruṣa is not one universal soul but many, each bound to a distinct Buddhi.",
     "keyPoints": [
@@ -301,6 +327,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Nature of Puruṣa",
     "devanagari": "तस्माच्च विपर्यासात्सिद्धं साक्षित्वमस्य पुरुषस्य ।\nकैवल्यं माध्यस्थ्यं द्रष्टृत्वमकर्तृभावश्च ॥ १९ ॥",
     "iast": "tasmāc-ca viparyāsāt siddhaṃ sākṣitvam asya puruṣasya |\nkaivalyaṃ, mādhyasthyaṃ, draṣṭṛtvam, akartṛbhāvaś-ca |",
+    "conceptIds": [
+      "purusha-svarupa"
+    ],
     "translation": "And from its being the reverse of the three Guṇas, the character of Puruṣa follows: it is a mere witness, standing alone, impartial, a Seer only, and without any activity of its own.",
     "commentary": "Being pure consciousness, Puruṣa has no activity — he 'sees' the Buddhi as a man sees a photograph and understands it, without doing anything to it. The inactivity of the soul answers the classical puzzle of free will: the real spring of action, Sāṃkhya says, is the Saṃskāra or Liṅga-śarīra (comparable to what modern psychology calls the sub-conscious mind), not the changeless witness behind it.",
     "keyPoints": [
@@ -314,6 +343,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Nature of Puruṣa",
     "devanagari": "तस्मात्तत्संयोगादचेतनं चेतनावदिव लिङ्गम् ।\nगुणकर्तृत्वेऽपि तथा कर्तेव भवत्युदासीनः ॥ २० ॥",
     "iast": "tasmāt tatsaṃyogād-acetanaṃ cetanāvadiva liṅgam |\nguṇakartṛtve-'pi tathā karte-va bhavaty-udāsīnaḥ |",
+    "conceptIds": [
+      "purusha-svarupa"
+    ],
     "translation": "Hence, by virtue of its connection with Puruṣa, the non-conscious Liṅga (Buddhi) behaves as though conscious; and though activity belongs only to the Guṇas, the disinterested Puruṣa comes to think of itself as the doer.",
     "commentary": "This directly answers the question left open by Kārikā 19: if the soul does nothing, why do people feel they are the doers of their own actions? The Buddhi, illumined by its proximity to Puruṣa, behaves like a conscious agent — and the reflection runs the other way too, so the passive Puruṣa mistakenly identifies with the Buddhi's activity.",
     "keyPoints": [
@@ -364,7 +396,8 @@ export const samkhyaKarikaEn: any[] = [
     "iast": "adhyavasāyo buddhir-dharmo jñānaṃ virāga aiśvaryam |\nsāttvikam etad-rūpaṃ, tāmasam-asmād-viparyastam |",
     "diagramId": "antahkarana",
     "conceptIds": [
-      "antahkarana"
+      "antahkarana",
+      "buddhi-eight-forms"
     ],
     "translation": "Determination is Buddhi; virtue, wisdom, non-attachment and superhuman power are its Sāttvika form; the reverse of these are its Tāmasa form.",
     "commentary": "Buddhi, Liṅga and Saṃskāra all name the same store-house of thoughts. Sāṃkhya sorts these thoughts into eight categories (against the Gītā's simpler three), because every action, food choice, and temperament traces back to the character of one's accumulated thoughts — and because every thought a person has, however small, reshapes the Buddhi and so determines the next thought and the next action, a chain running continuously since creation and continuing until release (Kārikā 63).",
@@ -381,7 +414,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "अभिमानोऽहङ्कारः, तस्माद्द्विविधः प्रवर्तते सर्गः ।\nएकादशकश्च गणस्तन्मात्रपञ्चकश्चैव ॥ २४ ॥",
     "iast": "abhimāno-'haṅkāraḥ, tasmād-dvividhaḥ pravartate sargaḥ |\nekādaśakaś-ca gaṇaḥ, tanmātra pañcakaś-caiva |",
     "conceptIds": [
-      "antahkarana"
+      "antahkarana",
+      "ahamkara-threefold"
     ],
     "translation": "Ahaṃkāra is self-conceit, the sense of individuation; from it proceed two lines of creation — the group of eleven (organs and mind) and the five Tanmātras.",
     "commentary": "The ego-sense and everything that follows from it are, remarkably, creations of Buddhi's own thought — Sāṃkhya's position that thought is itself a subtle form of energy makes this less mysterious than it first appears.",
@@ -397,7 +431,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "सात्त्विक एकादशकः प्रवर्तते वैकृतादहङ्कारात् ।\nभूतादेस्तन्मात्रः स तामसः, तैजसादुभयम् ॥ २५ ॥",
     "iast": "sāttvika ekādaśakaḥ pravartate vaikṛtād-ahaṃkārāt |\nbhūtādes-tanmātraḥ sa tāmasaḥ taijasād-ubhayam |",
     "conceptIds": [
-      "twenty-five-tattvas"
+      "twenty-five-tattvas",
+      "ahamkara-threefold"
     ],
     "translation": "The Sāttvika eleven (mind and the sense/action-organs) proceed from the Vaikṛta form of Ahaṃkāra; the five Tanmātras proceed from the Bhūtādi (Tāmasa) form; both changes are set in motion by the Taijasa (Rājasika) form of Ahaṃkāra.",
     "commentary": "Ahaṃkāra itself divides threefold along the lines of the Guṇas: Vaikṛta (Sāttvika) produces the eleven organs, Bhūtādi (Tāmasa) produces the Tanmātras, and Taijasa (Rājasika) is the activating force behind both — since Rajas alone, in cooperation with the other two, can effect change.",
@@ -412,7 +447,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "बुद्धीन्द्रियाणि चक्षुःश्रोत्रघ्राणरसनत्वगाख्यानि ।\nवाक्पाणिपादपायूपस्थानि कर्मेन्द्रियाण्याहुः ॥ २६ ॥",
     "iast": "buddhi-'ndriyāṇi cakṣuś-śrotra-ghrāṇa-rasana-tvag-ākhyāni |\nvāk-pāni-pāda-pāyū-pasthāni karme-'ndriyāṇy-āhuḥ ||",
     "conceptIds": [
-      "twenty-five-tattvas"
+      "twenty-five-tattvas",
+      "dasendriyas"
     ],
     "translation": "The organs of cognition are the eye, ear, nose, tongue and skin; voice, hands, feet, and the organs of excretion and generation are called organs of action.",
     "commentary": "A simple enumeration: the five buddhīndriyas (organs of cognition) and five karmendriyas (organs of action), together with manas (mind), make up the eleven organs referred to since Kārikā 22.",
@@ -428,7 +464,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "उभयात्मकमत्र मनः, सङ्कल्पकमिन्द्रियं च साधर्म्यात् ।\nगुणपरिणामविशेषान्नानात्वं बाह्यभेदाश्च ॥ २७ ॥",
     "iast": "ubhayātmakam-atra manaḥ, saṃkalpakam-indriyaṃ ca sādharmyāt |\nguṇapariṇāmaviśeṣān-nānātvaṃ bāhyabhedāś-ca ||",
     "conceptIds": [
-      "antahkarana"
+      "antahkarana",
+      "manas-ubhayatmaka"
     ],
     "translation": "Here, the mind partakes of the nature of both sets of organs; it deliberates, and it is itself an organ by the same reasoning. The varieties among the organs, and the varieties in the external world, both result from the differing operation of the Guṇas.",
     "commentary": "Manas bridges cognition and action, since it directs both. Gauḍapāda extends the point with striking examples: the Guṇas place the eye at the top of the head because that makes seeing easiest; a cow's body is built so that milk flows only while a calf needs it — as if nature worked with foresight, though Sāṃkhya insists this coordination is simply how the Guṇas function together.",
@@ -443,6 +480,10 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Organs",
     "devanagari": "शब्दादिषु पञ्चानामालोचनमात्रमिष्यते वृत्तिः ।\nवचनादानविहरणोत्सर्गानन्दाश्च पञ्चानाम् ॥ २८ ॥",
     "iast": "śabdādiṣu pañcānām-alocana-mātram-iṣyate vṛttiḥ |\nvacanā-dāna-viharaṇo-tsargā-nandāś-ca pañcānām |",
+    "conceptIds": [
+      "cognition-process",
+      "dasendriyas"
+    ],
     "translation": "With regard to sound and the rest, the function of the five organs of cognition is mere indeterminate awareness (ālocana); the functions of the five organs of action are speech, grasping, movement, excretion, and generation/enjoyment.",
     "commentary": "Ālocana names the very first, pre-conceptual moment of sensing — a bare vibration, before Buddhi assigns it any value or category. Vācaspati traces the term to a passage distinguishing this raw awareness (nirvikalpaka) from the determinate cognition (savikalpaka) that follows once Buddhi has processed it.",
     "keyPoints": [
@@ -457,7 +498,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "स्वालक्षण्यं वृत्तिस्त्रयस्य सैषा भवत्यसामान्या ।\nसामान्यकरणवृत्तिः प्राणाद्या वायवः पञ्च ॥ २९ ॥",
     "iast": "svālakṣaṇyaṃ vṛttis-trayasya sai-ṣā bhavaty-asāmānyā |\nsāmānya-karaṇa-vṛttiḥ prāṇādyā vāyavaḥ pañca |",
     "conceptIds": [
-      "antahkarana"
+      "antahkarana",
+      "prana-vayus"
     ],
     "translation": "Each of the three internal organs (Buddhi, Ahaṃkāra, Mind) has its own distinct function, not shared by the others; but the functions of the five Prāṇas (Prāṇa, Apāna, Udāna, Vyāna, Samāna) are common to all the organs.",
     "commentary": "Buddhi's function is determination, Ahaṃkāra's is self-reference, Manas's is deliberation — three distinct roles. But none of the eleven organs can discharge its function without the vital breath (prāṇa) operating simultaneously beneath all of them.",
@@ -473,7 +515,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "युगपच्चतुष्टयस्य तु वृत्तिः क्रमशश्च तस्य निर्दिष्टा ।\nदृष्टे तथाऽप्यदृष्टे त्रयस्य तत्पूर्विका वृत्तिः ॥ ३० ॥",
     "iast": "yugapac-catuṣṭayasya tu vṛttiḥ kramaśaś-ca tasya nirdiṣṭā |\ndṛṣṭe tathā-'py-adṛṣṭe trayasya tatpūrvikā vṛttiḥ |",
     "conceptIds": [
-      "antahkarana"
+      "antahkarana",
+      "cognition-process"
     ],
     "translation": "In the case of a perceptible object, the four organs (the three internal plus one external) may function simultaneously or successively; likewise for what is not present to perception, the three internal organs, working from a prior perception, may function simultaneously or successively.",
     "commentary": "Phukan illustrates both cases: seeing a snake and instantly fleeing compresses sensing, deliberating and deciding into what feels like one simultaneous act; but hearing a sound in the dark, then seeing a shape, then noticing a weapon, then recognizing danger, and only then running, shows the same organs working in visible succession.",
@@ -489,6 +532,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Organs",
     "devanagari": "स्वां स्वां प्रतिपद्यन्ते परस्पराकूतहेतुकां वृत्तिम् ।\nपुरुषार्थ एव हेतुर्न केनचित्कार्यते करणम् ॥ ३१ ॥",
     "iast": "svāṃ svāṃ pratipadyante parasparā-'kūta-hetukāṃ vṛttim |\npuruṣārtha eva hetur-na kenacit kāryate karaṇam |",
+    "conceptIds": [
+      "karana-trayodasa"
+    ],
     "translation": "The organs discharge their respective functions prompted by a shared, mutual impulse; that impulse is the enjoyment and final release of Puruṣa; no one external agent sets any organ to work.",
     "commentary": "Gauḍapāda clarifies that the organs are not driven by God or by Puruṣa directly — they simply work automatically, in coordination, toward the single end that gives all of Prakṛti's activity its point: Puruṣa's experience and eventual liberation.",
     "keyPoints": [
@@ -502,6 +548,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Organs",
     "devanagari": "करणं त्रयोदशविधम्, तदाहरणधारणप्रकाशकरम् ।\nकार्यं च तस्य दशधाहार्यं धार्यं प्रकाश्यं च ॥ ३२ ॥",
     "iast": "karaṇaṃ trayodaśavidham, tad-āharaṇa-dhāraṇa-prakāśakaram |\nkāryaṃ ca tasya daśadhā-hāryaṃ dhāryaṃ prakāśyaṃ ca ||",
+    "conceptIds": [
+      "karana-trayodasa"
+    ],
     "translation": "The organs are of thirteen kinds; their functions are threefold — carrying, holding, and illumining; their objects are correspondingly tenfold — what is to be carried, held, and illumined.",
     "commentary": "Gauḍapāda's simpler reading: the organs of action carry and hold, while the sense-organs alone illumine — feeding perceptions to Buddhi, which then holds (retains) them as thoughts permanently.",
     "keyPoints": [
@@ -516,7 +565,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "अन्तःकरणं त्रिविधं दशधा बाह्यं त्रयस्य विषयाख्यम् ।\nसाम्प्रतकालं बाह्यं त्रिकालमाभ्यन्तरं करणम् ॥ ३३ ॥",
     "iast": "antaḥkaraṇaṃ trividhaṃ, daśadhā bāhyaṃ trayasya viṣayā-'khyam |\nsāmprata-kālaṃ bāhyaṃ, trikālam-ābhyantaraṃ karaṇam |",
     "conceptIds": [
-      "antahkarana"
+      "antahkarana",
+      "kala-tattva"
     ],
     "translation": "The internal organ is threefold; the external organs, which make objects known to the three internal ones, are tenfold. The external organs function only in the present; the internal organs function across past, present, and future alike.",
     "commentary": "This is Sāṃkhya's distinctive account of time: time has no independent, objective existence of its own — it is a construction of the mind, arising from the ego-sense's continuity through a sequence of perceived changes, rather than a substance flowing independently of events. Phukan draws a direct parallel to Minkowski and Jeans on the inseparability of space and time in modern physics.",
@@ -532,7 +582,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "बुद्धीन्द्रियाणि तेषां पञ्च विशेषाविशेषविषयाणि ।\nवाग्भवति शब्दविषया शेषाणि तु पञ्चविषयाणि ॥ ३४ ॥",
     "iast": "buddhi-'ndriyāṇi teṣāṃ pañca viśeṣā-'viśeṣa-viṣayāṇi |\nvāg-bhavati śabda-viṣayā śeṣāṇi tu pañca-viṣayāṇi |",
     "conceptIds": [
-      "twenty-five-tattvas"
+      "twenty-five-tattvas",
+      "dasendriyas"
     ],
     "translation": "Of these, the five organs of cognition have as their objects both the undifferentiated Tanmātras and their differentiated forms; speech has only sound as its object; the remaining (action) organs have only the five gross elements as their objects.",
     "commentary": "Gauḍapāda notes that perceiving the Tanmātras themselves in their undifferentiated (aviśeṣa) form is said to be possible only for gods and sages, not ordinary people, who can only infer their existence and perceive their differentiated (viśeṣa) products.",
@@ -547,6 +598,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Organs",
     "devanagari": "सान्तःकरणा बुद्धिः सर्वं विषयमवगाहते यस्मात् ।\nतस्मात्त्रिविधं करणं द्वारि द्वाराणि शेषाणि ॥ ३५ ॥",
     "iast": "sāntaḥkaraṇā buddhiḥ sarvaṃ viṣayam-avagāhate yasmāt |\ntasmāt trividhaṃ karaṇaṃ dvāri dvārāṇi śeṣāṇi |",
+    "conceptIds": [
+      "karana-trayodasa"
+    ],
     "translation": "Since Buddhi, together with the other two internal organs, finally determines all knowledge of the objects perceived by the sense-organs, the three internal organs stand to the sense-organs as door-keeper to door.",
     "commentary": "The sense-organs are mere apertures through which vibrations from the outside world enter; it is Buddhi that shapes them into objects of cognition — the same idea, Phukan notes, that appears in Gītā V.1.",
     "keyPoints": [
@@ -559,6 +613,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Organs",
     "devanagari": "एते प्रदीपकल्पाः परस्परविलक्षणा गुणविशेषाः ।\nकृत्स्नं पुरुषस्यार्थं प्रकाश्य बुद्धौ प्रयच्छन्ति ॥ ३६ ॥",
     "iast": "ete pradīpa-kalpāḥ paraspara-vilakṣaṇā guṇa-viśeṣāḥ |\nkṛtsnaṃ puruṣasyā-'rthaṃ prakāśya buddhau prayacchanti ||",
+    "conceptIds": [
+      "karana-trayodasa"
+    ],
     "translation": "These (the external organs, mind and Ahaṃkāra), though mutually distinct products of the Guṇas, are like a lamp: they illumine every object of Puruṣa's enjoyment and hand it over to Buddhi.",
     "commentary": "The lamp image returns, now applied to the whole apparatus of cognition rather than just the Guṇas: distinct organs, unlike each other, nonetheless work in concert to deliver every object of experience to Buddhi for final determination and Puruṣa's witnessing.",
     "keyPoints": [
@@ -571,6 +628,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Organs",
     "devanagari": "सर्वं प्रत्युपभोगं यस्मात्पुरुषस्य साधयति बुद्धिः ।\nसैव च विशिनष्टि पुनः प्रधानपुरुषान्तरं सूक्ष्मम् ॥ ३७ ॥",
     "iast": "sarvam praty-upabhogam yasmāt puruṣasya sādhayati buddhiḥ |\nsai'va ca viśinaṣṭi punaḥ pradhāna-puruṣā-'ntaraṃ sūkṣmam |",
+    "conceptIds": [
+      "buddhi-purushartha"
+    ],
     "translation": "Since it is Buddhi that brings about Puruṣa's enjoyment of everything, it is that same Buddhi which ultimately reveals to Puruṣa the subtle, incomprehensible difference between Prakṛti and Puruṣa.",
     "commentary": "A striking symmetry: the very faculty that mediates all of Puruṣa's bondage to experience is also the faculty that eventually discloses the difference between seer and seen, leading toward liberation — a point developed fully in Kārikā 64.",
     "keyPoints": [
@@ -584,7 +644,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "तन्मात्राण्यविशेषाः, तेभ्यो भूतानि पञ्च पञ्चभ्यः ।\nएते स्मृता विशेषाः, शान्ता घोराश्च मूढाश्च ॥ ३८ ॥",
     "iast": "tanmātrāny-aviśeṣāḥ, tebhyo bhūtāni pañca pañcabhyaḥ |\nete smṛtā viśeṣāḥ, śāntāḥ ghorāś-ca mūḍhāś-ca |",
     "conceptIds": [
-      "twenty-five-tattvas"
+      "twenty-five-tattvas",
+      "avishesa-vishesha"
     ],
     "translation": "The Tanmātras are Aviśeṣa (undifferentiated); from these five come the five gross elements. These latter are Viśeṣa (differentiated) and are said to produce, in the mind, feelings of tranquillity, terror, or delusion, according to circumstance.",
     "commentary": "Gauḍapāda cautions that these feelings are not fixed properties of the objects themselves — the same object can bring delight to one person, sorrow to another, and confusion to a third, depending on the observer's own disposition, not on any intrinsic quality of the thing perceived.",
@@ -600,7 +661,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "सूक्ष्मा मातापितृजाः सह प्रभूतैस्त्रिधा विशेषाः स्युः ।\nसूक्ष्मास्तेषां नियताः, मातापितृजा निवर्तन्ते ॥ ३९ ॥",
     "iast": "sūkṣmā mātā-pitṛjāḥ saha prabhūtais-tridhā viśeṣāḥ syuḥ |\nsūkṣmās-teṣāṃ niyatā, mātā-pitṛjā nivartante |",
     "conceptIds": [
-      "linga-sharira"
+      "linga-sharira",
+      "tri-vidha-sharira"
     ],
     "translation": "Bodies are of three kinds: the subtle body, the body born of parents, and the body made of the gross elements; of these, the subtle body persists, while the body born of parents perishes.",
     "commentary": "Sāṃkhya's subtle body differs from the Vedāntic conception. Where Vedānta treats the subtle body as an assemblage of Buddhi, Mind, the ten organs and the five Prāṇas (also called the Liṅga), Sāṃkhya treats the subtle body proper as only one Viśeṣa — a component — of that Aviśeṣa which the next two kārikās name simply as the Liṅga, the vehicle of transmigration.",
@@ -664,6 +726,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Dispositions (Bhāvas)",
     "devanagari": "सांसिद्धिकाश्च भावाः प्राकृतिका वैकृतिकाश्च धर्मादयाः ।\nदृष्टाः करणाश्रयिणः कार्याश्रयिणश्च कललाद्याः ॥ ४३ ॥",
     "iast": "sāṃsiddhikāś-ca bhāvāḥ prākṛtikā vaikṛtikāś-ca dharmādyāḥ |\ndṛṣṭāḥ karaṇā-'śrayiṇaḥ, kāryā-'śrayiṇaś-ca kalalādyāḥ |",
+    "conceptIds": [
+      "buddhi-bhavas"
+    ],
     "translation": "The eight dispositions, beginning with virtue, are partly innate and partly acquired; they depend, for their maintenance, on Buddhi — whereas the embryo, from its earliest stage, depends for its nourishment on what it produces (the body).",
     "commentary": "Whether dispositions like dharma are innate or acquired in this life alone was, Phukan notes, an open question even for modern physics of his time (he cites Eddington on whether our habits of thought are 'acquired or innate'); Sāṃkhya's answer, since it accepts previous lives, is that dispositions can be genuinely innate, carried over rather than built from a blank slate.",
     "keyPoints": [
@@ -677,6 +742,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Dispositions (Bhāvas)",
     "devanagari": "धर्मेण गमनमूर्ध्वं, गमनमधस्ताद्भवत्यधर्मेण ।\nज्ञानेन चापवर्गो, विपर्ययादिष्यते बन्धः ॥ ४४ ॥",
     "iast": "dharmeṇa gamanam-ūrdhvaṃ, gamanam-adhastād-bhavaty-adharmeṇa |\njñānena cā-pavargo-viparyayād-iṣyate bandhaḥ |",
+    "conceptIds": [
+      "buddhi-bhavas"
+    ],
     "translation": "Dharma leads one upward (to a better world), Adharma downward; Jñāna leads to release, Ajñāna to bondage.",
     "commentary": "A compact statement of four of the eight dispositions and their consequences, setting up Kārikā 45 to complete the remaining four (Vairāgya/Avairāgya, Aiśvarya/Anaiśvarya).",
     "keyPoints": [
@@ -689,6 +757,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Dispositions (Bhāvas)",
     "devanagari": "वैराग्यात्प्रकृतिलयः, संसारो भवति राजसाद्रागात् ।\nऐश्वर्यादविघातो विपर्ययात्तद्विपर्यासः ॥ ४५ ॥",
     "iast": "vairāgyāt prakṛtilayaḥ, saṃsāro-bhavati rājasād-rāgāt |\naiśvaryād-avighāto-viparyayāt-tadviparyāsaḥ |",
+    "conceptIds": [
+      "buddhi-bhavas"
+    ],
     "translation": "Non-attachment leads to absorption into Prakṛti; passionate attachment (a Rājasika disposition) leads to continued transmigration; power (Aiśvarya) removes obstruction to one's desires; its absence gives the contrary result.",
     "commentary": "Together, Kārikās 44–XLV complete the eightfold map of dispositions and their fruits first named in Kārikā 23 — the entire mechanism by which thought, not any external moral ledger, governs a person's future.",
     "keyPoints": [
@@ -705,7 +776,8 @@ export const samkhyaKarikaEn: any[] = [
     "iast": "eṣa pratyayasargo-viparyayā-śakti-tuṣṭi-siddhyākhyaḥ |\nguṇa-vaiṣamya-vimardāt tasya ca bhedās-tu pañcāśat |",
     "diagramId": "fifty-dispositions",
     "conceptIds": [
-      "pratyaya-sarga"
+      "pratyaya-sarga",
+      "guna-vaisamya"
     ],
     "translation": "This is the sense-world created by Buddhi, distinguished as false knowledge, incapacity, complacency, and true knowledge; from the interplay of the unequal Guṇas arise fifty distinct varieties of these.",
     "commentary": "Sāṃkhya divides the whole epistemological field into four categories — five kinds of false knowledge (Viparyaya), twenty-eight kinds of incapacity (Aśakti), nine kinds of complacency (Tuṣṭi), and eight kinds of true attainment (Siddhi) — fifty subdivisions in total, elaborated across the following kārikās.",
@@ -735,7 +807,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "भेदस्तमसोऽष्टविधो मोहस्य च, दशविधो महामोहः ।\nतामिस्रोऽष्टादशधा, तथा भवत्यन्धतामिस्रः ॥ ४८ ॥",
     "iast": "bhedas-tamaso-'ṣṭavidhaḥ, mohasya ca, daśavidho-mahāmohaḥ |\ntāmisro-'ṣṭādaśadhā, tathā bhavaty-andhatāmisraḥ |",
     "conceptIds": [
-      "pratyaya-sarga"
+      "pratyaya-sarga",
+      "viparyaya"
     ],
     "translation": "Tamas is of eight kinds; Moha likewise of eight; Mahāmoha of ten; Tāmisra of eighteen; Andhatāmisra likewise of eighteen.",
     "commentary": "Tamas (mistaking one of the eight Tattvas, from Prakṛti down to the Tanmātras, for the Self) has eight varieties; Moha (conceit over one of the eight yogic powers named in Kārikā 23) has eight; Mahāmoha (attachment to one of the ten objects of enjoyment — five Tanmātras, five Mahābhūtas) has ten; Tāmisra (aversion to losing any of eighteen objects of enjoyment) has eighteen; and Andhatāmisra (fear of death, i.e. of losing those eighteen) likewise has eighteen — sixty-two sub-varieties of false knowledge in total.",
@@ -751,7 +824,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "एकादशेन्द्रियबधाः सह बुद्धिबधैरशक्तिरुद्दिष्टा ।\nसप्तदशबधा बुद्धेर्विपर्ययात्तुष्टिसिद्धीनाम् ॥ ४९ ॥",
     "iast": "ekādaśe-'ndriya-vadhāḥ saha buddhivadhair-aśaktir-uddiṣṭā |\nsaptadaśa-vadhā buddher-viparyayāt-tuṣṭisiddhīnām |",
     "conceptIds": [
-      "pratyaya-sarga"
+      "pratyaya-sarga",
+      "ashakti"
     ],
     "translation": "The infirmities of the eleven organs, together with the infirmities of Buddhi alone, make up the twenty-eight incapacities; Buddhi's own infirmities number seventeen, arising from the failures of the nine complacencies and eight attainments described below.",
     "commentary": "Deafness, blindness, paralysis and similar defects are ultimately traceable to Buddhi, since Buddhi is what creates the whole sense-world; the seventeen 'Buddhi-only' infirmities are independent of any organ defect and instead track failures within the nine Tuṣṭis and eight Siddhis themselves.",
@@ -767,7 +841,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "आध्यात्मिकाश्चतस्रः प्रकृत्युपादानकालभाग्याख्याः ।\nबाह्या विषयोपरमात्पञ्च, नव तुष्टयोऽभिमताः ॥ ५० ॥",
     "iast": "adhyātmikāś-catasraḥ, prakṛty-upādāna-kāla-bhāgyā-'khyāḥ |\nbāhyā viṣayoparamāt pañca, nava tuṣṭayo-'bhimatāḥ |",
     "conceptIds": [
-      "pratyaya-sarga"
+      "pratyaya-sarga",
+      "tusti-navadha"
     ],
     "translation": "Complacency is of nine kinds: four internal, called Prakṛti, Upādāna, Kāla and Bhāgya; and five external, arising from abstinence from the five objects of sense-enjoyment.",
     "commentary": "Tuṣṭi is a kind of indolence that halts the search for true knowledge — a man reads Sāṃkhya, understands that release is the natural end of everything, and concludes his own release is therefore just a matter of time, luck, or a little casual effort, and stops there. The five external Tuṣṭis, similarly, mistake mere abstinence from sense-objects for actual progress.",
@@ -784,7 +859,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "ऊहः शब्दोऽध्ययनं दुःखविघातास्त्रयः सुहृत्प्राप्तिः ।\nदानं च सिद्धयोऽष्टौ, सिद्धेः पूर्वोऽङ्कुशस्त्रिविधः ॥ ५१ ॥",
     "iast": "ūhaḥ śabdo-'dhyayanam, duḥkha-vighātās-trayaḥ suhṛtprāptiḥ |\ndānaṃ ca siddhayo-'ṣṭau, siddheḥ pūrvo-'ṅkuśas-trividhaḥ |",
     "conceptIds": [
-      "pratyaya-sarga"
+      "pratyaya-sarga",
+      "siddhi-ashta"
     ],
     "translation": "The eight means of attaining true knowledge are: independent reasoning, oral instruction, study, the three means of ending the three kinds of affliction, friendly help, and charity; the three named earlier — false knowledge, incapacity, complacency — are hindrances to attainment.",
     "commentary": "Some, like the sage Kapila himself, are said to attain self-realization through independent genius (ūha) alone; others, afflicted like everyone in Kārikā 1, need a teacher's oral instruction, study, or the aid of friends and charitable support to overcome the same three-fold suffering the text opened with.",
@@ -799,6 +875,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Two Creations",
     "devanagari": "न विना भावैर्लिङ्गं, न विना लिङ्गेन भावनिर्वृत्तिः ।\nलिङ्गाख्यो भावाख्यस्तस्माद्द्विविधः प्रवर्तते सर्गः ॥ ५२ ॥",
     "iast": "na vinā bhāvair-liṅgaṃ, na vinā liṅgena bhāva-nirvṛttiḥ |\nliṅgākhyo-bhāvākhyas-tasmād-dvividhaḥ pravartate sargaḥ |",
+    "conceptIds": [
+      "dvi-vidha-sarga"
+    ],
     "translation": "There is no Liṅga without dispositions, and no fulfilment of dispositions without a Liṅga; hence a twofold creation proceeds — the physical (Liṅgākhya) and the psychical (Bhāvākhya).",
     "commentary": "The two worlds are not merely parallel but genuinely interdependent, like two poles of a magnet, since thought and gross energy (the Tanmātras) are, in Sāṃkhya's account, mutually convertible — energy from the external world becomes thought in the mind, and expressed thought becomes sound or heat and disperses back into the physical world.",
     "keyPoints": [
@@ -846,7 +925,8 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "तत्र जरामरणकृतं दुःखं प्राप्नोति चेतनः पुरुषः ।\nलिङ्गस्याविनिवृत्तेस्तस्माद्दुःखं स्वभावेन ॥ ५५ ॥",
     "iast": "tatra jarā-maraṇa-kṛtaṃ duḥkham prāpnoti cetanaḥ puruṣaḥ |\nliṅgasyā-vinivṛtteḥ, tasmād-duḥkhaṃ svabhāvena |",
     "conceptIds": [
-      "three-worlds"
+      "three-worlds",
+      "samsara-duhkha"
     ],
     "translation": "In these fourteen orders, the conscious Puruṣa undergoes the misery of old age and death, so long as the Liṅga has not ceased to function; misery is thus inevitable by its very nature.",
     "commentary": "As long as Puruṣa retains a Liṅga, rebirth after death is inevitable, and with it, old age and death recur without end; only when the Liṅga itself is dissolved — when Puruṣa parts from Prakṛti — does this cycle stop, and liberation, discussed in Kārikās 61–LXV, becomes possible.",
@@ -861,6 +941,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Purpose of Creation",
     "devanagari": "इत्येष प्रकृतिकृतो महदादिविशेषभूतपर्यन्तः ।\nप्रतिपुरुषविमोक्षार्थं स्वार्थ इव परार्थ आरम्भः ॥ ५६ ॥",
     "iast": "ity-eṣa prakṛti-kṛto-mahadādi-viśeṣa-bhūta-paryantaḥ |\nprati-puruṣa-vimokṣārthaṃ svārtha iva parārtha ārambhaḥ |",
+    "conceptIds": [
+      "prakriti-purpose"
+    ],
     "translation": "This entire creation — from Mahat down to the differentiated gross elements — is the work of Prakṛti, undertaken for the release of every Puruṣa; it is for another's benefit though it seems, as it were, to serve Prakṛti's own purpose.",
     "commentary": "This verse restates a point already implicit since Kārikā 21, and does so deliberately: to remind the reader that the whole elaborate machinery of Prakṛti's evolution is not a mere blind display of natural forces, but a purposeful undertaking, ultimately for Puruṣa's sake even while it appears self-directed.",
     "keyPoints": [
@@ -873,6 +956,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Purpose of Creation",
     "devanagari": "वत्सविवृद्धिनिमित्तं क्षीरस्य यथा प्रवृत्तिरज्ञस्य ।\nपुरुषविमोक्षनिमित्तं तथा प्रवृत्तिः प्रधानस्य ॥ ५७ ॥",
     "iast": "vatsa-vivṛddhi-nimittaṃ kṣīrasya yathā pravṛttir-ajñasya |\npuruṣa-vimokṣa-nimittaṃ tathā pravṛttiḥ pradhānasya |",
+    "conceptIds": [
+      "prakriti-purpose"
+    ],
     "translation": "Just as milk, though unintelligent, flows for the nourishment of the calf, so Prakṛti acts, without design of her own, for the release of Puruṣa.",
     "commentary": "The cow's-milk analogy grounds the apparent purposefulness of an inanimate Prakṛti: no more mysterious than a cow's body automatically producing milk when a calf needs it, and ceasing when it doesn't. Phukan notes candidly that neither Sāṃkhya nor Vedānta can fully answer the deeper question of why creation happens at all, rather than the Avyakta simply remaining forever unmanifest.",
     "keyPoints": [
@@ -886,6 +972,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Purpose of Creation",
     "devanagari": "औत्सुक्यनिवृत्त्यर्थं यथा क्रियासु प्रवर्तते लोकः ।\nपुरुषस्य विमोक्षार्थं प्रवर्तते तद्वदव्यक्तम् ॥ ५८ ॥",
     "iast": "autsukya-nivṛtty-artham yathā kriyāsu pravartate lokaḥ |\npuruṣasya vimokṣārthaṃ pravartate tadvad-avyaktam ||",
+    "conceptIds": [
+      "prakriti-purpose"
+    ],
     "translation": "Just as a person engages in an activity to satisfy curiosity, so the Avyakta engages in creation for the enjoyment and final release of Puruṣa.",
     "commentary": "A second analogy for the same point as Kārikā 57, here compared by Phukan directly to a nearly identical idea in the Brahma-Sūtra.",
     "keyPoints": [
@@ -898,6 +987,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Purpose of Creation",
     "devanagari": "रङ्गस्य दर्शयित्वा निवर्तते नर्तकी यथा नृत्यात् ।\nपुरुषस्य तथाऽऽत्मानं प्रकाश्य विनिवर्तते प्रकृतिः ॥ ५९ ॥",
     "iast": "raṃgasya darśayitvā nivartate nartakī yathā nṛtyāt |\npuruṣasya tathā-'tmānaṃ prakāśya vinivartate prakṛtiḥ |",
+    "conceptIds": [
+      "nartaki-nyaya"
+    ],
     "translation": "As a dancing girl, having displayed herself to the audience, ceases to dance, so Prakṛti, having revealed herself to Puruṣa, ceases to act.",
     "commentary": "This raises a real difficulty Phukan addresses directly: does Prakṛti's activity end the instant a single soul is liberated? The dancing-girl analogy (she performs for the whole audience, not any one viewer, and doesn't stop until all are satisfied) is one attempted answer; Phukan finds a more satisfying resolution in the view that Prakṛti, like Puruṣa, is plural — each Puruṣa having, in effect, his own Prakṛti, a reading he connects to relativity's insistence that no two observers see quite the same world.",
     "keyPoints": [
@@ -911,6 +1003,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "The Purpose of Creation",
     "devanagari": "नानाविधैरुपायैरुपकारिण्यनुपकारिणः पुंसः ।\nगुणवत्यगुणस्य सतस्तस्यार्थमपार्थकं चरति ॥ ६० ॥",
     "iast": "nānā-vidhair-upāyair-upakāriṇy-anupakāriṇaḥ puṃsaḥ |\nguṇavaty-agunasya satas-tasyārtham-apārthakam-carati |",
+    "conceptIds": [
+      "prakriti-purpose"
+    ],
     "translation": "Without any benefit to herself, Prakṛti, endowed with the Guṇas, serves in countless ways the eternally real Puruṣa, who, being without Guṇas, does nothing to requite her.",
     "commentary": "The word 'Sat' (real) applied to Puruṣa here confirms he is the one Avyakta of Kārikā 10 in the fullest sense, and that Prakṛti is genuinely something else. If Prakṛti were as ultimately real as Puruṣa, Phukan argues, the liberated Puruṣa — now all-seeing consciousness — could never lose sight of her; the next several kārikās take up exactly this puzzle: how Prakṛti can vanish from view if she is, in some sense, real.",
     "keyPoints": [
@@ -924,6 +1019,10 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Kaivalya — Liberation",
     "devanagari": "प्रकृतेः सुकुमारतरं न किञ्चिदस्तीति मे मतिर्भवति ।\nया दृष्टाऽस्मीति पुनर्न दर्शनमुपैति पुरुषस्य ॥ ६१ ॥",
     "iast": "prakṛteḥ sukumārataraṃ na kiñcid astīti me matir bhavati |\nyā dṛṣṭāsmī-'ti punar-na darśanam upaiti-puruṣasya |",
+    "conceptIds": [
+      "nartaki-nyaya",
+      "kaivalya-samkhya"
+    ],
     "translation": "\"I have now come to understand that there is nothing more delicate than Prakṛti,\" (the Puruṣa reflects), \"who, knowing she has been seen, never again comes into that Puruṣa's view.\"",
     "commentary": "The word 'sukumāratara' (very delicate, easily grasped) is significant: once Puruṣa understands that Prakṛti is only the phenomenal cause of creation and not the ultimate reality — the specific ignorance named as Tamas in Kārikā 48 — that very understanding is what ends the display. What Puruṣa then comes to know is unfolded in the next verse.",
     "keyPoints": [
@@ -937,6 +1036,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Kaivalya — Liberation",
     "devanagari": "तस्मान्न बध्यतेऽद्धा न मुच्यते नापि संसरति कश्चित् ।\nसंसरति बध्यते मुच्यते च नानाश्रया प्रकृतिः ॥ ६२ ॥",
     "iast": "tasmān-na badhyate-'ddhā namucyate na'pi saṃsarati kaścit |\nsaṃsarati badhyate mucyate ca nānā-śrayā prakṛtiḥ |",
+    "conceptIds": [
+      "kaivalya-samkhya"
+    ],
     "translation": "For this reason, no one is ever really bound, released, or made to transmigrate; it is only Prakṛti, in her manifold forms, that is bound, transmigrates, and is released.",
     "commentary": "This is a position Sāṃkhya shares broadly with Buddhism, the Upaniṣads, and the Gītā: Puruṣa, being all-pervading and changeless, cannot literally move, migrate, or be modified at all. Bondage and liberation, strictly speaking, describe only what happens to Prakṛti (as Buddhi/Liṅga), never to the unchanging witness.",
     "keyPoints": [
@@ -950,6 +1052,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Kaivalya — Liberation",
     "devanagari": "रूपैः सप्तभिरेव तु बध्नात्यात्मानमात्मना प्रकृतिः ।\nसैव च पुरुषार्थं प्रति विमोचयत्येकरूपेण ॥ ६३ ॥",
     "iast": "rūpaiḥ saptabhir-eva tu badhnāty-ātmānam-ātmanā prakṛtiḥ |\nsaiva ca puruṣārthaṃ prati vimocayaty-ekarūpeṇa |",
+    "conceptIds": [
+      "viveka-khyati"
+    ],
     "translation": "Prakṛti binds herself, by herself, through her seven forms; and she alone releases herself, through the remaining one form, for the sake of Puruṣa.",
     "commentary": "This refers back to the eight-fold classification of Buddhi's dispositions in Kārikā 23: seven of the eight (all but Jñāna) are Prakṛti's own creations and bind; only Jñāna, discriminative knowledge, releases. These seven kinds of thought are described as a screen a person cannot remove himself, being wholly inactive — it is removed only by Prakṛti's own working, through the arising of Jñāna, as the next verse describes in full.",
     "keyPoints": [
@@ -964,7 +1069,9 @@ export const samkhyaKarikaEn: any[] = [
     "devanagari": "एवं तत्त्वाभ्यासान्नास्मि न मे नाहमित्यपरिशेषम् ।\nअविपर्ययाद्विशुद्धं केवलमुत्पद्यते ज्ञानम् ॥ ६४ ॥",
     "iast": "evam-tattvā-'bhyāsān-na-smi na me nā-'ham-ity-apariśeṣam |\naviparyayād-viśuddhaṃ kevalam utpadyate jñānam |",
     "conceptIds": [
-      "twenty-five-tattvas"
+      "twenty-five-tattvas",
+      "viveka-khyati",
+      "kaivalya-samkhya"
     ],
     "translation": "Thus, by repeated contemplation of the twenty-four Tattvas, there arises the complete, unmistaken, pure and absolute knowledge: \"I am not; nothing is mine; I do not exist (as this).\"",
     "commentary": "This knowledge is not symbolic or theoretical information but intimate, direct consciousness itself — consciousness that has ceased to identify with Buddhi's activity. The formula 'nāsmi, na me, nāham' is Sāṃkhya's precise expression of discriminative knowledge (viveka-jñāna): not a new possession, but the falling-away of every false identification with the twenty-four Tattvas that are not Puruṣa.",
@@ -979,6 +1086,10 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Kaivalya — Liberation",
     "devanagari": "तेन निवृत्तप्रसवामर्थवशात्सप्तरूपविनिवृत्ताम् ।\nप्रकृतिं पश्यति पुरुषः प्रेक्षकवदवस्थितः स्वच्छः ॥ ६५ ॥",
     "iast": "tena nivṛtta-prasavām-arthavaśāt sapta-rūpa-vinivṛttām |\nprakṛtiṃ paśyati puruṣaḥ, prekṣakavad-avasthitaḥ svacchaḥ |",
+    "conceptIds": [
+      "nartaki-nyaya",
+      "kaivalya-samkhya"
+    ],
     "translation": "By this knowledge, and now restored to himself, Puruṣa sees, like a distant spectator, the Prakṛti who has become unproductive, her seven forms withdrawn.",
     "commentary": "Thoughts, Sāṃkhya holds, are not independently objective in the way the moon is — they only exist as living thoughts when recalled to consciousness. Once Buddhi has parted from Puruṣa's witnessing, the stored dispositions become dead, unobservable, effectively non-existent, because they never had an existence apart from being seen. To the fully liberated Puruṣa, Prakṛti therefore has no separate existence left at all — she existed, in the relevant sense, only within his own witnessing.",
     "keyPoints": [
@@ -992,6 +1103,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Kaivalya — Liberation",
     "devanagari": "दृष्टा मयेत्युपेक्षक एको, दृष्टाऽहमित्युपरमत्यन्या ।\nसति संयोगेऽपि तयोः प्रयोजनं नास्ति सर्गस्य ॥ ६६ ॥",
     "iast": "dṛṣṭā maye-'ty-upekṣaka-eko-dṛṣṭa-'ham-ity-uparamaty-anyā |\nsati saṃyoge-'pi tayoḥ prayojanaṃ nā-'sti sargasya |",
+    "conceptIds": [
+      "nartaki-nyaya"
+    ],
     "translation": "One (Puruṣa) says, \"I have seen her,\" and becomes indifferent; the other (Prakṛti) says, \"I have been seen,\" and ceases her activity; though their union still persists, there is no longer any need for further creation.",
     "commentary": "This addresses a subtler case than total, immediate dissolution: even where some trace of connection between Puruṣa and Prakṛti persists, if Prakṛti's Liṅga has been emptied of every disposition except the bare ego-sense, it can no longer generate a new subtle body — like a fried seed that cannot germinate — and rebirth simply stops, without requiring the total loss of individuality described in Kārikā 65.",
     "keyPoints": [
@@ -1005,6 +1119,10 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Kaivalya — Liberation",
     "devanagari": "सम्यग्ज्ञानाधिगमाद्धर्मादीनामकारणप्राप्तौ ।\nतिष्ठति संस्कारवशाच्चक्रभ्रमिवद्धृतशरीरः ॥ ६७ ॥",
     "iast": "samyag-jñānā-dhigamad-dharmādīnām-akāraṇa-prāptau |\ntiṣṭhati saṃskāra-vaśāc-cakra-bhramivad-dhṛta-śarīraḥ |",
+    "conceptIds": [
+      "jivan-videha-mukti",
+      "kaivalya-samkhya"
+    ],
     "translation": "Even after perfect wisdom is attained and Dharma and the rest have become inoperative, the person continues to bear the body for a while, carried along by the residual force of Saṃskāra — like a potter's wheel that keeps turning a while after the push that set it moving has stopped.",
     "commentary": "A liberated person, in other words, does not die the instant true knowledge dawns; embodied life continues by its own momentum until it naturally runs its course, a point Phukan notes the Chāndogya Upaniṣad makes as well.",
     "keyPoints": [
@@ -1017,6 +1135,10 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Kaivalya — Liberation",
     "devanagari": "प्राप्ते शरीरभेदे चरितार्थत्वात्प्रधानविनिवृत्तौ ।\nऐकान्तिकमात्यन्तिकमुभयं कैवल्यमाप्नोति ॥ ६८ ॥",
     "iast": "prāpte śarīra-bhede caritārthatvāt-pradhāna-vinivṛttau |\naikāntikam-ātyantikam-ubhayaṃ kaivalyam-āpnoti ||",
+    "conceptIds": [
+      "jivan-videha-mukti",
+      "kaivalya-samkhya"
+    ],
     "translation": "When the body finally falls away, Prakṛti having withdrawn after having accomplished her purpose, Puruṣa attains kaivalya — release that is both certain and final, since there will be no further rebirth.",
     "commentary": "This refers specifically to the case described in Kārikā 66, since the Puruṣa of Kārikās 64–LXV has already lost individuality entirely and nothing further remains to be said of him — this verse completes the account for the case where some trace of continuity persisted through embodied life after knowledge dawned.",
     "keyPoints": [
@@ -1029,6 +1151,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Colophon — Transmission",
     "devanagari": "पुरुषार्थज्ञानमिदं गुह्यं परमर्षिणा समाख्यातम् ।\nस्थित्युत्पत्तिप्रलयाश्चिन्त्यन्ते यत्र भूतानाम् ॥ ६९ ॥",
     "iast": "puruṣārtha-jñānam-idaṃ guhyaṃ parmarṣiṇā samākhyātam |\nsthity-utpatti-pralayāś-cintyante yatra bhūtānām |",
+    "conceptIds": [
+      "samkhya-lineage"
+    ],
     "translation": "This abstruse knowledge, aimed at the final good of Puruṣa, in which the origin, existence, and dissolution of all beings is worked out, was fully expounded by the great sage (Kapila).",
     "commentary": "With the philosophical exposition complete, the text turns from doctrine to lineage — the closing verses establish who taught this knowledge, to whom, and why the treatise is trustworthy despite its brevity.",
     "keyPoints": [
@@ -1041,6 +1166,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Colophon — Transmission",
     "devanagari": "एतत्पवित्रमग्र्यं मुनिरासुरयेऽनुकम्पया प्रददौ ।\nआसुरिरपि पञ्चशिखाय, तेन च बहुधा कृतं तन्त्रम् ॥ ७० ॥",
     "iast": "etat pavitram-agryam munir-āsuraye-'nukampayā-pradadau |\nāsurir-api pañcaśikhāya, tena ca bahudhā kṛtaṃ-tantram |",
+    "conceptIds": [
+      "samkhya-lineage"
+    ],
     "translation": "This pure, supreme knowledge was given by the sage (Kapila) to Āsuri out of compassion; Āsuri in turn gave it to Pañcaśikha, who elaborated it extensively.",
     "commentary": "The transmission lineage: Kapila (traditionally regarded as the founder of Sāṃkhya) to Āsuri to Pañcaśikha, who is credited with spreading and elaborating the teaching before Īśvarakṛṣṇa's own condensation of it.",
     "keyPoints": [
@@ -1053,6 +1181,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Colophon — Transmission",
     "devanagari": "शिष्यपरम्परयाऽऽगतमीश्वरकृष्णेन चैतदार्याभिः ।\nसंक्षिप्तमार्यमतिना सम्यग्विज्ञाय सिद्धान्तम् ॥ ७१ ॥",
     "iast": "śiṣya-paramparayā-'gatam-īśvarakṛṣṇena caitad-āryābhiḥ |\nsaṃkṣiptam-āryamatinā samyag vijñāya siddhāntam |",
+    "conceptIds": [
+      "samkhya-lineage"
+    ],
     "translation": "Having thoroughly understood the doctrine as it came down through a succession of pupils, the learned Īśvarakṛṣṇa briefly set it down in these Ārya verses.",
     "commentary": "Īśvarakṛṣṇa here names himself as the author, explicitly positioning his own work as a condensation of received teaching passed down through disciples, not an independent invention.",
     "keyPoints": [
@@ -1065,6 +1196,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Colophon — Transmission",
     "devanagari": "सप्तत्यां किल येऽर्थास्तेऽर्थाः कृत्स्नस्य षष्टितन्त्रस्य ।\nआख्यायिकाविरहिताः, परवादविवर्जिताश्चापि ॥ ७२ ॥",
     "iast": "saptatyāṃ kila ye'rthās-te'rthāḥ kṛtsnasya ṣaṣṭitantrasya |\nākhyāyikāvirahitāḥ, paravāda-vivarjitāś-cā'pi |",
+    "conceptIds": [
+      "samkhya-lineage"
+    ],
     "translation": "The subject-matter of these seventy verses is, it is said, the whole of the (now lost) Ṣaṣṭitantra; these verses contain no illustrative tales, nor do they engage in polemics against rival views.",
     "commentary": "The Ṣaṣṭitantra ('the system of sixty topics'), referenced here and by Gauḍapāda, no longer survives independently, though the Vyāsabhāṣya on the Yoga-Sūtra mentions it. Vācaspati, quoting the Rājavārtika, lists its ten principal topics (Prakṛti's existence, its oneness, its objectivity, its distinctness from Puruṣa, and so on) plus the fifty categories of Kārikās 46–L, making sixty in total — the Kārikā's own claim to be a faithful, if compressed, digest of that older system.",
     "keyPoints": [
@@ -1078,6 +1212,9 @@ export const samkhyaKarikaEn: any[] = [
     "section": "Colophon — Transmission",
     "devanagari": "तस्मात्समासदृष्टं शास्त्रमिदं नाऽर्थतश्च परिहीनम् ।\nतन्त्रस्य च बृहन्मूर्तेर्दर्पणसंक्रान्तमिव बिम्बम् ॥ ७३ ॥",
     "iast": "tasmāt samāsa-dṛṣṭaṃ śāstram-idaṃ nā-'rthataś-ca parihīnam |\ntantrasya-ca bṛhanmūrter-darpaṇasaṃkrāntam-iva bimbam |",
+    "conceptIds": [
+      "samkhya-lineage"
+    ],
     "translation": "Hence this briefly-expounded treatise is not deficient in meaning — it is, as it were, the reflection in a small mirror of a vast original object, the Ṣaṣṭitantra.",
     "commentary": "This closing verse is found only in one manuscript tradition (the Māthura commentary), and Phukan notes that some scholars think this verse and Kārikā 72 were both added at a later date, since Gauḍapāda's own commentary ends at Kārikā 69 and refers to 'seventy kārikās' rather than seventy-two or seventy-three.",
     "keyPoints": [

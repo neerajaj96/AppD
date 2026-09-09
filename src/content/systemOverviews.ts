@@ -456,6 +456,36 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
           conceptId: 'three-gunas'
         },
         {
+          title: 'Five Proofs of the Witness',
+          sanskritTerm: 'Puruṣa-siddhi (पुरुष-सिद्धि)',
+          summary: 'Assemblages serve another; something must reverse the three-guṇa world; experience needs a supervisor and an enjoyer; and the drive toward release cannot belong to insentient Buddhi.',
+          conceptId: 'purusha-proofs'
+        },
+        {
+          title: 'The Thirteen Instruments',
+          sanskritTerm: 'Trayodaśa-karaṇa (त्रयोदश-करण)',
+          summary: 'Ten external organs plus three internal ones move by mutual impulse alone toward enjoyment and release; senses are doors, the inner triad the door-keeper, the five vital airs the common function.',
+          conceptId: 'karana-trayodasa'
+        },
+        {
+          title: 'The Fiftyfold Intellectual Creation',
+          sanskritTerm: 'Pratyaya-sarga (प्रत्यय-सर्ग)',
+          summary: 'Five false knowledges, twenty-eight incapacities, nine complacencies and eight attainments — fifty dispositions churned from the guṇas’ disturbance of equilibrium.',
+          conceptId: 'pratyaya-sarga'
+        },
+        {
+          title: 'Discrimination as “I Am Not”',
+          sanskritTerm: 'Viveka-khyāti (विवेक-ख्याति)',
+          summary: 'Seven of Buddhi’s eight forms bind; jñāna alone releases — “I am not this, nothing is mine, I do not exist as this” — after which delicate Prakṛti, like a seen dancer, withdraws forever.',
+          conceptId: 'viveka-khyati'
+        },
+        {
+          title: 'Living Release and Final Release',
+          sanskritTerm: 'Jīvanmukti–Videhamukti (जीवन्मुक्ति–विदेहमुक्ति)',
+          summary: 'The body persists a while on saṃskāra-momentum like a potter’s wheel after the hand is lifted; when it falls, kaivalya certain and irreversible follows.',
+          conceptId: 'jivan-videha-mukti'
+        },
+        {
           title: 'Isolation as Freedom',
           sanskritTerm: 'Kaivalya (कैवल्य)',
           summary: 'Liberation is Puruṣa resting alone in its own nature, forever disentangled from Prakṛti\'s dance.',
@@ -486,6 +516,36 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
           sanskritTerm: 'ത്രിഗുണം (Triguṇa)',
           summary: 'സത്ത്വം, രജസ്സ്, തമസ്സ് — പ്രകാശം, ചലനം, നിയന്ത്രണം — ഒരു വിളക്കിൽ തിരിയും എണ്ണയും ജ്വാലയും പോലെ സഹകരിക്കുന്നു.',
           conceptId: 'three-gunas'
+        },
+        {
+          title: 'പുരുഷന് അഞ്ച് തെളിവുകൾ',
+          sanskritTerm: 'പുരുഷസിദ്ധി (Puruṣa-siddhi)',
+          summary: 'കൂട്ടിച്ചേർക്കപ്പെട്ടതെല്ലാം മറ്റൊന്നിനുവേണ്ടി; ത്രിഗുണലോകത്തിന് വിപരീതമായി ഒന്ന് വേണം; അധിഷ്ഠാനവും ഭോക്താവും വേണം; മോക്ഷാഭിലാഷം ബുദ്ധിയുടേതാകില്ല.',
+          conceptId: 'purusha-proofs'
+        },
+        {
+          title: 'പതിമൂന്ന് കരണങ്ങൾ',
+          sanskritTerm: 'ത്രയോദശകരണം (Trayodaśa-karaṇa)',
+          summary: 'പത്ത് ബാഹ്യവും മൂന്ന് ആന്തരികവുമായ കരണങ്ങൾ പരസ്പരപ്രേരണയാൽ ഭോഗമോക്ഷങ്ങൾക്കായി പ്രവർത്തിക്കുന്നു; ഇന്ദ്രിയങ്ങൾ വാതിലുകൾ, അന്തഃകരണം കാവൽക്കാരൻ.',
+          conceptId: 'karana-trayodasa'
+        },
+        {
+          title: 'അമ്പത് വിധം ബുദ്ധിസർഗ്ഗം',
+          sanskritTerm: 'പ്രത്യയസർഗ്ഗം (Pratyaya-sarga)',
+          summary: 'അഞ്ച് വിപര്യയങ്ങൾ, ഇരുപത്തിയെട്ട് അശക്തികൾ, ഒമ്പത് തുഷ്ടികൾ, എട്ട് സിദ്ധികൾ — ഗുണവൈഷമ്യത്തിൽ നിന്നുള്ള അമ്പത് ഭാവങ്ങൾ.',
+          conceptId: 'pratyaya-sarga'
+        },
+        {
+          title: "'ഞാനല്ല' എന്ന വിവേകം",
+          sanskritTerm: 'വിവേകഖ്യാതി (Viveka-khyāti)',
+          summary: 'ബുദ്ധിയുടെ എട്ടിൽ ഏഴെണ്ണം ബന്ധിക്കുന്നു; ജ്ഞാനം മാത്രം മോചിപ്പിക്കുന്നു — “ഞാനല്ല, എന്റേതല്ല” — പിന്നീട് കാണപ്പെട്ട നർത്തകിയെപ്പോലെ പ്രകൃതി പിന്മാറുന്നു.',
+          conceptId: 'viveka-khyati'
+        },
+        {
+          title: 'ജീവന്മുക്തിയും വിദേഹമുക്തിയും',
+          sanskritTerm: 'ജീവന്മുക്തി–വിദേഹമുക്തി (Jīvanmukti–Videhamukti)',
+          summary: 'സംസ്കാരശക്തിയാൽ ശരീരം കുശവചക്രം പോലെ കുറച്ചുകാലം നിലനിൽക്കുന്നു; അത് വീഴുമ്പോൾ ഉറപ്പുള്ളതും തിരിച്ചുവരവില്ലാത്തതുമായ കൈവല്യം.',
+          conceptId: 'jivan-videha-mukti'
         },
         {
           title: 'കൈവല്യം — ഒറ്റപ്പെടലായി മോചനം',
@@ -533,6 +593,36 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
           conceptId: 'ishvara'
         },
         {
+          title: 'The Yoga of Action',
+          sanskritTerm: 'Kriyā-yoga (क्रिया-योग)',
+          summary: 'Austerity, study and surrender — an accessible, action-shaped path that thins the afflictions for minds still ruled by rajas and tamas.',
+          conceptId: 'kriya-yoga'
+        },
+        {
+          title: 'Coalescence and the Truth-Bearing Wisdom',
+          sanskritTerm: 'Samāpatti–Ṛtambharā (समापत्ति–ऋतम्भरा)',
+          summary: 'Mind crystallizes on its object through gross and subtle coalescence, then truth-bearing wisdom dawns and even its impression ceases into seedlessness.',
+          conceptId: 'ritambhara-nirbija'
+        },
+        {
+          title: 'Combined Constraint and Its Refusal',
+          sanskritTerm: 'Saṃyama–Vairāgya (संयम–वैराग्य)',
+          summary: 'Concentration, meditation and absorption fused into one instrument yield past, future, minds and masteries — then even mastery is renounced toward kaivalya.',
+          conceptId: 'bhuta-jaya'
+        },
+        {
+          title: 'The Star-Crossing Discernment',
+          sanskritTerm: 'Vivekaja–Tārakam (विवेकज–तारकम्)',
+          summary: 'Discernment born of moment-and-sequence tells apart the indistinguishable — the all-objected, non-sequential intuition that ferries across.',
+          conceptId: 'tarakam-vivekajam'
+        },
+        {
+          title: 'The Cloud of Dharma',
+          sanskritTerm: 'Dharma-megha (धर्म-मेघ)',
+          summary: 'Mind dips toward discernment until even exaltation is declined — the cloud raining dharma ends affliction and karma, and the knowable thins away.',
+          conceptId: 'dharma-megha'
+        },
+        {
           title: 'Aloneness as Freedom',
           sanskritTerm: 'Kaivalya (कैवल्य)',
           summary: 'When mind becomes as pure as Puruṣa, the guṇas dissolve back and the witness abides forever free.',
@@ -563,6 +653,36 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
           sanskritTerm: 'ഈശ്വരപ്രണിധാനം (Īśvara-praṇidhāna)',
           summary: 'ക്ലേശങ്ങളാൽ സ്പർശിക്കപ്പെടാത്ത വിശേഷപുരുഷനിലുള്ള ശരണാഗതി — പ്രണവത്തിലൂടെ സമാധിയിലേക്കുള്ള എളുപ്പവഴി.',
           conceptId: 'ishvara'
+        },
+        {
+          title: 'ക്രിയായോഗം',
+          sanskritTerm: 'ക്രിയായോഗം (Kriyā-yoga)',
+          summary: 'തപസ്സ്, സ്വാധ്യായം, ഈശ്വരപ്രണിധാനം — രജസ്തമസ്സുകൾ ആധിപത്യം പുലർത്തുന്ന മനസ്സിന് പ്രാപ്യമായ കർമ്മമാർഗ്ഗം; ക്ലേശങ്ങളെ നേർപ്പിക്കുന്നു.',
+          conceptId: 'kriya-yoga'
+        },
+        {
+          title: 'സമാപത്തിയും ഋതംഭരാപ്രജ്ഞയും',
+          sanskritTerm: 'സമാപത്തി–ഋതംഭര (Samāpatti–Ṛtambharā)',
+          summary: 'വിഷയത്തിൽ സ്ഫടികം പോലെ ലയിച്ച് സ്ഥൂലസൂക്ഷ്മങ്ങളിലൂടെ സത്യം ചുമക്കുന്ന ജ്ഞാനം ഉദിക്കുന്നു; അതിന്റെ മുദ്രയും നിലയ്ക്കുമ്പോൾ നിർബീജം.',
+          conceptId: 'ritambhara-nirbija'
+        },
+        {
+          title: 'സംയമവും ത്യാഗവും',
+          sanskritTerm: 'സംയമം–വൈരാഗ്യം (Saṃyama–Vairāgya)',
+          summary: 'ധാരണാധ്യാനസമാധികൾ ഒന്നിച്ച് ഭൂതഭാവികളെയും പരചിത്തങ്ങളെയും സിദ്ധികളെയും നൽകുന്നു — പ്രഭുത്വം ത്യജിച്ചാൽ കൈവല്യം.',
+          conceptId: 'bhuta-jaya'
+        },
+        {
+          title: 'താരകമായ വിവേകം',
+          sanskritTerm: 'വിവേകജം–താരകം (Vivekaja–Tārakam)',
+          summary: 'ക്ഷണക്രമങ്ങളിലുള്ള സംയമം വേർതിരിക്കാനാവാത്തവയെ വേർതിരിക്കുന്നു — കടത്തിവിടുന്ന സർവവിഷയമായ അക്രമജ്ഞാനം.',
+          conceptId: 'tarakam-vivekajam'
+        },
+        {
+          title: 'ധർമ്മമേഘം',
+          sanskritTerm: 'ധർമ്മമേഘം (Dharma-megha)',
+          summary: 'ചിത്തം വിവേകത്തിൽ മുങ്ങി ഉന്നതിയെപ്പോലും നിരസിക്കുമ്പോൾ ധർമ്മം പെയ്യിക്കുന്ന മേഘമായ സമാധി — ക്ലേശകർമ്മങ്ങൾ അവസാനിക്കുന്നു.',
+          conceptId: 'dharma-megha'
         },
         {
           title: 'കൈവല്യം — സമ്പൂർണ്ണ സ്വാതന്ത്ര്യം',

@@ -7,6 +7,9 @@ export const yogaSutrasEn: any[] = [
     "section": "Samādhi Pāda — Meditative Absorption",
     "devanagari": "अथ योगानुशासनम् ॥ १.१ ॥",
     "iast": "atha yogānuśāsanam",
+    "conceptIds": [
+      "citta-vritti-nirodha"
+    ],
     "translation": "Now, the teachings of yoga are presented.",
     "commentary": "Philosophical treatises conventionally open by announcing their subject matter, distinguishing themselves from other schools of thought. The word 'atha' (now) is treated by the commentators as more than a simple time-marker: Vijñānabhikṣu reads it as signalling that one has exhausted other paths and finally arrived at the definitive teaching. The word 'anuśāsanam' (further teaching, with the prefix anu-) signals that Patañjali is not inventing a new system but systematizing a much older one, traditionally traced to a sage named Hiraṇyagarbha.",
     "keyPoints": [
@@ -36,6 +39,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.3",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "tadā draṣṭuḥ svarūpe 'vasthānam",
+    "conceptIds": [
+      "citta-vritti-nirodha"
+    ],
     "translation": "When that is accomplished, the seer abides in its own true nature.",
     "commentary": "The direct consequence of citta-vṛtti-nirodha: with the mind's fluctuations stilled, Puruṣa (the 'seer') no longer identifies with the mind's activity and rests in its own nature as pure consciousness — the condition described fully in Kārikā LXV of the Sāṃkhya Kārikā, where the liberated Puruṣa is compared to a distant spectator.",
     "keyPoints": [
@@ -47,6 +53,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.4",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "vṛtti-sārūpyam itaratra",
+    "conceptIds": [
+      "purusha-prakriti-union"
+    ],
     "translation": "Otherwise, at other times, the seer is absorbed in the changing states of the mind.",
     "commentary": "The default, un-liberated condition: Puruṣa, though itself always changeless, appears to take on the coloring of whatever thought or state currently occupies the citta — the same mutual-reflection mechanism the Sāṃkhya Kārikā describes in Kārikā XX, where the inactive Puruṣa comes to think of itself as the doer.",
     "keyPoints": [
@@ -74,6 +83,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.6",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "pramāṇa-viparyaya-vikalpa-nidrā-smṛtayaḥ",
+    "conceptIds": [
+      "pancha-vritti"
+    ],
     "translation": "[These five vṛttis are] right knowledge, error, imagination, sleep, and memory.",
     "commentary": "The five vṛttis named in full: pramāṇa (valid knowledge), viparyaya (error), vikalpa (imagination/figurative language), nidrā (dreamless sleep), and smṛti (memory). Every possible state of mind, the Yoga tradition holds, is a variety of one of these five — nothing else needs to be added to the list.",
     "keyPoints": [
@@ -85,6 +97,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.7",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "pratyakṣānumānāgamāḥ pramāṇāni",
+    "conceptIds": [
+      "pramana-vritti"
+    ],
     "translation": "Right knowledge consists of sense perception, logic, and verbal testimony.",
     "commentary": "The same three pramāṇas the Sāṃkhya Kārikā names in Kārikā IV — Yoga accepts perception, inference, and trustworthy testimony (including scripture) as valid knowledge, with perception ranked highest since the other two ultimately depend on it. Unlike Vedānta, Patañjali never once quotes scripture directly in the text, and his overwhelming emphasis throughout falls on direct yogic perception over inference or testimony — a stance Bryant calls a 'radical mystico-yogic orientation' that privileges verifiable experience.",
     "keyPoints": [
@@ -98,6 +113,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.8",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "viparyayo mithyā-jñānam atad-rūpa-pratiṣṭham",
+    "conceptIds": [
+      "viparyaya-vikalpa-nidra-smriti"
+    ],
     "translation": "Error is false knowledge stemming from the incorrect apprehension [of something].",
     "commentary": "Viparyaya is mistaking a thing for what it is not — the classic Vedāntic example is mistaking a rope for a snake at dusk — and differs from valid knowledge in being correctable by a later, accurate cognition. Vyāsa identifies error, at root, with the five kleśas themselves (avidyā, asmitā, rāga, dveṣa, abhiniveśa), which II.5 will treat as a deeper, more chronic form of the same basic mistake.",
     "keyPoints": [
@@ -110,6 +128,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.9",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "śabda-jñānānupātī vastu-śūnyo vikalpaḥ",
+    "conceptIds": [
+      "viparyaya-vikalpa-nidra-smriti"
+    ],
     "translation": "Imagination consists of the usage of words that are devoid of an actual object.",
     "commentary": "Vikalpa names meaningful language that has no corresponding physical reality — 'the sun rises,' 'time flies,' or philosophical constructions like 'the essence of puruṣa,' which technically implies a false distinction between an owner and its possession. Unlike error, a vikalpa isn't a mistake anyone corrects; unlike valid knowledge, it doesn't describe an actual object — yet it still produces a genuine, communicable impression in the mind, which is why Patañjali treats it as a distinct category of vṛtti rather than folding it into error.",
     "keyPoints": [
@@ -122,6 +143,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.10",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "abhāva-pratyayālambanā vṛttir nidrā",
+    "conceptIds": [
+      "viparyaya-vikalpa-nidra-smriti"
+    ],
     "translation": "Deep sleep is that state of mind which is based on an absence [of any content].",
     "commentary": "Nidrā here means deep, dreamless sleep specifically (dreams belong to memory/vṛtti-activation, not this category) — and the Yoga school, against the Vedāntins, insists it is a real vṛtti, since one remembers on waking whether one slept well or poorly, and memory requires a prior saṁskāra. In deep sleep tamas fully covers the mind's sattva, and puruṣa remains conscious only of undifferentiated darkness — importantly showing that consciousness itself is never switched off, even when its object is nothing but tamas.",
     "keyPoints": [
@@ -135,6 +159,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.11",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "anubhūta-viṣayāsampramoṣaḥ smṛtiḥ",
+    "conceptIds": [
+      "viparyaya-vikalpa-nidra-smriti"
+    ],
     "translation": "Memory is the nonloss [retention] of an experienced object [or sense field].",
     "commentary": "Memory is the retrieval of a saṁskāra without any of it being lost or distorted — every experience deposits an imprint in the citta, and smṛti is what happens when that specific imprint later resurfaces as a mental image. Together with sleep, this completes the fivefold catalogue of vṛttis first announced in I.5; Patañjali next turns, in I.12, to how all five are stilled.",
     "keyPoints": [
@@ -163,6 +190,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.13",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "tatra sthitau yatno 'bhyāsaḥ",
+    "conceptIds": [
+      "abhyasa-svarupa"
+    ],
     "translation": "From these, practice is the effort to be fixed in concentrating the mind.",
     "commentary": "Abhyāsa is defined as effort — Vyāsa is explicit that a controlled mind does not simply happen on its own, and pairs the term with enthusiasm and vigor. Vācaspati Miśra reads the 'sādhana' this effort applies to as the eight limbs of Chapters II-III: practice, in other words, is sustained work at a concrete, structured discipline, not a vague intention.",
     "keyPoints": [
@@ -175,6 +205,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.14",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "sa tu dīrgha-kāla-nairantarya-satkārāsevito dṛḍha-bhūmiḥ",
+    "conceptIds": [
+      "abhyasa-svarupa"
+    ],
     "translation": "Practice becomes firmly established when it has been cultivated uninterruptedly and with devotion over a prolonged period of time.",
     "commentary": "Three conditions make practice firm: nairantarya (no interruption), dīrgha-kāla (a long time — potentially lifetimes, per Gītā VI.45), and satkāra (devotion, not half-hearted effort). Bryant develops Vācaspati Miśra's 'highway robbers' image into a garden metaphor: sattva is a cultivated flowerbed, rajas and tamas are weeds that never actually die, only go dormant — the moment tending stops, they resurface, which is offered as the mechanism behind gurus whose early, genuine practice is later undone by long-dormant saṁskāras resurfacing once vigilance lapses.",
     "keyPoints": [
@@ -188,6 +221,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.15",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "dṛṣṭānuśravika-viṣaya-vitṛṣṇasya vaśīkāra-saṁjñā vairāgyam",
+    "conceptIds": [
+      "vairagya-para"
+    ],
     "translation": "Dispassion is the controlled consciousness of one who is without craving for sense objects, whether these are actually perceived, or described [in scripture].",
     "commentary": "Vairāgya is defined as indifference to sense objects — not suppression of desire but genuine unconcern whether the object is present or absent; Vyāsa specifically warns that excessive, showy rejection of objects can itself signal a hidden attachment being overcompensated for. The scope is deliberately broad: dispassion covers not just ordinary worldly pleasures (dṛṣṭa) but also the heavenly rewards described in scripture (ānuśravika) — implicitly critiquing Vedic ritualism's promise of celestial enjoyment as still just another, subtler form of the same bondage, since even heavenly merit eventually runs out and forces a return to earthly rebirth.",
     "keyPoints": [
@@ -233,6 +269,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.18",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "virāma-pratyayābhyāsa-pūrvaḥ saṁskāra-śeṣo 'nyaḥ",
+    "conceptIds": [
+      "samadhi-types"
+    ],
     "translation": "The other [samādhi] is preceded by the practice of cognitive cessation, in which only latent impressions remain.",
     "commentary": "This is asamprajñāta-samādhi, the deeper state introduced already in I.2-3 — beyond even the subtlest object of samprajñāta-samādhi (asmitā), where all cognitive content ceases entirely and only dormant saṁskāras remain, unmanifest. This state, unlike samprajñāta-samādhi, has no object at all; it is the direct, contentless abiding of puruṣa in its own nature that I.3 already described.",
     "keyPoints": [
@@ -245,6 +284,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.19",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "bhava-pratyayo videha-prakṛti-layānām",
+    "conceptIds": [
+      "shraddha-virya-path"
+    ],
     "translation": "For the videhas [the discarnate] and the prakṛti-layas [those absorbed into prakṛti], [this cessation of the mind] is caused by [their] nature [alone, without effort or technique].",
     "commentary": "A cautionary aside: some beings — the videhas (disincarnate beings who, at death, mistake the temporary cessation of sensory vṛttis for actual liberation) and the prakṛti-layas (those who, through deep meditation, merge temporarily into unmanifest prakṛti) — experience a state resembling asamprajñāta-samādhi, but caused merely by their nature or circumstance, not by the genuine discriminative knowledge I.16 describes. Since this resemblance is not real liberation, these beings eventually fall back into embodied existence once the temporary condition ends — a warning against mistaking any deep, contentless mental stillness for the real thing.",
     "keyPoints": [
@@ -257,6 +299,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.20",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "śraddhā-vīrya-smṛti-samādhi-prajñā-pūrvaka itareṣām",
+    "conceptIds": [
+      "shraddha-virya-path"
+    ],
     "translation": "[But] for others, [the state where only subconscious impressions remain] is preceded by faith, vigor, memory, samādhi absorption, and discernment.",
     "commentary": "In contrast to the videhas and prakṛti-layas of I.19, ordinary yogīs reach genuine asamprajñāta-samādhi through a real sequence: śraddhā (faith, which generates enthusiasm), vīrya (vigor, sustained effort), smṛti (mindful recollection of the goal), samādhi (progressively deepening concentration), and prajñā (the discriminative wisdom that finally arises from it). This ordered path is real practice, as opposed to the accidental, temporary resemblance described in the previous sūtra.",
     "keyPoints": [
@@ -269,6 +314,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.21",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "tīvra-saṁvegānām āsannaḥ",
+    "conceptIds": [
+      "shraddha-virya-path"
+    ],
     "translation": "[Samādhi] is nearest to those whose intensity [of practice] is most keen.",
     "commentary": "A direct statement of a natural law of practice: results correlate with intensity of effort. The more forceful and thoroughgoing one's abhyāsa and vairāgya, the sooner samādhi is attained — a principle Patañjali immediately qualifies in the next sūtra by distinguishing degrees of that intensity itself.",
     "keyPoints": [
@@ -280,6 +328,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.22",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "mṛdu-madhyādhimātratvāt tato 'pi viśeṣaḥ",
+    "conceptIds": [
+      "shraddha-virya-path"
+    ],
     "translation": "There is a further differentiation [of nearness] because of mild, moderate, or intense [degrees of practice].",
     "commentary": "Even 'intense practice' from I.21 admits further gradation — mild, moderate, and intense — and later commentators (though not Patañjali directly here) cross this with the intensity scale itself to produce nine total grades of practitioner, from mildly-mild to intensely-intense. The point is practical rather than technical: readers should not be discouraged by slow initial progress, since even mild but genuine practice is on the same continuum as the most intense, simply earlier along it.",
     "keyPoints": [
@@ -323,6 +374,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.25",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "tatra niratiśāyaṃ sarvajña-bījam",
+    "conceptIds": [
+      "ishvara"
+    ],
     "translation": "In him, the seed of omniscience is unsurpassed.",
     "commentary": "Even omniscience, which by definition should admit no degrees, is said here to have degrees — Īśvara's is simply the unsurpassed limit of it, the ability to know everything, individual or collective, past, present, and future, without exception.",
     "keyPoints": [
@@ -334,6 +388,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.26",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "sa pūrveṣām api guruḥ kālenānavacchedāt",
+    "conceptIds": [
+      "ishvara"
+    ],
     "translation": "Being unconditioned by time, he is the teacher even of the ancients.",
     "commentary": "Because Īśvara is beyond time altogether, he could instruct even the most ancient sages — there is no point in the past before which Īśvara did not already exist to teach. This grounds the traditional claim that all authentic teaching, however far back it is traced, ultimately originates with him.",
     "keyPoints": [
@@ -360,6 +417,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.28",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "taj-japas tad-artha-bhāvanam",
+    "conceptIds": [
+      "om-pranava"
+    ],
     "translation": "Its repetition and the contemplation of its meaning [should be performed].",
     "commentary": "The practical instruction: repeat oṃ (japa) while dwelling on its meaning, Īśvara, again and again. Commentators read this together with I.23's praṇidhāna (devotion) as pointing to devotional recitation rather than a neutral mental exercise — Vācaspati Miśra and Vijñānabhikṣu both describe this practice as culminating, for most yogīs historically, in direct perception of the Lord himself, not merely in calm concentration.",
     "keyPoints": [
@@ -372,6 +432,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.29",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "tataḥ pratyak-cetanādhigamo 'py antarāyābhāvāś ca",
+    "conceptIds": [
+      "om-pranava"
+    ],
     "translation": "From this comes the realization of the inner consciousness and freedom from all disturbances.",
     "commentary": "The fruit of I.28's practice: direct realization of one's own puruṣa (by Īśvara's grace, a benediction repeated at II.45), together with freedom from the very obstacles I.30 is about to catalogue. Vyāsa notes the ordinary puruṣa shares Īśvara's essential qualities — pure, peaceful, independent, unchanging — so that realizing Īśvara and realizing one's own true self are, on this devotional reading, deeply intertwined rather than separate achievements.",
     "keyPoints": [
@@ -386,7 +449,8 @@ export const yogaSutrasEn: any[] = [
     "iast": "vyādhi-styāna-saṃśaya-pramādālasyāvirati-bhrānti-darśanālabdha-bhūmikatvānavasthitatvāni citta-vikṣepās te 'ntarāyāḥ",
     "diagramId": "antarayas",
     "conceptIds": [
-      "antarayas"
+      "antarayas",
+      "nava-antaraya"
     ],
     "translation": "These disturbances are disease, idleness, doubt, carelessness, sloth, lack of detachment, misapprehension, failure to attain a base for concentration, and instability. They are distractions for the mind.",
     "commentary": "Nine specific antarāyas (disturbances, distinct from the deeper, more permanent kleśas of II.3) that accompany the vṛttis and must be removed for citta-vṛtti-nirodha to occur — from disease (an āyurvedic imbalance of the bodily humors) through idleness, doubt, carelessness, sloth, lingering attachment, misapprehension, and finally the inability either to reach or to hold a state of concentration.",
@@ -415,6 +479,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.32",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "tat-pratiṣedhārtham eka-tattvābhyāsaḥ",
+    "conceptIds": [
+      "citta-sthiti-upaya"
+    ],
     "translation": "Practice [of fixing the mind] on one object [should be performed] in order to eliminate these disturbances.",
     "commentary": "The remedy for I.30-31's disturbances: sustained practice on a single chosen object — commentators generally read this as continuing the Īśvara-focused meditation of I.23-29, since it directly follows the promise in I.29 that devotion to Īśvara removes these very obstacles. Vyāsa uses this sūtra as the springboard for a lengthy defense of an enduring citta against the Buddhist doctrine of momentariness (kṣaṇikavāda) — arguing that without some permanent substratum of mind, notions like memory, the transfer of karma across a lifetime, and even the very idea of a 'distracted' mind needing to be concentrated, become incoherent.",
     "keyPoints": [
@@ -427,6 +494,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.33",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "maitrī-karuṇā-muditopekṣāṇāṃ sukha-duḥkha-puṇyāpuṇya-viṣayāṇāṃ bhāvanātaś citta-prasādanam",
+    "conceptIds": [
+      "chitta-prasadana"
+    ],
     "translation": "By cultivating an attitude of friendship toward those who are happy, compassion toward those in distress, joy toward those who are virtuous, and equanimity toward those who are nonvirtuous, lucidity arises in the mind.",
     "commentary": "These four attitudes correspond exactly to the four brahma-vihāras of Buddhist practice (mettā, karuṇā, muditā, upekkhā) — a genuine point of overlap between the two traditions despite their deep metaphysical disagreement (I.32). Vyāsa reads each attitude as dissolving a specific contaminant — friendship removes envy, compassion removes the desire to harm, equanimity removes intolerance — clearing the way for sattva, and with it, lucidity of mind; this is explicitly a 'mindfulness off the mat,' showing yoga as compatible with ordinary social engagement rather than requiring withdrawal from it.",
     "keyPoints": [
@@ -440,6 +510,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.34",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "pracchardana-vidhāraṇābhyāṃ vā prāṇasya",
+    "conceptIds": [
+      "citta-sthiti-upaya"
+    ],
     "translation": "Or [stability of mind is gained] by exhaling and retaining the breath.",
     "commentary": "The first of a series of sūtras (through I.39), each introduced by 'or,' offering alternative objects of concentration — different techniques suit different people, times, and places. Here: controlled exhalation (recaka) and breath retention (kumbhaka), a preview of the fuller prāṇāyāma technique formally placed as the fourth limb in II.29, offered here as usable even before the eight-limb structure is introduced.",
     "keyPoints": [
@@ -452,6 +525,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.35",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "viṣayavatī vā pravṛttir utpannā manasaḥ sthiti-nibandhanī",
+    "conceptIds": [
+      "citta-sthiti-upaya"
+    ],
     "translation": "Or else, focus on a sense object arises, and this causes steadiness of the mind.",
     "commentary": "Concentration on specific points of the body is said to yield supernormal sense experiences — divine smell from the tip of the nose, divine taste from the tip of the tongue, and so on — which Vyāsa values less for their own sake than for the confidence they build: a practitioner who personally verifies even one unusual scriptural claim through direct experience gains real, experiential grounds for trusting the tradition's larger claims, rather than relying on secondhand belief alone.",
     "keyPoints": [
@@ -464,6 +540,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.36",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "viśokā vā jyotiṣmatī",
+    "conceptIds": [
+      "citta-sthiti-upaya"
+    ],
     "translation": "Or [steadiness of mind is gained when] the mind is pain-free and luminous.",
     "commentary": "Two further options: concentration on the heart cakra, said to produce a luminosity comparable to sun, moon, and stars as the intelligence's inherent all-pervading, sāttvic nature manifests unobstructed by tamas; and concentration on the bare sense of 'I am' (asmitā) itself, distinct from the ego's ordinary outward-facing function, described as indirect awareness of puruṣa reflected through the sāttvic mind.",
     "keyPoints": [
@@ -476,6 +555,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.37",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "vīta-rāga-viṣayaṃ vā cittam",
+    "conceptIds": [
+      "citta-sthiti-upaya"
+    ],
     "translation": "Or [the mind becomes steady when it has] one who is free from desire as its object.",
     "commentary": "Meditating on the mind of a genuinely desireless teacher is said to tint one's own mind with that same purity — the basis of the guru-disciple relationship central to most Hindu spiritual lineages. Bryant pairs this directly with a caution: given the real history of guru scandals, the sūtra's qualifier — 'free from desire' — is not incidental, and he points to the Gītā's own criteria (steady in misfortune, free of passion and fear, equal in honor and dishonor) as a practical check against charismatic but compromised teachers.",
     "keyPoints": [
@@ -488,6 +570,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.38",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "svapna-nidrā-jñānālambanaṃ vā",
+    "conceptIds": [
+      "citta-sthiti-upaya"
+    ],
     "translation": "Or [the mind can become steady when it has] the knowledge attained from dreams and sleep as its support.",
     "commentary": "A further option: taking dream-content or the state of sleep itself as an object of meditation. Commentators read this multiple ways — dreaming of Īśvara as an extension of daytime devotional practice, or (a more Vedāntic reading) using the objectless quality of deep sleep, or the perishability everything in a dream displays, as an object lesson pointing toward detachment from the equally impermanent objects of waking life.",
     "keyPoints": [
@@ -499,6 +584,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.39",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "yathābhimata-dhyānād vā",
+    "conceptIds": [
+      "citta-sthiti-upaya"
+    ],
     "translation": "Or [steadiness of the mind is attained] from meditation upon anything of one's inclination.",
     "commentary": "Patañjali closes this run of options with striking openness: any object of one's own choosing will do, provided the mind actually fixes on it without distraction. Bryant highlights this sūtra as the textual basis for treating āsana (posture, the third limb) itself as a legitimate, self-sufficient object of meditation capable of producing samādhi — a reading central to how B.K.S. Iyengar and other modern teachers have approached physical practice, fully defensible within Patañjali's own permissive framework.",
     "keyPoints": [
@@ -511,6 +599,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.40",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "paramāṇu-parama-mahattvānto 'sya vaśīkāraḥ",
+    "conceptIds": [
+      "citta-sthiti-upaya"
+    ],
     "translation": "The yogī's mastery extends from the smallest particle of matter to the ultimate totality of matter.",
     "commentary": "A striking claim about the scope of yogic mastery once the mind is stabilized by any of the preceding methods: since citta is potentially all-pervading (a principle central to the extraordinary powers, siddhis, catalogued in Chapter III), the accomplished yogī's mind can enter and know anything at all, from the subtlest subatomic particle to the totality of manifest matter.",
     "keyPoints": [
@@ -599,6 +690,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.46",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "tā eva sa-bījaḥ samādhiḥ",
+    "conceptIds": [
+      "samapatti-sabija"
+    ],
     "translation": "These above-mentioned samāpatti states are [known as] samādhi meditative absorption 'with seed.'",
     "commentary": "All four states just described — savitarka, nirvitarka, savicāra, nirvicāra — are collectively called sabīja (seeded) samādhi, because each still has some object, gross or subtle, as its focus. This is the same set of states named samprajñāta-samādhi back in I.17 — two names for one thing, viewed from different angles (with an object, vs. with full cognitive engagement).",
     "keyPoints": [
@@ -611,6 +705,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.47",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "nirvicāra-vaiśāradye 'dhyātma-prasādaḥ",
+    "conceptIds": [
+      "ritambhara-nirbija"
+    ],
     "translation": "Upon attaining the clarity of nirvicāra-samādhi, there is lucidity of the inner self.",
     "commentary": "At the peak of nirvicāra, sattva flows in the citta with total, unbroken clarity, and this produces a flash of illuminating insight — not gradual reasoning but instant recognition of things as they truly are. Vyāsa's memorable image: like someone who has climbed a mountain and can now see the whole plain below, the yogī who reaches this clarity becomes free from suffering while now clearly seeing that everyone else remains caught in it.",
     "keyPoints": [
@@ -623,6 +720,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.48",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "ṛtam-bharā tatra prajñā",
+    "conceptIds": [
+      "ritambhara-nirbija"
+    ],
     "translation": "In that state, there is truth-bearing wisdom.",
     "commentary": "Ṛta, an old Vedic term for the underlying cosmic order, names the specific quality of the wisdom (prajñā) that arises here — knowledge with no admixture of error whatsoever. Hariharānanda makes the practical point that knowing, from scripture or logic, that the self is distinct from the body doesn't itself relieve suffering; only when that knowledge is realized directly through meditation does it become the kind of lucidity that actually changes anything.",
     "keyPoints": [
@@ -635,6 +735,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.49",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "śrutānumāna-prajñābhyām anya-viṣayā viśeṣārthatvāt",
+    "conceptIds": [
+      "ritambhara-nirbija"
+    ],
     "translation": "It [seedless samādhi] has a different focus from that of inference and sacred scripture, because it has the particularity of things as its object.",
     "commentary": "Scripture and inference, like all language-based knowledge, can only describe things generically — 'cow' names an entire species, never the specific, unrepeatable individuality of one particular cow, down to its exact atomic composition. Samādhi-born wisdom is different in kind: it grasps viśeṣa, the actual particularity of a thing, directly — which is why Patañjali will later claim (IV.14) that a yogī can perceive real differences between two objects that look, to ordinary perception, identical.",
     "keyPoints": [
@@ -647,6 +750,9 @@ export const yogaSutrasEn: any[] = [
     "number": "I.50",
     "section": "Samādhi Pāda — Meditative Absorption",
     "iast": "taj-jaḥ saṃskāro 'nya-saṃskāra-pratibandhī",
+    "conceptIds": [
+      "ritambhara-nirbija"
+    ],
     "translation": "The saṃskāras born out of that [truth-bearing wisdom] obstruct other saṃskāras [from emerging].",
     "commentary": "Even truth-bearing wisdom (I.48) leaves its own saṃskāras — but instead of provoking new thought, these specifically function to block the activation of the mind's ordinary saṃskāras, in a virtuous cycle: wisdom-saṃskāras suppress ordinary ones, which deepens samādhi, which produces more wisdom-saṃskāras. Vijñānabhikṣu's compared image: a thorn used to remove another thorn, after which both are discarded — since even these beneficial saṃskāras must eventually be surpassed too, in the final sūtra.",
     "keyPoints": [
@@ -721,6 +827,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.4",
     "section": "Sādhana Pāda — Practice",
     "iast": "avidyā kṣetram uttareṣāṃ prasupta-tanu-vicchinnodārāṇām",
+    "conceptIds": [
+      "five-klesas"
+    ],
     "translation": "Ignorance is the breeding ground of the other kleśas, whether they are in a dormant, weak, intermittent, or fully activated state.",
     "commentary": "Avidyā is the soil every other kleśa grows from — Śaṅkara's image: land supporting bushes, creepers, and grass. Patañjali names four states any kleśa (other than avidyā itself, which is never dormant) can be in: dormant (a latent seed), weakened (through conscious counter-cultivation, e.g. via kriyā-yoga), intermittent (temporarily suppressed by an opposing kleśa currently active, like attachment briefly displacing aversion), or fully activated. Vyāsa adds a fifth, unlisted state — 'burnt,' where a kleśa has lost all power to sprout, like a parched seed that looks whole but cannot germinate — reserved for the accomplished yogī.",
     "keyPoints": [
@@ -809,6 +918,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.10",
     "section": "Sādhana Pāda — Practice",
     "iast": "te pratiprasava-heyāḥ sūkṣmāḥ",
+    "conceptIds": [
+      "five-klesas"
+    ],
     "translation": "These kleśas are subtle; they are destroyed when [the mind] dissolves back into its original matrix.",
     "commentary": "Even 'burnt' kleśas (II.4) still technically exist, dormant like an empty seed-husk, as long as the yogī's mind remains active; their absolute final dissolution happens only when that mind itself dissolves back into prakṛti at the liberated yogī's death. Hariharānanda ties this precisely to the samprajñāta/asamprajñāta distinction: in samprajñāta-samādhi a faint trace of ego persists (the mind is still 'thinking,' even beneficial thoughts), so the mind — and its burnt-seed kleśas — aren't yet ready to dissolve completely.",
     "keyPoints": [
@@ -882,6 +994,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.15",
     "section": "Sādhana Pāda — Practice",
     "iast": "pariṇāma-tāpa-saṃskāra-duḥkhair guṇa-vṛtti-virodhāc ca duḥkham eva sarvaṃ vivekinaḥ",
+    "conceptIds": [
+      "heya-heyahetu"
+    ],
     "translation": "For one who has discrimination, everything is suffering on account of the suffering produced by the consequences [of action], by pain [itself], and by the saṃskāras, as well as on account of the suffering ensuing from the turmoil of the vṛttis due to the guṇas.",
     "commentary": "This sūtra is the pivot of the entire chapter: to the discriminating person (vivekin), literally everything is duḥkha — not just obvious pain, but even ordinary pleasure, for four converging reasons. Pariṇāma: pleasure is inherently transient, and its very passing generates frustration. Tāpa: the three-fold suffering (from body/mind, other beings, and nature — the same classification opening the Sāṃkhya Kārikā) accompanies all pursuit of pleasure. Saṃskāra: every pleasurable experience deposits a craving-imprint that perpetuates the pursuit. And guṇa-vṛtti conflict: since the guṇas are always shifting, the mind can never rest in stable satisfaction. Bryant notes this exactly parallels Buddhism's First Noble Truth (sarvaṃ duḥkham) using the identical Sanskrit phrase, though the two traditions diverge sharply on what, if anything, remains once this suffering ends.",
     "keyPoints": [
@@ -895,6 +1010,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.16",
     "section": "Sādhana Pāda — Practice",
     "iast": "heyaṃ duḥkham anāgatam",
+    "conceptIds": [
+      "heya-heyahetu"
+    ],
     "translation": "Suffering that has yet to manifest is to be avoided.",
     "commentary": "Past suffering is already over, present suffering is already fructifying — only future suffering, whose causes lie seeded in the present, can actually be averted, which is precisely why the text now turns (II.17) to identifying that cause.",
     "keyPoints": [
@@ -922,6 +1040,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.18",
     "section": "Sādhana Pāda — Practice",
     "iast": "prakāśa-kriyā-sthiti-śīlaṃ bhūtendriyātmakam bhogāpavargārthaṃ dṛśyam",
+    "conceptIds": [
+      "drishya-guna-parva"
+    ],
     "translation": "That which is knowable has the nature of illumination, activity, and inertia [sattva, rajas, and tamas]. It consists of the senses and the elements, and exists for the purpose of [providing] either liberation or experience [to puruṣa].",
     "commentary": "Everything knowable — the elements and the senses alike — is built from the three guṇas and exists for exactly one of two purposes: providing puruṣa either experience (bhoga) or liberation (apavarga), echoing Sāṃkhya Kārikā XVII/XXI/XXXI directly. Vyāsa raises a sharp question: since experience and liberation are strictly functions of buddhi, how can either be 'imposed' on puruṣa at all? His answer — the way a general is credited with a battle's victory or defeat though he only witnessed it — both bondage and liberation are, properly, states of buddhi, merely attributed to puruṣa by mistaken identification.",
     "keyPoints": [
@@ -949,6 +1070,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.20",
     "section": "Sādhana Pāda — Practice",
     "iast": "draṣṭā dṛśi-mātraḥ śuddho 'pi pratyayānupaśyaḥ",
+    "conceptIds": [
+      "drashtr-drishya-samyoga"
+    ],
     "translation": "The seer is merely the power of seeing; [however,] although pure, he witnesses the images of the mind.",
     "commentary": "Puruṣa is neither identical to buddhi (buddhi changes constantly, has external objects, is inert; puruṣa is changeless, self-sufficient, conscious) nor wholly separate from it in practice, since by witnessing buddhi's transformations, puruṣa's awareness seems to take on their coloring — the way the moon's reflection ripples on disturbed water though the moon itself stays motionless. Hariharānanda's argument for puruṣa's reality: the 'I' that knows remains constant across every changing thought and self-conception buddhi ever presents — that persistent 'I' is exactly what the argument points to.",
     "keyPoints": [
@@ -1005,6 +1129,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.24",
     "section": "Sādhana Pāda — Practice",
     "iast": "tasya hetur avidyā",
+    "conceptIds": [
+      "drashtr-drishya-samyoga"
+    ],
     "translation": "The cause of conjunction is ignorance.",
     "commentary": "Directly answering II.23: avidyā (in the specific sense of saṃskāras of ignorance carried over, cycle after cosmic cycle) is what causes puruṣa and buddhi to remain conjoined. Vyāsa anticipates an objection — if intelligence can't grant liberation while active, why believe it will after going inactive? — and answers that intelligence's 'grand finale' is exactly this: producing discrimination, which destroys ignorance, which then makes intelligence's continued activity unnecessary. Intelligence is thus the indirect, not direct, cause of liberation.",
     "keyPoints": [
@@ -1017,6 +1144,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.25",
     "section": "Sādhana Pāda — Practice",
     "iast": "tad-abhāvāt saṃyogābhāvo hānaṃ tad-dṛśeḥ kaivalyam",
+    "conceptIds": [
+      "hana-viveka-saptadha"
+    ],
     "translation": "By the removal of ignorance, conjunction is removed. This is the absolute freedom of the seer.",
     "commentary": "The third of the chapter's four-part structure (echoing the Four Noble Truths): the actual state of liberation. When ignorance is fully removed, puruṣa's conjunction with buddhi ends permanently — puruṣa is 'established in its own true nature.' Bryant notes kaivalya (usually 'aloneness') might be better rendered 'wholeness,' since puruṣa isn't diminished by the separation but restored to its complete, autonomous nature.",
     "keyPoints": [
@@ -1028,6 +1158,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.26",
     "section": "Sādhana Pāda — Practice",
     "iast": "viveka-khyātir aviplavā hānopāyaḥ",
+    "conceptIds": [
+      "hana-viveka-saptadha"
+    ],
     "translation": "The means to liberation is uninterrupted discriminative discernment.",
     "commentary": "The fourth part of the structure: the actual means. Viveka-khyāti (discrimination between buddhi and puruṣa) begins shaky, disrupted by the ongoing pull of ignorance-saṃskāras, and only becomes steady and 'undeviating' (aviplavā) once those saṃskāras are burnt like parched seeds through sustained practice. Vyāsa's sequence: discrimination first awakens through study of sacred texts, strengthens through prolonged reverent contemplation, and matures through the practice of yoga outlined in the coming sūtras.",
     "keyPoints": [
@@ -1040,6 +1173,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.27",
     "section": "Sādhana Pāda — Practice",
     "iast": "tasya saptadhā prānta-bhūmiḥ prajñā",
+    "conceptIds": [
+      "hana-viveka-saptadha"
+    ],
     "translation": "The yogī's true insight has seven ultimate stages.",
     "commentary": "Patañjali names seven stages of final insight without defining them, implying his audience already knew the scheme — real evidence the sūtras were composite reference notes, not a self-contained originary text. Vyāsa's list: (1) suffering is fully known, nothing more to know, (2) its causes are fully eradicated, (3) their removal is directly realized in nirodha-samādhi, (4) the means to that removal (discrimination) is attained — these four accomplished through personal effort; then (5) intelligence, having fulfilled its purpose, becomes redundant, (6) the guṇas' effects dissolve back into prakṛti like boulders losing their mountain support, and (7) puruṣa shines forth in its own nature, kaivalya — these three arising spontaneously, beyond further effort.",
     "keyPoints": [
@@ -1052,6 +1188,10 @@ export const yogaSutrasEn: any[] = [
     "number": "II.28",
     "section": "Sādhana Pāda — Practice",
     "iast": "yogāṅgānuṣṭhānād aśuddhi-kṣaye jñāna-dīptir-āviveka-khyāteḥ",
+    "conceptIds": [
+      "hana-viveka-saptadha",
+      "eight-limbs"
+    ],
     "translation": "Upon the destruction of impurities as a result of the practice of yoga, the lamp of knowledge arises. This culminates in discriminative discernment.",
     "commentary": "This sūtra bridges the philosophical analysis of II.1-27 to the concrete eight-limb practice that follows: the means to achieve viveka-khyāti (II.26) is the eight-limbed path, aṅga by aṅga destroying the impurities of rajas and tamas until sattva's natural clarity — and with it, discrimination itself — can shine through unimpeded, 'like the sun after the cold season.' Bryant notes many scholars read a real seam here (Patañjali never explains how kriyā-yoga's three ingredients relate to the niyamas that reuse two of the same terms), likely evidence that Patañjali is systematizing at least two older, only partly-merged traditions rather than composing from scratch.",
     "keyPoints": [
@@ -1096,6 +1236,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.31",
     "section": "Sādhana Pāda — Practice",
     "iast": "jāti-deśa-kāla-samayānavacchinnāḥ sārva-bhaumā mahā-vratam",
+    "conceptIds": [
+      "yama-mahavrata"
+    ],
     "translation": "[These yamas] are considered the great vow. They are not exempted by one's class, place, time, or circumstance. They are universal.",
     "commentary": "An unusually emphatic sūtra: the yamas admit no exceptions whatsoever — not for one's caste-sanctioned occupation (a fisherman's trade, a warrior's battlefield violence), not for place, not for religious calendar, not for ritual context (even Vedic sacrifice, which permitted animal offerings). Bryant notes this directly distinguishes Patañjali's ascetic yoga path from the Gītā's karma-yoga, which asks Arjuna to perform his socially-sanctioned violent duty as a warrior — what's required in a civic role must be renounced entirely on the yogic path, with zero negotiation.",
     "keyPoints": [
@@ -1124,6 +1267,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.33",
     "section": "Sādhana Pāda — Practice",
     "iast": "vitarka-bādhane pratipakṣa-bhāvanam",
+    "conceptIds": [
+      "niyama-pratipaksha"
+    ],
     "translation": "Upon being harassed by negative thoughts, one should cultivate counteracting thoughts.",
     "commentary": "A genuinely reassuring sūtra: Patañjali says 'when,' not 'if,' negative thoughts arise — they are simply old saṃskāras of past indulgence surfacing, inevitable in any embodied mind still subject to the guṇas. The remedy isn't self-recrimination but active substitution: deliberately cultivating the opposite thought. Bryant reads this as a genuine form of mindfulness practice — each time a rājasic or tāmasic impulse is consciously met with its sāttvic opposite, a new saṃskāra is laid down, gradually reshaping the citta's overall texture the way patient weeding eventually lets a flowerbed dominate over weeds.",
     "keyPoints": [
@@ -1136,6 +1282,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.34",
     "section": "Sādhana Pāda — Practice",
     "iast": "vitarkā hiṃsādayaḥ kṛta-kāritānumoditā lobha-krodha-moha-pūrvakā mṛdu-madhyādhi-mātrā duḥkhājñānānanta-phalā iti pratipakṣabhāvanam",
+    "conceptIds": [
+      "niyama-pratipaksha"
+    ],
     "translation": "Negative thoughts are violence, etc. They may be [personally] performed, performed on one's behalf by another, or authorized by oneself; they may be triggered by greed, anger, or delusion; and they may be slight, moderate, or extreme in intensity. One should cultivate counteracting thoughts, namely, that the end results [of negative thoughts] are ongoing suffering and ignorance.",
     "commentary": "A precise taxonomy of how a violation (violence, taken as the representative example) can occur: done oneself, commissioned from another, or merely condoned; driven by greed, anger, or delusion; at three degrees of intensity — Vyāsa multiplies this out to eighty-one theoretical sub-varieties. Bhoja Rāja is explicit that condoning counts exactly as much as doing: buying meat someone else killed carries the same karmic weight as killing it oneself, closing off the obvious loophole. The prescribed remedy is simply II.33's method applied specifically: reflecting that every such thought ultimately breeds suffering and deeper ignorance for its originator.",
     "keyPoints": [
@@ -1149,6 +1298,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.35",
     "section": "Sādhana Pāda — Practice",
     "iast": "ahiṃsā-pratiṣṭhāyāṃ tat-sannidhau vaira-tyāgaḥ",
+    "conceptIds": [
+      "yama-siddhi-phala"
+    ],
     "translation": "In the presence of one who is established in nonviolence, enmity is abandoned.",
     "commentary": "The first of a run of sūtras (through II.45) describing the specific powers that accrue from perfecting each yama and niyama. Perfected ahiṃsā is said to radiate outward, pacifying even natural enemies (cat and mouse, snake and mongoose) in the yogī's presence — a motif echoed across traditions, from Chaitanya's hagiography to Saint Francis and the wolf of Gubbio. Hariharānanda adds a technical nuance: perfecting the yamas isn't finished by the yamas alone — dhāraṇā (the fifth limb) is what roots out subtler, less visible forms of violence that ordinary vigilance misses.",
     "keyPoints": [
@@ -1161,6 +1313,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.36",
     "section": "Sādhana Pāda — Practice",
     "iast": "satya-pratiṣṭhāyāṃ kriyā-phalāśrayatvam",
+    "conceptIds": [
+      "yama-siddhi-phala"
+    ],
     "translation": "When one is established in truthfulness, one ensures the fruition of actions.",
     "commentary": "Vyāsa's striking claim: a yogī perfected in satya has words that simply come true — if such a person says 'be virtuous' to someone fit to hear it, they become so. Vijñānabhikṣu and Hariharānanda both qualify this: the power isn't magic wielded carelessly, but the natural weight a person's word carries once every trace of self-interested manipulation has genuinely been removed from it — precisely the quality that makes such a person trustworthy enough to serve as a guru.",
     "keyPoints": [
@@ -1173,6 +1328,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.37",
     "section": "Sādhana Pāda — Practice",
     "iast": "asteya-pratiṣṭhāyāṃ sarva-ratnopasthānam",
+    "conceptIds": [
+      "yama-siddhi-phala"
+    ],
     "translation": "When one is established in refrainment from stealing, all jewels manifest.",
     "commentary": "Even Vācaspati Miśra found this one needing little comment ('this verse is easy!'). Hariharānanda's practical reading: perfected honesty radiates visible trustworthiness, so people freely offer their most valued things — material and otherwise — to a person they're confident will use them selflessly, rather than jewels literally appearing from nowhere.",
     "keyPoints": [
@@ -1184,6 +1342,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.38",
     "section": "Sādhana Pāda — Practice",
     "iast": "brahmacarya-pratiṣṭhāyāṃ vīrya-lābhaḥ",
+    "conceptIds": [
+      "yama-siddhi-phala"
+    ],
     "translation": "Upon the establishment of celibacy, power is attained.",
     "commentary": "Vīrya names both physical vigor and spiritual potency; commentators connect the celibate yogī's accumulated power directly to the mystic siddhis of Chapter III. Bryant links this to the āyurvedic concept of ojas, a subtle vital essence depleted by sexual overindulgence and conserved by brahmacarya — illustrated with the Mahābhārata story of Bhīṣma, whose lifelong vow of celibacy (taken to free his father to remarry) contributed to making him the near-invincible warrior of his generation.",
     "keyPoints": [
@@ -1196,6 +1357,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.39",
     "section": "Sādhana Pāda — Practice",
     "iast": "aparigraha-sthairye janma-kathantā-sambodhaḥ",
+    "conceptIds": [
+      "yama-siddhi-phala"
+    ],
     "translation": "When refrainment from covetousness becomes firmly established, knowledge of the whys and wherefores of births manifests.",
     "commentary": "Perfected non-covetousness — including non-attachment even to one's own body, the basic instrument of enjoyment — is said to reveal direct knowledge of one's past and future births and the precise karmic chain connecting them. Bhoja Rāja's explanation: ordinary desire for enjoyment keeps consciousness directed outward; once that outward pull relaxes, awareness can turn inward onto the citta's own full store of saṃskāras, including those from previous lives.",
     "keyPoints": [
@@ -1208,6 +1372,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.40",
     "section": "Sādhana Pāda — Practice",
     "iast": "śaucāt svāṅga-jugupsā parair asaṃsargaḥ",
+    "conceptIds": [
+      "niyama-phala"
+    ],
     "translation": "By cleanliness, one develops distaste for one's own body and the cessation of contact with others.",
     "commentary": "Meditating honestly on the body's actual constituents — never fully clean no matter how it's washed — is said to dissolve erotic fascination with bodies, one's own and others'. Vyāsa's underlying question: if a yogī seeks to free puruṣa from bodily identification, how could that same yogī pursue intimate contact with another, equally unclean, body? Bryant is careful to note this doesn't preclude appreciating the body in nonerotic ways — as a vehicle for practice, not an erotic object.",
     "keyPoints": [
@@ -1220,6 +1387,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.41",
     "section": "Sādhana Pāda — Practice",
     "iast": "sattva-śuddhi-saumanasyaikāgryendriya-jayātma-darśana-yogyatvāni ca",
+    "conceptIds": [
+      "niyama-phala"
+    ],
     "translation": "Upon the purification of the mind, one attains cheerfulness, one-pointedness, sense control, and fitness to perceive the self.",
     "commentary": "Vyāsa reads a chronological chain here: cleanliness purifies the mind (sattva), which yields cheerfulness, which yields one-pointedness, which yields automatic sense-control, which finally qualifies the yogī to perceive the ātman — each step a natural consequence of the one before, rather than five separate, unrelated attainments.",
     "keyPoints": [
@@ -1231,6 +1401,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.42",
     "section": "Sādhana Pāda — Practice",
     "iast": "santoṣād anuttamaḥ sukha-lābhaḥ",
+    "conceptIds": [
+      "niyama-phala"
+    ],
     "translation": "From contentment, the highest happiness is attained.",
     "commentary": "Vyāsa quotes a verse holding that all worldly and even celestial pleasure combined doesn't amount to a sixteenth of the happiness that comes from the mere cessation of desire itself. This sāttvic happiness, unlike pleasure tied to external objects, is inherent in a tranquil mind and doesn't depend on anything outside it — which is why it's called anuttama, unsurpassed.",
     "keyPoints": [
@@ -1242,6 +1415,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.43",
     "section": "Sādhana Pāda — Practice",
     "iast": "kāyendriya-siddhir aśuddhi-kṣayāt tapasaḥ",
+    "conceptIds": [
+      "niyama-phala"
+    ],
     "translation": "From austerity, on account of the removal of impurities, the perfection of the senses and body manifests.",
     "commentary": "Tapas, ascetic self-discipline dating back to the Vedic Brāhmaṇas, is said to burn away the impure covering of rajas and tamas until the siddhis (mystic powers, catalogued fully in Chapter III) begin to manifest. Hariharānanda notes jñānīs (followers of the path of knowledge) generally don't develop these powers, since they cultivate discrimination and renunciation rather than austerity — siddhis are specifically tapas's by-product.",
     "keyPoints": [
@@ -1285,6 +1461,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.46",
     "section": "Sādhana Pāda — Practice",
     "iast": "sthira-sukham āsanam",
+    "conceptIds": [
+      "asana-pranayama"
+    ],
     "translation": "Posture should be steady and comfortable.",
     "commentary": "Patañjali devotes strikingly little space to āsana — three sūtras, eight words total, under one percent of the whole text — likely because dedicated texts on posture already existed separately (Vyāsa names eleven, adding 'etc.'). Āsana's entire purpose here is instrumental: a steady, comfortable seat that stops the body from distracting the mind during meditation, not an end in itself — Śaṅkara quotes a verse warning that mastering postures alone does not itself produce the goals of yoga.",
     "keyPoints": [
@@ -1297,6 +1476,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.47",
     "section": "Sādhana Pāda — Practice",
     "iast": "prayatna-śaithilyānanta-samāpattibhyām",
+    "conceptIds": [
+      "asana-pranayama"
+    ],
     "translation": "Posture is attained by the relaxation of effort and by absorption in the infinite.",
     "commentary": "Perfect āsana occurs when all bodily strain dissolves through relaxation (śaithilya) and the mind becomes absorbed in something boundless (ananta) — some commentators read this as a reference to Ananta, the cosmic serpent on whom Viṣṇu reclines, and whom tradition holds Patañjali himself to be an incarnation of. The essential point: the body should become so relaxed the yogī stops being conscious of it at all.",
     "keyPoints": [
@@ -1309,6 +1491,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.48",
     "section": "Sādhana Pāda — Practice",
     "iast": "tato dvandvānabhighātaḥ",
+    "conceptIds": [
+      "asana-pranayama"
+    ],
     "translation": "From this, one is not afflicted by the dualities of the opposites.",
     "commentary": "Once āsana is truly mastered, the yogī stops registering the body's ordinary sensory dualities — hot and cold, and everything between — freeing attention entirely for meditation. This same language of transcending dualities recurs throughout the Gītā and the wider Vedānta tradition.",
     "keyPoints": [
@@ -1350,6 +1535,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.51",
     "section": "Sādhana Pāda — Practice",
     "iast": "bāhyābhyantara-viṣayākṣepī caturthaḥ",
+    "conceptIds": [
+      "asana-pranayama"
+    ],
     "translation": "The fourth type of prāṇāyāma surpasses the limits of the external and the internal.",
     "commentary": "A fourth, most advanced grade of breath-suspension, arising gradually through prolonged practice rather than a single deliberate effort, and no longer bound by the measured counting of the first three types — an adept of this stage, the commentators claim, can maintain breath-suspension at will for extended periods. Bryant notes similar accounts of suspended breathing appear across the Buddhist, Jain, and colonial-era Indian ascetic record, including well-documented cases of yogīs voluntarily buried alive for many days.",
     "keyPoints": [
@@ -1362,6 +1550,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.52",
     "section": "Sādhana Pāda — Practice",
     "iast": "tataḥ kṣīyate prakāśāvaraṇam",
+    "conceptIds": [
+      "asana-pranayama"
+    ],
     "translation": "Then, the covering of the illumination [of knowledge] is weakened.",
     "commentary": "Prāṇāyāma is said to weaken karma itself — described here as a 'net of great illusion' covering sattva's natural clarity, since accumulated saṃskāras channel awareness away from its source into further conditioned, often immoral, action. Only knowledge can ultimately destroy ignorance, Hariharānanda clarifies, but prāṇāyāma clears the karmic obstruction that was blocking that knowledge from shining through in the first place.",
     "keyPoints": [
@@ -1374,6 +1565,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.53",
     "section": "Sādhana Pāda — Practice",
     "iast": "dhāraṇāsu ca yogyatā manasaḥ",
+    "conceptIds": [
+      "asana-pranayama"
+    ],
     "translation": "Additionally, the mind becomes fit for concentration.",
     "commentary": "A brief, transitional sūtra: once rajas and tamas are sufficiently minimized through prāṇāyāma, the mind (manas, specifically the sense-facing aspect of citta) becomes genuinely prepared for dhāraṇā, the sixth limb — though one further step, pratyāhāra, is still required first.",
     "keyPoints": [
@@ -1400,6 +1594,9 @@ export const yogaSutrasEn: any[] = [
     "number": "II.55",
     "section": "Sādhana Pāda — Practice",
     "iast": "tataḥ paramā vaśyatendriyāṇām",
+    "conceptIds": [
+      "pratyahara-vashyata"
+    ],
     "translation": "From this comes the highest control of the senses.",
     "commentary": "Vyāsa contrasts several lesser notions of 'sense control' (moderate indulgence, desire-led rather than compulsion-led engagement, engagement without attachment) with the real, highest form: total non-engagement, achieved only once the mind itself is withdrawn. Vācaspati Miśra's image: sense objects are like poison — even an expert handler doesn't sleep unafraid among snakes, since any contact always carries the risk of being overcome. This closes Chapter II exactly where II.28 opened it: the eight limbs, culminating so far in pratyāhāra, are what actually produce viveka-khyāti, the discrimination the whole chapter has been arguing toward.",
     "keyPoints": [
@@ -1483,6 +1680,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.6",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "tasya bhūmiṣu viniyogaḥ",
+    "conceptIds": [
+      "samyama"
+    ],
     "translation": "Saṃyama is applied on the different stages [of samādhi].",
     "commentary": "Progress through samādhi's stages must happen sequentially, not by skipping ahead — Vācaspati Miśra's image: no one travels to the Ganges from Śilāhrada without passing through Meghavana in between; an archer hits subtle targets only after mastering large ones. The one exception the commentators allow is a soul who reaches advanced stages by Īśvara's grace, or (as in the Bhāgavata's story of Jaḍabharata) by carrying forward mastery already achieved in a previous life.",
     "keyPoints": [
@@ -1619,6 +1819,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.15",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "kramānyatvaṃ pariṇāmānyatve hetuḥ",
+    "conceptIds": [
+      "dharma-lakshana-parinama"
+    ],
     "translation": "The change in the sequence [of characteristics] is the cause of the change in transformations [of objects].",
     "commentary": "Closing this metaphysical excursus before returning to saṃyama and the siddhis: all visible transformation is simply a change in sequence of an object's characteristics, never a change of underlying substance — clay powder, dough, pot, and shards are all just successive states of the same clay. Change happens continuously, at the atomic level, every instant, even when too subtle to perceive directly — grain left long enough in storage crumbles at a touch, though no single day's change was ever visible.",
     "keyPoints": [
@@ -1648,6 +1851,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.17",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "śabdārtha-pratyayānām itaretarādhyāsāt saṅkaras tat-pravibhāga-saṃyamāt sarva-bhūta-ruta-jñānam",
+    "conceptIds": [
+      "kala-chitta-jnana"
+    ],
     "translation": "Due to the correlation between word, meaning, and idea, confusion ensues. By performing saṃyama on the distinction between them, knowledge of the speech of all creatures arises.",
     "commentary": "Patañjali distinguishes three things ordinarily conflated: a word's sound (śabda), the object it refers to (artha), and the mental image it produces (pratyaya). The commentators explain this through sphoṭa theory — the view (uniquely shared by the Yoga and Grammarian schools) that a word's meaning is an autonomous, whole reality distinct from its individual transient sounds, bursting forth only once the full sequence is heard, the way 'letter-bo—' only resolves into meaning once the final 'x' completes 'letter-box.' Saṃyama on this word/meaning/idea distinction is said to let a yogī access the sphoṭa directly, bypassing the need to already know a given language — hence knowledge of any creature's speech.",
     "keyPoints": [
@@ -1660,6 +1866,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.18",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "saṃskāra-sākṣāt-karaṇāt pūrva-jāti-jñānam",
+    "conceptIds": [
+      "kala-chitta-jnana"
+    ],
     "translation": "By bringing [previous] saṃskāras into direct perception comes the knowledge of previous births.",
     "commentary": "Extending II.39's claim: saṃskāras are recorded with their full original context (time, place, circumstance) intact, so a yogī who directly accesses them through saṃyama can reconstruct entire previous lives, not just isolated facts. Bryant notes this is a pan-Indic motif — the Buddha's own enlightenment night, per his traditional hagiography, begins with exactly this recollection of his own countless past lives, before proceeding to see the births and deaths of all other creatures too.",
     "keyPoints": [
@@ -1673,6 +1882,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.19",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "pratyayasya para-citta-jñānam",
+    "conceptIds": [
+      "kala-chitta-jnana"
+    ],
     "translation": "From [their] ideas, one can attain knowledge of others' minds.",
     "commentary": "Commentators split on the mechanism here: Vācaspati Miśra and Bhoja Rāja read it as saṃyama directed at another person's facial expressions and outward signs (an intensified version of everyone's everyday ability to read fear or desire in a face); Vijñānabhikṣu and Hariharānanda read it as saṃyama on one's own mind first, from which understanding of others follows. Bryant compares this directly to the Pāli Buddhist siddhi of ceto-pariya-ñāṇa, 'knowing the minds of other beings by penetrating them with one's own mind.'",
     "keyPoints": [
@@ -1685,6 +1897,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.20",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "na ca tat sālambanaṃ tasyāviṣayībhūtatvāt",
+    "conceptIds": [
+      "kala-chitta-jnana"
+    ],
     "translation": "That knowledge is not accompanied by its object, since this object is not the object [of the yogī's mind].",
     "commentary": "An important qualification to III.19: a yogī might perceive that someone is afraid without perceiving what they're afraid of, since only the emotional state itself, not its external cause, was the object of saṃyama. Some later commentators note this seems to sit in tension with III.18's claim that saṃskāras retain their full original context — suggesting that accessing the causal object specifically would require directing saṃyama at that object in particular.",
     "keyPoints": [
@@ -1696,6 +1911,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.21",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "kāya-rūpa-saṃyamāt tad-grāhya-śakti-stambhe cakṣuḥprakāśāsamprayoge 'ntardhānam",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By performing saṃyama on the outer form of the body, invisibility is attained. This occurs when perceptibility is obstructed by blocking contact between light and the eyes.",
     "commentary": "A body is visible because it has color, and color arises from the interaction of light with the gross elemental form (rūpa) — a transformation, ultimately, of subtle tanmātra energy. The commentators leave the exact mechanics unexplained, but Bryant, drawing on the yogī-scholar Taimni, suggests the yogī manipulates the underlying tanmātra of form directly, minimizing its tāmasic (opaque) component and maximizing its sāttvic (translucent) one, the way air and ether — already more sāttvic elements — go unseen by ordinary sight.",
     "keyPoints": [
@@ -1708,6 +1926,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.22",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "sopakramaṃ nirupakramaṃ ca karma tat-saṃyamād aparānta-jñānam ariṣṭebhyo vā",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "Karma is either quick to fructify or slow. By saṃyama on karma, or on portents, knowledge of [one's] death arises.",
     "commentary": "Karma quick to fructify is compared to a wet cloth spread flat, drying fast; slow-fructifying karma to one bunched up, drying slowly — either way, saṃyama on one's own karmic stock (the same process as III.18) reveals exactly when and how it will fructify, including the timing of death. Patañjali offers a second, non-yogic route too: recognizable personal, interpersonal, or celestial omens (such as failing to hear the internal sound of one's own breath when the ears are blocked) that herald approaching death for anyone, yogī or not, though only the accomplished yogī reads them with total precision.",
     "keyPoints": [
@@ -1720,6 +1941,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.23",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "maitry-ādiṣu balāni",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By saṃyama on friendliness and such things, strengths are acquired.",
     "commentary": "Saṃyama on the four attitudes named in I.33 (friendship, compassion, joy, equanimity) is said to intensify and project them outward — a yogī who has cultivated friendliness this way becomes a source of comfort even to the hostile, since (the commentators note) all feelings are already latent within citta, and saṃyama simply manifests what's there at full intensity, extending an entirely ordinary phenomenon: laughter and sadness are already somewhat contagious in daily life.",
     "keyPoints": [
@@ -1732,6 +1956,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.24",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "baleṣu hasti-balādīni",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By saṃyama on strengths, [the yogī] attains the strength of an elephant, etc.",
     "commentary": "The commentators are characteristically terse here: saṃyama on an elephant's strength grants that strength; on Garuḍa (Viṣṇu's eagle-carrier), his power; on the wind, its force. The underlying principle is the same one running through the whole chapter — citta is the substratum from which everything, including physical strength, ultimately emerges, and so can in principle manifest anything latent within its own nature.",
     "keyPoints": [
@@ -1743,6 +1970,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.25",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "pravṛttyāloka-nyāsāt sūkṣma-vyavahita-viprakṛṣṭa-jñānam",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By directing the light of cognition, one obtains knowledge of subtle, concealed, and remote things.",
     "commentary": "Once rajas and tamas are sufficiently eradicated, Vijñānabhikṣu explains, the citta's inherent natural luminosity becomes so powerful that merely directing attention toward an object — subtle, hidden, or physically distant — reveals it immediately, without the more effortful, sustained work of full saṃyama otherwise required; as easily as an ordinary glance reveals a nearby pot.",
     "keyPoints": [
@@ -1754,6 +1984,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.26",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "bhuvana-jñānaṃ sūrye saṃyamāt",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By performing saṃyama on the sun arises knowledge of the different realms in the universe.",
     "commentary": "Vyāsa's commentary here sketches the full Purāṇic cosmography — seven celestial realms above, seven nether realms and hells below, the earth-continent Jambūdvīpa centered on golden Mount Meru, surrounded by rings of ocean and further islands — a universe held to be, despite its immensity, merely a spark of prakṛti, 'like a firefly in the sky.' Whether saṃyama here means literal meditation on the physical sun or (as Vācaspati Miśra and Hariharānanda read it) on the 'solar' doorway of the suṣumnā channel in tantric subtle physiology, the underlying principle is the same one behind every siddhi in the chapter: since an individual's buddhi is only an individuation of the one cosmic buddhi underlying the whole universe, a yogī's mind can, in principle, pervade and directly perceive any part of it.",
     "keyPoints": [
@@ -1767,6 +2000,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.27",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "candre tārā-vyūha-jñānam",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By saṃyama on the moon, knowledge of the arrangement of the stars.",
     "commentary": "A brief companion sūtra to III.26: saṃyama on the sun reveals the universe's realms; on the moon, the arrangement of the stars — Bhoja Rāja notes practically that the two are treated separately since the stars' luster is invisible while the sun still shines.",
     "keyPoints": [
@@ -1778,6 +2014,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.28",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "dhruve tad-gati-jñānam",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By saṃyama on the polestar comes knowledge of the movement of the stars.",
     "commentary": "Saṃyama on Dhruva, the fixed polestar, is said to yield precise astronomical and astrological knowledge — Bhoja Rāja specifically mentions distinguishing stars from planets and predicting their zodiacal positions, while Śaṅkara reads it as extending to full astrological insight into how these movements affect the fortunes of living beings.",
     "keyPoints": [
@@ -1789,6 +2028,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.29",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "nābhi-cakre kāya-vyūha-jñānam",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By saṃyama on the navel plexus of the body comes knowledge of the arrangement of the body.",
     "commentary": "Saṃyama on the navel (compared by Vijñānabhikṣu to a banana plant's root, from which the whole plant grows) is said to reveal complete knowledge of the body's āyurvedic constitution — its three doṣas and seven bodily tissues. Bryant uses this sūtra to draw an important, extended distinction: classical Yoga is not the same system as the tantric/śākta cakra-kuṇḍalinī traditions later Hindu practice often blends it with. Patañjali never mentions kuṇḍalinī at all, and where the two systems do overlap in vocabulary (cakra, nāḍī), their underlying metaphysics diverge sharply — Yoga is strictly dualist (puruṣa forever distinct from prakṛti), while the śākta traditions are monist (all reality, including prakṛti itself, is ultimately one divine consciousness).",
     "keyPoints": [
@@ -1802,6 +2044,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.30",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "kaṇṭha-kūpe kṣut-pipāsā-nivṛttiḥ",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By saṃyama on the pit of the throat comes the cessation of hunger and thirst.",
     "commentary": "Saṃyama on the hollow of the throat (extending, per Vijñānabhikṣu, from the base of the tongue to the stomach) is said to overcome hunger and thirst — Bhoja Rāja attributes the sensation of hunger itself to prāṇa's contact with this specific point, so controlling prāṇa there controls the sensation.",
     "keyPoints": [
@@ -1813,6 +2058,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.31",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "kūrma-nāḍyāṃ sthairyam",
+    "conceptIds": [
+      "bhuvana-kaya-jnana"
+    ],
     "translation": "By saṃyama on the subtle tortoise channel, steadiness is attained.",
     "commentary": "Saṃyama on the kūrma-nāḍī, a subtle channel below the throat, is said to produce bodily steadiness comparable to a snake or alligator's stillness. Hariharānanda's psychologically grounded observation matters more than the physiological details: a still body naturally supports and reinforces a still mind, tying this siddhi back to the meditative goal of the whole text rather than treating it as an isolated party trick.",
     "keyPoints": [
@@ -1824,6 +2072,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.32",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "mūrdha-jyotiṣi siddha-darśanam",
+    "conceptIds": [
+      "pratibha-utkranti"
+    ],
     "translation": "By saṃyama on the light in the skull, a vision of the siddhas, perfected beings, is attained.",
     "commentary": "Saṃyama on the brahma-randhra, an opening in the skull said to contain concentrated radiant light (Bhoja Rāja's image: like light from an entire house concentrated through a keyhole), is said to grant vision of siddhas — perfected beings with mystic powers said to inhabit the space between earth and sky. Bryant notes this remains a living claim in modern hagiography, citing both Swami Muktānanda's and Paramahansa Yogananda's autobiographical accounts of such encounters during deep meditation.",
     "keyPoints": [
@@ -1835,6 +2086,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.33",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "prātibhād vā sarvam",
+    "conceptIds": [
+      "pratibha-utkranti"
+    ],
     "translation": "Or, by intuition, comes [knowledge of] everything.",
     "commentary": "An alternative, more direct route to the knowledge these various saṃyamas painstakingly produce one at a time: prātibha, spontaneous intuition, defined by Vijñānabhikṣu as knowledge requiring no teacher at all — arising, as Vyāsa puts it, the way dawn's light precedes the sun's, immediately preceding the discriminative insight (viveka-khyāti) of II.26-27 itself.",
     "keyPoints": [
@@ -1846,6 +2100,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.34",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "hṛdaye citta-saṃvit",
+    "conceptIds": [
+      "pratibha-utkranti"
+    ],
     "translation": "By saṃyama on the heart, knowledge of the mind ensues.",
     "commentary": "Vyāsa calls the heart 'the city of Brahman, a lotus-like abode' — the classical Upaniṣadic seat of both ātman and buddhi (Praśna Upaniṣad III.6) — and saṃyama there is said to grant direct perception of citta's own workings. Vijñānabhikṣu is careful to frame this and the powers preceding it as minor compared to the text's actual goal: this particular siddhi is valuable specifically because direct perception of citta serves citta-vṛtti-nirodha itself, not as a power sought for its own sake.",
     "keyPoints": [
@@ -1873,6 +2130,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.36",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "tataḥ prātibha-śrāvaṇa-vedanādarśāsvāda-vārtā jāyante",
+    "conceptIds": [
+      "pratibha-utkranti"
+    ],
     "translation": "From this, intuition as well as higher hearing, touch, vision, taste, and smell are born.",
     "commentary": "From the saṃyama of III.35, two further attainments arise: spontaneous intuitive knowledge of subtle, hidden, and distant things (III.25), and supernormal sensory perception across all five senses, as sattva, freed of rajas and tamas' interference, becomes sensitive enough to register subtler levels of each sense object. Vācaspati Miśra frames this as a genuine prerequisite for self-realization: prakṛti must reveal herself to puruṣa in her fullness, subtle dimensions included, not merely her gross surface.",
     "keyPoints": [
@@ -1900,6 +2160,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.38",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "bandha-kāraṇa-śaithilyāt pracāra-saṃvedanāc ca cittasya para-śarīrāveśaḥ",
+    "conceptIds": [
+      "pratibha-utkranti"
+    ],
     "translation": "By loosening the cause of bondage, and by knowledge of the passageways of the mind, the mind can enter into the bodies of others.",
     "commentary": "Ordinarily the mind stays confined to one body by the grip of karma-saṃskāras and the kleśas that cement identification with it; once that grip loosens through samādhi, and the mind's 'passageways' (nāḍīs) are known, a yogī can consciously move citta into another body, much as it transfers automatically at death — with the crucial difference that a living yogī can also return to the original body. Bryant calls this ability, so pervasive across Indic hagiography that White calls it 'the sine qua non of a yogī's practice,' and recounts the famous story of Śaṅkara using it to answer questions about worldly love he had no ascetic experience of, by temporarily entering a dying king's body.",
     "keyPoints": [
@@ -1912,6 +2175,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.39",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "udāna-jayāj jala-paṅka-kaṇṭakādiṣv asaṅga utkrāntiś ca",
+    "conceptIds": [
+      "pratibha-utkranti"
+    ],
     "translation": "By mastery over the udāna vital air, one attains [the power of] levitation and does not come into contact with water, mud, and thorns, etc.",
     "commentary": "Of the five prāṇas (vital airs) — prāṇa, samāna, apāna, vyāna, udāna, each governing a different bodily function — mastery of udāna specifically (which 'carries up,' toward the head) is said to produce levitation and non-contact with obstacles underfoot. Bryant traces claims of prāṇa-based levitation as far back as the Ṛg Veda's flying ascetic, and notes the same udāna-mastery is said to let a dying yogī take the 'upward path' after death (described in the Bṛhadāraṇyaka and Chāndogya Upaniṣads and the Gītā) rather than the downward path toward rebirth.",
     "keyPoints": [
@@ -1924,6 +2190,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.40",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "samāna-jayāt jvalanam",
+    "conceptIds": [
+      "pratibha-utkranti"
+    ],
     "translation": "By mastery over the samāna vital air, radiance is attained.",
     "commentary": "Mastery of samāna (which nourishes the body evenly from the navel) is said to produce a visible aura, explained in yogic terms as sattva's inherent radiance emanating outward once the kleśas' limiting influence is transcended — comparable, Bryant notes, to the halo of Christian iconography. Vijñānabhikṣu extends 'jvalana' further to mean literal self-combustion at death, illustrated with the Bhāgavata Purāṇa's account of Satī casting off her body through precisely this technique.",
     "keyPoints": [
@@ -1936,6 +2205,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.41",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "śrotrākāśayoḥ sambandha-saṃyamād divyaṃ śrotram",
+    "conceptIds": [
+      "bhuta-jaya"
+    ],
     "translation": "By saṃyama on the relationship between the organ of hearing and the ether, divine hearing is attained.",
     "commentary": "Ether (ākāśa) is the medium sound travels through and is present within the ear itself; since ether is all-pervading and citta is potentially even subtler than ether, saṃyama on the ear-ether relationship is said to let citta's reach extend beyond the ear's physical limits to any sound vibrating anywhere in the ether. The same principle, the commentators note, extends to each of the other senses paired with its own subtle element — air/skin, fire/eye, water/tongue, earth/nose — yielding supernormal versions of every sense in turn.",
     "keyPoints": [
@@ -1947,6 +2219,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.42",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "kāyākāśayoḥ sambandha-saṃyamāl laghu-tūla-samāpatteś cākāśa-gamanam",
+    "conceptIds": [
+      "bhuta-jaya"
+    ],
     "translation": "By performing saṃyama on the relationship between the body and ether, and by performing samāpatti on the lightness of cotton, one acquires the ability to travel through the sky.",
     "commentary": "Since the body, like every gross element, is ultimately a transformation of ether, saṃyama on the body-ether relationship — reinforced by samāpatti (complete absorption, I.41) on something as light as cotton — is said to let a yogī increase the body's sattva relative to tamas until it takes on ether's own weightless, unobstructed quality. Rāmānanda Sarasvatī reads a graded progression: first walking on water, then on spiderwebs, then on light rays, and finally unaided flight.",
     "keyPoints": [
@@ -1959,6 +2234,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.43",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "bahir-akalpitā vṛttir mahā-videhā tataḥ prakāśāvaraṇa-kṣayaḥ",
+    "conceptIds": [
+      "bhuta-jaya"
+    ],
     "translation": "The state of mind projected outside of the body, which is not an imagined state, is called the great out-of-body experience. By this, the covering of the light [of buddhi] is destroyed.",
     "commentary": "A distinction between ordinary daydreaming ('imagined' mental projection everyone does constantly) and a genuine, physical dissociation of citta from the body (mahā-videhā, 'the great disembodied one'), attainable once false identification with the body (ahaṃkāra) is sufficiently transcended. Directly experiencing that the self is not the body is said to further erode ignorance's grip — the same root kleśa (II.5) underlying every other obstacle in the system.",
     "keyPoints": [
@@ -1986,6 +2264,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.45",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "tato 'ṇimādi-prādurbhāvaḥ kāya-sampat-tad-dharmānabhighātaś ca",
+    "conceptIds": [
+      "bhuta-jaya"
+    ],
     "translation": "As a result of this, there are no limitations on account of the body's natural abilities; mystic powers such as aṇimā, etc., manifest; and the body attains perfection.",
     "commentary": "Mastery over the elements (III.44) yields three results, the second of which is the classical list of eight great siddhis found throughout Hindu literature: aṇimā (becoming atomically small), laghimā (becoming as light as desired), mahimā (becoming as heavy as desired), prāpti (unobstructed attainment — touching the moon with a fingertip), prākāmya (unobstructed will — diving into earth as into water), vaśitva (mastery over elements and beings), īśitṛtva (control over the elements' appearance and arrangement), and yatra-kāmāvasāyitva (manipulating elements entirely at will). The commentators are careful to add a check: the accomplished yogī doesn't whimsically disrupt the natural order Īśvara has established, and — per the Vedānta Sūtras — even these powers don't extend to actually creating a universe, the one ability that distinguishes any liberated puruṣa from Īśvara himself.",
     "keyPoints": [
@@ -1998,6 +2279,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.46",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "rūpa-lāvaṇya-bala-vajra-saṃhananatvāni kāya-sampat",
+    "conceptIds": [
+      "bhuta-jaya"
+    ],
     "translation": "The perfection of the body consists of beauty, charm, strength, and the power of a thunderbolt.",
     "commentary": "The third result from III.45, spelled out: bodily perfection specifically named as beauty, charm, strength, and vajra-like (thunderbolt-hard) solidity — Rāmānanda Sarasvatī offers Hanumān, whose very name Vajrāṅga means 'one with thunderbolt limbs,' as the mythological example of this attainment.",
     "keyPoints": [
@@ -2009,6 +2293,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.47",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "grahaṇa-svarūpāsmitānvayārthavattva-saṃyamād indriya-jayaḥ",
+    "conceptIds": [
+      "bhuta-jaya"
+    ],
     "translation": "By saṃyama on the process of knowing, on the essence, on ego, on the constitution, and on the purpose comes control over the senses.",
     "commentary": "A five-level analysis of the senses parallel to III.44's analysis of sense-objects: their basic function of grasping sense-data, their sāttvic essence (the tanmātras underlying them), their root in ahaṃkāra (ego), their still subtler basis in buddhi and the guṇas, and finally their ultimate purpose — serving puruṣa's experience or liberation. Saṃyama through these five levels in sequence is said to yield complete mastery over the senses themselves, not merely their objects.",
     "keyPoints": [
@@ -2020,6 +2307,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.48",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "tato mano-javitvaṃ vikaraṇa-bhāvaḥ pradhāna-jayaś ca",
+    "conceptIds": [
+      "bhuta-jaya"
+    ],
     "translation": "As a result of this comes speed like the speed of mind, activity independent of the bodily senses, and mastery over primordial matter.",
     "commentary": "Three further attainments follow mastery of the senses: moving at the speed of thought itself, acting and perceiving without the physical body's sense organs at all, and mastery over pradhāna — prakṛti's primordial matrix, and by extension everything that evolves from it. Vijñānabhikṣu attributes to the first of these the well-attested motif of a guru appearing instantly before a disciple's mind the moment the disciple thinks of them, illustrated with the traditional story of the sage Nārada appearing before a despondent Vyāsa.",
     "keyPoints": [
@@ -2063,6 +2353,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.51",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "sthānyupanimantraṇe saṅga-smayākaraṇaṃ punar-aniṣṭa-prasaṅgāt",
+    "conceptIds": [
+      "tarakam-vivekajam"
+    ],
     "translation": "If solicited by celestial beings, [the yogī] should not become attached or smug, because the tendency toward undesirable consequences can once again manifest.",
     "commentary": "A vivid, practical warning at the threshold of final liberation: celestial beings, seeing an accomplished yogī's power now surpassing their own, are said to actively try to lure such a yogī back with offers of celestial pleasures, nymphs, elixirs, and flying chariots. Vyāsa's warning cuts two ways — not just against succumbing to the temptation, but against feeling smug and secure about having resisted it, since that very complacency can itself let long-dormant kleśas find a new opening. This closely echoes the Muṇḍaka Upaniṣad's and the Gītā's own scorn for those who mistake celestial rebirth, however blissful, for real liberation.",
     "keyPoints": [
@@ -2075,6 +2368,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.52",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "kṣaṇa-tat-kramayoḥ saṃyamād viveka-jaṃ jñānam",
+    "conceptIds": [
+      "tarakam-vivekajam"
+    ],
     "translation": "By performing saṃyama on the moment, and its sequence, one attains knowledge born of discrimination.",
     "commentary": "A striking metaphysical claim: ordinary time-units (hour, day, year) have no independent reality at all — they're useful social conventions built on top of the only metaphysically real unit, the kṣaṇa, the time it takes one aṇu (the smallest, irreducible particle of matter) to move to the space immediately next to it. Since two moments of the same aṇu's motion can never be perceived simultaneously, strictly only the present moment is real — the past has already ceased, the future has yet to occur — and saṃyama on this finest possible grain of time and motion is said to yield knowledge extending down to the literal subatomic level.",
     "keyPoints": [
@@ -2087,6 +2383,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.53",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "jāti-lakṣaṇa-deśair anyatā 'navacchedāt tulyayos tataḥ pratipattiḥ",
+    "conceptIds": [
+      "tarakam-vivekajam"
+    ],
     "translation": "As a result of this, there is discernment of two comparable things that are not distinguishable by species, characteristics, or location.",
     "commentary": "An extraordinary test case for III.52's claim: two identical fruits, indistinguishable in species, characteristics, and now — after being secretly swapped — even in location, can still, Vyāsa insists, be told apart by an accomplished yogī, because the fruits' aṇus occupy that location at different moments in the fine-grained atomic sequence of time. Hariharānanda's modern-flavored comparison: a scientist with a microscope could, in principle, detect a subtle atomic-level difference between two freshly minted, visually identical coins if their positions were quietly swapped — the yogī's perception is presented as an extension of that same principle to its absolute limit.",
     "keyPoints": [
@@ -2098,6 +2397,9 @@ export const yogaSutrasEn: any[] = [
     "number": "III.54",
     "section": "Vibhūti Pāda — Mystic Powers",
     "iast": "tārakaṃ sarva-viṣayaṃ sarvathā-viṣayam akramaṃ ceti viveka-jaṃ jñānam",
+    "conceptIds": [
+      "tarakam-vivekajam"
+    ],
     "translation": "Knowledge born of discrimination is a liberator; it has everything as its object at all times simultaneously.",
     "commentary": "This closing description of viveka-jñāna emphasizes it comes as instantaneous insight, never mediated through words or teachings (words, Vijñānabhikṣu notes, can only ever convey generalities, per I.49) — its object is literally everything, perceived all at once rather than sequentially, with past and future fully inherent in the present the way III.52-53 established. This knowledge is called tāraka, 'liberator,' precisely because it is what actually carries the yogī across the ocean of birth and death.",
     "keyPoints": [
@@ -2126,6 +2428,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.1",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "janmauṣadhi-mantra-tapaḥ-samādhi-jāḥ siddhayaḥ",
+    "conceptIds": [
+      "siddhi-prakriti-apura"
+    ],
     "translation": "The mystic powers arise due to birth, herbs, mantras, the performance of austerity, and samādhi.",
     "commentary": "Opening the final chapter, Patañjali widens the scope of Chapter III's catalogue: samādhi is only one of five possible sources of siddhis — birth (carried over from a previous life's practice, as with Jaḍabharata, III.7), herbs (elixirs the commentators compare to Vedic soma), mantra, and austerity (tapas) can each independently produce mystic powers, with or without any yoga practice at all. Bhoja Rāja notes wryly that even being born a bird grants the 'supernormal' power of flight from a human perspective — a reminder that these five sources are being treated as parallel and equally real, not one genuine path among four illusory ones.",
     "keyPoints": [
@@ -2138,6 +2443,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.2",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "jāty-antara-pariṇāmaḥ prakṛty-āpūrāt",
+    "conceptIds": [
+      "siddhi-prakriti-apura"
+    ],
     "translation": "The changes [in bodily forms that take place] in other births is due to the filling in by prakṛti.",
     "commentary": "Rebirth into an entirely different form (human, elephant, ant, celestial) happens because prakṛti 'fills in' the new body according to the blueprint already encoded in the migrating citta's saṃskāras — the same evolutionary process (Sāṃkhya Kārikā III, XXII) that first produced any body, now redirected toward a new configuration. Vijñānabhikṣu illustrates the sheer scale this filling-in can take with the story of Vāmana, Viṣṇu's dwarf incarnation, who transformed instantly into a form vast enough to cover the universe in two steps.",
     "keyPoints": [
@@ -2150,6 +2458,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.3",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "nimittam aprayojakaṃ prakṛtīnāṃ varaṇa-bhedas tu tataḥ kṣetrikavat",
+    "conceptIds": [
+      "siddhi-prakriti-apura"
+    ],
     "translation": "The instrumental cause of creation is not its creative cause, but it pierces the covering from creation like a farmer [pierces the barriers between his fields].",
     "commentary": "A precise causal distinction: dharma and adharma (merit and demerit) are not what actually activates prakṛti's transformative power — they merely remove obstacles that let her pre-existing tendency flow in a particular direction, the way a farmer irrigating a lower field doesn't carry water there by hand, but simply removes the barrier between fields so water flows down by its own nature. The commentators extend this to Īśvara himself: like a potter essential to a pot's creation but not himself the clay, Īśvara is the ultimate instrumental cause who removes obstacles so dharma and adharma can bear their appropriate fruits — while creation and dissolution themselves form a beginningless cycle, with no starting point ever posited or sought in classical Hindu thought.",
     "keyPoints": [
@@ -2163,6 +2474,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.4",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "nirmāṇa-cittāny asmitā-mātrāt",
+    "conceptIds": [
+      "nirmana-chitta"
+    ],
     "translation": "Created minds are made from ego only.",
     "commentary": "Addressing a specific siddhi question: when an accomplished yogī creates multiple bodies simultaneously (a power also discussed in the Vedānta Sūtras), does each get its own mind, or do they share the yogī's one mind? The consensus: each created body gets its own individual mind, manifested from and subordinate to the yogī's ahaṃkāra — otherwise, Śaṅkara notes, the bodies would act like synchronized puppets with no life of their own. The Bhāgavata Purāṇa's story of the sage Kardama, who divided himself into nine forms to satisfy his devoted wife Devahūti, illustrates the power directly — and, as an aside, Devahūti's son from this union was Kapila, traditionally credited as Sāṃkhya's founder.",
     "keyPoints": [
@@ -2175,6 +2489,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.5",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "pravṛtti-bhede prayojakaṃ cittam ekam anekeṣām",
+    "conceptIds": [
+      "nirmana-chitta"
+    ],
     "translation": "There is one mind, among the many [created by the yogī], which is the director in the different activities [of the different bodies].",
     "commentary": "Answering a natural follow-up to IV.4: what keeps the multiple created minds from falling into conflict or disharmony? One principal mind — the yogī's own perfected mind — governs and coordinates all the subordinate created minds, the way a single mind directs the many limbs and senses of one ordinary body. Vācaspati Miśra's closing image: the yogī withdraws the created bodies back into himself the way the sun withdraws its rays.",
     "keyPoints": [
@@ -2187,6 +2504,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.6",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "tatra dhyāna-jam anāśayam",
+    "conceptIds": [
+      "nirmana-chitta"
+    ],
     "translation": "From these [five types of minds that possess siddhis], the one born of meditation is without the storehouse of karma.",
     "commentary": "A crucial qualification returning to IV.1's fivefold list: siddhis attained through birth, herbs, mantra, or austerity leave the karmāśaya (the storehouse of accumulated karma) fully intact — only siddhis born specifically of meditation come free of it. This is why possessing extraordinary powers is no guarantee of spiritual attainment: the Purāṇas are full of demons like Hiraṇyakaśipu, who attained fearsome powers purely through austerity and used them to terrorize the universe, including his own devoted son. The tradition's consistent verdict: a genuine yogī does not display siddhis for their own sake, and anyone doing so for attention or manipulation likely attained them by one of the other four routes, not through real yogic realization.",
     "keyPoints": [
@@ -2259,6 +2579,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.11",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "hetu-phalāśrayālambanaiḥ saṅgṛhītatvād eṣām abhāve tad-abhāvaḥ",
+    "conceptIds": [
+      "vasana-anaditva"
+    ],
     "translation": "Since saṃskāras are held together by immediate cause, motive, the mind, and the object of awareness, the saṃskāras cease when the latter cease.",
     "commentary": "A precise account of what keeps saṃskāras going: their immediate cause (dharma/adharma and the resulting pleasure-attachment or pain-aversion cycle, ultimately rooted in ignorance), their motivating force (phala — desire for a specific outcome), their substratum (the citta itself), and their triggering support (a specific encountered object). Bryant's addiction example makes the mechanism vivid: craving a cigarette from memory of past pleasure, then smoking, doesn't relieve the craving but plants a fresh, reinforcing saṃskāra, deepening the very groove that produced the craving in the first place — a self-perpetuating cycle broken only by removing one of these four supports.",
     "keyPoints": [
@@ -2286,6 +2609,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.13",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "te vyakta-sūkṣmā guṇātmānaḥ",
+    "conceptIds": [
+      "adhva-bheda-vastu"
+    ],
     "translation": "The past, present, and future have the guṇas as their essence and are either manifest or latent.",
     "commentary": "Past, present, and future are all, at the deepest level, nothing but the three guṇas — 'present' simply names whichever configuration currently happens to be manifest, while past and future name configurations that are latent, either already dissolved back into potential or not yet actualized. Vijñānabhikṣu is careful to distance this from Advaita Vedānta's view that the manifest world is ultimately unreal (māyā in the sense of illusion): for Yoga, prakṛti's effects are temporary but genuinely, physically real — the error isn't perceiving them, but mistaking their temporary configurations for permanent ones.",
     "keyPoints": [
@@ -2297,6 +2623,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.14",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "pariṇāmaikatvād vastu-tattvam",
+    "conceptIds": [
+      "adhva-bheda-vastu"
+    ],
     "translation": "The things [of the world] are objectively real, due to the uniformity of [the guṇas that underpin] all change.",
     "commentary": "This sūtra opens Patañjali's most sustained engagement with a rival philosophical school anywhere in the text — six sūtras (IV.14-22) arguing against Buddhist idealism (Vijñānavāda), the view that no object exists independently of being cognized by a mind. Bryant notes the debate had to proceed by inference alone, since neither scripture nor personal meditative testimony carries weight across traditions that don't share the same canon. Vācaspati Miśra's core objection: if a perceived object (a woman, in his example) is purely a mental construction, why do Caitra, Viṣṇumitra, Devadatta, and Maitra all perceive the very same woman, even while responding to her completely differently — with love, hatred, indifference? A shared underlying object, common to every observer, is required to explain that shared reference point, even though each mind colors its experience of that object differently according to its own guṇa-state.",
     "keyPoints": [
@@ -2309,6 +2638,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.15",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "vastu-sāmye citta-bhedāt tayor vibhaktaḥ panthāḥ",
+    "conceptIds": [
+      "vastu-chitta-bheda"
+    ],
     "translation": "Because there is a multiplicity of minds [perceiving an object] but yet the object remains consistent, there is a difference in nature between the object and the mind [of the observer].",
     "commentary": "Continuing the anti-idealist argument: the same object provokes different feelings in different minds depending on which guṇa currently dominates that mind (sattva → happiness, rajas → pain, tamas → forgetfulness), yet everyone still perceives the same underlying object to begin with. If the object were purely a construction of one mind, Śaṅkara presses, why would other people's minds spontaneously construct the identical object rather than something completely different — and why doesn't this kind of spontaneous sharing happen with purely private thoughts, like randomly thinking of the color blue?",
     "keyPoints": [
@@ -2320,6 +2652,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.16",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "na caika-citta-tantraṃ vastu tad apramāṇakaṃ tadā kiṃ syāt",
+    "conceptIds": [
+      "vastu-chitta-bheda"
+    ],
     "translation": "An object is not dependent on a single mind [for its existence]; if it were, then what happens to it when it is not perceived [by that particular mind]?",
     "commentary": "Vyāsa's practical thought experiments press the idealist position toward absurdity: if a pot existed only as one mind's construction, would it vanish the instant that mind stopped attending to it, even while other people continued to see it? And would the back of a person not exist simply because it currently isn't being looked at — leaving, absurdly, a stomach with no back behind it? Śaṅkara adds a social dimension: if reality were purely private mental construction, there would be no reason teacher and student should construct compatible understandings of their shared social roles at all, and coherent social life would become inexplicable.",
     "keyPoints": [
@@ -2332,6 +2667,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.17",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "tad-uparāgāpekṣitvāc cittasya vastu jñātājñātam",
+    "conceptIds": [
+      "vastu-chitta-bheda"
+    ],
     "translation": "A thing is either known or not known by the mind depending on whether it is noticed by the mind.",
     "commentary": "Having established objects are independently real, Patañjali now explains ordinary cognition itself: sense objects act like magnets on the citta, which is like iron — proximity causes the object to 'color' (uparāga) the mind, and only then does it become known. The citta psychically replicates the object's contours internally, and this internal replica is what puruṣa's awareness illuminates — puruṣa never touches the external object directly, only citta's internal copy of it. Śaṅkara's closing jab at idealism: if the mind literally created objects rather than merely registering them, it would either have to be omniscient (able to create knowledge of literally anything) or know nothing at all — neither of which matches ordinary experience.",
     "keyPoints": [
@@ -2344,6 +2682,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.18",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "sadā jñātāś citta-vṛttayas tat-prabhoḥ puruṣasyāpariṇāmitvāt",
+    "conceptIds": [
+      "chiti-shakti-aparinami"
+    ],
     "translation": "The permutations of the mind are always known to its master, the puruṣa soul, because of the soul's unchanging nature.",
     "commentary": "An axiomatic argument for puruṣa's unchanging nature: the mind (citta) is sometimes aware of its objects and sometimes not, since it constantly changes and roams — but puruṣa is always aware of the mind's vṛttis without exception, even during dreamless sleep (itself a vṛtti, per I.10). If puruṣa's awareness were as changeable as citta's, it too would sometimes lose track of its object (the mind); since it never does, its constancy is what distinguishes it categorically from the ever-shifting citta it witnesses.",
     "keyPoints": [
@@ -2370,6 +2711,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.20",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "eka-samaye cobhayānavadhāraṇam",
+    "conceptIds": [
+      "chiti-shakti-aparinami"
+    ],
     "translation": "There cannot be discernment of both [the mind and the object it perceives] at the same time.",
     "commentary": "A further technical argument specifically against kṣaṇika-vāda (Buddhist momentariness): since that school holds every moment of cognition to be an entirely separate, instantaneous event, a single momentary mind-state cannot simultaneously be both the perceiving subject and its own perceived object — that would require it to perform two distinct cognitive acts within one partless instant, which the very premise of momentariness rules out.",
     "keyPoints": [
@@ -2381,6 +2725,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.21",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "cittāntara-dṛśye buddhi-buddher atiprasaṅgaḥ smṛti-saṅkaraś ca",
+    "conceptIds": [
+      "chiti-shakti-aparinami"
+    ],
     "translation": "If [the mind] were cognized by another mind, then there would be an infinite regress of one intelligence [being known] by another intelligence. Moreover, there would also be confusion of memory.",
     "commentary": "A technical but decisive argument against Buddhist momentariness: if each momentary mind-state needs a subsequent momentary mind-state to know it, that second state needs a third to know it in turn, and so on without end — an infinite regress with no actual knower ever established. Worse, memory itself becomes incoherent: saying 'this is the pot I saw yesterday' requires a saṃskāra to persist continuously enough to be recognized later, which momentariness, strictly applied, cannot allow without smuggling in exactly the kind of continuity (a persisting witness) that Yoga posits as puruṣa. Śaṅkara adds a lighter but pointed jab: without any subjective sense of self at all, people would simply meet each other in bewilderment, with no coherent notion of 'I' to organize experience around.",
     "keyPoints": [
@@ -2408,6 +2755,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.23",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "draṣṭṛ-dṛśyoparaktaṃ cittaṃ sarvārtham",
+    "conceptIds": [
+      "dharma-megha"
+    ],
     "translation": "The mind, colored by the seer as well as by that which is seen, knows all objects.",
     "commentary": "Citta sits at the exact pivot of the entire system: colored on one side by the objects of the senses, and on the other by puruṣa's own consciousness reflecting through it — which is precisely why both idealism (mistaking the mind for the source of objects) and materialism (mistaking the mind for the source of consciousness) are understandable, sympathetic errors, in Vyāsa's own generous framing, rather than simply foolish ones. The corrective is the tripartite structure Yoga insists on: knower (puruṣa), instrument of knowledge (citta), and object of knowledge (the senses' objects) — genuine discrimination (viveka) is precisely seeing these three as distinct rather than collapsing any two of them together.",
     "keyPoints": [
@@ -2420,6 +2770,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.24",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "tad-asaṃkhyeya-vāsanā-citram api parārthaṃ saṃhatya-kāritvāt",
+    "conceptIds": [
+      "dharma-megha"
+    ],
     "translation": "That mind, with its countless variegated subliminal impressions, exists for another entity [other than itself], because it operates in conjunction [with other instruments].",
     "commentary": "A structural argument for puruṣa's existence: anything composed of parts and working in conjunction with other things (a house, built from parts, existing for the sake of a resident) exists for something beyond itself — and citta, a composite of countless saṃskāras working together with the senses and their objects, fits exactly this description. Since it cannot exist purely for its own sake, and pleasure and pain must ultimately be experienced by something, that something must be a partless, changeless entity of an entirely different kind: puruṣa.",
     "keyPoints": [
@@ -2431,6 +2784,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.25",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "viśeṣa-darśina ātma-bhāva-bhāvanā-vinivṛttiḥ",
+    "conceptIds": [
+      "dharma-megha"
+    ],
     "translation": "For one who sees the distinction [between the mind and the soul], reflecting on the nature of the self ceases.",
     "commentary": "Vyāsa's image for spontaneous spiritual longing: just as lush grass sprouting after rain reveals dormant seeds that were there all along, a person moved to tears simply hearing about liberation reveals dormant saṃskāras from yogic practice in a previous life, now sprouting under the right conditions — directly echoing the Gītā's account (VI.41-43) of the unsuccessful yogī reborn into circumstances that let them pick up exactly where they left off. But the sūtra's actual point looks forward, not back: once genuine self-realization occurs, the restless existential questioning that drove the search in the first place ('who am I,' 'where do I go after death') simply stops, since only direct experience, not inference or scripture, fully dissolves those questions.",
     "keyPoints": [
@@ -2457,6 +2813,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.27",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "tac-chidreṣu pratyayāntarāṇi saṃskārebhyaḥ",
+    "conceptIds": [
+      "dharma-megha"
+    ],
     "translation": "During the intervals [in this state of discriminate awareness] other ideas [arise] because of previous saṃskāras.",
     "commentary": "An honest, practical admission: even a mind well along the path toward kaivalya isn't yet seamless — ordinary thoughts ('I am,' 'this is mine') still intrude in the gaps, simply because old saṃskāras haven't finished dwindling away yet. Vācaspati Miśra's grounding example: even a highly renounced ascetic who begs for food must remain conscious of hunger and body to do so at all — some residual prākṛtic awareness persists even in advanced practitioners, and this is presented as ordinary and expected, not a sign of failure.",
     "keyPoints": [
@@ -2468,6 +2827,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.28",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "hānam eṣāṃ kleśavad uktam",
+    "conceptIds": [
+      "dharma-megha"
+    ],
     "translation": "The removal [of these previous saṃskāras] is said to be like [the removal] of the kleśa afflictions.",
     "commentary": "The intruding saṃskāras of IV.27 are burnt away by the same mechanism that dissolves the kleśas themselves (II.10-11) — rendered incapable of sprouting further thought, though not literally annihilated, per the metaphysics already established in IV.12. The knowledge-saṃskāras doing this burning persist until the mind's final goal is achieved, at which point they too dissolve back into prakṛti along with everything else, once the mind itself dissolves at final liberation.",
     "keyPoints": [
@@ -2479,6 +2841,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.29",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "prasaṅkhyāne 'py akusīdasya sarvathā viveka-khyāter dharma-meghaḥ samādhiḥ",
+    "conceptIds": [
+      "dharma-megha"
+    ],
     "translation": "For one who has no interest even in [the fruits] of meditative wisdom on account of the highest degree of discriminative insight, the samādhi called dharma-megha, cloud of virtue, ensues.",
     "commentary": "Bryant surveys a genuine range of interpretation among the commentators for this evocative, rare term (found only once elsewhere in Hindu literature) — Śaṅkara reads the 'rain' this cloud pours as kaivalya itself; Hariharānanda reads it as effortlessly poured virtue and self-knowledge; Vijñānabhikṣu identifies the whole state with jīvanmukti, liberation while still embodied. What unites every reading: this is the state where the yogī has become indifferent even to the fruits of discriminative wisdom itself — not chasing insight for its own reward, but simply resting in unwavering discrimination, with total disinterest even in what that discrimination might yield.",
     "keyPoints": [
@@ -2491,6 +2856,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.30",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "tataḥ kleśa-karma-nivṛttiḥ",
+    "conceptIds": [
+      "dharma-megha"
+    ],
     "translation": "From this comes the cessation of the kleśas [impediments to yoga] and karma.",
     "commentary": "Once dharma-megha (IV.29) is attained, the kleśas and all dormant karma are burnt to their roots — and since avidyā, the root kleśa, is specifically what causes saṃsāra (II.4, 24-25), a person established in unwavering discrimination is, in the fullest sense, no longer in saṃsāra, though still physically alive. This is jīvanmukti — liberation while still embodied, a state widely accepted across Hindu schools, illustrated again with Sāṃkhya Kārikā LXVII's potter's-wheel image: already-activated karma for this present life must simply run its course, the way a wheel keeps spinning a while after the pedal stops.",
     "keyPoints": [
@@ -2503,6 +2871,9 @@ export const yogaSutrasEn: any[] = [
     "number": "IV.31",
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "tadā sarvāvaraṇa-malāpetasya jñānasyānantyāj jñeyam alpam",
+    "conceptIds": [
+      "dharma-megha"
+    ],
     "translation": "At this point, because of the unlimited nature of knowledge when all impurities have been removed from it, that which remains to be known is little.",
     "commentary": "With rajas and tamas fully removed, sattva's inherent, naturally all-pervading capacity for knowledge is finally unobstructed — Hariharānanda attributes the mind's ordinary self-limitation specifically to ahaṃkāra (asmitā, II.6), which artificially restricts an inherently boundless faculty down to the scope of one body and its senses. Once ego's restriction is lifted, the mind regains its natural, unlimited reach, and what remains genuinely unknown to it becomes, correspondingly, vanishingly small.",
     "keyPoints": [
@@ -2516,7 +2887,8 @@ export const yogaSutrasEn: any[] = [
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "tataḥ kṛtārthānāṃ pariṇāma-krama-parisamāptir guṇānām",
     "conceptIds": [
-      "purusha-prakriti-union"
+      "purusha-prakriti-union",
+      "guna-pratiprasava"
     ],
     "translation": "As a result, there is a cessation of the ongoing permutations of the guṇas, their purpose now fulfilled.",
     "commentary": "With the yogī now totally detached even from the siddhis and from discrimination's own fruits (IV.29), the guṇas have nothing left to provide — their entire activity, per II.18, exists only to give puruṣa experience or liberation, and once that purpose for this particular puruṣa is fully served, their ceaseless permutation simply stops for him. Vyāsa directly quotes the Sāṃkhya Kārikā's own dancing-girl image (LIX-LXI) to close the loop between the two texts explicitly: prakṛti, like a dancer who stops once seen by her audience, ceases her display the instant she has revealed her true nature to this puruṣa.",
@@ -2531,7 +2903,8 @@ export const yogaSutrasEn: any[] = [
     "section": "Kaivalya Pāda — Absolute Independence",
     "iast": "kṣaṇa-pratiyogī pariṇāmāparānta-nirgrāhyaḥ kramaḥ",
     "conceptIds": [
-      "twenty-five-tattvas"
+      "twenty-five-tattvas",
+      "guna-pratiprasava"
     ],
     "translation": "The progression [of any object through Time] corresponds to a [series of] moments. It is perceivable at the final [moment] of change.",
     "commentary": "A final, careful statement of Yoga's relationship to time, directly building on III.52: an object's 'aging' isn't a single event but becomes noticeable only at the cumulative endpoint of a continuous sequence of imperceptible atomic changes running since its very inception — a cloth doesn't suddenly become old, it has been aging every instant, only becoming visibly old at one particular cutoff point in that continuum. Vyāsa draws the crucial line against Buddhism here: Yoga agrees that surface reality is in constant flux, sharing this much with kṣaṇika-vāda, but insists on two distinct kinds of permanence underlying that flux — prakṛti's constant essential nature (even while her specific effects like pots or cloths come and go) and puruṣa's wholly unchanging nature, devoid of even prakṛti's six universal changes (birth, endurance, growth, change, decline, destruction). Asked whether the guṇas' permutations ever truly end, Vyāsa refuses a single categorical answer: they end for the liberated, and continue for the countless souls still bound — since living beings are without number, prakṛti's activity as a whole never runs out of purpose to serve.",
