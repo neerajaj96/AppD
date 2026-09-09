@@ -13,7 +13,6 @@ export const samkhyaKarikaEn: any[] = [
     ],
     "interpretiveNotes": [
       {
-        "source": "Radhanath Phukan (1960)",
         "note": "Reads this verse as establishing method as much as motive — the entire treatise is organized as an answer to the uncertainty named here."
       }
     ],

@@ -64,7 +64,7 @@ export const brahmaSutrasText: ClassicalText = buildClassicalText(
     author: 'Bādarāyaṇa (with Śaṅkara Bhāṣya)',
     system: 'vedanta',
     verseTerm: 'Sūtra',
-    sources: [{ name: 'Brahma Sutras with Śaṅkarācārya Commentary', status: 'pending' }]
+    contentStatus: 'partial'
   },
   {
     en: allEnVerses,

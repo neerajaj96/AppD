@@ -72,6 +72,28 @@ export const systemAccents: Record<string, SystemAccent> = {
     text: 'text-rajas',
     badge: 'bg-avyakta-4 text-rajas',
   },
+  // Unified Tantra system: kumkum-rose of the goddess traditions — distinct
+  // from Mīmāṃsā crimson (sacrificial fire) and rajas terracotta. Registered
+  // in index.css + tokens.ts; no ad-hoc hexes.
+  tantra: {
+    primary: 'var(--color-shakti)',
+    secondary: 'var(--color-shakti-dim)',
+    bgLight: 'bg-avyakta-3',
+    borderLight: 'border-shakti-dim',
+    text: 'text-shakti',
+    badge: 'bg-avyakta-4 text-shakti',
+  },
+  // Kundalini Tantra is a modern Tantric-Yogic synthesis built on Yoga's
+  // practice frame; it shares Yoga's teal rather than minting a new hue —
+  // no ad-hoc hexes per the Guna theme law.
+  'kundalini-tantra': {
+    primary: 'var(--color-teal)',
+    secondary: 'var(--color-teal-dim)',
+    bgLight: 'bg-avyakta-3',
+    borderLight: 'border-teal-dim',
+    text: 'text-teal',
+    badge: 'bg-avyakta-4 text-teal',
+  },
 };
 
 export const defaultAccent: SystemAccent = {

@@ -37,9 +37,7 @@ export const vaisesikaSutrasText: ClassicalText = buildClassicalText(
     author: 'Maharṣi Kaṇāda',
     system: 'vaisesika',
     verseTerm: 'Sūtra',
-    sources: [
-      { name: 'Vaiśeṣika Sūtras English Reference', status: 'pending' }
-    ]
+    contentStatus: 'partial'
   },
   {
     en: mappedVaisesikaEn,

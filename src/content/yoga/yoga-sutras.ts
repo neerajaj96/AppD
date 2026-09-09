@@ -21,8 +21,7 @@ export const yogaSutras: ClassicalText = buildClassicalText(
     transliteratedTitle: 'Yoga Sūtras',
     author: 'Patañjali',
     system: 'yoga',
-    verseTerm: 'Sūtra',
-    sources: [{ name: 'Vyāsa Bhāṣya', year: '4th-5th century CE', status: 'integrated' }]
+    verseTerm: 'Sūtra'
   },
   {
     en: yogaSutrasEn,

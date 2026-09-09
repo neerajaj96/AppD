@@ -1,4 +1,4 @@
-import { System, ClassicalText, SystemId } from '../../types/content';
+import { ClassicalText } from '../../types/content';
 import { buildClassicalText, buildSystemThread } from '../factory';
 import { tantralokaConceptsEn, TantralokaConcept } from './tantraloka-concepts-en';
 import { tantralokaConceptsMl } from './tantraloka-concepts-ml';
@@ -33,16 +33,17 @@ const mappedThreadMl = Object.entries(tantralokaThreadMl).map(([id, t]) => ({
   narrative: (t as { narrative: string }).narrative
 }));
 
+// Text file stays isolated in this directory; the text now belongs to the
+// unified 'tantra' system (see src/content/tantra/index.ts).
 export const tantralokaText: ClassicalText = buildClassicalText(
   {
     id: 'tantraloka',
     title: 'Tantrāloka',
     transliteratedTitle: 'Tantrāloka',
     author: 'Abhinavagupta',
-    system: 'kashmir-shaivism',
+    system: 'tantra',
     contentDepth: 'full',
-    verseTerm: 'Śloka',
-    sources: [{ name: 'Tantrāloka Translation', status: 'integrated' }]
+    verseTerm: 'Śloka'
   },
   {
     en: tantralokaVersesEn,
@@ -54,13 +55,7 @@ export const tantralokaText: ClassicalText = buildClassicalText(
   }
 );
 
-export const kashmirShaivismSystem: System = {
-  id: 'kashmir-shaivism' as SystemId,
-  title: 'Kashmir Shaivism',
-  subtitle: 'The non-dual philosophy of Trika and Spanda',
-  texts: [tantralokaText],
-  thread: buildSystemThread('tantraloka', {
-    en: mappedThreadEn,
-    ml: mappedThreadMl
-  })
-};
+export const tantralokaThread = buildSystemThread('tantraloka', {
+  en: mappedThreadEn,
+  ml: mappedThreadMl
+});

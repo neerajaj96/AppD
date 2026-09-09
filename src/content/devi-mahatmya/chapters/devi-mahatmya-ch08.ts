@@ -258,7 +258,7 @@ Every time an aspirant attacks a desire through dualistic mental effort (the ear
 The only resolution is through *Kālī / Cāmuṇḍā*—the dark, unconditioned void of Pure Witness Consciousness. She extends Her tongue across the entire battlefield, intercepting every drop before it touches the soil of the subconscious mind. Deprived of the soil of ego-identification, the chain of vāsanās withers away completely.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The Raktabija episode - Chamunda catching each drop of the demon's blood in her mouth before it can touch the ground and spawn a fresh double - is read by every commentator as the text's clearest statement on how to defeat a self-replicating evil: Pradipa notes the solution is not more force but a change of method entirely, since ordinary wounding only multiplies the problem; only total consumption, denying the blood any contact with the generative ground (bhumi), breaks the cycle. This is treated across the commentarial tradition as one of the text's most practically resonant images, often cited outside strict ritual contexts as a model for how habitual or compulsively repeating faults must be addressed.`,
     keyPoints: ["**Subconscious Desires (*Vāsanā-Bīja*)**: Direct suppression only splinters desires into covert psychological manifestations.","**The Devouring Void of Kālī**: Pure transcendental awareness arrests latent impressions at their root before they manifest as active thoughts."]
   },

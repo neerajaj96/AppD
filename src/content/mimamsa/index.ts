@@ -28,8 +28,7 @@ export const mimamsaSutrasText: ClassicalText = buildClassicalText(
     transliteratedTitle: 'Mīmāṃsā Sūtras',
     author: 'Jaimini',
     system: 'mimamsa',
-    verseTerm: 'Sūtra',
-    sources: [{ name: 'Śabara Bhāṣya', year: 'c. 5th century CE', status: 'integrated' }]
+    verseTerm: 'Sūtra'
   },
   {
     en: mimamsaSutrasEn,

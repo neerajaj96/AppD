@@ -21,14 +21,7 @@ export const nyayaSutras: ClassicalText = buildClassicalText(
     transliteratedTitle: 'Nyāya Sūtra',
     author: 'Gautama',
     system: 'nyaya',
-    verseTerm: 'Sūtra',
-    sources: [
-      { name: 'Vātsyāyana Bhāṣya', year: 'c. 4th-5th century CE', status: 'integrated' },
-      { name: 'Uddyotakara Vārtika', year: 'c. 6th century CE', status: 'integrated' },
-      { name: 'Vācaspati Miśra Tātparyaṭīkā', year: 'c. 9th century CE', status: 'integrated' },
-      { name: 'Udayanācārya Pariśuddhi', year: 'c. 10th century CE', status: 'integrated' },
-      { name: 'Dr. Gangānātha Jhā Critical Edition', year: '1915-1919', status: 'integrated' }
-    ]
+    verseTerm: 'Sūtra'
   },
   {
     en: nyayaSutrasEn,

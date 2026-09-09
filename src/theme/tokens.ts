@@ -72,6 +72,8 @@ export const darkColors = {
   crimsonDim: '#8f2c35',
   indigo: '#5a5aa0',   // Vedānta
   indigoDim: '#3d3d75',
+  shakti: '#d14e7e',   // Tantra
+  shaktiDim: '#96355a',
 
   // Ink — the reader's own register: text, not doctrine.
   ink: '#eae7de',
@@ -180,6 +182,15 @@ export function getSystemAccent(c: ColorPalette, systemId?: string) {
       return { primary: c.purusha, dim: c.purushaDim, glow: c.purushaGlow, pair: [c.purusha, c.crimson, c.avyakta4] as [string, string, string] };
     case 'shakta':
       return { primary: c.rajas, dim: c.rajasDim, glow: c.rajasGlow, pair: [c.sattva, c.rajas, c.crimson] as [string, string, string] };
+    case 'tantra':
+      // Unified Tantra (Trika + Śākta + Kuṇḍalinī + own synthesis).
+      // Kumkum-rose of the goddess traditions — not Mīmāṃsā's sacrificial
+      // crimson, not rajas's terracotta.
+      return { primary: c.shakti, dim: c.shaktiDim, glow: 'rgba(209, 78, 126, 0.22)', pair: [c.sattva, c.shakti, c.rajas] as [string, string, string] };
+    case 'kundalini-tantra':
+      // Modern Tantric-Yogic synthesis on Yoga's practice frame — shares
+      // Yoga's teal; no new hue minted (Guna theme law: no ad-hoc hexes).
+      return { primary: c.teal, dim: c.tealDim, glow: 'rgba(79, 179, 163, 0.22)', pair: [c.sattva, c.teal, c.rajasDim] as [string, string, string] };
     default:
       return { primary: c.sattva, dim: c.sattvaDim, glow: c.sattvaGlow, pair: gunaStops(c) };
   }

@@ -6,7 +6,7 @@ export type VerseId = string & { __brand: 'VerseId' };
 export type ConceptId = string & { __brand: 'ConceptId' };
 export type ThreadStepId = string & { __brand: 'ThreadStepId' };
 
-export type InterpretiveNote = { source: string; note: string };
+export type InterpretiveNote = { note: string };
 
 export interface Verse {
   id: VerseId;
@@ -40,8 +40,6 @@ export type ThreadStep = BaseThreadStep & (
   | { kind: 'verses'; verseIds: VerseId[]; conceptId?: undefined }
 );
 
-export type SourceEdition = { name: string; year?: string; status: 'integrated' | 'pending' };
-
 export interface ClassicalText {
   id: TextId;
   title: string;
@@ -50,7 +48,10 @@ export interface ClassicalText {
   system: SystemId;
   contentDepth?: 'full' | 'concepts-only';
   verseTerm?: string;
-  sources: SourceEdition[];
+  // Compilation completeness of OUR text (not an external source reference):
+  // 'partial' marks texts whose verse content is still being compiled and
+  // which are therefore exempt from the strict verse-content integrity gate.
+  contentStatus?: 'complete' | 'partial';
   verses: Verse[];
   concepts: Concept[];
 }

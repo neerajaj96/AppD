@@ -48,7 +48,7 @@ jihvālalanabhīṣaṇā nādāpūritadiṅmukhā ||7||`,
 3. **Her iconography decoded**: khaṭvāṅga (skull-staff = ascetic power over death), nara-mālā (time’s skulls worn lightly), dvīpi-carman (tiger-skin = tamed senses), śuṣka-māṃsa (beyond flesh), vistāra-vadana (all-devouring mouth), jihvā-lalana (thirsting tongue), nādāpūrita-diṅmukhā (roar-filled quarters). Meditate each implement: every terror is a tool. Next (dm-7-8): She eats the army.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Devi's serene composure - seated at ease on her lion even as Chanda and Munda's fourfold army advances - draws Pradipa's comment as a deliberate contrast the poet is constructing: the demons approach with full military escalation while the Goddess's stillness signals that the coming confrontation is, for her, no genuine contest at all, only the playing-out of an outcome already settled. This composure just before Kali's terrifying emergence (in the verses immediately following) is read by the commentators as heightening, by contrast, the ferocity of what is about to be unleashed from her own brow.`,
     keyPoints: ["**Ease Read as Weakness**: The grasping reflex reaches for smiling rest — before every fall.","**Fury Focused Births Kālī**: Concentrated intensity, not suppressed anger, is the Dark Mother’s birthplace.","**Every Terror a Tool**: Skull-staff, head-garland, tiger-skin — meditate each implement."]
   },
@@ -108,7 +108,7 @@ kālī karālavaktrāntardurdarśadaśanojjvalā ||18||`,
 3. **Her laugh**: jahāsa atiruṣā — wrath’s laughter, teeth gleaming unbearable (durdarśa-daśana). Not mockery but fullness-pressure release, twin to Caṇḍikā’s red-eyed laugh (dm-3-28). When practice ripens, the same energy that once frightened becomes festivity. Next (dm-7-19): the two heads, and a Name.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Kali's rampage - devouring the army, seizing elephants and warriors in her gaping mouth, crushing chariots underfoot - receives extensive commentary on the theological status of this new, terrifying form. Pradipa insists Kali is not a separate goddess called in as reinforcement but Devi's own wrath (krodha) given independent form, springing literally from her furrowed brow, so that the violence described is best read as the Goddess's own fierce aspect fully unleashed rather than an external ally acting on her behalf. Guptavati, given its tantric affinities, treats this passage as the textual basis for Kali's independent iconography and worship in later tradition. The Hindi commentary keeps the imagery vivid and unflinching, matching the source's own uncompromising register.`,
     keyPoints: ["**Devour Complexes Whole**: Habit + agent + tool together into witness-awareness — drivers too.","**Opposition Decorates**: Attacks on the infinite become ornaments in Her mouth.","**Wrath Laughs**: Ripened energy turns festivity — same force that frightened, now rejoicing."]
   },
@@ -154,7 +154,7 @@ cāmuṇḍeti tato loke khyātā devī bhaviṣyasi ||25||`,
 3. **CĀMUṆḌĀ — a Name earned, not given**: “Since thou hast come holding them…” — the title is conferred for the deed (yasmāt… tasmāt logic). Devī does not name Herself; the witness (Ṛṣi/Medhas) names what was done. For the practitioner: titles, roles, identities come AFTER offering, never before. Here ends Chapter 7; Raktabīja awaits (Ch8) — the foe that multiplies when struck.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Devi's beheading of Chanda, mounting her lion to close the distance and seize him by the hair, marks the episode that gives Kali her celebrated epithet Chamunda (from Chanda and Munda together), and Pradipa spends real care establishing this etymology precisely, since the name will recur throughout the rest of the text and in the Kavaca itself. Nagojibhatti's grammatical notes confirm the compound's formation. The Hindi commentary explains the naming for readers who may otherwise miss why this particular epithet becomes so significant across the remaining chapters.`,
     keyPoints: ["**Offer Both Heads**: Flare-up (Caṇḍa) seized, gloom (Muṇḍa) gathered — half-surrender keeps one alive.","**Battle Is Sacrifice**: Foes are oblations, Kālī the priestess — the remaining offerings are Śumbha-Niśumbha.","**Names Are Earned**: Cāmuṇḍā conferred for the deed — identity follows offering, never precedes."]
   }

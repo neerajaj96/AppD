@@ -1,4 +1,4 @@
-import { System, ClassicalText, SystemId } from '../../types/content';
+import { ClassicalText } from '../../types/content';
 import { buildClassicalText, buildSystemThread } from '../factory';
 import { deviMahatmyaVersesEn } from './devi-mahatmya-verses-en';
 import { deviMahatmyaVersesMl } from './devi-mahatmya-verses-ml';
@@ -28,19 +28,9 @@ export const deviMahatmyaText: ClassicalText = buildClassicalText(
     title: 'देवीमाहात्म्यम् (Devī Māhātmya)',
     transliteratedTitle: 'Devīmāhātmyam',
     author: 'Sage Mārkaṇḍeya / Sage Medhas',
-    system: 'shakta',
+    system: 'tantra',
     contentDepth: 'full',
-    verseTerm: 'Śloka',
-    sources: [
-      {
-        name: 'Sādhana-Samara (സാധനാ-സമരം) by Swami Pratyagātmānanda Saraswatī / Brahmachari Eran',
-        status: 'integrated'
-      },
-      {
-        name: 'Durgāsaptashatī with Seven Sanskrit Commentaries (Guptavatī, Pradīpa, Caturdharī, Santanavī, Nāgojībhaṭṭī, Jagaccandracandrikā, Daṃśoddhāra) and Candraprabhā Hindī-ṭīkā, ed. Dr. Girijesh Kumar Dixit, Sampurnanand Sanskrit Vishvavidyalaya, Varanasi, 2003',
-        status: 'integrated'
-      }
-    ]
+    verseTerm: 'Śloka'
   },
   {
     en: deviMahatmyaVersesEn,
@@ -52,13 +42,9 @@ export const deviMahatmyaText: ClassicalText = buildClassicalText(
   }
 );
 
-export const shaktaSystem: System = {
-  id: 'shakta' as SystemId,
-  title: 'Śākta / Devī Māhātmya',
-  subtitle: 'The philosophy of the Supreme Divine Feminine and inner spiritual warfare (Sādhana-Samara)',
-  texts: [deviMahatmyaText],
-  thread: buildSystemThread('devi-mahatmya', {
-    en: deviMahatmyaThreadEn,
-    ml: deviMahatmyaThreadMl
-  })
-};
+// Text file stays isolated in this directory; the text now belongs to the
+// unified 'tantra' system (see src/content/tantra/index.ts).
+export const deviMahatmyaThread = buildSystemThread('devi-mahatmya', {
+  en: deviMahatmyaThreadEn,
+  ml: deviMahatmyaThreadMl
+});

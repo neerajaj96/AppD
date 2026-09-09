@@ -56,7 +56,7 @@ huṅkāreṇaiva taṃ bhasma sā cakārāmbikā tataḥ ||9||`,
 3. **Huṅkāra-bhasma**: one wrathful seed-syllable ashes him — as Cāmara’s dart fell to huṅkāra (dm-3-1). Speech from integration is weapon; speech from smoke is noise. The verse teaches economy: established awareness needs no duel with deluded perception — a single syllable suffices. Then courage (siṃha) mops up the sixty thousand (dm-6-10).
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Shumbha's furious reaction to the rejected proposal, reported back by his indignant envoy, opens chapter 6, and Pradipa reads the demon-king's rage as psychologically consistent with the mada (pride) diagnosed at the very start of this carita in chapter 5 - having never before been refused, Shumbha experiences Devi's condition not as reasonable but as intolerable insult, which is precisely the flaw that will drive him toward his own destruction across the following chapters. The Hindi commentary keeps this transition brisk, moving the narrative quickly toward Dhumralochana's dispatch that follows.`,
     keyPoints: ["**Smoke-eyed Seeing**: Perception fumed by desire grasps even the snow-peak pure as object.","**Help Criminalised**: Ego’s standing order — kill any rescuer, god or not.","**One Syllable Suffices**: Established awareness ashes delusion with a single huṅkāra."]
   },
@@ -116,7 +116,7 @@ tasyāṃ hatāyāṃ duṣṭāyāṃ siṃhe ca vinipātite |
 3. **“If she’s dead, come; if alive, seize”**: the order covers both outcomes — total thinking, yet totally blind: it cannot conceive the third outcome (its own messengers’ death and Her naming from their heads — Cāmuṇḍā, Ch7). Plans that exclude grace always miss the actual ending.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Ambika's opening onslaught against the demon army, roaring as her lion shakes its mane in rage, is glossed by the commentators mainly for its escalation in ferocity compared to the earlier Mahisha-battle: Pradipa notes the language here is markedly more violent than in chapter 3, consistent with the greater evil this carita is confronting, and treats the intensifying battle-imagery across chapters 6-10 as deliberately building toward the still fiercer emanation of Kali that chapter 7 will require. Nagojibhatti and Damsoddhara resolve the martial vocabulary with their usual technical care. The Hindi commentary keeps the pace vigorous and cinematic, matching the verse's own momentum.`,
     keyPoints: ["**Root Uprooted, Branches Fall**: Ash deluded perception; its thousand rationalisations collapse at once.","**Ego Escalates, Never Learns**: Same failed errand reassigned to stronger impulses.","**Plans Excluding Grace**: Covering both outcomes still misses the actual ending."]
   }

@@ -41,7 +41,7 @@ samāpnoti sa puṇyena tāṃ yathāvannimantraṇām ||6||`,
 3. **For beginners**: First learn the key (adhikāra): surrender + meditation on Conscious Mother. Then every mantra opens. This is true śāpoddhāra.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The Kilaka opens with an invocation to a figure the commentaries identify, following the verse's own language ('trivedi-divya-caksuse'), as Shiva in his form as knowledge-embodied and half-moon-crowned, and Pradipa spends real effort establishing why a hymn to the Goddess should open by saluting Shiva at all - its answer is that the Kilaka, being concerned with the 'peg' or restraint (kila) that keeps the Saptashati's power from misuse, needs Shiva's stabilizing, ascetic principle as counterweight to the Goddess's dynamic Shakti. Nagojibhatti is characteristically attentive to why the text calls this restraint a 'kilaka' at all - grammatically tracing it to the sense of a peg or bolt that locks a door, i.e. locks away the full force of the mantra from an unprepared or unworthy practitioner. The Hindi Candraprabha keeps this framing but simplifies it: the Kilaka exists to protect the practitioner from himself, not to withhold grace.`,
     keyPoints: ["**Pinned Conscious Form**: Every violent verse hides meditation on pure-knowledge Mother.","**Uccāṭana = Inner Eradication**: Rooting out inner foes, not harming others.","**Key First**: Know the pin, then recite; otherwise doubt blocks fruit."]
   },
@@ -73,7 +73,7 @@ na cāpamṛtyuvaśaṃ yāti mṛte mokṣamāpnuyāt ||`,
 3. **Bhoga and Apavarga**: Unlike extreme world-denying philosophies, the *Devī Māhātmya* grants both dynamic empowerment in the world (*Bhoga*) and ultimate liberation (*Mokṣa*).
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Verses on the astami/caturdashi timing bring out real disagreement in tone among the commentators. Pradipa reads the injunction about the eighth or fourteenth lunar day as marking especially potent windows for recitation rather than exclusive ones - the Saptashati may be read any time, but these tithis intensify the result. Guptavati's brief remarks align the timing with wider Tantric convention around days sacred to the Goddess. Santanavi and Caturdhari read the surrounding verses about the mantra remaining 'sleeping' (supta) until the sadhaka's own effort activates it as the Kilaka's central teaching: the text withholds nothing, but the practitioner's own discipline is what 'unlocks the peg'. The Hindi commentary renders this same idea in accessible language - the mantra's power is always present, waiting on the reciter's sincerity and preparation, not on the text itself changing.`,
     keyPoints: ["**Adhikāra-Nirṇaya**: The Kīlaka is the internal psychological qualification necessary to unlock the transformational power of the scripture.","**Phases of the Mind**: Aṣṭamī and Caturdaśī represent progressive stages of mental introversion and surrender.","**Dadāti Pratigṛhṇāti**: Offering egoic identity to the Mother-Self and receiving divine fullness in return."]
   },
@@ -129,7 +129,7 @@ hṛdi rūpaṃ cintayan devyāḥ kīlakaṃ vāraṇaṃ smaret ||14||`,
 3. **Why women mentioned?** Saubhāgya seen in women is visible prasāda of Mother-power (strī = śakti). Honouring it reminds that grace, not ego-effort, gives aiśvarya-ārogya-śatruhāni-mokṣa. Hence “why would people not praise?” Keep Caṇḍikā in heart, Her form in heart, and the pin-bar (vāraṇa) ever in mind.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The closing verses promise freedom from disability, fear, and untimely death, culminating in liberation after death for the one who 'knows this' - and Pradipa is careful to specify that 'knowing' (jnatva) here means grasping the entire six-limbed apparatus (Kavaca-Argala-Kilaka plus the three Rahasyas) as a unity, not merely memorizing the Kilaka's closing lines in isolation. Nagojibhatti notes the parallel structure between 'jnatva prarabhet' (knowing, one should begin) and 'ajnatva vinashyati' (not knowing, one perishes) as a deliberate rhetorical pairing meant to instill urgency in the practitioner before he proceeds to the main text. The Hindi Candraprabha treats this as the natural threshold moment: having completed Kavaca, Argala and Kilaka, the reader is now formally authorized (adhikrta) to begin the Saptashati proper.`,
     keyPoints: ["**Fear-proof Fruit**: Health, fearlessness, no untimely fall, moksha.","**Know Then Begin**: Unknowing recitation perishes; wise learn pin first.","**Heart-remembrance**: Keep form + pin ever in heart, not only on lips."]
   },

@@ -7,19 +7,11 @@ export interface SystemPillar {
   conceptId?: string;
 }
 
-export interface CommentatorNode {
-  author: string;
-  work: string;
-  century: string;
-  role: string;
-}
-
 export interface SystemOverviewData {
   systemId: string;
   headline: Partial<Record<SupportedLanguage, string>> & { en: string };
   summary: Partial<Record<SupportedLanguage, string>> & { en: string };
   pillars: Partial<Record<SupportedLanguage, SystemPillar[]>> & { en: SystemPillar[] };
-  commentarialLineage?: Partial<Record<SupportedLanguage, CommentatorNode[]>>;
 }
 
 export const systemOverviews: Record<string, SystemOverviewData> = {
@@ -159,72 +151,6 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
         }
       ]
     },
-    commentarialLineage: {
-      en: [
-        {
-          author: 'Akṣapāda Gautama',
-          work: 'Nyāya-Sūtra',
-          century: 'c. 2nd c. BCE – 2nd c. CE',
-          role: 'The foundational aphorisms establishing the 16 categories, the 4 pramāṇas, and the mechanics of debate.'
-        },
-        {
-          author: 'Pakṣilasvāmin Vātsyāyana',
-          work: 'Nyāya-Bhāṣya',
-          century: 'c. 4th – 5th c. CE',
-          role: 'The master commentary articulating pragmatic realism, the cognitive quadruple, and the soteriological charter.'
-        },
-        {
-          author: 'Uddyotakara Bhāradvāja',
-          work: 'Nyāya-Vārtika',
-          century: 'c. 6th c. CE',
-          role: 'A fierce dialectical defense answering the critique of Buddhist logicians like Dignāga, proving pramāṇa as supreme cause.'
-        },
-        {
-          author: 'Vācaspati Miśra',
-          work: 'Nyāyavārtika-Tātparyaṭīkā',
-          century: 'c. 9th c. CE',
-          role: 'The polymath treatise reviving and clarifying Uddyotakara from obscurity during the golden age of Sanskrit scholasticism.'
-        },
-        {
-          author: 'Udayanācārya',
-          work: 'Tātparyapariśuddhi',
-          century: 'c. 10th c. CE',
-          role: 'The crowning masterwork of Old Nyāya (Prācīna Nyāya), systematically consolidating rational theism and realism.'
-        }
-      ],
-      ml: [
-        {
-          author: 'അക്ഷപാദ ഗൗതമൻ',
-          work: 'ന്യായസൂത്രം',
-          century: 'ബി.സി.ഇ 2-ാം നൂറ്റാണ്ട് - സി.ഇ 2-ാം നൂറ്റാണ്ട്',
-          role: '16 പദാർത്ഥങ്ങളെയും 4 പ്രമാണങ്ങളെയും അടിസ്ഥാനമാക്കിയുള്ള മൂലസൂത്രങ്ങൾ.'
-        },
-        {
-          author: 'പക്ഷിലസ്വാമി വാത്സ്യായനൻ',
-          work: 'ന്യായഭാഷ്യം',
-          century: 'സി.ഇ 4 - 5-ാം നൂറ്റാണ്ട്',
-          role: 'പ്രവൃത്തിസാമർത്ഥ്യം, പ്രമാണചതുഷ്ടയം, മോക്ഷശാസ്ത്രം എന്നിവ വ്യക്തമാക്കുന്ന മുഖ്യഭാഷ്യം.'
-        },
-        {
-          author: 'ഉദ്യോതകര ഭാരദ്വാജൻ',
-          work: 'ന്യായവാർത്തികം',
-          century: 'സി.ഇ 6-ാം നൂറ്റാണ്ട്',
-          role: 'ദിങ്നാഗൻ തുടങ്ങിയ ബുദ്ധമത താർക്കികരുടെ വിമർശനങ്ങളെ അതിജീവിച്ച യുക്തിഭദ്രമായ വാർത്തികം.'
-        },
-        {
-          author: 'വാചസ്പതി മിശ്രൻ',
-          work: 'താത്പര്യടീക',
-          century: 'സി.ഇ 9-ാം നൂറ്റാണ്ട്',
-          role: 'ഉദ്യോതകരന്റെ ആശയങ്ങളെ വീണ്ടെടുത്ത് കൂടുതൽ വ്യക്തമാക്കിയ വിഖ്യാത ഗ്രന്ഥം.'
-        },
-        {
-          author: 'ഉദയനാചാര്യൻ',
-          work: 'താത്പര്യപരിശുദ്ധി',
-          century: 'സി.ഇ 10-ാം നൂറ്റാണ്ട്',
-          role: 'പ്രാചീന ന്യായത്തിന്റെ സുവർണ്ണഘട്ടത്തെ സമ്പൂർണ്ണതയിലെത്തിച്ച അവസാനത്തെ മഹാപണ്ഡിതൻ.'
-        }
-      ]
-    }
   },
   shakta: {
     systemId: 'shakta',
@@ -290,60 +216,116 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
         }
       ]
     },
-    commentarialLineage: {
+  },
+  'kundalini-tantra': {
+    systemId: 'kundalini-tantra',
+    headline: {
+      en: 'The Dormant Serpent Power, the Chakra Ladder, and the Science of Awakening'
+    },
+    summary: {
+      en: "Swami Satyananda Saraswati's Kundalini Tantra (Yoga Publications Trust, 1984/2016) synthesizes Tantra and Yoga into one program: a dormant force at the spine-base (kundalini-shakti) rises through the chakra-switches via sushumna to light the sleeping brain and unite with Shiva in sahasrara — then descends, returning the realised being to ordinary life as play. The book maps ten methods of awakening, the ethics of preparation (guru, twelve years, sushumna first, diet, seclusion, karma yoga), the phenomenology of the crisis, a full chakra-by-chakra and kriya-by-kriya sadhana, and a closing research dossier on nadis, chakras and cross-cultural evidence. This app encodes it as a concepts-only text: original summaries, no verbatim prose."
+    },
+    pillars: {
       en: [
         {
-          author: 'Sage Mārkaṇḍeya / Sage Medhas',
-          work: 'Mārkaṇḍeya Purāṇa (Devī Māhātmya)',
-          century: 'c. 4th - 6th Century CE',
-          role: 'Foundational 700-verse scripture (Durgā Saptaśatī / Caṇḍī Pāṭha) framing the dialogue between King Suratha, Samādhi, and Medhas.'
+          title: 'The Dormant Force and Its Two Faces',
+          sanskritTerm: 'Kuṇḍalinī-śakti (कुण्डलिनी-शक्ति)',
+          summary: 'A bodily dormant energy at mooladhara whose uncontrolled irruption is Kali and whose mastered power is Durga; the serpent of three-and-a-half coils encodes time, the gunas and the states of consciousness plus transcendence.',
+          conceptId: 'kundalini-shakti'
         },
         {
-          author: 'Bhāskararāya Makhin',
-          work: 'Guptavatī',
-          century: '18th Century CE',
-          role: 'Celebrated traditional Śākta tantric commentary synthesizing Advaita philosophy and Mantra-śāstra.'
+          title: 'Four Awakenings in Strict Order',
+          sanskritTerm: 'Nāḍī-Cakra-Suṣumṇā-Kuṇḍalinī',
+          summary: 'Discipline ida-pingala, awaken the chakras mildly, awaken sushumna (kumbhaka, maha mudra), then awaken kundalini. Ida yields the prophet, pingala the healer, only sushumna the jivanmukta.',
+          conceptId: 'fourfold-awakening'
         },
         {
-          author: 'Nāgojī Bhaṭṭa',
-          work: 'Durgā-pradīpa',
-          century: '17th - 18th Century CE',
-          role: 'Eminent Sanskrit grammarian and philosopher who provided rigorous philological and ritual commentary.'
+          title: 'The Chakra Ladder of Evolution',
+          sanskritTerm: 'Ṣaṭ-Cakra (षट्-चक्र)',
+          summary: 'From mooladhara (root, animal crown) through desire, fire, heart, throat and nectar-point to ajna (command) and sahasrara (union) — each centre a switch for body-systems and sleeping brain-territory.',
+          conceptId: 'chakra-system'
         },
         {
-          author: 'Swami Pratyagātmānanda Saraswatī (Brahmachari Eran)',
-          work: 'Sādhana-Samara (साधना-समर)',
-          century: '20th Century CE',
-          role: 'Pioneering esoteric psychological and yogic commentary decoding the three episodes as the soul\'s inward warfare.'
-        }
-      ],
-      ml: [
-        {
-          author: 'മാർക്കണ്ഡേയ മഹർഷി / മേധാസ് മഹർഷി',
-          work: 'മാർക്കണ്ഡേയ പുരാണം (ദേവീമാഹാത്മ്യം)',
-          century: 'സി.ഇ 4 - 6-ാം നൂറ്റാണ്ട്',
-          role: 'സുരഥൻ, സമാധി, മേധാസ് മഹർഷി എന്നിവരുടെ സംവാദരൂപത്തിലുള്ള 700 ശ്ലോകങ്ങൾ അടങ്ങിയ മൂലഗ്രന്ഥം.'
+          title: 'Kriya Yoga as the Gradual Royal Road',
+          sanskritTerm: 'Kriyā-yoga (क्रिया-योग)',
+          summary: 'Twenty kriyas with bandhas and breath-mantra synchrony that wake the queen by degrees — no confrontation with mind — suited to modern rajasic temperaments; the safe alternative to explosive pranayama.',
+          conceptId: 'kriya-yoga-path'
         },
         {
-          author: 'ഭാസ്കരരായ മഖി',
-          work: 'ഗുപ്തവതി',
-          century: 'സി.ഇ 18-ാം നൂറ്റാണ്ട്',
-          role: 'ശാക്തതന്ത്രവും അദ്വൈതവേദാന്തവും സമന്വയിപ്പിച്ചുകൊണ്ടുള്ള വിഖ്യാത പരമ്പരാഗത ഭാഷ്യം.'
-        },
-        {
-          author: 'നാഗോജി ഭട്ടൻ',
-          work: 'ദുർഗ്ഗാപ്രദീപം',
-          century: 'സി.ഇ 17 - 18-ാം നൂറ്റാണ്ട്',
-          role: 'വ്യാകരണാധിഷ്ഠിതവും ആഗമശാസ്ത്രപരവുമായ ആധികാരിക വ്യാഖ്യാനം.'
-        },
-        {
-          author: 'സ്വാമി പ്രത്യാഗാത്മാനന്ദ സരസ്വതി (ബ്രഹ്മചാരി ഏരൻ)',
-          work: 'സാധനാ-സമരം (Sādhana-Samara)',
-          century: 'സി.ഇ 20-ാം നൂറ്റാണ്ട്',
-          role: 'ദേവീമാഹാത്മ്യത്തിലെ മൂന്ന് ചരിതങ്ങളെ സാധകന്റെ ആന്തരിക യുദ്ധമായും മനഃശാസ്ത്ര വികാസമായും ആവിഷ്കരിച്ച വിശിഷ്ട വ്യാഖ്യാനം.'
+          title: 'Ascent Completed by Descent',
+          sanskritTerm: 'Ārohaṇa-Avarohaṇa (आरोहण-अवरोहण)',
+          summary: 'After non-dual union in sahasrara, bindu splits and Shiva-Shakti descend together; the realised being re-inhabits duality as play (lila) — junior god, guru, avatara.',
+          conceptId: 'descent-avatar'
         }
       ]
-    }
+    },
+  },
+  tantra: {
+    systemId: 'tantra',
+    headline: {
+      en: 'The Non-Dual Science of Śakti — Goddess, Energy and Recognition'
+    },
+    summary: {
+      en: "Tantra is the woven scripture that saves by expanding: revelation (Āgama) for an age too thin for the outer sacrifice, teaching that enjoyment itself becomes liberation because the world is Śakti's own body. This system unites four texts on one path — the Devī Māhātmya (the goddess and the inner war), Kuṇḍalinī Tantra (the serpent power and its ascent), the Tantrāloka (Abhinavagupta's recognition metaphysics), and Tantra-Siddhānta, this app's own synthesis of Trika, Krama, Kula, Spanda, Pratyabhijñā and Śrīvidyā: thirty-six principles, three stains, four means, and the crown of living liberation."
+    },
+    pillars: {
+      en: [
+        {
+          title: 'The Woven Scripture',
+          sanskritTerm: 'Tantra (तन्त्र)',
+          summary: 'A scripture that weaves rite, metaphysics and yoga into one fabric and saves by expanding awareness — śruti, smṛti, and then Āgama for the Kali age.',
+          conceptId: 'tantra-name'
+        },
+        {
+          title: 'Enjoyment as Liberation',
+          sanskritTerm: 'Bhukti-mukti (भुक्ति-मुक्ति)',
+          summary: 'The world is Śakti\'s body rather than a trap, so rightly-known experience is worship; the body is declared a temple and the householder a candidate.',
+          conceptId: 'bhukti-mukti'
+        },
+        {
+          title: 'Thirty-Six Principles',
+          sanskritTerm: 'Ṣaṭ-triṃśat-tattva (षट्त्रिंशत्-तत्त्व)',
+          summary: 'Five pure principles of subjectivity, māyā with her five cloaks plus puruṣa, and the twenty-four lower principles Sāṃkhya mapped as the basement.',
+          conceptId: 'pure-tattvas'
+        },
+        {
+          title: 'Four Means for Four Densities',
+          sanskritTerm: 'Catur-upāya (चतुर्-उपाय)',
+          summary: 'Action-means for the dense, thought-means for the subtle, will-flash for the ripe, and no-means for those grace has loosened.',
+          conceptId: 'four-upayas'
+        },
+        {
+          title: 'The Inner Warfare',
+          sanskritTerm: 'Sādhana-Samara (साधना-समर)',
+          summary: 'The Devī Māhātmya decoded as the aspirant\'s psychological battle: inertia, ego-power and luminous pride conquered by one awareness at three altitudes.',
+          conceptId: 'sadhana-samara'
+        },
+        {
+          title: 'Recognition, Not Attainment',
+          sanskritTerm: 'Pratyabhijñā (प्रत्यभिज्ञा)',
+          summary: 'The self was never bound; memory itself refutes momentariness. Practice is remembrance — "I am Śiva" — until the contracted I loosens.',
+          conceptId: 'pratyabhijna'
+        },
+        {
+          title: 'The Serpent Power',
+          sanskritTerm: 'Kuṇḍalinī-śakti (कुण्डलिनी-शक्ति)',
+          summary: 'The dormant bodily force rising by suṣumṇā through the chakra-switches to light the sleeping brain — terrible Kālī unhandled, beneficent Durgā mastered.',
+          conceptId: 'kundalini-shakti'
+        },
+        {
+          title: 'Chakra Iconography as Practice Manual',
+          sanskritTerm: 'Cakra-cihna (चक्र-चिह्न)',
+          summary: 'Petals, seed-syllables, elements, animals and guardian shaktis station by station — every picture a meditation object, from the root\'s yellow square to the crown\'s thousand petals.',
+          conceptId: 'mooladhara-symbolism'
+        },
+        {
+          title: 'The Twenty-Kriyā Ladder',
+          sanskritTerm: 'Viṃśati-kriyā (विंशति-क्रिया)',
+          summary: 'Nine eyes-open conductings clearing the passages, eleven eyes-closed seals culminating in the great seals — strict order, each rung opening the gate the next walks through.',
+          conceptId: 'twenty-kriyas'
+        }
+      ]
+    },
   }
 };
 

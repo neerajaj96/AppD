@@ -6,7 +6,6 @@ import {
   Verse,
   Concept,
   ThreadStep,
-  SourceEdition,
   VerseId,
   ConceptId,
   ThreadStepId
@@ -23,7 +22,7 @@ export interface RawVerse {
   iast: string;
   diagramId?: string;
   conceptIds?: string[];
-  interpretiveNotes?: { source: string; note: string }[];
+  interpretiveNotes?: { note: string }[];
   translation?: string;
   commentary?: string;
   keyPoints?: string[];
@@ -57,7 +56,7 @@ export interface TextMeta {
   system: string;
   contentDepth?: 'full' | 'concepts-only';
   verseTerm?: string;
-  sources: SourceEdition[];
+  contentStatus?: 'complete' | 'partial';
 }
 
 function extractVerseContent(item: any, lang: SupportedLanguage) {
@@ -254,7 +253,7 @@ export function buildClassicalText(
     system: meta.system as SystemId,
     contentDepth: meta.contentDepth || 'full',
     verseTerm: meta.verseTerm,
-    sources: meta.sources,
+    contentStatus: meta.contentStatus || 'complete',
     verses: Array.from(verseMap.values()),
     concepts: Array.from(conceptMap.values()),
   });

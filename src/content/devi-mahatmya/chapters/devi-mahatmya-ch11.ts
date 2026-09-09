@@ -74,7 +74,7 @@ Notice She is addressed as *Nārāyaṇī*—the conscious active dynamic counte
 She is both *Guṇāśrayā* (the unattached transcendent substrate of the three Gunas) and *Guṇamayī* (the immanent manifest texture of nature). For the practitioner who has traversed the inner battlefield (*Sādhana-Samara*), this hymn represents the tranquil dawn of God-communion, where every breath is a hymn of praise and every creature is recognized as Her divine child.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The Narayani-stuti, sung by the gods after the final defeat of Shumbha-Nishumbha, is read by the commentators as the text's concluding theological summation, gathering together every partial epithet and role assigned to the Goddess across the preceding ten chapters into a single comprehensive hymn. Pradipa notes its structural echo of the Devi-sukta in chapter 5, treating the Narayani-stuti as its natural counterpart at the narrative's close, forming a matched pair of hymns that frame the entire Uttama-carita. The Hindi Candraprabha keeps this hymn's tone celebratory and conclusive, appropriate to its place as the victory-hymn proper.`,
     keyPoints: ["**Synthesis of Transcendent and Immanent**: Devi is simultaneously beyond the three Gunas and lovingly manifest within them.","**Total Refuge (*Śaraṇāgati*)**: The ultimate posture of the soul after battling ego is sweet, humble surrender to the All-Compassionate Mother."]
   },

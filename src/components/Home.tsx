@@ -51,11 +51,6 @@ export default function Home() {
                       ></span>
                       {text.transliteratedTitle}
                     </div>
-                    {text.sources && text.sources.length > 0 && (
-                      <span className="text-[11px] text-sattva-dim bg-avyakta-3 px-1.5 py-0.5 rounded">
-                        {text.sources.length} commentaries
-                      </span>
-                    )}
                   </li>
                 ))}
               </ul>

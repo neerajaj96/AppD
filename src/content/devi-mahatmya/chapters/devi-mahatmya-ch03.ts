@@ -70,7 +70,7 @@ bāhuyuddhena yuyudhe tenoccaistridaśāriṇā ||13||`,
 3. **Cāmara and the lion’s wrestling**: Cāmara (whisk-fan bearer = flattery, soothing excuses) hurls śakti (darting impulses); Her huṅkāra (seed-syllable of wrathful grace) drops them lifeless. Then courage itself (siṃha, Her vehicle) grapples the excuse-monger chest-to-chest — some foes are not shot from afar but wrestled down in close quarters. Next: the lion tears Cāmara (dm-3-14).
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Chapter 3's opening, with Cikshura marching to fight Ambika directly, is glossed by Pradipa mainly for its escalation: this is the first time in the text a demon commander engages the Goddess herself rather than her army or lion, marking the shift from mass battle to single combat that structures the rest of the chapter. Guptavati and Nagojibhatti attend to the specific similes used for the arrow-storm Cikshura unleashes, tracing them to conventional epic imagery of rain-clouds, a comparison the commentary treats as establishing the Goddess's imperturbability - she receives the onslaught the way a mountain receives rain, unmoved. The Hindi commentary keeps its usual plain narrative register through this martial section.`,
     keyPoints: ["**Doubts Rain on Meru**: Tangled objections cannot move the established Self; awareness cuts them in play.","**Sword Shatters on Her Arm**: Ego’s sharpest logic breaks against Mother-armed awareness.","**Wrestling, Not Just Shooting**: Some excuses must be grappled down at close quarters by courage."]
   },
@@ -142,7 +142,7 @@ dṛṣṭvā sā caṇḍikā kopaṃ tadvadhāya tadākarot ||27||`,
 3. **Her wrath answers his**: “Dṛṣṭvā sā caṇḍikā kopaṃ tadvadhāya tadākarot” — divine kopa is not hatred but concentrated resolve answering scattered rage. The duel proper begins (dm-3-28): noose, shapeshifting, madhu-pāna.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The lion's active role fighting alongside Devi - including leaping into the sky to strike from above - is treated by several commentators as worth dwelling on because it establishes the lion (simha) as more than a mount: Pradipa reads the lion's independent battle-initiative as a sign that the Goddess's vehicle itself carries and expresses her shakti, not merely serving as transport. Nagojibhatti's grammatical notes untangle the rapid sequence of verbs describing simultaneous combatants (Devi, lion, demon commander) fighting in parallel, a syntactically dense passage in the original. The Hindi Candraprabha renders the choreography for clarity, helping the reader track which blow belongs to which combatant.`,
     keyPoints: ["**Name Your Excuses**: Each general falls to a fitting weapon — precise practice for precise faults.","**Cornered Tamas Storms**: Expect inner upheaval (mountains tossed, oceans flooded) when inertia is pressed.","**Wrath Answers Rage**: Scattered fury meets concentrated resolve — the duel begins."]
   },
@@ -190,7 +190,7 @@ uvāca taṃ madoddhūtamukharāgākulākṣaram ||35||`,
 3. **Madhu-pāna**: Kubera’s cup (dm-2-29) returns — She drinks bliss-again-and-again, laughing red-eyed. Killing from ecstasy, not anger: liberating wisdom acts out of fullness. Drunk ego hurls mountains (heavy arguments); She powders them mid-air and speaks — the famous “garja garja” sentence next (dm-3-38).
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Mahisha's shape-shifting under attack - buffalo to lion to man and back again - draws the chapter's most sustained doctrinal commentary, since it dramatizes demonic power as fundamentally a power of illusion (maya) rather than raw strength, mirroring on the villain's side the very Mahamaya theology laid out for the Goddess in chapter 1. Pradipa makes this parallel explicit: Mahisha's shifting forms show a distorted, self-serving use of the same illusive capacity that the Goddess wields for cosmic order, and his defeat therefore represents true Maya overpowering its imitation. Guptavati and Nagojibhatti track the precise sequence of forms to keep the fast-moving verses grammatically unambiguous. The Hindi commentary keeps the drama vivid, letting the shape-shifting read almost cinematically.`,
     keyPoints: ["**Bind Before Dissolving**: Dhāraṇā (noose) precedes the kill — hold the mind before dissolving it.","**Ego Re-dresses**: Lion, swordsman, elephant — pride returns in nobler disguises; cut the grasping trunk.","**Ecstasy, Not Anger**: She drinks bliss and laughs — liberation acts from fullness."]
   },
@@ -218,7 +218,7 @@ ardhaniṣkrānta evāsīd devyā vīryeṇa saṃvṛtaḥ ||`,
 3. **The Foot upon the Throat**: The Mother places Her foot upon the neck—the seat of speech and breath (*Viśuddha Cakra*)—and strikes with the trident (*Triśūla*), balancing the three gunas into transcendental peace.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 Devi's taunting roar at Mahisha while she 'drinks the divine wine' (madhupana) before delivering the final blow draws real theological attention because it appears to show the Goddess indulging in something worldly at a moment of high seriousness. Pradipa resolves this by reading the wine not as literal intoxicant in the ordinary sense but as a traditional Puranic/Tantric marker of the Goddess's untrammelled, sovereign freedom - she is bound by none of the constraints (including ritual propriety) that bind ordinary beings, and the detail underlines her absolute mastery of the situation rather than any loss of control. Guptavati, given its tantric orientation, treats the detail matter-of-factly as consistent with Devi's iconography elsewhere. The Hindi commentary keeps the taunting speech vivid and confident in tone.`,
     keyPoints: ["**The Shapeshifting Ego**: Recognizing how the ego continuously assumes new spiritual or psychological guises.","**Restraint at the Throat**: Controlling the vortex of speech and breath to permanently subdue animal restlessness."]
   },
@@ -242,7 +242,7 @@ praharṣa ca paraṃ jagmuḥ sakalā devatāgaṇāḥ ||40||`,
 3. **Madhyama’s arc**: Ch2 thinned the armies (periphery), Ch3 slew the core (buffalo) — Viṣṇu-granthi, the heart-knot of “I am the doer-enjoyer,” is pierced at the throat-foot (kaṇṭha). Here ends the battle half of Madhyama Carita (Mahālakṣmī); Ch4 assimilates the victory in praise.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The actual beheading of Mahisha as he tries to emerge half-transformed from the buffalo's mouth is read by every commentator as the precise moment illusion is caught mid-shift and thus rendered powerless - Pradipa notes this timing is not incidental: had the Goddess struck before or after the transformation, the boon-protections tied to his buffalo form might have applied, so the verse is admired for its narrative and doctrinal precision alike. Nagojibhatti and Damsoddhara resolve the rapid verb sequence describing the beheading with technical care, since the syntax compresses several near-simultaneous actions into very few words. The Hindi Candraprabha closes the episode on a note of triumphant relief, consistent with its function as the climax of the Mahisha-vadha chapter.`,
     keyPoints: ["**Struck Mid-Transformation**: Grace beheads ego half-emerged — the honest middle is the decisive moment.","**Vāsanās Wail and Vanish**: Bad habits end not in argument but dissolution.","**Viṣṇu-granthi Pierced**: The heart-knot of doership-enjoyership is cut at throat and foot."]
   }

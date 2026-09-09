@@ -62,9 +62,8 @@ describe('content integrity', () => {
             expect(bad).toEqual([]);
           });
 
-          it('every verse has non-empty translation, commentary, and at least one key point (if integrated)', () => {
-            const isPending = text.sources.some(s => s.status === 'pending');
-            if (isPending) return; // Skip strict content checks for pending texts
+          it('every verse has non-empty translation, commentary, and at least one key point (if complete)', () => {
+            if (text.contentStatus === 'partial') return; // Skip strict content checks for texts still being compiled
             
             const bad = text.verses
               .filter((v) => !v.content.en?.translation?.trim() || !v.content.en?.commentary?.trim() || !v.content.en?.keyPoints || v.content.en.keyPoints.length === 0)
@@ -73,9 +72,6 @@ describe('content integrity', () => {
           });
         }
         
-        it('has at least one source listed', () => {
-          expect(text.sources.length).toBeGreaterThan(0);
-        });
         it('every concept has non-empty title and summary in English', () => {
           const bad = text.concepts
             .filter((c) => !c.content.en?.title?.trim() || !c.content.en?.summary?.trim())

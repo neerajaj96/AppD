@@ -12,8 +12,7 @@ export const samkhyaKarika: ClassicalText = buildClassicalText(
     transliteratedTitle: 'Sāṃkhyakārikā',
     author: 'Īśvarakṛṣṇa',
     system: 'samkhya',
-    verseTerm: 'Kārikā',
-    sources: [{ name: 'Vācaspatimiśra', year: '9th century CE', status: 'integrated' }]
+    verseTerm: 'Kārikā'
   },
   {
     en: samkhyaKarikaEn,

@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router';
 import { getSystem } from '../content';
-import { BookOpen, Map as MapIcon, Sparkles, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Compass, ScrollText, Layers, Search, ArrowRight } from 'lucide-react';
+import { BookOpen, Map as MapIcon, Sparkles, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Compass, Layers, Search, ArrowRight } from 'lucide-react';
 import Markdown from 'react-markdown';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
@@ -151,28 +151,6 @@ export default function SystemDetail() {
                 ))}
               </div>
             </div>
-
-            {/* Commentarial Lineage */}
-            {overview.commentarialLineage && (
-              <div className="pt-6 border-t border-tamas">
-                <h4 className="text-xs font-semibold text-sattva-dim uppercase tracking-wider mb-4 flex items-center">
-                  <ScrollText className="w-4 h-4 mr-1.5 text-tamas" />
-                  {language === 'ml' ? 'ശാസ്ത്ര പരമ്പരയും വ്യാഖ്യാതാക്കളും' : 'Authoritative Commentarial Lineage (Śāstra-Paramparā)'}
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {(overview.commentarialLineage[language] || overview.commentarialLineage.en).map((node, idx) => (
-                    <div key={idx} className="p-3.5 rounded-lg border border-tamas-deep bg-avyakta-2 hover:bg-avyakta/80 transition-colors">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="font-serif font-bold text-sm text-sattva">{node.author}</span>
-                        <span className="text-[11px] text-sattva-dim font-mono">{node.century}</span>
-                      </div>
-                      <div className="text-xs font-medium text-sattva italic mb-1.5">{node.work}</div>
-                      <div className="text-xs text-sattva-dim leading-normal">{node.role}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </div>
       )}
@@ -211,24 +189,6 @@ export default function SystemDetail() {
                   </span>
                 )}
               </div>
-
-              {text.sources && text.sources.length > 0 && (
-                <div className="pt-3 border-t border-tamas">
-                  <div className="text-[11px] font-semibold text-sattva-dim uppercase tracking-wider mb-1.5">
-                    Integrated Commentaries
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {text.sources.map((s, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="text-[11px] px-2 py-0.5 rounded bg-avyakta-3 text-sattva"
-                      >
-                        {s.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
             </Link>
           ))}
         </div>

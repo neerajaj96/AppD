@@ -28,7 +28,7 @@ tāmambikāmakhiladevamaharṣipūjyāṃ bhaktyā natāḥ sma vidadhātu śubh
 3. **“May She grant us weal” (śubhāni)**: the gods ask nothing crude — only śubha (auspiciousness). The stuti that follows (dm-4-3 onward) unpacks Her as Śrī, Buddhi, Śraddhā, Smṛti, Night, Hunger, Shadow, Power — every life-function transfigured.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The gods' praise (Shakradi-stuti) that opens chapter 4 is treated by the commentators as more than gratitude: Pradipa observes that the gods' 'necks bent, shoulders bowed' posture is described in specifically ritual-worship terms, meaning the text is depicting the gods performing formal puja to Devi rather than casual thanks, formally installing her as an object of worship even among the pantheon. Guptavati cross-references this hymn with the fuller Devi-sukta of chapter 5, treating chapter 4's praise as a shorter, preparatory counterpart. The Hindi Candraprabha keeps the devotional tone, letting the hymn read as spontaneous celebration after the long battle.`,
     keyPoints: ["**Thanksgiving First**: Victory’s first act is bodily gratitude — unacknowledged grace leaks away.","**World = Her Body**: Creation is not built by Her but is Her śakti-mūrti.","**Only Śubha Asked**: The wise ask for auspiciousness itself, not objects."]
   },
@@ -55,7 +55,7 @@ This hymn reveals the cosmic law of spiritual equilibrium (*Ṛta*). The Divine 
 In the virtuous She is the radiance of prosperity; in the corrupt She is the bitter consequence that compels repentance. In the aspirant She is *Buddhi* (clarity of spiritual discrimination) and *Śraddhā* (the persevering faith that outlasts dark nights of the soul).
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The Shakradi-stuti's paradoxical epithets - Devi as Shri in the homes of the virtuous and Alakshmi (misfortune) in the homes of the wicked - receive careful philosophical treatment, since they extend the same two-sided theology (Mahamaya as both bondage and liberation) already established in chapter 1 into moral and social terms. Pradipa reads this as establishing the Goddess's justice: she is not simply benevolent irrespective of conduct but responsive, her presence taking the form appropriate to how she is approached. Nagojibhatti's notes work through the compound pairs (Shri/Alakshmi, and similar oppositions later in the hymn) as deliberate rhetorical antitheses, a recognized ornament (alankara) in the tradition's poetics. The Hindi commentary preserves the paradox rather than resolving it away, matching the source's intent.`,
     keyPoints: ["**Immanent Divine Order**: Devi is the inner law regulating thought, consequence, virtue, and illumination.","**Intellect and Faith as Divine Presences**: Buddhi and Śraddhā are not dry human mechanics, but living presences of the Goddess in the human heart."]
   },
@@ -104,7 +104,7 @@ vijñātametadadhunaiva yadastametannītaṃ balaṃ suvipulaṃ mahiṣāsurasy
 4. **The smile that slays (v11-13)**: Mahiṣa dies merely seeing Her wrathful face — darśana itself liberates/kills (cf. Kavaca’s “perish by his sight”). “Who lives having seen Death enraged?” — the rhetorical answer: no ego survives direct encounter with awakened awareness. Then the turn: prasīda (be gracious) — wrath acknowledged becomes grace invoked.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The hymn's claim that even Vishnu and Shiva cannot fully know the Goddess 'through faults' (doshair na jnayase) is glossed carefully by Pradipa: the point is not that the great gods are ignorant in an ordinary sense, but that any partial or limited perspective - even a divine one - necessarily misses her totality, since she is the ground (adhishthana) from which even Vishnu and Shiva's own powers proceed. Guptavati links this unknowability directly back to Mahamaya's role as universal cause discussed in chapter 1, treating the hymn as chapter 1's philosophy restated in the register of praise rather than dialogue. The Hindi commentary renders the theological claim plainly, without softening the paradox that even the greatest gods stand humbled before her.`,
     keyPoints: ["**Cause Beyond Knowing**: She causes all yet evades even Viṣṇu-Śiva’s grasp — be caused, don’t define.","**Sound Feeds Cosmos**: Svāhā-Svadhā — mantra and gratitude sustain gods and ancestors.","**Nothing Secular**: Veda and livelihood (vārtā) are both Her worship.","**Darśana Slays**: No ego survives seeing awakened awareness face to face."]
   },
@@ -158,7 +158,7 @@ nītā divaṃ ripugaṇā bhayamapyapāstamasmākamunmadasurāribhavaṃ namast
 5. **Incomparability sealed (v20-22)**: śīla (stilling evil), rūpa (inconceivable), vīrya (slaying prowess-thieves), dayā (mercy even to foes) — four perfections no simile holds (kenopamā?). Mercy in heart, harshness in battle — the Mother’s two hands. Homage closes the stuti proper.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 This section, promising worldly flourishing - wealth, fame, unbroken dharma - to those on whom Devi is pleased, is read by Pradipa as the hymn's turn from pure metaphysics toward practical assurance, the same movement seen in the Argala-stotra's refrain, confirming continuity of purpose across the text's different layers. Caturdhari and Santanavi note this as consistent with the overall architecture of Puranic stotras, which typically move from ontological praise to a promised phala (fruit) for the devotee. The Hindi Candraprabha keeps this section direct and encouraging in tone, appropriate to its function as a promise of concrete benefit.`,
     keyPoints: ["**Prasāda, Not Wages**: Honour, wealth, heaven — all are grace-fruits of daily revered practice.","**Remember in Ease**: Crisis-remembrance removes fear; calm remembrance builds wisdom.","**Slaying Saves**: Faults slain cleanly by practice-weapons transform and serve the Whole.","**Two Hands**: Mercy in heart, harshness in battle — one Mother."]
   },
@@ -190,7 +190,7 @@ karapallavasaṅgīni tairasmān rakṣa sarvataḥ ||26||`,
 3. **Weapons that dwell in sprout-hands**: karapallava (sprout-like, tender hands) holding sword-spear-mace — tenderness wields fierceness; this is the whole Kavaca doctrine (dm-kavacha-3) condensed into one verse. Recite this quartet morning-evening as a portable armour.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The plea for protection by specific weapons - spear, sword, the sound of bell and bowstring - is treated by Pradipa as continuing the Kavaca's logic in miniature: just as the armor-hymn assigned protection limb by limb, this verse asks protection weapon by weapon, reinforcing across the whole text the idea that no gap should be left unguarded. Nagojibhatti notes the onomatopoeic quality of the Sanskrit describing bell-clang and bowstring-twang, observing that sound itself (shabda) is treated here as a genuinely protective, not merely symbolic, force - consistent with the mantra-theology running through the whole Saptashati. The Hindi commentary keeps the rhythm of the refrain intact in translation, letting the repetition build its own protective, incantatory feel.`,
     keyPoints: ["**Stuti Becomes Kavaca**: Praise culminates in protection — metaphysics must become shelter.","**Both Faces Guard**: Invite gentle and terrible forms alike; fear of Her fierceness is the last impurity.","**Tender Hands, Fierce Weapons**: The Kavaca doctrine condensed — softness wields strength."]
   },
@@ -246,7 +246,7 @@ tacchṛṇuṣva mayākhyātaṃ yathāvatkathayāmi te ||36||`,
 3. **Bhadrakālī vanishes; Medhas bridges**: “tathā” (so be it) — grace consents, then withdraws form (antarhitā) so the devotee learns to hold Her formless. Medhas (v34-36) closes Madhyama (Devī from gods’ bodies) and previews Uttama (Devī from Gaurī’s body for Śumbha-Niśumbha) — the same Mother, a subtler emergence: next the foe is not buffalo-bulk but polished ego (asmitā). Here ends Chapter 4.
 
 ---
-**Seven-Commentary Digest** (*Durga-saptasati with the commentaries Pradipa, Guptavati, Caturdhari, Santanavi, Nagojibhatti, Jagaccandracandrika and Damsoddhara, plus the Hindi Candraprabha of Dr. Girijesha Kumara Dixita, Sampurnanand Sanskrit University, Varanasi, 2003):**
+**Seven-Commentary Digest:**
 The chapter's close, with the gods worshipping Devi with celestial flowers and incense before she grants her boon and departs to Himalaya, is read by every commentator as formally closing the Madhyama-carita's central episode: Pradipa notes the specific worship-materials named (sandal-paste, celestial incense, Nandana-grove flowers) mark this as full ritual puja, not casual gratitude, cementing Devi's status among the gods as established fact going forward into the text's third carita. The Hindi Candraprabha treats the scene as a satisfying narrative resolution before the larger Shumbha-Nishumbha story begins in chapter 5.`,
     keyPoints: ["**Offer Finest States**: Paradise flowers, sandal, incense — worship with your best inner states.","**Twin Boons**: Remembered-again-and-again She destroys peril; praisers gain worldly weal — selfless prayer first.","**Bridge to Uttama**: Same Mother, subtler emergence — next foe is polished ego, not brute bulk."]
   }
