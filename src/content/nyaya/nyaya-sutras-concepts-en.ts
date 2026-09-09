@@ -42,10 +42,10 @@ export const nyayaConceptsEn: NyayaConcept[] = [
     sanskrit: "न्याय-दर्शनम्",
     iast: "Nyāya-darśanam",
     english: "Overview of the Nyāya System",
-    forBeginners: "Nyāya is one of the six classical Indian philosophies, focusing heavily on logic and the rules of valid knowledge. The foundational text, the Nyāya-Sūtras, is ascribed to Akṣapāda Gotama (or Gautama), who likely lived around the 6th century BCE or pre-Buddhistic times according to some scholars, though the text we have today may have taken final shape later. Over the centuries, a massive commentarial tradition grew around it, shaping it into the definitive Indian school of epistemology.",
+    forBeginners: "Nyāya is one of the six classical Indian philosophies, focusing heavily on logic and the rules of valid knowledge. The foundational text, the Nyāya-Sūtras, is ascribed to Akṣapāda Gotama (or Gautama). Dating is fiercely debated: Bhandarkar placed Gotama in 6th-century BCE Mithila as a contemporary of the Buddha (even identifying him with the authors of the Dharma- and Pitṛmedha-sūtras), while Jacobi and others argue the sūtras passed through several redactions down to the early centuries CE. What is certain is the age was one of polemics — early Nyāya forged its doctrines in live combat with Buddhist and Jain thinkers, so its history cannot be read apart from theirs. The Jha translation rendered into English for the first time all three strata together: Gotama's sūtras, Vātsyāyana's Bhāṣya, and Uddyotakara's Vārtika in full, drawing notes from Vācaspati's Tātparyaṭīkā, Udayana's Pariśuddhi, and Raghuttama's Bhāṣyachandra.",
     category: "Epistemology",
-    definition: "The orthodox Hindu philosophical system that emphasizes logical realism, asserting that valid knowledge (pramāṇa) is the sole means to accurately apprehend reality and attain liberation.",
-    significance: "The system provides the fundamental methodological and logical framework for all later Indian philosophical debates, making epistemology the prerequisite for metaphysics.",
+    definition: "The orthodox Hindu philosophical system that emphasizes logical realism, asserting that valid knowledge (pramāṇa) is the sole means to accurately apprehend reality and attain liberation. Its textual corpus in this edition comprises (a) Gotama's Nyāya-sūtras, (b) Vātsyāyana's Bhāṣya, and (c) Uddyotakara's Vārtika, with the Tātparyaṭīkā, Pariśuddhi, and Bhāṣyachandra used for notes.",
+    significance: "The system provides the fundamental methodological and logical framework for all later Indian philosophical debates, making epistemology the prerequisite for metaphysics. Because its formative centuries were an age of inter-school polemic, Nyāya doctrines — from the four pramāṇas to the Book-4 refutations of extremist world-theories (ultra-theism, chance, nihilism, universal flux or permanence) — are best read as answers to named rivals rather than isolated dogmas.",
     relatedConcepts: []
   },
   {
@@ -53,10 +53,10 @@ export const nyayaConceptsEn: NyayaConcept[] = [
     sanskrit: "भाष्य-तथा-वार्तिक",
     iast: "Bhāṣya tathā Vārtika",
     english: "The Commentarial Tradition",
-    forBeginners: "Because the original aphorisms (sūtras) were so brief, later thinkers wrote massive commentaries to explain them and defend them against rival schools (like the Buddhists). Vātsyāyana wrote the first major commentary (Bhāṣya) perhaps between 200 BCE and 400 CE. Later, when Buddhist logic surged, Uddyotakara (around the 6th century CE) wrote the Vārtika to defend the orthodox Nyāya position against the great Buddhist logician Dignāga.",
+    forBeginners: "Because the original aphorisms (sūtras) were so brief, later thinkers wrote massive commentaries to explain them and defend them against rival schools (like the Buddhists). Vātsyāyana wrote the first major commentary (Bhāṣya) — assigned dates sprawl from 200 BCE to 700 CE, with Jacobi's school favouring around the 4th-5th century CE; Suali objected that a single generation between sūtras and Bhāṣya is too short, pointing to a longer redaction interval. Later, when Buddhist logic under Dignāga surged, Uddyotakara (around the 6th century CE) wrote the Vārtika to defend the orthodox position. His date is fixed from both sides: after Dignāga, whom he refutes (terminus a quo), and before Subandhu's Vāsavadattā, which already celebrates his work at the height of its glory — after which Buddhist logicians like Dharmakīrti turned their polemics against it and overthrew its reputation for a time.",
     category: "Hermeneutics",
-    definition: "The primary layer of commentaries on the Nyāya-Sūtras: Vātsyāyana's Bhāṣya and Uddyotakara's Vārtika.",
-    significance: "They expanded the terse aphorisms into a full-fledged philosophical system, explicitly responding to contemporary challenges from Buddhist idealism and logic.",
+    definition: "The primary layer of commentaries on the Nyāya-Sūtras: Vātsyāyana's Bhāṣya (edited from the Vizianagaram Sanskrit Series collated with palm-leaf manuscripts lent by the Govardhanamaṭha Śaṅkarācārya of Puri, plus paper manuscripts of the sūtras) and Uddyotakara's Vārtika (Bibliotheca Indica edition, aided after Adhyāya I by the Benares reprint, with Adhyāya V palm-leaf manuscripts styled C and D).",
+    significance: "They expanded the terse aphorisms into a full-fledged philosophical system, explicitly responding to contemporary challenges from Buddhist idealism and logic. The Vārtika's own announcement of purpose — removing the blemish of error cast by inferior logicians on Akṣapāda's doctrine of peace and welfare — names Dignāga's school as its target, making Nyaya-Vārtika the orthodox counter-memorial of the 6th-century logic wars.",
     relatedConcepts: []
   },
   {
@@ -64,10 +64,10 @@ export const nyayaConceptsEn: NyayaConcept[] = [
     sanskrit: "तात्पर्यटीका",
     iast: "Tātparyaṭīkā",
     english: "The Later Guardians",
-    forBeginners: "As centuries passed, even the earlier commentaries became obscure. Vācaspati Miśra (around the 9th century CE) wrote the Tātparyaṭīkā to restore Uddyotakara's work, which had fallen into discredit. Later still, the brilliant Udayana (10th century CE) wrote the Tātparyapariśuddhi. These men were the definitive guardians of the old Nyāya tradition before a completely new wave of logic (Navya-Nyāya) emerged later.",
+    forBeginners: "As centuries passed, even the earlier commentaries became obscure — the Vārtika's reputation had been overthrown by Buddhist critics after its days of glory. Vācaspati Miśra (mid-9th century CE; his Nyāyasūcīnibandha date is read as 841 CE rather than 976 CE on Jha's reckoning) wrote the Tātparyaṭīkā (Vizianagaram Series) to restore Uddyotakara's work. Later still, the brilliant Udayana (10th century CE) wrote the Tātparyapariśuddhi, and much later Raghuttama composed the Bhāṣyachandra — surviving only in a single autograph manuscript reaching the middle of Adhyāya III, its deficiency supplied in this edition from the Chakhambā print plus the translator's own gloss. These men are the definitive guardians of the old Nyāya tradition before a completely new wave of logic (Navya-Nyāya) emerged later.",
     category: "Hermeneutics",
-    definition: "The secondary layer of Nyāya commentaries aimed at restoring and defending the earlier tradition, most notably Vācaspati Miśra's Tātparyaṭīkā and Udayana's Pariśuddhi.",
-    significance: "These texts represent the mature phase of 'Old Nyāya', solidifying its doctrines before the medieval shift towards the hyper-formal Navya-Nyāya system.",
+    definition: "The secondary layer of Nyāya commentaries aimed at restoring and defending the earlier tradition: Vācaspati Miśra's Tātparyaṭīkā, Udayana's Pariśuddhi, and Raghuttama's Bhāṣyachandra (fragmentary autograph to mid-Adhyāya III, completed here from the Chakhambā edition and fresh gloss).",
+    significance: "These texts represent the mature phase of 'Old Nyāya', solidifying its doctrines before the medieval shift towards the hyper-formal Navya-Nyāya system. Their notes — on the tasi affix, the karaka doctrine, pramāṇa-saṃplava, and the beginninglessness reply — are cited throughout this edition wherever the Bhāṣya-Vārtika dialectic turns technical.",
     relatedConcepts: []
   },
   {
@@ -146,6 +146,17 @@ export const nyayaConceptsEn: NyayaConcept[] = [
     definition: "The designation of Pramāṇa as the supreme, most efficient cause (sādhakatamam kāraṇam) of cognition, defined by Uddyotakara through seven unique causal characteristics: invariant concomitance, necessary presence, latency of other factors without it, immediate sequence to cognition (carama-kāraṇa), specific individual causation, individualization of mind-soul contact, and direct efficacy.",
     significance: "Provides the technical philosophical justification for why Gautama begins the Nyāya-Sūtras with Pramāṇa rather than the soul (Pramātṛ) or the world (Prameya): the instrument is the operative pivot of all experience.",
     relatedConcepts: ["pramana", "pramana-catustaya", "pravritti-samarthya"]
+  },
+  {
+    id: "karaka-tasi-vartika",
+    sanskrit: "कारक-तसि-वादः",
+    iast: "kāraka-tasi-vādaḥ",
+    english: "Kāraka Words, the tasi Affix, and the Dialectic of the Sovereign Instrument",
+    forBeginners: "How can the knower and the known exist BEFORE knowledge itself is born — don't the words 'knower' and 'known' only make sense once knowing happens? Uddyotakara answers with the cook: we call a man a 'cooker' (pachaka) even when he cooked two days ago or will cook two days hence, because words carry an expressive potency present at all three times, not just while the action burns. So pramātṛ and prameya may pre-exist the pramāṇa that links them. A second grammatical battle concerns the affix 'tasi' in 'pramāṇatas': Pāṇini 5.3.7 restricts it to the pure ablative, yet the Bhāṣya uses it for all numbers and for both ablative (causality — cognition proceeds FROM the instrument) and instrumental (instrumentality — cognition is accomplished BY it). The reply invokes Pāṇini 5.3.14, extending the affix across declensions: the usage is at once comprehensive (one, two, or many instruments) and restrictive (instruments of cognition only). From this grammar the Vārtika derives its cascade of formulations of why pramāṇa is the most efficient cause — presence-absence regulation with must-follow, equipped-only cognition, latency of knower-and-object until the instrument stirs, and last-to-operate priority like the final straw-contact that completes a substance (detailed in our sādhakatama entry). The same dialectic answers the Buddhist who allows only perception and inference with distinct objects: Nyāya counts four instruments and three object-kinds (universal, particular, and qualified particular) with genuine convergence (saṃplava), and dissolves the mutual-dependence charge (valid cognition needs fruitful action, fruitful action needs valid cognition) by the beginninglessness of the world, proved in Book 4.",
+    category: "Epistemology",
+    definition: "The Introductory Vārtika's grammatical-ontological foundation of pramāṇa's sovereignty: (1) the kāraka doctrine that agent-words denote across past, present, and future through expressive potency; (2) the tasi-affix justification (Pāṇini 5.3.14 over 5.3.7) yielding comprehensive-yet-restrictive reference with ablative-instrumental double sense; (3) the fourfold classification of 'artha' (to-be-avoided, cause of avoiding, accomplisher-treatise, ultimate deliverance) plus the pramāṇa-pramā-prameya-pramātṛ tetrad with pramāṇa sovereign in both; and (4) the anāditva (beginninglessness) reply to interdependence objections.",
+    significance: "Without this dialectic the opening sentence of the Bhāṣya — 'an instrument of right cognition must be regarded as rightly effective' — collapses under circularity and grammatical censure. It secures, before any sūtra is examined, that instruments can be spoken of collectively, that knowers pre-exist their knowings, and that convergence of instruments on one object is legitimate — the three pillars on which Books 1-5 stand.",
+    relatedConcepts: ["pramana-catustaya", "sadhakatama-karana", "pramana-samplava", "pravritti-samarthya"]
   },
   {
     id: "pramana-samplava",
@@ -332,7 +343,7 @@ export const nyayaConceptsEn: NyayaConcept[] = [
     category: "Epistemology",
     definition: "The orthodox Nyāya-Vaiśeṣika doctrine that all cognitive sense organs, without exception, function solely by physically reaching and establishing direct contact with their objects (prāpya kārīṇi indriyāṇi). Specifically establishes that the visual organ (cakṣus) is composed of radiant light (taijasa) whose ocular rays (nayana-raśmi) emit outward to envelop external objects.",
     significance: "Defends realism against Buddhist phenomenalism and representationalism. Guarantees that perception is direct contact with external objects rather than an internal projection of mental consciousness.",
-    relatedConcepts: ["pratyaksha", "sadvidha-sannikarsha", "shata-patra-bhedana-nyaya"]
+    relatedConcepts: ["pratyaksha", "sadvidha-sannikarsha", "shata-patra-bhedana-nyaya", "sannikarsha", "sharira-indriya-bhuta"]
   },
   {
     id: "shata-patra-bhedana-nyaya",
@@ -951,17 +962,6 @@ export const nyayaConceptsEn: NyayaConcept[] = [
     definition: "The doctrine that the soul (ātman) is uncreated and indestructible, existing continuously across different bodies through transmigration.",
     significance: "A crucial tenet for justifying the laws of karma and moral responsibility; if the soul were destroyed at death, actions would bear no fruit.",
     relatedConcepts: ["atman", "pretyabhava", "karma"]
-  },
-  {
-    id: "prapyakaritva",
-    sanskrit: "प्राप्यकारित्व",
-    iast: "prāpyakāritva",
-    english: "Action by Direct Contact",
-    forBeginners: "This is Nyāya's slightly odd-sounding but specific theory of vision: your eyes don't just passively receive light, they're described as sending out something like invisible rays that physically travel out and touch the object you're looking at. It's their attempt to explain perception as fundamentally a form of direct physical contact, even for senses like sight that don't feel like 'touching' anything.",
-    category: "Epistemology",
-    definition: "The principle that senses operate by physically reaching or coming into direct contact with their objects (e.g., visual rays traveling to the object).",
-    significance: "Explains the mechanism of perception (pratyaksha) and why there are spatial and temporal limits to what can be perceived.",
-    relatedConcepts: ["pratyaksha", "sannikarsha", "sharira-indriya-bhuta"]
   },
   {
     id: "buddhi-pariksha",

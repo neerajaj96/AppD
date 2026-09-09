@@ -3,19 +3,19 @@ export const nyayaSutrasThreadEn: any[] = [
     "id": "overview",
     "conceptId": "ns-intro",
     "title": "Introduction to the Nyāya System",
-    "narrative": "Before diving into the intricate web of Gautama's logic, it's vital to understand the landscape. Nyāya emerged as the definitive epistemological framework of orthodox Hinduism. The core text, the Nyāya-Sūtras, establishes logic as the primary vehicle for truth and liberation."
+    "narrative": "Before diving into the intricate web of Gautama's logic, it's vital to understand the landscape. Nyāya emerged as the definitive epistemological framework of orthodox Hinduism, forged in an age of polemics against Buddhist and Jain rivals. The core text, the Nyāya-Sūtras — dated anywhere from 6th-century BCE Mithila (Bhandarkar) to layered redactions of the early centuries CE — establishes logic as the primary vehicle for truth and liberation, and this edition renders sūtras, Bhāṣya, and Vārtika together in full for the first time."
   },
   {
     "id": "commentarial-tradition",
     "conceptId": "ns-chronology",
     "title": "The Foundational Commentaries",
-    "narrative": "The terse sutras needed unpacking. Vātsyāyana's Bhāṣya laid the groundwork, intertwining the original logic with emerging metaphysical debates. Later, Uddyotakara's Vārtika mounted a fierce, systematic defense against the sharp critiques of Buddhist logicians like Dignāga."
+    "narrative": "The terse sutras needed unpacking. Vātsyāyana's Bhāṣya (Vizianagaram edition collated with Puri palm-leaf manuscripts) laid the groundwork, intertwining the original logic with emerging metaphysical debates. Later, Uddyotakara's Vārtika (6th century, after Dignāga and before Subandhu's celebration of its glory) mounted a fierce, systematic defense against the sharp critiques of Buddhist logicians — until Dharmakīrti's school struck back and eclipsed it for a time."
   },
   {
     "id": "later-guardians",
     "conceptId": "ns-commentators",
     "title": "Restoring the Tradition",
-    "narrative": "By the 9th century, the old texts were growing obscure. Vācaspati Miśra stepped in with his Tātparyaṭīkā to rescue Uddyotakara's work from disrepute. Soon after, Udayana's Pariśuddhi cemented the 'Old Nyāya' tradition, closing the era before the hyper-technical Navya-Nyāya completely took over."
+    "narrative": "By the 9th century, the old texts were growing obscure and the Vārtika stood discredited. Vācaspati Miśra (mid-9th century on the 841 CE reckoning) stepped in with his Tātparyaṭīkā to rescue Uddyotakara's work. Soon after, Udayana's Pariśuddhi (10th century) cemented the 'Old Nyāya' tradition, with Raghuttama's fragmentary Bhāṣyachandra (autograph to mid-Adhyāya III) closing the era before the hyper-technical Navya-Nyāya completely took over."
   },
   {
     "id": "fruitful-exertion",
@@ -28,6 +28,12 @@ export const nyayaSutrasThreadEn: any[] = [
     "conceptId": "pramana-catustaya",
     "title": "The fourfold architecture of knowing",
     "narrative": "Every moment of valid cognition requires four distinct factors working in concert: the Knower (pramātṛ), the Instrument of knowledge (pramāṇa), the Object known (prameya), and the Resultant comprehension (pramā). In these four, says Vātsyāyana, the whole investigation of truth is completed."
+  },
+  {
+    "id": "karaka-tasi-dialectic",
+    "conceptId": "karaka-tasi-vartika",
+    "title": "Words that outlive their actions: kāraka, tasi, and the sovereign instrument",
+    "narrative": "Before any sūtra is examined, Uddyotakara must save the opening sentence of the Bhāṣya from grammar and circularity: kāraka-words like 'cooker' span past, present, and future, so knower and known may pre-exist knowledge; the 'tasi' affix covers all numbers with both causal and instrumental force; and the mutual-dependence charge dissolves in the beginninglessness of the world. Only then is pramāṇa secured as the most efficient cause."
   },
   {
     "id": "reality-of-sat-and-asat",
