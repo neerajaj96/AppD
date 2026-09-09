@@ -1078,7 +1078,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 22,
-    translation: "(The initial statement is made) because (Brahman) exists in the condition (of the individual soul); so Kasakritsna thinks."
+    translation: "(The initial statement is made) because (Brahman) exists in the condition (of the individual soul); so Kasakritsna thinks.",
+    commentary: "Kāśakṛtsna seals the debate: the opening equation of soul and Brahman stands because the supreme Self itself exists in the condition of the individual — the difference is only the body and name-form conjured by nescience, never real. Śaṅkara rallies the great identity sentences behind him — one Existence without a second, all this the Self, all this Brahman, no witness but Him — with the denials of duality and the portrait of the birthless, undying Self. Only this non-difference yields a knowledge beyond sublation, where witness-of-the-body and supreme Self differ in word alone."
   },
   {
     id: "1.4.23",
@@ -1086,7 +1087,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 23,
-    translation: "(Brahman is) the material cause also, on account of (this view) not being in conflict with the promissory statements and the illustrating instances."
+    translation: "(Brahman is) the material cause also, on account of (this view) not being in conflict with the promissory statements and the illustrating instances.",
+    commentary: "Brahman must be the material cause as well, not the efficient cause alone — otherwise the dialogue's pledge collapses. The promise that by knowing one thing all becomes known, carried by the clay, gold and iron illustrations, holds only if effects are non-different from their cause. A potter-like maker standing apart from his clay could never disclose the pot; a Self that is both ordainer and substance can, since there is no designer apart from it and no material apart from it."
   },
   {
     id: "1.4.24",
@@ -1094,7 +1096,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 24,
-    translation: "And on account of the statement of will (to create)."
+    translation: "And on account of the statement of will (to create).",
+    commentary: "Deliberation before creating proves it: the texts show the cause resolving — may I become many, let me send forth — and resolve belongs only to awareness. Insentient matter never deliberates, and the vital-force passages confirm that creatorship preceded by reflection is understood of the conscious Self. Willing is Brahman's own mark, binding efficient and material causality in one sentient source."
   },
   {
     id: "1.4.25",
@@ -1102,7 +1105,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 25,
-    translation: "And because both (the origin and the dissolution) are directly stated (to have Brahman as their material cause)."
+    translation: "And because both (the origin and the dissolution) are directly stated (to have Brahman as their material cause).",
+    commentary: "Both movements are stated outright of Brahman: beings take birth from That and merge back into That, enter whom they emerge from. A product is never seen absorbed into anything but its own material — pots into clay, ornaments into gold. Since scripture assigns Brahman both the outgoing and the return, the substance of the world can only be Brahman itself."
   },
   {
     id: "1.4.26",
@@ -1110,7 +1114,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 26,
-    translation: "(Brahman is the material cause) because It created Itself by undergoing modification."
+    translation: "(Brahman is the material cause) because It created Itself by undergoing modification.",
+    commentary: "The scripture says it of no other: having created, He made Himself — the Self shaped itself by modification of form. Agent and patient are one here, which is intelligible only of a material cause working upon itself, as milk curdles into its own new state. No second substance is summoned; Brahman becoming is Brahman remaining, seen under name and form."
   },
   {
     id: "1.4.27",
@@ -1118,7 +1123,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 27,
-    translation: "And because Brahman is called the source."
+    translation: "And because Brahman is called the source.",
+    commentary: "The Upaniṣads name Brahman the womb and source of beings — the creator, lord and indwelling soul whom the wise perceive as the origin of all. In common speech a womb means the material ground, as earth is of pots, and scripture borrows exactly that force. The title itself declares what Brahman is to the world: not a distant maker but its originating substance."
   },
   {
     id: "1.4.28",
@@ -1126,6 +1132,7 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 28,
-    translation: "Hereby all (the doctrines concerning the origin of the world which are opposed to the Vedanta texts) are explained, are explained."
+    translation: "Hereby all (the doctrines concerning the origin of the world which are opposed to the Vedanta texts) are explained, are explained.",
+    commentary: "Hereby all rival origin-accounts stand answered — and the repetition closes the chapter with finality. Views that keep cause and effect non-different approach Vedānta closely and need only their mistaken differentiator corrected; views positing an independent insentient source or absolute difference fall by the same refutation. The harmony of the texts being secured, the first chapter rests on Brahman as both the ruler and the very stuff of the world."
   }
 ];
