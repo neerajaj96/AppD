@@ -9,7 +9,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 1,
     sanskrit: "सर्ववेदान्तप्रत्ययं चोदनाद्यविशेषात् ॥ १ ॥",
-    translation: "(The Vidyas or meditations described in) all the Vedanta texts (are not different), on account of the non-difference of injunction etc."
+    translation: "(The Vidyas or meditations described in) all the Vedanta texts (are not different), on account of the non-difference of injunction etc.",
+    commentary: "The opponent cites differing names like Taittiriyaka and Vajasaneyaka, differing forms such as a sixth fire in one Pañcagni account, differing numbers of organs in the Prana story, and the Atharvan head-fire vow to prove vidyas differ by branch. Śaṅkara replies that the same meditation recurs everywhere, as the same Agnihotra recurs, because injunction, connection, form and name coincide — for example the Vajasaneyi and Chandogya both enjoin knowing the oldest and greatest Prana with the same result of becoming oldest among kin. Hence traits combine.",
   },
   {
     id: "3.3.2",
@@ -17,7 +18,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 2,
     sanskrit: "भेदान्नेति चेन्नैकस्यामपि ॥ २ ॥",
-    translation: "If it be said that the Vidyas are separate on account of difference (in minor points), we deny this, since even in the same (Vidya there may be such minor differences)."
+    translation: "If it be said that the Vidyas are separate on account of difference (in minor points), we deny this, since even in the same (Vidya there may be such minor differences).",
+    commentary: "The opponent argues that details clash — the Vajasaneyins add a sixth fire, this fire becomes his fire in Brhadaranyaka VI.ii.14, while the Chandogas close with five in Chandogya V.x.10, and they count speech and other organs differently — so the entity and meditation must differ. Śaṅkara replies that minor addition or omission occurs even within one vidya, like the optional Sodasi vessel in the Atiratra, and the five fires from heaven are common. The sixth is a restatement of the known funeral fire, and identity follows from the bulk of shared attributes.",
   },
   {
     id: "3.3.3",
@@ -25,7 +27,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 3,
     sanskrit: "स्वाध्यायस्य तथात्वेन हि समाचारेऽधिकाराच्च सववच्च तन्नियमः ॥ ३ ॥",
-    translation: "(The rite of carrying fire on the head is an attribute) of the study of the Veda (of the Atharvanikas); because in the Samachara (it is mentioned) as being such. And this is a rule for it as in the case of the seven libations."
+    translation: "(The rite of carrying fire on the head is an attribute) of the study of the Veda (of the Atharvanikas); because in the Samachara (it is mentioned) as being such. And this is a rule for it as in the case of the seven libations.",
+    commentary: "The opponent holds that the Mundaka knowledge must differ since only Atharvanikas require the vow of carrying fire on the head in Mundaka III.ii.10. Śaṅkara replies that this vow belongs to Vedic study, not to knowledge, because the Samacara presents it as a study vow and Mundaka III.ii.11 bars one who has not fulfilled it from reading this text, marking competence for that recension. Like the seven libations confined to the Atharvan Ekarsi fire, the regulation stays with its own study and leaves the vidya one.",
   },
   {
     id: "3.3.4",
@@ -33,7 +36,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 4,
     sanskrit: "दर्शयति च ॥ ४ ॥",
-    translation: "(The scripture) also declares (this)."
+    translation: "(The scripture) also declares (this).",
+    commentary: "Śaṅkara adds that scripture itself reveals unity, for all Upanisads teach one entity to be known. Katha I.ii.15 declares the goal all Vedas proclaim, the Aitareya Aranyaka says Hotrs, Adhvaryus and Chandogas honour one Uktha and fire and vow, the terror of Katha II.iii.2 reappears in Taittiriya II.vii.1 against duality, and the heaven-to-earth Vaisvanara of Brhadaranyaka I.i.1 is recalled as well known in Chandogya V.xviii.1. Ukthas borrowed across branches for meditation confirm by frequency that meditations too are one.",
   },
   {
     id: "3.3.5",
@@ -41,7 +45,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 5,
     sanskrit: "उपसंहारोऽर्थाभेदाद्विधिशेषवत्समाने च ॥ ५ ॥",
-    translation: "And in the case of (Vidyas) being the same, the combination (of traits) (is appropriate) on account of the non-difference of purpose, as in the case of things supplementary to injunctions."
+    translation: "And in the case of (Vidyas) being the same, the combination (of traits) (is appropriate) on account of the non-difference of purpose, as in the case of things supplementary to injunctions.",
+    commentary: "Having settled sameness, Śaṅkara states the result: where the meditation is the same, traits mentioned in any Upanisad combine elsewhere, since application does not differ. Whatever helps the meditation in one place helps it identically elsewhere, just as subsidiaries of the everywhere-same Agnihotra combine. Had meditations been different, each trait would stay tied to its own primary without reciprocal subsidiary relation. The elaboration follows from sutra 3.3.10 onward.",
   },
   {
     id: "3.3.6",
@@ -49,7 +54,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 6,
     sanskrit: "अन्यथात्वं शब्दादिति चेन्नाविशेषात् ॥ ६ ॥",
-    translation: "If it be said that (the Udgitha Vidya of the Brihadaranyaka and the Chhandogya) are different on account of the (difference in) texts; we say no, on account of the non-difference (of the essential points)."
+    translation: "If it be said that (the Udgitha Vidya of the Brihadaranyaka and the Chhandogya) are different on account of the (difference in) texts; we say no, on account of the non-difference (of the essential points).",
+    commentary: "Doubt arises over the Udgitha-Prana stories in Brhadaranyaka I.iii and Chandogya I.ii, where gods and Asuras war, speech and other organs fall to evil, and mouth-Prana triumphs. The defender of unity argues that differing phrasing — chant the Udgitha for us in Brhadaranyaka I.iii.7 versus meditated on him as Udgitha in Chandogya I.ii.7 — is slight against many agreements of war, purpose, organs, stone-versus-clod analogy, and Brhadaranyaka I.iii.23 calling Prana also Udgitha. Hence Chandogya agency is inferred metaphorically and the meditation is one.",
   },
   {
     id: "3.3.7",
@@ -57,7 +63,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 7,
     sanskrit: "न वा प्रकरणभेदात्परोवरीयस्त्वादिवत् ॥ ७ ॥",
-    translation: "Or rather there is no (unity of the Vidyas), on account of the difference of subject matter; even as (the meditation on the Udgitha as) the highest and greatest (is different from the meditation on the Udgitha as Prana)."
+    translation: "Or rather there is no (unity of the Vidyas), on account of the difference of subject matter; even as (the meditation on the Udgitha as) the highest and greatest (is different from the meditation on the Udgitha as Prana).",
+    commentary: "Śaṅkara overrules that unity and holds the two Udgitha meditations different owing to prakrama, the introductory subject. Chandogya I.i.1 introduces meditation on Om as Udgitha, expounds Om as quintessence, and I.ii.2 must therefore superimpose Prana upon the Om-part lest conclusion contradict introduction, while Brhadaranyaka presents the whole Udgitha and its singer Udgatr as Prana, supported by chanted through speech and vital force in I.iii.24. As moon-rise versus cattle-desire texts differ despite similar injunctions, and higher-than-high versus golden-beard Udgithas differ, so do these.",
   },
   {
     id: "3.3.8",
@@ -65,7 +72,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 8,
     sanskrit: "संज्ञातश्चेत्तदुक्तमस्ति तु तदपि ॥ ८ ॥",
-    translation: "If it be said (that the Vidyas are one) on account of (the identity of) name, (we reply that) that has been explained (already); moreover that (identity of name) is (found in the case of different sacrifices also)."
+    translation: "If it be said (that the Vidyas are one) on account of (the identity of) name, (we reply that) that has been explained (already); moreover that (identity of name) is (found in the case of different sacrifices also).",
+    commentary: "If unity is claimed from the common name meditation on Udgitha, Śaṅkara says this was answered by difference of introduction, for the name is popular usage from mere occurrence of the word Udgitha. The same single name covers admittedly different Udgitha meditations, higher-than-high and established in sun and eye with golden beard, just as Kathaka names distinct Agnihotra and Darsa sacrifices read in one book. Only where no such ground of difference exists, as in Samvarga and similar cases, may identity stand.",
   },
   {
     id: "3.3.9",
@@ -73,7 +81,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 9,
     sanskrit: "व्याप्तेश्च समञ्जसम् ॥ ९ ॥",
-    translation: "And because (the syllable Om) extends (to all the Vedas), it is appropriate (to qualify it by the term Udgitha)."
+    translation: "And because (the syllable Om) extends (to all the Vedas), it is appropriate (to qualify it by the term Udgitha).",
+    commentary: "Chandogya I.i.1, meditate on Om as Udgitha, offers superimposition, ablation, identity or qualification. Śaṅkara rejects superimposition for requiring metaphor and an imagined fruit, since fulfiller of desires in I.i.7 belongs to later qualities, rejects ablation since mutual negation of true Om and Udgitha ideas yields no human goal and the passage enjoins meditation rather than ontology, and rejects identity since two words would be redundant and all-pervading Om is not synonymous with the Sama-part Udgitha. He accepts qualification: whole-denoting Udgitha narrows to its Om-part, like blue lotus or burnt cloth for its portion.",
   },
   {
     id: "3.3.10",
@@ -81,7 +90,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 10,
     sanskrit: "सर्वाभेदादन्यत्रेमे ॥ १० ॥",
-    translation: "On account of the non-difference (of the Vidyas) everywhere, these (qualities) (are to be inserted) in the other (places)."
+    translation: "On account of the non-difference (of the Vidyas) everywhere, these (qualities) (are to be inserted) in the other (places).",
+    commentary: "In the Prana anecdote the Vajasaneyins transfer vasistha and other excellences of speech and organs to Prana in Brhadaranyaka VI.i.14, while Kausitaki II.14 speaks of greatness with thus but omits steadiest and similar traits. The opponent says thus confines each set to its proximate context. Śaṅkara replies that all Prana meditations are one by similar anecdote, so traits add elsewhere, as Devadatta brave at home remains brave abroad and is recognised better on acquaintance. The Vajasaneyi thus intimates the full set, and identity of the possessor bridges branches despite distance.",
   },
   {
     id: "3.3.11",
@@ -89,7 +99,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 11,
     sanskrit: "आनन्दादयः प्रधानस्य ॥ ११ ॥",
-    translation: "Bliss and other (qualities) belong to the subject (i.e., Brahman, and thus must be combined in all meditations on It)."
+    translation: "Bliss and other (qualities) belong to the subject (i.e., Brahman, and thus must be combined in all meditations on It).",
+    commentary: "Doubt arises whether sparse Brahman characteristics — natural bliss, impartite consciousness, omnipresence, Self of all — stay confined to their contexts. Śaṅkara rules that bliss and other attributes of the principal, Brahman, combine everywhere precisely because the substantive is everywhere non-different. As Devadatta's valour travels with him, so Brahman-attributes travel with Brahman across texts. This settles positive attributes; negative ones are elaborated separately.",
   },
   {
     id: "3.3.12",
@@ -97,7 +108,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 12,
     sanskrit: "प्रियशिरस्त्वाद्यप्राप्तिरुपचयापचयौ हि भेदे ॥ १२ ॥",
-    translation: "(The qualities of) having joy for its head and the like are not to be taken everywhere, for (if they were taken) there would be increase and decrease; (and this is possible only) if there is difference."
+    translation: "(The qualities of) having joy for its head and the like are not to be taken everywhere, for (if they were taken) there would be increase and decrease; (and this is possible only) if there is difference.",
+    commentary: "The opponent fears that joy as head, enjoyment as right side, hilarity as left, bliss as trunk and Brahman as tail from Taittiriya II.v will then spread everywhere. Śaṅkara denies this, since joy and its grades show intensity and feebleness among enjoyers, possible only in duality, while Brahman is one without a second in Chandogya VI.ii.1. Already in I.i.12 these were assigned to the blissful sheath as imagined aids for concentration, not real characteristics. Even granted as qualified-Brahman traits, contexts differ like a king fanned by one wife and umbrella-held by another.",
   },
   {
     id: "3.3.13",
@@ -105,7 +117,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 13,
     sanskrit: "इतरे त्वर्थसामान्यात् ॥ १३ ॥",
-    translation: "But the others (are to be combined) on account of identity of purport."
+    translation: "But the others (are to be combined) on account of identity of purport.",
+    commentary: "Śaṅkara distinguishes the rest: other characteristics like bliss that propound Brahman's real nature combine everywhere through identity of purport, since the Brahman they establish is one. Unlike imagined head-and-sides aids for meditation, these serve attainment of knowledge itself. Hence samyadvama, satyakama and similar meditative excellences stay context-bound, while being-constitutive bliss travels. The difference lies in purpose, knowledge versus meditative device.",
   },
   {
     id: "3.3.14",
@@ -113,7 +126,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 14,
     sanskrit: "आध्यानाय प्रयोजनाभावात् ॥ १४ ॥",
-    translation: "(The passage 'He has joy for his head' etc., is) for the purpose of meditation, on account of the absence of (any other) purpose."
+    translation: "(The passage 'He has joy for his head' etc., is) for the purpose of meditation, on account of the absence of (any other) purpose.",
+    commentary: "Katha I.iii.10-11 grades senses below objects below mind and crowns Purusa as culmination and highest goal. The opponent reads each higher as an independent teaching through many sentences. Śaṅkara replies the chain exists for deep meditation on Purusa, since grading the rest serves no seen or stated Upanisadic purpose, whereas establishing the evil-free infinite yields liberation, confirmed by freedom from death through knowing the constant in I.iii.15. Culmination language and denial of anything higher show the series explains Purusa alone, with meditation as means to full enlightenment.",
   },
   {
     id: "3.3.15",
@@ -121,7 +135,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 15,
     sanskrit: "आत्मशब्दाच्च ॥ १५ ॥",
-    translation: "And on account of the word 'Self' (the Anandamaya is Brahman)."
+    translation: "And on account of the word 'Self' (the Anandamaya is Brahman).",
+    commentary: "This is confirmed by the word Self, for Katha I.iii.12 calls the hidden-in-all-beings Purusa the Self seen by subtle pointed intellect, while the rest are not so called. Inscrutable yet realisable by purified mind, He is the object of merging speech into mind in I.iii.13, already explained under I.iv.1. The earlier question after highest place of Visnu in I.iii.9 is answered by enumerating senses onward, proving the effort aims at realising that goal.",
   },
   {
     id: "3.3.16",
@@ -129,7 +144,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 16,
     sanskrit: "आत्मगृहीतिरितरवदुत्तरात् ॥ १६ ॥",
-    translation: "The Supreme Self is to be understood (in the Aitareya Upanishad) as in other places, on account of the subsequent qualification."
+    translation: "The Supreme Self is to be understood (in the Aitareya Upanishad) as in other places, on account of the subsequent qualification.",
+    commentary: "Aitareya I.i.1 says in the beginning this was Self alone, nothing else winking, He thought let me create worlds and made ambhas and others. The opponent assigns Self to limited Virat or Prajapati, since worlds as elemental arrangements precede elements, Vedic and Smrti texts make world-fashioning a directed god's work, Brhadaranyaka I.iv.1 uses Self for human-formed Virat, unity contrasts with His diversity, and bringing cow, horse and man shows limited conduct. Śaṅkara replies the supreme Self is meant here as elsewhere, as in from Brahman-Self came space in Taittiriya II.i, absent limiting human-form qualifiers and supported by subsequent thought and creation.",
   },
   {
     id: "3.3.17",
@@ -137,7 +153,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 17,
     sanskrit: "अन्वयादिति चेत्स्यादवधारणात् ॥ १७ ॥",
-    translation: "If it be said that on account of the context (the highest Self is not meant); (we reply that) it is so, on account of the definite statement."
+    translation: "If it be said that on account of the context (the highest Self is not meant); (we reply that) it is so, on account of the definite statement.",
+    commentary: "If trend of sentences is said to favour the limited creator, Śaṅkara insists the supreme must hold because of definite pre-creation oneness, inappropriate otherwise. Worlds-creation follows creation of great elements known from other Upanisads, as fire in Chandogya VI.ii.3 presupposes space and air, and special details in one branch add to others. Bringing cow and similar behaviour subserves the purport of Self-Brahman identity, culminating in splitting the crown and entering in I.iii.12 and consciousness is Brahman in III.i.3, since mere story yields no human goal.",
   },
   {
     id: "3.3.18",
@@ -145,7 +162,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 18,
     sanskrit: "कार्याख्यानादपूर्वम् ॥ १८ ॥",
-    translation: "As the act is enjoined, (the rinsing of the mouth) is a new injunction."
+    translation: "As the act is enjoined, (the rinsing of the mouth) is a new injunction.",
+    commentary: "The Prana texts prescribe covering food with water before and after eating in Chandogya V.ii.2 and sipping with removing Prana-nakedness in Brhadaranyaka VI.i.14, adding that all food down to dogs is Prana's food. The opponent would enjoin both sipping and thinking, or sipping alone from shall sip with nakedness as praise. Śaṅkara holds sipping is already Smrti-known purification merely alluded to, while the new injunction is thinking of sip-water as Prana's garment. The Vedic Prana context cannot ground general Smrti, enjoining both splits unity, and all-food means seeing all as His food, with Kanva stopping at regard as removal.",
   },
   {
     id: "3.3.19",
@@ -153,7 +171,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 19,
     sanskrit: "समान एवं चाभेदात् ॥ १९ ॥",
-    translation: "In the same (Vidya) (the attributes are to be combined) thus, on account of non-difference."
+    translation: "In the same (Vidya) (the attributes are to be combined) thus, on account of non-difference.",
+    commentary: "In one Vajasaneyi branch the Agni-rahasya Sandilya teaches mind-identified Prana-bodied effulgent Self, while Brhadaranyaka V.vi.1 teaches mind-identified rice-like heart-abiding lord of all. The opponent pleads difference lest repetition arise, since same students remove the different-branch excuse and both repeat mind-identified, preventing an injunction-attribute split. Śaṅkara replies meditation and traits are same as in different branches, the object Brahman determining unity. One text prescribes meditation, the other recalls it through similar traits to add lord-of-all, the known portion being restatement and the unknown injunction.",
   },
   {
     id: "3.3.20",
@@ -161,7 +180,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 20,
     sanskrit: "सम्बन्धादेवमन्यत्रापि ॥ २० ॥",
-    translation: "Thus in other cases also, on account of connection."
+    translation: "Thus in other cases also, on account of connection.",
+    commentary: "Brhadaranyaka V.v opens satya is Brahman, locates that sun-Being and right-eye Being, makes vyahrtis His body, and gives secret names Ahar in the divine and Aham in the corporeal context. The proponent of combination argues as with Sandilya that both names belong at both places, since one Satya-Brahman, intermixed introduction, and common meditation connect them, as service to one teacher applies in village or forest. The sutra states this prima facie extension through connection, to be refuted next.",
   },
   {
     id: "3.3.21",
@@ -169,7 +189,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 21,
     sanskrit: "न वा विशेषात् ॥ २१ ॥",
-    translation: "Or rather not, on account of the difference (of place)."
+    translation: "Or rather not, on account of the difference (of place).",
+    commentary: "Śaṅkara replies they rather do not combine owing to distinction, being tied to distinct meditation places. Of this in the solar orb introduces Ahar in V.v.3 and of this in the right eye introduces Aham in V.v.4, proximate pronouns binding each name to its abode. Though the infinite Satya is one, modes differ, as service to a seated teacher differs from a standing one though the person is same. Village-versus-forest sameness is beside the point, since personality there does not change attributes.",
   },
   {
     id: "3.3.22",
@@ -177,7 +198,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 22,
     sanskrit: "दर्शयति च ॥ २२ ॥",
-    translation: "(Scripture) also shows (this)."
+    translation: "(Scripture) also shows (this).",
+    commentary: "Scripture also indicates separateness, for Chandogya I.vii.5 must extend solar-orb attributes to the eye-Being by saying same form, same knuckles, same name. Noticing that orb and eye qualifications differ and cannot naturally combine, the text resorts to notional extension. Had combination been automatic, such express identification would be needless. Hence the two secret names remain each in its place.",
   },
   {
     id: "3.3.23",
@@ -185,7 +207,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 23,
     sanskrit: "सम्भृतिद्युव्याप्त्यपि चातः ॥ २३ ॥",
-    translation: "For the same reason the supporting (of the world) and pervading the sky (are not to be combined with other Vidyas)."
+    translation: "For the same reason the supporting (of the world) and pervading the sky (are not to be combined with other Vidyas).",
+    commentary: "The Ranayaniya supplement says powers source in unchallenged Brahman and pre-existent Brahman pervaded heaven. The opponent would add these to Sandilya, Dahara and Upakosala meditations through Brahman-connection. Śaṅkara refuses for the same abode-reason: heart in Chandogya III.xiv.3 and VIII.i.1 and eye in IV.xv.1 are corporeal, while unchallenged power and heaven-pervasion are divine. Greater-than-heaven and shining-in-worlds phrases and abodeless sixteen-digit Brahman do not override incompatibility, for mere Brahman-link would fuse even admittedly different higher-than-high meditations.",
   },
   {
     id: "3.3.24",
@@ -193,7 +216,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 24,
     sanskrit: "पुरुषविद्यायामिव चेतरेषामनामनानात् ॥ २४ ॥",
-    translation: "And (the Purusha Vidya of the Taittiriya is not the same as that of the Chhandogya) as the qualities of the latter are not mentioned in the former."
+    translation: "And (the Purusha Vidya of the Taittiriya is not the same as that of the Chhandogya) as the qualities of the latter are not mentioned in the former.",
+    commentary: "The Tandins and Paingins imagine the man's life as sacrifice with three savanas, initiation hunger and mantras in Chandogya III.xvi yielding 116 years, while Taittiriya Aranyaka VI pictures the knower's sacrifice with soul as sacrificer, faith as wife, body as fire and differing savanas. Combination is proposed as both are Purusa-sacrifices. Śaṅkara denies it, since series, vessels, priests and grammar differ — of the sacrifice of the man, not man-as-sacrifice — splitting one text if forced, with Taittiriya complementary to prior renunciation and sharing Brahman-greatness fruit versus Chandogya independent longevity. Few death-as-bath similarities are outweighed.",
   },
   {
     id: "3.3.25",
@@ -201,7 +225,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 25,
     sanskrit: "वेधाद्यर्थभेदात् ॥ २५ ॥",
-    translation: "Because the piercing etc. have a different meaning (they are not to be combined with the Vidyas)."
+    translation: "Because the piercing etc. have a different meaning (they are not to be combined with the Vidyas).",
+    commentary: "Before Atharvan, Tandin, Satyayanin, Katha and Vajasaneyi Upanisads stand piercing-the-heart spells, Sun-accomplish-sacrifice, Indra, Mitra-benign mantras and Pravargya or Agnistoma rites. Proximity suggests combining them with meditation, heart suiting meditation places and some mantras like attaining earth in Chandogya III.xv.3 serving meditation, as Brhaspati-sava serves Vajapeya. Śaṅkara refuses since purports are disparate: piercing serves sorcery, accomplishment serves rite, each assigned by stronger explicit text or capacity over weak proximity under Jaimini III.iii.13. Common forest recitation explains nearness.",
   },
   {
     id: "3.3.26",
@@ -209,7 +234,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 26,
     sanskrit: "हानौ तूपायनशब्दशेषत्वात्कुशाच्छन्दस्तुत्युपगानवत्तदुक्तम् ॥ २६ ॥",
-    translation: "But where the discarding (of good and evil) is mentioned, the receiving (of them by others) (is to be added), because the word is supplementary (to the other), as in the case of the Kusas, metres, praises, and singing; this has been explained (by Jaimini)."
+    translation: "But where the discarding (of good and evil) is mentioned, the receiving (of them by others) (is to be added), because the word is supplementary (to the other), as in the case of the Kusas, metres, praises, and singing; this has been explained (by Jaimini).",
+    commentary: "Texts speak of shaking off virtue and vice like a horse in Chandogya VIII.xiii.1 and becoming taintless in Mundaka III.i.3, of sons, friends and foes inheriting property and deeds, and of loved and hated relatives receiving them in Kausitaki I.4. Where only reception occurs, rejection is presumed, but where only rejection occurs the opponent denies reception as unheard, branch-alien and actor-to-others unlinked. Śaṅkara adds reception through correlative term, completing knowledge's praise, as sun as twenty-first needs months-seasons-worlds arithmetic and tristubh needs organ text. Kusa wood, metres precedence, Sodasi time and Adhvaryu silence illustrate borrowing specials to avoid option under Jaimini X.viii.15.",
   },
   {
     id: "3.3.27",
@@ -217,7 +243,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 27,
     sanskrit: "साम्पराये तर्तव्याभावात्तथा ह्यन्ये ॥ २७ ॥",
-    translation: "At the time of departing (from the body) (the soul shakes off its good and evil deeds) because there is nothing to be reached (by them on the way to Brahman); for so others (declare)."
+    translation: "At the time of departing (from the body) (the soul shakes off its good and evil deeds) because there is nothing to be reached (by them on the way to Brahman); for so others (declare).",
+    commentary: "Kausitaki I.3-4 places shaking virtue and vice at the Viraja river on the gods path to the couch-world. Taken literally it occurs mid-journey, but Śaṅkara places it at departure from the body, since nothing remains to be attained en route through virtue or vice for one seeking Brahman by illumination. Opposed results are sublated as soon as knowledge ripens, later narration being restatement. Thus Tandins and Satyayanins rightly read the discarding, like a horse shaking hair, at the earlier stage.",
   },
   {
     id: "3.3.28",
@@ -225,7 +252,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 28,
     sanskrit: "छन्दत उभयाविरोधात् ॥ २८ ॥",
-    translation: "According to his liking (there is no restriction as to the time of shaking off good and evil) on account of there being no contradiction to either."
+    translation: "According to his liking (there is no restriction as to the time of shaking off good and evil) on account of there being no contradiction to either.",
+    commentary: "This must rest on voluntary effort before death, since after departure the traveller cannot undertake yama, niyama or knowledge-pursuit on which attenuation depends. Mid-course destruction without prior cause would sever cause and effect. Admitting earlier practice reconciles Tandin and Satyayanin texts, for attenuation springs from aspiration-stage exertion and is merely reported later. Hence effort is at will and faces no conflict either way.",
   },
   {
     id: "3.3.29",
@@ -233,7 +261,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 29,
     sanskrit: "गतेरर्थवत्त्वमुभयथाऽन्यथा हि विरोधः ॥ २९ ॥",
-    translation: "The journey (on the path of the gods) has a meaning in two ways; otherwise there would be a contradiction."
+    translation: "The journey (on the path of the gods) has a meaning in two ways; otherwise there would be a contradiction.",
+    commentary: "Since rejection is sometimes near the gods-path and sometimes not, should the path follow invariably like reception follows rejection. Śaṅkara holds the course purposeful in two ways, sometimes available and sometimes not according to qualified versus unqualified Brahman, for uniform availability contradicts taintless attains equality in Mundaka III.i.3. The motionless one without movement to another region seeks absolute unity, not region-going. Twofold purposefulness alone avoids contradiction.",
   },
   {
     id: "3.3.30",
@@ -241,7 +270,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 30,
     sanskrit: "उपपन्नस्तल्लक्षणार्थोपलब्धेर्लोकवत् ॥ ३० ॥",
-    translation: "(The two-fold journey is) reasonable, as characteristics of that (journey) are seen; as in ordinary life."
+    translation: "(The two-fold journey is) reasonable, as characteristics of that (journey) are seen; as in ordinary life.",
+    commentary: "This division is reasonable because journey-indicators appear only for qualified Brahman, such as couch-ascent, converse with seated Brahman and special fragrances in Paryanka requiring another region. For full illumination no such mark exists, since desire-fulfilled unity-realised men with burnt evil-seeds await only exhaustion of begun residual karmas in present bodies. As in common life a road serves village-going but not curing, so journey serves qualified meditation but not absolute knowing, elaborated in chapter four.",
   },
   {
     id: "3.3.31",
@@ -249,7 +279,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 31,
     sanskrit: "अनियमः सर्वासामविरोधः शब्दानुमानाभ्याम् ॥ ३१ ॥",
-    translation: "There is no restriction (for anyone to go by the path of the gods); there is no contradiction (in this); from Sruti and Smriti."
+    translation: "There is no restriction (for anyone to go by the path of the gods); there is no contradiction (in this); from Sruti and Smriti.",
+    commentary: "Even for qualified Brahman, journey is mentioned with Paryanka, five-fires, Upakosala and Dahara but not Madhu, Sandilya, sixteen-digit or Vaisvanara. The opponent restricts it contextually, else authority stultifies and repeated light-paths duplicate. Śaṅkara imposes no restriction across all fortune-leading qualified meditations, without contradiction from sruti and smrti: Chandogya V.x forest faith-austerity meditators share the five-fire path, since mere faith without knowledge cannot ascend per through knowledge they ascend and southern-path exclusion, Vajasaneyi VI.ii.15 adds Satya meditators, VI.ii.16 degrades deviants from two paths, and Gita VIII.26 eternalises light and dark. Repetition enjoins meditation on the path itself.",
   },
   {
     id: "3.3.32",
@@ -257,7 +288,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 32,
     sanskrit: "यावदधिकारमवस्थितिराधिकारिकाणाम् ॥ ३२ ॥",
-    translation: "Of those who have a mission, there is stay (in this world) as long as the mission lasts."
+    translation: "Of those who have a mission, there is stay (in this world) as long as the mission lasts.",
+    commentary: "Histories tell of illumined Apantaratamas reborn as Krsna-Dvaipayana, Vasistha reborn from Mitra-Varuna after Nimi's curse, Bhrgu, Sanatkumara as Skanda, Daksa and Narada reborn, besides multi-body yogic entries, doubting knowledge's inevitable liberation like doubting cooked food or eating. Śaṅkara replies mission-holders persist bodily while mission demands, as the sun serves a thousand ages then ascends no more in Chandogya III.xi.1 and delay lasts till body falls in VI.xiv.2. They house-shift creating bodies with unbroken memory, exhausting begun karma, unlike mere past-life rememberers. Knowledge burns seeds per Mundaka II.ii.8 and Gita IV.37, residual momentum ceasing like a shot arrow, and whoever knew became That in Brhadaranyaka I.iv.10.",
   },
   {
     id: "3.3.33",
@@ -265,7 +297,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 33,
     sanskrit: "अक्षरधियां त्ववरोधः सामान्यतद्भावाभ्यामौपसदवत्तदुक्तम् ॥ ३३ ॥",
-    translation: "But the ideas of the Imperishable (are to be combined in all meditations on It) on account of identity (of Brahman) and those (ideas) existing (in Brahman); as in the case of the Upasad; this has been explained (by Jaimini)."
+    translation: "But the ideas of the Imperishable (are to be combined in all meditations on It) on account of identity (of Brahman) and those (ideas) existing (in Brahman); as in the case of the Upasad; this has been explained (by Jaimini).",
+    commentary: "Brhadaranyaka III.viii.8 teaches the Immutable as neither gross nor minute nor short, Mundaka I.i.5-6 as imperceptible, ungraspable, sourceless, with fresh negations elsewhere. The opponent keeps each context separate. Śaṅkara combines all Immutable conceptions everywhere, since presentation by distinction-negation is similar and the object Brahman is same, as with bliss in 3.3.11 except here negative. As Upasad mantras Agner verhotram from Sama are chanted by Yajur Adhvaryu offering cakes because subsidiaries follow principals under Jaimini III.iii.8, so Immutable-dependent negations follow the Immutable everywhere.",
   },
   {
     id: "3.3.34",
@@ -273,7 +306,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 34,
     sanskrit: "इयदामननात् ॥ ३४ ॥",
-    translation: "Because so much (only) is taught."
+    translation: "Because so much (only) is taught.",
+    commentary: "Atharva and Svetasvatara say two birds cling to one tree, one eating varied fruit and the other shining uneating in Mundaka III.i.1 and Svetasvatara IV.6, while Katha I.iii.1 says shade-and-light two enjoyers of results entered the cavity. The opponent sees different objects, abstaining versus both enjoying. Śaṅkara holds conceptions same through mention of limit with a second: supreme beyond hunger appears uneating, yet as associated with the individual is called enjoyer by umbrella-people usage. Katha context from different-from-virtue-vice in I.ii.14 to undecaying beyond fear in I.iii.2 and complementary seeing worshipful God proves supreme purport, already settled as individual and supreme in I.ii.11.",
   },
   {
     id: "3.3.35",
@@ -281,7 +315,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 35,
     sanskrit: "अन्तरा भूतग्रामवत्स्वात्मनोऽन्यथा भेदानुपपत्तिरिति चेन्नोपदेशान्तरवत् ॥ ३५ ॥",
-    translation: "If it be said that (the Self) within (is different from Brahman) as in the case of the elements, and that otherwise the difference (of texts) cannot be accounted for; we reply no, (it is) as in the case of other teachings."
+    translation: "If it be said that (the Self) within (is different from Brahman) as in the case of the elements, and that otherwise the difference (of texts) cannot be accounted for; we reply no, (it is) as in the case of other teachings.",
+    commentary: "The Vajasaneyins twice ask explain immediate direct Brahman, Self within all in Brhadaranyaka III.iv.1 of Usasta and III.v.1 of Kahola. The opponent infers different conceptions from repetition, as rites differ by repetition. Śaṅkara holds one conception, since one's own Self as inmost is presented without distinction and two selves cannot both be inmost in one body, any more than among elemental earth, water and fire only one is primarily inmost, or as Svetasvatara VI.11 calls one deity inmost of all beings. Repetition removes fresh doubts like ninefold that thou art in Chandogya VI, with identical question, perishable-all-else close, very marking allusion, and hunger-transcending complement.",
   },
   {
     id: "3.3.36",
@@ -289,7 +324,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 36,
     sanskrit: "व्यतिहारो विशिंषन्ति हीतरवत् ॥ ३६ ॥",
-    translation: "(There is) exchange (of meditation); for the texts distinguish (the two meditations) as in other cases."
+    translation: "(There is) exchange (of meditation); for the texts distinguish (the two meditations) as in other cases.",
+    commentary: "Aitareya Aranyaka II.ii.4.6 says He is same as I and I same as He, and Jabalas say glorious deity I am what you are and you what I am. The opponent allows only I-as-God, lest God-as-I degrade Him, treating reverse reading as emphatic unity. Śaṅkara enjoins reciprocal twofold meditation, as other attributes like Self-of-all are meditated, because distinct two-way recitation would be useless if one way sufficed. Strengthened identity is not avoided but sought, as inevitable-desire attributes both meditated and established, and this reciprocity extends to single-way contexts.",
   },
   {
     id: "3.3.37",
@@ -297,7 +333,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 37,
     sanskrit: "सैव हि सत्यादयः ॥ ३७ ॥",
-    translation: "The same (Supreme Deity) (is to be meditated upon in both); for truth etc. (are the same)."
+    translation: "The same (Supreme Deity) (is to be meditated upon in both); for truth etc. (are the same).",
+    commentary: "Brhadaranyaka V.iv.1 teaches great first-born Satya-Brahman with letter analysis conquering worlds, while V.v.2 says that Satya is sun and eye Beings destroying evil. The opponent makes them two meditations from separate results, reference being mere same-object recall. Śaṅkara holds one Satya-vidya, since that Satya carries the former subject forward by entity identity without cogent ground for difference. Separate fruit eulogises adjuncts like secret names Ahar and Aham, and subsidiary fruits join the main meditation. Truth and companion traits therefore combine in one application.",
   },
   {
     id: "3.3.38",
@@ -305,7 +342,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 38,
     sanskrit: "कामादीतरत्र तत्र चायतनादिभ्यः ॥ ३८ ॥",
-    translation: "(The qualities like) true desire etc. (are to be combined) there and here, on account of the abode etc. (being the same)."
+    translation: "(The qualities like) true desire etc. (are to be combined) there and here, on account of the abode etc. (being the same).",
+    commentary: "Chandogya VIII.i.1-5 places small space-Brahman in the lotus-heart-house, sinless with true desire and will, while Brhadaranyaka IV.iv.22 places great birthless intellect-associated heart-space as controller, lord and ruler. Granted same knowledge, Śaṅkara adds desires and similar Chandogya traits to the other and controller traits back, owing to same abode heart, same entity God and same world-boundary dam with many similarities. Chandogya space is already Brahman per I.iii.14, and qualified-versus-supreme framing only marks meditation versus glorification, since qualified is same as unqualified, exalting God without contradiction.",
   },
   {
     id: "3.3.39",
@@ -313,7 +351,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 39,
     sanskrit: "आदरादलोपः ॥ ३९ ॥",
-    translation: "Because of the respect (shown to the Prana Vidya), there is no omission (of its qualities)."
+    translation: "Because of the respect (shown to the Prana Vidya), there is no omission (of its qualities).",
+    commentary: "In Vaisvanara Chandogya V.xix.1 first food-morsels are offered to Prana with svaha, later called Agnihotra in V.xxiv.2-5. Preliminary reasoning ties it to arriving food for eating, so fasting-day omission follows. Against this the opponent pleads no omission from respect, citing Jabalas that the host must precede guests as one performs another's Agnihotra before one's own. Condemning guest-first enjoins host-first, honouring Prana-Agnihotra, and what guards precedence can hardly tolerate omission of the honoured act itself.",
   },
   {
     id: "3.3.40",
@@ -321,7 +360,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 40,
     sanskrit: "उपस्थितेऽतस्तद्वचनात् ॥ ४० ॥",
-    translation: "When (the soul) has approached (the highest light), from this (results the shaking off of all ties), for so the text declares."
+    translation: "When (the soul) has approached (the highest light), from this (results the shaking off of all ties), for so the text declares.",
+    commentary: "Śaṅkara answers the rite comes from that presented food only when present, as Upanisadic that first morsel denotes an actually arrived eatable meant for another purpose, eating. Stripped of eating-occasion, no substitute water can sustain it, unlike ordinary Agnihotra where milk is regular. Courteous Agnihotra here is eulogy, not injunction like Kaundapayin month-Agnihotra, else fire-churning, altar, morning-evening times and prayers would intrude, whereas mouth is Ahavaniya with chest altar and hair kusa in V.xviii.2 and eating times govern. Jabala shows mere eating precedence, not invariable performance, so omission parallels eating.",
   },
   {
     id: "3.3.41",
@@ -329,7 +369,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 41,
     sanskrit: "तन्निर्धारणानियमस्तद्दृष्टेः पृथग्घ्यप्रतिबन्धः फलम् ॥ ४१ ॥",
-    translation: "There is no rule about the meditation on that (i.e. Om) because it is so seen (in the Sruti); for its fruit, viz., non-obstruction, is separate."
+    translation: "There is no rule about the meditation on that (i.e. Om) because it is so seen (in the Sruti); for its fruit, viz., non-obstruction, is separate.",
+    commentary: "Meditations tied to rite-accessories like Om-as-Udgitha in Chandogya I.i.1 raise whether they are obligatory like Palasa-wood ladle or optional like milking pot. The opponent makes them regular through application sentences, dismissing fulfiller-of-desires in I.i.7 as present-tense praise like hears no evil. Śaṅkara denies obligation, as seen: both knowers and non-knowers perform with Om in I.i.10, ignorant Prastotr and others officiate despite reproach in I.x.9-11, and more powerful in what done with knowledge, faith and deity-meditation proves unaided rite effective. Separate results like worlds above and below in II.ii.3 mark independent acts, unlike Prayajas or Palasa-Juhu needing rites, so Kalpa-sutras exclude them.",
   },
   {
     id: "3.3.42",
@@ -337,7 +378,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 42,
     sanskrit: "प्रदानवदेव तदुक्तम् ॥ ४२ ॥",
-    translation: "Just as in the case of the offerings (the meditations on Prana are to be kept separate); this has been explained (by Jaimini)."
+    translation: "Just as in the case of the offerings (the meditations on Prana are to be kept separate); this has been explained (by Jaimini).",
+    commentary: "Brhadaranyaka I.v.21 finds Prana chief among speech and organs corporally and Air among fire and gods divinely, while Chandogya IV.iii finds Air and Prana mergers respectively, with Aitareya I.ii.4, equal-infinite in Brhadaranyaka I.v.13, Prana-is-Air, sun rising-setting in Prana in I.v.23, single vow and one Prajapati swallowing two fours suggesting unity and joint approach. Śaṅkara keeps them separate as taught, for divine-corporal division would be meaningless jointly. Essence-one yet mode-two permits distinct meditation, illustration as-Prana-so-Air preserving difference, only excluding baffled speech vows, and Chandogya IV.iii.4-8 closing two mergers as five-plus-five ten Krta. As Tripurodasi three Indra cakes separate by kingship and mantra reversal, so here.",
   },
   {
     id: "3.3.43",
@@ -345,7 +387,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 43,
     sanskrit: "लिङ्गभूयस्त्वात्तद्धि बलीयस्तदपि ॥ ४३ ॥",
-    translation: "On account of the abundance of indicative marks (the fires of the mind etc. are independent); for that is stronger; this also (has been explained by Jaimini)."
+    translation: "On account of the abundance of indicative marks (the fires of the mind etc. are independent); for that is stronger; this also (has been explained by Jaimini).",
+    commentary: "In Vajasaneyi Agni-rahasya beginning neither existent nor non-existent, mind saw 36,000 self-fires mind-lighted and mental modes, with parallel speech, smell, eye, ear, hand and touch fires. Context suggests ritual parts, but Śaṅkara declares independence through abundant marks: whatever beings think lights these fires and awake-or-asleep beings ever light them for the knower. Such marks outweigh context under greater-authority ranking, as Jaimini also held. They serve meditation, not sacrifice.",
   },
   {
     id: "3.3.44",
@@ -353,7 +396,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 44,
     sanskrit: "पूर्वविकल्पः प्रकरणात्स्यात्क्रियामानसवत् ॥ ४४ ॥",
-    translation: "(The fires of the mind etc. are) alternatives to the former (i.e., the physical fire), on account of the context; they should be like the mental act."
+    translation: "(The fires of the mind etc. are) alternatives to the former (i.e., the physical fire), on account of the context; they should be like the mental act.",
+    commentary: "The opponent objects that context must make conceptual fires alternatives to the earlier actual enjoined fire, dismissing marks as mere glorification since eulogistic marks cannot displace context. Though superimposed, they would subserve rite like mental acts on the speechless Avavakya day of Dasaratra, where sea-as-Soma in earth-as-vessel to Prajapati with taking, placing, offering, remainder, invitation and drinking are all mental yet ritual parts. Hence mental fires too would form a rite.",
   },
   {
     id: "3.3.45",
@@ -361,7 +405,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 45,
     sanskrit: "अतिदेशाच्च ॥ ४५ ॥",
-    translation: "And on account of the extension (of the attributes of the actual fire to these mental fires)."
+    translation: "And on account of the extension (of the attributes of the actual fire to these mental fires).",
+    commentary: "Extension supports this, for adorable fires 36,000 each as great as the earlier brick-altar fire transfers actual-fire attributes to mental ones. Since extension rests on similarity with ritual accessories, mental fires must subserve rite. The opponent thus uses atidesa to confirm contextual ritual use, treating greatness-transfer as proof of sacrificial function rather than independent meditation.",
   },
   {
     id: "3.3.46",
@@ -369,7 +414,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 46,
     sanskrit: "विद्यैव तु निर्धारणाद्दर्शनाच्च ॥ ४६ ॥",
-    translation: "But (the fires are) knowledge only, on account of the definite declaration and observation."
+    translation: "But (the fires are) knowledge only, on account of the definite declaration and observation.",
+    commentary: "Śaṅkara replies they rather constitute meditation only, as determined by decisive declarations that all these fires as such are lighted by meditation alone and for the knower become lighted by meditation. The restrictive alone excludes ritual employment. What context suggests is set aside by direct determination, establishing independence.",
   },
   {
     id: "3.3.47",
@@ -377,7 +423,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 47,
     sanskrit: "श्रुत्यादिबलीयस्त्वाच्च न बाधः ॥ ४७ ॥",
-    translation: "And because Sruti etc. are stronger (than context), there is no setting aside (of the mental fires)."
+    translation: "And because Sruti etc. are stronger (than context), there is no setting aside (of the mental fires).",
+    commentary: "Moreover sruti and similar authorities being stronger, this cannot be set aside for context under Jaimini III.iii.14 ranking explicit statement, mark and syntax above context. Lighted by meditation alone with restrictive particle, ever-lighting awake-or-asleep, and for the knower syntactically bind fires to meditation. Mere no-external-accessory reading would need no alone, while alone usefully bars mental-Soma-like ritual use. Continuous ever-application suits independent meditation, not brief ritual, and with no other injunction the declaration itself enjoins, linked to a distinct person against sacrifice.",
   },
   {
     id: "3.3.48",
@@ -385,7 +432,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 48,
     sanskrit: "अनुबन्धादिभ्यः प्रज्ञान्तरपृथक्त्ववद्दृष्टश्च तदुक्तम् ॥ ४८ ॥",
-    translation: "On account of the connections etc. (the fires are independent) as in the case of other Vidyas; and it is seen; this has been explained."
+    translation: "On account of the connections etc. (the fires are independent) as in the case of other Vidyas; and it is seen; this has been explained.",
+    commentary: "Linkage with mind and similar reasons further prove independence as with other meditations: established, built, Soma-taken, Udgatr-sung, Hotr-recited and all directly or indirectly sacrifice-conducive acts are declared merely mental for thought-fires. Imagining physically present materials is needless, unlike Udgitha meditation upon a rite-accessory, for 36,000 moods as life-days are imagined as fires and vessels like man-as-sacrifice in Chandogya III.xvi. As great as former shows disregard, similarity as fires sufficing for extension, and as Sandilya and Avesti beyond Rajasuya through three castes per Jaimini XI.iv.7, independence stands, as Jaimini stated.",
   },
   {
     id: "3.3.49",
@@ -393,7 +441,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 49,
     sanskrit: "न सामान्यादप्युपलब्धेर्मृत्युवन्न हि लोकापत्तिः ॥ ४९ ॥",
-    translation: "Not on account of resemblance (are the fires supplementary to the act), for it is seen (that independent things can also resemble); as in the case of death; for the becoming of the world (does not mean that it actually becomes the world)."
+    translation: "Not on account of resemblance (are the fires supplementary to the act), for it is seen (that independent things can also resemble); as in the case of death; for the becoming of the world (does not mean that it actually becomes the world).",
+    commentary: "Not even similarity with imaginary Soma makes mental fires ritual subsidiaries, since express statement and allies show them serving human aspirant purpose. Resemblance does not erase distinction, as Death naming both solar Being and fire in Satapatha X.v.2.3 and Brhadaranyaka III.ii.10 does not identify them. As Gautama other-world as fire with sun as fuel in Chandogya V.iv.1 does not turn world into fire, so mental fires do not become sacrifice.",
   },
   {
     id: "3.3.50",
@@ -401,7 +450,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 50,
     sanskrit: "परेण च शब्दस्य ताद्विध्यं भूयस्त्वात्त्वनुबन्धः ॥ ५० ॥",
-    translation: "And from the subsequent (Brahmana) it is known that the text is of that nature (i.e., enjoins an independent Vidya); but the connection (with the context) is on account of the abundance (of the attributes of the sacrifice)."
+    translation: "And from the subsequent (Brahmana) it is known that the text is of that nature (i.e., enjoins an independent Vidya); but the connection (with the context) is on account of the abundance (of the attributes of the sacrifice).",
+    commentary: "The subsequent Brahmana this world is fire-lighted shows scripture intends that meditation injunction, praising meditation where desires vanish and southern-path or ignorant austerities reach not, while the earlier heat-scattering orb closes with having Death as Self becomes immortal, a meditation fruit. Similarity makes the middle portion meditative too. Connection with actual fire comes from abundance of fire attributes to be imagined, not from ritual partidom. Hence fires are meditation alone.",
   },
   {
     id: "3.3.51",
@@ -409,7 +459,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 51,
     sanskrit: "एक आत्मनः शरीरे भावात् ॥ ५१ ॥",
-    translation: "Some (maintain that the soul is not an independent entity) because of the existence of the Self in the body."
+    translation: "Some (maintain that the soul is not an independent entity) because of the existence of the Self in the body.",
+    commentary: "Some materialists deny a soul apart from body because it exists when body exists: sentience unseen in isolated earth and elements emerges in bodily transformation like intoxication from betel, so ensouled body is Self with no heaven or liberation, vitality and memory perceived only within being body-attributes like heat of fire. Śaṅkara frames this doubt to confirm the enjoyer distinct from body, grounding other-world results and Brahman-identity teaching. Sabara drew on this aphorism and Upavarsa promised discussion in Vedanta-sutras, doubt-then-refutation fixing conviction like driving a peg, with aspirant-hood of mind-fires now requiring the owner.",
   },
   {
     id: "3.3.52",
@@ -417,7 +468,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 52,
     sanskrit: "व्यतिरेकस्तद्भावाभावित्वान्न तूपलब्धिवत् ॥ ५२ ॥",
-    translation: "But the difference (of the Self from the body is proved) on account of (its) not existing when that (body) exists; not so, as in the case of perception."
+    translation: "But the difference (of the Self from the body is proved) on account of (its) not existing when that (body) exists; not so, as in the case of perception.",
+    commentary: "Śaṅkara replies not so, there is distinction since consciousness is absent even when body exists, as corpse retains form yet lacks vitality. Body-attributes last with body and are seen by others, while consciousness and memory are not, and may persist after fall by transfer to another body, doubt alone demolishing identity. If consciousness were element-perception it could not perceive elements, as fire burns not itself nor rider his shoulders nor forms see forms. Soul is perception itself, eternal uniform, I-who-saw sustaining memory, body merely auxiliary like light, with dream perception when body lies inactive. Hence soul is distinct.",
   },
   {
     id: "3.3.53",
@@ -425,7 +477,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 53,
     sanskrit: "अङ्गावबद्धास्तु न शाखासु हि प्रतिवेदमिति ॥ ५३ ॥",
-    translation: "But (the Vidyas) connected with the parts (of the sacrifice) are not (restricted) to (particular) Sakhas, but (extend) to all the Vedas."
+    translation: "But (the Vidyas) connected with the parts (of the sacrifice) are not (restricted) to (particular) Sakhas, but (extend) to all the Vedas.",
+    commentary: "Resuming, meditations on Om-as-Udgitha in Chandogya I.i.1, worlds on fivefold Saman in II.ii.1, Uktha-as-earth in Aitareya II.i.2 and fire-as-world in Satapatha X.v.4 occur per branch with differing intonation. The opponent confines each to its Udgitha by proximity, general curiosity settled by own particular. Śaṅkara says but they extend to all Vedas, since general express statement outweighs proximity. No concept is impossible toward the general, and one Udgitha despite intonation sustains one meditation across branches.",
   },
   {
     id: "3.3.54",
@@ -433,7 +486,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 54,
     sanskrit: "मन्त्रादिवद्वाऽविरोधः ॥ ५४ ॥",
-    translation: "Or else, there is no contradiction, as in the case of Mantras etc."
+    translation: "Or else, there is no contradiction, as in the case of Mantras etc.",
+    commentary: "Or rather like mantras there is no contradiction in cross-branch adoption. Yajur users lacking thou art kutaru take the stone with kutaru or cock mantra, Maitrayanas lacking subsidiary mentions learn five Prayajas equal five seasons in one place, goat-to-Agni-Soma is known via Hotr fat-marrow mantra, Agner verhotram from Sama serves Yajur, and He O people from Rg serves Yajur Adhvaryu. As accessories travel, meditations based on them travel. Hence doubt about transfer is baseless.",
   },
   {
     id: "3.3.55",
@@ -441,7 +495,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 55,
     sanskrit: "भूम्नः क्रतुवज्ज्यायस्त्वं तथाहि दर्शयति ॥ ५५ ॥",
-    translation: "The pre-eminence of the Bhuman (meditation on the entire Vaisvanara) (is analogous to) the sacrifice; for so (the scripture) shows."
+    translation: "The pre-eminence of the Bhuman (meditation on the entire Vaisvanara) (is analogous to) the sacrifice; for so (the scripture) shows.",
+    commentary: "In Chandogya V.xi-xviii Pracinasala and five seers meditate heaven and others as Self, corrected by Asvapati into head heaven, eye sun, breath air, trunk space, bladder water, feet earth Vaisvanara. The opponent urges part-meditations from you-meditate per limb and separate Soma-extraction fruits. Śaṅkara gives greater weight to the whole, as Darsa-Purnamasa integral over isolated Prayajas or principal-plus-one-part. Narrative unity, head-only rebukes like head would drop, return to totality and whole-fruit eating in all worlds through all beings in V.xviii.1 prove single whole-meditation, parts reiterated and fruits united in the principal.",
   },
   {
     id: "3.3.56",
@@ -449,7 +504,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 56,
     sanskrit: "नाना शब्दादिभेदात् ॥ ५६ ॥",
-    translation: "(The Vidyas are) separate, on account of the difference of words etc."
+    translation: "(The Vidyas are) separate, on account of the difference of words etc.",
+    commentary: "Lest whole-unity invite combining all same-God texts — mind-identified in Chandogya III.xiv.2, Ka-Kha in IV.x.5, true desire in VIII.i.5, Prana one, merger, first-born, father-mother and others — with texts supplying attributes, Śaṅkara declares meditations different by wording and allies. Veda, upasita and resolve-make differ as sacrifice, give and pour do under Purva II.ii.1, with attributes, results, names and incombinability implied by etc. Same mood linked to exclusive chains differs, numerous self-contained desiring-result injunctions leave no lacuna unlike Vaisvanara whole, and universal combination would be impossible. Unity discussion presupposes this difference.",
   },
   {
     id: "3.3.57",
@@ -457,7 +513,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 57,
     sanskrit: "विकल्पोऽविशिष्टफलत्वात् ॥ ५७ ॥",
-    translation: "(There is) option (with regard to the Vidyas) on account of their having the same result."
+    translation: "(There is) option (with regard to the Vidyas) on account of their having the same result.",
+    commentary: "Differing meditations raise collective, single-compulsory or indiscriminate adoption, with no combination scripture like Agnihotra-Darsa yet no bar to another. Śaṅkara makes each an alternative through indistinguishable result. Direct perception of God or meditated object from one renders others useless, while combination distracts preventing perception. Illumination appears in having vision attains Brahman in Chandogya III.xiv.4, becoming God attains Godhood in Brhadaranyaka IV.i.2 and Gita VIII.6. Hence choose one wholeheartedly till perception. This concerns self-identity absorptions, not mere unseen merit.",
   },
   {
     id: "3.3.58",
@@ -465,7 +522,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 58,
     sanskrit: "काम्यास्तु यथाकामं समुच्चीयेरन्न वा पूर्वहेत्वभावात् ॥ ५८ ॥",
-    translation: "But those (Vidyas) which are for the sake of desires may be combined or not according to one's liking, on account of the absence of the former reason."
+    translation: "But those (Vidyas) which are for the sake of desires may be combined or not according to one's liking, on account of the absence of the former reason.",
+    commentary: "But symbol meditations for worldly desires — Air as directions calf preventing son-mourning in Chandogya III.xv.2 and names as Brahman granting free movement in VII.1.5 — first become unseen merit like rites without expectancy of perception. With previous same-result ground absent, they may combine or not at will. Option here follows desired fruits, illustrating the converse of the same-result alternative rule.",
   },
   {
     id: "3.3.59",
@@ -473,7 +531,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 59,
     sanskrit: "अङ्गेषु यथाश्रयभावः ॥ ५९ ॥",
-    translation: "In the case of the parts (of the sacrifice) it is as in the case of their abodes."
+    translation: "In the case of the parts (of the sacrifice) it is as in the case of their abodes.",
+    commentary: "For meditations based on subsidiaries like Udgitha across three Vedas, doubt arises whether to combine or leave optional. The proponent states their position follows their bases: as hymns and utterances apply grouped, so concepts determined by bases apply grouped. Meditation cannot float free from the accessory fixing it, so collective ritual grouping drags meditation grouping along.",
   },
   {
     id: "3.3.60",
@@ -481,7 +540,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 60,
     sanskrit: "शिष्टेश्च ॥ ६० ॥",
-    translation: "And from the injunction."
+    translation: "And from the injunction.",
+    commentary: "The same proponent adds from injunction: as bases hymns and accessories are Veda-enjoined, so meditations upon them are enjoined, with no instructional difference between accessory and based conception. Enjoined status alike, they should share the base's collective fate. This continues the prima facie case for combination.",
   },
   {
     id: "3.3.61",
@@ -489,7 +549,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 61,
     sanskrit: "समाहारात् ॥ ६१ ॥",
-    translation: "From the rectification."
+    translation: "From the rectification.",
+    commentary: "Rectification further suggests combination, for Chandogya I.v.5 says the Udgatr knowing Om-Udgitha sameness rectifies defective singing by the well-performed Hota act. Implying one Upanisadic conception aids conceptions elsewhere through common object, the text treats knowledge as bridging recensions. Hence meditations would co-exist and assist like priests acts.",
   },
   {
     id: "3.3.62",
@@ -497,7 +558,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 62,
     sanskrit: "गुणसाधारण्यश्रुतेश्च ॥ ६२ ॥",
-    translation: "And from the scriptural statement of the commonness of the qualities."
+    translation: "And from the scriptural statement of the commonness of the qualities.",
+    commentary: "Commonness of Om as rite-accessory points the same way, for Chandogya I.i.9 declares three-Veda rites start with Om in chanting, praising and singing Udgitha. Noticing same basis, meditations upon it would be same and co-existent. If Udgitha and companions were not for all rites, concepts would not co-occur, but application statements make bases common, so based meditations must combine.",
   },
   {
     id: "3.3.63",
@@ -505,7 +567,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 63,
     sanskrit: "न वा तत्सहभावाश्रुतेः ॥ ६३ ॥",
-    translation: "Or rather not, on account of the absence of a scriptural statement of their being together."
+    translation: "Or rather not, on account of the absence of a scriptural statement of their being together.",
+    commentary: "Śaṅkara replies rather not, since Upanisads declare no correlation of meditations. Unlike taking vessel, holding ladle, chanting, praising and calling Prastotr and Hotr grouping accessories, no text groups meditations. Application statements correlate Udgithas for sacrifice, while Udgitha meditations serve the aspirant with separate hindrance-removal fruit per 3.3.41, like milk-pot, accessories serving rite versus meditations purifying mind. Without textual or logical support, marks of rectification and common Om cannot force combination, though meditations vanish without bases. Hence adopt as desired.",
   },
   {
     id: "3.3.64",
@@ -513,7 +576,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 64,
     sanskrit: "दर्शनाच्च ॥ ६४ ॥",
-    translation: "And because it is seen."
+    translation: "And because it is seen.",
+    commentary: "Scripture also shows non-combination, for Chandogya IV.xvii.10 says the Brahma priest who knows thus protects sacrifice, sacrificer and all priests. Had all meditations combined, every priest would know everything and special all-sided protection by knowing Brahma would be pointless. Division of ritual knowledge proves meditations stay distributive. Therefore aspirants may take them collectively or alternatively at will.",
   },
 
   // PADA 4: The Purpose of Knowledge (Vidya) and the Relation of Knowledge to Action
@@ -523,7 +587,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 1,
     sanskrit: "पुरुषार्थोऽतः शब्दादिति बादरायणः ॥ १ ॥",
-    translation: "From this (knowledge of Brahman) results the purpose of man, because of the scriptural statement; so Badarayana thinks."
+    translation: "From this (knowledge of Brahman) results the purpose of man, because of the scriptural statement; so Badarayana thinks.",
+    commentary: "Bādarāyaṇa opens with the conclusion itself: liberation flows from this Upaniṣadic knowledge of the Self, on the strength of Vedic declaration. Texts like the knower of the Self crosses sorrow (Ch. VII.i.3), the knower of Brahman attains the Highest (Tai. II.i.1), and he becomes Brahman (Mu. III.ii.9) name knowledge alone as cause. No rite is interposed between knowing and freedom; delay lasts only till the body falls (Ch. VI.xiv.2).",
   },
   {
     id: "3.4.2",
@@ -531,7 +596,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 2,
     sanskrit: "शेषत्वात्पुरुषार्थवादो यथान्येष्विति जैमिनिः ॥ २ ॥",
-    translation: "On account of (the Self) being supplementary (to sacrificial acts), (the statements of fruits) are mere praise, as in other cases; so Jaimini thinks."
+    translation: "On account of (the Self) being supplementary (to sacrificial acts), (the statements of fruits) are mere praise, as in other cases; so Jaimini thinks.",
+    commentary: "Jaimini objects that the Self, as agent, stands subservient to rites, so knowledge merely purifies the performer like washing paddy for sacrifice. Fruit-statements such as he transcends grief must then be eulogy of the agent, as with praise of the palāśa ladle or collyrium rite. The Vedāntin asks where any context binds this free Self-knowledge to a rite at all. An agent is too shifting a link, common to worldly and Vedic acts alike, to fasten knowledge to sacrifice.",
   },
   {
     id: "3.4.3",
@@ -539,7 +605,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 3,
     sanskrit: "आचारदर्शनात् ॥ ३ ॥",
-    translation: "Because of the observation of conduct."
+    translation: "Because of the observation of conduct.",
+    commentary: "The objector points to conduct: Janaka performed lavish sacrifice (Bṛ. III.i.1) and others vowed I shall sacrifice (Ch. V.xi.5), while Uddālaka taught sons as a householder. If knowledge alone freed, why shoulder such toil when honey lies at hand? Revealed behaviour thus proves knowers remain tied to rites. The Vedāntin will answer with counter-conduct of renouncers below.",
   },
   {
     id: "3.4.4",
@@ -547,7 +614,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 4,
     sanskrit: "तच्छ्रुतेः ॥ ४ ॥",
-    translation: "Because scripture says so."
+    translation: "Because scripture says so.",
+    commentary: "Scripture itself joins knowledge to rite, the objector urges, declaring the act done with meditation, faith and secret lore more forceful (Ch. I.i.10). Here knowing appears as a limb strengthening sacrifice, not an independent liberator. If knowledge served freedom alone, such joint efficacy would be unmentioned. The Vedāntin replies this text belongs only to its own Udgītha topic, as shown later.",
   },
   {
     id: "3.4.5",
@@ -555,7 +623,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 5,
     sanskrit: "समन्वारम्भणात् ॥ ५ ॥",
-    translation: "Because of the taking hold together."
+    translation: "Because of the taking hold together.",
+    commentary: "The departing soul is followed by knowledge, work and past impression (Bṛ. IV.iv.2), the objector argues, proving the two travel yoked to yield one fruit. Knowledge therefore cannot act singly for liberation. Association at death implies partnership in result. The reply divides their destinations and their owners, reserving this passage for the desiring transmigrator.",
   },
   {
     id: "3.4.6",
@@ -563,7 +632,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 6,
     sanskrit: "तद्वतो विधानात् ॥ ६ ॥",
-    translation: "Because of the injunctions for him who possesses that (knowledge)."
+    translation: "Because of the injunctions for him who possesses that (knowledge).",
+    commentary: "Competence for rites presupposes Vedic knowledge, the objector continues, citing one who returns from the teacher after reciting the Veda, enters the householder life, studies and sacrifices, and wins Brahman's world (Ch. VIII.xv.1). Knowledge thus qualifies the sacrificer rather than freeing him outright. Pūrva-Mīmāṁsā adds that recital implies grasp of sense, since reading aims at understood meaning. The Vedāntin limits this to mere recitation below.",
   },
   {
     id: "3.4.7",
@@ -571,7 +641,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 7,
     sanskrit: "नियमाच्च ॥ ७ ॥",
-    translation: "And on account of the restrictive rules."
+    translation: "And on account of the restrictive rules.",
+    commentary: "Restrictive rules bind man to lifelong work, the objector concludes: doing deeds here, let one wish to live a hundred years; no other path keeps deed from clinging (Īś. 2), with Agnihotra due till age or death. No exemption is carved for the knower. Knowledge must therefore serve within rites. The Vedāntin answers that such general restraints specify nobody, least of all the knower consumed by truth.",
   },
   {
     id: "3.4.8",
@@ -579,7 +650,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 8,
     sanskrit: "अधिकोपदेशात्तु बादरायणस्यैवं तद्दर्शनात् ॥ ८ ॥",
-    translation: "But because the teaching is about one who is superior (to the individual soul), (the view) of Badarayana (is valid); for that is seen (from the scripture)."
+    translation: "But because the teaching is about one who is superior (to the individual soul), (the view) of Badarayana (is valid); for that is seen (from the scripture).",
+    commentary: "With but the sūtra sweeps the whole subsidiary theory aside and vindicates Bādarāyaṇa. The Upaniṣads teach something greater than the transmigrating agent: the birthless Lord, free from sin, ruler of all, of whom wind and sun move in fear (Tai. II.viii.1; Ka. II.iii.2; Bṛ. III.viii.9). Knowledge of Him prompts no act but uproots agency itself. Had mere embodied selfhood been taught, eulogy-talk might stand; against the supreme Self it collapses.",
   },
   {
     id: "3.4.9",
@@ -587,7 +659,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 9,
     sanskrit: "तुल्यं तु दर्शनम् ॥ ९ ॥",
-    translation: "But the declarations of the scripture are equal (on the other side)."
+    translation: "But the declarations of the scripture are equal (on the other side).",
+    commentary: "Conduct-texts cut equally the other way, the Vedāntin replies. The Kauṣītaki seers ask why study or sacrifice once That is known, and of old the wise abandoned Agnihotra (Kau. II.5); knowing this Self, brāhmaṇas renounce desires for sons, wealth and worlds and wander as mendicants (Bṛ. III.v.1). Yājñavalkya's this is immortality seals renunciation (Bṛ. IV.v.15). The sacrificial vow at Ch. V.xi.5 concerns qualified Vaiśvānara meditation, combinable with rites, never the absolute knowledge.",
   },
   {
     id: "3.4.10",
@@ -595,7 +668,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 10,
     sanskrit: "असार्वत्रिकी ॥ १० ॥",
-    translation: "(The scriptural declaration that knowledge is subordinate to work is) not universal."
+    translation: "(The scriptural declaration that knowledge is subordinate to work is) not universal.",
+    commentary: "The whatever done with knowledge declaration (Ch. I.i.10) is not universal, the Vedāntin narrows it. Its topic is strictly the Udgītha meditation opened at meditate on Om as Udgītha (Ch. I.i.1), praising knowing singing over bare singing. A contextual fruit cannot conscript every Self-knowledge into ritual service. The general thesis of independence survives the particular praise.",
   },
   {
     id: "3.4.11",
@@ -603,7 +677,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 11,
     sanskrit: "विभागः शतवत् ॥ ११ ॥",
-    translation: "(There is) division, as in the case of a hundred."
+    translation: "(There is) division, as in the case of a hundred.",
+    commentary: "Knowledge and work in he is followed (Bṛ. IV.iv.2) divide like a hundred coins split between two heirs: one portion follows one soul, another another. Moreover that passage concludes with the desiring transmigrator, while the desireless knower is treated apart just after (Bṛ. IV.iv.6). Taken broadly, its knowledge covers both enjoined and forbidden lore of the wanderer. Division, or else the sheer otherness of the mukta's case, dissolves the partnership plea.",
   },
   {
     id: "3.4.12",
@@ -611,7 +686,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 12,
     sanskrit: "अध्ययनमात्रवतः ॥ १२ ॥",
-    translation: "(The knowledge of the Veda is required) of him who has merely read the Veda."
+    translation: "(The knowledge of the Veda is required) of him who has merely read the Veda.",
+    commentary: "The Chāndogya householder text enjoins rites only for him who has merely recited the Veda (Ch. VIII.xv.1), the sūtra answers. Having read names recital, not Upaniṣadic realization with its own independent fruit. Ritual lore gathered in study suffices for competence; the Self-knowledge that dawns need not mortgage itself to qualify anyone. As one rite's lore need not authorize another, so liberating insight need not authorize sacrifice.",
   },
   {
     id: "3.4.13",
@@ -619,7 +695,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 13,
     sanskrit: "नाविशेषात् ॥ १३ ॥",
-    translation: "Not so, on account of the absence of specification."
+    translation: "Not so, on account of the absence of specification.",
+    commentary: "The hundred-year and lifelong-Agnihotra restraints miss the knower because they specify nobody. Couched generally, they cannot silently conscript the one whose world has dissolved into the Self. A restriction without designation binds the ritualist, not the realized. What the opponent reads as universal fetters the Vedāntin reads as unaddressed to freedom.",
   },
   {
     id: "3.4.14",
@@ -627,7 +704,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 14,
     sanskrit: "स्तुतयेऽनुमतिर्वा ॥ १४ ॥",
-    translation: "Or the permission (to do works) is for the sake of praise (of knowledge)."
+    translation: "Or the permission (to do works) is for the sake of praise (of knowledge).",
+    commentary: "Even granted the Īśa verse touches the knower, its leave to act praises knowledge rather than prescribing toil. Deed shall not cling to you turns lifelong work into a measure of immunity: though he acts till death, stain cannot stick where Self-knowledge burns. Permission becomes panegyric. The verse honours insight by displaying its power to disarm action.",
   },
   {
     id: "3.4.15",
@@ -635,7 +713,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 15,
     sanskrit: "कामकारेण चैके ॥ १५ ॥",
-    translation: "And some (refrain from works) according to their free will."
+    translation: "And some (refrain from works) according to their free will.",
+    commentary: "Some sages freely lay work aside, proving knowledge no rite's menial. The Vājasaneyins record ancients declining progeny with what shall we do with children, we who have won this Self, this world (Bṛ. IV.iv.22). Such refusal springs from tasted fruit, not from license. Unlike deferred ritual pay, knowledge yields immediate experience, needing no sacrificial scaffolding to stand.",
   },
   {
     id: "3.4.16",
@@ -643,7 +722,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 16,
     sanskrit: "उपमर्दं च ॥ १६ ॥",
-    translation: "And (scripture declares) the destruction (of the whole world of works by knowledge)."
+    translation: "And (scripture declares) the destruction (of the whole world of works by knowledge).",
+    commentary: "Knowledge destroys the very theatre of rites, shattering agent, instrument and end together. When all has become the Self, what shall one smell, and through what? (Bṛ. II.iv.14) leaves no foothold for obligation. Whoever seeks ritual competence from such insight inherits only the bonfire of all competence. Annihilation of distinctions cannot double as their servant.",
   },
   {
     id: "3.4.17",
@@ -651,7 +731,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 17,
     sanskrit: "ऊर्ध्वरेतःसु च शब्दे हि ॥ १७ ॥",
-    translation: "And (knowledge belongs) to those who observe chastity (i.e., Sannyasins); for (this is stated) in the scripture."
+    translation: "And (knowledge belongs) to those who observe chastity (i.e., Sannyasins); for (this is stated) in the scripture.",
+    commentary: "Knowledge is heard among continent renouncers, where no Agnihotra exists to employ it. Virtue has three branches crowns steadfastness in Brahman with immortality (Ch. II.xxiii.1); forest faith and austerity (Ch. V.x.1; Mu. I.ii.11), monks renouncing home for the Self (Bṛ. IV.iv.22), and renounce even from studentship (Jāb. 4) attest the fourth life. What thrives where rites are absent cannot be their appendage.",
   },
   {
     id: "3.4.18",
@@ -659,7 +740,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 18,
     sanskrit: "परामर्शं जैमिनिरचोदना चापवदति हि ॥ १८ ॥",
-    translation: "Jaimini (thinks that the scriptural texts about the Sannyasins) are a mere reference (and not an injunction); and there is no injunction; for (scripture) condemns (it)."
+    translation: "Jaimini (thinks that the scriptural texts about the Sannyasins) are a mere reference (and not an injunction); and there is no injunction; for (scripture) condemns (it).",
+    commentary: "Jaimini demotes those texts to mere allusion, the opponent insists. No imperative enjoins the other orders; the three-branch passage only contrasts limited virtuous worlds with infinite steadfastness in Brahman to praise the latter. Householder rites alone carry true injunctions, while give up not progeny (Tai. I.xi.1) and sonless man hath no world condemn abandonment. Forest and monk passages then teach the gods' path or praise the Self's world, with the Jābāla text set aside for now.",
   },
   {
     id: "3.4.19",
@@ -667,7 +749,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 19,
     sanskrit: "अनुष्ठेयं बादरायणः साम्यश्रुतेः ॥ १९ ॥",
-    translation: "Badarayana (thinks that Sannyasa) is to be practiced, on account of the scriptural statement of equality."
+    translation: "Badarayana (thinks that Sannyasa) is to be practiced, on account of the scriptural statement of equality.",
+    commentary: "Bādarāyaṇa holds the other orders must be lived, since Veda mentions them evenly with the householder's. As sacrifice, study, charity signals household life, so austerity and the lifelong student signal their own disciplines within virtue has three branches (Ch. II.xxiii.1). The nivīta and prācīnāvīta, known elsewhere yet named beside the upavīta, show allusion can carry authority. Renouncing home for the Self (Bṛ. IV.iv.22) and forest faith (Ch. V.x.1) stand on the same footing as Veda-study.",
   },
   {
     id: "3.4.20",
@@ -675,7 +758,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 20,
     sanskrit: "विधिर्वा धारणवत् ॥ २० ॥",
-    translation: "Or rather it is an injunction, as in the case of the carrying (of the firewood)."
+    translation: "Or rather it is an injunction, as in the case of the carrying (of the firewood).",
+    commentary: "Or rather the passage injuncts, like the ruling that fuel be held above though joined to holding below (Jai. Su. III.iv.11). Unheard newness outweighs single drift of praise, and the contrast these win virtue's worlds, the steadfast wins deathlessness demands a fourth figure beyond the three named. Austerity marks the forest-dweller's mortification, never the monk's sense-mastery, while steadfastness in Brahman means total absorption possible only where all duties are renounced. The Jābāla order of student, householder, forest, monk, with leap by ripened dispassion (Jāb. 4-5), confirms it directly.",
   },
   {
     id: "3.4.21",
@@ -683,7 +767,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 21,
     sanskrit: "स्तुतिमात्रमुपादानादिति चेन्नापूर्वत्वात् ॥ २१ ॥",
-    translation: "If it be said that (the texts declaring the glories of the Udgitha are) mere praise, on account of their reference (to parts of the sacrifice); (we say) no, on account of their newness."
+    translation: "If it be said that (the texts declaring the glories of the Udgitha are) mere praise, on account of their reference (to parts of the sacrifice); (we say) no, on account of their newness.",
+    commentary: "Udgītha glories such as Om, essence of essences, highest, eighth (Ch. I.i.3) and earth-as-ṛk equations are not mere ladle-praise, the opponent's parallel fails. Landed inside ritual books, earth is the ladle can adorn a nearby injunction; stranded in Upaniṣads, Udgītha praise could hitch to no distant rite and would rot unused. Extraordinary, unheard content cries for a fresh injunction to meditate. Newness rescues the sentences from redundancy.",
   },
   {
     id: "3.4.22",
@@ -691,7 +776,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 22,
     sanskrit: "भावशब्दाच्च ॥ २२ ॥",
-    translation: "And on account of the words expressive of becoming."
+    translation: "And on account of the words expressive of becoming.",
+    commentary: "Injunctive voice settles the matter: meditate on Udgītha (Ch. I.i.1), meditate on sāman (Ch. II.ii.1), think I am uktha all command with should-forms the Mīmāṁsakas recognize as injunction's seal. Each meditation further promises its own fruit, from desire's fulfilment (Ch. I.i.7) to worlds above and below (Ch. II.ii.3). Command plus reward means meditation enjoined, not garnish praised.",
   },
   {
     id: "3.4.23",
@@ -699,7 +785,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 23,
     sanskrit: "पारिप्लवार्था इति चेन्न विशेषितत्वात् ॥ २३ ॥",
-    translation: "If it be said that (the stories in the Upanishads) are for the purpose of Pariplava; (we say) no, because they are specified."
+    translation: "If it be said that (the stories in the Upanishads) are for the purpose of Pariplava; (we say) no, because they are specified.",
+    commentary: "Upaniṣadic tales of Yājñavalkya's wives (Bṛ. IV.v.1), Pratardana before Indra (Kau. III.1) and Jānaśruti's bounty (Ch. IV.i.1) are not horse-sacrifice pariplava yarns, the opponent's assimilation breaks. Pariplava employs only specified Manu-descended cycles recited to king and kin, whose enumeration would be pointless if every story qualified. Unlisted forest dialogues cannot trot to the aśvamedha hall. Their home is instruction, not intermission.",
   },
   {
     id: "3.4.24",
@@ -707,7 +794,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 24,
     sanskrit: "तथा चैकवाक्यतोपबन्धात् ॥ २४ ॥",
-    translation: "And thus (they are meant to illustrate the Vidyas) on account of their connection in one coherent whole."
+    translation: "And thus (they are meant to illustrate the Vidyas) on account of their connection in one coherent whole.",
+    commentary: "Stories cling to neighbouring insight by single drift of sense, lighting what they touch. Maitreyī's dialogue sharpens the Self is to be realized (Bṛ. IV.v.6), Pratardana's approach opens I am prāṇa, conscious Self (Kau. III.2), and Jānaśruti's quest leads to wind as merger (Ch. IV.iii.1). Like he tore his own marrow kindling its adjacent rite, narrative kindles adjacent vision. Interest and ease, not festival recital, explain their presence.",
   },
   {
     id: "3.4.25",
@@ -715,7 +803,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 25,
     sanskrit: "अत एव चाग्नीन्धनाद्यनपेक्षा ॥ २५ ॥",
-    translation: "And therefore there is no need of the lighting of the fire and so on."
+    translation: "And therefore there is no need of the lighting of the fire and so on.",
+    commentary: "For this very reason — knowledge causing liberation declared at 3.4.1 — the renouncer needs no fire-kindling and its train. What yields its fruit unaided borrows no causal limb from orders built for other ends. Restatement here gathers the first topic's harvest before fresh qualifications. Independence from ritual production stands sealed.",
   },
   {
     id: "3.4.26",
@@ -723,7 +812,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 26,
     sanskrit: "सर्वापेक्षा च यज्ञादिश्रुतेरश्ववत् ॥ २६ ॥",
-    translation: "And there is need of all (works), on account of the scriptural statement of sacrifices etc.; as in the case of the horse."
+    translation: "And there is need of all (works), on account of the scriptural statement of sacrifices etc.; as in the case of the horse.",
+    commentary: "Yet all works are needed, as the horse suits the chariot never the plough: not to ripen knowledge's fruit but to birth knowledge itself. Brāhmaṇas seek to know through Veda-study, sacrifice, charity, dispassionate austerity (Bṛ. IV.iv.22) weds rites to seeking, while sacrifice is studentship (Ch. VIII.v.1) and the Om-goal of all Vedas and austerities (Ka. I.ii.15) crown them as means. Smṛti agrees duties scorch sins till insight dawns. Dependence for emergence leaves independence for result untouched.",
   },
   {
     id: "3.4.27",
@@ -731,7 +821,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 27,
     sanskrit: "शमदमाद्युपेतः स्यात्तथापि तु तद्विधेस्तदङ्गतया तेषामवश्यानुष्ठेयत्वात् ॥ २७ ॥",
-    translation: "But still (even though there is no injunction to do works for a Sannyasin), he must be possessed of calmness, subjection of the senses, etc., since those are enjoined as auxiliaries to that (knowledge) and therefore have necessarily to be practiced."
+    translation: "But still (even though there is no injunction to do works for a Sannyasin), he must be possessed of calmness, subjection of the senses, etc., since those are enjoined as auxiliaries to that (knowledge) and therefore have necessarily to be practiced.",
+    commentary: "Even if sacrifices rest on inferred rather than spoken injunction through their novel tie to seeking, calm, restraint, withdrawal, endurance and collectedness stand expressly enjoined. Knowing thus, he grows self-controlled, tranquil, withdrawn, patient, concentrated, and sees the Self within (Bṛ. IV.iv.23, should see in Mādhyandinas) binds serenity to insight with therefore. Such auxiliaries are proximate limbs of knowing, sacrifices its outer court. The seeker must wear both inner and outer aids.",
   },
   {
     id: "3.4.28",
@@ -739,7 +830,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 28,
     sanskrit: "सर्वान्नानुमतिश्च प्राणात्यये तद्दर्शनात् ॥ २८ ॥",
-    translation: "And there is permission for all food (only) in the case of danger to life; for so it is seen."
+    translation: "And there is permission for all food (only) in the case of danger to life; for so it is seen.",
+    commentary: "To the prāṇa-knower nothing is uneatable (Ch. V.ii.1; Bṛ. VI.i.14) enjoins no gourmet license as limb of meditation. Present-tense praise extols prāṇa's all-food, which no human belly could literally share down to dogs' fare. Only mortal peril permits forbidden eating, as Ūṣasti-Cākrāyaṇa proved chewing leftover beans in Kuru famine yet refusing polluted water while water remained (Ch. I.x.1-4). Necessity, not knowledge, opens every mouth.",
   },
   {
     id: "3.4.29",
@@ -747,7 +839,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 29,
     sanskrit: "अबाधाच्च ॥ २९ ॥",
-    translation: "And on account of the non-contradiction (of the scriptural statements regarding clean food)."
+    translation: "And on account of the non-contradiction (of the scriptural statements regarding clean food).",
+    commentary: "Reading the prāṇa-text as eulogy spares the pure-food rule from contradiction. When food is pure, mind grows pure (Ch. VII.xxvi.2) still divides fit from unfit for normal life. Exception for survival and praise for insight coexist without collision. Interpretation must save scripture from war with itself.",
   },
   {
     id: "3.4.30",
@@ -755,7 +848,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 30,
     sanskrit: "अपि च स्मर्यते ॥ ३० ॥",
-    translation: "And moreover the Smriti also states this."
+    translation: "And moreover the Smriti also states this.",
+    commentary: "Smṛti seconds the distress-only reading. The lotus-leaf verse absolves only him who eats where he can when life hangs in balance, while drinkers of wine face molten penalty and worm-births. Indiscriminate eating belongs to calamity for wise and unwise alike, never to daily method. Remembered law thus guards both mercy and restraint.",
   },
   {
     id: "3.4.31",
@@ -763,7 +857,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 31,
     sanskrit: "शब्दश्चातोऽकामकारे ॥ ३१ ॥",
-    translation: "And hence also the scriptural passage preventing free will (in eating)."
+    translation: "And hence also the scriptural passage preventing free will (in eating).",
+    commentary: "Hence prohibitive śruti checks license outright, clinching the eulogy view. The Kaṭha sacramentum warns therefore the brāhmaṇa shall not drink liquor, barring wilful transgression. A general ban would be senseless if insight licensed every cup. The nothing uneatable flourish must glorify, not govern.",
   },
   {
     id: "3.4.32",
@@ -771,7 +866,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 32,
     sanskrit: "विहितत्वाच्चाश्रमकर्मापि ॥ ३२ ॥",
-    translation: "And the duties of the Asramas (are to be performed by him who does not desire liberation) because they are enjoined."
+    translation: "And the duties of the Asramas (are to be performed by him who does not desire liberation) because they are enjoined.",
+    commentary: "Duties of orders bind even him who craves no liberation, since lifelong Agnihotra and its kin are flatly enjoined. The cooperation-text (Bṛ. IV.iv.22) does not swallow the obligatory sentence nor grow overburdened by double duty. One command sustains the order; another reveals its aid to seeking. The unseeking householder therefore performs, not abstains.",
   },
   {
     id: "3.4.33",
@@ -779,7 +875,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 33,
     sanskrit: "सहकारित्वेन च ॥ ३३ ॥",
-    translation: "And (they must be performed) as cooperating (with knowledge)."
+    translation: "And (they must be performed) as cooperating (with knowledge).",
+    commentary: "Those same duties co-operate toward knowledge's birth, never toward manufacturing its fruit like prayājas building heaven. Knowledge, uninjoinable and unproducible, wants only emergence-aids, as 3.4.25 already barred production-aids. Seek to know through sacrifice names joint generation, not joint fabrication. Obligation and helpfulness meet without merging.",
   },
   {
     id: "3.4.34",
@@ -787,7 +884,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 34,
     sanskrit: "सर्वथापि त एवोभयलिङ्गात् ॥ ३४ ॥",
-    translation: "In any case the same (duties are to be performed) on account of the twofold indicative marks."
+    translation: "In any case the same (duties are to be performed) on account of the twofold indicative marks.",
+    commentary: "Either way — as lifelong obligation or as occasional seeker's aid — the very same Agnihotra and kin are performed, no novel Kūṇḍapāyin month-rite invented. Vedic mark seek to know through Veda-study (Bṛ. IV.iv.22) applies existing forms, and Smṛti doing duty fruitlessly (Gītā VI.1) with its eighty-four sanctifications shows known rites purifying toward insight. Identity of deed with difference of association, like khadira stake serving rite by rule and hero by occasion, resolves the tension.",
   },
   {
     id: "3.4.35",
@@ -795,7 +893,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 35,
     sanskrit: "अनभिभवं च दर्शयति ॥ ३५ ॥",
-    translation: "And (the scripture) shows (that knowledge) is not overpowered (by passions etc. if works are performed)."
+    translation: "And (the scripture) shows (that knowledge) is not overpowered (by passions etc. if works are performed).",
+    commentary: "Veda displays the unoverpowered fruit of such discipline: that Self won by studentship never perishes (Ch. VIII.v.3). Passion and torment fail against one armoured by continence and rite. Protection witnessed confirms purification promised. Works thus prove both duty and ladder.",
   },
   {
     id: "3.4.36",
@@ -803,7 +902,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 36,
     sanskrit: "अन्तरा चापि तु तद्दृष्टेः ॥ ३६ ॥",
-    translation: "But also (persons standing) in between (the Asramas) (are qualified for knowledge) for that is seen."
+    translation: "But also (persons standing) in between (the Asramas) (are qualified for knowledge) for that is seen.",
+    commentary: "Even standers-between — widowers and resourceless men barred from any order — deserve knowledge, for Upaniṣads exhibit them knowing. Raikva the cart-man (Ch. IV.i-iii) and Gārgī-Vācaknavī in debate (Bṛ. III.vi.1) had no āśrama paraphernalia yet won Brahman-lore. Absence of order-duties cannot bar what dawns past orders. Cases seen override competence doubted.",
   },
   {
     id: "3.4.37",
@@ -811,7 +911,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 37,
     sanskrit: "अपि स्मर्यते ॥ ३७ ॥",
-    translation: "And it is also stated in the Smriti."
+    translation: "And it is also stated in the Smriti.",
+    commentary: "Smṛti histories agree, telling of Saṁvarta and fellow naked wanderers as mighty yogins outside all orders. Irregular habit hid realized heart. Remembered sages thus widen the gate the Veda opened. Intermediates keep their title to truth.",
   },
   {
     id: "3.4.38",
@@ -819,7 +920,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 38,
     sanskrit: "विशेषानुग्रहश्च ॥ ३८ ॥",
-    translation: "And the promotion (of knowledge is possible) through special (acts)."
+    translation: "And the promotion (of knowledge is possible) through special (acts).",
+    commentary: "Special graces aid such outsiders: universal japa, fasting and worship clash with no order, and brāhmaṇa succeeds by japa alone (Manu II.87) crowns prayer beyond station. Deeds of past lives and ripened impressions help too, as yogin perfected through many births wins the goal (Gītā VI.45) shows. Since knowledge's fruit is seen here, mere unprohibition suffices to begin hearing. No barrier survives grace and memory.",
   },
   {
     id: "3.4.39",
@@ -827,7 +929,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 39,
     sanskrit: "अतस्त्वितरज्ज्यायो लिङ्गाच्च ॥ ३९ ॥",
-    translation: "But better than this is the other (viz., the stage of life of those who belong to an Asrama), on account of the indicative marks."
+    translation: "But better than this is the other (viz., the stage of life of those who belong to an Asrama), on account of the indicative marks.",
+    commentary: "Better nonetheless is the ordered other, life within an āśrama, for Upaniṣadic and Smārta marks commend it. The good-doing knower merged in light treads this path (Bṛ. IV.iv.9) links station to journey, while stay not outside orders a day and year-long lapse demanding penance warn against drifting. Order disciplines emergence more surely than intermission. Permission for between does not equal preference.",
   },
   {
     id: "3.4.40",
@@ -835,7 +938,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 40,
     sanskrit: "तद्भूतस्य तु नातद्भावो जैमिनेरपि नियमातद्रूपाभावेभ्यः ॥ ४० ॥",
-    translation: "But for him who has become that (i.e., a Sannyasin) there is no becoming not that (i.e., no return to the former stages), according to Jaimini also, on account of the restriction, the absence of such form (in scripture), and the absence (of custom)."
+    translation: "But for him who has become that (i.e., a Sannyasin) there is no becoming not that (i.e., no return to the former stages), according to Jaimini also, on account of the restriction, the absence of such form (in scripture), and the absence (of custom).",
+    commentary: "Once continent — lifelong student or renouncer — no return stands open under any pretext of better former duties or surging passion. Dwelling with the teacher till life's end (Ch. II.xxiii.1), retire to forest and return not, and follow one stage till body falls restrict; ascent-texts exist but no descent-text, and no good precedent walks back. Own duty ill-done outshines another's well-done (Gītā III.35), since scripture fixes duty. Jaimini concurs, doubling assurance.",
   },
   {
     id: "3.4.41",
@@ -843,7 +947,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 41,
     sanskrit: "न चाधिकारिकमपि पतनानुमानात्तदयोगात् ॥ ४१ ॥",
-    translation: "And not even the expiation (is possible for the fallen Sannyasin), on account of the inference of his fall (from the Smriti) and the impossibility of that (expiation)."
+    translation: "And not even the expiation (is possible for the fallen Sannyasin), on account of the inference of his fall (from the Smriti) and the impossibility of that (expiation).",
+    commentary: "Not even the discussed expiation — donkey-offering to Nirṛti for the vow-breaker (Jai. Sū. VI.viii.21) — reaches the lifelong celibate fallen by inadvertence. Smṛti deems him headless past remedy: what cleansing for that self-slayer? The occasional student may atone; the naiṣṭhika, vowed for life, has cut connection with return. Fall inferred irremediable leaves no rite to lift it.",
   },
   {
     id: "3.4.42",
@@ -851,7 +956,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 42,
     sanskrit: "उपपूर्वमपीत्येके भावमशनवत्तदुक्तम् ॥ ४२ ॥",
-    translation: "But some consider it a minor sin, and therefore (claim) the existence (of expiation) as in the case of eating; this has been explained (by Jaimini)."
+    translation: "But some consider it a minor sin, and therefore (claim) the existence (of expiation) as in the case of eating; this has been explained (by Jaimini).",
+    commentary: "Some teachers soften the lapse to a minor fault, granting cleansing as for forbidden eating. Unlisted among teacher-wife and like great sins, congress with another woman ranks as upapātaka, shared by both classes of student under falling, offer to Nirṛti. As wine or meat need not end studentship, so here; and scripture-rules-virtue (Jai. Sū. I.iii.8-9) favours the stated rite over denied hope. Smṛti's rigour then serves to intensify resolve, with forest and monk penances of grass-tending and twelve-day vows confirming repair.",
   },
   {
     id: "3.4.43",
@@ -859,7 +965,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 43,
     sanskrit: "बहिस्तूभयथापि स्मृतेराचाराच्च ॥ ४३ ॥",
-    translation: "But outside (they must be kept) in either case, on account of the Smriti and custom."
+    translation: "But outside (they must be kept) in either case, on account of the Smriti and custom.",
+    commentary: "In either estimate — major or minor — the fallen continent stands outside society by Smṛti and decent usage. Touching him demands cāndrāyaṇa, and no sacrifice, study or marriage proceeds in his company. Expiation, where allowed, cleanses the man without restoring his place. Good custom enforces what stern verse proclaims.",
   },
   {
     id: "3.4.44",
@@ -867,7 +974,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 44,
     sanskrit: "स्वामिनः फलश्रुतेरित्यात्रेयः ॥ ४४ ॥",
-    translation: "(The meditations connected with the subordinate parts of the sacrifice belong) to the master (of the sacrifice), because the fruit is declared by scripture; so Atreya thinks."
+    translation: "(The meditations connected with the subordinate parts of the sacrifice belong) to the master (of the sacrifice), because the fruit is declared by scripture; so Atreya thinks.",
+    commentary: "Atreya assigns rite-linked meditations to the sacrificer-master, since Upaniṣads lodge fruit with him. Rain falls for him who knowingly sings the fivefold sāman as rain, and he can rain for others (Ch. II.iii.2) pays the empowered owner of the whole, meditator and reaper being one. The chanter's self-or-patron boon (Bṛ. I.iii.28) is but textual exception proving the rule. Fruit follows the yajamāna, so practice should too.",
   },
   {
     id: "3.4.45",
@@ -875,7 +983,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 45,
     sanskrit: "आर्त्विज्यमित्यौडुलोमिस्तस्मै हि परिक्रीयते ॥ ४५ ॥",
-    translation: "(They are) the duty of the Ritvik (priest), so Audulomi thinks, because he is bought for that."
+    translation: "(They are) the duty of the Ritvik (priest), so Audulomi thinks, because he is bought for that.",
+    commentary: "Auḍulomi hands them to the hired priest, retained with all limbs for performance. Competence for parts flows from competence for the whole, as milking regulation binds the priest milking another's cow. Baka Dālbhya knowing Udgītha and serving as udgātṛ for Naimiṣa folk (Ch. I.ii.13) shows singers meditating. Results reaching the patron cause no puzzle, since priests labour for others unless text excepts. Office, not ownership, decides the meditator.",
   },
   {
     id: "3.4.46",
@@ -883,7 +992,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 46,
     sanskrit: "श्रुतेश्च ॥ ४६ ॥",
-    translation: "And on account of the scriptural statement."
+    translation: "And on account of the scriptural statement.",
+    commentary: "Śruti confirms the priest-meditates, patron-reaps settlement. Whatever blessing priests pray in rite, they pray for the sacrificer (Śat. Br. I.iii.1.28), and what desire shall I sing for you? (Ch. I.vii.8-9) turn udgātṛ insight into yajamāna harvest. Meditations on sacrificial limbs therefore rest with chanters in act, with owners in fruit. Text closes the dispute.",
   },
   {
     id: "3.4.47",
@@ -891,7 +1001,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 47,
     sanskrit: "सहकार्यन्तरविधिः पक्षेण तृतीयं तद्वतो विध्यादिवत् ॥ ४७ ॥",
-    translation: "There is the injunction of something else as a cooperator (towards knowledge), (which is) a third thing (in addition to hearing and reflecting); like the injunctions (of sacrifices etc.) for him who possesses that (knowledge)."
+    translation: "There is the injunction of something else as a cooperator (towards knowledge), (which is) a third thing (in addition to hearing and reflecting); like the injunctions (of sacrifices etc.) for him who possesses that (knowledge).",
+    commentary: "A third auxiliary beyond scholarship and childlike strength — meditativeness, mauna — is enjoined for the monk whose knowing stays partial (Bṛ. III.v.1). Become a muni must be read though no fresh should rings, since abundant contemplation (cf. of munis I am Vyāsa, Gītā X.37) is new, neither mere lore nor mere order. Like subsidiary fire-kindling assumed from the Darśa-Pūrṇamāsa heaven-injunction, mauna is assumed beside its parent insight. It perfects the half-knower haunted by duality, the mendicant context of renouncing sons, wealth, worlds (Bṛ. III.v.1) marking the man.",
   },
   {
     id: "3.4.48",
@@ -899,7 +1010,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 48,
     sanskrit: "कृत्स्नभावात्तु गृहिणोपसंहारः ॥ ४८ ॥",
-    translation: "But on account of his having all (the duties), the conclusion is with the householder."
+    translation: "But on account of his having all (the duties), the conclusion is with the householder.",
+    commentary: "But the Chāndogya close crowns the householder — study, home, practice till Brahman's world (Ch. VIII.xv.1) — without slighting monks, since his life enfolds all. Enjoined many-effort sacrifices plus attainable virtues of other orders, non-hurt and restraint, make him the all-inclusive figure. Ending with the comprehensive need not dethrone the renounced. Fullness explains finale.",
   },
   {
     id: "3.4.49",
@@ -907,7 +1019,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 49,
     sanskrit: "मौनवदितरेषामप्युपदेशात् ॥ ४९ ॥",
-    translation: "Because the others also are taught just like the condition of a Muni."
+    translation: "Because the others also are taught just like the condition of a Muni.",
+    commentary: "The rest are enjoined no less than meditativeness, plural others covering forest life and studentship with their subdivisions. Austerity second, student in teacher's house third (Ch. II.xxiii.1) authorizes both beside monk and householder. Four stations stand equally Vedic, open singly or in succession. Option honours equal sanction.",
   },
   {
     id: "3.4.50",
@@ -915,7 +1028,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 50,
     sanskrit: "अनाविष्कुर्वन्नन्वयात् ॥ ५० ॥",
-    translation: "(One should be) not manifesting (one's greatness), on account of the context."
+    translation: "(One should be) not manifesting (one's greatness), on account of the context.",
+    commentary: "Live childlike (Bṛ. III.v.1) cannot mean puerile incontinence dignified by insight, which would wreck the main pursuit of steadfast knowing. Bālya here is the child's inward unripeness turned virtue: no parade of wisdom, learning or goodness, no pride or conceit before others. Smṛti's unrecognized brāhmaṇa, wandering blind, numb and dumb to show, secret in practice, glosses the sense. Concealment, not caprice, aids absorption.",
   },
   {
     id: "3.4.51",
@@ -923,7 +1037,8 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 51,
     sanskrit: "ऐहिकमप्रस्तुतप्रतिबन्धे तद्दर्शनात् ॥ ५१ ॥",
-    translation: "The fruit in this life (of the Vidyas) (is produced) when there is no obstruction to that which is ready; for that is seen (from the scripture)."
+    translation: "The fruit in this life (of the Vidyas) (is produced) when there is no obstruction to that which is ready; for that is seen (from the scripture).",
+    commentary: "Knowledge may dawn even here if means stand unblocked, else in a later birth. Hearing aims at this-life fruit, yet ripening past acts with their own space-time-cause can dam the stream, motive freely spanning here or hereafter. The Self's elusiveness — wonderful teacher, wonderful learner (Ka. I.ii.7) — and Vāmadeva awake in the womb (Ai. II.i.5), with Gītā's fallen yogin reborn equipped and perfected through births (VI.37-45), prove delay. Removal of bar, not calendar, rules fruition.",
   },
   {
     id: "3.4.52",
@@ -931,6 +1046,7 @@ export const brahmaSutrasEnAdhyaya3Part2: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 52,
     sanskrit: "एवं मुक्तिफलानियमस्तदवस्थावधृतेस्तदवस्थावधृतेः ॥ ५२ ॥",
-    translation: "Thus there is no rule with regard to the fruit that is liberation, on account of the assertion of that state, on account of the assertion of that state."
+    translation: "Thus there is no rule with regard to the fruit that is liberation, on account of the assertion of that state, on account of the assertion of that state.",
+    commentary: "No such personal gradation governs liberation, its state being fixed onefold as Brahman. Neither gross nor minute (Bṛ. III.viii.8), not so, not so (Bṛ. III.ix.26), oneness seeing nothing else (Ch. VII.xxiv.1), all-front immortal (Mu. II.ii.11), birthless fearless infinite (Bṛ. IV.iv.25) leave no room for higher and lower freedom. Means may hasten or slow knowing, but unproduced eternity takes no polish; qualified meditations alone, mind-made and attribute-laden, differ with as he meditates, so he becomes. The doubled close seals the part.",
   }
 ];

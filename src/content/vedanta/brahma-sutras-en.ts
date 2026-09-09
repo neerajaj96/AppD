@@ -301,7 +301,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 1,
-    translation: "(That which consists of the mind 'Manomaya' is Brahman) because there is taught (in this text) (that Brahman which is) well-known (as the cause of the world) in the Upanishads."
+    translation: "(That which consists of the mind 'Manomaya' is Brahman) because there is taught (in this text) (that Brahman which is) well-known (as the cause of the world) in the Upanishads.",
+    commentary: "The Ch. III. xiv passage beginning All this is Brahman enjoins calm meditation on the one made of mind, with breath as body and light as nature. The opponent holds that only the embodied soul fits mind-relation, since Brahman is declared without mind or breath in Mu. II. i. 2, and that Brahman appears merely to ground calmness while the resolve itself aims at the soul. Śaṅkara replies that the well-known universal cause named at the outset remains the nearer topic, so mind-identification and kindred traits teach Brahman itself rather than abandoning the context for something extraneous.",
   },
   {
     id: "1.2.2",
@@ -309,7 +310,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 2,
-    translation: "And because the qualities desired to be expressed are possible (in Brahman; therefore the Manomaya is Brahman)."
+    translation: "And because the qualities desired to be expressed are possible (in Brahman; therefore the Manomaya is Brahman).",
+    commentary: "Even without an author whose purpose could be sought, intended means what the Vedic sentence can coherently convey, and the qualities enjoined here cohere only in Brahman. True resolve and true desire presuppose absolute sway over birth, subsistence and dissolution, as Ch. VIII. i. 5 and similar texts declare of the supreme alone. Hence the meditation beginning with mind-identified Brahman is confirmed, since what is fit to be taken up points to the omnipotent source rather than the dependent soul.",
   },
   {
     id: "1.2.3",
@@ -317,7 +319,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 3,
-    translation: "On account of impossibility (of these qualities in the individual soul) it is not the embodied (soul that is meant)."
+    translation: "On account of impossibility (of these qualities in the individual soul) it is not the embodied (soul that is meant).",
+    commentary: "The same perfections exclude the embodied soul, and the particle tu stresses this reversal. Traits such as true resolve, space-like Selfhood, speechlessness, detachment and greatness beyond earth and sky cannot belong to one confined to a body as the seat of experience. God may indeed dwell in bodies, yet unlike the soul He is not limited to them, for Ch. III. xiv. 3 proclaims Him greater than earth and interspace, pervasive like space and eternal.",
   },
   {
     id: "1.2.4",
@@ -325,7 +328,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 4,
-    translation: "Because of the declaration of the attainer and the object attained, He (the individual soul) is not meant."
+    translation: "Because of the declaration of the attainer and the object attained, He (the individual soul) is not meant.",
+    commentary: "A further mark of difference is the declared relation of attainer and attained in departing hence I shall attain this one in Ch. III. xiv. 4. This one denotes the meditated Self endowed with mind-relation, while I shall attain denotes the meditating embodied soul as agent. Where a consistent reading is available, the same entity should not be forced to be both subject and object, nor meditator and meditated, so the qualified Brahman stands apart from the soul.",
   },
   {
     id: "1.2.5",
@@ -333,7 +337,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 5,
-    translation: "Because of the difference (of words) (the individual soul is not meant)."
+    translation: "Because of the difference (of words) (the individual soul is not meant).",
+    commentary: "Difference of grammatical form in a parallel text confirms this separation. The Śatapatha passage as a grain of paddy or barley, so is the luminous Puruṣa within the inner self places the qualified Self in the nominative and the embodied soul in the locative. One term thus names the object endowed with mind-relation, the other its locus. Their distinct case-endings disclose two entities, so the meditated one cannot be reduced to the indwelling experiencer.",
   },
   {
     id: "1.2.6",
@@ -341,7 +346,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 6,
-    translation: "And because of the Smriti (the embodied soul is not the Manomaya)."
+    translation: "And because of the Smriti (the embodied soul is not the Manomaya).",
+    commentary: "Smṛti likewise sets the two apart, as in Gītā XVIII. 61 where the Lord abides in all hearts and turns beings as if mounted on a machine. The objection that texts like Bṛ. III. vii. 23 and Gītā XIII. 2 deny any second Self misses Śaṅkara's distinction: the supreme Self, limited by body, senses, mind and intellect, is conventionally called the embodied soul, as undivided space appears divided by pots. Empirical talk of agents and objects holds until That thou art is realized, after which all transactional difference ceases.",
   },
   {
     id: "1.2.7",
@@ -349,7 +355,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 7,
-    translation: "If it be said that (the passage does not refer to Brahman) on account of the smallness of the abode (the heart) and also on account of the denotation of that (minuteness) (we say) no; because (Brahman) has thus to be meditated upon, and because the case is similar to that of ether."
+    translation: "If it be said that (the passage does not refer to Brahman) on account of the smallness of the abode (the heart) and also on account of the denotation of that (minuteness) (we say) no; because (Brahman) has thus to be meditated upon, and because the case is similar to that of ether.",
+    commentary: "The heart as abode and minuteness smaller than rice or barley in Ch. III. xiv. 3 need not confine Brahman to the soul the size of a goad-tip in Śv. V. 8. What is spatially limited cannot be made all-pervasive, but the omnipresent can be assigned a limited seat, as a world-ruling king is still called king of Ayodhyā. Such localization serves contemplation, like Hari worshipped in a śālagrāma or space associated with a needle's eye, and it does not import bodily multiplicity or impermanence into Brahman.",
   },
   {
     id: "1.2.8",
@@ -357,7 +364,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 8,
-    translation: "If it is said that (since Brahman is connected with the hearts of all souls) It is subject to experience (of pleasure and pain), (we say) no, on account of the difference of nature (of Brahman from the individual soul)."
+    translation: "If it is said that (since Brahman is connected with the hearts of all souls) It is subject to experience (of pleasure and pain), (we say) no, on account of the difference of nature (of Brahman from the individual soul).",
+    commentary: "Nor does universal indwelling expose Brahman to pleasure and pain. The opponent urges that, pervading all hearts like space and non-different from the soul attested by That thou art and no other witness but Him, Brahman must transmigrate and feel. Śaṅkara answers from difference of nature: the soul is agent, experiencer and repository of merit, while God is essentially free from stain. Mere proximity never transfers properties, else space would burn with fire, and imagined taints from ignorance cannot touch what knowledge reveals as one.",
   },
   {
     id: "1.2.9",
@@ -365,7 +373,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 9,
-    translation: "The eater (is Brahman), because both the movable and immovable (i.e., the whole world) is taken (as His food)."
+    translation: "The eater (is Brahman), because both the movable and immovable (i.e., the whole world) is taken (as His food).",
+    commentary: "The Ka. I. ii. 25 riddle, for whom brāhmaṇa and kṣatriya are rice and death itself the curry, asks who this eater can be among fire, soul and supreme Self. Fire claimed through Bṛ. I. iv. 6 and the soul through Mu. III. i. 1 seem nearer, especially since Mu. III. i. 1 says the other looks on without eating. Śaṅkara decides for the supreme Self, since only He at dissolution consumes all moving and unmoving beings; the chief classes suggest the whole, death as adjunct implies everything destructible, and non-eating denies only enjoyment of works.",
   },
   {
     id: "1.2.10",
@@ -373,7 +382,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 10,
-    translation: "And on account of the context (the eater is Brahman)."
+    translation: "And on account of the context (the eater is Brahman).",
+    commentary: "Context confirms the same eater. The Kaṭha discussion opens with the undecaying knower who is neither born nor dies in Ka. I. ii. 18, so the surrounding inquiry concerns the supreme Self. To take the eater as that very subject preserves topical unity. Even the puzzled question how such a Self can be known points beyond fire or the transmigrating enjoyer toward Brahman.",
   },
 
   {
@@ -382,7 +392,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 11,
-    translation: "The two entered into the cavity (of the heart) are indeed the individual soul and the Supreme Soul, because it is so seen (that the two refer to them in that category)."
+    translation: "The two entered into the cavity (of the heart) are indeed the individual soul and the Supreme Soul, because it is so seen (that the two refer to them in that category).",
+    commentary: "Ka. I. iii. 1 calls the two that have entered the cavity, like shade and light, drinkers of the results of works in the body, raising whether intellect plus soul or soul plus supreme Self is meant. The opponent objects that dual drinking cannot suit the insentient intellect or the action-transcending Lord of Mu. III. i. 1. Śaṅkara allows one enjoyer to ground a dual description, as umbrella-bearers name a whole retinue or a cook's employer is said to cook, and holds enumeration seeks similars, as a companion sought for a cow is a cow, so consciousness seeks supreme consciousness, often declared cavity-dwelling in Ka. I. ii. 12 and Tai. II. i.",
   },
   {
     id: "1.2.12",
@@ -390,7 +401,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 12,
-    translation: "And on account of distinctive qualities (the two are the individual soul and the Supreme Brahman)."
+    translation: "And on account of distinctive qualities (the two are the individual soul and the Supreme Brahman).",
+    commentary: "Later and earlier verses specify the same pair. The chariot imagery in Ka. I. iii. 3-9 makes the intellect-identified rider journey toward Viṣṇu's supreme state, while Ka. I. ii. 12 already sets meditator against the ancient Deity, and knowers of Brahman say marks a Brahman-topic. Likewise Mu. III. i. 1-2 sets the tasting bird against the witnessing Lord, and seer against seen. The Paiṅgi explanation of sattva and kṣetrajña is no counter, since its witness freed from agency is the soul known as Brahman through That thou art, with mental enjoyership superimposed only to deny the soul's separate experiencership under Bṛ. IV. v. 15.",
   },
   {
     id: "1.2.13",
@@ -398,7 +410,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 13,
-    translation: "The person within the eye (is Brahman) on account of the agreement (of the attributes of that person with those of Brahman)."
+    translation: "The person within the eye (is Brahman) on account of the agreement (of the attributes of that person with those of Brahman).",
+    commentary: "Ch. IV. xv. 1 presents the Person seen in the eye as Self, immortal, fearless Brahman, prompting rivals: a mere reflection, the perceiving soul, or the solar helper reaching the eye through rays in Bṛ. V. v. 2. Śaṅkara answers that Selfhood in its primary sense belongs to Brahman as That thou art, while immortality and fearlessness are Her constant Upaniṣadic marks. The eye's freedom from stain, since butter or water slips to the lids, fittingly houses the sinless One, as do His titles as resort, bearer and ordainer of blessings and effulgence.",
   },
   {
     id: "1.2.14",
@@ -406,7 +419,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 14,
-    translation: "And on account of the statement of place and so on."
+    translation: "And on account of the statement of place and so on.",
+    commentary: "A minute seat need not contradict omnipresence, since the eye is one among many declared loci such as earth in Bṛ. III. vii. 3 and the eye itself in Bṛ. III. vii. 18. Place and so on also covers name and form ascribed to the formless, as in Ut and the golden beard of Ch. I. vi. 6-7. Such specifications qualify Brahman for meditation, just as Viṣṇu is worshipped in a stone emblem without ceasing to be all-pervasive.",
   },
   {
     id: "1.2.15",
@@ -414,7 +428,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 15,
-    translation: "And on account of the passage referring to that which is distinguished by bliss (i.e., Brahman)."
+    translation: "And on account of the passage referring to that which is distinguished by bliss (i.e., Brahman).",
+    commentary: "The continuity with bliss confirms Brahman. The fires first teach breath, bliss and space are Brahman in Ch. IV. x. 4-5, and Upakosala's doubt elicits the mutual qualification bliss is space, space is bliss, lifting kham above mere element and kam above sense-pleasure toward Bliss itself. The promise that the teacher will declare only the course in Ch. IV. xiv. 1, the summary joining fire-lore with Self-lore, and the lotus-leaf immunity from sin in Ch. IV. xiv. 3 all show the eye-Person resumes that blissful Brahman.",
   },
   {
     id: "1.2.16",
@@ -422,7 +437,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 16,
-    translation: "And on account of the statement of the way of him who has heard the Upanishads."
+    translation: "And on account of the statement of the way of him who has heard the Upanishads.",
+    commentary: "The after-death course seals the identification. Ch. IV. xv. 5 leads the knower of the eye-Person from fire through day onward to sun, moon, lightning and a guide from Hiraṇyagarbha's world to Brahman, whence there is no return. This is the familiar Path of Gods traversed by hearers of the secret teaching in Pra. I. 10 and Gītā VIII. 24. Since only the Brahman-knower proceeds by that road, its declaration here proves the Person is Brahman.",
   },
   {
     id: "1.2.17",
@@ -430,7 +446,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 17,
-    translation: "(The person within the eye is the Supreme Brahman) and not any other (i.e., the individual soul etc.) as they do not exist always; and on account of the impossibility (of the qualities of the entity in the eye being ascribed to the others)."
+    translation: "(The person within the eye is the Supreme Brahman) and not any other (i.e., the individual soul etc.) as they do not exist always; and on account of the impossibility (of the qualities of the entity in the eye being ascribed to the others).",
+    commentary: "No rival claimant survives impermanence and unfitness. A reflection comes and goes with the facing man and perishes with the body, as Ch. VIII. ix. 1 implies, and cannot bear immortality. The soul ranges through the whole body-sense complex rather than the eye alone, while superimposed mortality and lack of majesty bar its fearlessness and lordship. The presiding deity, though ray-linked to eye and sun, remains external, subject to birth and relative longevity, with dependent glory proclaimed by Tai. II. viii. 1, so seen praises the adept's vision to attract meditation.",
   },
   {
     id: "1.2.18",
@@ -438,7 +455,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 18,
-    translation: "The internal ruler over the deities and so on (is Brahman) because the attributes of that (Brahman) are mentioned."
+    translation: "The internal ruler over the deities and so on (is Brahman) because the attributes of that (Brahman) are mentioned.",
+    commentary: "Bṛ. III. vii. 1-3 introduces the inner ruler who stands within earth, worlds, Vedas, rites, creatures and bodies, unknown to them, having them as body and controlling them, declared the immortal Self. The opponent would make Him an earth-associated deity after Bṛ. III. ix. 10, or a subtle-bodied yogin, since the bodiless supreme seems unable to rule. Śaṅkara finds instead the supreme Self's own marks: universal governance proper to the world's source, Selfhood and immortality in the primary sense, difference from the earth-knower, and formlessness as unseen and unheard, with organs supplied through the ruled and no regress once empirical duality is understood.",
   },
   {
     id: "1.2.19",
@@ -446,7 +464,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 19,
-    translation: "And (the Internal Ruler is) not that which is taught in the Sankhya Smriti (viz., Pradhana) because qualities contrary to its nature are mentioned (here)."
+    translation: "And (the Internal Ruler is) not that which is taught in the Sankhya Smriti (viz., Pradhana) because qualities contrary to its nature are mentioned (here).",
+    commentary: "Sāṅkhya Pradhāna cannot supply this ruler despite seeming fit through formlessness in Manu I. 5 and causal primacy already rejected at I. i. 5. Unseen and unheard might be stretched to insentient Nature, but the complementary sentence calls Him witness, hearer, thinker and knower in Bṛ. III. vii. 23. Pradhāna admits no consciousness, Selfhood or immortality of that kind. Qualities alien to it are therefore taught, and the Smṛti entity is excluded.",
   },
   {
     id: "1.2.20",
@@ -454,7 +473,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 20,
-    translation: "And the embodied soul (is also not the Internal Ruler) for both (recensions of the Brihadaranyaka) also speak of it as different (from the Internal Ruler)."
+    translation: "And the embodied soul (is also not the Internal Ruler) for both (recensions of the Brihadaranyaka) also speak of it as different (from the Internal Ruler).",
+    commentary: "The embodied soul is equally excluded, though conscious and inmost enough to witness and think. Confined like pot-space, it cannot wholly indwell and govern earth and the rest, and both Kāṇva and Mādhyandina recensions read it as distinct locus and ruled object in who abides in intellect or self at Bṛ. III. vii. 22, intellect here meaning the soul identified with it. The complaint that two witnesses contradict no other witness but Him rests on adjuncts: duality serves injunction, knowledge-means and transmigration within ignorance per Bṛ. II. iv. 14, while illumination knows one Self alone.",
   },
 
   {
@@ -463,7 +483,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 21,
-    translation: "That which possesses the attributes of invisibility and so on (is Brahman) on account of the declaration of Its attributes."
+    translation: "That which possesses the attributes of invisibility and so on (is Brahman) on account of the declaration of Its attributes.",
+    commentary: "Mu. I. i. 5-6 offers higher knowledge of the Immutable, unperceived, ungrasped, sourceless, eyeless, handless and footless, eternal, multiform, subtle and the source of all, followed by spider, earth and hair illustrations that seem to favor insentient Pradhāna or merit-driven soul. Śaṅkara insists the source is God because Mu. I. i. 9 immediately declares Him all-knowing in general and detail, which neither insentient matter nor adjunct-bound soul can be. The one-known-by-which-all-is-known inquiry, the twofold higher-lower division toward liberation versus prosperity, and Brahman as basis of all knowledge all demand that this Immutable be the Lord.",
   },
   {
     id: "1.2.22",
@@ -471,7 +492,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 22,
-    translation: "The other two (viz., the individual soul and the Pradhana) are not (the source of all beings) because there are distinctive attributes and statement of difference."
+    translation: "The other two (viz., the individual soul and the Pradhana) are not (the source of all beings) because there are distinctive attributes and statement of difference.",
+    commentary: "Distinctive epithets and explicit difference bar the other two candidates. Mu. II. i. 2 calls Puruṣa transcendent, formless, inward-outward, birthless, breathless, mindless, pure and higher than the higher immutable, which cannot describe the soul bound to superimposed name and form. Higher than the higher immutable separates the supreme from beginningless Māyā, the latent power and adjunct supporting name and form. Pradhāna survives here only as another name for that dependent unmanifest, not as an independent rival principle.",
   },
   {
     id: "1.2.23",
@@ -479,7 +501,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 23,
-    translation: "And on account of its form being mentioned (the Supreme Brahman is the source of all beings)."
+    translation: "And on account of its form being mentioned (the Supreme Brahman is the source of all beings).",
+    commentary: "The cosmic form that follows confirms God as source. After from Him comes breath in Mu. II. i. 3, Mu. II. i. 4 displays heaven as head, sun and moon as eyes, quarters as ears, Vedas as speech, air as breath, universe as heart and earth from His feet. Such an all-indwelling magnitude suits neither the finite soul nor insentient matter. Context and the resumptive He bind the vision to the source under discussion, disclosing all-pervasiveness rather than limbs, as I am food and eater does in Tai. III. x. 6, while even the birth-language leads through Hiraṇyagarbha to the Lord.",
   },
   {
     id: "1.2.24",
@@ -487,7 +510,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 24,
-    translation: "Vaiśvānara (is Brahman) on account of the distinction qualifying the common terms (Vaiśvānara and Self)."
+    translation: "Vaiśvānara (is Brahman) on account of the distinction qualifying the common terms (Vaiśvānara and Self).",
+    commentary: "In Ch. V. xi-xviii the sages ask which is our Self, what is Brahman, confess partial visions of heaven, sun, air, space, water and earth, and learn the Vaiśvānara Self whose head is heaven and whose members span worlds, with universal eating as fruit. Though Vaiśvānara can mean gastric heat after Bṛ. V. ix, ordinary fire after Ṛg X. lxxxviii. 12, a fiery deity after Ṛg I. xcviii. 1, or the experiencing soul, the specification of heaven-headed universality plus opening Self-Brahman language and sin-burning fruit in Ch. V. xxiv. 3 fixes the supreme Lord as cause in whom effects cohere.",
   },
   {
     id: "1.2.25",
@@ -495,7 +519,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 25,
-    translation: "Because that (which is stated in the Smriti) is an inference (i.e., an indicator of the Sruti, therefore the Vaisvanara is the Supreme Brahman)."
+    translation: "Because that (which is stated in the Smriti) is an inference (i.e., an indicator of the Sruti, therefore the Vaisvanara is the Supreme Brahman).",
+    commentary: "Smṛti supplies an inferential mark in the same direction. Mahābhārata XII. 47. 68 salutes the three-world embodied One with fire as mouth, heaven as head, sky as navel, earth as feet, sun as eye and quarters as ears. Though cast as praise, such a portrait presupposes a Vedic foundation and thus indicates that Vedic Vaiśvānara denotes the supreme Lord. Kindred verses on the inscrutable maker with heavenly head and earthly feet strengthen the same inference.",
   },
   {
     id: "1.2.26",
@@ -503,7 +528,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 26,
-    translation: "If it be said that (Vaisvanara is) not the highest Lord on account of the term (having a different settled meaning) and on account of His abiding within (the gastric fire); (we say) no, because there is the meditation (taught) on Brahman as having such a condition; also on account of the impossibility; and finally because they read of Him as man (a form of Brahman)."
+    translation: "If it be said that (Vaisvanara is) not the highest Lord on account of the term (having a different settled meaning) and on account of His abiding within (the gastric fire); (we say) no, because there is the meditation (taught) on Brahman as having such a condition; also on account of the impossibility; and finally because they read of Him as man (a form of Brahman).",
+    commentary: "Conventional words, triple-fire equations like heart as Gārhapatya in Ch. V. xviii. 2, prāṇa-oblations in Ch. V. xix. 1, and indwelling within man in Śatapatha X. vi. 1. 11 seem to demand mere gastric fire, elemental fire inside and out per Ṛg X. lxxxviii. 3, or an endowed deity. Śaṅkara answers that Brahman is enjoined through that fire as symbol or limiting adjunct, as mind is called Brahman in Ch. III. xviii. 1 and the mind-identified Self in Ch. III. xiv. 2. Mere heat could dwell in man but never be man or bear heaven as head, whereas the Self of all can be both Puruṣa and within Puruṣa, cosmic and corporeal.",
   },
   {
     id: "1.2.27",
@@ -511,7 +537,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 27,
-    translation: "For the same reasons (the Vaisvanara) cannot be the deity (of fire) or the element (of fire)."
+    translation: "For the same reasons (the Vaisvanara) cannot be the deity (of fire) or the element (of fire).",
+    commentary: "For those very reasons neither fiery deity nor fiery element qualifies. Mere heat and light, themselves products, cannot take heaven and the rest as members or serve as another product's Self. A deity's borrowed divinity likewise lacks universal causality and cannot sustain that cosmic embodiment. The inapplicability of the word Self clinches the exclusion in every non-Brahman alternative.",
   },
   {
     id: "1.2.28",
@@ -519,7 +546,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 28,
-    translation: "Jaimini (is of opinion that) there is no contradiction (even) if (the word Agni is taken in its direct meaning) on account of the direct statement (of the sruti)."
+    translation: "Jaimini (is of opinion that) there is no contradiction (even) if (the word Agni is taken in its direct meaning) on account of the direct statement (of the sruti).",
+    commentary: "Jaimini holds that direct meditation on the cosmic Virāṭ as Vaiśvānara involves no contradiction, without requiring fire as symbol or adjunct. Indwelling language then describes the Puruṣa-conformed conception of limbs, as one speaks of a branch fixed on a tree, or the pure witness present through bodily and divine adjuncts. Vaiśvānara yields by derivation the universal person, ordainer or owner of beings, agni the leader to fruits, and Gārhapatya and oblation-fire titles become intelligible because the supreme Self is the Self of all.",
   },
   {
     id: "1.2.29",
@@ -527,7 +555,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 29,
-    translation: "On account of the manifestation, so says Asmarathya."
+    translation: "On account of the manifestation, so says Asmarathya.",
+    commentary: "Āśmarathya explains spatial measure as manifestation. Though transcending limits, the Lord graciously becomes manifest to worshippers and shines especially in revelation-places such as the heart. Hence Ch. V. xviii. 1 may call Him prādeśamātra and abhivimāna without imposing finitude. Limitation belongs to the point of disclosure, not to His nature.",
   },
   {
     id: "1.2.30",
@@ -535,7 +564,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 30,
-    translation: "On account of meditation, so says Badari."
+    translation: "On account of meditation, so says Badari.",
+    commentary: "Bādari explains the same measure through meditation. The Lord is called spatially limited because the meditating mind abides in the limited heart, as barley measured by a prastha vessel is called a prastha. Though the analogy limps, since barley has its own bulk while Brahman has none, the heart's limit colors the remembrance in which God is present. Alternatively the limitless One is deliberately meditated upon as though limited, giving the revelation-text its purpose.",
   },
   {
     id: "1.2.31",
@@ -543,7 +573,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 31,
-    translation: "Because of imaginary identity, so says Jaimini; for thus it is declared (by the Sruti)."
+    translation: "Because of imaginary identity, so says Jaimini; for thus it is declared (by the Sruti).",
+    commentary: "Jaimini traces measure to superimposing the great upon the small. The Vājasaneya Brāhmaṇa in Śatapatha X. vi. 1. 11 lays cosmic members from heaven to earth upon head-crop, eyes, nostrils, mouth-space, saliva and chin, saying the gods knew Him as though measured and inmost. Verbal differences such as all-surpassing versus brilliant heaven do not divide the meditation, since branches combine qualities. That displayed superimposition shows why the Chāndogya speaks of spatial limitation.",
   },
   {
     id: "1.2.32",
@@ -551,7 +582,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 2,
     sutraNumber: 32,
-    translation: "Moreover, they (the Jabalas) speak of Him (the Supreme Brahman) in that (i.e., the interstice between the top of the head and the chin)."
+    translation: "Moreover, they (the Jabalas) speak of Him (the Supreme Brahman) in that (i.e., the interstice between the top of the head and the chin).",
+    commentary: "The Jābālas preserve the same locus between head and chin. Asked where the bound one sits, Yājñavalkya answers between Varaṇā and Nāsī, the brow and nose that ward off and destroy sense-born sins, whose juncture links heaven with Brahman's supreme place. A measured station for the boundless Self is therefore Vedic. Abhivimāna further marks Him directly known as inmost, measure-free and manifold maker, confirming Vaiśvānara as the supreme Self.",
   },
 
   // PADA 3
@@ -561,7 +593,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 1,
-    translation: "The abode of heaven, earth, and so on (is Brahman) on account of the term 'own' (i.e., Self) and the like."
+    translation: "The abode of heaven, earth, and so on (is Brahman) on account of the term 'own' (i.e., Self) and the like.",
+    commentary: "Śaṅkara holds the Muṇḍaka abode on which heaven, earth, interspace, mind and breaths are strung (Mu. II. ii. 5) to be supreme Brahman, signalled by its own word Self in know that Self alone, one without a second. The rival plea that a dam or bridge (setu) must have two banks, hence be Pradhāna, air or soul, fails because setu here means holding together, not masonry with banks. Ch. VI. viii. 4 and Mu. II. i. 10, II. ii. 11 name Existence and Brahman itself as source, abode and all, while oneness excludes a variegated composite Self.",
   },
   {
     id: "1.3.2",
@@ -569,7 +602,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 2,
-    translation: "And because of the declaration that it is the object to be approached by the liberated."
+    translation: "And because of the declaration that it is the object to be approached by the liberated.",
+    commentary: "The same abode must be Brahman because scripture presents it as the goal approached by the freed, which insentient matter never is. Mu. II. ii. 8 promises the knots untied on realizing the high and low Self, and Mu. III. ii. 8 compares the illumined soul to rivers losing name and form in the sea-like higher Puruṣa. Br. IV. iv. 7 likewise says desirelessness yields immortality and Brahman here, while Br. IV. iv. 21 bids the knower abandon mere words and realize That after silencing the organs.",
   },
   {
     id: "1.3.3",
@@ -577,7 +611,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 3,
-    translation: "(The abode of heaven etc.) is not that which is inferred (i.e., Pradhana), because there is no term denoting it."
+    translation: "(The abode of heaven etc.) is not that which is inferred (i.e., Pradhana), because there is no term denoting it.",
+    commentary: "The Sāṅkhya Pradhāna inferred by reasoning cannot be this abode, for no word of that import occurs in the passage. On the contrary, contrary words establish a sentient ground, notably omniscient in general and all-knowing in detail (Mu. I. i. 9). Since neither causehood nor support for insentient matter is stated, the inferred entity is excluded. For the same reason cosmic air, though a holder in Br. III. vii. 2, is not accepted here.",
   },
   {
     id: "1.3.4",
@@ -585,7 +620,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 4,
-    translation: "(Nor is the abode of heaven etc.) the bearer of Pranas (i.e., the individual soul)."
+    translation: "(Nor is the abode of heaven etc.) the bearer of Pranas (i.e., the individual soul).",
+    commentary: "Nor is the bearer of breaths, the embodied soul, this universal repository. Though the soul possesses intelligence and may be called Self, its knowledge remains hemmed in by limiting adjuncts and lacks omniscience. A conditioned experiencer cannot in the fullest sense uphold heaven, earth and all organs. Śaṅkara frames this denial separately because the soul, unlike Pradhāna, will recur as the rival in the following aphorisms.",
   },
   {
     id: "1.3.5",
@@ -593,7 +629,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 5,
-    translation: "On account of the declaration of difference."
+    translation: "On account of the declaration of difference.",
+    commentary: "Difference is expressly declared between knower and known in know that Self alone (Mu. II. ii. 5). The aspirant hankering for freedom is the living knower, while Brahman named Self is the knowable object and repository. By the method of residue, what remains as the taught support of heaven and earth is distinct from the seeker. Hence the embodied soul cannot itself be that abode.",
   },
   {
     id: "1.3.6",
@@ -601,7 +638,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 6,
-    translation: "On account of the context."
+    translation: "On account of the context.",
+    commentary: "Context also fixes the supreme Self, for Mu. I. i. 3 opens by making knowledge of all depend on knowledge of one thing. Only knowing the Self of all discloses everything, as clay discloses clay-things, whereas knowing a mere soul reveals no cosmos. The abode passage therefore continues the same Brahman topic. A living creature taken alone could never bear that promise.",
   },
   {
     id: "1.3.7",
@@ -609,7 +647,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 7,
-    translation: "And on account of the two conditions of standing and eating (of which the former is characteristic of the Supreme Lord and the latter of the individual soul)."
+    translation: "And on account of the two conditions of standing and eating (of which the former is characteristic of the Supreme Lord and the latter of the individual soul).",
+    commentary: "The two conditions of standing apart and eating confirm this, through the two birds of Mu. III. i. 1: one tastes diverse fruits while the other looks on without eating. Eater and detached witness are soul and God, already familiar from B.S. I. ii. 11. Once God as the abode is under discussion, distinguishing Him from the soul is natural, not digressive. The soul needs no fresh introduction, being known from experience as agent and enjoyer, whereas God is taught for His own sake.",
   },
   {
     id: "1.3.8",
@@ -617,7 +656,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 8,
-    translation: "The Bhuman (is Brahman) because it is taught after the state of deep sleep (i.e., after Prana or the vital air)."
+    translation: "The Bhuman (is Brahman) because it is taught after the state of deep sleep (i.e., after Prana or the vital air).",
+    commentary: "Bhūman in Ch. VII. xxiii-xxiv is the supreme Self, not vital breath, because He is taught as superior to samprasāda, deep sleep where breath stays awake. The opponent traces the ascending series from name to prāṇa and claims prāṇa's mastery in speech crowns it, with sleep's imagelessness and bliss supporting him. Śaṅkara replies that but he transcends by truth (Ch. VII. xvi. 1) begins a new topic, truth meaning Brahman (Tai. II. i. 1), culminating in from the Self proceeds breath and crossing darkness (Ch. VII. xxvi. 1-2).",
   },
   {
     id: "1.3.9",
@@ -625,7 +665,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 9,
-    translation: "And on account of the suitability of the attributes (declared of the Bhuman, it is Brahman)."
+    translation: "And on account of the suitability of the attributes (declared of the Bhuman, it is Brahman).",
+    commentary: "Bhūman's marks suit only Brahman: seeing nothing else matches Br. IV. v. 15, where all become Self and no seer remains. Sleep's imagelessness in Praśna IV and its happiness reveal the Self as Bliss, on a particle of which beings live (Br. IV. iii. 32), while Ch. VII. xxiii rejects limited joy for Infinite Bliss. Immortality ascribed to breath elsewhere is relative, since all else is perishable (Br. III. iv. 2), whereas truth, self-glory and all-identity belong absolutely to the supreme cause.",
   },
   {
     id: "1.3.10",
@@ -633,7 +674,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 10,
-    translation: "The Imperishable (Akshara) (is Brahman) on account of (its) supporting (everything) up to ether (Akasa)."
+    translation: "The Imperishable (Akshara) (is Brahman) on account of (its) supporting (everything) up to ether (Akasa).",
+    commentary: "The Akṣara questioned by Gārgī, on which space is woven (Br. III. viii. 7-11), is Brahman, not the syllable Om. Common use of akṣara for a letter and Ch. II. xxiii. 3 identifying Om with all are set aside: Om praised as all serves meditation and realization, while support of earth-to-space belongs to none but Brahman. Derivatively Akṣara means the undecaying and all-pervading, hence eternal and omnipresent. The Sāṅkhya plea that Pradhāna as cause could likewise support is answered next.",
   },
   {
     id: "1.3.11",
@@ -641,7 +683,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 11,
-    translation: "This (supporting), on account of the command (attributed to the Imperishable, can be the work of the Supreme Lord only)."
+    translation: "This (supporting), on account of the command (attributed to the Imperishable, can be the work of the Supreme Lord only).",
+    commentary: "That supporting act belongs to God alone because mighty administration is stated: under Akṣara's rule sun and moon stand firm (Br. III. viii. 9). Insentient Pradhāna cannot command, just as clay as material of pots exercises no rulership over them. Command implies a conscious ordainer. Hence the upholder of space and all worlds is the supreme Lord.",
   },
   {
     id: "1.3.12",
@@ -649,7 +692,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 12,
-    translation: "And on account of (the Sruti) separating (the Akshara) from that whose nature is different (from Brahman)."
+    translation: "And on account of (the Sruti) separating (the Akshara) from that whose nature is different (from Brahman).",
+    commentary: "Exclusion from other beings seals the same result, for Br. III. viii. 11 distinguishes Akṣara as never seen yet Witness, never heard yet Hearer, never thought yet Thinker, with no other witness but this. Unseen and unheard might fit Pradhāna, but witnesshood cannot belong to the insentient. Nor can the adjunct-bound soul qualify, since without eyes, ears, speech or mind (Br. III. viii. 8) denies its conditions. Only supreme Brahman remains.",
   },
   {
     id: "1.3.13",
@@ -657,7 +701,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 13,
-    translation: "Because of His being mentioned as the object of sight, (He is the Supreme Brahman)."
+    translation: "Because of His being mentioned as the object of sight, (He is the Supreme Brahman).",
+    commentary: "The Praśna passage on meditation through Om (V. 2-5) enjoins the supreme Puruṣa, known because He is presented as the object of seeing: from the mass of creatures he sees the supreme Puruṣa, higher than the higher. Meditation may fasten on fancy, but seeing reveals the real, here full realization. Though ascent to Brahmaloka sounds limited, Śaṅkara reads it as gradual release, crowned by freedom from sin like a snake sloughing skin, with Ka. I. iii. 11 allowing nothing higher than Puruṣa.",
   },
   {
     id: "1.3.14",
@@ -665,7 +710,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 14,
-    translation: "The small (ether, Akasa) (is Brahman) on account of the subsequent arguments."
+    translation: "The small (ether, Akasa) (is Brahman) on account of the subsequent arguments.",
+    commentary: "The small space within the lotus-palace of the city of Brahman (Ch. VIII. i. 1) is the supreme Lord, neither elemental ether nor individual soul. The sequel removes smallness by likening inner to outer space and includes heaven and earth within It (VIII. i. 3), then names It the sinless, ageless, desire-true Self (VIII. i. 5). Finite rites exhaust their fruit, while knowing this Space yields free movement in all worlds (VIII. i. 6). Comparison of space with itself is impossible, and the soul's goad-tip littleness cannot shed the lotus limit.",
   },
   {
     id: "1.3.15",
@@ -673,7 +719,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 15,
-    translation: "(The small Akasa is Brahman) because of the movement (of the soul to Brahman) and of the word (Brahmaloka); for thus it is seen (i.e., that Brahman is meant)."
+    translation: "(The small Akasa is Brahman) because of the movement (of the soul to Brahman) and of the word (Brahmaloka); for thus it is seen (i.e., that Brahman is meant).",
+    commentary: "Going and the word Brahmaloka prove the same, for creatures daily go to this Brahmaloka yet know It not (Ch. VIII. iii. 2). Such resort matches merging in Existence in sleep (Ch. VI. viii. 1) and common speech that the sleeper has become Brahman. Brahmaloka read in apposition, the world that is Brahman, denotes the supreme, not Prajāpati's Satyaloka, which none could visit daily. The term thus excludes both soul and element.",
   },
 
   {
@@ -682,7 +729,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 16,
-    translation: "And on account of the supporting also (attributed to it), (the small Akasa must be Brahman) because that greatness is observed in Him (according to other scriptural passages)."
+    translation: "And on account of the supporting also (attributed to it), (the small Akasa must be Brahman) because that greatness is observed in Him (according to other scriptural passages).",
+    commentary: "Holding in place gives a further mark, since the same continuing Self is called dam and impounder lest worlds intermingle (Ch. VIII. iv. 1). As a field-dam preserves boundaries, this Self preserves bodily planes, castes and orders. Such glory is elsewhere the Lord's alone: under the Immutable sun and moon are held (Br. III. viii. 9), and He is ruler and boundary-dam of worlds (Br. IV. iv. 22). Therefore the small Space is God.",
   },
   {
     id: "1.3.17",
@@ -690,7 +738,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 17,
-    translation: "And on account of the settled meaning."
+    translation: "And on account of the settled meaning.",
+    commentary: "Familiar use confirms it, for ākāśa famously denotes supreme Brahman as manifester of name and form (Ch. VIII. xiv) and origin into which beings return (Ch. I. ix. 1). It is never established usage for the individual soul. Elemental ether, though often meant, was already ruled out because it cannot be both illustration and illustrated. Hence the small Space carries the higher settled sense.",
   },
   {
     id: "1.3.18",
@@ -698,7 +747,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 18,
-    translation: "If it is said that the other one (i.e., the individual soul) is meant on account of a reference to it (in a complementary passage), (we say) no, on account of the impossibility."
+    translation: "If it is said that the other one (i.e., the individual soul) is meant on account of a reference to it (in a complementary passage), (we say) no, on account of the impossibility.",
+    commentary: "The objection that the other, the individual soul, is meant because the sequel alludes to the serene one rising from the body (Ch. VIII. iii. 4) does not stand, owing to impossibility. A self identified with intellect and body cannot be compared to boundless space nor possess sinlessness and true resolve by nature. What was elaborated under the first dahara aphorism is restated here to clear renewed doubt, with a further purpose explained next.",
   },
   {
     id: "1.3.19",
@@ -706,7 +756,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 19,
-    translation: "If it is said that from the subsequent (context it appears that the individual soul is meant), (we say) no; what is there described is (the individual soul) in so far as its true nature has become manifest (i.e., as non-different from Brahman)."
+    translation: "If it is said that from the subsequent (context it appears that the individual soul is meant), (we say) no; what is there described is (the individual soul) in so far as its true nature has become manifest (i.e., as non-different from Brahman).",
+    commentary: "Even Prajāpati's later teaching of eye-person, dreamer and sleeper (Ch. VIII. vii-xii) shows the soul in its revealed nature, which is Brahman, not bare individuality. Through I shall explain this very one again, water-dish analogy, and realizing supreme Light attains its own nature (VIII. xii. 3), adjuncts fall away like snake from rope or man from stump. Witnesshood persists in sleep (Br. IV. iii. 30), and That thou art with Mu. III. ii. 9 discloses identity, figured as crystal regaining whiteness or gold purified.",
   },
   {
     id: "1.3.20",
@@ -714,7 +765,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 20,
-    translation: "And the reference (to the individual soul) has a different meaning."
+    translation: "And the reference (to the individual soul) has a different meaning.",
+    commentary: "That allusion to the soul serves another end: disclosing the supreme Lord to be meditated on. The serene one supervises the body-cage waking, dreams in the nerves, then wearied rises from gross and subtle frames to supreme Light or Space in sleep and abides in its true sinless nature. Both the Light approached and the nature attained are Brahman. Hence the soul-reference is instrumental, not an independent rival topic.",
   },
   {
     id: "1.3.21",
@@ -722,7 +774,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 21,
-    translation: "If it be said that owing to the scriptural declaration of the smallness (the soul is meant), (we say) no, because that has been explained (before)."
+    translation: "If it be said that owing to the scriptural declaration of the smallness (the soul is meant), (we say) no, because that has been explained (before).",
+    commentary: "The plea from scriptural smallness, the small Space within suiting the goad-tip soul (Śv. V. 8) rather than the Lord, was already answered. B.S. I. ii. 7 allowed limitation for contemplation, as of ether in a pot or bamboo joint. Moreover the Upaniṣad itself cancels littleness by the outer-space comparison (Ch. VIII. i. 3). The aphorist merely recalls that refutation here.",
   },
   {
     id: "1.3.22",
@@ -730,7 +783,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 22,
-    translation: "On account of the acting after (i.e., the shining after), (that after which sun, moon, etc. are said to shine is the Supreme Self), and (because by the light) of Him (all this is lighted)."
+    translation: "On account of the acting after (i.e., the shining after), (that after which sun, moon, etc. are said to shine is the Supreme Self), and (because by the light) of Him (all this is lighted).",
+    commentary: "The light in whose wake all shine (Mu. II. ii. 10; Ka. II. ii. 15) is conscious Brahman, not a brighter physical luminary dimming sun, moon, stars and lightning. Imitative shining among similars proves nothing, since iron glows after fire and dust drifts after wind, while lamps need no mutual imitation. He shining, all shines; by His light all is lit fits the self-luminous, true-resolve Self (Ch. III. xiv. 2; Br. IV. iv. 16), the Light of lights in the bright sheath (Mu. II. ii. 9), revealing names and forms as sunlight reveals colours.",
   },
   {
     id: "1.3.23",
@@ -738,7 +792,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 23,
-    translation: "Moreover, it is so stated in the Smriti."
+    translation: "Moreover, it is so stated in the Smriti.",
+    commentary: "Smṛti confirms the same, describing the supreme abode which sun, moon and fire illumine not (Gītā XV. 6). The light dwelling in sun, moon and fire is declared Mine (XV. 12). Such remembrance aligns Vedic light with the conscious Lord. Therefore the shining-after text cannot stop at a natural element.",
   },
   {
     id: "1.3.24",
@@ -746,7 +801,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 24,
-    translation: "From the very term (viz., the term lord applied to it) the (person) measured (by the size of a thumb) (is the Supreme Lord)."
+    translation: "From the very term (viz., the term lord applied to it) the (person) measured (by the size of a thumb) (is the Supreme Lord).",
+    commentary: "The thumb-sized Puruṣa dwelling in the body (Ka. II. i. 12-13) is the supreme Self by the very term ruler of past and future. None but the Lord rules time absolutely, and This is That recalls Naciketas's question after what lies beyond virtue, vice, cause, effect, past and future (Ka. I. ii. 14). The Smṛti image of Death dragging a thumb person (Mbh.) concerns the transmigrator, not the Lord as such. Here lordship decides the meaning.",
   },
   {
     id: "1.3.25",
@@ -754,7 +810,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 25,
-    translation: "But with reference to the heart (the highest Self is said to be of the size of a thumb), as men are entitled (to the study of the Vedas)."
+    translation: "But with reference to the heart (the highest Self is said to be of the size of a thumb), as men are entitled (to the study of the Vedas).",
+    commentary: "Thumb measure is spoken only with respect to the heart, scriptures being addressed to humans. As bamboo-space may be called a cubit, the all-pervading Self abiding in the human heart, uniformly thumb-sized, is so described. Human fitness through desire, ability and thread-investiture governs the teaching. Ka. II. iii. 17 later bids extracting this indwelling, self-effulgent changeless Self like stalk from muñja grass, showing identity of conditioned soul with Brahman (Ch. VI. viii. 7).",
   },
   {
     id: "1.3.26",
@@ -762,7 +819,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 26,
-    translation: "Also (beings) above them (viz., deities) (are entitled to the study of the Vedas), on account of the possibility (of it) according to Badarayana."
+    translation: "Also (beings) above them (viz., deities) (are entitled to the study of the Vedas), on account of the possibility (of it) according to Badarayana.",
+    commentary: "Bādarāyaṇa holds beings above men, gods and others, also competent for knowledge, since competence is possible. They can grow dispassionate reflecting on divine glory's impermanence, possess bodies known from verses, anecdotes and lore, and face no bar, the Vedas being self-manifest to them with vows like Indra's century of chastity (Ch. VIII. xi. 3) and Bhṛgu's approach (Tai. III. i). Ritual disqualification, lacking gods to worship, does not touch knowledge, which needs no second Indra. Their own thumbs likewise ground the measure.",
   },
   {
     id: "1.3.27",
@@ -770,7 +828,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 27,
-    translation: "If it be said that (the corporeal individuality of the gods involves) a contradiction to (sacrificial) works; we deny that, on account of the observation of the assumption (on the part of the gods) of several (forms at the same time)."
+    translation: "If it be said that (the corporeal individuality of the gods involves) a contradiction to (sacrificial) works; we deny that, on account of the observation of the assumption (on the part of the gods) of several (forms at the same time).",
+    commentary: "Corporeality need not contradict rites, for Veda shows gods assuming many bodies at once. From 3033 manifestations to thirty-three, then to breath (Br. III. ix. 1-9), one deity multiplies, as yogins multiply frames and withdraw them like sun-rays. Invisibility removes the scandal of absence. Alternatively, association varies: one priest cannot attend rival feasts together, yet many may honour one god or many greet one man, so offerings to embodied Indra remain coherent.",
   },
   {
     id: "1.3.28",
@@ -778,7 +837,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 28,
-    translation: "If it be said (that a contradiction will result) in respect of the word (i.e., the Veda); we deny that, on account of the origin (of the world) from that (i.e., the Word); (this is manifest) from perception (Sruti) and inference (Smriti)."
+    translation: "If it be said (that a contradiction will result) in respect of the word (i.e., the Veda); we deny that, on account of the origin (of the world) from that (i.e., the Word); (this is manifest) from perception (Sruti) and inference (Smriti).",
+    commentary: "Nor does this imperil Vedic words, whose eternity rests on beginningless word-meaning relation (Jai. Sū. I. i. 5). The universe arises from Word in the sense that eternal names recall forms to Prajāpati's mind before creating, attested by śruti and smṛti: Vedic formulas for gods, men, manes and worlds, uttered bhūḥ, created earth, and Manu I. 21. Genera like cowhood persist while individuals perish, and Indra names ranks like commander. Upavarṣa adds that letters, recognized as same despite pitch and voice, eternally convey sense without positing an extra sphoṭa.",
   },
   {
     id: "1.3.29",
@@ -786,7 +846,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 29,
-    translation: "And from this very reason there results the eternity (of the Vedas)."
+    translation: "And from this very reason there results the eternity (of the Vedas).",
+    commentary: "From this very fact follows the Vedas' eternity, already settled in Pūrva-Mīmāṁsā by remembrance of no author. Admitting individual gods' origin raised doubt about words themselves, removed by creation-from-Word. Ṛg-Veda X. lxxi. 3 shows seers receiving the pre-existent Veda through past merit, and Vyāsa's Smṛti tells of withdrawn Veda retransmitted after dissolution with Brahmā's leave. Hence eternality stands confirmed, not shaken.",
   },
   {
     id: "1.3.30",
@@ -794,7 +855,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 30,
-    translation: "And on account of the sameness of names and forms (in every cycle of creation) there is no contradiction (to the eternity of the word of the Veda) even in the revolving of the world-cycles, as is seen (from the Sruti) and from the Smriti."
+    translation: "And on account of the sameness of names and forms (in every cycle of creation) there is no contradiction (to the eternity of the word of the Veda) even in the revolving of the world-cycles, as is seen (from the Sruti) and from the Smriti.",
+    commentary: "Revolving cycles bring no contradiction, since names and forms repeat alike. Sleep's merger and waking emergence (Kau. III. 3, sparks from fire) illustrate continuity despite breaks, and beginninglessness will be proved at II. i. 36. Hiraṇyagarbha, graced by God (Śv. VI. 18), recalls prior patterns like waking memory, while seers Madhucchandas and others revisit mantras whose seer, metre and deity must be known. Śruti says the ordainer made sun and moon as before (Ṛg X. cxc. 3), and Smṛti likens recurrence to seasons, virtue and vice yielding like worlds.",
   },
 
   {
@@ -803,7 +865,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 31,
-    translation: "On account of the impossibility (of the gods being qualified) for the Madhu-Vidya etc., Jaimini (maintains that the gods do not have the right for knowledge)."
+    translation: "On account of the impossibility (of the gods being qualified) for the Madhu-Vidya etc., Jaimini (maintains that the gods do not have the right for knowledge).",
+    commentary: "Jaimini denies gods competence, citing impossibility in Madhu and similar meditations. If qualified for knowledge generally, they should qualify there, yet Ch. III. i. 1 bids men contemplate the sun as honey for gods, leaving the Sun-god no higher sun. Vasus, Rudras, Ādityas, Maruts and Sādhyas enjoying graded nectars could seek no further Vasu-glory (Ch. III. vi. 3). Likewise quarter, wind-merger and sun-Brahman meditations (Ch. III. xviii. 2; IV. iii. 1; III. xix. 1) and seer-meditations on ears (Br. II. ii. 4) cannot be undertaken by their own objects.",
   },
   {
     id: "1.3.32",
@@ -811,7 +874,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 32,
-    translation: "And (the gods are not qualified for Vidyas) because (the words indicating the gods) are used in the sense of (sphere of) light."
+    translation: "And (the gods are not qualified for Vidyas) because (the words indicating the gods) are used in the sense of (sphere of) light.",
+    commentary: "Moreover divine names occur for mere light-spheres, as sun denotes the sky-disc circling day and night, familiarly rising east and setting west. No heart-possessing sentient person with desire is thereby proved, the sphere being insentient like earth. Fire and the rest fall under the same reduction. Hence, Jaimini concludes, embodied gods with Vedic competence are unestablished.",
   },
   {
     id: "1.3.33",
@@ -819,7 +883,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 33,
-    translation: "Badarayana, on the other hand, (maintains) the existence (of qualification on the part of the gods) for there is (possibility of it)."
+    translation: "Badarayana, on the other hand, (maintains) the existence (of qualification on the part of the gods) for there is (possibility of it).",
+    commentary: "Bādarāyaṇa upholds their competence for pure Brahman-knowledge, since desire, ability and absence of bar exist, though Madhu confusions except them, just as not every man fits every rite. Indicatory marks agree: whoever among gods knew Brahman became That (Br. I. iv. 10), Indra and Virocana set out seeking the Self (Ch. VIII. vii. 1), with Smṛti tales like Viśvāvasu. Mantra and eulogy usage presents sentient rulers, Indra as ram bearing Medhātithi or sun approaching Kuntī, while earth and waters speak (Śat. Br. I. vi. 3); subsidiary sentences can disclose existents, like travellers noting wayside grass, and yogic perception (Yoga Sū. II. 44; Śv. II. 12) grounds lore.",
   },
   {
     id: "1.3.34",
@@ -827,7 +892,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 34,
-    translation: "(The Sudra's) grief arose on hearing his (i.e., the Rishi's) disrespectful word, on account of his rushing on of that (i.e., grief); (this is indicated) by his (the Rishi's) approaching him."
+    translation: "(The Sudra's) grief arose on hearing his (i.e., the Rishi's) disrespectful word, on account of his rushing on of that (i.e., grief); (this is indicated) by his (the Rishi's) approaching him.",
+    commentary: "Jānaśruti addressed as Śūdra (Ch. IV. ii. 3) gained no caste thereby; grief (śuc) seized him on hearing the swan's scorn comparing him to cart-borne Raikva (Ch. IV. i. 3). The seer hinted this by śūdra, derivable as hastening toward grief, being approached by grief, or rushing to Raikva through grief, since a birth-śūdra lacks Vedic right. Aspiration alone does not qualify without scriptural ability through study, and Vidura-like wisdom reflects past lives. The corroborative word thus joins one already competent.",
   },
   {
     id: "1.3.35",
@@ -835,7 +901,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 35,
-    translation: "And because the Kshatriyahood (of Janasruti) is understood from the inferential mark (supplied by his being mentioned) later on with Chaitraratha (who was a Kshatriya himself)."
+    translation: "And because the Kshatriyahood (of Janasruti) is understood from the inferential mark (supplied by his being mentioned) later on with Chaitraratha (who was a Kshatriya himself).",
+    commentary: "Kṣatriyahood is later gathered from mention beside Kṣatriya Abhipratārin Caitraratha, when a student begs from Śaunaka Kāpeya and Kāpeya prince (Ch. IV. iii. 5). Kāpeyas engaged Citraratha in Dvīrātra sacrifice (Tāṇḍya XX. xii. 5), common priests signalling common lineage, and Citrarathī kings are known Kṣatriyas. Equals are naturally named together, while despatching a charioteer attendant and lavish wealth further mark the prince. Hence no birth-śūdra is taught.",
   },
   {
     id: "1.3.36",
@@ -843,7 +910,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 36,
-    translation: "On account of the purificatory ceremonies being mentioned (in the case of the twice-born) and their absence being declared (in the case of the Sudra)."
+    translation: "On account of the purificatory ceremonies being mentioned (in the case of the twice-born) and their absence being declared (in the case of the Sudra).",
+    commentary: "Purificatory acts are mentioned for the qualified in knowledge contexts, such as investiture (Śat. Br. XI. v. 3. 13), approaching with teach me (Ch. VII. i. 1), and bearing fuel to Pippalāda (Pra. I. 1), while even without initiating (Ch. V. xi. 7) implies prior initiation. For śūdras absence is declared: single birth (Manu X. 4) and fitness for no rite (Manu X. 126). The contrast bars Vedic competence. Study, service and similar disciplines belong to the twice-born path.",
   },
   {
     id: "1.3.37",
@@ -851,7 +919,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 37,
-    translation: "And because the inclination (on the part of Gautama to impart knowledge is seen only) on the ascertainment of the absence of that (i.e., Sudrahood)."
+    translation: "And because the inclination (on the part of Gautama to impart knowledge is seen only) on the ascertainment of the absence of that (i.e., Sudrahood).",
+    commentary: "Gautama's inclination to initiate arose only after ascertaining absence of śūdrahood in Satyakāma Jābāla. Truthful avowal of uncertain parentage drew the verdict that no non-Brāhmaṇa dares such truth, followed by bring fuel, I shall initiate you, for you swerved not from truth (Ch. IV. iv. 5). The sequence proves birth-status was tested before teaching. Hence the śūdra as such has no Vedic right.",
   },
   {
     id: "1.3.38",
@@ -859,7 +928,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 38,
-    translation: "And on account of the prohibition in the Smriti of (the Sudras') hearing, studying, and acquiring the meaning (of the Veda)."
+    translation: "And on account of the prohibition in the Smriti of (the Sudras') hearing, studying, and acquiring the meaning (of the Veda).",
+    commentary: "Smṛti prohibits the śūdra's hearing, study and mastering Vedic sense, with penalties of lead-filled ears, severed tongue and sundered body, and maxims reserving study, sacrifice and gifts to the twice-born (Manu IV. 80). Non-recitation near him bars study itself, and meaning with practice follows the same bar. Yet Vidura and Dharmavyādha reap inevitable fruit of past-life tendencies, while tales and epics remain open to all four orders. Vedic knowledge itself stays closed.",
   },
   {
     id: "1.3.39",
@@ -867,7 +937,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 39,
-    translation: "(The Prana is Brahman), on account of the trembling (of the whole world)."
+    translation: "(The Prana is Brahman), on account of the trembling (of the whole world).",
+    commentary: "Prāṇa from which all emerges and vibrates, a terror like raised thunder, whose knowers turn immortal (Ka. II. iii. 2), is Brahman by that vibration. The rival reads familiar fivefold breath eulogized, with thunder as cloud-roar and conquest of sudden death (Br. III. iii. 2). Śaṅkara replies from neighbourhood: preceding bright Brahman, support none transcend (Ka. II. iii. 1) and succeeding fear wherein fire, sun, Indra, Air and Death run (Ka. II. iii. 3; Tai. II. viii. 1), plus breath of breath (Br. IV. iv. 18) and none lives by breath (Ka. II. ii. 5), fix the supreme answering Naciketas's beyond-virtue question.",
   },
   {
     id: "1.3.40",
@@ -875,7 +946,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 40,
-    translation: "The light (is Brahman), on account of (its) being seen (as Brahman in other scriptural passages)."
+    translation: "The light (is Brahman), on account of (its) being seen (as Brahman in other scriptural passages).",
+    commentary: "Light realized by the serene one rising from the body to abide in his nature (Ch. VIII. xii. 3) is Brahman, met with as such in the Upaniṣads. The opponent claims common light, citing the nerve-ray ascent to the sun (Ch. VIII. vi. 5). Śaṅkara answers from topic-continuity: the sinless Self to be sought (VIII. vii. 1), repeatedly promised (VIII. ix. 3), supreme Light and highest Person, with unembodied freedom from joy and sorrow (VIII. xii. 1) possible only through Brahman-identity. Solar ascent belongs to qualified departure, not absolute release which knows no going.",
   },
   {
     id: "1.3.41",
@@ -883,7 +955,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 41,
-    translation: "The ether (is Brahman) as it is designated as something different from name and form, (and) that which is within them (is Brahman)."
+    translation: "The ether (is Brahman) as it is designated as something different from name and form, (and) that which is within them (is Brahman).",
+    commentary: "Space accomplishing name and form, wherein they rest, is Brahman (Ch. VIII. xiv. 1), declared as other than and containing them. Mere ether could offer room but cannot transcend the name-form world, whose manifestation belongs to Brahman entering as soul: let me manifest name and form (Ch. VI. iii. 2). The soul's manifesting holds by identity with That. Closing epithets That is Brahman, immortal, the Self confirm it, elaborating B.S. I. i. 22.",
   },
   {
     id: "1.3.42",
@@ -891,7 +964,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 42,
-    translation: "And (the individual soul is different from Brahman) because of the states of deep sleep and departing (from the body) (in which states the Supreme Lord is described as different from the individual soul)."
+    translation: "And (the individual soul is different from Brahman) because of the states of deep sleep and departing (from the body) (in which states the Supreme Lord is described as different from the individual soul).",
+    commentary: "The Bṛhadāraṇyaka self-inquiry (IV. iii-iv), opening on the intellect-clad luminous person within the heart (IV. iii. 7), teaches the supreme Lord, distinguished in sleep and departure. The knower-soul embraced by the supremely intelligent Self knows nothing outer or inner (IV. iii. 21), and presided over by That it departs groaning (IV. iii. 35), intelligence-absolute marking God. Waking, dream and sleep exhibitions, with Janaka's repeated plea for liberation and unattached, beyond heart's woes replies (IV. iii. 15-22), negate states rather than enthrone transmigration, closing in the great birthless Self (IV. iv. 22).",
   },
   {
     id: "1.3.43",
@@ -899,7 +973,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 3,
     sutraNumber: 43,
-    translation: "And on account of the words like 'Lord' etc."
+    translation: "And on account of the words like 'Lord' etc.",
+    commentary: "Lord-words confirm it, proclaiming controller, master and ruler of all in the same passage (Br. IV. iv. 22). Complementary denial, becoming neither better by good work nor worse by bad, removes transmigratory nature. Together they establish the supermundane entity and exclude the bound soul. Hence the whole Janaka dialogue culminates in Brahman beyond migration.",
   },
 
   // PADA 4
@@ -909,7 +984,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 1,
-    translation: "If it be said that some (the Sankhyas) also find a scriptural authority (for their Pradhana in the Katha Upanishad); (we say) no, on account of the inferential mark (being mentioned); (what is stated there) is the body, so the Sruti reveals."
+    translation: "If it be said that some (the Sankhyas) also find a scriptural authority (for their Pradhana in the Katha Upanishad); (we say) no, on account of the inferential mark (being mentioned); (what is stated there) is the body, so the Sruti reveals.",
+    commentary: "Against the Sāṅkhya claim that Kaṭha the unmanifest is higher than mahat names Pradhāna, Śaṅkara answers that mere word-identity proves nothing, since avyakta in derivation means only what is not manifest and Vedic terms are fixed by context, not by Sāṅkhya technical use. Context and residue pair every higher term with the chariot imagery — senses, mind, intellect, master — leaving the body alone to be named avyakta as the highest place of Viṣṇu. The teaching aims at the inmost Self, not an independent material cause.",
   },
   {
     id: "1.4.2",
@@ -917,7 +993,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 2,
-    translation: "But the subtle (body is meant by the term Avyakta) on account of its capability (of being so designated)."
+    translation: "But the subtle (body is meant by the term Avyakta) on account of its capability (of being so designated).",
+    commentary: "If the body is gross, how can it be called unmanifest, the opponent asks, since avyakta should mean the indistinct. Śaṅkara replies that what is meant is the body in its subtle causal state, which rightly bears the name, and the cause-word is extended to its product as milk is spoken of in the cow. The same world diversified by name and form was before undifferentiated, as Bṛhadāraṇyaka says, and hence fit to be called unmanifest in its latency.",
   },
   {
     id: "1.4.3",
@@ -925,7 +1002,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 3,
-    translation: "On account of its dependence (on the Lord, such a previous seminal condition of the world may be admitted); for if it were otherwise (i.e., independent) there would be no purpose."
+    translation: "On account of its dependence (on the Lord, such a previous seminal condition of the world may be admitted); for if it were otherwise (i.e., independent) there would be no purpose.",
+    commentary: "The opponent charges that admitting a primal undifferentiated state concedes Pradhāna as cause. Śaṅkara answers that Vedānta admits such latency only as dependent on the Lord, never as an independent power, for otherwise it would serve no purpose. Without God-dependent Māyā there is no meaning to creatorship and no account of why the freed are not reborn. This avyakta is nescience resting on God, called space, the Imperishable and Māyā, higher than mahat whether as cosmic mind or as the bound soul.",
   },
   {
     id: "1.4.4",
@@ -933,7 +1011,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 4,
-    translation: "And because it is not stated that it (the Avyakta) is to be known."
+    translation: "And because it is not stated that it (the Avyakta) is to be known.",
+    commentary: "Pradhāna in Sāṅkhya is taught as something to be known, since freedom comes from discriminating soul from guṇas and powers come from knowing Nature, yet the Kaṭha never enjoins avyakta so. Here it occurs only as an epithet within the chariot exposition leading to Viṣṇu's place, with no text prescribing its knowledge or worship. Hence the word cannot denote their independent principle, while our reading stands beyond cavil as completing the declared topic.",
   },
   {
     id: "1.4.5",
@@ -941,7 +1020,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 5,
-    translation: "And if you maintain that the text speaks (of the Pradhana as something to be known, we say) no, for the intelligent (Supreme Self) (is the topic)."
+    translation: "And if you maintain that the text speaks (of the Pradhana as something to be known, we say) no, for the intelligent (Supreme Self) (is the topic).",
+    commentary: "The Sāṅkhya pleads that Kaṭha later enjoins Pradhāna as knowable — soundless, touchless, colourless, higher than mahat, by which one passes beyond death. Śaṅkara replies that context reveals the conscious supreme Self, proclaimed as culmination and highest goal, hidden in all beings, approached by merging speech into mind and mind into the cognizing self. Freedom is never taught from knowing mere matter, and soundlessness and its kin mark the Self everywhere in the Upaniṣads.",
   },
   {
     id: "1.4.6",
@@ -949,7 +1029,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 6,
-    translation: "And there is question and explanation (concerning three things only)."
+    translation: "And there is question and explanation (concerning three things only).",
+    commentary: "No Pradhāna can enter because Kaṭha presents only three things under its three boons — Fire, the individual soul, and the supreme Self — with question and answer to match. Fire is asked and told, the soul after death is asked and told, and the Beyond-virtue Self is elaborated from the intelligent Self is neither born nor dies. The two soul-questions are one, since soul and Self are non-different as That thou art teaches, the later passage denying birth only to reveal the embodied one as the Lord.",
   },
   {
     id: "1.4.7",
@@ -957,7 +1038,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 7,
-    translation: "And (the case of the term Mahat) is like that of the term Mahat."
+    translation: "And (the case of the term Mahat) is like that of the term Mahat.",
+    commentary: "As with avyakta, so with mahat, Śaṅkara says: the Sāṅkhya first evolute of sattva-predominant intellect has no Vedic warrant. The Upaniṣad joins mahat to Self — mahān ātmā higher than intellect — and sings freedom from grief by meditating the great and pervasive One, with Śvetāśvatara knowing the great Puruṣa beyond darkness. Since Vedic mahat means the great Self or Hiraṇyagarbha's cosmic intellect, avyakta likewise cannot smuggle in Pradhāna.",
   },
   {
     id: "1.4.8",
@@ -965,7 +1047,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 8,
-    translation: "If it be said that (the Pradhana) cannot be denoted (by the word 'Aja'), because no special characteristic is stated, (we reply) no, for the teaching is given by means of a cup."
+    translation: "If it be said that (the Pradhana) cannot be denoted (by the word 'Aja'), because no special characteristic is stated, (we reply) no, for the teaching is given by means of a cup.",
+    commentary: "The Sāṅkhya turns to Śvetāśvatara's red-white-black aja enjoyed by one unborn and abandoned by another, reading colours as sattva, rajas and tamas in balance. Śaṅkara replies that isolated the verse proves nothing, for any school can manipulate an unspecified image, just as the bowl opening below and bulging above cannot by itself name a head without its complementary passage. Without a distinguishing mark fixed by context, aja cannot be certified as Pradhāna alone.",
   },
   {
     id: "1.4.9",
@@ -973,7 +1056,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 9,
-    translation: "But the (elements) beginning with light (are meant by the word Aja); for some read so in their text."
+    translation: "But the (elements) beginning with light (are meant by the word Aja); for some read so in their text.",
+    commentary: "The aja, Śaṅkara holds, is the Lord-born source of beings consisting of fire, water and earth, with red, white and black as their colours, not the three guṇas. One recension reads exactly so — the red of gross fire from light, the white from water, the black from food — and colour words primarily denote hues, only secondarily Sāṅkhya constituents. Śvetāśvatara opens with Brahman as cause and its hidden divine power, and closes with Māyā ruled by the great Lord, so no independent Nature is taught.",
   },
   {
     id: "1.4.10",
@@ -981,7 +1065,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 10,
-    translation: "And on account of the statement of the assumption (of these elements for the production of the world) there is nothing contrary to reason (in Aja denoting the elements)."
+    translation: "And on account of the statement of the assumption (of these elements for the production of the world) there is nothing contrary to reason (in Aja denoting the elements).",
+    commentary: "How can fire, water and earth be called a she-goat, and how can the born be called unborn, the opponent asks. Śaṅkara answers that aja is imagery, kalpana, not zoology or etymology: as the sun is meditated as honey and speech as a cow, the tri-coloured elemental source is pictured as a goat with like offspring, enjoyed by the deluded soul and renounced by the awakened. The two souls figure bondage and freedom through limiting adjuncts, not a real Sāṅkhya plurality, for the one Deity dwells hidden in all.",
   },
   {
     id: "1.4.11",
@@ -989,7 +1074,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 11,
-    translation: "Even if the number (referred to in the passage of the Svetasvatara Upanishad) be assumed to refer to the (Sankhya categories), there is no defect, on account of the difference of the principles and the excess (over the number twenty-five)."
+    translation: "Even if the number (referred to in the passage of the Svetasvatara Upanishad) be assumed to refer to the (Sankhya categories), there is no defect, on account of the difference of the principles and the excess (over the number twenty-five).",
+    commentary: "Nor does Bṛhadāraṇyaka's five of the quintuplet yield twenty-five Sāṅkhya categories by five times five. Śaṅkara objects that the categories share no fivefold common factor to form such groups, grammar makes pañcajanāḥ one compound term like saptarṣis, and numeral cannot qualify numeral. There is excess besides, for Self as container and space as placed would swell the count to twenty-seven. Jana never conventionally means a category, so number alone cannot summon Pradhāna.",
   },
   {
     id: "1.4.12",
@@ -997,7 +1083,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 12,
-    translation: "The Pranas etc. (are meant by the five-five people) on account of the complementary passage."
+    translation: "The Pranas etc. (are meant by the five-five people) on account of the complementary passage.",
+    commentary: "The quintuplet, Śaṅkara says, is the vital force and the rest gathered from the complementary Mādhyandina verse — the Life of life, Eye of the eye, Ear of the ear, Food of food, Mind of the mind — proximate to the riddle and meant to reveal Brahman. Jana is stretched no further than the Sāṅkhya reading stretches it, and it is eased by association with puruṣa, since Chāndogya calls these the five persons of Brahman. A word of unfamiliar import is fixed by its neighbours, as sacrifice fixes udbhid.",
   },
   {
     id: "1.4.13",
@@ -1005,7 +1092,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 13,
-    translation: "In the case of some recensions (the number five is reached by adding) light, food not being mentioned."
+    translation: "In the case of some recensions (the number five is reached by adding) light, food not being mentioned.",
+    commentary: "The Mādhyandinas have food in their list, but how do the Kāṇvas complete five, the opponent asks. Śaṅkara answers that they fill the number with light from the preceding verse on the immortal Light of lights meditated as longevity for knowing Brahman. The same mantra serves different needs in the two recensions, as the Ṣoḍaśin vessel is taken or left though the Atirātra is one. Either way no Pradhāna is sanctioned by recollection or reason.",
   },
   {
     id: "1.4.14",
@@ -1013,7 +1101,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 14,
-    translation: "As (the creator etc. of the world) is described as the cause of ether etc., (Brahman is the cause of the world)."
+    translation: "As (the creator etc. of the world) is described as the cause of ether etc., (Brahman is the cause of the world).",
+    commentary: "Varied orders of creation — from Self space, from Existence fire, from Self vital force, or worlds without order — seem to deny one cause and one purport, inviting Smṛti and logic to supply another. Śaṅkara replies that every Upaniṣad declares the same Creator as any one does: one, omniscient, wishful, inmost, without a second, from whom the manifold is non-different. Divergence touches only products, which teach nothing by themselves, while clay, iron and spark illustrations gather all effects back into knowing Brahman, whose knower attains the supreme.",
   },
 
   {
@@ -1022,7 +1111,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 15,
-    translation: "On account of the connection (with Brahman)."
+    translation: "On account of the connection (with Brahman).",
+    commentary: "Texts calling the beginning non-existence — in the beginning all this was but non-existence — seem to crown the void as cause. Śaṅkara answers that they allude to Brahman unmanifest through name and form, for the same passage condemns holding Brahman as non-existent, traces sheaths inward to the Self, and closes they call that Brahman Truth. The Chāndogya sequel that was Existence and the repudiation of how can existence come from non-existence confirm it, while Bṛhadāraṇyaka's undifferentiated world still needs the entering ordainer who sees and hears.",
   },
   {
     id: "1.4.16",
@@ -1030,7 +1120,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 16,
-    translation: "Because it denotes the creator of the world."
+    translation: "Because it denotes the creator of the world.",
+    commentary: "In the Bālāki dialogue Ajātaśatru offers he who is maker of these persons, he of whom this is the work as what must be known — soul, vital force, or supreme Self. Śaṅkara decides for the Lord, since Bālāki began I shall tell you of Brahman and was rebuked for offering only secondary persons in sun and moon. Work cannot mean mere movement or merit, nor repeat the persons, for gender and number forbid it; it names the whole universe as product, whose universal maker all Upaniṣads affirm.",
   },
   {
     id: "1.4.17",
@@ -1038,7 +1129,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 17,
-    translation: "On account of the characteristic marks of the individual soul and the chief vital air (it is not Brahman); if it be said so, (we reply) no, because it has already been explained."
+    translation: "On account of the characteristic marks of the individual soul and the chief vital air (it is not Brahman); if it be said so, (we reply) no, because it has already been explained.",
+    commentary: "If sleep, waking by calling, and the retinue simile point to soul and chief breath, why not rest there, the opponent presses. Śaṅkara answers that the point stands already explained under Pratardana: splitting the passage into soul, breath and Brahman would force a threefold meditation contrary to beginning and end. Beginning promises Brahman, end promises destruction of sins and sovereignty to its knower, and Prāṇa elsewhere names Brahman as the mind's tether, while soul-marks are read through identity.",
   },
   {
     id: "1.4.18",
@@ -1046,7 +1138,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 18,
-    translation: "But Jaimini thinks that (the reference to the individual soul in the text) has another purpose, on account of the question and answer; and thus some also (read in their text)."
+    translation: "But Jaimini thinks that (the reference to the individual soul in the text) has another purpose, on account of the question and answer; and thus some also (read in their text).",
+    commentary: "Jaimini resolves the tension otherwise, Śaṅkara reports: the soul-reference serves another purpose, to lead into Brahman, as question and answer show. After the sleeper proves the soul distinct from breath, Bālāki asks where the person slept and whence he came, and hears that in dreamlessness he is unified in Prāṇa with organs, gods and objects issuing from the Self. The Vājasaneyins make it explicit — the intellect-identified one lying in the heart-space — so soul-instruction becomes Brahman-instruction.",
   },
   {
     id: "1.4.19",
@@ -1054,7 +1147,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 19,
-    translation: "(The Self to be seen, to be heard etc. is the Supreme Self) on account of the connected meaning of the sentences."
+    translation: "(The Self to be seen, to be heard etc. is the Supreme Self) on account of the connected meaning of the sentences.",
+    commentary: "Yājñavalkya's the Self should be realized, heard, reflected, meditated, by which all is known seems to begin from the loved husband and wife, hence the enjoying soul, though its middle speaks of the great Reality emerging from elements. Śaṅkara holds the sequence proves the supreme Self, since Maitreyī seeks immortality beyond wealth, all-knowing fits only the universal Cause, Brāhmaṇa-ousting and all are this Self deny difference, and drum, breath-source and merger passages crown Him as origin and goal of all.",
   },
   {
     id: "1.4.20",
@@ -1062,7 +1156,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 20,
-    translation: "(The reference to the individual soul is) an indication of the fulfillment of the promise; so Asmarathya thinks."
+    translation: "(The reference to the individual soul is) an indication of the fulfillment of the promise; so Asmarathya thinks.",
+    commentary: "Why then start from the beloved soul at all, if the supreme is meant. Āśmarathya answers, Śaṅkara says, that the opening is a sign fulfilling the declaration that all becomes known through the Self. Were the individual wholly other than the supreme, knowing the supreme would leave the soul unknown and falsify the promise. Hence the text begins with their non-different aspect, letting the enjoyer introduce the ground in whom enjoyer and enjoyed are one.",
   },
   {
     id: "1.4.21",
@@ -1070,7 +1165,8 @@ export const brahmaSutrasEn: BrahmaSutra[] = [
     adhyaya: 1,
     pada: 4,
     sutraNumber: 21,
-    translation: "(The initial statement identifies the soul with Brahman) because the soul when it will depart (from the body) is such (i.e., one with Brahman); thus Audulomi thinks."
+    translation: "(The initial statement identifies the soul with Brahman) because the soul when it will depart (from the body) is such (i.e., one with Brahman); thus Audulomi thinks.",
+    commentary: "Auḍulomi gives another reason for beginning with the soul, Śaṅkara reports: identity is stated because the departing soul will become such. Tainted by body, senses and mind, it grows serene through knowledge and meditation and at death rises from the body to the supreme Light and abides in its nature, as Chāndogya teaches. Muṇḍaka's rivers shedding name and form into the sea confirm that the freed soul lays down its adjuncts and reaches the higher Puruṣa.",
   },
   {
     id: "1.4.22",

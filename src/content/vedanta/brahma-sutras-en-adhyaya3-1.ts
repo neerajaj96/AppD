@@ -348,7 +348,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 11,
     sanskrit: "न स्थानतोऽपि परस्योभयलिङ्गं सर्वत्र हि ॥ ११ ॥",
-    translation: "Not even from place (does any imperfection attach to Brahman), because everywhere (the Supreme Being is described as) having a twofold characteristic."
+    translation: "Not even from place (does any imperfection attach to Brahman), because everywhere (the Supreme Being is described as) having a twofold characteristic.",
+    commentary: "A new inquiry opens on Brahman known in sleep: texts describe Him both with qualities, as doer of all deeds and all desires in Ch. III.xiv.2, and without any, as neither gross nor minute in Br. III.viii.8. The opponent would grant Him both aspects together. The siddhānta denies even adjunct-based duality, for a crystal stays transparent beside red lac, error alone painting it opaque, while Ka. I.iii.15 and its kin reveal the attributeless Self as the primary purport.",
   },
   {
     id: "3.2.12",
@@ -356,7 +357,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 12,
     sanskrit: "भेदादिति चेन्न प्रत्येकमतद्वचनात् ॥ १२ ॥",
-    translation: "If it be said that (it is not so) on account of difference, (we say) no, because with reference to each (such state) what is not that (i.e., imperfection) is declared."
+    translation: "If it be said that (it is not so) on account of difference, (we say) no, because with reference to each (such state) what is not that (i.e., imperfection) is declared.",
+    commentary: "The opponent cites meditative differences, four-footed Brahman in Ch. III.xviii.2, sixteen-part in Pr. VI.1, three-worlds-bodied in Br. I.iii.22 and Vaiśvānara, demanding a qualified Brahman lest those texts lose scope. Śaṅkara replies that each difference is individually retracted beside its statement, as in Br. II.v.1 where earth-dweller and body-dweller are declared one Self. Difference serves meditation; non-difference is the intended truth.",
   },
   {
     id: "3.2.13",
@@ -364,7 +366,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 13,
     sanskrit: "अपि चैवमेके ॥ १३ ॥",
-    translation: "Moreover some (teach) thus."
+    translation: "Moreover some (teach) thus.",
+    commentary: "Further, followers of certain branches explicitly condemn duality and teach unity alone. Ka. II.i.11 declares there is no diversity whatsoever and one passing from death to death who sees difference. Sv. I.12 gathers experiencer, experienced and ordainer into Brahman alone. Such summaries confirm that varied forms are provisional, while non-duality is the settled doctrine.",
   },
   {
     id: "3.2.14",
@@ -372,7 +375,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 14,
     sanskrit: "अरूपवदेव हि तत्प्रधानत्वात् ॥ १४ ॥",
-    translation: "For (Brahman is) merely without form, on account of that being the main purport."
+    translation: "For (Brahman is) merely without form, on account of that being the main purport.",
+    commentary: "Why privilege the formless reading when both classes of text exist? Because formlessness is the dominant note, established already under I.i.4: Br. III.viii.8, Ka. I.iii.15, Ch. VIII.xiv.1, Mu. II.i.2 and Br. II.v.19 all aim directly at the transcendent Self. Passages ascribing mind, prāṇa or effulgence aim chiefly at enjoining meditation. Where meanings clash, what is primary outweighs what is instrumental.",
   },
   {
     id: "3.2.15",
@@ -380,7 +384,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 15,
     sanskrit: "प्रकाशवच्चावैयर्थ्यात् ॥ १५ ॥",
-    translation: "And as light (assumes forms), for the sake of non-futility (of the texts)."
+    translation: "And as light (assumes forms), for the sake of non-futility (of the texts).",
+    commentary: "Form-texts need not become meaningless. As sunlight spread everywhere still looks straight or bent beside fingers and the like, so Brahman appears with earth and other forms through adjuncts for meditation. Injunctions can fasten on those appearances without touching His essence. Both scriptural classes thus retain validity, one declaring nature, the other guiding worship.",
   },
   {
     id: "3.2.16",
@@ -388,7 +393,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 16,
     sanskrit: "आह च तन्मात्रम् ॥ १६ ॥",
-    translation: "And (scripture) declares (Brahman) to consist of that (i.e., intelligence) only."
+    translation: "And (scripture) declares (Brahman) to consist of that (i.e., intelligence) only.",
+    commentary: "Scripture further declares Brahman to be consciousness alone, excluding alien features. Br. IV.v.13 compares the Self to a lump of salt, without inside or outside, wholly saline in taste, even so entire and pure intelligence. No interstice admits a second attribute. Impartite awareness is His whole being, not one quality among others.",
   },
   {
     id: "3.2.17",
@@ -396,7 +402,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 17,
     sanskrit: "दर्शयति चाथो अपि स्मर्यते ॥ १७ ॥",
-    translation: "And (scripture) shows (this); so also the Smritis declare."
+    translation: "And (scripture) shows (this); so also the Smritis declare.",
+    commentary: "Veda reveals the same by negation, as in Br. II.iii.6 not this, not this, Ke. I.4 different from known and above unknown, and Tai. II.ix.1 where words turn back. Bādhva answers Bāṣkali by silence, teaching quiescence itself. Smṛti agrees: Gītā XIII.12 denies gross and subtle of the knowable, while Nārāyaṇa tells Nārada His qualified vision is Māyā alone.",
   },
   {
     id: "3.2.18",
@@ -404,7 +411,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 18,
     sanskrit: "अत एव चोपमा सूर्यकादिवत् ॥ १८ ॥",
-    translation: "And therefore the comparisons like the images of the sun etc. (are used)."
+    translation: "And therefore the comparisons like the images of the sun etc. (are used).",
+    commentary: "Hence liberation texts illustrate the one Self by the sun reflected in many waters. Though one, the sun looks manifold entering divided pots; so the birthless Self-effulgent appears diversified entering bodies. Amṛtabindu 12 says likewise of the moon in water. The figure keeps the conditioned aspect unreal and adjunct-born, while unity remains real.",
   },
   {
     id: "3.2.19",
@@ -412,7 +420,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 19,
     sanskrit: "अम्बुवदग्रहणात्तु न तथात्वम् ॥ १९ ॥",
-    translation: "But (the comparison is) not so, on account of the non-apprehension (of Brahman) as (the sun is apprehended) in water."
+    translation: "But (the comparison is) not so, on account of the non-apprehension (of Brahman) as (the sun is apprehended) in water.",
+    commentary: "An objector rejects the figure: sun and water are separate, remote, material things with form, apt for images, whereas the Self is formless, all-pervasive and non-different from all, with no similarly detached adjunct. The parallel therefore seems inapt. If nothing stands apart like water, reflection language collapses.",
   },
   {
     id: "3.2.20",
@@ -420,7 +429,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 20,
     sanskrit: "वृद्धिह्रासभाक्त्वमन्तर्भावादुभयसामञ्जस्यादेवम् ॥ २० ॥",
-    translation: "(Brahman) participates in the increase and decrease (of the limiting adjuncts) on account of its being inside; thus the appropriateness of the two (is maintained)."
+    translation: "(Brahman) participates in the increase and decrease (of the limiting adjuncts) on account of its being inside; thus the appropriateness of the two (is maintained).",
+    commentary: "The reply concedes partial likeness only, for illustration needs one intended point, not likeness in every respect, else illustration and illustrated would merge. Here the point is sharing increase and decrease: the image swells, wanes and trembles with water while the sun stays unchanged. So Brahman, entering the body, seems to grow and diminish with it while ever the same, and scripture itself having offered the image, scope must be found for it.",
   },
   {
     id: "3.2.21",
@@ -428,7 +438,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 21,
     sanskrit: "दर्शनाच्च ॥ २१ ॥",
-    translation: "And on account of the declaration (of scripture)."
+    translation: "And on account of the declaration (of scripture).",
+    commentary: "Revelation also shows that very entry into adjuncts. Br. II.v.18 says the Supreme first entered bodies as a bird, and Ch. VI.iii.2 says myself entering as this individual Self. Immanence thus grounds the reflection teaching. The conclusion stands: Brahman is distinctionless and single in aspect, not dual or reversed.",
   },
   {
     id: "3.2.22",
@@ -436,7 +447,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 22,
     sanskrit: "प्रकृतैतावत्त्वं हि प्रतिषेधति ततो ब्रवीति च भूयः ॥ २२ ॥",
-    translation: "For (the Sruti) denies the having that much only which had been mentioned (as the form of Brahman), and then says something more."
+    translation: "For (the Sruti) denies the having that much only which had been mentioned (as the form of Brahman), and then says something more.",
+    commentary: "Br. II.iii.1 begins with two forms, gross and subtle, mortal and immortal, then says not so, not so. The doubt is whether forms, possessor, or both are denied, with two negatives perhaps matching two aspects. Śaṅkara denies the forms alone: total denial would be nihilism, leaving no substratum like rope beneath snake, and would contradict the opening I will tell you of Brahman plus Tai. II.vi.1 and Ka. II.iii.13. What follows, Truth of truth, proves Brahman survives negation as beyond all this much.",
   },
   {
     id: "3.2.23",
@@ -444,7 +456,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 23,
     sanskrit: "तदव्यक्तमाह हि ॥ २३ ॥",
-    translation: "That (Brahman) is unmanifest, for (scripture) says so."
+    translation: "That (Brahman) is unmanifest, for (scripture) says so.",
+    commentary: "If that superior Brahman exists beyond denied manifestations, why is He not perceived? Because He is unmanifest, the supersensuous witness of all. Mu. III.i.3 denies grasp by eye, speech or austerity; Br. III.ix.26 calls Him never perceived; Mu. I.i.6 and Tai. II.vii.1 echo His bodiless inexpressibility. Gītā II.25 likewise names Him unmanifest, unthinkable and immutable.",
   },
   {
     id: "3.2.24",
@@ -452,7 +465,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 24,
     sanskrit: "अपि संराधने प्रत्यक्षानुमानाभ्याम् ॥ २४ ॥",
-    translation: "And (Brahman is apprehended) in perfect meditation, according to Sruti and Smriti."
+    translation: "And (Brahman is apprehended) in perfect meditation, according to Sruti and Smriti.",
+    commentary: "Yet yogins realize Him in samrādhana, devotion, contemplation and deep absorption. Ka. II.i.1 says the rare discerner turns senses inward to see the indwelling Self, and Mu. III.i.8 sees the indivisible Self through purified meditation. Smṛti salutes that Effulgence realizable through yoga by the sense-controlled. Direct revelation and Smṛti thus attest experience beyond sense.",
   },
   {
     id: "3.2.25",
@@ -460,7 +474,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 25,
     sanskrit: "प्रकाशादिवच्चावैशेष्यं प्रकाशश्च कर्मण्यभ्यासात् ॥ २५ ॥",
-    translation: "And as in the case of light etc. there is non-distinction, and there is the shining (of Brahman) in the work (i.e., meditation) on account of repeated practice."
+    translation: "And as in the case of light etc. there is non-distinction, and there is the shining (of Brahman) in the work (i.e., meditation) on account of repeated practice.",
+    commentary: "Meditator and meditated then seem two, but difference belongs to activity alone. As light, space or sun look diversified beside finger, pail or water yet keep natural unity, so the effulgent Self appears divided during worship through intellect and other adjuncts. Intrinsically there is non-difference, repeated in That thou art through Ch. VI.viii-xvi.",
   },
   {
     id: "3.2.26",
@@ -468,7 +483,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 26,
     sanskrit: "अतोऽनन्तेन तथा हि लिङ्गम् ॥ २६ ॥",
-    translation: "Therefore (the individual soul becomes one) with the Infinite; for thus is the indication (in scripture)."
+    translation: "Therefore (the individual soul becomes one) with the Infinite; for thus is the indication (in scripture).",
+    commentary: "Hence the individual attains unity with the Infinite, since difference is ignorance-born while identity is natural. Knowledge destroys the veil and the eternal conscious Self stands revealed. The mark is scriptural: Mu. III.ii.9 says the knower of supreme Brahman becomes Brahman, and Br. IV.iv.6 says being Brahman he is absorbed in Brahman.",
   },
   {
     id: "3.2.27",
@@ -476,7 +492,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 27,
     sanskrit: "उभयव्यपदेशात्त्वहिकुण्डलवत् ॥ २७ ॥",
-    translation: "But on account of twofold designation, (the relation is) like that between the serpent and its coils."
+    translation: "But on account of twofold designation, (the relation is) like that between the serpent and its coils.",
+    commentary: "Another view is rehearsed to clarify our own: texts mention both difference, as seer and seen in Mu. III.i.8, attainer and goal in Mu. III.ii.8, ruler and ruled in Br. III.vii.15, and non-difference in That thou art, I am Brahman in Br. I.iv.10, and the inner ruler passages. To honor both, relation is figured as snake to coil, hood or outstretched posture, one substance with real states.",
   },
   {
     id: "3.2.28",
@@ -484,7 +501,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 28,
     sanskrit: "प्रकाशाश्रयवद्वा तेजस्त्वात् ॥ २८ ॥",
-    translation: "Or like that between light and its substratum, on account of their being luminous."
+    translation: "Or like that between light and its substratum, on account of their being luminous.",
+    commentary: "Or relation is like light to its source: sunlight and sun are both effulgence, not wholly different, yet spoken of as distinct. So supreme and individual Self share luminous being while sustaining distinct reference. The analogy tries to preserve unity without erasing devotional duality.",
   },
   {
     id: "3.2.29",
@@ -492,7 +510,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 29,
     sanskrit: "पूर्ववद्वा ॥ २९ ॥",
-    translation: "Or as (explained) before."
+    translation: "Or as (explained) before.",
+    commentary: "Or it is as already shown in III.ii.25, and this alone is Śaṅkara's verdict. Snake-coil or light-source models make bondage real, and what is real cannot be removed by knowledge, rendering liberation texts useless. Scripture mentions difference only as conventionally recognized, aiming to establish non-difference. Illusory bondage alone makes knowledge liberating.",
   },
   {
     id: "3.2.30",
@@ -500,7 +519,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 30,
     sanskrit: "प्रतिषेधाच्च ॥ ३० ॥",
-    translation: "And on account of the denial."
+    translation: "And on account of the denial.",
+    commentary: "Denial confirms it: Br. III.vii.23 says there is no other witness but Him, Br. II.iii.6 describes by not so, and Br. II.v.19 leaves Brahman without prior, posterior, interior or exterior. Manifestation denied apart from Brahman leaves Brahman alone as ultimate. Such exclusion seals non-duality.",
   },
   {
     id: "3.2.31",
@@ -508,7 +528,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 31,
     sanskrit: "परमतः सेतून्मानसंबन्धभेदव्यपदेशेभ्यः ॥ ३१ ॥",
-    translation: "(There is something) superior to this (Brahman) on account of designations of bridge, measure, connection, and difference."
+    translation: "(There is something) superior to this (Brahman) on account of designations of bridge, measure, connection, and difference.",
+    commentary: "A fresh doubt alleges something higher than this Brahman from four idioms. Setu in Ch. VIII.iv.1 calls Self an embankment, with crossing beyond in VIII.iv.2; measure in Ch. III.xviii.2 and IV.v gives four feet and sixteen parts; connection in Ch. VI.viii.1, Tai. II.iii.1 and Br. IV.iii.21 unites soul with Existence; difference in Ch. I.vi.6 and I.vii.5 assigns separate sun- and eye-beings with separate domains. Each seems to imply another beyond Brahman.",
   },
   {
     id: "3.2.32",
@@ -516,7 +537,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 32,
     sanskrit: "सामान्यात्तु ॥ ३२ ॥",
-    translation: "But on account of resemblance (it is designated as a bridge)."
+    translation: "But on account of resemblance (it is designated as a bridge).",
+    commentary: "But embankment is praise by resemblance, not proof of a beyond. As a barrage holds waters and bounds, the Self holds the world as inner ruler and maintains norms. Inferring an outer would equally demand earth and timber parts, contradicting birthlessness, Ch. VI.ii.1 one without second, and know-one-know-all. Crossing means attaining, as one crosses grammar by mastering it.",
   },
   {
     id: "3.2.33",
@@ -524,7 +546,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 33,
     sanskrit: "बुद्ध्यर्थ उपादानवत् ॥ ३३ ॥",
-    translation: "(The designation as measure is) for the sake of easy comprehension, like (wood) serving as a foot (etc.)."
+    translation: "(The designation as measure is) for the sake of easy comprehension, like (wood) serving as a foot (etc.).",
+    commentary: "Measure too serves easy grasp, like feet fancied for meditation. As speech and other organs form four feet of mind, and fire and other powers of space, so limited magnitudes are imagined on infinite Brahman for sharp, mediocre and dull intellects. Like a kārṣāpaṇa divided into quarters for varied dealings, division aids use without dividing the real.",
   },
   {
     id: "3.2.34",
@@ -532,7 +555,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 34,
     sanskrit: "स्थानविशेषात्प्रकाशादिवत् ॥ ३४ ॥",
-    translation: "(The statements of connection and difference are) on account of special places, as in the case of light etc."
+    translation: "(The statements of connection and difference are) on account of special places, as in the case of light etc.",
+    commentary: "Connection and difference are spoken from adjunct-place, as with light. Contact with intellect yields particularized knowledge; its cessation at adjunct-rest is metaphorically called union with the Self. Difference likewise reflects diverse adjuncts, not the Self itself. So one light unites when conditions lift and diversifies with them, as outer, inner and heart-space remain one space in Ch. III.xii.7-9.",
   },
   {
     id: "3.2.35",
@@ -540,7 +564,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 35,
     sanskrit: "उपपत्तेश्च ॥ ३५ ॥",
-    translation: "And it is reasonable."
+    translation: "And it is reasonable.",
+    commentary: "Reason alone supports this reading. He attains his own Self in Ch. VI.viii.1 means self-identity, inalienable by nature, not meeting like man and town. Covering by adjuncts makes attainment language intelligible. Any other difference would contradict divine oneness taught throughout the Upaniṣads.",
   },
   {
     id: "3.2.36",
@@ -548,7 +573,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 36,
     sanskrit: "तथान्यप्रतिषेधात् ॥ ३६ ॥",
-    translation: "Similarly on account of the denial of any other (entity)."
+    translation: "Similarly on account of the denial of any other (entity).",
+    commentary: "Denial of all else likewise proves nothing beyond Brahman. Ch. VII.xxv.1-2 places the Self below, above and everywhere; Br. II.iv.6 casts out the other-knower; Mu. II.ii.11 and Ch. VII.xxv.2 declare all Brahman and Self; Br. IV.iv.19 denies diversity; Sv. III.9 and Br. II.v.19 allow none prior, posterior, interior or exterior. Such contexts leave no room for a second.",
   },
   {
     id: "3.2.37",
@@ -556,7 +582,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 37,
     sanskrit: "अनेन सर्वगतत्वमायामशब्दादिभ्यः ॥ ३७ ॥",
-    translation: "By this the omnipresence (of Brahman is established) according to scriptural texts declaring its extent."
+    translation: "By this the omnipresence (of Brahman is established) according to scriptural texts declaring its extent.",
+    commentary: "Hereby omnipresence too is secured through extension language. Ch. VIII.i.3 makes heart-space as extensive as outer space; Ch. III.xiv.3 calls Him greater than heaven; Śatapatha X.vi.3.2 greater than space; Gītā II.24 eternal, all-pervading and steady. Literal embankment or a surviving other would bound Him; refuted, they yield the boundless.",
   },
   {
     id: "3.2.38",
@@ -564,7 +591,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 38,
     sanskrit: "फलमत उपपत्तेः ॥ ३८ ॥",
-    translation: "From Him (the Lord) is the fruit (of action), on account of reasoning."
+    translation: "From Him (the Lord) is the fruit (of action), on account of reasoning.",
+    commentary: "A new topic asks whence the threefold fruits of transmigratory action, desirable, undesirable and mixed, come, whether from rites themselves or God. From Him, the Lord, is the logical reply, for He presides over all and knows place and time fit for creation, sustenance and dissolution, apportioning to merit. Momentary acts perishing at once cannot later birth results from nothing.",
   },
   {
     id: "3.2.39",
@@ -572,7 +600,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 39,
     sanskrit: "श्रुतत्वाच्च ॥ ३९ ॥",
-    translation: "And because it is so declared by scripture."
+    translation: "And because it is so declared by scripture.",
+    commentary: "Scripture agrees, not reason alone. Br. IV.iv.24 calls the great birthless Self bestower of food and giver of wealth, with like texts declaring divine ordainment. The Veda thus names God giver, confirming the inference. Both proofs converge on the Lord as fruit-giver.",
   },
   {
     id: "3.2.40",
@@ -580,7 +609,8 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 40,
     sanskrit: "धर्मं जैमिनिरत एव ॥ ४० ॥",
-    translation: "Jaimini (thinks) for the same reasons that religious merit (is what brings about the fruits of actions)."
+    translation: "Jaimini (thinks) for the same reasons that religious merit (is what brings about the fruits of actions).",
+    commentary: "Jaimini objects that virtuous deed itself yields fruit, for the same Vedic and rational grounds read oppositely. One wishing heaven shall sacrifice enjoins an act with an end in view, implying sacrifice produces heaven lest injunction lack performers. Momentariness is cured by inferring unseen potency, subtle residue or seed of result. A uniform God, he adds, would breed partiality and make effort vain.",
   },
   {
     id: "3.2.41",
@@ -588,6 +618,7 @@ export const brahmaSutrasEnAdhyaya3Part1: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 41,
     sanskrit: "पूर्वं तु बादरायणो हेतुव्यपदेशात् ॥ ४१ ॥",
-    translation: "But Badarayana (thinks) the former (i.e., the Lord to be the bestower of fruits), on account of His being designated as the cause (of the actions themselves)."
+    translation: "But Badarayana (thinks) the former (i.e., the Lord to be the bestower of fruits), on account of His being designated as the cause (of the actions themselves).",
+    commentary: "Bādarāyaṇa restores the earlier One, God, as bestower whether through act or potency, rejecting fruit from inert karma alone. He is declared cause even of action: Kau. III.8 says He makes one do good to raise and bad to cast down, while Gītā VII.21-22 ordains faith and grants desires. Creating beings per individual merit, He varies results without partiality, reckoning each effort.",
   }
 ];

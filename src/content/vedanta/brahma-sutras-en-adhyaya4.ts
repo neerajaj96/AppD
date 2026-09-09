@@ -9,7 +9,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 1,
     sanskrit: "आवृत्तिरसकृदुपदेशात् ॥ १ ॥",
-    translation: "Repetition (of hearing, reflection, and meditation on Brahman is necessary) on account of the repeated instruction by the scriptures."
+    translation: "Repetition (of hearing, reflection, and meditation on Brahman is necessary) on account of the repeated instruction by the scriptures.",
+    commentary: "The opponent holds one hearing of the Self should be heard, reflected and meditated upon suffices, like a Prayaja done once. Śaṅkara replies repetition is necessary since scripture instructs repeatedly, and hearing must ripen into realization. As husking continues till rice appears, upasana and nididhyasana mean a continuous stream of remembrance, like constant thought of a teacher, king or absent husband, interchangeable with knowing.",
   },
   {
     id: "4.1.2",
@@ -17,7 +18,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 2,
     sanskrit: "लिङ्गाच्च ॥ २ ॥",
-    translation: "And on account of the indicatory mark (in the Sruti)."
+    translation: "And on account of the indicatory mark (in the Sruti).",
+    commentary: "A further mark confirms repetition. After scorning Udgitha-as-sun meditation as yielding one son, the Chandogya bids meditate repeatedly on Udgitha as sun and rays for many sons, using paryavartaya. The opponent allows repetition for growing excellence but doubts it for ever-pure Brahman. Śaṅkara answers this incidental rule reveals repetition already assumed for mental acts, extending by similarity to all vidyas including supreme knowledge for dull minds.",
   },
   {
     id: "4.1.3",
@@ -25,7 +27,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 3,
     sanskrit: "आत्मेति तूपगच्छन्ति ग्राहयन्ति च ॥ ३ ॥",
-    translation: "But (the Sruti texts) acknowledge (Brahman) as the Self (of the meditator) and also teach others (to comprehend It as such)."
+    translation: "But (the Sruti texts) acknowledge (Brahman) as the Self (of the meditator) and also teach others (to comprehend It as such).",
+    commentary: "The doubt is whether the sinless Lord should be realized as different, since agent and God seem opposite and identity would void scripture and experience. Śaṅkara insists the Upanisads acknowledge Him as the Self and teach others so, in That thou art, I am Brahman and I am Thee, Thou art me. Duality is condemned in worshipping another god knows not and death to death. Opposite traits are unreal, removed with transmigration, perception holding only before enlightenment.",
   },
   {
     id: "4.1.4",
@@ -33,7 +36,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 4,
     sanskrit: "न प्रतीके न हि सः ॥ ४ ॥",
-    translation: "(The meditator is) not (to see the Self) in the symbol, for he is not (that)."
+    translation: "(The meditator is) not (to see the Self) in the symbol, for he is not (that).",
+    commentary: "For symbols like mind, sun, name or space taught as Brahman, the opponent urges self-identification too, since all are Brahman forms. Śaṅkara denies it, for the aspirant cannot grasp a separate limited symbol as himself. If symbols dissolved into essence, symbolhood would vanish, like rucaka and svastika into gold. Knowledge negates agentship while meditation retains it, so meditator and symbol remain two limited things incapable of primary identity.",
   },
   {
     id: "4.1.5",
@@ -41,7 +45,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 5,
     sanskrit: "ब्रह्मदृष्टिरुत्कर्षात् ॥ ५ ॥",
-    translation: "The view of Brahman (is to be superimposed on the symbol) on account of the superiority (of Brahman)."
+    translation: "The view of Brahman (is to be superimposed on the symbol) on account of the superiority (of Brahman).",
+    commentary: "Where sun and Brahman stand in apposition, the opponent would superimpose sun on Brahman to glorify Brahman worship. Śaṅkara rules the Brahman-idea must be cast on sun and the rest because of exaltation, as custom honours the king's charioteer as king, never king as charioteer. Grammar confirms it, for Brahman follows with iti like seeing nacre as silver, and the accusative marks sun, speech or resolve as object meditated on as Brahman.",
   },
   {
     id: "4.1.6",
@@ -49,7 +54,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 6,
     sanskrit: "आदित्यादिमतयश्चाङ्ग उपपत्तेः ॥ ६ ॥",
-    translation: "And the ideas of the sun etc. (are to be superimposed) on the subordinate members (of sacrificial acts), because (that is) appropriate."
+    translation: "And the ideas of the sun etc. (are to be superimposed) on the subordinate members (of sacrificial acts), because (that is) appropriate.",
+    commentary: "For auxiliaries like Udgitha, Rk and Saman taught with sun and worlds, the opponent would superimpose Udgitha on sun to join sun to the rite. Śaṅkara holds sun-ideas must adorn the auxiliary, for thus the rite grows fruitful, as what is done with knowledge becomes more efficacious. The topic starts with Udgitha and Om, accusative marks Saman as object, earth-as-Rk is figurative proximity, and even independent results belong to qualified sacrificers like the milking-pot analogy.",
   },
   {
     id: "4.1.7",
@@ -57,7 +63,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 7,
     sanskrit: "आसीनः सम्भवात् ॥ ७ ॥",
-    translation: "Sitting (a man is to meditate) on account of the possibility (of concentration)."
+    translation: "Sitting (a man is to meditate) on account of the possibility (of concentration).",
+    commentary: "The opponent claims posture is indifferent because upasana is merely mental, unlike rites bound to acts. Śaṅkara prescribes sitting alone, since only then is a current of similar thoughts possible. Walking agitates the mind, standing keeps it busy holding the body erect against subtle inquiry, and lying invites sleep. The seated aspirant avoids these hindrances, so continuity becomes attainable in that still posture alone.",
   },
   {
     id: "4.1.8",
@@ -65,7 +72,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 8,
     sanskrit: "ध्यानाच्च ॥ ८ ॥",
-    translation: "And on account of meditation (requiring a sitting posture)."
+    translation: "And on account of meditation (requiring a sitting posture).",
+    commentary: "Concentration means an unbroken flow of like thoughts, figuratively ascribed even to a heron with fixed gaze or a wife intent on her absent lover. Śaṅkara adds this dhyana proceeds easily only with relaxed limbs, steady gaze and one-pointed mind, which sitting affords. Hence both the nature of upasana and the meaning of fixing the mind point to the seated state as the fit vehicle for meditation.",
   },
   {
     id: "4.1.9",
@@ -73,7 +81,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 9,
     sanskrit: "अचलत्वं चापेक्ष्य ॥ ९ ॥",
-    translation: "And with reference to immobility (the scriptures ascribe thought to the earth etc.)."
+    translation: "And with reference to immobility (the scriptures ascribe thought to the earth etc.).",
+    commentary: "Scripture hints at sitting through immobility. The Chandogya says the earth meditates as it were, attributing thought to earth from stillness alone. The opponent treats this as mere praise. Śaṅkara replies the figure deliberately selects motionlessness as the mark of meditativeness, signalling the human meditator too should be settled. Cosmology thus quietly enjoins the bodily condition most favourable to inward continuity.",
   },
   {
     id: "4.1.10",
@@ -81,7 +90,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 10,
     sanskrit: "स्मरन्ति च ॥ १० ॥",
-    translation: "And the Smritis also declare (this)."
+    translation: "And the Smritis also declare (this).",
+    commentary: "Smrti confirms the same discipline. The Gita bids one establish a firm seat in a clean place, and Yoga treatises prescribe padmasana for steadiness. The opponent would leave posture to taste. Śaṅkara cites these recollections as fixing seated practice, showing the Vedic rule remembered and elaborated. Tradition thus harmonizes sruti indication with practical instruction on how to sit.",
   },
   {
     id: "4.1.11",
@@ -89,7 +99,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 11,
     sanskrit: "यत्रैकाग्रता तत्राविशेषात् ॥ ११ ॥",
-    translation: "Wherever concentration of mind (is attained), there (meditation is to be performed), there being no specification (as to place or time)."
+    translation: "Wherever concentration of mind (is attained), there (meditation is to be performed), there being no specification (as to place or time).",
+    commentary: "As rites fix east, forenoon and slopes, the opponent expects fixed direction, place and time. Śaṅkara answers one should meditate wherever the mind concentrates, since no specification binds upasana. The Svetasvatara list of level, clean, noiseless caves is friendly advice, not strict injunction, for pleasing to the mind itself means whatever aids focus. The sole regulation is successful one-pointedness, not compass or calendar.",
   },
   {
     id: "4.1.12",
@@ -97,7 +108,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 12,
     sanskrit: "आ प्रायणात्तत्रापि हि दृष्टम् ॥ १२ ॥",
-    translation: "Up to the moment of death (meditations are to be continued); for then also it is seen (in scripture that meditation is to be done)."
+    translation: "Up to the moment of death (meditations are to be continued); for then also it is seen (in scripture that meditation is to be done).",
+    commentary: "Knowledge-aimed repetitions end in realization like husked rice, but for prosperity-aimed meditations the opponent would stop after some time. Śaṅkara requires continuance till death, because the unseen result depends on the final idea. Past karma awakens at death a consciousness of the world to be enjoyed, as with whatever world in mind he enters prana and the grass-leech show. Gita's whatever remembered at the end and Chandogya thrice-thinking confirm the dying thought shapes the fruit.",
   },
   {
     id: "4.1.13",
@@ -105,7 +117,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 13,
     sanskrit: "तदधिगम उत्तरपूर्वाघयोरश्लेषविनाशौ तद्व्यपदेशात् ॥ १३ ॥",
-    translation: "On the attainment of that (Brahman), there is the non-clinging and the destruction of the later and earlier sins; because it is so declared (by scripture)."
+    translation: "On the attainment of that (Brahman), there is the non-clinging and the destruction of the later and earlier sins; because it is so declared (by scripture).",
+    commentary: "The opponent objects karma must yield fruit without voiding Veda, reducing expiation to occasional rites and liberation to place-time-cause. Śaṅkara holds on attaining That future sins do not cling and past perish, declared in as water sticks not to lotus leaf, as reed-fluff burns in fire and heart-knot untied, all actions dissipated. Knowledge arrests karma's power like expiation, while the knower owns no agency in past, present or future, lest liberation become impermanent and mediate.",
   },
   {
     id: "4.1.14",
@@ -113,7 +126,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 14,
     sanskrit: "इतरस्याप्येवमसंश्लेषः पाते तु ॥ १४ ॥",
-    translation: "Of the other (i.e., good works) also there is thus non-clinging; but at death (liberation is certain)."
+    translation: "Of the other (i.e., good works) also there is thus non-clinging; but at death (liberation is certain).",
+    commentary: "Lest virtue seem friendly to knowledge, the doubt is whether merit survives. Śaṅkara extends the same non-clinging and destruction to the other, virtue, for it too binds by yielding results. He conquers both and all actions dissipated speak without exception, and day and night reach not this barrage, all sins desist uses sin to include virtue. The emphatic tu stresses that with bondage severed, liberation must follow when the body falls.",
   },
   {
     id: "4.1.15",
@@ -121,7 +135,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 15,
     sanskrit: "अनारब्धकार्ये एव तु पूर्वे तदवधेः ॥ १५ ॥",
-    translation: "But only those former (works) whose effects have not yet begun (are destroyed); for (the text states) that (death) as the limit."
+    translation: "But only those former (works) whose effects have not yet begun (are destroyed); for (the text states) that (death) as the limit.",
+    commentary: "If texts speak generally, the opponent would destroy even prarabdha works launching the present body. Śaṅkara limits destruction to former virtues and vices whose fruit has not begun, for death is the waiting limit in he lingers only till freed from the body. Knowledge presupposes the body and awaits its momentum's exhaustion, like a potter's wheel. Sublated ignorance lingers by tendency, as double-moon vision persists, so retained embodiment proves prarabdha endures.",
   },
   {
     id: "4.1.16",
@@ -129,7 +144,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 16,
     sanskrit: "अग्निहोत्रादि तु तत्कार्यायैव तद्दर्शनात् ॥ १६ ॥",
-    translation: "But the Agnihotra and the like (tend) to the same effect (viz., knowledge), for that is seen (from the scripture)."
+    translation: "But the Agnihotra and the like (tend) to the same effect (viz., knowledge), for that is seen (from the scripture).",
+    commentary: "Lest all virtue be hostile, daily Agnihotra shares knowledge's very result. The opponent sees divergent fruits for work and knowing. Śaṅkara replies, on Brahmanas seek to know through sacrifice, charity and austerity, that obligatory rites purify mind and lead gradually to knowledge, hence by courtesy to liberation, as curds with sugar turn nourishing. This concerns pre-knowledge work, for the enlightened beyond injunction cannot be enjoined, though saguna meditators may still act motivelessly.",
   },
   {
     id: "4.1.17",
@@ -137,7 +153,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 17,
     sanskrit: "अतोऽन्यापि ह्येकेषामुभयोः ॥ १७ ॥",
-    translation: "For (there is) also (a class of good works) other than this, according to some. (There is agreement) of both (teachers) (as to the result of works)."
+    translation: "For (there is) also (a class of good works) other than this, according to some. (There is agreement) of both (teachers) (as to the result of works).",
+    commentary: "Beyond obligatory aids exists another motivated class. Some branches assign them at death in sons inherit wealth, friends merits, foes demerits. Śaṅkara says the earlier non-attachment covers these desire-prompted deeds, whose transfer is so declared. Both Jaimini and Badarayana agree such interested works do not generate knowledge, distinguishing them sharply from desireless Agnihotra that purifies toward realization and earns the same fruit indirectly.",
   },
   {
     id: "4.1.18",
@@ -145,7 +162,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 18,
     sanskrit: "यदेव विद्ययेति हि ॥ १८ ॥",
-    translation: "For (the text) 'Whatever he does with knowledge' (indicates this)."
+    translation: "For (the text) 'Whatever he does with knowledge' (indicates this).",
+    commentary: "The question is whether rites help only when joined to auxiliary meditations, since knowing sacrificers conquer death. Śaṅkara cites whatever is done with knowledge to show joined rites are better, as a learned Brahmana excels an unlearned one, yet unjoined rites are not useless. They seek through sacrifice speaks generally, and whatever with knowledge becomes more efficacious implies lesser efficacy already present. Both kinds, done before dawn of knowledge for liberation, destroy obstructing sins.",
   },
   {
     id: "4.1.19",
@@ -153,7 +171,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 1,
     sutraNumber: 19,
     sanskrit: "भोगेन त्वितरे क्षपयित्वा सम्पद्यते ॥ १९ ॥",
-    translation: "But having exhausted by enjoyment the other two (i.e., good and evil works whose effects have begun), he becomes one with (Brahman)."
+    translation: "But having exhausted by enjoyment the other two (i.e., good and evil works whose effects have begun), he becomes one with (Brahman).",
+    commentary: "The other two, begun merit and demerit, are exhausted by enjoyment, then one merges in Brahman, as tarries till body falls, then merges and being Brahman, merged in Brahman declare. The opponent fears dual vision persists after death or fresh works sprout. Śaṅkara replies pre-fall persistence wears out the active portion, while other seeds deprived of ignorance cannot launch new bodies. With the produced effect spent, liberation becomes inevitable.",
   },
 
   // PADA 2: The Path of the Soul after Death
@@ -163,7 +182,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 1,
     sanskrit: "वाङ्मनसि दर्शनाच्छब्दाच्च ॥ १ ॥",
-    translation: "Speech (is merged) in mind, because it is so seen, and there are scriptural statements (to that effect)."
+    translation: "Speech (is merged) in mind, because it is so seen, and there are scriptural statements (to that effect).",
+    commentary: "At death Chandogya says speech into mind, mind into prana, prana into fire, fire into Deity. The opponent takes speech itself as merging literally. Śaṅkara holds only its function ceases while mind endures, as seen when speech fails yet thought continues. No organ merges into a non-material cause like plate into earth, and later non-distinction for the enlightened would be pointless if literal. Sruti language is figurative identity of organ with function.",
   },
   {
     id: "4.2.2",
@@ -171,7 +191,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 2,
     sanskrit: "अत एव च सर्वाण्यनु ॥ २ ॥",
-    translation: "And for the same reason all (organs) follow (the mind)."
+    translation: "And for the same reason all (organs) follow (the mind).",
+    commentary: "Though only speech is named, Prasna says one whose light is extinguished is reborn with organs entering mind. The opponent might limit merger to speech. Śaṅkara extends it for the same reason to all organs, for sight and rest likewise lose function while mind remains active. Material merger is equally impossible, and sruti fits the functional reading. Separate mention of speech merely follows Chandogya wording, not an exception.",
   },
   {
     id: "4.2.3",
@@ -179,7 +200,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 3,
     sanskrit: "तन्मनः प्राण उत्तरात् ॥ ३ ॥",
-    translation: "That mind (is merged) in Prana (the vital air), owing to the subsequent (statement)."
+    translation: "That mind (is merged) in Prana (the vital air), owing to the subsequent (statement).",
+    commentary: "For mind into prana the opponent claims substance merges, since mind from food and food from water makes water-prana its cause. Śaṅkara concludes only mind's functions, with gathered outer organs, withdraw, as the subsequent text reveals. In sleep and dying mental activity ceases while breathing persists. Strictly mind resolves into earth-food and prana into water, with no proof mind comes from water-turned-prana. Figure of owner-function identity reconciles the text.",
   },
   {
     id: "4.2.4",
@@ -187,7 +209,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 4,
     sanskrit: "सोऽध्यक्षे तदुपगमादिभ्यः ॥ ४ ॥",
-    translation: "(That Prana is merged) in the ruler (individual soul), on account of the (statements as to the Prana) coming to it and so on."
+    translation: "(That Prana is merged) in the ruler (individual soul), on account of the (statements as to the Prana) coming to it and so on.",
+    commentary: "With prana into fire the opponent insists on literal fire as heard. Śaṅkara holds prana with five functions withdraws into the ruler, the jiva limited by intellect, ignorance and karma. Brhadaranyaka shows organs approaching the labouring departing man, prana following the ruler and others following prana, the Self remaining equipped with knowledge-organs. The soul dominates leaving, so other sruti details must qualify the brief Chandogya formula.",
   },
   {
     id: "4.2.5",
@@ -195,7 +218,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 5,
     sanskrit: "भूतेषु तच्छ्रुतेः ॥ ५ ॥",
-    translation: "(The soul is merged) in the elements, on account of the scriptural declaration."
+    translation: "(The soul is merged) in the elements, on account of the scriptural declaration.",
+    commentary: "To explain prana into fire, Śaṅkara says the soul with prana stays among subtle elements companioned by fire seeding the future body. As one going via Mathura to Pataliputra may be said to go from Srughna thereto, so prana via ruler to fire implies the ruler between. The text's fire thus denotes the subtle body where the ruler-prana complex rests before rebirth, not bare flame alone.",
   },
   {
     id: "4.2.6",
@@ -203,7 +227,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 6,
     sanskrit: "नैकस्मिन्दर्शयतो हि ॥ ६ ॥",
-    translation: "Not in one (element alone), for both (Sruti and Smriti) show (this)."
+    translation: "Not in one (element alone), for both (Sruti and Smriti) show (this).",
+    commentary: "The opponent would confine that stay to fire alone as named. Śaṅkara denies a single element, for both sruti and smrti show otherwise. The gross body is many-elemented, and the fifth-oblation question was settled as tripartite elements called water by preponderance. Brhadaranyaka identifies Self with earth, water, air, space and fire, and Manu says all emerges with five subtles. Karma-praise texts concern perceiver bonds, not material seed, so no contradiction.",
   },
   {
     id: "4.2.7",
@@ -211,7 +236,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 7,
     sanskrit: "समाना चामृत्युपक्रमादमृतत्वं चानुपोष्य ॥ ७ ॥",
-    translation: "And common (is the mode of departure for both the knower and the ignorant) up to the beginning of their ways; and the immortality (of the knower of the Saguna Brahman is relative) without burning (ignorance)."
+    translation: "And common (is the mode of departure for both the knower and the ignorant) up to the beginning of their ways; and the immortality (of the knower of the Saguna Brahman is relative) without burning (ignorance).",
+    commentary: "The opponent restricts departure with elements to the ignorant, since the enlightened have no rebirth and organs depart not denies it. Śaṅkara makes the mode common to saguna-knower and ignorant up to the path's start, as stated without distinction. The ignorant ride elements under karma to new experience, the meditator takes the crown-illumined nerve onward. Relative immortality without burnt ignorance still needs support, for senses cannot move supportless.",
   },
   {
     id: "4.2.8",
@@ -219,7 +245,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 8,
     sanskrit: "तदापीतेः संसारव्यपदेशात् ॥ ८ ॥",
-    translation: "That (subtle body lasts) up to the attainment of Brahman (through knowledge), on account of the declarations of Samsara (state of relative existence)."
+    translation: "That (subtle body lasts) up to the attainment of Brahman (through knowledge), on account of the declarations of Samsara (state of relative existence).",
+    commentary: "If fire merges into Deity, the opponent takes total absorption, since Deity is material cause of all born. Śaṅkara holds that group persists latently till final release through enlightenment, for transmigration is declared till then in some enter wombs, others follow the motionless. Otherwise all would become Brahman at every death, voiding injunction and knowledge. As in sleep and dissolution, merger into Being suspends but preserves adjuncts, since ignorance yields only to knowledge.",
   },
   {
     id: "4.2.9",
@@ -227,7 +254,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 9,
     sanskrit: "सूक्ष्मं प्रमाणतश्च तथोपलब्धेः ॥ ९ ॥",
-    translation: "(This fine body) is subtle (by nature) and size, because it is so observed."
+    translation: "(This fine body) is subtle (by nature) and size, because it is so observed.",
+    commentary: "That fire with companion elements housing the outgoing soul must be subtle in nature and minute in measure, because so observed. Exit through nerves proves fineness and smallness, allowing unobstructed movement and explaining why bystanders perceive no departure. The Upanisadic itinerary through narrow channels thus reveals a suksma vehicle, not the gross compound left behind.",
   },
   {
     id: "4.2.10",
@@ -235,7 +263,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 10,
     sanskrit: "नोपमर्देनातः ॥ १० ॥",
-    translation: "Therefore (this subtle body is) not (destroyed) by the destruction (of the gross body)."
+    translation: "Therefore (this subtle body is) not (destroyed) by the destruction (of the gross body).",
+    commentary: "For this very subtlety, the subtle body is not destroyed when the gross is burnt or perishes. The opponent might hope cremation ends the traveller. Śaṅkara replies fineness exempts it from gross destruction, so the seed of organs and elements survives to sustain embodiment. Continuity of samsara depends on this indestructible remainder.",
   },
   {
     id: "4.2.11",
@@ -243,7 +272,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 11,
     sanskrit: "अस्यैव चोपपत्तेरूष्मा ॥ ११ ॥",
-    translation: "And to this (subtle body alone) does the bodily heat belong, on account of appropriateness."
+    translation: "And to this (subtle body alone) does the bodily heat belong, on account of appropriateness.",
+    commentary: "Bodily warmth belongs to this subtle body alone, as appropriateness shows. Though form persists after death, heat is felt only while alive, vanishing when the subtle departs. Vedic testimony warm while living, cold when dead confirms it. Attributing heat to the gross frame cannot explain its absence in the intact corpse, so heat marks the animating subtle presence.",
   },
   {
     id: "4.2.12",
@@ -251,7 +281,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 12,
     sanskrit: "प्रतिषेधादिति चेन्न शारीरात् ॥ १२ ॥",
-    translation: "If it be said (that the Pranas of a knower do not depart) on account of the denial; (we say) no, (the denial is of the departure of the Pranas) from the individual soul."
+    translation: "If it be said (that the Pranas of a knower do not depart) on account of the denial; (we say) no, (the denial is of the departure of the Pranas) from the individual soul.",
+    commentary: "From of the desireless organs depart not, being Brahman merged in Brahman, the Vedantin fears no departure even from the body for the supreme knower. The opponent retorts denial concerns departure from the embodied soul, not the body, reading tasya generally delimited by Madhyandina tasmad, from him the ruler bound for release. Organs thus stay with the soul leaving the body. Śaṅkara stages this as purvapaksa to be refuted.",
   },
   {
     id: "4.2.13",
@@ -259,7 +290,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 13,
     sanskrit: "स्पष्टो ह्येकेषाम् ॥ १३ ॥",
-    translation: "For in the case of some, (this is) clear."
+    translation: "For in the case of some, (this is) clear.",
+    commentary: "That restriction is wrong, for one recension clearly denies departure from the body. When Artabhaga asks whether organs rise from this one, Yajnavalkya says No, they merge here, adding this swells, lies dead, suiting the body. The ablative must mean the body identified with the man, while the Kanva genitive denies known departure from the body. Separate mention of the non-desirer after the desirer's eyes-head exit proves the knower, all-pervasive with karma destroyed, has no exit.",
   },
   {
     id: "4.2.14",
@@ -267,7 +299,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 14,
     sanskrit: "स्मर्यते च ॥ १४ ॥",
-    translation: "And the Smriti also says that."
+    translation: "And the Smriti also says that.",
+    commentary: "Smrti likewise says gods are bewildered seeking the track of one become the Self of all with nothing to reach. The opponent cites Suka's flight to the solar orb answering his father. Śaṅkara replies Suka by yogic power reached a region while embodied and there cast off the body, seen by all, impossible for disembodied travel, then merged in beings. Hence the supreme knower has neither departure nor course, whose texts await restriction to saguna worship.",
   },
   {
     id: "4.2.15",
@@ -275,7 +308,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 15,
     sanskrit: "तानि परे तथा ह्याह ॥ १५ ॥",
-    translation: "Those (Pranas and elements) (are merged) in the Supreme Brahman, for thus (scripture) says."
+    translation: "Those (Pranas and elements) (are merged) in the Supreme Brahman, for thus (scripture) says.",
+    commentary: "Those pranas and elements of the supreme knower merge in Para Brahman, for so scripture says in sixteen parts of seer Purusa, having Purusa as abode, absorbed reaching Purusa. The opponent cites fifteen parts repair to sources as elsewhere. Śaṅkara distinguishes standpoints, for Mundaka speaks phenomenally of earth-products returning to material sources, while Prasna speaks from realization of absorption in Brahman itself. Both hold without conflict.",
   },
   {
     id: "4.2.16",
@@ -283,7 +317,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 16,
     sanskrit: "अविभागो वचनात् ॥ १६ ॥",
-    translation: "(There is) absolute non-distinction, according to the statement."
+    translation: "(There is) absolute non-distinction, according to the statement.",
+    commentary: "Whether that resorption leaves potential is doubted. Śaṅkara declares absolute non-distinction on scriptural word, for after merger names and forms destroyed they are called Purusa, and the realized is partless and immortal. Ignorance-born constituents resorbed through knowledge leave no seed. Unification is therefore total, not latent awaiting re-emergence.",
   },
   {
     id: "4.2.17",
@@ -291,7 +326,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 17,
     sanskrit: "तदोकोऽग्रज्वलनं तत्प्रकाशितद्वारो विद्यासामर्थ्यात्तच्छेषगत्यनुस्मृतियोगाच्च हार्दानुगृहीतः शताधिकया ॥ १७ ॥",
-    translation: "(When the soul of a knower of the Saguna Brahman is about to depart) there is the lighting up of the point of its abode (the heart); the door (of its egress) being illumined thereby; owing to the power of knowledge and the application of meditation to the way which is part of that (knowledge), the soul favored by Him who dwells in the heart (departs) by the one that exceeds a hundred (i.e., the hundred and first Nadi)."
+    translation: "(When the soul of a knower of the Saguna Brahman is about to depart) there is the lighting up of the point of its abode (the heart); the door (of its egress) being illumined thereby; owing to the power of knowledge and the application of meditation to the way which is part of that (knowledge), the soul favored by Him who dwells in the heart (departs) by the one that exceeds a hundred (i.e., the hundred and first Nadi).",
+    commentary: "When the intellect-soul with organs withdrawn rests in the heart per withdrawing lights it comes to heart, its top brightens and exit may be eyes, head or elsewhere. The opponent sees no distinction. Śaṅkara holds the saguna knower alone, favoured by the heart-dwelling Brahman, exits by the hundred-and-first head nerve, owing to knowledge efficacy and thought on the path as part of vidyas. Others use other nerves, and indiscriminate exit would waste knowledge and forfeit the virtuous world.",
   },
   {
     id: "4.2.18",
@@ -299,7 +335,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 18,
     sanskrit: "रश्म्यनुसारी ॥ १८ ॥",
-    translation: "(The soul of a knower) follows the rays (of the sun)."
+    translation: "(The soul of a knower) follows the rays (of the sun).",
+    commentary: "The heart-meditation of lotus-palace and small space connects nerves to solar rays in departing thus he goes up along these rays and through that nerve immortality. Whether this holds day and night is doubted. Śaṅkara affirms the knower emerging by the hundred-and-first nerve follows the rays irrespective of hour, for the Upanisad speaks generally. The nerve-ray link is structural to the vidya, not occasional daylight.",
   },
   {
     id: "4.2.19",
@@ -307,7 +344,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 19,
     sanskrit: "निशि नेति चेन्न सम्बन्धस्य यावद्देहभावित्वाच्छ्रुतयश्च ॥ १९ ॥",
-    translation: "If it be said (that the soul does) not (depart) in the night; (we say) no, because the connection (of the Nadi and the rays) exists as long as the body lasts; and (this is declared) by the Sruti."
+    translation: "If it be said (that the soul does) not (depart) in the night; (we say) no, because the connection (of the Nadi and the rays) exists as long as the body lasts; and (this is declared) by the Sruti.",
+    commentary: "If night snaps contact, the opponent bars nocturnal ascent. Śaṅkara denies it, since relation endures while embodiment lasts, as from orb they enter nerves, from nerves the orb shows. Summer heat proves rays persist at night, faint elsewhere as on cloudy winter days, and sun makes day even at night says so. Useless pursuit, uncertain fruit, unpredictable death, no waiting for dawn for a burnt body, and mind-swift reaching confirm equal ascent.",
   },
   {
     id: "4.2.20",
@@ -315,7 +353,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 20,
     sanskrit: "अतश्चायनेऽपि दक्षिणे ॥ २० ॥",
-    translation: "And for the same reason (a knower departs to the sphere of the sun) even during the sun's southern course."
+    translation: "And for the same reason (a knower departs to the sphere of the sun) even during the sun's southern course.",
+    commentary: "For the same reasons of no waiting, certain fruit and uncommanded death, departure even during the southern course yields knowledge's result. The opponent invokes northern sanctity, Bhisma's waiting and bright fortnight to six northward months. Śaṅkara holds sanctity binds the ignorant, Bhisma honoured sentiment and his death-at-will boon, and fortnight-month language denotes conducting deities as later shown. No seasonal bar touches the knower.",
   },
   {
     id: "4.2.21",
@@ -323,7 +362,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 2,
     sutraNumber: 21,
     sanskrit: "योगिनः प्रति च स्मर्यते स्मार्ते चैते ॥ २१ ॥",
-    translation: "And (these times) are stated by Smriti with reference to the Yogis; and these two (Yoga and Sankhya) are Smritis (and not Srutis)."
+    translation: "And (these times) are stated by Smriti with reference to the Yogis; and these two (Yoga and Sankhya) are Smritis (and not Srutis).",
+    commentary: "Gita's promise to tell times when yogins return or not, defining fire-day-north versus smoke-night-south, seems to impose bars. Śaṅkara answers these smrti limits concern yogins of Sankhya-Yoga, offering duties and non-agency, distinct in subject and qualification from Upanisadic meditation. Similar deity lists cause apprehension, but smrti time can likewise mean conducting gods, dissolving the clash between Vedic vidya and remembered Yoga.",
   },
 
   // PADA 3: The Path of the Gods (Devayana)
@@ -333,7 +373,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 1,
     sanskrit: "अर्चिरादिना तत्प्रथितेः ॥ १ ॥",
-    translation: "(The soul goes) by the path of light etc., that being well-known (from the Sruti)."
+    translation: "(The soul goes) by the path of light etc., that being well-known (from the Sruti).",
+    commentary: "Starting variously from rays, flame, air or sun, paths seem many to the opponent, tied to diverse meditations, with along these very rays demanding exclusivity. Śaṅkara holds one devayana beginning with flame for all Brahman-goers, because well known, as even forest Satya-meditators reach flame. Differences are features of one whole sharing Brahmaloka goal in perfection many years and free from grief. Eva emphasizes rays, speed is comparative quickness, and a third state proves only gods and manes paths.",
   },
   {
     id: "4.3.2",
@@ -341,7 +382,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 2,
     sanskrit: "वायुमब्दादविशेषविशेषाभ्याम् ॥ २ ॥",
-    translation: "(The soul passes) to the deity of the year, and then to the deity of the air, on account of the absence and presence of specification."
+    translation: "(The soul passes) to the deity of the year, and then to the deity of the air, on account of the absence and presence of specification.",
+    commentary: "The order must be fixed as friend. Kausitaki enumerates fire, air, Varuna, Indra, Prajapati, Brahma, while Chandogya gives flame, day, bright fortnight, northward months, year, sun. Śaṅkara places air after year before sun, owing to absence and presence of specification. Brhadaranyaka specifically opens air like a chariot-wheel hole upward to sun, whereas Kausitaki merely lists. Year from Chandogya and gods-world from Vajasaneyins are both added as months, year, gods-world, air, sun.",
   },
   {
     id: "4.3.3",
@@ -349,7 +391,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 3,
     sanskrit: "तटितोऽधि वरुणः सम्बन्धात् ॥ ३ ॥",
-    translation: "After lightning (comes) Varuna, on account of the connection (between the two)."
+    translation: "After lightning (comes) Varuna, on account of the connection (between the two).",
+    commentary: "After moon to lightning, Varuna from Kausitaki world of Varuna must be placed. The opponent leaves him floating. Śaṅkara puts Varuna after lightning because of water connection. Lightning dancing with thunder in clouds brings rain, noted in lightning flashes, it will rain, and Veda-smrti know Varuna as water-god. Indra and Prajapati follow in Kausitaki order, relegated last as fresh entrants unplaced in flame-to-lightning series.",
   },
   {
     id: "4.3.4",
@@ -357,7 +400,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 4,
     sanskrit: "आतिवाहिकास्तल्लिङ्गात् ॥ ४ ॥",
-    translation: "(These are) deities conducting the soul (on the path of the gods), on account of indicatory marks to that effect."
+    translation: "(These are) deities conducting the soul (on the path of the gods), on account of indicatory marks to that effect.",
+    commentary: "Whether flame and the rest are landmarks, enjoyments called worlds, or conductors is doubted. The opponent urges mere marks like hill-tree-river directions, or enjoyments since worlds of men and gods mean experience, while insentients cannot escort. Śaṅkara holds they are conducting deities, owing to the mark in a superhuman not of Manu comes and escorts them to Brahman. Superhuman denies human guides only if sentient flame-guides are already assumed, establishing escort as fact.",
   },
   {
     id: "4.3.5",
@@ -365,7 +409,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 5,
     sanskrit: "उभयव्यामोहात्तत्सिद्धेः ॥ ५ ॥",
-    translation: "(That deities are meant in those texts) is established, because both (i.e. the traveller and the path) are unconscious."
+    translation: "(That deities are meant in those texts) is established, because both (i.e. the traveller and the path) are unconscious.",
+    commentary: "That escort stands established because both traveller and path are then unconscious. Senses bunched without bodies cannot act independently, nor can insentient flame guide, as the intoxicated must be led. Nightcomers cannot meet daylight as a mark, nor wait till day, while deity-identity gives permanence. From flame to day means through flame-deity to day-deity, like go to Balavarman then Jayasimha, with world denoting residents' enjoyment and final escort punya revealing the earlier relation.",
   },
   {
     id: "4.3.6",
@@ -373,7 +418,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 6,
     sanskrit: "वैद्युतेनैव ततस्तच्छ्रुतेः ॥ ६ ॥",
-    translation: "From thence (the souls are guided) by the very same (superhuman) person who comes to lightning, that being known from the Sruti."
+    translation: "From thence (the souls are guided) by the very same (superhuman) person who comes to lightning, that being known from the Sruti.",
+    commentary: "If a superhuman escorts only to lightning, Varuna and beyond seem guideless. Śaṅkara answers from there they are guided by the very same being who comes to lightning, for so the Upanisad says in escorts them thence to Brahman. Having reached lightning, souls pass Varuna-worlds under that beyond-lightning guide. Varuna and others merely assist by non-obstruction or help. Thus flame onward consistently means escorting deities.",
   },
   {
     id: "4.3.7",
@@ -381,7 +427,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 7,
     sanskrit: "कार्यं बादरिरस्य गत्युपपत्तेः ॥ ७ ॥",
-    translation: "The relative (Brahman) (is attained by the soul going by the path of the gods), (so says) Badari, on account of the possibility of its being the goal (of a journey)."
+    translation: "The relative (Brahman) (is attained by the soul going by the path of the gods), (so says) Badari, on account of the possibility of its being the goal (of a journey).",
+    commentary: "Whether he escorts them to Brahman means conditioned or supreme is doubted from the word Brahman and mention of progress. Badari holds they are led to conditioned karya Brahman, because a goal is possible for It. The qualified has locus and approachability, while the supreme, omnipresent and the traveller's inmost Self, admits no approacher, goal or journey. Movement language therefore fits only the lower Brahman.",
   },
   {
     id: "4.3.8",
@@ -389,7 +436,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 8,
     sanskrit: "विशेषितत्वाच्च ॥ ८ ॥",
-    translation: "And on account of the qualification (with respect to this Brahman in another text)."
+    translation: "And on account of the qualification (with respect to this Brahman in another text).",
+    commentary: "Specific mention confirms it. A mind-born being conducts them to Brahman-worlds, attaining perfection living many superfine years uses plural worlds and container-contained language. The opponent might still claim supreme Brahman. Śaṅkara answers plurality and difference of states befit only the conditioned, while world as enjoyed place with aspects suits saguna. For the supreme it is figurative as in Emperor, this is Brahmaloka, so escorting concerns karya alone.",
   },
   {
     id: "4.3.9",
@@ -397,7 +445,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 9,
     sanskrit: "सामीप्यात्तु तद्व्यपदेशः ॥ ९ ॥",
-    translation: "But on account of the nearness (of the Saguna Brahman to the Supreme Brahman, it is) designated as that (Supreme Brahman)."
+    translation: "But on account of the nearness (of the Saguna Brahman to the Supreme Brahman, it is) designated as that (Supreme Brahman).",
+    commentary: "If Brahman as origin of all was settled as supreme, using it for conditioned seems improper. Śaṅkara replies with but that designation is owing to nearness. The inferior is the supreme itself conditioned by pure adjuncts, taught with mind-identity and true desire for aspirants' meditation, as in identified with mind. Close to the absolute, it may bear the name without violence, distinguishing primary and accommodated usage.",
   },
   {
     id: "4.3.10",
@@ -405,7 +454,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 10,
     sanskrit: "कार्यात्यये तदध्यक्षेण सहातः परमभिधानात् ॥ १० ॥",
-    translation: "On the dissolution of the Brahmaloka (the souls attain), along with the ruler of that world, what is higher than that (i.e. the Supreme Brahman), on account of the declaration of the Sruti."
+    translation: "On the dissolution of the Brahmaloka (the souls attain), along with the ruler of that world, what is higher than that (i.e. the Supreme Brahman), on account of the declaration of the Sruti.",
+    commentary: "If reaching the conditioned, non-return texts like never return to human cycle and going up gets immortality seem untenable, since only the supreme is eternal. Śaṅkara holds on final dissolution of the Brahman-world they attain with its lord Hiranyagarbha what is higher beyond, on Upanisadic strength. Having ripened realization there, they enter supreme Visnu-state with the ruler. This staged kramamukti preserves non-return, for direct movement to the omnipresent supreme is incomprehensible.",
   },
   {
     id: "4.3.11",
@@ -413,7 +463,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 11,
     sanskrit: "स्मृतेश्च ॥ ११ ॥",
-    translation: "And on account of the Smriti (texts supporting this view)."
+    translation: "And on account of the Smriti (texts supporting this view).",
+    commentary: "Smrti confirms this staged ascent. At Hiranyagarbha's life-close and final dissolution, all with enlightenment already attained enter the supreme state along with him, as Kurma-Purana declares. The opponent deems non-return impossible short of the absolute. Śaṅkara answers gradual liberation through Brahmaloka satisfies both progress texts and eternity, since ultimate resort remains the unconditioned even for qualified meditators.",
   },
   {
     id: "4.3.12",
@@ -421,7 +472,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 12,
     sanskrit: "परं जैमिनिर्मुख्यत्वात् ॥ १२ ॥",
-    translation: "The Supreme (Brahman is attained), (so says) Jaimini, on account of that being the primary meaning (of the word 'Brahman')."
+    translation: "The Supreme (Brahman is attained), (so says) Jaimini, on account of that being the primary meaning (of the word 'Brahman').",
+    commentary: "Jaimini objects they are led to supreme Brahman, that being the primary meaning of the word. The secondary conditioned sense should yield to the readily understood primary, lest Brahman-language be strained. Śaṅkara presents this as the apparent alternative developed for intellect, to be refuted by goal-possibility reasoning. Sticking to primary sense where impossible is not commanded, and eulogy can describe inferior paths even in supreme contexts.",
   },
   {
     id: "4.3.13",
@@ -429,7 +481,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 13,
     sanskrit: "दर्शनाच्च ॥ १३ ॥",
-    translation: "And because the Sruti declares that."
+    translation: "And because the Sruti declares that.",
+    commentary: "Jaimini adds the Upanisad reveals immortality preceded by going in going up through that nerve gets immortality, possible only in the supreme, since where one sees a second is limited, mortal. Katha's context concerns what differs from virtue and vice, hence supreme Brahman. Śaṅkara records this to show its force, yet will answer that movement-denial like organs depart not and partlessness forbid treating the attributeless as reachable, confining travel to saguna.",
   },
   {
     id: "4.3.14",
@@ -437,7 +490,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 14,
     sanskrit: "न च कार्ये प्रतिपत्त्यभिसन्धिः ॥ १४ ॥",
-    translation: "And the desire to attain (Brahman) is not with respect to the Saguna Brahman."
+    translation: "And the desire to attain (Brahman) is not with respect to the Saguna Brahman.",
+    commentary: "Moreover firm resolve may I attain Prajapati's hall-palace and become fame of Brahmanas concerns the supreme as Space including name-form, with pad implying motion and Dahara palace Aparajita requiring a path. Śaṅkara treats this Jaimini point as purvapaksa. The supreme cannot be goal, being all-pervasive, partless, timeless, not this, not this, birthless and fearless. Origin texts serve unity like clay illustrations, and movement, if spoken, induces or meditates on qualified Brahman, whose travel by adjuncts like vessels moving space is coherent.",
   },
   {
     id: "4.3.15",
@@ -445,7 +499,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 15,
     sanskrit: "अप्रतीकालम्बनान्नयतीति बादरायण उभयथा च दोषात्तत्क्रतुश्च ॥ १५ ॥",
-    translation: "Badarayana holds that (the superhuman being) leads (to Brahmaloka only) those who do not take their stand on symbols, as there is a defect in both the other cases; and as the resolve (dictates the result)."
+    translation: "Badarayana holds that (the superhuman being) leads (to Brahmaloka only) those who do not take their stand on symbols, as there is a defect in both the other cases; and as the resolve (dictates the result).",
+    commentary: "Whether the guide leads all conditioned meditators is doubted, since the path was promised for all meditations. Badarayana says he leads only those not depending on symbols, since twofold division involves no contradiction and one becomes what one resolves. Symbol-dominated thought cannot hold I am Brahman, per as one meditates so one becomes. Non-restriction applies to non-symbol meditations, while five-fires reaching Brahman is specific exception. Symbol results differ, so exclusion is consistent.",
   },
   {
     id: "4.3.16",
@@ -453,7 +508,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 3,
     sutraNumber: 16,
     sanskrit: "विशेषं च दर्शयति ॥ १६ ॥",
-    translation: "And the scripture declares a difference (with respect to meditations on symbols)."
+    translation: "And the scripture declares a difference (with respect to meditations on symbols).",
+    commentary: "Scripture reveals speciality of symbol results. Meditations on name, speech, mind and the like grant graded freedoms as far as name extends or speech greater than name, impossible if Brahman-based since Brahman is undifferentiated. The opponent would equalize all to Brahmaloka. Śaṅkara answers gradation proves symbol-dependence, so symbol meditators cannot share the same fruit as direct Brahman resolvers. Division by object thus stands scripturally marked.",
   },
 
   // PADA 4: The State of the Liberated Soul
@@ -463,7 +519,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 1,
     sanskrit: "सम्पद्याविर्भावः स्वेन शब्दात् ॥ १ ॥",
-    translation: "(On the soul's) attaining (the highest light), there is manifestation (of its own real nature), as we infer from the word 'own'."
+    translation: "(On the soul's) attaining (the highest light), there is manifestation (of its own real nature), as we infer from the word 'own'.",
+    commentary: "Chandogya's serene happy being rising from body reaching highest Light becoming manifest in its own form raises whether this is a fresh heavenly distinction or Self-establishment. The opponent urges a new form, since manifestation means birth and own nature already existed. Śaṅkara holds having reached Light there is manifestation in own real nature because of own. Otherwise svena would be useless, for any adventitious form would still be owned. Own as Self excludes added qualities.",
   },
   {
     id: "4.4.2",
@@ -471,7 +528,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 2,
     sanskrit: "मुक्तः प्रतिज्ञानार्थात् ॥ २ ॥",
-    translation: "(The soul is) liberated (in that state), because of the promissory statements."
+    translation: "(The soul is) liberated (in that state), because of the promissory statements.",
+    commentary: "The difference from earlier states is freedom. Śaṅkara says the soul is then liberated, that being declared from promise I shall explain again through bodiless untouched by likes to established in own Self, highest Being, beginning with Self beyond sin. Earlier it seemed blind, weeping, destroyed in waking, dream and sleep. Liberation is fruit only as bondage-cessation, like health on disease-leaving, though becomes manifest resembles birth.",
   },
   {
     id: "4.4.3",
@@ -479,7 +537,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 3,
     sanskrit: "आत्मा प्रकरणात् ॥ ३ ॥",
-    translation: "(The light into which the soul merges is) the Supreme Self, on account of the subject-matter."
+    translation: "(The light into which the soul merges is) the Supreme Self, on account of the subject-matter.",
+    commentary: "If highest Light meant physical radiance, the soul staying in creation could not be free amid sorrow-sources. Śaṅkara holds Light is the Self, obvious from context starting with sinless, dirtless, deathless Self. Sudden physical light would discard the topic for something foreign. Light denotes Self elsewhere as in immortal Light of lights gods meditate, elaborated under Light is Brahman. Context therefore fixes the Vedantic sense.",
   },
   {
     id: "4.4.4",
@@ -487,7 +546,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 4,
     sanskrit: "अविभागेन दृष्टत्वात् ॥ ४ ॥",
-    translation: "(The liberated soul exists) in non-separation (from the Supreme Self), because it is so seen."
+    translation: "(The liberated soul exists) in non-separation (from the Supreme Self), because it is so seen.",
+    commentary: "Whether the established being remains separate is doubted, since moves about there and having reached Light suggest holder-held and subject-object. Śaṅkara holds inseparableness from the supreme Self, for so noticed in That thou art, I am Brahman, where one sees nothing else and no second to see, plus pure-water and river-sea illustrations. Fruit must match resolving knowledge, while difference phrases are secondary as in established on own majesty or delighting in Self.",
   },
   {
     id: "4.4.5",
@@ -495,7 +555,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 5,
     sanskrit: "ब्राह्मेण जैमिनिरुपन्यासादिभ्यः ॥ ५ ॥",
-    translation: "(The liberated soul exists) with the attributes of Brahman (such as omniscience etc.), so Jaimini thinks, on account of the reference etc."
+    translation: "(The liberated soul exists) with the attributes of Brahman (such as omniscience etc.), so Jaimini thinks, on account of the reference etc.",
+    commentary: "Granted establishment in own form means Self, its detail is sought. Jaimini says it is as possessed of Brahman attributes from reference and fresh information, beginning beyond sin ending true desires, inevitable will, with omnipresence and rulership. Roams eating, playing, merry and freedom in all worlds present divine majesty. Statements like omniscient ruler thus become logical for the freed soul sharing its own Brahman-form.",
   },
   {
     id: "4.4.6",
@@ -503,7 +564,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 6,
     sanskrit: "चितितन्मात्रेण तदात्मकत्वादित्युडुलोमिः ॥ ६ ॥",
-    translation: "(The liberated soul exists) solely as pure intelligence, because that is its true nature, so Audulomi thinks."
+    translation: "(The liberated soul exists) solely as pure intelligence, because that is its true nature, so Audulomi thinks.",
+    commentary: "Audulomi objects those enumerated freedoms are verbal negations of sin, while true desire depends on adjuncts and cannot be nature like consciousness. The liberated is in consciousness alone as its nature, honouring Self without interior-exterior, entire pure intelligence. Eating and delight presuppose a second and are praise meaning sorrowlessness, like disporting in Self. Without trace of phenomena, serene and indescribable, consciousness itself is the manifestation, multiplicity denied as in difference-of-place.",
   },
   {
     id: "4.4.7",
@@ -511,7 +573,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 7,
     sanskrit: "एवमप्युपन्यासात्पूर्वभावादविरोधं बादरायणः ॥ ७ ॥",
-    translation: "Even so (i.e. even though it is pure intelligence), on account of the former qualities being mentioned (in the scriptures), there is no contradiction, so Badarayana thinks."
+    translation: "Even so (i.e. even though it is pure intelligence), on account of the former qualities being mentioned (in the scriptures), there is no contradiction, so Badarayana thinks.",
+    commentary: "Badarayana reconciles even so there is no contradiction, since the earlier nature persists according to reference. Though ultimate manifestation is pure consciousness, divine majesty of qualified Brahman known from Upanisadic mention is not denied empirically. The opponent fears exclusion. Śaṅkara allows both standpoints, absolute truth as intelligence and relative glory for saguna attainers, preserving Jaimini and Audulomi without clash.",
   },
   {
     id: "4.4.8",
@@ -519,7 +582,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 8,
     sanskrit: "सङ्कल्पादेव तच्छ्रुतेः ॥ ८ ॥",
-    translation: "But by mere will (the released souls attain their purpose), because the scriptures state so."
+    translation: "But by mere will (the released souls attain their purpose), because the scriptures state so.",
+    commentary: "Whether at mere wish manes associate needs other means like approaching is doubted. The opponent invokes worldly conjunction and royal ease plus mind-fancied unsteadiness. Śaṅkara holds fulfilment by volition alone, because the Upanisad says so and would be compromised by required effort. Admitted aids come only in obedience to will, empirical logic has no force on scriptural matters, and liberated will differs, steadying its objects as long as occasion demands.",
   },
   {
     id: "4.4.9",
@@ -527,7 +591,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 9,
     sanskrit: "अत एव चानन्याधिपतिः ॥ ९ ॥",
-    translation: "And for this very reason (the released soul) is without a lord (i.e. is independent)."
+    translation: "And for this very reason (the released soul) is without a lord (i.e. is independent).",
+    commentary: "For this very unfailing will the knower is without other lord. Even ordinary desirers wish not to be dominated while avoidable, how much less the freed. Realizing Self and true desires, freedom in all worlds reveals it. The opponent might impose divine rulers. Śaṅkara answers independence follows necessarily from true resolve, since subjection would frustrate desire.",
   },
   {
     id: "4.4.10",
@@ -535,7 +600,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 10,
     sanskrit: "अभावं बादरिराह ह्येवम् ॥ १० ॥",
-    translation: "There is absence (of a body and organs in the case of the liberated soul), so Badari says; for thus (the scripture) declares."
+    translation: "There is absence (of a body and organs in the case of the liberated soul), so Badari says; for thus (the scripture) declares.",
+    commentary: "Mind at least exists as desire-instrument, but body and senses are questioned for Brahmaloka attainers. Badari asserts absence, for the Upanisad has thus said in delighted seeing mentally desirable things in Brahman-world. If roaming with body and senses, specific mentally would be pointless. The opponent hopes embodiment continues. Śaṅkara stages Badari to stress disembodied enjoyment as one valid Vedic mark.",
   },
   {
     id: "4.4.11",
@@ -543,7 +609,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 11,
     sanskrit: "भावं जैमिनिर्विकल्पामननात् ॥ ११ ॥",
-    translation: "(There is) presence (of a body and organs), Jaimini says, because the scripture declares (the soul's) capacity to assume various forms."
+    translation: "(There is) presence (of a body and organs), Jaimini says, because the scripture declares (the soul's) capacity to assume various forms.",
+    commentary: "Jaimini asserts presence of body and senses, since the Upanisad speaks of option in remains one, becomes threefold, fivefold. Diversification without differing bodies is hard to accomplish. Though read in Infinite-knowledge context, it eulogizes that knowledge because power factually accrues to qualified meditation, so result emerges there. The opponent's absence cannot explain manifold assumption, hence embodiment must be admitted.",
   },
   {
     id: "4.4.12",
@@ -551,7 +618,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 12,
     sanskrit: "द्वादशाहवदुभयविधं बादरायणोऽतः ॥ १२ ॥",
-    translation: "For this reason Badarayana says (the liberated soul) is of both kinds, like the twelve days' sacrifice."
+    translation: "For this reason Badarayana says (the liberated soul) is of both kinds, like the twelve days' sacrifice.",
+    commentary: "Hence Badarayana considers the released of both characteristics, like the twelve-day Dvadasaha rite both satra and ahina by respective marks. When wishing a body he has one, when wishing none he has none, for true will is diverse. The opponent demands one rule. Śaṅkara answers both indicatory marks are Vedic, so validity both ways is proper, desire deciding the mode without contradiction.",
   },
   {
     id: "4.4.13",
@@ -559,7 +627,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 13,
     sanskrit: "तन्वभावे सन्ध्यवदुपपत्तेः ॥ १३ ॥",
-    translation: "In the absence of a body (the fulfillment of desires is possible) as in dreams, as it is reasonable."
+    translation: "In the absence of a body (the fulfillment of desires is possible) as in dreams, as it is reasonable.",
+    commentary: "Without body, fulfilment remains reasonable as in dream. Objectors deem sense-contact impossible bodiless. Śaṅkara replies mind alone can feel presence of manes and delights, as dream experience shows. Mere ideation suffices where will is true, needing no gross vehicle. The analogy renders the bodiless option coherent rather than empty.",
   },
   {
     id: "4.4.14",
@@ -567,7 +636,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 14,
     sanskrit: "भावे जाग्रद्वत् ॥ १४ ॥",
-    translation: "When there is a body (the fulfillment of desires is) as in the waking state."
+    translation: "When there is a body (the fulfillment of desires is) as in the waking state.",
+    commentary: "When body exists, fulfilment is as in waking. The same objector might now doubt embodied enjoyment. Śaṅkara holds actual presence of fathers and delights through created bodies and senses yields waking-like experience. Option thus covers both dream-like mental and waking-like embodied fruition, each reasonable in its condition.",
   },
   {
     id: "4.4.15",
@@ -575,7 +645,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 15,
     sanskrit: "प्रदीपवदावेशस्तथा हि दर्शयति ॥ १५ ॥",
-    translation: "The entering (into many bodies) is like a lamp (which can light other lamps); for thus the scripture shows."
+    translation: "The entering (into many bodies) is like a lamp (which can light other lamps); for thus the scripture shows.",
+    commentary: "When becoming threefold, whether many bodies are puppet-lifeless is doubted, since mind-soul seems inseparable in one. Śaṅkara holds entry animates all like a lamp lighting many lamps from itself, for scripture shows remains one, becomes threefold. Lifeless motion is impossible, nor animation by others. By inevitable will he creates mind-equipped bodies acting with one mind, appearing as separate rulers per adjuncts, as Yogins assume many bodies.",
   },
   {
     id: "4.4.16",
@@ -583,7 +654,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 16,
     sanskrit: "स्वाप्ययसम्पत्त्योरन्यतरापेक्षमाविष्कृतं हि ॥ १६ ॥",
-    translation: "(The declaration of absolute unconsciousness is) with reference to either of the two states of deep sleep and complete merging (death), for this is made clear (by the Sruti)."
+    translation: "(The declaration of absolute unconsciousness is) with reference to either of the two states of deep sleep and complete merging (death), for this is made clear (by the Sruti).",
+    commentary: "Texts denying particular knowledge like what should one know through what or no second to know seem to forbid such powers. Śaṅkara refers them to either of two viewpoints, deep sleep merging in own Self or absolute union having been Brahman becoming Brahman, made clear in separateness destroyed, all become Self and no desire, no dream. Powers belong to a different heaven-like saguna-maturity state, so no defect touches manifold enjoyment.",
   },
   {
     id: "4.4.17",
@@ -591,7 +663,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 17,
     sanskrit: "जगद्व्यापारवर्जं प्रकरणादसन्निहितत्वाच्च ॥ १७ ॥",
-    translation: "(The liberated soul attains all lordly powers) except the power of creation etc., on account of the context and of non-proximity (to such powers being mentioned)."
+    translation: "(The liberated soul attains all lordly powers) except the power of creation etc., on account of the context and of non-proximity (to such powers being mentioned).",
+    commentary: "Whether qualified-union yields unlimited powers is doubted, the opponent citing independent sovereignty, gods carry presents and freedom in all worlds. Śaṅkara excludes universe-running creation, continuance and dissolution, known from context dealing with eternal God and non-proximity of the soul. Others gain atomic and like powers by seeking Him. Minded many would clash willing continuance versus destruction, resolving only by dependence on God's single will.",
   },
   {
     id: "4.4.18",
@@ -599,7 +672,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 18,
     sanskrit: "प्रत्यक्षोपदेशादिति चेन्नाधिकारिकमण्डलस्थोक्तेः ॥ १८ ॥",
-    translation: "If it be said that (the liberated soul attains absolute powers) on account of direct teaching, (we say) no; for the scriptures declare (that the soul attains Him) who resides in those spheres and entrusts the sun etc. (with their offices)."
+    translation: "If it be said that (the liberated soul attains absolute powers) on account of direct teaching, (we say) no; for the scriptures declare (that the soul attains Him) who resides in those spheres and entrusts the sun etc. (with their offices).",
+    commentary: "If direct declaration he gets sovereignty suggests unfettered power, Śaṅkara denies it, since attainment of Him appointing sphere-lords and residing therein is spoken of. Ordaining sun-orb and like abodes, God bestows sovereignty at disposal, later called mind-lord and ruler of speech, eye, ear and knowledge. Other texts likewise mean powers attained at the eternal God's behest, not autonomous cosmic rule.",
   },
   {
     id: "4.4.19",
@@ -607,7 +681,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 19,
     sanskrit: "विकारावर्ति च तथा हि स्थितिमाह ॥ १९ ॥",
-    translation: "And (there is a form of the Supreme Lord) which is beyond all created things; for thus the scripture declares (His) existence."
+    translation: "And (there is a form of the Supreme Lord) which is beyond all created things; for thus the scripture declares (His) existence.",
+    commentary: "There is another form of the Lord not abiding in effect, for so the Upanisad states His existence. Beyond solar and like abodes within change, He has an eternally free transcendental aspect, as majesty spreads, all beings a quadrant, Purusa greater, three immortal quadrants in effulgence shows. Qualified-aspect adherents desire it not, so remaining in qualified glory with limited powers without unfettered mastery is coherent, mirroring God's two aspects.",
   },
   {
     id: "4.4.20",
@@ -615,7 +690,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 20,
     sanskrit: "दर्शयतश्चैवं प्रत्यक्षानुमाने ॥ २० ॥",
-    translation: "And thus perception and inference (Sruti and Smriti) show."
+    translation: "And thus perception and inference (Sruti and Smriti) show.",
+    commentary: "Direct knowledge and inference show thus that supreme Light transcends change. Upanisadic there sun, moon, stars, lightning shine not, fire how, His shining all shine and Gita's sun, moon, fire illumine That not reveal it. The opponent would confine Light to effects. Śaṅkara cites sruti-smrti concord to establish the beyond-effect reality grounding limited powers below.",
   },
   {
     id: "4.4.21",
@@ -623,7 +699,8 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 21,
     sanskrit: "भोगमात्रसाम्यलिङ्गाच्च ॥ २१ ॥",
-    translation: "And because of the indications of equality (with the Lord) only with respect to enjoyment."
+    translation: "And because of the indications of equality (with the Lord) only with respect to enjoyment.",
+    commentary: "A further mark shows only enjoyment-equality, not power. Passages like nectar enjoyed by Me, for you to be enjoyed, as beings adore Deity so adore knower and identity, same world indicate shared experience with Hiranyagarbha or God. Difference remains implied. Hence liberated holders of effect lack unfettered cosmic powers, possessing likeness in enjoyment alone.",
   },
   {
     id: "4.4.22",
@@ -631,6 +708,7 @@ export const brahmaSutrasEnAdhyaya4: BrahmaSutraWithSanskrit[] = [
     pada: 4,
     sutraNumber: 22,
     sanskrit: "अनावृत्तिः शब्दादनावृत्तिः शब्दात् ॥ २२ ॥",
-    translation: "(There is) no return (for these released souls), on account of the scriptural declaration; (there is) no return, on account of the scriptural declaration."
+    translation: "(There is) no return (for these released souls), on account of the scriptural declaration; (there is) no return, on account of the scriptural declaration.",
+    commentary: "Lest graded powers imply return like moon-exhaustion, Badarayana closes with no return on scriptural word, no return on scriptural word. Travellers by nerve-ray-light stages reach Brahmaloka third heaven with Ara-Nya seas, food-lake, ambrosial banyan, Aparajita city and golden palace, then return not. Texts in through that nerve immortality, no more return, path of gods returns not and reaches Brahman returns not here declare it, repetition marking scripture's end, fulfilled ultimately via dissolution-union.",
   }
 ];
