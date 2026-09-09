@@ -223,7 +223,7 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
       en: 'The Dormant Serpent Power, the Chakra Ladder, and the Science of Awakening'
     },
     summary: {
-      en: "Swami Satyananda Saraswati's Kundalini Tantra (Yoga Publications Trust, 1984/2016) synthesizes Tantra and Yoga into one program: a dormant force at the spine-base (kundalini-shakti) rises through the chakra-switches via sushumna to light the sleeping brain and unite with Shiva in sahasrara — then descends, returning the realised being to ordinary life as play. The book maps ten methods of awakening, the ethics of preparation (guru, twelve years, sushumna first, diet, seclusion, karma yoga), the phenomenology of the crisis, a full chakra-by-chakra and kriya-by-kriya sadhana, and a closing research dossier on nadis, chakras and cross-cultural evidence. This app encodes it as a concepts-only text: original summaries, no verbatim prose."
+      en: "Kundalini Tantra synthesizes Tantra and Yoga into one program: a dormant force at the spine-base (kundalini-shakti) rises through the chakra-switches via sushumna to light the sleeping brain and unite with Shiva in sahasrara — then descends, returning the realised being to ordinary life as play. The teaching maps ten methods of awakening, the ethics of preparation (guru, twelve years, sushumna first, diet, seclusion, karma yoga), the phenomenology of the crisis, a full chakra-by-chakra and kriya-by-kriya sadhana, and a closing research dossier on nadis, chakras and cross-cultural evidence. This app encodes it as a concepts-only text: original summaries in our own words, no borrowed prose."
     },
     pillars: {
       en: [
@@ -266,7 +266,7 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
       en: 'The Non-Dual Science of Śakti — Goddess, Energy and Recognition'
     },
     summary: {
-      en: "Tantra is the woven scripture that saves by expanding: revelation (Āgama) for an age too thin for the outer sacrifice, teaching that enjoyment itself becomes liberation because the world is Śakti's own body. This system unites four texts on one path — the Devī Māhātmya (the goddess and the inner war), Kuṇḍalinī Tantra (the serpent power and its ascent), the Tantrāloka (Abhinavagupta's recognition metaphysics), and Tantra-Siddhānta, this app's own synthesis of Trika, Krama, Kula, Spanda, Pratyabhijñā and Śrīvidyā: thirty-six principles, three stains, four means, and the crown of living liberation."
+      en: "Tantra is the woven scripture that saves by expanding: revelation (Āgama) for an age too thin for the outer sacrifice, teaching that enjoyment itself becomes liberation because the world is Śakti's own body. This system unites three book-extracted texts on one path — the Devī Māhātmya (the goddess and the inner war, via Sādhana-Samara), Kuṇḍalinī Tantra (the serpent power and its ascent), and the Tantrāloka (Abhinavagupta's recognition metaphysics) — each lightly touched and paraphrased into this app's own summaries."
     },
     pillars: {
       en: [
@@ -274,25 +274,25 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
           title: 'The Woven Scripture',
           sanskritTerm: 'Tantra (तन्त्र)',
           summary: 'A scripture that weaves rite, metaphysics and yoga into one fabric and saves by expanding awareness — śruti, smṛti, and then Āgama for the Kali age.',
-          conceptId: 'tantra-name'
+          conceptId: 'tantra-darshana'
         },
         {
           title: 'Enjoyment as Liberation',
           sanskritTerm: 'Bhukti-mukti (भुक्ति-मुक्ति)',
           summary: 'The world is Śakti\'s body rather than a trap, so rightly-known experience is worship; the body is declared a temple and the householder a candidate.',
-          conceptId: 'bhukti-mukti'
+          conceptId: 'jivanmukti'
         },
         {
           title: 'Thirty-Six Principles',
           sanskritTerm: 'Ṣaṭ-triṃśat-tattva (षट्त्रिंशत्-तत्त्व)',
           summary: 'Five pure principles of subjectivity, māyā with her five cloaks plus puruṣa, and the twenty-four lower principles Sāṃkhya mapped as the basement.',
-          conceptId: 'pure-tattvas'
+          conceptId: 'sadasiva-tattva'
         },
         {
           title: 'Four Means for Four Densities',
           sanskritTerm: 'Catur-upāya (चतुर्-उपाय)',
           summary: 'Action-means for the dense, thought-means for the subtle, will-flash for the ripe, and no-means for those grace has loosened.',
-          conceptId: 'four-upayas'
+          conceptId: 'upaya-upeya-bhava'
         },
         {
           title: 'The Inner Warfare',

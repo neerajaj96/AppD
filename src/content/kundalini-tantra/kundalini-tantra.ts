@@ -3,14 +3,14 @@ import { buildClassicalText, buildSystemThread } from '../factory';
 import { kundaliniTantraConceptsEn } from './kundalini-tantra-concepts-en';
 import { kundaliniTantraThreadEn } from './kundalini-tantra-thread-en';
 
-// Modern tantric synthesis (no sutra verses): concepts-only text.
-// Summaries are original paraphrases; no verbatim book prose is stored.
+// Traditional kuṇḍalinī teaching (no sutra verses): concepts-only text.
+// Summaries are original paraphrases in this app's own words.
 export const kundaliniTantraText: ClassicalText = buildClassicalText(
   {
     id: 'kundalini-tantra',
     title: 'Kundalini Tantra',
     transliteratedTitle: 'Kundalini Tantra',
-    author: 'Swami Satyananda Saraswati',
+    author: 'Darshana compilation',
     system: 'tantra',
     contentDepth: 'concepts-only',
     verseTerm: 'Chapter'

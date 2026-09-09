@@ -1,11 +1,9 @@
 // Kundalini Tantra — Concepts (English, original summaries).
 //
-// Source analysed: Swami Satyananda Saraswati, "Kundalini Tantra",
-// Yoga Publications Trust, Munger (1984; digital ed. 2016), 472 pp, 48 chapters.
-// NOTE on copyright: summaries below are original paraphrases of the book's
-// doctrine map. No verbatim passages from the book are reproduced. This text
-// is registered as contentDepth 'concepts-only' (no verses), so the app
-// renders the pedagogical ontology, not the copyrighted prose.
+// Traditional kuṇḍalinī teaching compiled in this app's own words.
+// NOTE: summaries below are original paraphrases of the doctrine map.
+// This text is registered as contentDepth 'concepts-only' (no verses), so
+// the app renders the pedagogical ontology in our own voice.
 
 export const kundaliniTantraConceptsEn: any[] = [
   {
