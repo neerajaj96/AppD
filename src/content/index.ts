@@ -44,6 +44,9 @@ export const getText = (systemId: string, textId: string) =>
 export const getVerse = (systemId: string, textId: string, verseId: string) =>
   getText(systemId, textId)?.verses.find((v) => v.id === verseId);
 
+export const getConcept = (systemId: string, textId: string, conceptId: string) =>
+  getText(systemId, textId)?.concepts.find((c) => c.id === conceptId);
+
 export const allTexts = () => systems.flatMap((s) => s.texts);
 
 const verseIndex = new Set<string>();
@@ -56,3 +59,14 @@ systems.forEach(sys => {
 
 export const hasVerse = (systemId: string, textId: string, verseId: string) =>
   verseIndex.has(`${systemId}:${textId}:${verseId}`);
+
+const conceptIndex = new Set<string>();
+
+systems.forEach(sys => {
+  sys.texts.forEach(text => {
+    text.concepts.forEach(c => conceptIndex.add(`${sys.id}:${text.id}:${c.id}`));
+  });
+});
+
+export const hasConcept = (systemId: string, textId: string, conceptId: string) =>
+  conceptIndex.has(`${systemId}:${textId}:${conceptId}`);

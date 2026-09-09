@@ -4,6 +4,17 @@ import { useParams, Link } from 'react-router';
 import { getVerse, getText, getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check } from 'lucide-react';
 import Markdown from 'react-markdown';
+import RichText from './RichText';
+import {
+  RelatedConceptsSection,
+  RelatedVersesSection,
+  ThreadMentionsSection,
+} from './ReferenceLinks';
+import {
+  getConceptsForVerse,
+  getRelatedVerses,
+  getThreadStepsForVerse,
+} from '../utils/references';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 
@@ -41,6 +52,20 @@ export default function VerseDetail() {
 
   const isCurrentLangAvailable = !!verse.content[language];
   const isShowingFallback = !isCurrentLangAvailable && language === 'ml';
+
+  // Wikipedia-style interlinks, resolved against the reference graph.
+  const relatedConcepts = useMemo(
+    () => getConceptsForVerse(system.id as string, text.id as string, verse.id as string),
+    [system.id, text.id, verse.id],
+  );
+  const relatedVerses = useMemo(
+    () => getRelatedVerses(system.id as string, text.id as string, verse.id as string),
+    [system.id, text.id, verse.id],
+  );
+  const threadSteps = useMemo(
+    () => getThreadStepsForVerse(system.id as string, text.id as string, verse.id as string),
+    [system.id, text.id, verse.id],
+  );
 
   const handleCopy = async () => {
     const textToCopy = `${system.title} - ${text.transliteratedTitle}\n${verseTerm} ${verse.number}\n${verse.devanagari ? verse.devanagari + '\n' : ''}${verse.iast || ''}\n\n${translation || ''}\n\n${commentary || ''}`;
@@ -177,7 +202,11 @@ export default function VerseDetail() {
                 </h3>
               </div>
               <div className="prose max-w-none text-sattva">
-                <Markdown>{commentary}</Markdown>
+                <RichText
+                  text={commentary}
+                  systemId={system.id as string}
+                  textId={text.id as string}
+                />
               </div>
             </div>
           )}
@@ -195,12 +224,22 @@ export default function VerseDetail() {
                 {keyPoints.map((point, idx) => (
                   <li key={idx} className="flex text-sattva items-start">
                     <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
-                    <span className="flex-1"><Markdown>{point}</Markdown></span>
+                    <span className="flex-1">
+                      <RichText
+                        text={point}
+                        systemId={system.id as string}
+                        textId={text.id as string}
+                      />
+                    </span>
                   </li>
                 ))}
               </ul>
             </div>
           )}
+
+          <RelatedConceptsSection items={relatedConcepts} currentSystemId={system.id as string} />
+          <RelatedVersesSection items={relatedVerses} />
+          <ThreadMentionsSection steps={threadSteps} />
         </div>
       </div>
 

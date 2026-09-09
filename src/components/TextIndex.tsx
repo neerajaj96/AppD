@@ -260,7 +260,11 @@ export default function TextIndex() {
             filteredConcepts.map((concept) => {
               const activeContent = (isMalayalam && concept.content.ml) ? concept.content.ml : concept.content.en;
               return (
-                <div key={concept.id} className="p-5 hover:bg-avyakta/80 transition-colors">
+                <Link
+                  key={concept.id}
+                  to={`/system/${system.id}/text/${text.id}/concept/${concept.id}`}
+                  className="block p-5 hover:bg-avyakta/80 transition-colors"
+                >
                   <div className="flex items-center justify-between gap-2 mb-1.5">
                     <h3 className="font-serif font-bold text-base text-sattva">
                       {activeContent?.title || concept.id}
@@ -276,7 +280,20 @@ export default function TextIndex() {
                       {activeContent.summary}
                     </p>
                   )}
-                </div>
+                  {(concept.relatedVerseIds?.length || concept.relatedConceptIds?.length) ? (
+                    <div className="mt-2 text-[11px] font-medium text-sattva-dim">
+                      {(concept.relatedVerseIds?.length || 0) > 0 && (
+                        <span>{concept.relatedVerseIds!.length} linked {getVerseTerm(text, concept.relatedVerseIds!.length).toLowerCase()}</span>
+                      )}
+                      {(concept.relatedVerseIds?.length || 0) > 0 && (concept.relatedConceptIds?.length || 0) > 0 && (
+                        <span> • </span>
+                      )}
+                      {(concept.relatedConceptIds?.length || 0) > 0 && (
+                        <span>{concept.relatedConceptIds!.length} related concepts</span>
+                      )}
+                    </div>
+                  ) : null}
+                </Link>
               );
             })
           )

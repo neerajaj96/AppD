@@ -11,6 +11,7 @@ const Home = lazy(() => import('./components/Home'));
 const SystemDetail = lazy(() => import('./components/SystemDetail'));
 const TextIndex = lazy(() => import('./components/TextIndex'));
 const VerseDetail = lazy(() => import('./components/VerseDetail'));
+const ConceptDetail = lazy(() => import('./components/ConceptDetail'));
 const ThreadView = lazy(() => import('./components/ThreadView'));
 
 function ScreenFallback() {
@@ -72,6 +73,7 @@ export default function App() {
                 <Route path="/system/:systemId/thread" element={<ThreadView />} />
                 <Route path="/system/:systemId/text/:textId" element={<TextIndex />} />
                 <Route path="/system/:systemId/text/:textId/verse/:verseId" element={<VerseDetail />} />
+                <Route path="/system/:systemId/text/:textId/concept/:conceptId" element={<ConceptDetail />} />
               </Routes>
             </Suspense>
           </main>

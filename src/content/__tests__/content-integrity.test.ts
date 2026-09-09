@@ -1,5 +1,16 @@
-import { systems, getText } from '../index';
+import { systems, getText, hasVerse, hasConcept } from '../index';
 import { diagramRegistry } from '../../components/diagrams';
+import { romanToInt, linkifyReferences, extractRefLinks } from '../../utils/crossref';
+import {
+  findConcept,
+  findVerse,
+  getConceptsForVerse,
+  getVersesForConcept,
+  getRelatedConcepts,
+  getRelatedVerses,
+  getThreadStepsForVerse,
+  getThreadStepsForConcept,
+} from '../../utils/references';
 
 describe('content integrity', () => {
   for (const sys of systems) {
@@ -131,5 +142,106 @@ describe('content integrity', () => {
   it('getText returns undefined for an unknown system or text rather than throwing', () => {
     expect(getText('not-a-system', 'not-a-text')).toBeUndefined();
     expect(getText('samkhya', 'not-a-text')).toBeUndefined();
+  });
+
+  describe('reference graph (wikipedia-style interlinks)', () => {
+    it('romanToInt converts karika numerals cited in commentaries', () => {
+      expect(romanToInt('LXVII')).toBe(67);
+      expect(romanToInt('IV')).toBe(4);
+      expect(romanToInt('XX')).toBe(20);
+      expect(Number.isNaN(romanToInt('ABC'))).toBe(true);
+    });
+
+    it('resolves verse shorthands cited across systems', () => {
+      const segs = linkifyReferences('as in Kārikā LXV and YS I.2 and NS 1.1.1');
+      const links = segs.filter((s) => s.link);
+      expect(links.map((s) => s.link)).toEqual([
+        { kind: 'verse', systemId: 'samkhya', textId: 'samkhya-karika', verseId: '65' },
+        { kind: 'verse', systemId: 'yoga', textId: 'yoga-sutras', verseId: 'I.2' },
+        { kind: 'verse', systemId: 'nyaya', textId: 'nyaya-sutras', verseId: '1.1.1' },
+      ]);
+    });
+
+    it('resolves explicit [[wiki]] links with custom labels', () => {
+      const segs = linkifyReferences('see [[concept:satkaryavada]] and [[YS I.2|the definition]]', {
+        systemId: 'yoga',
+        textId: 'yoga-sutras',
+      });
+      const links = segs.filter((s) => s.link);
+      expect(links[0].link?.kind).toBe('concept');
+      expect(links[1]).toMatchObject({
+        link: { kind: 'verse', systemId: 'yoga', textId: 'yoga-sutras', verseId: 'I.2' },
+        label: 'the definition',
+      });
+    });
+
+    it('never emits a dead link for any reference-shaped string in the corpus', () => {
+      const bad: string[] = [];
+      for (const sys of systems) {
+        for (const text of sys.texts) {
+          const ctx = { systemId: sys.id as string, textId: text.id as string };
+          const prose: string[] = [];
+          text.verses.forEach((v) => {
+            prose.push(v.content.en?.commentary || '');
+            prose.push(v.content.ml?.commentary || '');
+            (v.content.en?.keyPoints || []).forEach((k) => prose.push(k));
+          });
+          text.concepts.forEach((c) => {
+            prose.push(c.content.en?.summary || '');
+            prose.push(c.content.ml?.summary || '');
+          });
+          sys.thread.forEach((t) => {
+            prose.push(t.content.en?.narrative || '');
+            prose.push(t.content.en?.summary || '');
+          });
+          prose.forEach((p) => {
+            extractRefLinks(p, ctx).forEach((link) => {
+              if (link.kind === 'verse' && !hasVerse(link.systemId, link.textId, link.verseId)) {
+                bad.push(`verse ${link.systemId}/${link.textId}/${link.verseId}`);
+              }
+              if (link.kind === 'concept' && !findConcept(link.conceptId, { systemId: link.systemId, textId: link.textId })) {
+                bad.push(`concept ${link.systemId}/${link.textId}/${link.conceptId}`);
+              }
+            });
+          });
+        }
+      }
+      expect(bad).toEqual([]);
+    });
+
+    it('verse <-> concept lookups never include self or dangling ids', () => {
+      for (const sys of systems) {
+        for (const text of sys.texts) {
+          const sid = sys.id as string;
+          const tid = text.id as string;
+          text.verses.forEach((v) => {
+            const vid = v.id as string;
+            getConceptsForVerse(sid, tid, vid).forEach((h) => {
+              expect(hasConcept(h.systemId, h.textId, h.concept.id as string)).toBe(true);
+            });
+            getRelatedVerses(sid, tid, vid).forEach((h) => {
+              expect(`${h.systemId}:${h.textId}:${h.verse.id}`).not.toBe(`${sid}:${tid}:${vid}`);
+            });
+            getThreadStepsForVerse(sid, tid, vid).forEach(({ step }) => {
+              expect((step.verseIds || []).map(String)).toContain(vid);
+            });
+          });
+          text.concepts.forEach((c) => {
+            const cid = c.id as string;
+            getVersesForConcept(sid, tid, cid).forEach((h) => {
+              expect(hasVerse(h.systemId, h.textId, h.verse.id as string)).toBe(true);
+            });
+            getRelatedConcepts(sid, tid, cid).forEach((h) => {
+              expect(`${h.systemId}:${h.textId}:${h.concept.id}`).not.toBe(`${sid}:${tid}:${cid}`);
+              expect(hasConcept(h.systemId, h.textId, h.concept.id as string)).toBe(true);
+            });
+            getThreadStepsForConcept(sid, tid, cid);
+          });
+        }
+      }
+      expect(findVerse('yoga', 'yoga-sutras', 'I.2')?.verse.number).toBe('I.2');
+      expect(findVerse('yoga', 'yoga-sutras', 'nope')).toBeUndefined();
+      expect(findConcept('satkaryavada', { systemId: 'samkhya', textId: 'samkhya-karika' })?.textId).toBe('samkhya-karika');
+    });
   });
 });

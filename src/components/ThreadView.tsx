@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router';
 import { getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
-import Markdown from 'react-markdown';
+import RichText from './RichText';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 
@@ -51,6 +51,16 @@ export default function ThreadView() {
   const verseTermSingular = getVerseTerm(targetText, 1);
   const verseTermPlural = getVerseTerm(targetText, 2);
 
+  // The curated concept behind this step (kind === 'concept'), if it resolves.
+  const stepConcept = useMemo(() => {
+    if (step.kind !== 'concept' || !step.conceptId || !targetText) return null;
+    return targetText.concepts.find((c) => c.id === step.conceptId) ?? null;
+  }, [step, targetText]);
+  const stepConceptTitle =
+    stepConcept?.content[language]?.title || stepConcept?.content.en?.title;
+  const stepConceptSummary =
+    stepConcept?.content[language]?.summary || stepConcept?.content.en?.summary;
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500 max-w-3xl mx-auto pb-24">
       <div className="flex items-center justify-between text-sm text-sattva-dim mb-2">
@@ -90,7 +100,35 @@ export default function ThreadView() {
 
           {content?.narrative && (
             <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
-              <Markdown>{content.narrative}</Markdown>
+              <RichText
+                text={content.narrative}
+                systemId={system.id as string}
+                textId={targetTextId as string}
+              />
+            </div>
+          )}
+
+          {stepConcept && (
+            <div className="pt-6 border-t border-tamas">
+              <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">
+                Core Concept
+              </h3>
+              <Link
+                to={`/system/${system.id}/text/${targetTextId}/concept/${stepConcept.id}`}
+                className="block p-4 rounded-xl bg-avyakta-3/50 hover:bg-avyakta-3 transition-colors"
+              >
+                <div className="font-serif font-bold text-sattva text-base mb-1">
+                  {stepConceptTitle || (stepConcept.id as string)}
+                </div>
+                {stepConceptSummary && (
+                  <div className="text-sm text-sattva-dim line-clamp-3 leading-relaxed">
+                    {stepConceptSummary}
+                  </div>
+                )}
+                <div className="mt-2 text-xs font-semibold text-rajas">
+                  Open concept article →
+                </div>
+              </Link>
             </div>
           )}
 
@@ -98,7 +136,11 @@ export default function ThreadView() {
             <div className="pt-6 border-t border-tamas">
               <h3 className="text-sm font-bold text-tamas uppercase tracking-wider mb-4">Summary</h3>
               <div className="prose max-w-none text-sattva-dim">
-                <Markdown>{content.summary}</Markdown>
+                <RichText
+                  text={content.summary}
+                  systemId={system.id as string}
+                  textId={targetTextId as string}
+                />
               </div>
             </div>
           )}
@@ -110,7 +152,13 @@ export default function ThreadView() {
                 {content.keyPoints.map((point, idx) => (
                   <li key={idx} className="flex text-sattva items-start">
                     <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
-                    <span className="flex-1"><Markdown>{point}</Markdown></span>
+                    <span className="flex-1">
+                      <RichText
+                        text={point}
+                        systemId={system.id as string}
+                        textId={targetTextId as string}
+                      />
+                    </span>
                   </li>
                 ))}
               </ul>

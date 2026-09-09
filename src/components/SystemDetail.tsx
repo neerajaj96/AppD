@@ -2,7 +2,9 @@ import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router';
 import { getSystem } from '../content';
 import { BookOpen, Map as MapIcon, Sparkles, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Compass, Layers, Search, ArrowRight } from 'lucide-react';
-import Markdown from 'react-markdown';
+import RichText from './RichText';
+import { ConceptChips } from './ReferenceLinks';
+import { getRelatedConcepts } from '../utils/references';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { getSystemOverview } from '../content/systemOverviews';
@@ -316,9 +318,22 @@ export default function SystemDetail() {
                     <div className="px-5 pb-5 pt-2 border-t border-tamas space-y-4 text-sattva">
                       {localized?.summary && (
                         <div className="prose prose-sm max-w-none">
-                          <Markdown>{localized.summary}</Markdown>
+                          <RichText
+                            text={localized.summary}
+                            systemId={system.id as string}
+                            textId={concept.textId as string}
+                          />
                         </div>
                       )}
+                      <div className="pt-3 border-t border-tamas">
+                        <Link
+                          to={`/system/${system.id}/text/${concept.textId}/concept/${concept.id}`}
+                          className="text-xs font-semibold hover:underline"
+                          style={{ color: accent.primary }}
+                        >
+                          Open full concept article →
+                        </Link>
+                      </div>
                       {concept.relatedVerseIds && concept.relatedVerseIds.length > 0 && (
                         <div className="pt-3 border-t border-tamas">
                           <div className="text-xs font-semibold text-sattva-dim uppercase tracking-wider mb-2">
@@ -337,6 +352,22 @@ export default function SystemDetail() {
                           </div>
                         </div>
                       )}
+                      {(() => {
+                        const related = getRelatedConcepts(
+                          system.id as string,
+                          concept.textId as string,
+                          concept.id as string,
+                          8,
+                        ).filter((h) => h.systemId !== (system.id as string) || h.textId !== (concept.textId as string) || (h.concept.id as string) !== (concept.id as string));
+                        return related.length > 0 ? (
+                          <div className="pt-3 border-t border-tamas">
+                            <div className="text-xs font-semibold text-sattva-dim uppercase tracking-wider mb-2">
+                              Related Concepts
+                            </div>
+                            <ConceptChips items={related} currentSystemId={system.id as string} />
+                          </div>
+                        ) : null;
+                      })()}
                       {filteredConcepts.length > 1 && (
                         <div className="pt-3 border-t border-tamas flex items-center justify-between">
                           <button
