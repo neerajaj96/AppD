@@ -1347,5 +1347,49 @@ export const nyayaConceptsEn: NyayaConcept[] = [
     definition: "A form of debate where the participant only attacks the opponent's thesis without establishing any thesis of their own.",
     significance: "Viewed as the lowest form of debate, often associated with skeptics or nihilists. Nyāya studies it primarily to know how to counter it.",
     relatedConcepts: ["vada", "jalpa", "shunyavada"]
+  },
+  {
+    id: "mithyajnana",
+    sanskrit: "मिथ्याज्ञान",
+    iast: "mithyājñāna",
+    english: "False Apprehension",
+    forBeginners: "Getting reality wrong at the root level — mistaking the body, the world, or the non-self for the true self. Think of it as the master-error from which every other error grows.",
+    category: "Epistemology",
+    definition: "False or erroneous cognition regarding the true nature of reality — the soul, the body, and the world — also called avidyā in its practical role.",
+    significance: "The primary cause of all suffering and the first link of the duḥkha-chain (1.1.2): only when false apprehension is removed by true knowledge (tattvajñāna) does the road to release open.",
+    relatedConcepts: ["moha", "samsaya", "tatva-jnana", "duhkha-chain-nyaya"]
+  },
+  {
+    id: "vartamana-kala",
+    sanskrit: "वर्तमानकाल",
+    iast: "vartamāna-kāla",
+    english: "Present Time",
+    forBeginners: "The 'now' in which everything we directly perceive happens. Some opponents argued the present is unreal (only past traces and future hopes exist); Gautama shows that without a real present, past and future — which depend on it — collapse too.",
+    category: "Metaphysics",
+    definition: "Time as presently occurring — the ongoing duration in which all direct perception takes place, defended by Gautama as fully real against deniers.",
+    significance: "Anchors Nyāya's temporal realism: past and future exist only relative to a real present, and every pratyakṣa occurs now.",
+    relatedConcepts: ["kala", "nitya", "pratyaksha"]
+  },
+  {
+    id: "apta-vakya",
+    sanskrit: "आप्तवाक्य",
+    iast: "āpta-vākya",
+    english: "Testimony of the Trustworthy",
+    forBeginners: "The words of someone who truly knows a thing and wants to tell you exactly as it is — no deceit, no agenda. An āpta is not a caste or creed but a reliable knower; mantras and Āyurveda are valid for exactly this reason, and so are the Vedas.",
+    category: "Epistemology",
+    definition: "Verbal testimony issuing from a trustworthy authority (āpta) — one who knows truly and communicates faithfully — the operative form of śabda-pramāṇa.",
+    significance: "The bridge from human trust to scriptural authority: Āyurveda's cures prove its ṛṣi-authors reliable, and the same authors' Vedas inherit that trust.",
+    relatedConcepts: ["apta", "shabda", "veda"]
+  },
+  {
+    id: "avayavi",
+    sanskrit: "अवयवी",
+    iast: "avayavī",
+    english: "The Whole (Variant Form)",
+    forBeginners: "The complete thing that parts make together — not merely the pile of parts but a new reality in its own right. Atoms are beyond the senses, yet the wholes they compose can be directly seen and held.",
+    category: "Metaphysics",
+    definition: "The unified whole arising from assembled parts (avayava), a distinct existent over and above their mere aggregate.",
+    significance: "Companion entry to avayavin: anti-Buddhist realism — because the whole is real, objects can be perceived and handled.",
+    relatedConcepts: ["avayavin", "avayava", "paramanu"]
   }
 ];

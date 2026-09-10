@@ -48,7 +48,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Defect/Fault (Dosha Pariksha)",
     devanagari: "न एकप्रत्यनीकभावात् ॥",
     iast: "na ekapratyanīkabhāvāt",
-    conceptIds: [],
+    conceptIds: [
+      "tatva-jnana",
+      "duhkha"
+    ],
     translation: "(Objection): No, because they (all three) have a single common opposite/antidote (namely, right knowledge, tatva-jnana -- implying they shouldn't be treated as fundamentally distinct).",
     commentary: "An objector argues against treating the three as fundamentally distinct groups: since all three are ultimately cured by exactly the same thing (right knowledge of reality, tatva-jnana), they must at bottom be essentially the same single problem, not three distinct categories.",
     keyPoints: [
@@ -61,7 +64,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Defect/Fault (Dosha Pariksha)",
     devanagari: "व्यभिचारात् अहेतुः ॥",
     iast: "vyabhicārāt ahetuḥ",
-    conceptIds: [],
+    conceptIds: [
+      "vyabhicara",
+      "tatva-jnana"
+    ],
     translation: "This is not a valid reason, because it is overly broad/erratic (vyabhichara) (i.e., different diseases can sometimes share a single cure, so a shared antidote doesn't prove identity of the diseases).",
     commentary: "The Naiyayika dismisses the objection with a logical/medical point: just because a single strong medicine might cure several different illnesses, we don't conclude those illnesses are therefore the identical disease. Similarly, right knowledge cures all three faults, but their internal mechanisms and manifestations remain genuinely distinct.",
     keyPoints: [
@@ -102,7 +108,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Transmigration (Pretyabhava Pariksha)",
     devanagari: "न, उत्पत्तिविनाशकारणोपलब्धेः ॥",
     iast: "na, utpattivināśakāraṇopalabdheḥ",
-    conceptIds: [],
+    conceptIds: [
+      "purvapaksha",
+      "karma"
+    ],
     translation: "(Objection, from a materialist view): Not so, because we clearly observe the (purely physical/immediate) causes of origination and destruction (of bodies, without needing a beginningless karmic chain).",
     commentary: "A Charvaka/materialist objector challenges the whole karmic framework: we can clearly see what causes a body to originate (parents, physical reproduction) and what causes it to die (disease, injury). Since the immediate physical causes are sufficient to explain birth and death, there is no need to postulate an invisible, beginningless chain of karma.",
     keyPoints: [
@@ -115,7 +124,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Transmigration (Pretyabhava Pariksha)",
     devanagari: "रूपादिषु अनित्यत्ववत् तत्-अप्रतिषेधः ॥",
     iast: "rūpādiṣu anityatvavat tat-apratiṣedhaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "siddhanta",
+      "karma"
+    ],
     translation: "This is no valid objection, just as (observing immediate causes of destruction) does not negate the (underlying) non-eternality in things like colour (i.e., physical causes are only proximate; they don't explain the underlying pattern of necessity).",
     commentary: "The Naiyayika replies by distinguishing proximate from ultimate causes: observing that a hammer breaks a pot (proximate cause) doesn't replace the underlying truth that the pot is inherently non-eternal and destructible by nature. Similarly, observing biological reproduction doesn't explain WHY this particular soul is embodied in this specific way at this time -- which requires the deeper explanatory framework of karma.",
     keyPoints: [
@@ -142,7 +154,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, अभावात् भावोत्पत्तिः, उपमृद्य प्रादुर्भावात् ॥",
     iast: "na, abhāvāt bhāvotpattiḥ, upamṛdya prādurbhāvāt",
-    conceptIds: [],
+    conceptIds: [
+      "shunyavada",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): Positive entities do not arise from non-existence; rather, they manifest by modifying/breaking down (the prior form of the material, not from absolute nothingness).",
     commentary: "The Naiyayika refutes the seed-to-sprout argument: the sprout does not arise from the 'nothingness' of the destroyed seed; rather, the material parts/atoms of the seed rearrange and transform (modify) into the new structure of the sprout. Absolute non-existence cannot be the material cause of anything.",
     keyPoints: [
@@ -155,7 +170,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "व्याघातात् अप्रयोगः ॥",
     iast: "vyāghātāt aprayogaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "shunyavada"
+    ],
     translation: "Because of self-contradiction, the expression (that things arise from non-existence) is unworkable.",
     commentary: "A logical coup de grace against Shunyavada: if an entity truly comes from 'nothing', it would have no specific material cause, meaning anything could arise from anything at any time. The fact that only a wheat sprout comes from a wheat seed proves that specific, existing material continuity is required.",
     keyPoints: [
@@ -168,7 +185,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, अतीतानागतयोः कारकशब्दप्रयोगात् ॥",
     iast: "na, atītānāgatayoḥ kārakaśabdaprayogāt",
-    conceptIds: [],
+    conceptIds: [
+      "shunyavada",
+      "shabda"
+    ],
     translation: "(Objection attempting to defend Emptiness): Not so, because words denoting causal agents are routinely used with reference to past and future (i.e. currently non-existent) things (e.g. 'a son will be born', treating a non-existent thing as a subject).",
     commentary: "The Shunyavadin tries a linguistic defense: we talk about non-existent things (past or future) having causal efficacy or being subjects of sentences all the time in ordinary language. Therefore, treating 'non-existence' as a causal source isn't inherently contradictory to how we actually speak and think.",
     keyPoints: [
@@ -181,7 +201,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, अभावात् भावोत्पत्तेः ॥",
     iast: "na, abhāvāt bhāv उत्पत्तिः",
-    conceptIds: [],
+    conceptIds: [
+      "shunyavada"
+    ],
     translation: "(Nyaya Reply): This does not (save the theory that) positive entities arise from absolute non-existence.",
     commentary: "Gautama dismisses the linguistic defense as missing the point. How we use language to refer to anticipated future events has no bearing on the hard ontological fact that you cannot physically build an existing object out of zero material substance. The material cause must be real.",
     keyPoints: [
@@ -247,7 +269,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, निमित्त-नैमित्तिकभाव-अनुपपत्तेः ॥",
     iast: "na, nimitta-naimittikabhāva-anupapatteḥ",
-    conceptIds: [],
+    conceptIds: [
+      "shunyavada"
+    ],
     translation: "(Nyaya Reply): Not so, because (on that view) the observable relationship between cause and effect would be inexplicable.",
     commentary: "The Naiyayika dismisses accidentalism instantly by pointing to the overwhelming regularity of the world. If things happened purely by chance, we wouldn't see the strict, exceptionless cause-and-effect relationships that govern reality (e.g., fire always burns, seeds always grow specific plants). The world is clearly an ordered, causal system, not random chaos.",
     keyPoints: [
@@ -273,7 +297,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, अनित्यत्वनित्यत्वात् ॥",
     iast: "na, anityatvanityatvāt",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-anityatva"
+    ],
     translation: "(Nyaya Reply): Not so, because this very 'non-eternality' (if true of everything) would itself have to be eternal.",
     commentary: "A classic dialectical trap: the Naiyayika asks, 'Is this universal law of non-eternality ITSELF eternal or non-eternal?' If the law is eternal, then not *everything* is non-eternal (the law is an exception). If the law is non-eternal, then when it ceases, things will become eternal. Either way, universal non-eternality refutes itself.",
     keyPoints: [
@@ -286,7 +312,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "तदनित्यत्वम् अग्नेः दाहाविनाशवत् ॥",
     iast: "tadanityatvam agneḥ dāhāvināśavat",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-anityatva"
+    ],
     translation: "(Objection defending Universal Non-Eternality): That non-eternality (can apply to itself without paradox), just as fire, having burned everything else, is itself destroyed (by its own nature, without leaving anything eternal).",
     commentary: "The opponent tries to escape the paradox with an analogy: just as a forest fire burns all the wood and then eventually burns itself out and vanishes entirely, the principle of non-eternality destroys the permanence of all objects and then vanishes itself, leaving nothing eternal behind.",
     keyPoints: [
@@ -326,7 +354,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, उत्पत्तिविनाशकारणोपलब्धेः ॥",
     iast: "na, utpattivināśakāraṇopalabdheḥ",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-anityatva"
+    ],
     translation: "(Nyaya Reply): Not so, because we clearly observe the causes of origination and destruction (of composite objects).",
     commentary: "The Naiyayika uses the exact same empirical argument against universal eternality that he used against universal non-eternality: we watch pots being created and destroyed. A smashed pot is genuinely destroyed as a pot; it hasn't just eternally changed its outfit. We must trust our perception of real change in composite things.",
     keyPoints: [
@@ -339,7 +369,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "तत्-लक्षण-अवरोधात् अप्रतिषेधः ॥",
     iast: "tat-lakṣaṇa-avarodhāt apratiṣedhaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-nityatva"
+    ],
     translation: "(Objection defending Universal Eternality): Because the fundamental characteristics of those (elements) remain present (even in the destroyed object), there is no valid denial (of their underlying eternality).",
     commentary: "The eternalist replies: when you smash a clay pot, the shards are still clay; they still have the characteristics of earth (smell, etc.). Since the elemental nature never vanished, the 'thing' is fundamentally eternal; only the superficial shape changed.",
     keyPoints: [
@@ -352,7 +384,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, उत्पत्तिविनाशकारणोपलब्धेः ॥",
     iast: "na, utpattivināśakāraṇopalabdheḥ",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-nityatva",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): Not so, because we clearly observe the causes of origination and destruction (reiterating that the WHOLE is distinct from its PARTS).",
     commentary: "Gautama simply repeats sutra 4.1.25, but with the full force of Nyaya mereology behind it: a whole (avayavin, the pot) is a genuinely new, distinct entity, over and above its parts (avayava, the clay atoms). When the pot is smashed, that specific whole is absolutely and non-eternally destroyed, even though its constituent atoms survive eternally. Thus, not *everything* is eternal.",
     keyPoints: [
@@ -379,7 +414,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, अनेकलक्षणैः एकभाव-उपपत्तेः ॥",
     iast: "na, anekalakṣaṇaiḥ ekabhāva-upapatteḥ",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-prthaktva"
+    ],
     translation: "(Nyaya Reply): Not so, because it is entirely possible/logical for a single entity to possess multiple distinct characteristics.",
     commentary: "The Naiyayika refutes radical pluralism: just because we can distinguish different qualities (this part is red, that part is heavy), it doesn't mean those qualities must belong to completely separate, disconnected entities. A single, unified whole object (like an apple) can possess many different qualities and parts simultaneously.",
     keyPoints: [
@@ -392,7 +429,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "लक्षण-व्यवस्थानात् एव अप्रतिषेधः ॥",
     iast: "lakṣaṇa-vyavasthānāt eva apratiṣedhaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-prthaktva"
+    ],
     translation: "Because these distinct characteristics are established in a fixed, coordinated way (in the object), there is no valid denial (of the unified whole).",
     commentary: "Further proof against radical pluralism: the parts and qualities of an object don't just float randomly; they are bound together in a highly structured, fixed coordination (vyavasthana). This structural unity proves the existence of a real, unifying 'whole' over and above the mere aggregate of parts.",
     keyPoints: [
@@ -418,7 +457,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न, स्वभावसिधेः भावानाम् ॥",
     iast: "na, svabhāvasidheḥ bhāvānām",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-abhava",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): Not so, because positive entities are established by their own intrinsic nature (svabhava), (not merely by their difference from other things).",
     commentary: "The Naiyayika dismisses nihilism with common sense: a cow is not just 'not a horse'; it is, first and foremost, positively a COW, possessing its own intrinsic, positive nature (svabhava). Mutual exclusion (mutual non-existence) is a secondary relation that only makes sense BETWEEN two already-existing, positive entities.",
     keyPoints: [
@@ -431,7 +473,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "न स्वभावसिद्धिः आपेक्षिकत्वात् ॥",
     iast: "na svabhāvasiddhiḥ āpekṣikatvāt",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-abhava"
+    ],
     translation: "(Objection attempting to defend Nihilism/Relativism): There is no establishment of intrinsic nature, because everything is purely relative (e.g., 'long' only exists in relation to 'short').",
     commentary: "The opponent tries a sophisticated defense (often linked to Madhyamaka dependent origination): there are no intrinsic natures because all concepts are mutually dependent and relative. You can't have a 'father' without a 'son', or 'long' without 'short'. If everything is just a web of relative dependencies, nothing has independent, positive existence.",
     keyPoints: [
@@ -444,7 +488,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Views on the Material Cause of the World (Jagad-Upadana-Karana Pariksha)",
     devanagari: "व्याहतात्वत् अयुक्तम् ॥",
     iast: "vyāhatātvat ayuktam",
-    conceptIds: [],
+    conceptIds: [
+      "sarva-abhava",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): This is illogical, because it is self-contradictory.",
     commentary: "The Naiyayika cuts through the relativist web: if 'short' depends entirely on 'long', and 'long' depends entirely on 'short', neither can ever be established in the first place to support the other. For a relation (like 'longer than') to exist, there must first be two independent, positively existing things (like two sticks) to stand in that relation. Relativism presupposes the positive realism it tries to deny. This concludes the massive doxographical section on the cause of the world.",
     keyPoints: [
@@ -472,7 +519,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Fruits/Results (Phala Pariksha)",
     devanagari: "न, सद्यः-अकालान्तर-फलनिष्पत्तेः ॥",
     iast: "na, sadyaḥ-akālāntara-phalaniṣpatteḥ",
-    conceptIds: [],
+    conceptIds: [
+      "phala",
+      "karma"
+    ],
     translation: "(Objection): There is no (delayed result), because results are only produced immediately, not at a later time (i.e., if it doesn't happen now, it wasn't caused by the action).",
     commentary: "A skeptic argues against the very idea of delayed karmic results (and thus against rebirth/heavenly rewards). They argue that cause and effect must be temporally contiguous. If a ritual is performed today, and heaven is achieved 50 years later, the ritual cannot logically be the cause.",
     keyPoints: [
@@ -499,7 +549,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Fruits/Results (Phala Pariksha)",
     devanagari: "न, उत्पत्तेः प्राक् अविद्यमानत्वात् ॥",
     iast: "na, utpatteḥ prāk avidyamānatvāt",
-    conceptIds: [],
+    conceptIds: [
+      "phala"
+    ],
     translation: "(Objection questioning the ontological status of the 'result' before it happens): Not so, because prior to its origination, the result is completely non-existent (so how can it be 'aimed at' or 'caused' by the present action?).",
     commentary: "A metaphysical puzzle regarding causation (related to the asat-karya-vada debate): if the future 'fruit' doesn't exist yet in any form, how can a present action be meaningfully directed toward it or causally linked to it?",
     keyPoints: [
@@ -512,7 +564,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Fruits/Results (Phala Pariksha)",
     devanagari: "व्यवस्थानुपपत्तेः च ॥",
     iast: "vyavasthānupapatteḥ ca",
-    conceptIds: [],
+    conceptIds: [
+      "phala"
+    ],
     translation: "And because, (if the result were somehow already existent before its manifestation), there could be no established order (of cause preceding effect).",
     commentary: "The objector continues: conversely, if you claim the result DOES somehow already exist in a latent form (the Samkhya sat-karya-vada view), then cause and effect would be simultaneous, destroying the orderly progression of time and action.",
     keyPoints: [
@@ -525,7 +579,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Fruits/Results (Phala Pariksha)",
     devanagari: "उत्पन्नस्य कारणाभावोपपत्तेः अप्रतिषेधः ॥",
     iast: "utpannasya kāraṇābhāvopapatteḥ apratiṣedhaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "phala",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): There is no valid objection, because it is perfectly logical that a cause brings into existence what has not yet originated.",
     commentary: "The Naiyayika dismisses the metaphysical puzzle by firmly asserting the Nyaya doctrine of Asat-karya-vada (the effect does NOT pre-exist in the cause). A cause genuinely creates something entirely new that did not exist before. There is no contradiction in a present action bringing about a genuinely new, previously non-existent result in the future. This closes the section on Phala.",
     keyPoints: [
@@ -553,7 +610,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Pain/Suffering (Duhkha Pariksha)",
     devanagari: "न, सुखस्य अपि अन्तरालनिष्पत्तेः ॥",
     iast: "na, sukhasya api antarālaniṣpatteḥ",
-    conceptIds: [],
+    conceptIds: [
+      "duhkha"
+    ],
     translation: "(Objection): Not so, because pleasure (sukha) is also produced in the intervals (between sufferings).",
     commentary: "An objector points out the obvious empirical fact: life is not 100% agony. We experience genuine moments of joy, pleasure, and satisfaction in between the bad parts. Therefore, calling life 'nothing but suffering' is factually incorrect.",
     keyPoints: [
@@ -607,7 +666,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Final Liberation (Apavarga Pariksha)",
     devanagari: "प्रधान-शब्दानुपपत्तेः गुणशब्देन अनुवादो निन्दा-प्रशंसोपपत्तेः ॥",
     iast: "pradhāna-śabdānupapatteḥ guṇaśabdena anuvādo nindā-praśaṃsopapatteḥ",
-    conceptIds: [],
+    conceptIds: [
+      "veda"
+    ],
     translation: "(Nyaya Reply): Since the primary/literal meaning (of the word 'debt' here) is impossible, the statement is a secondary/figurative usage (guna-shabda), intended for the purpose of blame (for neglecting duties) and praise (for fulfilling them).",
     commentary: "The Naiyayika defuses the Mimamsa argument using hermeneutics: the Vedic talk of being born with 'debts' cannot be literal (a baby cannot literally sign a loan contract). It is a rhetorical device (arthavada) used to emphasize the importance of social and ritual duties for normal people, not an absolute metaphysical trap that forbids the pursuit of Moksha.",
     keyPoints: [
@@ -620,7 +681,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Final Liberation (Apavarga Pariksha)",
     devanagari: "समारोपणात् आत्मनि अप्रतिषेधः ॥",
     iast: "samāropaṇāt ātmani apratiṣedhaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "veda"
+    ],
     translation: "Because the (sacrificial fires) can be internalized (samaropana) within oneself, there is no valid denial (of the renouncer's path to liberation).",
     commentary: "A further technical point of Vedic law: the texts explicitly allow a man in the final stage of life (sannyasa) to ritually internalize his sacrificial fires, meaning he is no longer required to perform external physical rituals. This proves the Vedic system itself provides an off-ramp from the 'debts' to pursue liberation.",
     keyPoints: [
@@ -633,7 +696,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Final Liberation (Apavarga Pariksha)",
     devanagari: "पात्रचयान्तेन उपपत्तेः च ॥",
     iast: "pātracayāntena upapatteḥ ca",
-    conceptIds: [],
+    conceptIds: [
+      "veda"
+    ],
     translation: "And this is also proven by the fact that the (requirement for ritual action) ends with the collection of the sacrificial vessels (at the cremation of a householder).",
     commentary: "Another technical point: even for a non-renouncer, the obligation to perform rituals ends at death (when his ritual tools are burned with his body). Since the 'debts' do not follow the soul eternally, they cannot prevent ultimate liberation.",
     keyPoints: [
@@ -660,7 +725,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Examination of Final Liberation (Apavarga Pariksha)",
     devanagari: "न, प्रवृत्ति-अनुबन्धात् ॥",
     iast: "na, pravṛtti-anubandhāt",
-    conceptIds: [],
+    conceptIds: [
+      "apavarga",
+      "pravrtti"
+    ],
     translation: "(Objection): No (liberation is not possible), because the continuity of activity (pravrtti) is unbroken.",
     commentary: "A final, desperate objection: the mind and body are constantly in motion. Activity (and therefore karma and suffering) seems to be the very nature of existence. How could it ever permanently stop?",
     keyPoints: [
@@ -727,7 +795,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "विद्या-अविद्या-द्वैविध्यात् संशयः ॥",
     iast: "vidyā-avidyā-dvaividhyāt saṃśayaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin"
+    ],
     translation: "(Objection based on Buddhist Idealism/Nihilism): There is doubt (about whether this 'whole' exists at all even as an aggregate), because we must distinguish between true knowledge (vidya) and false knowledge (avidya).",
     commentary: "A radical Buddhist opponent (likely Yogacara or Madhyamaka) interrupts: You say we must analyze the 'whole' (the object) into parts. But what if the object doesn't exist AT ALL, outside of the mind? If our perception of the external world is entirely false knowledge (avidya/illusion), there are no real parts or wholes to analyze.",
     keyPoints: [
@@ -740,7 +810,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "तदसंशयः, पूर्वहेतु-उपपत्तेः ॥",
     iast: "tadasaṃśayaḥ, pūrvahetu-upapatteḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin"
+    ],
     translation: "(Nyaya Reply): There is no doubt about this, because the reasons previously stated (in Book 2, proving the reality of the Whole) are logically sound.",
     commentary: "Gautama refuses to reopen the fundamental debate about realism. He points back to Book 2, Chapter 1, where the Nyaya system definitively proved that composite wholes (like pots and trees) have objective, mind-independent reality. Nyaya is a realist system; it rejects the premise that the external world is a mere mental projection.",
     keyPoints: [
@@ -753,7 +825,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "वृत्त्यनुपपत्तेः अपि तर्हि न संशयः ॥",
     iast: "vṛttyanupapatteḥ api tarhi na saṃśayaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin"
+    ],
     translation: "(Objection pressing the attack): But since the existence (of a whole residing in its parts) is logically impossible, there is indeed no doubt (i.e., it is certain the whole does NOT exist).",
     commentary: "The opponent presses a famous logical puzzle: How can a single 'Whole' exist in many 'Parts'? Does it exist in its entirety in each part? (Then you have many wholes). Does it exist partially in each part? (Then the whole itself has parts, leading to infinite regress). Since the relation is logically impossible, the 'Whole' is a fiction.",
     keyPoints: [
@@ -766,7 +840,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "कृत्स्न-एकदेश-अवृत्तित्वात् अवयवानामवयवी अभावः ॥",
     iast: "kṛtsna-ekadeśa-avṛttitvāt avayavānāmavayavī abhāvaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin"
+    ],
     translation: "(Explaining the opponent's logic): Because the whole cannot reside in the parts either in its entirety (krtsna) or partially (eka-desha), the whole does not exist.",
     commentary: "This sutra formally states the opponent's dilemma (a classic Buddhist critique of substance). The Naiyayika is setting up the opponent's best argument in order to dismantle it.",
     keyPoints: [
@@ -779,7 +855,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "तेषु च अवृत्तेः अवयव्यभावः ॥",
     iast: "teṣu ca avṛtteḥ avayavyabhāvaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin"
+    ],
     translation: "(Opponent continues): And because it does not reside in them (the parts), the whole does not exist.",
     commentary: "Continuation of the opponent's logical attack, concluding that since no coherent mode of inherence can be found, the concept of a macroscopic 'object' is incoherent.",
     keyPoints: [
@@ -792,7 +870,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "पृथक् च अवयवेभ्यः अवृत्तेः ॥",
     iast: "pṛthak ca avayavebhyaḥ avṛtteḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin"
+    ],
     translation: "(Opponent continues): And it does not exist separately from the parts (so it cannot be found anywhere else either).",
     commentary: "Closing off the last escape route for the realist: you can't say the 'Whole' exists floating around independently of the parts, because we never observe a 'pot' separate from its 'clay'. Since it can't exist in the parts, and can't exist apart from them, it doesn't exist.",
     keyPoints: [
@@ -805,7 +885,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "न च अवयवी अवयवाः ॥",
     iast: "na ca avayavī avayavāḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin"
+    ],
     translation: "(Opponent concludes): And the whole is certainly not (identical to) the parts (since 'one' is not 'many').",
     commentary: "The final nail in the opponent's argument: you cannot simply say 'the whole is just the parts', because they have different properties (the parts are many, the whole is one). Therefore, the 'Whole' is entirely a linguistic fiction.",
     keyPoints: [
@@ -818,7 +900,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "एकस्मिन् भेद-अभावात् भेद-शब्दप्रयोग-अनुपपत्तेः अप्रतिषेधः ॥",
     iast: "ekasmin bheda-abhāvāt bheda-śabdaprayoga-anupapatteḥ apratiṣedhaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): The objection is invalid, because terms implying division/difference ('entirety' or 'partially') cannot be applied to a single, unified entity, since it has no (inherent) divisions.",
     commentary: "The Naiyayika's brilliant counter-attack: The opponent's entire dilemma ('does it reside entirely or partially?') is a category mistake. The 'Whole' is, by definition, a single, newly created, unified entity. You cannot ask if a single, unified thing is divided among its locations. It simply inheres in its parts via the unique relation of 'Samavaya' (Inherence). The dilemma uses language inappropriate to the nature of a unified substance.",
     keyPoints: [
@@ -831,7 +916,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "अवयवान्तर-अभावे अपि अवृत्तेः अहेतुः ॥",
     iast: "avayavāntara-abhāve api avṛtteḥ ahetuḥ",
-    conceptIds: [],
+    conceptIds: [
+      "avayavin"
+    ],
     translation: "Even if there were no other parts, the argument that 'it does not reside' would be invalid.",
     commentary: "Further logical defense: the reality of the 'Whole' as a unique entity does not depend on spatial distribution puzzles. Its existence is proved by our direct, unified perception of it (we see 'a pot', not 'a swarm of atoms'). Perception trumps linguistic puzzles.",
     keyPoints: [
@@ -844,7 +931,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "केश-समूहे तैमिरिकोपलब्धिवत् तदुपलब्धिः ॥",
     iast: "keśa-samūhe taimirikopalabdhivat tadupalabdhiḥ",
-    conceptIds: [],
+    conceptIds: [
+      "pratyaksha",
+      "shunyavada"
+    ],
     translation: "(Buddhist Idealist Objection): The perception of that (apparent 'whole') is like the perception of a mass of hair by someone suffering from an eye disease (timira) (i.e., it is an optical illusion of a unified thing where there is only a loose aggregate).",
     commentary: "The opponent tries a new analogy for Idealism: a person with a specific eye defect looks at empty space and hallucinates a unified 'ball of hair'. Similarly, the opponent argues, normal humans look at a swarm of disconnected atoms and hallucinate a unified 'pot'. The whole is just a cognitive error.",
     keyPoints: [
@@ -857,7 +947,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of the Whole against Idealism/Nihilism (Avayavin-Siddhi Pariksha)",
     devanagari: "स्वविषयानतिक्रमेण इन्द्रियस्य पटुमन्दभावात् विषयग्रहणस्य तथाभावः, न अ-विषये प्रवृत्तिः ॥",
     iast: "svaviṣayānatikrameṇa indriyasya paṭumandabhāvāt viṣayagrahaṇasya tathābhāvaḥ, na a-viṣaye pravṛttiḥ",
-    conceptIds: [],
+    conceptIds: [
+      "pratyaksha",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): A sense organ, whether sharp or dull, operates strictly within its own specific domain; it grasps its object accordingly, but it never operates on what is NOT its object (i.e., illusions are misinterpretations of real data, not hallucinations out of nothing).",
     commentary: "A profound epistemological defense of realism: Even an illusion requires a real basis. A defective eye might blur many real, distinct hairs into a fuzzy 'ball', but it is still seeing REAL hairs. The senses can be distorted (blurriness), but they cannot conjure entirely new categories of existence out of the void. Therefore, our universal perception of 'wholes' must be grounded in reality, not total fabrication.",
     keyPoints: [
@@ -911,7 +1004,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of Atoms (Paramanu-Siddhi Pariksha)",
     devanagari: "आकाश-व्यतिभेदात् तदनुपपत्तिः ॥",
     iast: "ākāśa-vyatibhedāt tadanupapattiḥ",
-    conceptIds: [],
+    conceptIds: [
+      "paramanu"
+    ],
     translation: "(Buddhist Objection): This (indivisible atom) is impossible, because ether/space (akasha) permeates it.",
     commentary: "A sophisticated Buddhist objection against the concept of a solid, partless atom: Space (akasha) is universally pervasive. Therefore, space must permeate the inside and outside of the 'atom'. If something has an 'inside' and an 'outside' permeated by space, it has dimensions and parts. Therefore, it is divisible, and the 'partless atom' is a myth.",
     keyPoints: [
@@ -924,7 +1019,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of Atoms (Paramanu-Siddhi Pariksha)",
     devanagari: "आकाशासर्वगतत्वं वा ॥",
     iast: "ākāśāsarvagatatvaṃ vā",
-    conceptIds: [],
+    conceptIds: [
+      "paramanu"
+    ],
     translation: "(Opponent continues): Or else, (if you claim the atom is solid and blocks space), you must admit that ether/space is not all-pervading (which contradicts your own Nyaya tenets).",
     commentary: "The opponent tightens the trap: You must either admit atoms have parts (destroying your atomism), or you must admit space doesn't go everywhere (destroying your cosmology).",
     keyPoints: [
@@ -937,7 +1034,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of Atoms (Paramanu-Siddhi Pariksha)",
     devanagari: "अन्तर्बहिः-शब्दाभेद-कारितत्वात् अहेतुः ॥",
     iast: "antarbahiḥ-śabdābheda-kāritatvāt ahetuḥ",
-    conceptIds: [],
+    conceptIds: [
+      "paramanu",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): This is a false argument, because the terms 'inside' and 'outside' are applicable only to (composite) products, not to simple substances.",
     commentary: "The Naiyayika slips the trap by pointing out a linguistic fallacy. Words like 'inside' and 'outside' only make sense for objects made of parts (like a cup). An atom, by definition, has no parts. Therefore, saying space is 'inside' an atom is grammatical nonsense. Space surrounds atoms, but does not 'permeate' them in a way that implies internal divisibility.",
     keyPoints: [
@@ -950,7 +1050,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Defense of Atoms (Paramanu-Siddhi Pariksha)",
     devanagari: "शब्द-संयोग-उत्पत्तेः च ॥",
     iast: "śabda-saṃyoga-utpatteḥ ca",
-    conceptIds: [],
+    conceptIds: [
+      "paramanu"
+    ],
     translation: "And also because sound and conjunction are produced (everywhere, proving space is all-pervading, without contradicting the solidity of atoms).",
     commentary: "Gautama reaffirms that space (akasha) IS all-pervading (because sound, which travels in space, can occur anywhere). But this omnipresence of space does not require it to physically 'slice open' partless atoms. The two doctrines are perfectly compatible.",
     keyPoints: [
@@ -977,7 +1079,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Refutation of Absolute Subjective Idealism (Vijnanavada Pariksha)",
     devanagari: "मूर्तिमत्-संस्थानात् उपपत्तेः च ॥",
     iast: "mūrtimat-saṃsthānāt upapatteḥ ca",
-    conceptIds: [],
+    conceptIds: [
+      "shunyavada"
+    ],
     translation: "(Objection, from Vijnanavada / Subjective Idealism): (Even if atoms existed), the perception of form/shape is justified (purely as a mental projection, like a dream), because it appears as having limited corporeal form.",
     commentary: "Having failed to defeat realism logically, the Buddhist opponent shifts to the Yogacara (Vijnanavada) position of Subjective Idealism: Even if atoms exist 'out there', what we actually experience are just internal mental states (ideas). Waking life is exactly like a dream; the mind projects the shapes of pots and trees, and there is no proof an external world matches our internal movie.",
     keyPoints: [
@@ -1003,7 +1107,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Refutation of Absolute Subjective Idealism (Vijnanavada Pariksha)",
     devanagari: "स्वप्न-विषय-अभिमानवत् अयं प्रमाण-प्रमेय-अभिमानः ॥",
     iast: "svapna-viṣaya-abhimānavat ayaṃ pramāṇa-prameya-abhimānaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "shunyavada"
+    ],
     translation: "(Idealist Objection): The notion of 'instruments of knowledge' and 'objects of knowledge' is just a false conceit, exactly like the notion of objects seen in a dream.",
     commentary: "The Idealist bites the bullet and doubles down: Yes, even the rules of logic and debate are just part of the dream. Just as I can have a 'logical' argument with a dream-character while asleep, our current debate is just a complex hallucination. There is no external reality.",
     keyPoints: [
@@ -1016,7 +1122,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "Refutation of Absolute Subjective Idealism (Vijnanavada Pariksha)",
     devanagari: "स्मृति-सङ्कल्पवत् च स्वप्नविषयाभिमानः ॥",
     iast: "smṛti-saṅkalpavat ca svapnaviṣayābhimānaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "shunyavada",
+      "siddhanta"
+    ],
     translation: "(Nyaya Reply): The false conceit of objects in a dream is actually similar to memory and imagination (which require prior waking experience of real things).",
     commentary: "The Naiyayika brilliantly deconstructs the dream analogy. Dreams are not created out of nothing; they are remixes of things we have actually experienced in the real, waking world. You cannot dream of a blue elephant unless you have experienced 'blue' and 'elephant' in objective reality. Therefore, the existence of dreams PROVES the existence of a prior, external, real world.",
     keyPoints: [
@@ -1043,7 +1152,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "The Method of Cultivating True Knowledge (Tatva-Jnana-Vivrddhi Pariksha)",
     devanagari: "बुद्धेः उत्पत्तिविनाश-योगात् अहेतुः ॥",
     iast: "buddheḥ utpattivināśa-yogāt ahetuḥ",
-    conceptIds: [],
+    conceptIds: [
+      "apavarga",
+      "abhyasa"
+    ],
     translation: "(Objection regarding the maintenance of knowledge): (If true knowledge is just a cognition), it is an invalid means (to eternal liberation), because cognitions are subject to arising and disappearing (so the knowledge will fade and bondage will return).",
     commentary: "A practical objection arises: Okay, I achieve a flash of 'True Knowledge'. But you (Nyaya) proved in Book 3 that all cognitions (buddhi) are fleeting and momentary. If my 'true knowledge' vanishes a second later, won't I just fall right back into ignorance and bondage?",
     keyPoints: [
@@ -1069,7 +1181,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "The Method of Cultivating True Knowledge (Tatva-Jnana-Vivrddhi Pariksha)",
     devanagari: "न, अर्थविशेष-प्राबल्यात् ॥",
     iast: "na, arthaviśeṣa-prābalyāt",
-    conceptIds: [],
+    conceptIds: [
+      "samadhi"
+    ],
     translation: "(Objection): No (meditation won't work), because of the overwhelming power of specific external sense-objects (which will forcibly break the meditator's concentration).",
     commentary: "A cynical objection about human frailty: You can sit in meditation all you want, but if a loud noise happens or a highly desirable object appears, your senses will instinctively react, shattering your Samadhi. The external world is too loud for permanent concentration.",
     keyPoints: [
@@ -1082,7 +1196,9 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "The Method of Cultivating True Knowledge (Tatva-Jnana-Vivrddhi Pariksha)",
     devanagari: "क्षुदादिभिः प्रवर्त्तनात् च ॥",
     iast: "kṣudādibhiḥ pravarttanāt ca",
-    conceptIds: [],
+    conceptIds: [
+      "samadhi"
+    ],
     translation: "(Objection continues): And also because a person is forcibly driven to act by hunger, thirst, and the like.",
     commentary: "Further cynicism: Even if you go to a quiet cave, your own biological drives (hunger, thirst, pain) will forcibly drag your mind out of Samadhi and back into the suffering of the body. Absolute concentration is a biological impossibility.",
     keyPoints: [
@@ -1095,7 +1211,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "The Method of Cultivating True Knowledge (Tatva-Jnana-Vivrddhi Pariksha)",
     devanagari: "पूर्वकृत-फल-अनुबन्धात् तत्-उत्पत्तिः ॥",
     iast: "pūrvakṛta-phala-anubandhāt tat-utpattiḥ",
-    conceptIds: [],
+    conceptIds: [
+      "karma",
+      "phala"
+    ],
     translation: "(Nyaya Reply): That (distraction by hunger or objects) occurs as a consequence of the fruits of past actions (karma) (and is precisely what the practice is designed to eventually exhaust).",
     commentary: "The Naiyayika acknowledges the difficulty but frames it within the system: Yes, distractions and biological pains will happen, because you are currently burning off past karma. But this doesn't invalidate the practice; it just means the practice takes time and persistent effort to overcome those karmic echoes.",
     keyPoints: [
@@ -1121,7 +1240,10 @@ export const nyayaSutrasBook4En: NyayaSutra[] = [
     section: "The Method of Cultivating True Knowledge (Tatva-Jnana-Vivrddhi Pariksha)",
     devanagari: "अपवर्गे अपि एवम् प्रसङ्गः ॥",
     iast: "apavarge api evam prasaṅgaḥ",
-    conceptIds: [],
+    conceptIds: [
+      "apavarga",
+      "moksha"
+    ],
     translation: "(Objection): If (liberation requires this constant effort), then the same necessity (for effort) would apply even in the state of Final Liberation (making it not true liberation).",
     commentary: "An objector raises a paradox: If keeping the mind quiet requires constant, exhausting Yogic effort, then won't you have to keep struggling even after you achieve Moksha? If it's a constant struggle, it isn't true liberation.",
     keyPoints: [

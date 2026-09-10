@@ -913,5 +913,833 @@ export const nyayaSutrasBook2En: NyayaSutra[] = [
       "Trust in scripture is fundamentally a trust in the compassion, expertise, and reliability of its source (the Āpta).",
       "Concludes the first chapter of Book 2."
     ]
+  },
+  {
+    id: "2.2.1",
+    number: "2.2.1",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["pramana-vibhaga-parisamkhya", "purvapaksha"],
+    translation: "The number of instruments of right cognition cannot be only four, since tradition, presumption, deduction and antithesis are also instruments of cognition.",
+    commentary: "The objector (voicing the Paurāṇika eight-pramāṇa view, or an honest doubter who has seen others posit them) attacks Sūtra 1.1.3: four more instruments deserve separate mention — aitihya (tradition, 'so they say' from an unknown speaker), arthāpatti (presumption), sambhava (deduction/inclusion) and abhāva (antithesis/negation). If these cognize truly, Gautama's fourfold list is incomplete.",
+    keyPoints: [
+      "Aitihya, arthāpatti, sambhava and abhāva are proposed as four further pramāṇas.",
+      "This opens Ahnika 2: after defining the four, their exact number must be defended."
+    ]
+  },
+  {
+    id: "2.2.2",
+    number: "2.2.2",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["pramana-vibhaga-parisamkhya", "siddhanta"],
+    translation: "Tradition and the rest are already included among the instruments stated (in Sūtra 1.1.3), so they need no separate mention.",
+    commentary: "Gautama's reply: the four newcomers have no subject-matter apart from perception and the rest, and whatever true cognition they yield is already covered — tradition from a known reliable source just is verbal testimony (1.1.7–8). With no distinct object and no distinct purpose, they cannot be distinct instruments.",
+    keyPoints: [
+      "The four proposed instruments lack any subject beyond the four stated ones.",
+      "Inclusion, not addition: what is covered needs no fresh category."
+    ]
+  },
+  {
+    id: "2.2.3",
+    number: "2.2.3",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["anvaya-vyatireki-trividha", "purvapaksha"],
+    translation: "(Objection): Presumption cannot be a true instrument of right cognition, since it is not invariably true — from 'no rain without clouds' one presumes 'rain with clouds,' yet clouds often come with no rain.",
+    commentary: "The objector turns on arthāpatti: implication fails the invariability test. The stock example — 'there is no rain when there are no clouds' implying 'there is rain when there are clouds' — is refuted by experience: cloudy, rainless days are common. An uncertain instrument is no pramāṇa.",
+    keyPoints: [
+      "Arthāpatti is charged with uncertainty via the rain-cloud counterexample.",
+      "If implication can misfire, it cannot certify truth."
+    ]
+  },
+  {
+    id: "2.2.4",
+    number: "2.2.4",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["anvaya-vyatireki-trividha", "siddhanta"],
+    translation: "There is no uncertainty in presumption; the appearance of uncertainty comes from mistaking what is not presumption for presumption.",
+    commentary: "Gautama's defence: genuine arthāpatti infers the effect's absence from the cause's absence ('when the cause is absent the effect does not appear'), which never fails. The rain example misfires only because clouds are not the sole cause of rain — the fault lies in a bad premise, not in presumption itself.",
+    keyPoints: [
+      "True presumption (absent cause, absent effect) is indefeasible.",
+      "The rain counterexample mistakes a partial cause for a sufficient one."
+    ]
+  },
+  {
+    id: "2.2.5",
+    number: "2.2.5",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["siddhanta", "tarka"],
+    translation: "Further, the denial itself is invalid, being uncertain and not universally true.",
+    commentary: "A self-refutation move: the objector's denial ('presumption is no pramāṇa, being uncertain') denies only that presumption is a pramāṇa, not that presumption exists. By admitting some true presumption while calling presumption uncertain, the denial is itself non-universal — and an uncertain denial cannot deny anything.",
+    keyPoints: [
+      "The denial admits what it attacks: some presumption stands true.",
+      "An uncertain denial is too weak to disqualify its target."
+    ]
+  },
+  {
+    id: "2.2.6",
+    number: "2.2.6",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["siddhanta"],
+    translation: "If the denial is valid, there can be no invalidity in presumption.",
+    commentary: "The screw tightens: a denial is 'certain' only relative to its subject. Presumption's subject is the invariable link 'no effect without cause' — never violated in experience. So if the objector's denial is certain about anything, it confirms the very concomitance presumption rests on, and presumption stands validated.",
+    keyPoints: [
+      "Certainty about the denial's own subject concedes concomitance.",
+      "Valid denial would prove, not disprove, presumption's ground."
+    ]
+  },
+  {
+    id: "2.2.7",
+    number: "2.2.7",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["sarva-abhava", "purvapaksha"],
+    translation: "(Objection against antithesis): It cannot be a valid instrument of cognition, since there is nothing that can be its object.",
+    commentary: "Having failed against presumption, the objector attacks abhāva: an instrument needs an object, and 'absence' is nothing — the word 'cow' cognizes no horse, so an instrument with no object cognizes nothing. Negation, having no object, cannot be a pramāṇa.",
+    keyPoints: [
+      "Abhāva is charged with objectlessness.",
+      "What has no object cannot be an instrument of cognition."
+    ]
+  },
+  {
+    id: "2.2.8",
+    number: "2.2.8",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["sarva-abhava", "siddhanta"],
+    translation: "Certain marked things being present, the unmarked are recognized by the absence of the mark — so negation does bring about cognition.",
+    commentary: "The reply gives the stock Nyāya example: asked to 'bring the unmarked cloths' from a pile of marked and unmarked pieces, a man picks them out precisely by not-seeing the mark. Since a pramāṇa is whatever brings about cognition, negation that guides successful action is a pramāṇa — absorbed within the four, not a fifth.",
+    keyPoints: [
+      "The unmarked-cloth case: absence successfully directs action.",
+      "Whatever produces cognition counts as an instrument of cognition."
+    ]
+  },
+  {
+    id: "2.2.9",
+    number: "2.2.9",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["sarva-abhava", "purvapaksha"],
+    translation: "(Objection): If it be urged that when the thing is non-existent there can be no antithesis of it — the thing must exist elsewhere for its negation to make sense.",
+    commentary: "The objector presses: negation presupposes its counterpositive somewhere — to negate marks in the unmarked cloth, marks must exist (in the marked ones). So-called 'cognition by absence' really rides on presence elsewhere, and abhāva adds nothing of its own.",
+    keyPoints: [
+      "Negation seems parasitic on presence elsewhere.",
+      "If absence needs its counterpositive, it is no independent instrument."
+    ]
+  },
+  {
+    id: "2.2.10",
+    number: "2.2.10",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["sarva-abhava", "purvapaksha"],
+    translation: "(Objection continued): The presence of marks lies in the marked cloths, and antithesis cannot be of those present marks — to speak of negating what is present is self-contradictory.",
+    commentary: "Sharpening the point: where marks are present, their absence is inconceivable (contradiction in terms); where they never were, absence is equally inconceivable, since negation presupposes prior existence. Hence no conceivable antithesis, hence no pramāṇa.",
+    keyPoints: [
+      "Negating the present is contradictory; negating the never-present is baseless.",
+      "Either way, antithesis as an instrument collapses."
+    ]
+  },
+  {
+    id: "2.2.11",
+    number: "2.2.11",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["sarva-abhava", "siddhanta"],
+    translation: "This is not right, since cognition proceeds in view of the actual presence of the marks elsewhere.",
+    commentary: "Gautama clarifies: nobody negates marks where they are. Seeing marks in the marked cloths, one recognizes, in the others, 'the marks present there are not present here' — and fetches them. The idea of absence, caused by presence elsewhere, is all an instrument needs; actual absence need not 'exist' as a thing.",
+    keyPoints: [
+      "Absence elsewhere-present is enough to cognize absence here.",
+      "Only the idea of negation is required, not negation as an entity."
+    ]
+  },
+  {
+    id: "2.2.12",
+    number: "2.2.12",
+    section: "Ahnika 2, Section 1 — Exact Number of Pramāṇas",
+    conceptIds: ["sarva-abhava", "siddhanta"],
+    translation: "Again, the antithesis of a thing is possible even before it comes into existence.",
+    commentary: "The closing move distinguishes prior non-existence (prāgabhāva) from posterior non-existence (dhvaṃsa): the unmarked cloths' lack is prior absence, fully conceivable without prior presence. Destruction is not the only negation — so the objector's dilemma (presence vs never-presence) misses the third alternative that Nyāya actually uses.",
+    keyPoints: [
+      "Prior absence answers the dilemma: negation need not follow destruction.",
+      "With aitihya, arthāpatti, sambhava and abhāva absorbed, the four stand exact."
+    ]
+  },
+  {
+    id: "2.2.13",
+    number: "2.2.13",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["shabda", "anitya"],
+    translation: "Sound is non-eternal: because it has a cause, because it is apprehended through a sense-organ, and because it is conceived and spoken of as a product.",
+    commentary: "After securing śabda as a pramāṇa, its vehicle must be examined — for if the Veda is eternal, its reliability is suspect (no traceable author). Four views are tabled: Mīmāṃsā (sound eternal, merely manifested), Sāṃkhya (sound latent in substances), Vaiśeṣika (sound produced and destroyed), Buddhist (sound a quality-less disturbance). Against the eternalists Gautama gives three reasons: caused, sensed, and called a product.",
+    keyPoints: [
+      "Four rival views on sound are tabled before adjudication.",
+      "Three reasons: caused, sense-apprehended, spoken of as made."
+    ]
+  },
+  {
+    id: "2.2.14",
+    number: "2.2.14",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "hetvabhasa", "purvapaksha"],
+    translation: "(Objection): These reasons prove nothing — the destruction of a jar is eternal though caused; community (sāmānya) is eternal though sensed; and eternal things like ākāśa and soul are spoken of as having parts, hence as non-eternal.",
+    commentary: "The eternalist counterattacks each premise with counterexamples: caused-yet-eternal (jar-destruction never undone), sensed-yet-eternal (the universal, grasped by senses), and called-non-eternal-yet-eternal ('part of ākāśa,' 'part of soul'). If premises admit exceptions, the inference to non-eternality fails.",
+    keyPoints: [
+      "Three counterexamples target the three premises in turn.",
+      "Jar-destruction, universals, and figurative 'parts' of the partless."
+    ]
+  },
+  {
+    id: "2.2.15",
+    number: "2.2.15",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "(Answer): The premises stand, since there is a clear distinction between the real (direct) and figurative (indirect) use of the term 'eternal.'",
+    commentary: "Gautama saves the premises by disambiguating 'eternal': really eternal means beginningless and endless. Jar-destruction has a beginning; 'part of ākāśa' is figurative (resemblance through non-pervasive contact, treated under Sūtras 16–17). No product resembling sound — caused and beginninged — meets true eternality, so 'what has a cause is non-eternal' holds.",
+    keyPoints: [
+      "'Eternal' really means beginningless and endless.",
+      "Jar-destruction begins; ākāśa's 'parts' are figurative speech."
+    ]
+  },
+  {
+    id: "2.2.16",
+    number: "2.2.16",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "Sense-apprehension is urged only as leading to the inference of a series of sounds — so the community counterexample misses its mark.",
+    commentary: "Against 'the universal is eternal yet sensed': Nyāya never claimed bare sensed-ness proves non-eternality. The claim is that sound's apprehension through sense-contact (prāpya) warrants inferring a series (santāna) of sounds — each heard sound preceded by another — which is incompatible with one eternal sound. The universal, apprehended without such contact-series, is untouched.",
+    keyPoints: [
+      "Sound-perception warrants inferring a series, not bare non-eternality.",
+      "The universal involves no such contact-born series."
+    ]
+  },
+  {
+    id: "2.2.17",
+    number: "2.2.17",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "Talk of 'parts of ākāśa' is purely figurative, grounded in resemblance through non-pervasive contact.",
+    commentary: "Continuing the reply: ākāśa is partless, yet 'part of ākāśa' is said because its contacts with partite things are non-pervasive — resembling partite things whose contacts likewise fail to pervade. Similarly sound, like contact, never pervades its whole substratum (not every sound is heard by all men). Figurative parthood refutes nothing.",
+    keyPoints: [
+      "Ākāśa's 'parts' mean non-pervasive contact, not composition.",
+      "Sound too never pervades its substratum."
+    ]
+  },
+  {
+    id: "2.2.18",
+    number: "2.2.18",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "Sound is non-existent before utterance, since it is not apprehended and no obstruction explains the non-apprehension.",
+    commentary: "A direct argument: how do we tell existence from non-existence? By apprehension. Before utterance sound is never apprehended — and none of the standard excuses (obstruction, distance, intervening medium) apply. Utterance (desire → effort → breath → throat-impact) cannot be a mere 'manifester' either, since conjunction cannot manifest. Hence unuttered sound simply does not exist.",
+    keyPoints: [
+      "Existence-test: apprehended means existent, unapprehended means not.",
+      "No obstruction accounts for pre-utterance silence — so nothing is there."
+    ]
+  },
+  {
+    id: "2.2.19",
+    number: "2.2.19",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection): As there is non-apprehension of the non-apprehension of obstruction, this proves the obstruction exists.",
+    commentary: "The eternalist fights back with second-order logic: you infer absence of obstruction from not perceiving one — but your non-apprehension of the obstruction's non-apprehension is itself unperceived, which by your own rule proves the obstruction DOES exist. The manifest-theory is saved: eternal sound, merely unmanifested before utterance.",
+    keyPoints: [
+      "A second-order twist: unperceived non-apprehension proves obstruction.",
+      "Eternal-but-unmanifest sound is declared rescued."
+    ]
+  },
+  {
+    id: "2.2.20",
+    number: "2.2.20",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection continued): Even granting non-apprehension of obstruction, its mere non-apprehension cannot prove absence.",
+    commentary: "The pressure continues: from 'obstruction is not apprehended' nothing follows about obstruction's existence — absence of evidence is not evidence of absence. So the Siddhāntin's bridge from silence to non-existence collapses, and eternal sound stands.",
+    keyPoints: [
+      "Absence of evidence is not evidence of absence.",
+      "The silence-to-nonexistence inference is challenged."
+    ]
+  },
+  {
+    id: "2.2.21",
+    number: "2.2.21",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "(Reply): Since this 'non-apprehension of obstruction' is really the negation of apprehension, the reason offered is untrue.",
+    commentary: "Gautama dissolves the wordplay: 'non-apprehension of obstruction' just means no apprehension occurred — a negation, not a positive entity requiring its own proof. The opponent's second-order proof demands what the Siddhānta never asserted, so Sūtras 19–20 miss their target entirely.",
+    keyPoints: [
+      "'Non-apprehension' names a negation, not a thing needing proof.",
+      "The second-order objection attacks a straw position."
+    ]
+  },
+  {
+    id: "2.2.22",
+    number: "2.2.22",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Opponent's fresh ground): Sound is eternal — because of intangibility, like ākāśa.",
+    commentary: "Ordered to produce positive reasons for eternality, the opponent offers intangibility: ākāśa is intangible and eternal, so sound, being intangible, is eternal too. Every concluded view needs its reason; here is the eternalist's.",
+    keyPoints: [
+      "The eternalist must now argue positively: intangibility implies eternality.",
+      "Ākāśa is the corroborating instance."
+    ]
+  },
+  {
+    id: "2.2.23",
+    number: "2.2.23",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "The reasoning fails, since motion — though intangible — is non-eternal.",
+    commentary: "First counterexample (sapakṣa-style reversal): motion shares the reason (intangibility) but lacks the probandum (eternality). Intangibility is therefore not invariably concomitant with eternality, and the inference breaks.",
+    keyPoints: [
+      "Motion is intangible yet admittedly non-eternal.",
+      "The reason lacks invariable concomitance."
+    ]
+  },
+  {
+    id: "2.2.24",
+    number: "2.2.24",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "The reasoning fails again, since the atom — though tangible — is eternal.",
+    commentary: "Second counterexample from the other side (vipakṣa): the atom shares tangibility with jars yet is eternal, so tangibility does not entail non-eternality either. Attacked from both directions, 'intangibility proves eternality' is doubly inconclusive.",
+    keyPoints: [
+      "The atom is tangible yet eternal.",
+      "Neither tangibility nor its absence tracks eternality."
+    ]
+  },
+  {
+    id: "2.2.25",
+    number: "2.2.25",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Opponent's next ground): Sound is eternal because it is imparted — what a teacher imparts to a pupil persists.",
+    commentary: "A fresh reason: teaching transmits the same sound from teacher to pupil, so sound must abide to be handed over. What is imparted is found constant; sound is imparted; hence sound is constant (eternal).",
+    keyPoints: [
+      "Teaching seems to hand over one abiding sound.",
+      "Imparted things persist — so sound persists."
+    ]
+  },
+  {
+    id: "2.2.26",
+    number: "2.2.26",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "This too fails, since no sound is found existing in the space between the two speakers.",
+    commentary: "The reply is empirical: if one identical sound traveled from teacher to pupil, it should be detectable midway — it never is. What is 'imparted' is not a persisting entity but a reproduced series; teaching transmits knowledge by causing fresh sounds, not by handing over an eternal one.",
+    keyPoints: [
+      "No sound is ever found mid-journey between speakers.",
+      "Teaching reproduces sounds; it does not transport one eternal sound."
+    ]
+  },
+  {
+    id: "2.2.27A",
+    number: "2.2.27A",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["shabda", "siddhanta"],
+    translation: "'Being taught' can mean two different things under the two views, so the argument misses its mark.",
+    commentary: "A precision ruling: 'taught' means reproduction of similar sounds for the non-eternalist, but transfer of one sound for the eternalist. Since the key term shifts meaning between the views, the opponent's 'imparted therefore eternal' equivocates and fails to engage the Siddhānta.",
+    keyPoints: [
+      "'Taught' is used in different senses by the two sides.",
+      "An equivocal reason proves nothing against either view."
+    ]
+  },
+  {
+    id: "2.2.28",
+    number: "2.2.28",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Opponent): Sound persists, because there is repetition — what is repeated is found to persist.",
+    commentary: "Backed into a corner on teaching, the opponent cites repetition: we say the same verse 'again,' so something persists through recitations. Repetition presupposes an abiding repeated thing — an eternal sound.",
+    keyPoints: [
+      "'Say it again' seems to presuppose one abiding sound.",
+      "Repetition implies persistence of the repeated."
+    ]
+  },
+  {
+    id: "2.2.29",
+    number: "2.2.29",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "Not so: 'repetition' is used figuratively where the things are different — as in 'dance twice, dance thrice.'",
+    commentary: "The reply distinguishes: 'again' often marks similar-but-different acts (two dances, two cookings), not one persisting entity. Recitation repeats similar sounds, not the same sound — figurative repetition, exactly like the figurative 'eternal' and 'parts' already exposed.",
+    keyPoints: [
+      "'Dance twice' repeats the act, not an eternal dance.",
+      "Recitation is similar sounds, not one sound twice-heard."
+    ]
+  },
+  {
+    id: "2.2.30",
+    number: "2.2.30",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "tarka"],
+    translation: "If there is no conception of the 'different,' there can be none of the 'non-different' — the two are mutually relative.",
+    commentary: "The opponent turns philosopher: your 'figurative repetition for different things' assumes 'different' is intelligible — but different is relative to non-different, which relative to different is circular. If 'different' collapses, so does your distinction between same-sound and similar-sounds, and figurative repetition with it.",
+    keyPoints: [
+      "Different and non-different are mutually relative concepts.",
+      "If one collapses, the figurative-repetition defence collapses too."
+    ]
+  },
+  {
+    id: "2.2.31",
+    number: "2.2.31",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "(Tu quoque): The opponent's own use of words like 'different' refutes him.",
+    commentary: "Gautama answers abuse with abuse: the objector who denies 'different' any meaning still uses the word 'different' to frame his denial (in Sūtra 30 itself). A word whose use he cannot avoid can hardly be meaningless — his own practice convicts his theory.",
+    keyPoints: [
+      "The objector cannot state his case without the word 'different.'",
+      "Use refutes the denial of meaning."
+    ]
+  },
+  {
+    id: "2.2.32",
+    number: "2.2.32",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "Sound must be eternal, since we perceive no cause for its destruction — whatever is non-eternal is destroyed by some observed cause, like a clod by scattering its particles.",
+    commentary: "A new eternalist ground: destruction always has a witnessed cause (hammer, scattering). No such cause is ever witnessed destroying sound; therefore sound is never destroyed — it is eternal. Absence of observed destroyer means absence of destruction.",
+    keyPoints: [
+      "Every observed destruction has an observed cause.",
+      "No destroyer of sound is ever observed — so sound is indestructible."
+    ]
+  },
+  {
+    id: "2.2.33",
+    number: "2.2.33",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "By the same logic, finding no cause for sound's not being heard, eternal sound should be heard always.",
+    commentary: "The tables turn: if unobserved destroyers prove eternity, then unobserved silencers prove perpetual audibility — yet sound is often unheard. The 'manifester' excuse has already been exploded (Sūtra 18), so causeless silence is as good as causeless destruction, and the opponent's principle convicts his own view.",
+    keyPoints: [
+      "No cause of silence is found either — so eternal sound should never fall silent.",
+      "The opponent's principle proves too much."
+    ]
+  },
+  {
+    id: "2.2.34",
+    number: "2.2.34",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "But in fact the cause of sound's destruction IS perceived — by inference — so the alleged non-apprehension is false and proves nothing.",
+    commentary: "Beyond tu quoque, the positive fact: sound's destruction-cause (loss of momentum, obstruction, distance) is regularly inferred from fading series — the bell's resonance dying by grades. A merely unperceived (but inferable) cause is no absence of cause, so Sūtra 32's premise is simply false.",
+    keyPoints: [
+      "Fading resonance exhibits its destroyer by grades.",
+      "An inferable cause is a perceived cause for Nyāya's purposes."
+    ]
+  },
+  {
+    id: "2.2.35",
+    number: "2.2.35",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection): No further cause like 'momentum' is ever perceived, so it cannot exist to destroy sound.",
+    commentary: "The eternalist denies the inferred destroyer: momentum (vega) behind the sound-series is never seen, and what is never perceived cannot be posited. Without momentum there is no series-mechanism, and the inferred destruction-cause dissolves.",
+    keyPoints: [
+      "Momentum is never perceived, so it cannot be invoked.",
+      "Without momentum the whole series account collapses."
+    ]
+  },
+  {
+    id: "2.2.36",
+    number: "2.2.36",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "If unperceived causes prove eternity, then sound-hearings — whose destruction-cause you also never show — must be eternal too.",
+    commentary: "Another turn of the screw: by the opponent's own rule ('no found destroyer means eternal'), each hearing of sound, having no exhibited destroyer, would abide forever as eternal. Since he will not accept eternal hearings, his rule stands condemned by his own application of it.",
+    keyPoints: [
+      "Hearings too lack exhibited destroyers — are they eternal?",
+      "The rule, applied evenly, yields absurdity."
+    ]
+  },
+  {
+    id: "2.2.37",
+    number: "2.2.37",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "The Sāṃkhya objection fails, since sound's substratum is intangible — resonance does not share the bell's substratum.",
+    commentary: "The Sāṃkhya argues from bell-ringing: resonance dies when the hand touches the bell, so sound must subsist where vibration does (air, not ākāśa). Gautama replies: sound is heard where no coloured, tangible thing is perceived, so its substratum must be intangible and all-pervading — ākāśa. The hand stops further sounds by removing their cause, not by touching sound's home.",
+    keyPoints: [
+      "Sound is heard with no tangible bearer in view.",
+      "The hand ends the series by removing its cause, not by touching sound."
+    ]
+  },
+  {
+    id: "2.2.38",
+    number: "2.2.38",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Sāṃkhya continued): Sound cannot be a quality of ākāśa, since it is manifested alongside colour and the rest as if in one aggregate.",
+    commentary: "The pressure continues: sound always shows up together with colour, touch and the rest, exactly like qualities sharing one substance (the Sāṃkhya's five-substance aggregate). If sound rode alone in ākāśa, why is it invariably manifested in company?",
+    keyPoints: [
+      "Sound is always manifested in company with other qualities.",
+      "Co-manifestation suggests co-substrateness, not lonely ākāśa."
+    ]
+  },
+  {
+    id: "2.2.39",
+    number: "2.2.39",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "shabda"],
+    translation: "Sound is of two kinds — letter-sounds and noise — and the coming discussion concerns letter-sounds like 'a' and 'ka.'",
+    commentary: "Gautama narrows the field: 'sound' covers both articulate letters and inarticulate noise (conch-blowing, thunder). The modification debate that follows targets letters — whether 'i' can become 'ya' — since only letters raise the eternality stakes for the Veda.",
+    keyPoints: [
+      "Letter-sounds versus noise: the debate narrows to letters.",
+      "Only letters matter for Vedic eternality."
+    ]
+  },
+  {
+    id: "2.2.40",
+    number: "2.2.40",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "Letters cannot undergo modification, since enlargement of the original cause should always bring corresponding enlargement in the modification.",
+    commentary: "First argument against letter-vikāra: genuine modifications track their causes (more clay, bigger pot). But letter-changes show no such proportion — 'i' to 'ya' involves no measurable more-or-less of any substrate. Without cause-proportion, there is no modification, only succession.",
+    keyPoints: [
+      "True modifications scale with their material cause.",
+      "Letter-changes show no such scaling — so no modification occurs."
+    ]
+  },
+  {
+    id: "2.2.41",
+    number: "2.2.41",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection): Modifications are in fact found smaller than, equal to, and larger than their base — the banyan outgrows its tiny seed.",
+    commentary: "The objector denies the proportion rule: nature flouts it everywhere — huge banyans from dust-like seeds, cocoanuts smaller than their palms. If real modifications ignore proportion, letters may too, and 'i' becoming 'ya' stands.",
+    keyPoints: [
+      "Banyans dwarf their seeds; cocoanuts shrink their palms.",
+      "Proportion is no law of modification."
+    ]
+  },
+  {
+    id: "2.2.41A",
+    number: "2.2.41A",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "hetvabhasa"],
+    translation: "(Answer): The opponent's reasoning has no valid probans at all — neither homogeneous nor heterogeneous to the example.",
+    commentary: "A logical kill: the banyan reasoning cites no proper hetu. A probans must be homogeneous with the example (as in 1.1.34) or heterogeneous (1.1.35); the objector's 'modifications vary' is neither, floating free of the syllogistic machinery. Fallacious in form, it proves nothing about letters.",
+    keyPoints: [
+      "The banyan argument states no well-formed reason.",
+      "Neither homogeneous nor heterogeneous probans is offered."
+    ]
+  },
+  {
+    id: "2.2.42",
+    number: "2.2.42",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "Not so: modifications always proceed from unequal bases and conform to them.",
+    commentary: "Substance replies: look closer and proportion holds — every modification conforms to its specific unequal base (gold to gold-forms, clay to clay-forms). The banyan's size comes from assistant causes (soil, water), not from disproportion with its seed. Letters, having no material base at all, cannot even enter this scheme.",
+    keyPoints: [
+      "Every modification conforms to its own specific base.",
+      "Letters have no material base to conform to."
+    ]
+  },
+  {
+    id: "2.2.43",
+    number: "2.2.43",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection): As substances diversely modify, so letters diversely modify — 'i' to 'ya' and the rest.",
+    commentary: "The objector insists on parity: grammar itself speaks of letter-modification (iko yaṇaci — 'i' becomes 'ya' before vowels). If substance-modification is real despite variety, letter-modification is real despite variety. Usage condemns the denial.",
+    keyPoints: [
+      "Grammar itself declares 'i' becomes 'ya.'",
+      "Parity with substances demands admitting letter-change."
+    ]
+  },
+  {
+    id: "2.2.44",
+    number: "2.2.44",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "That cannot be: the very character of modification is impossible for letters.",
+    commentary: "The flat denial: modification means a persisting substrate taking new form (gold to earring). Letters have no persisting bearer that could take form — each uttered letter is a fresh, momentary existent. Without a continuant, 'modification' is a misnomer for replacement.",
+    keyPoints: [
+      "Modification needs a persisting bearer taking new form.",
+      "Letters are momentary existents with no bearer to modify."
+    ]
+  },
+  {
+    id: "2.2.45",
+    number: "2.2.45",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "In fact, what has undergone modification can never revert to its original form — as curd never becomes milk again.",
+    commentary: "Irreversibility seals the point: real modifications (milk to curd) never run backward. Letter-alternations run freely both ways ('i'↔'ya' by context), which is exactly what modifications never do. Hence no modification.",
+    keyPoints: [
+      "Real modifications never revert; curd never re-becomes milk.",
+      "Letter-alternations reverse freely — so they are no modifications."
+    ]
+  },
+  {
+    id: "2.2.46",
+    number: "2.2.46",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection): Gold and ornaments DO revert — the earring melts back to gold — so irreversibility proves nothing.",
+    commentary: "Counterexample: gold cycles form to form and back. If genuine modifications revert, irreversibility cannot define modification, and the letter-alternations may be modifications after all.",
+    keyPoints: [
+      "Gold reverts from earring to lump and back.",
+      "Reversibility coexists with genuine modification."
+    ]
+  },
+  {
+    id: "2.2.46B",
+    number: "2.2.46B",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection): Since letterhood is never absent in either 'i' or 'ya,' letter-modification cannot be denied.",
+    commentary: "A subtler save: through every alternation, the universal 'letterhood' persists unchanged — that persisting something IS the bearer, and its changing specifications are the modification. With substrate secured, vikāra stands.",
+    keyPoints: [
+      "Letterhood persists through every 'i'/'ya' alternation.",
+      "The persisting universal supplies the missing bearer."
+    ]
+  },
+  {
+    id: "2.2.46C",
+    number: "2.2.46C",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "(Answer): A character subsists in what is endowed with generality, not in the generality itself.",
+    commentary: "The bearer gambit fails: earring-ness subsists in the gold thing, not in goldhood; likewise 'being ya' would have to subsist in a letter-thing, not in letterhood. A universal cannot bear a modification — only its locus can — and no letter-locus persists. So still no modification.",
+    keyPoints: [
+      "Characters inhere in things, never in universals.",
+      "Letterhood cannot serve as the modifying bearer."
+    ]
+  },
+  {
+    id: "2.2.47",
+    number: "2.2.47",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "Letters cannot be modifications either way: if eternal they cannot change, and if non-eternal they cannot persist as the constant factor.",
+    commentary: "The dilemma closes the modification debate: modification needs something abiding through change. Eternal letters cannot change at all; non-eternal letters perish each instant, leaving nothing to abide. Either way, vikāra of letters is impossible — only succession remains.",
+    keyPoints: [
+      "Eternal things cannot change; momentary things cannot abide.",
+      "Modification needs an abiding changer — letters supply none."
+    ]
+  },
+  {
+    id: "2.2.48",
+    number: "2.2.48",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection): Most eternal things lie beyond the senses, yet some eternal things are sensed — so sensed-ness proves nothing against letter-modification.",
+    commentary: "The objector retreats to epistemology: denied that sensed-ness refutes eternality (atoms? universals? are eternal yet sensed in some cases), the whole case against eternal letters wobbles. If eternals can be sensed, letters may be eternal modifiables after all.",
+    keyPoints: [
+      "Some eternal things are within sense-range.",
+      "Sensed-ness cannot convict letters of non-eternality."
+    ]
+  },
+  {
+    id: "2.2.49",
+    number: "2.2.49",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Objection): Even non-persistent letters may modify, exactly as they are apprehended.",
+    commentary: "A final save: why demand persistence? Letters are apprehended coming-and-going, and their 'modification' just is this apprehended alternation. Non-persistence is compatible with modification — modification simply means ordered replacement as perceived.",
+    keyPoints: [
+      "Letters are perceived alternating — that alternation IS modification.",
+      "Persistence is an invented requirement."
+    ]
+  },
+  {
+    id: "2.2.50",
+    number: "2.2.50",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "(Answer): If letters were modifiable they could not be eternal — and the alleged modification is never perceived together with its original.",
+    commentary: "Two kills: first, modifiability entails non-eternality, surrendering the eternalist game; second, no one ever perceives the 'original' letter alongside its 'modification' (no persisting i within ya), so the claim fails its own perception test — the very test the objector invoked.",
+    keyPoints: [
+      "Modifiable entails non-eternal — the eternalist loses either way.",
+      "No original is ever perceived persisting inside its modification."
+    ]
+  },
+  {
+    id: "2.2.51",
+    number: "2.2.51",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "In letter-changes there is no constancy as to original and modification — when 'dadhyatra' is used, the 't' has already ceased.",
+    commentary: "The killer example: in 'dadhi + atra → dadhyatra,' grammarians call 't' the original of 'y'-substitution — but the 't' no longer exists when 'y' sounds. With original and product never co-present, talk of one 'becoming' the other is empty; there is only cessation plus fresh utterance.",
+    keyPoints: [
+      "Original and product never co-exist to meet.",
+      "'Becoming' without meeting is mere succession."
+    ]
+  },
+  {
+    id: "2.2.52",
+    number: "2.2.52",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "purvapaksha"],
+    translation: "(Casuist): Since there is constancy in non-constancy, it is wrong to deny constancy.",
+    commentary: "Verbal judo: non-constancy itself is constant (always present in each case), so constancy exists after all — and with constancy restored, original-modification regularity stands. A paradox meant to collapse the Siddhāntin's denial.",
+    keyPoints: [
+      "Non-constancy is itself constant in every case.",
+      "So constancy exists — and the denial self-destructs."
+    ]
+  },
+  {
+    id: "2.2.53",
+    number: "2.2.53",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "siddhanta"],
+    translation: "(Answer): 'Constancy' and 'non-constancy' are contradictories, and constancy merely subsisting IN non-constancy refutes nothing.",
+    commentary: "The paradox dissolves: 'constancy' affirms, 'non-constancy' denies — contradictories cannot be synonyms. That constancy (as a word) applies to non-constancy no more makes non-constancy constant than calling a man 'lion' makes him one. Co-subsistence of both in one thing is what is impossible — and that is all Nyāya needs.",
+    keyPoints: [
+      "Affirmation and negation cannot be identified.",
+      "A constant word for inconstancy changes no fact."
+    ]
+  },
+  {
+    id: "2.2.54",
+    number: "2.2.54",
+    section: "Ahnika 2, Section 2 — Non-eternality of Sound",
+    conceptIds: ["anitya", "shabda"],
+    translation: "Apparent letter-modification is really substitution in six forms: fresh properties, suppression, diminution, increase, curtailment and coalescence.",
+    commentary: "The positive account: so-called vikāra is ādeśa (substitution) — one cognate letter used on another's cessation. Low accent for high (fresh property), dropping a form (suppression), short for long (diminution), long/prolated for short (increase), 'stah' for 'asti' (curtailment), augments (coalescence). Substitution explains everything modification pretended to.",
+    keyPoints: [
+      "Six substitution-forms cover every alleged modification.",
+      "Letters are replaced, never transformed."
+    ]
+  },
+  {
+    id: "2.2.55",
+    number: "2.2.55",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "siddhanta"],
+    translation: "These same letters, ending in an affix, are called a 'word.'",
+    commentary: "The bridge to the final inquiry: after establishing what letters are (non-eternal, substitutable), Gautama defines pada — letters terminating in an affix (vibhakti/pratyaya). Wordhood is a structural fact about letter-sequences, setting up the question of what words denote.",
+    keyPoints: [
+      "A word is letters terminating in an affix.",
+      "Structure defined, denotation questioned next."
+    ]
+  },
+  {
+    id: "2.2.56",
+    number: "2.2.56",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "samsaya"],
+    translation: "Doubt arises, since the word is used in reference to the individual, the configuration and the generality alike.",
+    commentary: "The puzzle: 'cow' brings cognition of the individual beast, its shape, and cowness — with no fixed predominance. Since usage points all three ways, which does the word denote? The doubt is genuine and shared, so inquiry is mandatory.",
+    keyPoints: [
+      "One word delivers individual, shape and universal together.",
+      "With no fixed predominance, denotation is genuinely doubtful."
+    ]
+  },
+  {
+    id: "2.2.57",
+    number: "2.2.57",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "purvapaksha"],
+    translation: "(Individualist): It is the individual that words denote — proved by ten usages: 'that which,' grouping, giving, possession, number, enlargement, contraction, colour, compounding and procreation.",
+    commentary: "The first theory: 'that cow which stands,' 'herd of cows,' 'give the cow,' 'Kauṇḍinya's cow,' 'ten cows,' 'the cow has grown,' 'white cow,' 'cow-welfare,' 'cows produce cows' — all require diverse, bodily, numerable, growing things. Only individuals qualify; the one unchanging universal cannot stand, be given, or multiply.",
+    keyPoints: [
+      "Ten usages demand diverse, bodily, countable bearers.",
+      "The one eternal universal can be none of these."
+    ]
+  },
+  {
+    id: "2.2.58",
+    number: "2.2.58",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "siddhanta"],
+    translation: "Not so: the individual cannot be denoted, since there could be no restriction.",
+    commentary: "The refutation: if 'cow' denoted individuals, hearing it would leave hearers adrift among infinite beasts with no rule of application — yet communication succeeds because the word restricts itself to cowness-bearers. Restriction (niyama) needs a repeatable ground, which bare individuals cannot supply.",
+    keyPoints: [
+      "Infinite individuals give the hearer no rule of application.",
+      "Successful restriction proves a repeatable ground is meant."
+    ]
+  },
+  {
+    id: "2.2.59",
+    number: "2.2.59",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "purvapaksha"],
+    translation: "(Individualist rejoinder): Brāhmaṇa-by-stick, platform-for-men, mat-for-sitting, king-for-rule — figurative uses need individuals too.",
+    commentary: "Counterattack: 'the Brāhmaṇa (with stick),' 'the platform shouts' (men on it), 'sit on the mat' (for sitting) — every secondary usage still terminates in individuals doing things. If even figurative meaning bottoms out in individuals, individuals must be what words fundamentally carry.",
+    keyPoints: [
+      "Figurative uses still terminate in acting individuals.",
+      "If the secondary needs individuals, so must the primary."
+    ]
+  },
+  {
+    id: "2.2.60",
+    number: "2.2.60",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "purvapaksha"],
+    translation: "(Configuration theory): It is the ākṛti — configuration — that words denote, since determining a thing's nature depends on it.",
+    commentary: "Second theory: what tells cow from horse is arrangement of parts — the distinctive head, hoofs, dewlap disposure. Since exact determination (this is a cow) depends entirely on recognizing configuration, configuration must be the word's burden.",
+    keyPoints: [
+      "Cow-vs-horse is decided by arrangement of parts.",
+      "What determines reference must be the referent."
+    ]
+  },
+  {
+    id: "2.2.61",
+    number: "2.2.61",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "siddhanta"],
+    translation: "Configuration alone will not do: the washing enjoined for 'the cow' cannot be done to a clay cow possessing shape but no cowness.",
+    commentary: "The clay-cow refutation: ritual enjoins washing 'the cow' — a clay model has perfect bovine configuration yet no one washes it as a cow. Configuration without the universal fails to draw the word's use, so ākṛti alone cannot be the denotation.",
+    keyPoints: [
+      "A clay cow has the shape but draws none of the word's duties.",
+      "Shape without the universal fails to function as 'cow.'"
+    ]
+  },
+  {
+    id: "2.2.62",
+    number: "2.2.62",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "siddhanta"],
+    translation: "Nor is this answered by making recognition depend on configuration and individuality — that only restates the dependence.",
+    commentary: "Anticipating the patch ('generality is recognized THROUGH shape and individual, so they suffice'): dependence is not identity. That cowness is manifested via shape no more makes shape the denoted thing than a lamp's light makes the lamp the seen thing. The universal remains the necessary third term.",
+    keyPoints: [
+      "Manifestation through shape does not make shape the thing meant.",
+      "The lamp analogy: means of showing is not the thing shown."
+    ]
+  },
+  {
+    id: "2.2.63",
+    number: "2.2.63",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "siddhanta"],
+    translation: "In truth the individual, the configuration and the generality — all three — constitute the word's denotation, with shifting predominance.",
+    commentary: "The synthesis: 'cow' conveys the individual as predominant when connected with cowness ('bring the cow'), the universal as predominant when the individual merely individuates it. Usage shows all three at work — vyakti, ākṛti, jāti — each dominant in turn, none dispensable.",
+    keyPoints: [
+      "All three are denoted, with rotating predominance.",
+      "'Bring the cow' stresses the beast; 'cows are sacred' the universal."
+    ]
+  },
+  {
+    id: "2.2.64",
+    number: "2.2.64",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "siddhanta"],
+    translation: "The individual is the composite material body — receptacle of distinctive qualities, actions and their substance.",
+    commentary: "Details begin: vyakti is what is manifested (vyajyate) by the senses — a mūrti, a solidified composite, bearing its specific qualities (odour, taste, colour, touch, gravity, fluidity) and actions. Every substance is not an individual; only the concrete body qualifies.",
+    keyPoints: [
+      "Vyakti is the sense-manifested composite body.",
+      "Only concrete bodies, not every substance, count as individuals."
+    ]
+  },
+  {
+    id: "2.2.65",
+    number: "2.2.65",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "siddhanta"],
+    translation: "Configuration is what indicates the generality and its characteristics — nothing apart from arranged parts and their components.",
+    commentary: "Ākṛti defined: the definite disposition of particles (head-feet shape announcing 'cow') that signals the universal. It is no extra entity over parts-in-arrangement — yet where generality shows without arrangement (clay, gold, known by colour/taste), configuration simply plays no role.",
+    keyPoints: [
+      "Ākṛti is parts-in-definite-arrangement signalling the universal.",
+      "Where colour or taste signals instead, configuration drops out."
+    ]
+  },
+  {
+    id: "2.2.66",
+    number: "2.2.66",
+    section: "Ahnika 2, Section 3 — Denotation of Words",
+    conceptIds: ["shabda", "jati"],
+    translation: "Generality is the cause of comprehensive cognitions — bringing one same notion over diverse things.",
+    commentary: "The finale: jāti is what makes 'these are bowls' possible — one basis for a comprehensive (anuvṛtta) cognition across diversities, never serving to differentiate. 'Cook' shows comprehensiveness without jāti, so jāti is sufficient, defining condition of such cognition — not its every instance. Adhyāya II closes with meaning secured.",
+    keyPoints: [
+      "Jāti grounds the one-notion-over-many.",
+      "Adhyāya II ends: sound non-eternal, words meaningful, Veda trustworthy."
+    ]
   }
 ];

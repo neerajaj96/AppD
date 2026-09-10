@@ -2,8 +2,10 @@ export interface NyayaSutra {
   id: string;
   number: string;
   section: string;
-  devanagari: string;
-  iast: string;
+  // Optional: Adhyāya II Ahnika 2 entries (2.2.x, sourced from Jha Vol. 2
+  // English text) await Devanagari collation against the sutra manuscripts.
+  devanagari?: string;
+  iast?: string;
   diagramId?: string;
   conceptIds?: string[];
   translation: string;
