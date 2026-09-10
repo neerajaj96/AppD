@@ -36,82 +36,91 @@ import { adhyatmaUttaraConceptsEn } from './uttara-concepts-en';
 import { adhyatmaUttaraConceptsMl } from './uttara-concepts-ml';
 import { adhyatmaUttaraThread } from './uttara-thread';
 
-function makeText(
-  id: string,
-  title: string,
-  versesEn: any[],
-  versesMl: any[],
-  conceptsEn: any[],
-  conceptsMl: any[]
-): ClassicalText {
-  return buildClassicalText(
-    {
-      id,
-      title,
-      transliteratedTitle: title,
-      author: 'Vyāsa (Brahmāṇḍa Purāṇa)',
-      system: 'vedanta',
-      verseTerm: 'Verse'
-    },
-    { en: versesEn, ml: versesMl },
-    { en: conceptsEn, ml: conceptsMl }
-  );
-}
+// One system entry — "Adhyatma Ramayana" — assembled from seven
+// per-kāṇḍa source files (kept isolated per the data-layer law).
+// Verse ids are namespaced per kāṇḍa (e.g. "bala.1.9") so the single
+// compiled text never collides; display numbers/sections keep their
+// original canto form with the kāṇḍa name prefixed to the section.
 
-export const adhyatmaBalaText = makeText(
-  'adhyatma-bala', 'Adhyātma Rāmāyaṇa — Bāla Kāṇḍa',
-  adhyatmaBalaEn, adhyatmaBalaMl,
-  adhyatmaBalaConceptsEn, adhyatmaBalaConceptsMl
-);
-export const adhyatmaAyodhyaText = makeText(
-  'adhyatma-ayodhya', 'Adhyātma Rāmāyaṇa — Ayodhyā Kāṇḍa',
-  adhyatmaAyodhyaEn, adhyatmaAyodhyaMl,
-  adhyatmaAyodhyaConceptsEn, adhyatmaAyodhyaConceptsMl
-);
-export const adhyatmaAranyaText = makeText(
-  'adhyatma-aranya', 'Adhyātma Rāmāyaṇa — Araṇya Kāṇḍa',
-  adhyatmaAranyaEn, adhyatmaAranyaMl,
-  adhyatmaAranyaConceptsEn, adhyatmaAranyaConceptsMl
-);
-export const adhyatmaKishkindhaText = makeText(
-  'adhyatma-kishkindha', 'Adhyātma Rāmāyaṇa — Kiṣkindhā Kāṇḍa',
-  adhyatmaKishkindhaEn, adhyatmaKishkindhaMl,
-  adhyatmaKishkindhaConceptsEn, adhyatmaKishkindhaConceptsMl
-);
-export const adhyatmaSundaraText = makeText(
-  'adhyatma-sundara', 'Adhyātma Rāmāyaṇa — Sundara Kāṇḍa',
-  adhyatmaSundaraEn, adhyatmaSundaraMl,
-  adhyatmaSundaraConceptsEn, adhyatmaSundaraConceptsMl
-);
-export const adhyatmaYuddhaText = makeText(
-  'adhyatma-yuddha', 'Adhyātma Rāmāyaṇa — Yuddha Kāṇḍa',
-  adhyatmaYuddhaEn, adhyatmaYuddhaMl,
-  adhyatmaYuddhaConceptsEn, adhyatmaYuddhaConceptsMl
-);
-export const adhyatmaUttaraText = makeText(
-  'adhyatma-uttara', 'Adhyātma Rāmāyaṇa — Uttara Kāṇḍa',
-  adhyatmaUttaraEn, adhyatmaUttaraMl,
-  adhyatmaUttaraConceptsEn, adhyatmaUttaraConceptsMl
-);
+const TEXT_ID = 'adhyatma-ramayana';
 
-export const adhyatmaTexts: ClassicalText[] = [
-  adhyatmaBalaText,
-  adhyatmaAyodhyaText,
-  adhyatmaAranyaText,
-  adhyatmaKishkindhaText,
-  adhyatmaSundaraText,
-  adhyatmaYuddhaText,
-  adhyatmaUttaraText
+const kandas: {
+  code: string;
+  name: string;
+  versesEn: any[];
+  versesMl: any[];
+  conceptsEn: any[];
+  conceptsMl: any[];
+  thread: any[];
+}[] = [
+  { code: 'bala', name: 'Bāla Kāṇḍa', versesEn: adhyatmaBalaEn, versesMl: adhyatmaBalaMl, conceptsEn: adhyatmaBalaConceptsEn, conceptsMl: adhyatmaBalaConceptsMl, thread: adhyatmaBalaThread },
+  { code: 'ayodhya', name: 'Ayodhyā Kāṇḍa', versesEn: adhyatmaAyodhyaEn, versesMl: adhyatmaAyodhyaMl, conceptsEn: adhyatmaAyodhyaConceptsEn, conceptsMl: adhyatmaAyodhyaConceptsMl, thread: adhyatmaAyodhyaThread },
+  { code: 'aranya', name: 'Araṇya Kāṇḍa', versesEn: adhyatmaAranyaEn, versesMl: adhyatmaAranyaMl, conceptsEn: adhyatmaAranyaConceptsEn, conceptsMl: adhyatmaAranyaConceptsMl, thread: adhyatmaAranyaThread },
+  { code: 'kishkindha', name: 'Kiṣkindhā Kāṇḍa', versesEn: adhyatmaKishkindhaEn, versesMl: adhyatmaKishkindhaMl, conceptsEn: adhyatmaKishkindhaConceptsEn, conceptsMl: adhyatmaKishkindhaConceptsMl, thread: adhyatmaKishkindhaThread },
+  { code: 'sundara', name: 'Sundara Kāṇḍa', versesEn: adhyatmaSundaraEn, versesMl: adhyatmaSundaraMl, conceptsEn: adhyatmaSundaraConceptsEn, conceptsMl: adhyatmaSundaraConceptsMl, thread: adhyatmaSundaraThread },
+  { code: 'yuddha', name: 'Yuddha Kāṇḍa', versesEn: adhyatmaYuddhaEn, versesMl: adhyatmaYuddhaMl, conceptsEn: adhyatmaYuddhaConceptsEn, conceptsMl: adhyatmaYuddhaConceptsMl, thread: adhyatmaYuddhaThread },
+  { code: 'uttara', name: 'Uttara Kāṇḍa', versesEn: adhyatmaUttaraEn, versesMl: adhyatmaUttaraMl, conceptsEn: adhyatmaUttaraConceptsEn, conceptsMl: adhyatmaUttaraConceptsMl, thread: adhyatmaUttaraThread },
 ];
 
+const codeByOldTextId: Record<string, string> = {
+  'adhyatma-bala': 'bala',
+  'adhyatma-ayodhya': 'ayodhya',
+  'adhyatma-aranya': 'aranya',
+  'adhyatma-kishkindha': 'kishkindha',
+  'adhyatma-sundara': 'sundara',
+  'adhyatma-yuddha': 'yuddha',
+  'adhyatma-uttara': 'uttara'
+};
+
+export const newVerseId = (code: string, oldId: string) => `${code}.${oldId}`;
+
+const allVersesEn = kandas.flatMap((k) =>
+  k.versesEn.map((v: any) => ({
+    ...v,
+    id: newVerseId(k.code, `${v.id}`),
+    section: `${k.name} · ${v.section}`
+  }))
+);
+
+const allVersesMl = kandas.flatMap((k) =>
+  k.versesMl.map((v: any) => ({
+    ...v,
+    id: newVerseId(k.code, `${v.id}`),
+    section: `${k.name} · ${v.section}`
+  }))
+);
+
+const allConceptsEn = kandas.flatMap((k) => k.conceptsEn);
+const allConceptsMl = kandas.flatMap((k) => k.conceptsMl);
+
+export const adhyatmaRamayanaText: ClassicalText = buildClassicalText(
+  {
+    id: TEXT_ID,
+    title: 'Adhyātma Rāmāyaṇa',
+    transliteratedTitle: 'Adhyātma Rāmāyaṇa',
+    author: 'Vyāsa (Brahmāṇḍa Purāṇa)',
+    system: 'vedanta',
+    verseTerm: 'Śloka'
+  },
+  { en: allVersesEn, ml: allVersesMl },
+  { en: allConceptsEn, ml: allConceptsMl }
+);
+
+// Legacy exports kept for reference; the system registers only the
+// single merged text above.
+export const adhyatmaTexts: ClassicalText[] = [adhyatmaRamayanaText];
+
 function makeThread(textId: string, steps: any[]): ThreadStep[] {
-  const en = steps.map((s: any) => ({
-    id: s.id,
-    conceptId: s.conceptId,
-    verseIds: s.verseIds,
-    title: s.content.en.title,
-    narrative: s.content.en.narrative
-  }));
+  const en = steps.map((s: any) => {
+    const code = codeByOldTextId[s.textId] ?? s.textId;
+    return {
+      id: s.id,
+      conceptId: s.conceptId,
+      verseIds: (s.verseIds ?? []).map((v: string) => newVerseId(code, `${v}`)),
+      title: s.content.en.title,
+      narrative: s.content.en.narrative
+    };
+  });
   const ml: Record<string, any> = {};
   steps.forEach((s: any) => {
     ml[s.id] = { title: s.content.ml.title, narrative: s.content.ml.narrative };
@@ -120,11 +129,11 @@ function makeThread(textId: string, steps: any[]): ThreadStep[] {
 }
 
 export const adhyatmaThread: ThreadStep[] = [
-  ...makeThread('adhyatma-bala', adhyatmaBalaThread),
-  ...makeThread('adhyatma-ayodhya', adhyatmaAyodhyaThread),
-  ...makeThread('adhyatma-aranya', adhyatmaAranyaThread),
-  ...makeThread('adhyatma-kishkindha', adhyatmaKishkindhaThread),
-  ...makeThread('adhyatma-sundara', adhyatmaSundaraThread),
-  ...makeThread('adhyatma-yuddha', adhyatmaYuddhaThread),
-  ...makeThread('adhyatma-uttara', adhyatmaUttaraThread)
+  ...makeThread(TEXT_ID, adhyatmaBalaThread),
+  ...makeThread(TEXT_ID, adhyatmaAyodhyaThread),
+  ...makeThread(TEXT_ID, adhyatmaAranyaThread),
+  ...makeThread(TEXT_ID, adhyatmaKishkindhaThread),
+  ...makeThread(TEXT_ID, adhyatmaSundaraThread),
+  ...makeThread(TEXT_ID, adhyatmaYuddhaThread),
+  ...makeThread(TEXT_ID, adhyatmaUttaraThread)
 ];
