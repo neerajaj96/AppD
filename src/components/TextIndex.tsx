@@ -1,149 +1,95 @@
-import { getSystemAccent } from '../utils/theme';
-import React, { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router';
 import { getText, getSystem } from '../content';
-import { Search, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
-import { searchVerses } from '../utils/searchIndex';
+import { BookOpen, Map as MapIcon, Sparkles, ChevronRight, ChevronDown } from 'lucide-react';
+import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
 import { getSystemDisplay } from '../i18n/systems';
 
+type Section = 'verses' | 'thread' | 'concepts' | null;
+
+// Text (subsystem) page: header plus three dropdown buttons —
+// Verses, Thread steps of this text, Concepts. All collapsed by
+// default; rows show titles only, no lengthy details.
 export default function TextIndex() {
   const { systemId, textId } = useParams();
   const { language } = useLanguage();
   const system = getSystem(systemId || '');
   const text = getText(systemId || '', textId || '');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeSection, setActiveSection] = useState<string>('all');
-  const [collapsedSections, setCollapsedSections] = useState<Set<string>>(new Set());
+  const [open, setOpen] = useState<Section>(null);
 
-  useEffect(() => {
-    setActiveSection('all');
-    setSearchQuery('');
-    setCollapsedSections(new Set());
-  }, [systemId, textId]);
-
-  const hasVerses = (text?.verses.length ?? 0) > 0;
-  const hasConcepts = (text?.concepts.length ?? 0) > 0;
-  const [activeTab, setActiveTab] = useState<'verses' | 'concepts'>('verses');
-
-  useEffect(() => {
-    setActiveTab(hasVerses ? 'verses' : 'concepts');
-  }, [systemId, textId, hasVerses]);
-
-  const toggleSection = (section: string) => {
-    setCollapsedSections((prev) => {
-      const next = new Set(prev);
-      if (next.has(section)) next.delete(section);
-      else next.add(section);
-      return next;
-    });
-  };
+  const threadSteps = useMemo(() => {
+    if (!system || !text) return [] as { step: (typeof system.thread)[number]; globalIndex: number }[];
+    return system.thread
+      .map((step, globalIndex) => ({ step, globalIndex }))
+      .filter(({ step }) => (step.textId || system.texts[0]?.id) === text.id);
+  }, [system, text]);
 
   if (!system || !text) {
     return <div className="text-center py-12">{t(language, 'textNotFound')}</div>;
   }
 
-  const showVerses = hasVerses && activeTab === 'verses';
+  const accent = getSystemAccent(system.id);
+  const systemDisplay = getSystemDisplay(system, language);
+  const hasVerses = text.verses.length > 0;
+  const hasConcepts = text.concepts.length > 0;
+  const toggle = (s: Exclude<Section, null>) => setOpen((cur) => (cur === s ? null : s));
 
-  // Canonical section order for Devi Mahatmya; any other text falls back
-  // to first-seen order. Grouping uses the existing Verse.section field —
-  // no schema change.
-  const SECTION_ORDER = useMemo(() => [
-    'Aṅga-Stotra: Devī Sūkta (Mūla-Upādāna)',
-    'Aṅga-Stotra: Devī Kavaca (Mātṛ-Anubhūti)',
-    'Aṅga-Stotra: Argala Stotra (Mātṛ-mukhī Gati)',
-    'Aṅga-Stotra: Kīlaka Stotra (Adhikāra-Nirṇaya)',
-    'Prathama Carita (Brahma-Granthi Bheda / Madhu-Kaiṭabha Vadha)',
-    'Madhyama Carita (Viṣṇu-Granthi Bheda / Mahiṣāsura Vadha)',
-    'Uttama Carita (Rudra-Granthi Bheda / Śumbha-Niśumbha Vadha)',
-  ], []);
+  const verseTermPlural = getVerseTerm(text, 2).toLowerCase();
+  const iconBox = 'flex items-center justify-center w-10 h-10 rounded-xl shrink-0';
 
-  const shortSectionLabel = (section: string) => {
-    if (section.includes('Sūkta') || section.includes('Sukta')) return language === 'ml' ? 'സൂക്തം' : 'Sūkta';
-    if (section.includes('Kavaca')) return language === 'ml' ? 'കവചം' : 'Kavaca';
-    if (section.includes('Argala')) return language === 'ml' ? 'അർഗല' : 'Argala';
-    if (section.includes('Kīlaka') || section.includes('Kilaka')) return language === 'ml' ? 'കീലകം' : 'Kīlaka';
-    if (section.includes('Prathama')) return language === 'ml' ? 'പ്രഥമ ചരിതം · അ1' : 'Prathama · Ch1';
-    if (section.includes('Madhyama')) return language === 'ml' ? 'മധ്യമ ചരിതം · അ2-4' : 'Madhyama · Ch2-4';
-    if (section.includes('Uttama')) return language === 'ml' ? 'ഉത്തമ ചരിതം · അ5-13' : 'Uttama · Ch5-13';
-    // Generic fallback for all other systems: take the leading part before
-    // any '—', ':', '(' or '|' separator, truncated to keep chips compact.
-    let short = section;
-    for (const sep of ['—', '-', ':', '(', '|']) {
-      if (sep === '-' && !/ - /.test(short)) continue;
-      const idx = short.indexOf(sep === '-' ? ' - ' : sep);
-      if (idx > 0) short = short.slice(0, idx).trim();
-    }
-    short = short.trim() || section;
-    return short.length > 28 ? `${short.slice(0, 27).trim()}…` : short;
-  };
+  const sections = [
+    ...(hasVerses
+      ? [
+          {
+            key: 'verses' as const,
+            icon: <BookOpen className="w-5 h-5" />,
+            title: `${getVerseTerm(text, text.verses.length)} (${text.verses.length})`,
+            desc: t(language, 'versesFunction'),
+            count: text.verses.length,
+          },
+        ]
+      : []),
+    ...(threadSteps.length > 0
+      ? [
+          {
+            key: 'thread' as const,
+            icon: <MapIcon className="w-5 h-5" />,
+            title: t(language, 'coreThread'),
+            desc: t(language, 'threadFunction'),
+            count: threadSteps.length,
+          },
+        ]
+      : []),
+    ...(hasConcepts
+      ? [
+          {
+            key: 'concepts' as const,
+            icon: <Sparkles className="w-5 h-5" />,
+            title: `${t(language, 'conceptsLabel')} (${text.concepts.length})`,
+            desc: t(language, 'conceptsFunction'),
+            count: text.concepts.length,
+          },
+        ]
+      : []),
+  ];
 
-  const orderedSections = useMemo(() => {
-    if (!hasVerses) return [] as string[];
-    const seen = Array.from(new Set(text.verses.map((v) => v.section || '')));
-    return seen.sort((a, b) => {
-      const ia = SECTION_ORDER.indexOf(a);
-      const ib = SECTION_ORDER.indexOf(b);
-      if (ia === -1 && ib === -1) return seen.indexOf(a) - seen.indexOf(b);
-      if (ia === -1) return 1;
-      if (ib === -1) return -1;
-      return ia - ib;
-    });
-  }, [hasVerses, text.verses, SECTION_ORDER]);
-
-  const sectionCounts = useMemo(() => {
-    const counts = new Map<string, number>();
+  const verseSections = useMemo(() => {
+    const seen: string[] = [];
     text.verses.forEach((v) => {
-      const key = v.section || '';
-      counts.set(key, (counts.get(key) || 0) + 1);
+      const s = v.section || '';
+      if (!seen.includes(s)) seen.push(s);
     });
-    return counts;
-  }, [text.verses]);
-
-  const searchedVerses = useMemo(() => {
-    if (!hasVerses) return [];
-    if (!searchQuery.trim()) return text.verses;
-    const rankedResults = searchVerses(searchQuery, { systemId: system.id, textId: text.id });
-    return rankedResults.map(r => r.item.verse);
-  }, [hasVerses, text.verses, searchQuery, system.id, text.id]);
-
-  const filteredVerses = useMemo(() => {
-    if (activeSection === 'all') return searchedVerses;
-    return searchedVerses.filter((v) => (v.section || '') === activeSection);
-  }, [searchedVerses, activeSection]);
-
-  const groupedVerses = useMemo(() => {
-    const groups = new Map<string, typeof filteredVerses>();
-    filteredVerses.forEach((v) => {
-      const key = v.section || '';
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key)!.push(v);
-    });
-    return orderedSections
-      .filter((s) => groups.has(s))
-      .map((s) => ({ section: s, verses: groups.get(s)! }));
-  }, [filteredVerses, orderedSections]);
-
-  const filteredConcepts = useMemo(() => {
-    if (!hasConcepts) return [];
-    if (!searchQuery.trim()) return text.concepts;
-    const q = searchQuery.toLowerCase();
-    return text.concepts.filter(c => {
-      const enTitle = c.content.en?.title?.toLowerCase() || '';
-      const enSummary = c.content.en?.summary?.toLowerCase() || '';
-      const mlTitle = c.content.ml?.title?.toLowerCase() || '';
-      const cat = c.category?.toLowerCase() || '';
-      return enTitle.includes(q) || enSummary.includes(q) || mlTitle.includes(q) || cat.includes(q);
-    });
-  }, [hasConcepts, text.concepts, searchQuery]);
-
-  const isMalayalam = language === 'ml';
-  const systemDisplay = system ? getSystemDisplay(system, language) : null;
+    return seen.map((s) => ({
+      section: s,
+      verses: text.verses.filter((v) => (v.section || '') === s),
+    }));
+  }, [text]);
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-500">
+    <div className="space-y-4 animate-in fade-in duration-500 max-w-3xl mx-auto pb-16">
       <div className="flex items-center text-sm text-sattva-dim mb-2 space-x-2">
         <Link to={`/system/${system.id}`} className="hover:text-rajas transition-colors">
           {systemDisplay?.title ?? system.title}
@@ -157,220 +103,109 @@ export default function TextIndex() {
           {text.transliteratedTitle}
         </h1>
         <p className="text-sattva-dim">
-          {text.author ? `${t(language, 'authorLabel')}: ${text.author} • ` : ''}
-          {hasVerses ? `${text.verses.length} ${getVerseTerm(text, text.verses.length).toLowerCase()}` : ''}
-          {hasVerses && hasConcepts ? ' • ' : ''}
-          {hasConcepts ? `${text.concepts.length} ${t(language, 'philosophicalConcepts')}` : ''}
+          {text.author ? `${t(language, 'authorLabel')}: ${text.author}` : ''}
         </p>
-
-        {hasVerses && hasConcepts && (
-          <div className="flex space-x-2 mt-4">
-            <button
-              id="tab-verses"
-              onClick={() => setActiveTab('verses')}
-              className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                activeTab === 'verses'
-                  ? 'bg-avyakta-4 text-sattva'
-                  : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
-              }`}
-            >
-              {getVerseTerm(text, text.verses.length)} ({text.verses.length})
-            </button>
-            <button
-              id="tab-concepts"
-              onClick={() => setActiveTab('concepts')}
-              className={`px-4 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                activeTab === 'concepts'
-                  ? 'bg-avyakta-4 text-sattva'
-                  : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
-              }`}
-            >
-              {t(language, 'conceptsLabel')} ({text.concepts.length})
-            </button>
-          </div>
-        )}
       </div>
 
-      <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-          <Search className="h-5 w-5 text-tamas" />
-        </div>
-        <input
-          type="text"
-          className="block w-full pl-10 pr-3 py-3 border border-tamas-deep rounded-lg focus:ring-rajas focus:border-rajas bg-avyakta-2"
-          placeholder={showVerses ? t(language, 'searchVersesPlaceholder', { term: getVerseTerm(text, 2).toLowerCase() }) : t(language, 'searchConceptsPlaceholder')}
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
-
-      {showVerses && orderedSections.length > 1 && (
-        <div className="space-y-2">
-          <div className="flex items-center justify-between">
-            <div className="text-xs font-semibold text-sattva-dim uppercase tracking-wider">
-              {t(language, 'browseBySection')}
-            </div>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setCollapsedSections(new Set())}
-                className="text-[11px] font-semibold text-sattva-dim hover:text-sattva hover:underline transition-colors"
-              >
-                {t(language, 'expandAll')}
-              </button>
-              <span className="text-tamas-deep">•</span>
-              <button
-                onClick={() => setCollapsedSections(new Set(orderedSections))}
-                className="text-[11px] font-semibold text-sattva-dim hover:text-sattva hover:underline transition-colors"
-              >
-                {t(language, 'collapseAll')}
-              </button>
-            </div>
-          </div>
-          <div className="flex flex-wrap gap-1.5">
+      {sections.map((s) => {
+        const isOpen = open === s.key;
+        return (
+          <section key={s.key} className="bg-avyakta-2 rounded-2xl border border-tamas-deep shadow-xs overflow-hidden">
             <button
-              onClick={() => setActiveSection('all')}
-              className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                activeSection === 'all'
-                  ? 'bg-avyakta-4 text-sattva'
-                  : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
-              }`}
+              onClick={() => toggle(s.key)}
+              className="w-full flex items-center gap-4 p-5 text-left hover:bg-avyakta transition-colors"
             >
-              {t(language, 'allVerses', { count: text.verses.length })}
+              <span className={iconBox} style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}>
+                {s.icon}
+              </span>
+              <span className="flex-1 min-w-0">
+                <span className="block text-lg font-serif font-bold text-sattva">
+                  {s.title}
+                  <span className="ml-2 text-sm font-sans font-medium text-sattva-dim">({s.count})</span>
+                </span>
+                <span className="block text-sm text-sattva-dim mt-0.5">{s.desc}</span>
+              </span>
+              <ChevronDown
+                className={`w-5 h-5 text-tamas shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+              />
             </button>
-            {orderedSections.map((section) => (
-              <button
-                key={section}
-                onClick={() => setActiveSection(section)}
-                className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                  activeSection === section
-                    ? 'bg-avyakta-4 text-sattva'
-                    : 'bg-avyakta-3 text-sattva-dim hover:bg-avyakta-4'
-                }`}
-                title={section}
-              >
-                {shortSectionLabel(section)} ({sectionCounts.get(section) || 0})
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
 
-      <div className="bg-avyakta-2 rounded-xl shadow-xs border border-tamas-deep overflow-hidden divide-y divide-tamas-deep">
-        {!showVerses ? (
-          filteredConcepts.length === 0 ? (
-            <div className="p-8 text-center text-sattva-dim">
-              {t(language, 'noConceptsFound', { query: searchQuery })}
-            </div>
-          ) : (
-            filteredConcepts.map((concept) => {
-              const activeContent = (isMalayalam && concept.content.ml) ? concept.content.ml : concept.content.en;
-              return (
-                <Link
-                  key={concept.id}
-                  to={`/system/${system.id}/text/${text.id}/concept/${concept.id}`}
-                  className="block p-5 hover:bg-avyakta/80 transition-colors"
-                >
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <h3 className="font-serif font-bold text-base text-sattva">
-                      {activeContent?.title || concept.id}
-                    </h3>
-                    {concept.category && (
-                      <span className="px-2 py-0.5 text-xs rounded-full bg-avyakta-3 text-sattva-dim font-medium">
-                        {concept.category}
-                      </span>
+            {isOpen && s.key === 'verses' && (
+              <div className="px-3 pb-3 space-y-4 border-t border-tamas-deep pt-3">
+                {verseSections.map((g) => (
+                  <div key={g.section || 'unsectioned'}>
+                    {g.section && verseSections.length > 1 && (
+                      <div className="text-xs font-semibold uppercase tracking-wider text-sattva-dim px-4 mb-1 truncate">
+                        {g.section}
+                      </div>
                     )}
-                  </div>
-                  {activeContent?.summary && (
-                    <p className="text-sm text-sattva-dim line-clamp-3 leading-relaxed">
-                      {activeContent.summary}
-                    </p>
-                  )}
-                  {(concept.relatedVerseIds?.length || concept.relatedConceptIds?.length) ? (
-                    <div className="mt-2 text-[11px] font-medium text-sattva-dim">
-                      {(concept.relatedVerseIds?.length || 0) > 0 && (
-                        <span>{t(language, 'linkedVerses', { count: concept.relatedVerseIds!.length, term: getVerseTerm(text, concept.relatedVerseIds!.length).toLowerCase() })}</span>
-                      )}
-                      {(concept.relatedVerseIds?.length || 0) > 0 && (concept.relatedConceptIds?.length || 0) > 0 && (
-                        <span> • </span>
-                      )}
-                      {(concept.relatedConceptIds?.length || 0) > 0 && (
-                        <span>{t(language, 'relatedConceptsCount', { count: concept.relatedConceptIds!.length })}</span>
-                      )}
+                    <div className="space-y-1">
+                      {g.verses.map((verse) => (
+                        <Link
+                          key={verse.id}
+                          to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
+                          className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors group"
+                        >
+                          <span className="text-sm font-semibold text-sattva tabular-nums shrink-0">
+                            {verse.number}
+                          </span>
+                          <ChevronRight className="w-4 h-4 text-tamas shrink-0 ml-auto group-hover:text-sattva transition-colors" />
+                        </Link>
+                      ))}
                     </div>
-                  ) : null}
-                </Link>
-              );
-            })
-          )
-        ) : (
-          filteredVerses.length === 0 ? (
-            <div className="p-8 text-center text-sattva-dim">
-              {t(language, 'noVersesFound', { query: searchQuery, term: getVerseTerm(text, 2).toLowerCase() })}
-            </div>
-          ) : (
-            groupedVerses.map((group) => {
-              const isCollapsed = collapsedSections.has(group.section) && !searchQuery.trim() && activeSection === 'all';
-              return (
-              <div key={group.section || 'unsectioned'}>
-                {(activeSection === 'all' || groupedVerses.length > 1) && group.section ? (
-                  <button
-                    onClick={() => toggleSection(group.section)}
-                    aria-expanded={!isCollapsed}
-                    className="w-full text-left px-5 pt-4 pb-3 bg-avyakta-3/50 hover:bg-avyakta-3 transition-colors flex items-center justify-between gap-3"
-                  >
-                    <span className="min-w-0">
-                      <span className="block text-sm font-serif font-bold text-sattva truncate">
-                        {shortSectionLabel(group.section)}
-                      </span>
-                      <span className="block text-xs font-semibold text-sattva-dim uppercase tracking-wider truncate mt-0.5">
-                        {group.section}
-                      </span>
-                      <span className="block text-[11px] text-sattva-dim mt-0.5">
-                        {group.verses.length} {getVerseTerm(text, group.verses.length).toLowerCase()} • {group.verses[0]?.number} → {group.verses[group.verses.length - 1]?.number}
-                      </span>
-                    </span>
-                    <span className="shrink-0 w-8 h-8 rounded-full bg-avyakta-2 border border-tamas-deep flex items-center justify-center text-sattva-dim">
-                      {isCollapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
-                    </span>
-                  </button>
-                ) : null}
-                {!isCollapsed &&
-                group.verses.map((verse) => {
-                  const activeTranslation = (isMalayalam && verse.content.ml?.translation)
-                    ? verse.content.ml.translation
-                    : verse.content.en?.translation;
+                  </div>
+                ))}
+              </div>
+            )}
 
+            {isOpen && s.key === 'thread' && (
+              <div className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
+                {threadSteps.map(({ step, globalIndex }) => {
+                  const content = step.content[language] ?? step.content.en;
                   return (
                     <Link
-                      key={verse.id}
-                      to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
-                      className="block p-5 hover:bg-avyakta transition-colors group"
+                      key={step.id}
+                      to={`/system/${system.id}/thread?step=${globalIndex + 1}`}
+                      className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors group"
                     >
-                      <div className="flex items-start">
-                        <div className="w-16 font-medium text-sattva-dim pt-1 shrink-0">
-                          {verse.number}
-                        </div>
-                        <div className="flex-1 space-y-2">
-                          <div className="text-sattva italic text-sm md:text-base leading-relaxed font-serif">
-                            {verse.iast}
-                          </div>
-                          {activeTranslation && (
-                            <div className="text-sattva-dim text-sm md:text-base line-clamp-2">
-                              {activeTranslation}
-                            </div>
-                          )}
-                        </div>
-                      </div>
+                      <span
+                        className="text-xs font-bold tabular-nums w-7 h-7 flex items-center justify-center rounded-lg shrink-0"
+                        style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}
+                      >
+                        {globalIndex + 1}
+                      </span>
+                      <span className="text-sm text-sattva truncate flex-1">
+                        {content?.title || step.id}
+                      </span>
+                      <ChevronRight className="w-4 h-4 text-tamas shrink-0 group-hover:text-sattva transition-colors" />
                     </Link>
                   );
                 })}
               </div>
-              );
-            })
-          )
-        )}
-      </div>
+            )}
+
+            {isOpen && s.key === 'concepts' && (
+              <div className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
+                {text.concepts.map((concept) => {
+                  const localized = concept.content[language] ?? concept.content.en;
+                  return (
+                    <Link
+                      key={concept.id}
+                      to={`/system/${system.id}/text/${text.id}/concept/${concept.id}`}
+                      className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors group"
+                    >
+                      <span className="text-sm text-sattva truncate">
+                        {localized?.title || concept.id}
+                      </span>
+                      <ChevronRight className="w-4 h-4 text-tamas shrink-0 group-hover:text-sattva transition-colors" />
+                    </Link>
+                  );
+                })}
+              </div>
+            )}
+          </section>
+        );
+      })}
     </div>
   );
 }
-
