@@ -9,6 +9,7 @@ import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { t } from './i18n/ui';
 
 const Home = lazy(() => import('./components/Home'));
+const Intro = lazy(() => import('./components/Intro'));
 const SystemDetail = lazy(() => import('./components/SystemDetail'));
 const TextIndex = lazy(() => import('./components/TextIndex'));
 const VerseDetail = lazy(() => import('./components/VerseDetail'));
@@ -38,6 +39,13 @@ function HeaderNav() {
         <Link to="/" className="text-xl font-serif font-bold tracking-tight text-sattva hover:text-sattva-dim transition-colors">
           {language === 'ml' ? 'ദർശന' : 'Darśana'}
         </Link>
+        <div className="flex items-center space-x-3">
+          <Link
+            to="/intro"
+            className="text-sm font-medium text-sattva-dim hover:text-sattva transition-colors"
+          >
+            {t(language, 'introTab')}
+          </Link>
         <div className="flex items-center space-x-1 bg-avyakta-3 p-1 rounded-lg border border-tamas-deep text-xs font-medium">
           <button
             onClick={() => setLanguage('en')}
@@ -60,6 +68,7 @@ function HeaderNav() {
             മലയാളം
           </button>
         </div>
+        </div>
       </div>
     </header>
   );
@@ -75,6 +84,7 @@ export default function App() {
             <Suspense fallback={<ScreenFallback />}>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/intro" element={<Intro />} />
                 <Route path="/system/:systemId" element={<SystemDetail />} />
                 <Route path="/system/:systemId/thread" element={<ThreadView />} />
                 <Route path="/system/:systemId/text/:textId" element={<TextIndex />} />

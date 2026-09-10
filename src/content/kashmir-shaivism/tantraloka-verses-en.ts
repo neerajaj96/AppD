@@ -657,5 +657,95 @@ export const tantralokaVersesEn: RawVerse[] = [
     "iast": "tasmād yena mukhenaiṣa bhāty anaṃśo 'pi tat tathā |\nśaktir ity eṣa vastv eva śaktitadvatkramaḥ sphuṭaḥ || 73 ||",
     "translation": "Therefore, whatever channel through which He — though without any real parts — manifests in this apparently divided way, that very channel itself is rightly called a 'power'. Thus, the relationship or sequence between power and its possessor is a plainly evident reality.",
     "commentary": "**Traditional Context**\nThis closes out the first main argument of the sub-section (vv.66cd-73). Abhinavagupta concludes: Śiva, in His true essential nature, has no actual parts or divisions (He is simply the light of consciousness). Yet whatever specific 'channel' or 'aspect' through which He becomes approachable or manifest (as a world-order, a form, a sound, and so on — recall the six-fold scheme from chunk 9) is properly called one of His 'powers'. The relationship between power (the means of approach) and its possessor (Śiva Himself, the ultimate goal) is therefore a real, workable, evident relationship — not a philosophical problem to be explained away.\n\n**Beginner Note**\nThis wraps up the whole argument of this stretch of verses: even though the deepest reality has no actual separate pieces, whatever specific 'doorway' or approach we use to reach it (an image, a sound, a practice) can rightly be called one of its 'powers' — a genuine, workable means of approaching something whole and undivided. So we can meaningfully talk about 'the means' and 'the goal' as two things in practice, even while, in the deepest sense, there's really only one undivided reality involved.\n\n**Syncretic Application**\nThis is a practically useful resolution for anyone working toward some deep goal through specific methods: you can treat your specific methods and tools as genuinely real and distinct 'means', useful and necessary in practice, even while recognizing that the underlying goal they all point toward is ultimately just one single thing. The practical distinction between method and goal doesn't have to contradict the deeper truth that they're not, in the end, separate."
+  },
+  {
+    "id": "TL-01-74",
+    "number": "1.74",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["pramana", "diksha"],
+    "translation": "Experience is a thought-construct of the mind — never of what lies beyond mind. How then can anyone initiate another into Śiva without having known Him?",
+    "commentary": "**Traditional Context**\nGaruda's objection, restated by Abhinavagupta in his own compressed words, presses the Kiraṇa debate to its practical point: if all mental experience is vikalpa, and Śiva is amanaska (beyond mind), then a teacher who has never fully known the principle cannot conjoin anyone to it by initiation. Knowing must be total — partial acquaintance through constructs does not qualify one to give dīkṣā.\n\n**Beginner Note**\nImagine a guide who has only read about a city but never walked it offering to lead you there blindfolded. The objector says spiritual initiation is exactly that, unless the teacher knows the goal directly rather than through ideas about it."
+  },
+  {
+    "id": "TL-01-75",
+    "number": "1.75",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["nirvikalpa", "suddha-vikalpa"],
+    "translation": "No indeed! The experience of hunger and the like is mental, yet certainly no thought-construct — and so Śiva, like hunger, can be inwardly experienced.",
+    "commentary": "**Traditional Context**\nThe Lord's reply turns the hunger analogy into doctrine: hunger is directly felt though never seen by outer senses, and feeling it involves no concept of hunger. Likewise Śiva is manaska (mentally experienced) without being a vikalpa — inward immediacy without discursive content. This founds the Trika claim that nirvikalpa-jñāna is genuine experience, not blankness.\n\n**Beginner Note**\nYou do not need the concept 'hunger' to feel hungry — the feeling arrives before and beneath the word. Śiva-awareness works the same way: a direct inner tasting that needs no label to be real."
+  },
+  {
+    "id": "TL-01-81",
+    "number": "1.81",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["gramadharma", "trika"],
+    "translation": "The venerable Triśiromata declares the imperishable nature of the entire group of principles: indeed, the Self alone is their own-nature identity.",
+    "commentary": "**Traditional Context**\nAbhinavagupta anchors the Trika in Siddhānta scripture: the tattva-grāma's dharma — what gives the whole group its life (prāṇada) — is not any contracted self but the supreme Self as svabhāva-ātman. Dharma here means life-bestowing essence (like cow-ness to cow), never lost, never disjoined. Common Saivism and esoteric Kaulism are thus joined at the root.\n\n**Beginner Note**\nThink of an orchestra: violins, drums and flutes differ, but one music gives them all life. The 'group' of reality's principles likewise lives by a single nature — the Self — which is why none of them ever falls outside it."
+  },
+  {
+    "id": "TL-01-82",
+    "number": "1.82",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["gramadharma", "hridaya"],
+    "translation": "The utterly subtle totality abiding in the Heart, in every body, and in each thing's own nature is called the 'group' of principles.",
+    "commentary": "**Traditional Context**\nGrāma is defined locationally three ways at once: hṛdaya (consciousness), sarva-deha (every body), svabhāva (each thing's specificity) — as universal without, particular within. 'Village' comes to mean the whole gamut of reality gathered home; its subtlety (susūkṣma) is indiscernibility by division, not smallness of size.\n\n**Beginner Note**\n'Group' here works like 'ecosystem': everywhere at once, in each creature particularly, yet too interwoven to cut apart. The totality is subtle the way a forest's aliveness is subtle — present in each tree, identical with none."
+  },
+  {
+    "id": "TL-01-85",
+    "number": "1.85",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["ramastha", "madhya-dhaman", "uccara"],
+    "translation": "Abandoning the upper and lower breaths, one should enter the Middle Channel — established in Rāma, dwelling in the middle place.",
+    "commentary": "**Traditional Context**\nRāmastha: interrupting prāṇa (upward) and apāna (downward), the yogī enters madhyamā nāḍī and abides in madhya-dhāman — the inner void subtle as a lotus fibre. Rāma is the supreme Self sporting as every sentient and insentient thing ('I delight not alone'); to be established in Him is to rest where breaths meet. Vijñānabhairava's centre-practice stands behind this verse.\n\n**Beginner Note**\nBetween each in-breath and out-breath there is a turning instant most people skip over. Resting attention exactly there — in the middle, belonging to neither side — is what 'established in Rāma' means in practice."
+  },
+  {
+    "id": "TL-01-88",
+    "number": "1.88",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["bhavana", "esoteric-japa"],
+    "translation": "Who with impurity-free mind meditates the supreme object on the plane of coming and going, checking memory alone, reaches Bhairava supreme — by mantra-repetition too.",
+    "commentary": "**Traditional Context**\nThe gamāgama-pada (the plane where things come and go) becomes the meditation ground: emptying memory (smṛtimātra-nirodha — since all thought is recollection of body, face, hands), the yogī contemplates the formless cause as one's own Self. Notably, japa works equally — unsustained intellect fixed without imagined limbs counts as dhyāna (Vijñānabhairava's definition quoted in support).\n\n**Beginner Note**\nStop narrating — drop the running commentary of memory — and rest on what is present when coming and going happen. Even simple repeated sacred sound, done this way, lands in the same place as deep meditation."
+  },
+  {
+    "id": "TL-01-90",
+    "number": "1.90",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["svatantrya", "upaya-upeya-bhava"],
+    "translation": "Here too, distinctions of means as farther or nearer their goal, conceived by His freedom, concern degrees of consciousness's freedom.",
+    "commentary": "**Traditional Context**\nAbhinavagupta heads off spiritual ranking anxiety: far/near, quick/slow means differ only as measures of citsvātantrya playing at self-limitation. Nearness is not a property of techniques but of freedom's own wave-height in the practitioner. All upāyas remain genuine; gradation describes intensity, never legitimacy.\n\n**Beginner Note**\nDifferent paths are not different distances from the goal the way roads differ in length — they are the same freedom choosing to walk faster or slower. A 'far' means sincerely practiced outperforms a 'near' means worn as identity."
+  },
+  {
+    "id": "TL-01-94",
+    "number": "1.94",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["bhairava", "pati"],
+    "translation": "God is taught through scriptural words whose meanings fit His nature: this great Bhairava, the Lord, who is supreme Śiva.",
+    "commentary": "**Traditional Context**\nThe etymology section opens with method: anvartha-śabdas — words whose grammar matches God's nature. Deva, Bhairava, Pati are not labels but compressed doctrines; to parse them (vyutpatti, nirukta, samavāyika) is already to contemplate Him. What follows (vv.95-105) unpacks each name as practice-manual.\n\n**Beginner Note**\nSacred names here work like packed suitcases — unpacking the word unpacks the reality. 'God' is not a tag but a thumbnail sketch of how things are."
+  },
+  {
+    "id": "TL-01-95",
+    "number": "1.95",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["bhairava", "samvit-devi"],
+    "translation": "Bhairava: who sustains the universe pouring from His own nature's screen, is sustained by it shining everywhere, and resounds as its very resonance.",
+    "commentary": "**Traditional Context**\nFirst etymology (bharaṇa + ravaṇa): He bears (bibharti) the universe adhering to His nature's screen and is borne by it shining as all things; He is cosmic resonance (rava) by nature of resounding (śabdana). Sustainer and sustained, sounder and sound — the first of seven readings (95-99) that make 'Bhairava' a complete theology: fear-helper, Heart-cry, grace-lucidity, time-devourers' lord, sense-goddesses' master, transmigration's annihilator.\n\n**Beginner Note**\nThe name means the one who carries everything and whom everything carries — like an ocean carrying waves that carry the ocean's own restlessness. Saying the name carefully is already a meditation on mutual holding."
+  },
+  {
+    "id": "TL-01-116",
+    "number": "1.116",
+    "section": "Ahnika 1",
+    "iast": "",
+    "conceptIds": ["pratibha", "samvit-devi"],
+    "translation": "The body of the one Lord of consciousness is His inner creative imagination — worshipped outwardly as the cycle of consciousness's waves, peaceful or wrathful.",
+    "commentary": "**Traditional Context**\nPratibhā defined: antarī pratibhā as svātantrya-śakti, worshipped as ūrmicakra (sarvavidyā-ūrmicakra) — peaceful (saumya) or wrathful (raudra) deity-cycles are Her limited forms. Lakshmanjoo's gloss stands behind this: pratibhā is conscious creative energy whose phases are the Goddess's activity; visualization, mantra-utterance and rite are its three operative modes in practice.\n\n**Beginner Note**\nImagination here is not fantasy but the power by which awareness shapes itself — the same power that dreams at night, invoked deliberately, becomes the deity-cycle worshipped by day. Inner and outer worship are one energy facing two ways."
   }
 ];

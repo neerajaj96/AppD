@@ -2130,5 +2130,49 @@ export const tantralokaConceptsEn: TantralokaConcept[] = [
     definition: "The culminating realization of Śāktopāya where the presence of thoughts (savikalpa) no longer disturbs the underlying thought-free awareness (nirvikalpa). Both are recognized as the exact same fluid energy of Śiva.",
     significance: "The yogi realizes they do not need to forcibly stop their mind to be free. The very movement of thought is experienced as the blissful pulsation (Spanda) of the Absolute.",
     relatedConcepts: ["vikalpa-samskara", "nirvikalpa", "spanda"]
+  },
+  {
+    id: "gramadharma",
+    sanskrit: "ग्रामधर्म",
+    iast: "grāmadharma",
+    english: "The Innate Nature of the Group",
+    forBeginners: "Think of an orchestra: violins, drums and flutes differ, but one music gives them all life. The 'group' of reality's principles likewise lives by a single nature — the Self — never disjoined from it, whether you look in the Heart, in every body, or in each thing's specificity.",
+    category: "Cosmology",
+    definition: "The imperishable life-bestowing essence (prāṇada dharma) of the entire group (grāma) of metaphysical principles (tattva): the supreme Self as their own-nature identity, abiding in the Heart, in all bodies, and in each thing's specific nature.",
+    significance: "Joins common Siddhānta Śaivism to esoteric Trika Kaulism at the root: the same Self enlivens the whole gamut of reality, everywhere universally and particularly. Practice reduces to staying immersed in it.",
+    relatedConcepts: ["kula", "tattva", "hridaya"]
+  },
+  {
+    id: "ramastha",
+    sanskrit: "रामस्थ",
+    iast: "rāmastha",
+    english: "Established in Rāma",
+    forBeginners: "Between each in-breath and out-breath there is a turning instant most people skip. Resting attention exactly there — in the middle, belonging to neither side, subtle as a lotus fibre — is what 'established in Rāma' means: Rāma being the Self sporting as everything.",
+    category: "Subtle Physiology",
+    definition: "Abiding in the Middle Channel (madhyamā nāḍī) and its central abode (madhya-dhāman) after interrupting exhalation and inhalation; established in Rāma, the supreme Self who delights as every sentient and insentient thing.",
+    significance: "The Trika's breath-centre practice (behind Vijñānabhairava's madhya-viśrānti): Rāma as both the goal-state and the method — the Self that plays as all things, rested in where breaths meet.",
+    relatedConcepts: ["madhya-dhaman", "uccara", "gramadharma"]
+  },
+  {
+    id: "anavopaya",
+    sanskrit: "आणवोपाय",
+    iast: "āṇavopāya",
+    english: "The Individual Means",
+    forBeginners: "When recognition hasn't dawned, you work with what the small self has: breath regulation, body postures, visualized focal points, mantra repetition, constructed meditation. These don't free you directly — they polish the mirror until recognition can flash in it.",
+    category: "Soteriology",
+    definition: "The third and most external of the three upāyas (with śāmbhava and śākta): means operating at the level of the contracted individual (aṇu) — uccāra, karaṇa, dhyāna, varṇa and sthāna-kalpanā — purifying the faculties toward sudden recognition.",
+    significance: "Validates gradual practice inside a system famous for suddenness: āṇava prepares what śākta empowers and śāmbhava is. All three attain the same goal (TA 1.226).",
+    relatedConcepts: ["sambhavopaya", "saktopaya", "anupaya", "uccara"]
+  },
+  {
+    id: "mala-traya",
+    sanskrit: "मलत्रय",
+    iast: "malatraya",
+    english: "The Three Impurities",
+    forBeginners: "Three layers of grime on the mirror of consciousness: feeling separate and small (āṇava), mistaking borrowed thoughts for your own light (māyīya), and the backlog of actions demanding results (kārma). Dīkṣā burns them in different measures — which is why masters grade initiation.",
+    category: "Soteriology",
+    definition: "Āṇava-mala (contracted self-sense), māyīya-mala (duality-constructs) and kārma-mala (karmic residue): the threefold impurity whose removal — partial or total — structures dīkṣā, jñāna-grades and the seven perceiver-classes.",
+    significance: "The diagnostic grid of Trika soteriology: every teaching on bondage, initiation and recognition is calibrated against which malas bind and how far they lift.",
+    relatedConcepts: ["diksha", "paurusa-ajnana", "bauddha-ajnana"]
   }
 ];

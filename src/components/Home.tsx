@@ -15,6 +15,12 @@ export default function Home() {
         <p className="text-lg text-sattva-dim max-w-2xl mx-auto">
           {t(language, 'appTagline')}
         </p>
+        <Link
+          to="/intro"
+          className="inline-flex items-center mt-6 px-5 py-2.5 rounded-xl bg-avyakta-2 border border-tamas-deep text-sm font-semibold text-sattva hover:bg-avyakta-3 transition-colors"
+        >
+          {t(language, 'introTab')} →
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
