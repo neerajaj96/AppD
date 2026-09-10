@@ -268,6 +268,34 @@ export const nyayaSutrasThreadEn: any[] = [
     "verseIds": ["1.1.5"]
   },
   {
+    "id": "ahnika2-exact-number",
+    "conceptId": "pramana-vibhaga-parisamkhya",
+    "title": "Holding the line at four",
+    "narrative": "Ahnika 2 opens with a census challenge: tradition, presumption, deduction and negation deserve seats of their own, say the objectors — eight pramāṇas, not four. Gautama absorbs each claimant back into the four: tradition from a known speaker just is testimony; presumption, rightly understood, never misfires; negation demonstrably guides action, as the unmarked cloths prove. Nothing extra exists to count.",
+    "verseIds": ["2.2.1", "2.2.2", "2.2.3", "2.2.4", "2.2.5", "2.2.6", "2.2.7", "2.2.8", "2.2.9", "2.2.10", "2.2.11", "2.2.12"]
+  },
+  {
+    "id": "ahnika2-sound-noneternal",
+    "conceptId": "anitya",
+    "title": "Is sound eternal?",
+    "narrative": "If the Veda is beginningless sound, who vouches for it? Section 2 puts śabda itself on trial: caused, sensed, and called a product — so non-eternal, says Gautama — against Mīmāṃsā manifestation, Sāṃkhya latency, and Buddhist disturbance theories. Through intangibility, imparting, repetition, unheard destroyers and bell-resonance, every eternalist ground is tested and turned: unuttered sound, with no obstruction to blame, simply does not exist.",
+    "verseIds": ["2.2.13", "2.2.14", "2.2.15", "2.2.16", "2.2.17", "2.2.18", "2.2.22", "2.2.23", "2.2.24", "2.2.25", "2.2.26", "2.2.32", "2.2.33", "2.2.34", "2.2.37"]
+  },
+  {
+    "id": "ahnika2-letters-unmodified",
+    "conceptId": "anitya",
+    "title": "Letters are replaced, never transformed",
+    "narrative": "Do letters modify — does 'i' become 'ya'? Through banyan seeds and gold earrings, curd that never re-milks and 'dadhyatra' whose 't' has already ceased, Gautama shows that apparent change is substitution (ādeśa) in six forms: fresh properties, suppression, diminution, increase, curtailment, coalescence. Momentary sounds have no abiding bearer to transform — and what cannot abide cannot modify.",
+    "verseIds": ["2.2.39", "2.2.40", "2.2.41", "2.2.44", "2.2.45", "2.2.47", "2.2.51", "2.2.54"]
+  },
+  {
+    "id": "ahnika2-word-denotes-three",
+    "conceptId": "shabda",
+    "title": "What a word carries: individual, shape, universal",
+    "narrative": "The volume closes with meaning itself: does 'cow' denote the beast, its configuration, or cowness? Ten usages plead for the individual, yet without restriction communication would drown; clay cows defeat shape-alone; and manifestation-through-shape is not identity with shape. The verdict takes all three — vyakti, ākṛti, jāti — with rotating predominance, defines each, and grounds comprehensive cognition in the universal. Sound judged non-eternal, words meaningful: the Veda stands trustworthy.",
+    "verseIds": ["2.2.55", "2.2.56", "2.2.57", "2.2.58", "2.2.60", "2.2.63", "2.2.64", "2.2.65", "2.2.66"]
+  },
+  {
     "id": "the-promise",
     "conceptId": "shodasha-padartha",
     "title": "Sixteen keys to freedom",
