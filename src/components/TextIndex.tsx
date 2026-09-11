@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router';
 import { getText, getSystem } from '../content';
 import { BookOpen, Map as MapIcon, Sparkles, ChevronRight, ChevronDown } from 'lucide-react';
@@ -13,17 +13,21 @@ import { getSystemDisplay } from '../i18n/systems';
 type Section = 'verses' | 'thread' | 'concepts' | null;
 
 // Text (subsystem) page: header plus three dropdown buttons —
-// Verses, Thread steps of this text, Concepts. All collapsed by
-// default; rows show titles only, no lengthy details.
+// Verses, Thread steps of this text, Concepts. The Verses dropdown
+// groups ślokas under their text section (Adhyāya/Pāda, Khaṇḍa, ...);
+// each section is itself a nested dropdown — click it to expand or
+// collapse the ślokas it contains.
 export default function TextIndex() {
   const { systemId, textId } = useParams();
   const { language } = useLanguage();
   const system = getSystem(systemId || '');
   const text = getText(systemId || '', textId || '');
-  // Verses open by default so each section shows its ślokas inline —
+  // Verses open by default so the section dropdowns are visible —
   // no redirect to a separate verse page to read the content.
   const [open, setOpen] = useState<Section>('verses');
-  const [selectedSection, setSelectedSection] = useState<string | null>(null);
+  // Which verse sections are expanded. First section opens by default;
+  // reset whenever the user navigates to a different text.
+  const [openSections, setOpenSections] = useState<string[]>([]);
 
   const threadSteps = useMemo(() => {
     if (!system || !text) return [] as { step: (typeof system.thread)[number]; globalIndex: number }[];
@@ -31,6 +35,32 @@ export default function TextIndex() {
       .map((step, globalIndex) => ({ step, globalIndex }))
       .filter(({ step }) => (step.textId || system.texts[0]?.id) === text.id);
   }, [system, text]);
+
+  const verseSections = useMemo(() => {
+    const verses = text?.verses ?? [];
+    const seen: string[] = [];
+    verses.forEach((v) => {
+      const s = v.section || '';
+      if (!seen.includes(s)) seen.push(s);
+    });
+    return seen.map((s) => ({
+      section: s,
+      verses: verses.filter((v) => (v.section || '') === s),
+    }));
+  }, [text]);
+
+  const multiSection = verseSections.length > 1;
+
+  // Open the first section by default (and reset on text change) so
+  // users see where the ślokas live without expanding everything.
+  useEffect(() => {
+    if (verseSections.length > 1) {
+      setOpenSections([verseSections[0].section]);
+    } else {
+      setOpenSections([]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text?.id]);
 
   if (!system || !text) {
     return <div className="text-center py-12">{t(language, 'textNotFound')}</div>;
@@ -82,29 +112,21 @@ export default function TextIndex() {
       : []),
   ];
 
-  const verseSections = useMemo(() => {
-    const seen: string[] = [];
-    text.verses.forEach((v) => {
-      const s = v.section || '';
-      if (!seen.includes(s)) seen.push(s);
-    });
-    return seen.map((s) => ({
-      section: s,
-      verses: text.verses.filter((v) => (v.section || '') === s),
-    }));
-  }, [text]);
+  const toggleSection = (section: string) =>
+    setOpenSections((cur) =>
+      cur.includes(section) ? cur.filter((s) => s !== section) : [...cur, section],
+    );
 
-  const multiSection = verseSections.length > 1;
-  const visibleSections = selectedSection == null
-    ? verseSections
-    : verseSections.filter((g) => g.section === selectedSection);
-
-  const jumpToSection = (section: string | null) => {
-    setSelectedSection(section);
+  const jumpToSection = (section: string) => {
     setOpen('verses');
-    // Let the verses panel expand first, then bring it into view.
+    setOpenSections((cur) => (cur.includes(section) ? cur : [...cur, section]));
+    // Let the verses panel expand first, then scroll to the section.
     requestAnimationFrame(() => {
-      document.getElementById('verses-panel')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      requestAnimationFrame(() => {
+        document
+          .getElementById(`section-${section || 'unsectioned'}`)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
   };
 
@@ -127,21 +149,39 @@ export default function TextIndex() {
         </p>
       </div>
 
-      {/* Chapter / section jump buttons — one clickable button per
-          verse section (Adhyāya/Pāda, Pāda, Parikṣā, ...). Visible as soon
-          as the text has more than one section. */}
+      {/* Chapter / section quick-jump — one button per verse section
+          (Adhyāya/Pāda, Khaṇḍa, Parikṣā, ...). Clicking a pill expands
+          that section's śloka dropdown below and scrolls to it. */}
       {hasVerses && multiSection && (
         <nav aria-label={t(language, 'chaptersLabel')} className="bg-avyakta-2 rounded-2xl border border-tamas-deep p-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-sattva-dim mb-2.5">
-            {t(language, 'chaptersLabel')} • {text.verses.length} {verseTermPlural}
+          <div className="flex items-center justify-between gap-3 mb-2.5">
+            <div className="text-xs font-semibold uppercase tracking-wider text-sattva-dim">
+              {t(language, 'chaptersLabel')} • {text.verses.length} {verseTermPlural}
+            </div>
+            <div className="flex items-center gap-2 text-xs font-medium">
+              <button
+                onClick={() => setOpenSections(verseSections.map((g) => g.section))}
+                className="text-sattva-dim hover:text-sattva transition-colors"
+              >
+                {t(language, 'expandAll')}
+              </button>
+              <span className="text-tamas">•</span>
+              <button
+                onClick={() => setOpenSections([])}
+                className="text-sattva-dim hover:text-sattva transition-colors"
+              >
+                {t(language, 'collapseAll')}
+              </button>
+            </div>
           </div>
           <div className="flex flex-wrap gap-2">
             {verseSections.map((g) => {
-              const active = selectedSection === g.section && open === 'verses';
+              const active = openSections.includes(g.section) && open === 'verses';
               return (
                 <button
                   key={g.section || 'unsectioned'}
                   onClick={() => jumpToSection(g.section)}
+                  aria-expanded={openSections.includes(g.section)}
                   className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
                     active
                       ? 'text-avyakta border-transparent'
@@ -182,145 +222,244 @@ export default function TextIndex() {
             </button>
 
             {isOpen && s.key === 'verses' && (
-              <div className="px-3 pb-3 space-y-4 border-t border-tamas-deep pt-3">
-                {multiSection && (
-                  <div className="flex flex-wrap gap-2 px-1 pt-1" role="tablist" aria-label={t(language, 'browseBySection')}>
-                    <button
-                      onClick={() => setSelectedSection(null)}
-                      className={`px-3 py-1 rounded-full text-xs font-semibold border transition-colors ${
-                        selectedSection == null
-                          ? 'text-avyakta border-transparent'
-                          : 'bg-avyakta-3 text-sattva-dim border-tamas-deep hover:text-sattva'
-                      }`}
-                      style={selectedSection == null ? { backgroundColor: accent.primary } : undefined}
-                    >
-                      {t(language, 'showAllSections')} ({text.verses.length})
-                    </button>
-                    {verseSections.map((g) => {
-                      const active = selectedSection === g.section;
-                      return (
-                        <button
-                          key={g.section || 'unsectioned'}
-                          onClick={() => setSelectedSection(g.section)}
-                          className={`px-3 py-1 rounded-full text-xs font-semibold border transition-colors max-w-full truncate ${
-                            active
-                              ? 'text-avyakta border-transparent'
-                              : 'bg-avyakta-3 text-sattva-dim border-tamas-deep hover:text-sattva'
-                          }`}
-                          style={active ? { backgroundColor: accent.primary } : undefined}
-                          title={g.section}
-                        >
-                          {g.section} ({g.verses.length})
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
-                {visibleSections.map((g) => (
-                  <div key={g.section || 'unsectioned'}>
-                    {g.section && verseSections.length > 1 && (
-                      <div className="sticky top-16 z-[5] bg-avyakta-2/95 backdrop-blur-sm text-sm font-serif font-bold text-sattva px-4 py-2.5 mb-2 border-b border-tamas-deep truncate">
-                        {g.section}
-                      </div>
-                    )}
-                    <div className="space-y-3">
-                      {g.verses.map((verse) => {
-                        const active = verse.content[language] ?? verse.content.en;
-                        const fallback = verse.content.en;
-                        const translation = active?.translation || fallback?.translation;
-                        const commentary = active?.commentary || fallback?.commentary;
-                        const keyPoints =
-                          active?.keyPoints && active.keyPoints.length > 0
-                            ? active.keyPoints
-                            : fallback?.keyPoints;
-                        return (
-                          <article
-                            key={verse.id}
-                            id={`verse-${verse.id}`}
-                            className="bg-avyakta-3 rounded-xl border border-tamas-deep px-5 py-5 space-y-4 scroll-mt-32"
-                          >
-                            <div className="flex items-center justify-between gap-3">
-                              <h4 className="text-sm font-bold text-tamas uppercase tracking-widest">
-                                {verseTermSingular} {verse.number}
-                              </h4>
-                              <Link
-                                to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
-                                className="text-xs text-sattva-dim hover:text-rajas transition-colors shrink-0"
-                                title="Open full page"
-                              >
-                                ⧉
-                              </Link>
-                            </div>
-
-                            {verse.devanagari && (
-                              <div className="text-2xl text-sattva leading-relaxed font-serif">
-                                {verse.devanagari.split('\n').map((line, i) => (
-                                  <div key={i}>{line}</div>
-                                ))}
+              <div className="px-3 pb-3 space-y-3 border-t border-tamas-deep pt-3">
+                {verseSections.map((g) => {
+                  // Single-section texts need no nested dropdown —
+                  // render their ślokas directly.
+                  if (!multiSection) {
+                    return (
+                      <div key={g.section || 'unsectioned'} className="space-y-3">
+                        {g.verses.map((verse) => {
+                          const active = verse.content[language] ?? verse.content.en;
+                          const fallback = verse.content.en;
+                          const translation = active?.translation || fallback?.translation;
+                          const commentary = active?.commentary || fallback?.commentary;
+                          const keyPoints =
+                            active?.keyPoints && active.keyPoints.length > 0
+                              ? active.keyPoints
+                              : fallback?.keyPoints;
+                          return (
+                            <article
+                              key={verse.id}
+                              id={`verse-${verse.id}`}
+                              className="bg-avyakta-3 rounded-xl border border-tamas-deep px-5 py-5 space-y-4 scroll-mt-32"
+                            >
+                              <div className="flex items-center justify-between gap-3">
+                                <h4 className="text-sm font-bold text-tamas uppercase tracking-widest">
+                                  {verseTermSingular} {verse.number}
+                                </h4>
+                                <Link
+                                  to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
+                                  className="text-xs text-sattva-dim hover:text-rajas transition-colors shrink-0"
+                                  title="Open full page"
+                                >
+                                  ⧉
+                                </Link>
                               </div>
-                            )}
 
-                            {verse.iast && (
-                              <div className="text-lg text-sattva-dim italic leading-relaxed">
-                                {verse.iast.split('\n').map((line, i) => (
-                                  <div key={i}>{line}</div>
-                                ))}
-                              </div>
-                            )}
-
-                            {translation && (
-                              <div className="pt-3 border-t border-tamas-deep">
-                                <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
-                                  {t(language, 'translationLabel')}
-                                </div>
-                                <div className="text-base text-sattva leading-relaxed font-serif">
-                                  <Markdown>{translation}</Markdown>
-                                </div>
-                              </div>
-                            )}
-
-                            {commentary && (
-                              <div className="pt-3 border-t border-tamas-deep">
-                                <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
-                                  {t(language, 'commentaryLabel')}
-                                </div>
-                                <div className="text-sm text-sattva leading-relaxed">
-                                  <RichText
-                                    text={commentary}
-                                    systemId={system.id as string}
-                                    textId={text.id as string}
-                                  />
-                                </div>
-                              </div>
-                            )}
-
-                            {keyPoints && keyPoints.length > 0 && (
-                              <div className="pt-3 border-t border-tamas-deep">
-                                <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
-                                  {t(language, 'keyPoints')}
-                                </div>
-                                <ul className="space-y-1.5">
-                                  {keyPoints.map((point, idx) => (
-                                    <li key={idx} className="flex text-sattva items-start text-sm">
-                                      <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-1.5 mr-2.5 shrink-0" />
-                                      <span className="flex-1">
-                                        <RichText
-                                          text={point}
-                                          systemId={system.id as string}
-                                          textId={text.id as string}
-                                        />
-                                      </span>
-                                    </li>
+                              {verse.devanagari && (
+                                <div className="text-2xl text-sattva leading-relaxed font-serif">
+                                  {verse.devanagari.split('\n').map((line, i) => (
+                                    <div key={i}>{line}</div>
                                   ))}
-                                </ul>
-                              </div>
-                            )}
-                          </article>
-                        );
-                      })}
+                                </div>
+                              )}
+
+                              {verse.iast && (
+                                <div className="text-lg text-sattva-dim italic leading-relaxed">
+                                  {verse.iast.split('\n').map((line, i) => (
+                                    <div key={i}>{line}</div>
+                                  ))}
+                                </div>
+                              )}
+
+                              {translation && (
+                                <div className="pt-3 border-t border-tamas-deep">
+                                  <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                    {t(language, 'translationLabel')}
+                                  </div>
+                                  <div className="text-base text-sattva leading-relaxed font-serif">
+                                    <Markdown>{translation}</Markdown>
+                                  </div>
+                                </div>
+                              )}
+
+                              {commentary && (
+                                <div className="pt-3 border-t border-tamas-deep">
+                                  <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                    {t(language, 'commentaryLabel')}
+                                  </div>
+                                  <div className="text-sm text-sattva leading-relaxed">
+                                    <RichText
+                                      text={commentary}
+                                      systemId={system.id as string}
+                                      textId={text.id as string}
+                                    />
+                                  </div>
+                                </div>
+                              )}
+
+                              {keyPoints && keyPoints.length > 0 && (
+                                <div className="pt-3 border-t border-tamas-deep">
+                                  <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                    {t(language, 'keyPoints')}
+                                  </div>
+                                  <ul className="space-y-1.5">
+                                    {keyPoints.map((point, idx) => (
+                                      <li key={idx} className="flex text-sattva items-start text-sm">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-1.5 mr-2.5 shrink-0" />
+                                        <span className="flex-1">
+                                          <RichText
+                                            text={point}
+                                            systemId={system.id as string}
+                                            textId={text.id as string}
+                                          />
+                                        </span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
+                            </article>
+                          );
+                        })}
+                      </div>
+                    );
+                  }
+                  // Multi-section text: each text section is a dropdown
+                  // containing its own ślokas.
+                  const expanded = openSections.includes(g.section);
+                  return (
+                    <div
+                      key={g.section || 'unsectioned'}
+                      id={`section-${g.section || 'unsectioned'}`}
+                      className="bg-avyakta-3 rounded-xl border border-tamas-deep overflow-hidden scroll-mt-32"
+                    >
+                      <button
+                        onClick={() => toggleSection(g.section)}
+                        aria-expanded={expanded}
+                        className="w-full flex items-center gap-3 px-4 py-3.5 text-left hover:bg-avyakta-4/40 transition-colors"
+                      >
+                        <span
+                          className="text-xs font-bold tabular-nums px-2.5 py-1 rounded-lg shrink-0"
+                          style={{ backgroundColor: `${accent.primary}15`, color: accent.primary }}
+                        >
+                          {g.verses.length}
+                        </span>
+                        <span className="flex-1 min-w-0">
+                          <span className="block text-sm font-serif font-bold text-sattva truncate" title={g.section}>
+                            {g.section || t(language, 'showAllSections')}
+                          </span>
+                          <span className="block text-xs text-sattva-dim mt-0.5">
+                            {g.verses.length} {verseTermPlural}
+                          </span>
+                        </span>
+                        <ChevronDown
+                          className={`w-5 h-5 text-tamas shrink-0 transition-transform ${expanded ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+
+                      {expanded && (
+                        <div className="px-3 pb-3 space-y-3 border-t border-tamas-deep pt-3">
+                          {g.verses.map((verse) => {
+                            const active = verse.content[language] ?? verse.content.en;
+                            const fallback = verse.content.en;
+                            const translation = active?.translation || fallback?.translation;
+                            const commentary = active?.commentary || fallback?.commentary;
+                            const keyPoints =
+                              active?.keyPoints && active.keyPoints.length > 0
+                                ? active.keyPoints
+                                : fallback?.keyPoints;
+                            return (
+                              <article
+                                key={verse.id}
+                                id={`verse-${verse.id}`}
+                                className="bg-avyakta-2 rounded-xl border border-tamas-deep px-5 py-5 space-y-4 scroll-mt-32"
+                              >
+                                <div className="flex items-center justify-between gap-3">
+                                  <h4 className="text-sm font-bold text-tamas uppercase tracking-widest">
+                                    {verseTermSingular} {verse.number}
+                                  </h4>
+                                  <Link
+                                    to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
+                                    className="text-xs text-sattva-dim hover:text-rajas transition-colors shrink-0"
+                                    title="Open full page"
+                                  >
+                                    ⧉
+                                  </Link>
+                                </div>
+
+                                {verse.devanagari && (
+                                  <div className="text-2xl text-sattva leading-relaxed font-serif">
+                                    {verse.devanagari.split('\n').map((line, i) => (
+                                      <div key={i}>{line}</div>
+                                    ))}
+                                  </div>
+                                )}
+
+                                {verse.iast && (
+                                  <div className="text-lg text-sattva-dim italic leading-relaxed">
+                                    {verse.iast.split('\n').map((line, i) => (
+                                      <div key={i}>{line}</div>
+                                    ))}
+                                  </div>
+                                )}
+
+                                {translation && (
+                                  <div className="pt-3 border-t border-tamas-deep">
+                                    <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                      {t(language, 'translationLabel')}
+                                    </div>
+                                    <div className="text-base text-sattva leading-relaxed font-serif">
+                                      <Markdown>{translation}</Markdown>
+                                    </div>
+                                  </div>
+                                )}
+
+                                {commentary && (
+                                  <div className="pt-3 border-t border-tamas-deep">
+                                    <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                      {t(language, 'commentaryLabel')}
+                                    </div>
+                                    <div className="text-sm text-sattva leading-relaxed">
+                                      <RichText
+                                        text={commentary}
+                                        systemId={system.id as string}
+                                        textId={text.id as string}
+                                      />
+                                    </div>
+                                  </div>
+                                )}
+
+                                {keyPoints && keyPoints.length > 0 && (
+                                  <div className="pt-3 border-t border-tamas-deep">
+                                    <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                      {t(language, 'keyPoints')}
+                                    </div>
+                                    <ul className="space-y-1.5">
+                                      {keyPoints.map((point, idx) => (
+                                        <li key={idx} className="flex text-sattva items-start text-sm">
+                                          <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-1.5 mr-2.5 shrink-0" />
+                                          <span className="flex-1">
+                                            <RichText
+                                              text={point}
+                                              systemId={system.id as string}
+                                              textId={text.id as string}
+                                            />
+                                          </span>
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                )}
+                              </article>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
 
