@@ -404,5 +404,21 @@ Read symbolically, this is a genuinely practical point disguised as ritual instr
 That's the real case for repetition, and it isn't superstitious: it's the same reason people run fire drills before there's ever an actual fire, and the same reason athletes and soldiers over-practice a response until it becomes reflex. You're not memorizing a story for its own sake — you're pre-loading a way of responding to panic, so it's already there, waiting, the one time you'll actually need it.`,
     relatedVerseIds: ['dm-12-1', 'dm-12-23'],
     relatedConceptIds: ['sadhana-samara', 'narayani-stuti', 'future-avatars']
+  },
+  {
+    id: 'vedokta-ratri-sukta',
+    title: 'The Vedic Night Hymn (Vedokta Rātri Sūkta)',
+    category: 'How the text is framed',
+    summary: `Before the Saptashati's own battles begin, the parayana opens with an older hymn: Rigveda 10.127, eight verses to Night as Goddess (Guptavati-adi edition pp.65-66, viniyoga: Kushika/Saubhara or Bharadvaja rishi, Ratri devata, Gayatri chandas). Villages, cattle, birds and even hawks rest in her lap; she is asked to set apart the she-wolf and wolf (vasana and papa), to drive off thieves (passions), and to make the crossing easy. The Tantrokta Ratri that follows it in the same edition is the same substance as the Yoganidra-stuti of Adhyaya 1 (53-67) — Vedic root, Tantric flower, one Ratri-tattva.`,
+    relatedVerseIds: ['dm-ratri-vedokta-1', 'dm-ratri-vedokta-2', 'dm-1-64'],
+    relatedConceptIds: ['mahamaya', 'yoganidra', 'sadhana-samara']
+  },
+  {
+    id: 'rahasya-traya',
+    title: 'The Three Secrets (Rahasya-traya: Prādhānika, Vaikṛtika, Mūrti)',
+    category: 'How the text is framed',
+    summary: `Kavaca, Argala, Kilaka and the three Rahasyas are the six limbs (shadanga) without which the Saptashati must not be recited (Katyayani-tantra proof quoted p.701; Ravana's limbless recitation is the caution). The first three limbs stand BEFORE the 13 adhyayas; the Rahasya-traya stands AFTER. Pradhanika names the samashti — triguna Mahalakshmi, perceptible-imperceptible, who beholds the void and assumes the dark Mahakali form (pp.701-709). Vaikritika unfolds Her battle-bodies per guna-task: ten-faced Mahakali, deva-body-born Mahisha-mardini, and the Gauri form (pp.710-717). Murti dates the seven descents — Nanda, Raktadantika, Shakambhari, Durga, Bhima, Bhramari — with iconography and vows (pp.718-722). In this edition only Guptavati and the Hindi Chandraprabha gloss the Rahasyas verse by verse.`,
+    relatedVerseIds: ['dm-rahasya-pradhanika', 'dm-rahasya-vaikritika', 'dm-rahasya-murti'],
+    relatedConceptIds: ['mahamaya', 'cit-shakti', 'future-avatars', 'phalastuti']
   }
 ];

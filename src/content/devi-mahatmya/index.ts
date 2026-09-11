@@ -12,13 +12,15 @@ import {
   guptavatiIntroTopics,
   guptavatiUpodghataEn
 } from './devi-mahatmya-intro-guptavati';
+import { deviMahatmyaSourceProvenance } from './devi-mahatmya-source-provenance';
 import type { UpodghataTopicEn } from './devi-mahatmya-intro-guptavati';
 
 export {
   guptavatiIntroTopics,
   guptavatiConceptsEn,
   guptavatiConceptsMl,
-  guptavatiUpodghataEn
+  guptavatiUpodghataEn,
+  deviMahatmyaSourceProvenance
 };
 export type { UpodghataTopicEn };
 

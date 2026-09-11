@@ -382,5 +382,53 @@ That is the real argument for repetition, and it is not superstitious. It is the
       '**A Disaster Inventory, Still Ours**: Fire, imprisonment, shipwreck, illness — replace the particulars and the list remains a complete catalogue of what people still fear today.',
       '**Rehearsal, Not Ritual for Its Own Sake**: Repetition trains a reflex reachable under real panic, the same logic behind fire drills practiced long before any fire.'
     ]
+  },
+  {
+    id: 'dm-step-22',
+    conceptId: 'vedokta-ratri-sukta',
+    verseIds: ['dm-ratri-vedokta-1', 'dm-ratri-vedokta-2', 'dm-tantrokta-crossref'],
+    title: 'Parayana frame: the Vedic Night before the battles',
+    narrative: `The Guptavati-adi edition (Drive PDF, 814 pp) opens the parayana with Rigveda 10.127 — eight verses to Night as Goddess (pp.65-66) — before the Navarna-vidhi and Saptashati-nyasa. Villages, cattle, birds rest in her lap; she is asked to set apart wolf and she-wolf, thieves, and to make the crossing easy. The Tantrokta Ratri standing next to it is the same substance as Adhyaya 1.53-67, and the Tantrokta Devi Sukta in the Uttaranga the same as Adhyaya 5.7-36 — recorded here as placement, not duplicated, so the 700 mantra-unit count stands.`,
+    summary: 'Vedic Ratri (RV 10.127) opens the recitation; Tantrokta Suktas are placed, not duplicated, against their Adhyaya sources.',
+    keyPoints: [
+      '**Vedic root first**: Night as cit-shakti oversees karma and dispels ignorance.',
+      '**No double-counting**: Tantrokta verses live once in ch01/ch05.'
+    ]
+  },
+  {
+    id: 'dm-step-23',
+    conceptId: 'rahasya-traya',
+    verseIds: ['dm-rahasya-pradhanika', 'dm-rahasya-vaikritika', 'dm-rahasya-murti', 'dm-kshama-prarthana', 'dm-mantra-vibhaga-note'],
+    title: 'Uttaranga: the three Secrets and the closing forgiveness',
+    narrative: `Kavaca, Argala, Kilaka and the three Rahasyas are the six limbs (Katyayani-tantra proof, p.701): the first three before the 13 adhyayas, the Rahasya-traya after. Pradhanika names the triguna Mahalakshmi whole; Vaikritika unfolds Her battle-bodies; Murti dates the seven descents from Nanda to Bhramari. Only Guptavati and the Hindi Chandraprabha gloss the Rahasyas here. Kshama-prarthana (p.723) then completes what lacks mantra, rite or devotion, and the mantra-vibhaga tables (pp.73-83, 795-814) fix every half-verse and uvacha as its own homa-unit toward the 700 total.`,
+    summary: 'After the battles: samashti source, battle-bodies, dated descents, forgiveness completing all lack, and the 700-unit homa index.',
+    keyPoints: [
+      '**Six limbs close**: Three before, three Rahasyas after — Ravana is the warning.',
+      '**Kshama completes**: Mantra-hina, kriya-hina, bhakti-hina made whole by forgiveness.'
+    ]
+  },
+  {
+    id: 'dm-step-24',
+    conceptId: 'phalastuti',
+    verseIds: ['dm-guru-kilaka', 'dm-kshamapana-1', 'dm-kshamapana-2', 'dm-saptashloki'],
+    title: 'Uttaranga: the pin, the apology, and the seven-verse epitome',
+    narrative: `Three closers stand after the six limbs. The Rahasya-tantra Guru-Kilaka (pp.62-64) stages the unpinning as giving-and-receiving: kingdom, strength, treasury and army laid at Her feet on Krishna-chaturdashi/ashtami, received back by Her grace, divided fivefold with a share to the guru. Shankara's 12-verse Devyaparadha-kshamapana (pp.725-728) pleads the one theology — kuputro jayeta, never kumata — from an eighty-five-year-old who served many gods and owns no mantra. And the Saptashloki Durga (pp.729-731) answers Shiva's Kali-age question with seven excerpt-verses: Mahamaya dragging even the wise, Durge-smrita, two Narayani salutations, the all-formed armour, tushta/rushta, and the all-affliction close.`,
+    summary: 'Unpin by giving-receiving, apologise as a bad son to a never-bad mother, and carry the seven-verse epitome for the Kali age.',
+    keyPoints: [
+      '**Dana-pratigraha unpins**: Offer all, receive back, share with the guru.',
+      '**Seven verses carry the whole**: The sheltered become shelters.'
+    ]
+  },
+  {
+    id: 'dm-step-25',
+    conceptId: 'phalastuti',
+    verseIds: ['dm-dvatrimsha', 'dm-kunjika-1', 'dm-kunjika-2', 'dm-ashtottara-note', 'dm-manasa-atharva-note'],
+    title: 'Uttaranga: garlands, the quickener, and the commended crowns',
+    narrative: `The edition closes the parayana with garlands and quickeners. The 32-name Dvatrimsha-mala (pp.736-738) — every name turning "hard-to-cross" into crossing — frees the bound, condemned, ringed or seized by 108 readings. The Rudrayamala Kunjika (pp.745-747) wakes sleeping mantras (mantra-jagarti) with bija volleys; without it, recitation is weeping in a forest. The 108-name Ashtottara (pp.732-735, Vishvasara-tantra) hides the inner faculties among its names and prescribes Kumari-puja first. Manasa-puja rehearses every offering inwardly to Tripurasundari (pp.739-744), and the Devi-Atharvashirsha (pp.748+) — explicitly non-shadanga per the edition's own footnote — crowns the corpus by Atharva-mahatmya, opening "kasi tvam mahadevi? ... aham brahmasvarupini."`,
+    summary: 'Thirty-two names for crisis, Kunjika to wake mantras, 108 names with Kumari first, mental worship, and the Atharva crown.',
+    keyPoints: [
+      '**Kunjika wakes**: Mantra-jagarti; never to the devotionless.',
+      '**Atharvashirsha crowns, not counts**: Commended, explicitly non-shadanga.'
+    ]
   }
 ];
