@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router';
 import { getText, getSystem } from '../content';
 import { BookOpen, Map as MapIcon, Sparkles, ChevronRight, ChevronDown } from 'lucide-react';
+import Markdown from 'react-markdown';
+import RichText from './RichText';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { getVerseTerm } from '../utils/textTerminology';
@@ -18,7 +20,9 @@ export default function TextIndex() {
   const { language } = useLanguage();
   const system = getSystem(systemId || '');
   const text = getText(systemId || '', textId || '');
-  const [open, setOpen] = useState<Section>(null);
+  // Verses open by default so each section shows its ślokas inline —
+  // no redirect to a separate verse page to read the content.
+  const [open, setOpen] = useState<Section>('verses');
   const [selectedSection, setSelectedSection] = useState<string | null>(null);
 
   const threadSteps = useMemo(() => {
@@ -39,6 +43,7 @@ export default function TextIndex() {
   const toggle = (s: Exclude<Section, null>) => setOpen((cur) => (cur === s ? null : s));
 
   const verseTermPlural = getVerseTerm(text, 2).toLowerCase();
+  const verseTermSingular = getVerseTerm(text, 1);
   const iconBox = 'flex items-center justify-center w-10 h-10 rounded-xl shrink-0';
 
   const sections = [
@@ -214,23 +219,105 @@ export default function TextIndex() {
                 {visibleSections.map((g) => (
                   <div key={g.section || 'unsectioned'}>
                     {g.section && verseSections.length > 1 && (
-                      <div className="text-xs font-semibold uppercase tracking-wider text-sattva-dim px-4 mb-1 truncate">
+                      <div className="sticky top-16 z-[5] bg-avyakta-2/95 backdrop-blur-sm text-sm font-serif font-bold text-sattva px-4 py-2.5 mb-2 border-b border-tamas-deep truncate">
                         {g.section}
                       </div>
                     )}
-                    <div className="space-y-1">
-                      {g.verses.map((verse) => (
-                        <Link
-                          key={verse.id}
-                          to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
-                          className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors group"
-                        >
-                          <span className="text-sm font-semibold text-sattva tabular-nums shrink-0">
-                            {verse.number}
-                          </span>
-                          <ChevronRight className="w-4 h-4 text-tamas shrink-0 ml-auto group-hover:text-sattva transition-colors" />
-                        </Link>
-                      ))}
+                    <div className="space-y-3">
+                      {g.verses.map((verse) => {
+                        const active = verse.content[language] ?? verse.content.en;
+                        const fallback = verse.content.en;
+                        const translation = active?.translation || fallback?.translation;
+                        const commentary = active?.commentary || fallback?.commentary;
+                        const keyPoints =
+                          active?.keyPoints && active.keyPoints.length > 0
+                            ? active.keyPoints
+                            : fallback?.keyPoints;
+                        return (
+                          <article
+                            key={verse.id}
+                            id={`verse-${verse.id}`}
+                            className="bg-avyakta-3 rounded-xl border border-tamas-deep px-5 py-5 space-y-4 scroll-mt-32"
+                          >
+                            <div className="flex items-center justify-between gap-3">
+                              <h4 className="text-sm font-bold text-tamas uppercase tracking-widest">
+                                {verseTermSingular} {verse.number}
+                              </h4>
+                              <Link
+                                to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
+                                className="text-xs text-sattva-dim hover:text-rajas transition-colors shrink-0"
+                                title="Open full page"
+                              >
+                                ⧉
+                              </Link>
+                            </div>
+
+                            {verse.devanagari && (
+                              <div className="text-2xl text-sattva leading-relaxed font-serif">
+                                {verse.devanagari.split('\n').map((line, i) => (
+                                  <div key={i}>{line}</div>
+                                ))}
+                              </div>
+                            )}
+
+                            {verse.iast && (
+                              <div className="text-lg text-sattva-dim italic leading-relaxed">
+                                {verse.iast.split('\n').map((line, i) => (
+                                  <div key={i}>{line}</div>
+                                ))}
+                              </div>
+                            )}
+
+                            {translation && (
+                              <div className="pt-3 border-t border-tamas-deep">
+                                <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                  {t(language, 'translationLabel')}
+                                </div>
+                                <div className="text-base text-sattva leading-relaxed font-serif">
+                                  <Markdown>{translation}</Markdown>
+                                </div>
+                              </div>
+                            )}
+
+                            {commentary && (
+                              <div className="pt-3 border-t border-tamas-deep">
+                                <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                  {t(language, 'commentaryLabel')}
+                                </div>
+                                <div className="text-sm text-sattva leading-relaxed">
+                                  <RichText
+                                    text={commentary}
+                                    systemId={system.id as string}
+                                    textId={text.id as string}
+                                  />
+                                </div>
+                              </div>
+                            )}
+
+                            {keyPoints && keyPoints.length > 0 && (
+                              <div className="pt-3 border-t border-tamas-deep">
+                                <div className="text-xs font-bold text-tamas uppercase tracking-wider mb-2">
+                                  {t(language, 'keyPoints')}
+                                </div>
+                                <ul className="space-y-1.5">
+                                  {keyPoints.map((point, idx) => (
+                                    <li key={idx} className="flex text-sattva items-start text-sm">
+                                      <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-1.5 mr-2.5 shrink-0" />
+                                      <span className="flex-1">
+                                        <RichText
+                                          text={point}
+                                          systemId={system.id as string}
+                                          textId={text.id as string}
+                                        />
+                                      </span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </article>
+                        );
+                      })}
                     </div>
                   </div>
                 ))}
