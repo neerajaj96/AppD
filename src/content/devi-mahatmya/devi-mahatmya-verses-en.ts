@@ -20,6 +20,7 @@ import {
 import { deviMahatmyaVersesEnPrayoga } from './devi-mahatmya-verses-en-prayoga';
 import { deviMahatmyaVersesEnUttaranga } from './devi-mahatmya-verses-en-uttaranga';
 import { deviMahatmyaVersesEnUttaranga2 } from './devi-mahatmya-verses-en-uttaranga2';
+import { deviMahatmyaVersesEnUttaranga3 } from './devi-mahatmya-verses-en-uttaranga3';
 
 export { deviMahatmyaVersesEnPrayoga };
 
@@ -43,7 +44,10 @@ export interface RawVerseEn {
 // mantra-vibhaga) in ./devi-mahatmya-verses-en-uttaranga.ts, and Uttaranga
 // set 2 (Guru-Kilaka, Kshamapana, Saptashloki, Dvatrimsha, Kunjika,
 // Ashtottara/Manasa/Atharva indexes) in
-// ./devi-mahatmya-verses-en-uttaranga2.ts. Order appends only — existing
+// ./devi-mahatmya-verses-en-uttaranga2.ts, and Parishista set 3
+// (Pitha, Mahavidya, Kalika-mahatmya, Laghu, Apaduddhara, Kali-stotra,
+// Shanti, Pauranika-shanti, Para-devi-sukta, Siddha-samputa) in
+// ./devi-mahatmya-verses-en-uttaranga3.ts. Order appends only — existing
 // ids and sequence are untouched.
 export const deviMahatmyaVersesEn: RawVerseEn[] = [
   ...deviMahatmyaVersesEnDevisukta,
@@ -66,4 +70,5 @@ export const deviMahatmyaVersesEn: RawVerseEn[] = [
   ...deviMahatmyaVersesEnPrayoga,
   ...deviMahatmyaVersesEnUttaranga,
   ...deviMahatmyaVersesEnUttaranga2,
+  ...deviMahatmyaVersesEnUttaranga3,
 ];

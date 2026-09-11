@@ -414,6 +414,14 @@ That's the real case for repetition, and it isn't superstitious: it's the same r
     relatedConceptIds: ['mahamaya', 'yoganidra', 'sadhana-samara']
   },
   {
+    id: 'parishista-samgraha',
+    title: 'The Appendices (Parishista-samgraha: seats, Vidyas, and crisis liturgy)',
+    category: 'How the text is framed',
+    summary: `Beyond the six limbs, this edition binds eleven appendices (index pp.760-794). The Pitha-rahasya (Matsya-purana 13) first refuses all limitation — "nothing apart from Me" — then concedes 108 seats, outer tirthas and inner stations (Chitta-Brahmakala) in one garland. The Mahavidya-rahasya (Mahabhagavata 8) stages the Daksha-yajna quarrel only to reveal the ten Vidyas as the ten directions — Kali front, Tara above, Chhinnamasta at side, Bhuvaneshvari left, Bagala behind, Dhumavati in fire, Sundari southwest, Matangi in wind, Shodashi northeast, Bhairavi centre — all gopaniya, speakable by Shiva alone. The Kalika-mahatmya (Skanda-purana Manasa-khanda 97) fixes one hill (Shaila, Pithoragarh) where past victories make Her permanently resident. Then crisis liturgy: the 15-verse Laghu-Saptashati (whole war, one sitting), the 13-verse Apaduddhara (one refrain — "trahi Durge"), the 17-confession Kali-stotra (biography as apology), the Yamala Shanti (bless all, bound corrupters), the Pauranika abhishekas (consecration by the cosmos), the 1000-name Para-devi mala (skeleton verbatim, body indexed), and the 30-purpose Siddha-samputa table that wraps the whole 700-unit parayana toward a single aim.`,
+    relatedVerseIds: ['dm-pitha-rahasya', 'dm-mahavidya-rahasya', 'dm-kalika-mahatmya', 'dm-laghu-saptashati', 'dm-apaduddhara', 'dm-kali-stotra', 'dm-shanti-stotra', 'dm-pauranika-shanti', 'dm-para-devi-sukta', 'dm-siddha-samputa'],
+    relatedConceptIds: ['phalastuti', 'sadhana-samara', 'rahasya-traya', 'mahamaya']
+  },
+  {
     id: 'rahasya-traya',
     title: 'The Three Secrets (Rahasya-traya: Prādhānika, Vaikṛtika, Mūrti)',
     category: 'How the text is framed',

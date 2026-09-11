@@ -430,5 +430,17 @@ That is the real argument for repetition, and it is not superstitious. It is the
       '**Kunjika wakes**: Mantra-jagarti; never to the devotionless.',
       '**Atharvashirsha crowns, not counts**: Commended, explicitly non-shadanga.'
     ]
+  },
+  {
+    id: 'dm-step-26',
+    conceptId: 'parishista-samgraha',
+    verseIds: ['dm-pitha-rahasya', 'dm-mahavidya-rahasya', 'dm-kalika-mahatmya', 'dm-laghu-saptashati', 'dm-apaduddhara', 'dm-kali-stotra', 'dm-shanti-stotra', 'dm-pauranika-shanti', 'dm-para-devi-sukta', 'dm-siddha-samputa'],
+    title: 'Parishistas: seats, Vidyas, and crisis liturgy',
+    narrative: `Bound after the Atharvashirsha, eleven appendices (index pp.760-794) finish the edition. The Pitha-rahasya (Matsya-purana 13) first refuses limitation — nothing anywhere apart from Her — then concedes 108 seats, outer tirthas and inner stations in one garland. The Mahavidya-rahasya (Mahabhagavata 8) lets the Daksha-yajna quarrel run its dharma-niti course, then answers with the ten Vidyas as the ten directions, Bhairavi at the centre telling even Shiva not to fear — all gopaniya, speakable by Shiva alone. The Kalika-mahatmya (Skanda-purana Manasa-khanda 97) fixes one hill where past victories make Her permanently resident. Then liturgy for the worst day: the Laghu-Saptashati compresses the whole war to fifteen verses between two refuges; the Apaduddhara hammers a single refrain — trahi Durge — across forests, battles, fires, oceans and kings' houses; the Kali-stotra confesses a whole life in fifteen stages under one unchanging refrain; the Yamala Shanti blesses every order then bounds the rite-corrupters by Bhairava's command; the Pauranika mantras pour abhisheka inward from Trimurti to rivers; the Para-devi mala inventories a thousand names between a verbatim ritual skeleton; and the Siddha-samputa table wraps the entire 700-unit parayana toward any one of thirty aims — closing, characteristically, by asking Her in dream whether it worked.`,
+    summary: 'Eleven appendices: 108 seats after refusing all bounds, ten Vidyas as ten directions, one hill of permanent residence, and crisis liturgy ending in a dream-verdict.',
+    keyPoints: [
+      '**Nothing apart, then 108 seats**: Refusal first, concession after — geography serves.',
+      '**Compass as body, refrain as method**: Ten directions, one "trahi Durge", one dream question.'
+    ]
   }
 ];
