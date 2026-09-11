@@ -17,7 +17,7 @@ export const lalitaSahasranamaThreadEn: RawThreadLs[] = [
   {
     id: 'ls-thread-01',
     conceptId: 'ls-nama-001',
-    verseIds: ['ls-dhyana-1', 'ls-001'],
+    verseIds: ['ls-dhyana-1', 'ls-001', 'ls-purva-27', 'ls-purva-28', 'ls-purva-29', 'ls-purva-30', 'ls-purva-31', 'ls-purva-39', 'ls-purva-40', 'ls-purva-41', 'ls-purva-42'],
     title: 'The commission: a thousand names at Her command',
     narrative:
       'The hymn belongs to the Brahmāṇḍa Purāṇa, taught by Hayagrīva to the sage Agastya: a pūrva-bhāga of dialogue, ' +
@@ -179,7 +179,7 @@ export const lalitaSahasranamaThreadEn: RawThreadLs[] = [
   {
     id: 'ls-thread-14',
     conceptId: 'ls-nama-1000',
-    verseIds: ['ls-118', 'ls-182', 'ls-183'],
+    verseIds: ['ls-118', 'ls-182', 'ls-183', 'ls-uttara-01', 'ls-uttara-02', 'ls-uttara-63', 'ls-uttara-64', 'ls-uttara-81', 'ls-uttara-82', 'ls-uttara-83', 'ls-uttara-84'],
     title: 'Ṣoḍaśī, the seals, and the final three names',
     narrative:
       'The closing expanse gathers vidyās \u2014 self-knowledge, great knowledge, Śrīvidyā Herself, the sixteen-syllabled Ṣoḍaśī, ' +
