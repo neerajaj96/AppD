@@ -83,3 +83,23 @@ credentials in this environment). Push + Pages deploy left for next session.
 - Never renumber verse ids (thread/concept refs depend on them).
 - ML files: match EN `devanagari`/`iast` exactly (same recension).
 - `.gitignore` keeps package.json/package-lock.json/tsconfig.json committed.
+
+## 2026-09-11 — Yoga Kashi traditional layer (verified vs source PDF)
+
+- Source: Kashi Sanskrit Series No.83 (Yogashastra Sec.1), Dhundhiraj
+  Shastri ed., Benares 1930 (Drive PDF, 246 pp.). Title page confirms the
+  six tikas: Bhoja Rajamartanda, Bhava-Ganesa Pradipika, Nagoji Vrtti,
+  Ramananda Maniprabha, Anantadeva Chandrika, Sadasivendra Yogasudhakar.
+  Vyasa-bhasya is NOT among the six (only a mangala homage names Vyasa).
+- `yoga-sutras-en`: +devanagari (195, bodies match ML `sanskrit`
+  recension; Kashi press misprints like I.5 विष्टा / I.13 तन्त्र /
+  I.14 दृभूमिः NOT adopted), +traditional commentary/keyPoints layer,
+  +195 interpretiveNotes with corrected provenance (no false
+  "pp.14-19/pp.20+" print-page claims — those were PDF indices;
+  no Vyasa-bhasya claim; no circular "reads" quote).
+- `yoga-sutras-ml`: +traditional പരമ്പരാഗതം layer on commentaries.
+- REMOVED `bhoja-vritti` / `tikasatka-kashi` concepts (EN+ML):
+  bibliography entries, not tattvas; zero inbound refs (orphans).
+  Provenance lives in interpretiveNotes per data-model law.
+- Verified: `tsc --noEmit` clean, `vite build` clean, 195 verses unique,
+  52/52 concepts EN=ML, zero dangling/orphan refs, dev↔ML match.
