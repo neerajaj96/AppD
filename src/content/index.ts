@@ -1,5 +1,6 @@
 import { System, SystemId } from '../types/content';
 import { samkhyaKarika } from './samkhya/samkhya-karika';
+import { samkhyaSutra } from './samkhya/samkhya-sutra';
 import { samkhyaThread } from './samkhya/samkhya-thread';
 import { yogaSutras, yogaSutrasThread } from './yoga/yoga-sutras';
 import { nyayaSutras, nyayaSutrasThread } from './nyaya/nyaya-sutras';
@@ -13,7 +14,7 @@ export const systems: System[] = [
     id: 'samkhya' as SystemId,
     title: 'Sāṃkhya',
     subtitle: 'The reckoning of principles',
-    texts: [samkhyaKarika],
+    texts: [samkhyaKarika, samkhyaSutra],
     thread: samkhyaThread,
   },
   {
