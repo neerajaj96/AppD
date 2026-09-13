@@ -103,3 +103,20 @@ credentials in this environment). Push + Pages deploy left for next session.
   Provenance lives in interpretiveNotes per data-model law.
 - Verified: `tsc --noEmit` clean, `vite build` clean, 195 verses unique,
   52/52 concepts EN=ML, zero dangling/orphan refs, dev↔ML match.
+
+## 2026-09-13 — Yoga Vivekananda enrichment (verified vs source PDF)
+
+- Source: "Patanjali Yoga Sutras, Sanskrit text with Transliteration,
+  Translation & Commentary by Swami Vivekananda" (Drive PDF, 143 pp.,
+  Raja-Yoga 1895-96 New York lectures; public-domain text, downloaded
+  + parsed: 194 sutra blocks I.1-51, II.1-54, III.1-56, IV.1-33).
+- `yoga-sutras-en`: +1 "Vivekananda: ..." paragraph per commentary
+  (195/195) +1 provenance interpretiveNote per verse. Paraphrased, no
+  verbatim dumps; keyPoints untouched; ids/translations untouched.
+- Recension alignment (by content, not number): app III.22-55 <->
+  Viv III.23-56 (Viv counts "etena sabdady..." as its own III.22;
+  folded into app III.21); app IV.17-34 <-> Viv IV.16-33 (Viv edition
+  lacks "na caika-citta-tantram", noted in app IV.16); Viv skips
+  II.55 (his own footnote; noted in app II.55). ML files untouched.
+- Verified: `tsc --noEmit` clean, integrity suite 174/174 pass,
+  `npm run build` clean.
