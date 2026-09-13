@@ -48,6 +48,8 @@ export default function VerseDetail() {
 
   const translation = activeContent?.translation || fallbackContent?.translation;
   const commentary = activeContent?.commentary || fallbackContent?.commentary;
+  const wordMeaning = (activeContent as any)?.wordMeaning || (fallbackContent as any)?.wordMeaning;
+  const variantNote = (activeContent as any)?.variantNote || (fallbackContent as any)?.variantNote;
   const keyPoints = (activeContent?.keyPoints && activeContent.keyPoints.length > 0)
     ? activeContent.keyPoints
     : fallbackContent?.keyPoints;
@@ -194,6 +196,21 @@ export default function VerseDetail() {
             </div>
           )}
 
+          {wordMeaning && (
+            <div className="pt-6 border-t border-tamas">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
+                  {language === 'ml' && (verse.content.ml as any)?.wordMeaning
+                    ? `${t(language, 'wordMeaningLabel')} (Word by Word)`
+                    : t(language, 'wordMeaningLabel')}
+                </h3>
+              </div>
+              <div className="text-base md:text-lg text-sattva-dim leading-relaxed">
+                <Markdown>{wordMeaning}</Markdown>
+              </div>
+            </div>
+          )}
+
           {commentary && (
             <div className="pt-6 border-t border-tamas">
               <div className="flex items-center justify-between mb-4">
@@ -229,6 +246,43 @@ export default function VerseDetail() {
                     <span className="flex-1">
                       <RichText
                         text={point}
+                        systemId={system.id as string}
+                        textId={text.id as string}
+                      />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {variantNote && (
+            <div className="pt-6 border-t border-tamas">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
+                  {t(language, 'variantNoteLabel')}
+                </h3>
+              </div>
+              <div className="text-sm md:text-base text-sattva-dim leading-relaxed">
+                <Markdown>{variantNote}</Markdown>
+              </div>
+            </div>
+          )}
+
+          {verse.interpretiveNotes && verse.interpretiveNotes.length > 0 && (
+            <div className="pt-6 border-t border-tamas">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-bold text-tamas uppercase tracking-wider">
+                  {t(language, 'variantNoteLabel')}
+                </h3>
+              </div>
+              <ul className="space-y-2">
+                {verse.interpretiveNotes.map((n, idx) => (
+                  <li key={idx} className="flex text-sattva-dim items-start text-sm md:text-base">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 mr-3 shrink-0"></span>
+                    <span className="flex-1">
+                      <RichText
+                        text={n.note}
                         systemId={system.id as string}
                         textId={text.id as string}
                       />

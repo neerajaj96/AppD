@@ -22,7 +22,7 @@ export const shivaSutrasConceptsEn: any[] = [
     title: "The three malas — stains of limitation",
     category: "Bondage",
     summary: "Āṇava (incompleteness, 'I am imperfect'), māyīya (difference, bodies and worlds as other), and kārma (action-impressions driving rebirth). Sūtras 1.2-1.3, 1.10, 3.3 and 3.35 map them; the whole of Section III is their systematic removal.",
-    relatedVerseIds: ["SS-1.2", "SS-1.3", "SS-1.10", "SS-1.16", "SS-3.3", "SS-3.18", "SS-3.35", "SS-3.40", "SS-3.41"],
+    relatedVerseIds: ["SS-1.2", "SS-1.3", "SS-1.10", "SS-1.16", "SS-3.3", "SS-3.18", "SS-3.23", "SS-3.35", "SS-3.40", "SS-3.41"],
     relatedConceptIds: ["jnana-bandha", "pratyabhijna"]
   },
   {

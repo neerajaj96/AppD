@@ -64,13 +64,17 @@ function extractVerseContent(item: any, lang: SupportedLanguage) {
   const direct = {
     translation: item.translation || item.text || item.malayalamSutra,
     commentary: item.commentary || item.malayalamCommentary,
-    keyPoints: item.keyPoints
+    keyPoints: item.keyPoints,
+    wordMeaning: item.wordMeaning,
+    variantNote: item.variantNote
   };
   const nested = item.content?.[lang];
   return {
     translation: direct.translation || nested?.translation,
     commentary: direct.commentary || nested?.commentary,
-    keyPoints: direct.keyPoints || nested?.keyPoints
+    keyPoints: direct.keyPoints || nested?.keyPoints,
+    wordMeaning: direct.wordMeaning || nested?.wordMeaning,
+    variantNote: direct.variantNote || nested?.variantNote
   };
 }
 
@@ -137,7 +141,7 @@ export function buildClassicalText(
     if ((base as any).content) {
       Object.keys((base as any).content).forEach(l => {
         const extracted = extractVerseContent(base, l as SupportedLanguage);
-        if (extracted && (extracted.translation || extracted.commentary || extracted.keyPoints)) {
+        if (extracted && (extracted.translation || extracted.commentary || extracted.keyPoints || extracted.wordMeaning || extracted.variantNote)) {
           v.content[l as SupportedLanguage] = extracted;
         }
       });
@@ -155,11 +159,13 @@ export function buildClassicalText(
       }
 
       const extracted = extractVerseContent(localized, lang) || extractVerseContent(base, lang);
-      if (extracted && (extracted.translation || extracted.commentary || extracted.keyPoints)) {
+      if (extracted && (extracted.translation || extracted.commentary || extracted.keyPoints || extracted.wordMeaning || extracted.variantNote)) {
         v.content[lang] = {
           translation: extracted.translation || v.content[lang]?.translation,
           commentary: extracted.commentary || v.content[lang]?.commentary,
-          keyPoints: extracted.keyPoints || v.content[lang]?.keyPoints
+          keyPoints: extracted.keyPoints || v.content[lang]?.keyPoints,
+          wordMeaning: extracted.wordMeaning || v.content[lang]?.wordMeaning,
+          variantNote: extracted.variantNote || v.content[lang]?.variantNote
         };
       }
     });
