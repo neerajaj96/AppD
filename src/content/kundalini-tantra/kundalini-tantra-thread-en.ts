@@ -326,4 +326,38 @@ export const kundaliniTantraThreadEn: any[] = [
     narrative:
       'End where practice ends: absorption with seed, absorption without seed, and the crown above both — the natural state, eyes open, world present, unity unbroken. Practice aims at the first, grace gives the second, living gives the third — which is the descent, now recognized as the goal.',
   },
+  // ── Part III: Trika foundations & practice bridge (merged study guide) ──
+  // The standalone Kashmir Śaivism study guide has been dissolved into its
+  // two natural homes. Its foundation and practice chapters close the
+  // Kuṇḍalinī arc here: first the philosophy that authorises the method,
+  // then the Trika practice-doctrine that crowns it. Its metaphysical
+  // chapters continue instead inside the Tantrāloka text (ks-step-190+).
+  {
+    id: 'kt-step-47',
+    conceptId: 'mishra-tantra-agama',
+    title: 'What the word Tantra promises',
+    narrative:
+      'Having climbed the whole axis from root to crown, return to the foundation with Trika eyes: tantra as a discipline stretched to its logical end, āgama as revelation verified in your own awareness — deduction from revealed premises beside induction from yogic experience, reason and revelation checking each other. Learn the test for true versus aberrant Tantra (philosophical coherence under reason plus textual warrant) and why Tantra speaks in three voices — difference, unity-in-difference, unity — which is fitness of aspirants, not confusion at the source. Everything the ascent taught now stands on named ground.',
+  },
+  {
+    id: 'kt-step-48',
+    conceptId: 'mishra-nivrtti-pravrtti',
+    title: 'The world is not the enemy',
+    narrative:
+      'Meet the historical thesis that justifies the entire method you have practised: withdrawal and participation complete each other, so enjoyment rightly known becomes liberation. Notice the social edge — caste and taboo refused — because a philosophy that calls the world the Goddess\'s body cannot bless the walls built across it. This is why the book never asked you to flee the body, the senses or the world, but to pass through them upward.',
+  },
+  {
+    id: 'kt-step-49',
+    conceptId: 'mishra-upayas',
+    title: 'Four means, one recognition, a relaxed life',
+    narrative:
+      'Now gather every method of awakening surveyed earlier into the Trika doctrine of means: no-means for grace-loosened ones, will-flash for the ripe, thought-purification for the subtle, body-breath-mind work for the dense — the ten doors you toured at the start, sorted by ripeness rather than truth. Watch effort and grace interlock: practice thins the covering, the teacher\'s descent cuts it, and means dissolve into end since recognition was the nature all along. Take the two counsels with you: negate the false without curdling into cynicism, and practise goodness directly, daily, until spontaneity arrives unasked.',
+  },
+  {
+    id: 'kt-step-50',
+    conceptId: 'mishra-kaula-sadhana',
+    title: 'The left hand: energy redirected by love',
+    narrative:
+      'Close the Kuṇḍalinī arc where sublimation was first confronted: the Kaula teaching defended rationally — sexual power sublimated works wonders, suppressed merely ferments. Holiness toward the act, divinity perceived in the partner, offering instead of gratification — love as the engine that lifts instinct into illumination. Read this as the seal on the bindu-discipline and the vama-marga chapter: neither indulgence nor puritanism, but redirection — the book\'s whole world-affirmation compressed into one rite, carrying you to the threshold where metaphysics takes over in the Tantrāloka.',
+  },
 ];

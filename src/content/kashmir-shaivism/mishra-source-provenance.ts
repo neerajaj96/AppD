@@ -1,4 +1,4 @@
-// Source provenance for the Kashmir Śaivism study guide.
+// Source provenance for the merged Trika companion material.
 //
 // Verified against the Drive PDF (499 pp, PDFium, "Kashmir Shaivism —
 // The Central Philosophy of Tantrism" by Kamalakar Mishra, First Indian
@@ -7,7 +7,9 @@
 // CARRY-OVER POLICY (copyright + architecture): Mishra's sentences are
 // NOT reproduced anywhere in this app. What is carried over is structure
 // (the 11-chapter arc below), our own concise paraphrases of each
-// doctrine in EN (see mishra-study-concepts-en.ts + mishra-study-thread-en.ts),
+// doctrine in EN (see mishra-trika-concepts-en.ts + mishra-trika-thread-en.ts
+// here, and ../kundalini-tantra/mishra-bridge-concepts-en.ts for the
+// foundation/practice chapters now housed in the Kuṇḍalinī Tantra text),
 // and this per-chapter provenance table so no source chapter is silently
 // dropped. Readers who want Mishra's full arguments, Sanskrit citations
 // and notes (pp. 383-464) should consult the printed book.

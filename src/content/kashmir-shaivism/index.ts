@@ -5,6 +5,8 @@ import { tantralokaConceptsMl } from './tantraloka-concepts-ml';
 import { tantralokaThreadMl } from './tantraloka-thread-ml';
 import { tantralokaVersesEn } from './tantraloka-verses-en';
 import { tantralokaVersesMl } from './tantraloka-verses-ml';
+import { mishraTrikaConceptsEn } from './mishra-trika-concepts-en';
+import { mishraTrikaThreadEn } from './mishra-trika-thread-en';
 
 const mappedConceptsEn = tantralokaConceptsEn.map((c: TantralokaConcept) => ({
   id: c.id,
@@ -35,6 +37,11 @@ const mappedThreadMl = Object.entries(tantralokaThreadMl).map(([id, t]) => ({
 
 // Text file stays isolated in this directory; the text now belongs to the
 // unified 'tantra' system (see src/content/tantra/index.ts).
+// The closing synthesis (ks-step-190+) carries the metaphysical chapters of
+// the former standalone Mishra study guide, merged here verbatim — its
+// foundation and practice chapters live instead in the Kuṇḍalinī Tantra text
+// (see ../kundalini-tantra/mishra-bridge-concepts-en.ts). The merged steps
+// have no Malayalam entries yet and fall back to English (as the guide did).
 export const tantralokaText: ClassicalText = buildClassicalText(
   {
     id: 'tantraloka',
@@ -50,12 +57,12 @@ export const tantralokaText: ClassicalText = buildClassicalText(
     ml: tantralokaVersesMl
   },
   {
-    en: mappedConceptsEn,
+    en: [...mappedConceptsEn, ...mishraTrikaConceptsEn],
     ml: mappedConceptsMl
   }
 );
 
 export const tantralokaThread = buildSystemThread('tantraloka', {
-  en: mappedThreadEn,
+  en: [...mappedThreadEn, ...mishraTrikaThreadEn],
   ml: mappedThreadMl
 });

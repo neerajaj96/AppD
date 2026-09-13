@@ -1,6 +1,8 @@
 // Kundalini Tantra — Concepts (Malayalam).
-// Overlaid onto kundaliniTantraConceptsEn by buildClassicalText (matched by id).
-// Covers all 46 concepts in the app's own words.
+// Overlaid onto EN by buildClassicalText (matched by id).
+// Covers the 46 core concepts in the app's own words; the 4 merged Trika
+// bridge concepts (mishra-*) fall back to their English summaries until
+// Malayalam renderings are added.
 
 export const kundaliniTantraConceptsMl: Record<string, { title: string; summary: string }> = {
   "kundalini-shakti": {
