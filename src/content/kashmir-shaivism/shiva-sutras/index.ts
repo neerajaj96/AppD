@@ -11,7 +11,7 @@ import { shivaSutrasStudyEn } from './shiva-sutras-study-en';
 // Śiva-sūtras of Vasugupta with Kṣemarāja's Vimarśinī line (Jaideva Singh
 // edition as source: Drive 1owICBYbrfgLfEocl76tsbIs4D_4Z4kMb, MLBD 2006).
 // Text file stays isolated in this directory; the text belongs to the
-// unified 'tantra' system (see src/content/tantra/index.ts).
+// 'kashmir-shaivism' system (see src/content/kashmir-shaivism/index.ts).
 //
 // Carry-over policy (copyright + architecture): Singh's translation and
 // commentary are NOT reproduced. What is carried over is structure (77
@@ -35,7 +35,7 @@ export const shivaSutrasText: ClassicalText = buildClassicalText(
     title: 'Śiva-sūtras',
     transliteratedTitle: 'Śiva-sūtras',
     author: 'Vasugupta (with Kṣemarāja’s Vimarśinī)',
-    system: 'tantra',
+    system: 'kashmir-shaivism',
     contentDepth: 'full',
     verseTerm: 'Sūtra'
   },

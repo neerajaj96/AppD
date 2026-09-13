@@ -11,7 +11,7 @@ import { spandaKarikaStudyEn } from './spanda-karika-study-en';
 // Spanda-kārikās (Vasugupta/Kallaṭa) with Kṣemarāja's Spanda-nirṇaya line
 // (Jaideva Singh edition as source: Drive 1XPiaj9NoV9CHFnDl9yuNXS-ThxG75JcN,
 // MLBD 2007). Text file stays isolated in this directory; the text belongs to
-// the unified 'tantra' system (see src/content/tantra/index.ts).
+// the 'kashmir-shaivism' system (see src/content/kashmir-shaivism/index.ts).
 //
 // Carry-over policy (copyright + architecture): Singh's translation and
 // commentary are NOT reproduced. What is carried over is structure (53
@@ -35,7 +35,7 @@ export const spandaKarikaText: ClassicalText = buildClassicalText(
     title: 'Spanda-kārikās',
     transliteratedTitle: 'Spanda-kārikās',
     author: 'Vasugupta / Kallaṭa (with Kṣemarāja’s Spanda-nirṇaya)',
-    system: 'tantra',
+    system: 'kashmir-shaivism',
     contentDepth: 'full',
     verseTerm: 'Kārikā'
   },

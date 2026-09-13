@@ -65,7 +65,7 @@ Rather than treating the Devī Māhātmya as a popular mythological narrative fr
 He declares that the true esoteric path (sṛti) of the Saptaśatī had become virtually lost (lupta) due to negligent transmissions and contradictory interpretations found in circulating manuscripts. His commentary is named Guptavatī because it serves as the definitive custodian of that which was hidden (gupta). 
 
 Its purpose is twofold: first, to conceal the most sacred esoteric mysteries from unqualified and casual dabblers who might misuse the occult energies; and second, to reveal and clarify these exact secrets—the hidden bījas, the unsealing algorithms, the correct homa enumerations, and the underlying non-dual metaphysics—to genuine initiates and discerning scholars equipped with traditional training.`,
-    relatedVerseIds: ['dm-1-1', 'dm-kavacha-1', 'dm-kilaka-1']
+    relatedVerseIds: ['dm-1-1', 'dm-kavacha-1', 'dm-keelaka-0']
   },
   {
     id: 'guptavati-3-fourteen-verse-toc',
@@ -133,7 +133,7 @@ Bhāskararāya thus proves that the text does not begin with an arbitrary histor
 1. Cāmuṇḍā: While the outer story states that the Goddess was named Cāmuṇḍā because she decapitated the demons Caṇḍa and Muṇḍa (Chapter 7), Bhāskararāya reveals the inner yogic etymology: camūṃ dāti / lāti iti cāmuṇḍā. Here, camū denotes the vast collective army of objective appearances—the multi-layered sensory illusion and mental modifications of the empirical universe. The root dā (or lā) signifies to consume, absorb, and dissolve entirely into the non-dual Self (svātmasāt-karaṇena nāśayati). Cāmuṇḍā is therefore the blazing unconditioned awareness that swallows the entire manifestation of duality back into pure consciousness.
 
 2. Vicce: Addressing the unusual form vicce, Bhāskararāya rejects the simplistic view that it is meaningless gibberish. Drawing on his grammatical work Bhāṭṭa-candrodaya and the Pikanemādhikaraṇa of Pūrva Mīmāṃsā, he shows that sacred non-classical or dialectical formations in tantric mantras hold concentrated technical significance. Deconstructing it into vit + ca + e, or rooting it in the verbal root vicc (to sever or loosen), vicce functions as an imperative spiritual prayer: "Sever the knots of my heart! Untie the cords of ignorance!" (avidyā-pāśa-hṛdaya-granthiṃ visraṃsya muñca mām). It is the soul's direct cry for instantaneous liberation (mokṣa).`,
-    relatedVerseIds: ['dm-7-25', 'dm-1-1']
+    relatedVerseIds: ['dm-7-19', 'dm-1-1']
   },
   {
     id: 'guptavati-7-naming-saptasati',
@@ -204,7 +204,7 @@ Bhāskararāya insists that every chapter contains both saviśeṣa (attributed)
 2. Utkīlana (Unsealing): This involves reordering the three overarching episodes (Caritas). Instead of the normal historical sequence (1, then 2-4, then 5-13), the unsealing order requires reciting the Middle Episode (Madhyama Carita) first, followed by the First Episode (Prathama Carita), and culminating in the Final Episode (Uttama Carita).
 
 Additionally, Bhāskararāya references the supreme internal unsealing (Mahotkīlana) based on selfless giving and receiving (dadāti pratigṛhṇāti), which transforms outer chanting into pure non-dual offering.`,
-    relatedVerseIds: ['dm-kilaka-1', 'dm-1-1', 'dm-7-1']
+    relatedVerseIds: ['dm-keelaka-0', 'dm-1-1', 'dm-7-1']
   },
   {
     id: 'guptavati-11-recitation-etiquette',
@@ -327,7 +327,7 @@ Bhāskararāya demonstrates that:
 - Total Healing: Verse 11.29 ("rogān aśeṣān apahaṃsi tuṣṭā...") chanted systematically grants relief from chronic and incurable diseases.
 - Divine Attraction and Wisdom: Verse 1.55 ("jñāninām api cetāṃsi...") chanted with concentration brings spiritual attraction and purification of intellect.
 - The 112-Syllable Sovereign Formula: A master incantation derived from the text combined with Māyā, Lakṣmī, and Kāma seed-syllables, practiced over 41, 21, or 7 days to attain unshakeable wisdom, worldly prosperity, and spiritual liberation.`,
-    relatedVerseIds: ['dm-1-55', 'dm-4-17', 'dm-11-27', 'dm-11-29', 'dm-11-35', 'dm-11-54']
+    relatedVerseIds: ['dm-1-55', 'dm-4-14', 'dm-11-23', 'dm-11-37']
   }
 ];
 
@@ -395,7 +395,7 @@ export const guptavatiConceptsMl: RawConceptMl[] = [
     title: '"ചാമുണ്ഡാ", "വിച്ചേ" എന്നീ പദങ്ങളുടെ നിഗൂഢ വ്യാകരണാർത്ഥം',
     category: 'ഗുപ്തവതീ ഉപോദ്ഘാതം (ഭാസ്കരരായർ)',
     summary: `ചമൂം ഡാതി ഇതി ചാമുണ്ഡാ — ഇന്ദ്രിയ പ്രപഞ്ചത്തിന്റെ സൈന്യത്തെ (ചമൂ) സ്വന്തം ആത്മാവിൽ ലയിപ്പിച്ചു ഇല്ലാതാക്കുന്ന ചിത്-ശക്തിയാണ് ചാമുണ്ഡ. "വിച്ചേ" എന്നാൽ ഹൃദയത്തിലെ അവിദ്യാ ബന്ധനങ്ങളെ അറുത്തുമാറ്റി മോക്ഷം നൽകുക എന്ന പ്രാർത്ഥനയാണ്.`,
-    relatedVerseIds: ['dm-7-25'],
+    relatedVerseIds: ['dm-7-19'],
     relatedConceptIds: ['cit-shakti']
   },
   {
@@ -427,7 +427,7 @@ export const guptavatiConceptsMl: RawConceptMl[] = [
     title: 'ശാപോദ്ധാരവും ഉത്കീലനവും: വായന ക്രമത്തിലെ രണ്ട് പ്രധാന തന്ത്ര മാറ്റങ്ങൾ',
     category: 'ഗുപ്തവതീ ഉപോദ്ഘാതം (ഭാസ്കരരായർ)',
     summary: `ശാപോദ്ധാരേ മനോഃ ക്രമഃ ഉത്കീലനേ ചരിത്രാണാം — വസിഷ്ഠ-വിശ്വാമിത്ര-ശിവ ശാപങ്ങളെ നീക്കാൻ അധ്യായങ്ങളെ വിപരീത ജോടികളായി വായിക്കുന്ന ക്രമമാണ് ശാപോദ്ധാരം (13-1, 12-2, 11-3, 10-4, 9-5, 8-6, ഒടുവിൽ 7-ാം അധ്യായം രണ്ടുതവണ). മധ്യമ ചരിതം ആദ്യം വായിക്കുന്ന ക്രമമാണ് ഉത്കീലനം.`,
-    relatedVerseIds: ['dm-kilaka-1', 'dm-1-1'],
+    relatedVerseIds: ['dm-keelaka-0', 'dm-1-1'],
     relatedConceptIds: ['sadhana-samara']
   },
   {
@@ -475,7 +475,7 @@ export const guptavatiConceptsMl: RawConceptMl[] = [
     title: 'അനുബന്ധം: ഓരോ ശ്ലോകത്തിന്റെയും നിർദ്ദിഷ്ട താന്ത്രിക പ്രയോഗങ്ങൾ',
     category: 'ഗുപ്തവതീ ഉപോദ്ഘാതം (ഭാസ്കരരായർ)',
     summary: `ഇതി ഗുപ്തവതീസ്ഥസപ്തശതീപ്രയോഗവിധിഃ — കാത്യായനീ തന്ത്രത്തിൽ നിന്നുള്ള ശ്ലോക പ്രയോഗങ്ങൾ: ഭയ-ദാരിദ്ര്യ നാശത്തിന് "ദുർഗ്ഗേ സ്മൃതാ" (4.17), സർവ്വ ബാധാ ശമനത്തിന് "സർവ്വാബാധാ പ്രശമനം" (11.35), രോഗ നിവാരണത്തിന് "രോഗാനശേഷാൻ" (11.29), ബാധകളും ഗ്രഹദോഷങ്ങളും അകറ്റാൻ "ഹിനസ്തി ദൈത്യതേജാംസി" (11.27) തുടങ്ങിയ നിർദ്ദിഷ്ട സിദ്ധി പ്രയോഗങ്ങൾ.`,
-    relatedVerseIds: ['dm-4-17', 'dm-11-27', 'dm-11-29', 'dm-11-35'],
+    relatedVerseIds: ['dm-4-14', 'dm-11-23'],
     relatedConceptIds: ['sadhana-samara']
   },
   {

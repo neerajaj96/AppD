@@ -320,6 +320,11 @@ Suratha's question sharpens here into its most precise form: not "why do people 
 ---
 **Seven-Commentary Digest:**
 Guptavati's brief note glosses "vivekandhasya" (of one blinded despite discrimination) as the verse's key compound, underscoring that the paradox — knowing and still not-escaping — is being named explicitly rather than left implicit. The commentators broadly agree this verse functions as the direct pivot into Medhas's forthcoming discourse on Mahamaya: everything Suratha and Samadhi have observed about themselves and, in the following verses, about animal behavior, converges on the single question this verse poses.`,
+    keyPoints: [
+    "**Knowing Without Escaping**: Naming confusion as confusion still leaves one inside it — information is not transformation.",
+    "**The Precise Gap**: Intellect versus embodiment; Medhas's coming Mahāmāyā teaching addresses exactly this interval.",
+    "**Vivekāndha**: Blindness despite discrimination — the verse coins the seeker's condition as its key compound."
+    ]
   },
 {
     id: 'dm-1-35',
@@ -356,6 +361,11 @@ This is Medhas's first move before naming Mahāmāyā directly: he refuses to le
 ---
 **Seven-Commentary Digest:**
 Guptavati's notes across this stretch stay close to the letter, mainly confirming that "divandhah" and "ratrav andhah" describe creatures such as certain birds proverbially blind by day or night respectively (a natural-history commonplace the commentary treats as needing no further gloss). The commentators as a group read verses 36-37 as building a formal syllogism: animals possess knowledge; animals still act from attachment; therefore knowledge and freedom-from-attachment are not the same capacity — a structure several of the seven note explicitly prepares the reader for Medhas's forthcoming identification of Mahamaya as the operative cause. The image of birds feeding their young despite their own hunger (v.38) receives comment mainly on the term "kanamokshadritan" (intent on releasing/dropping grains), confirmed by more than one commentator as describing ordinary parental feeding-behavior rather than any more exotic reading.`,
+    keyPoints: [
+    "**Knowledge Is Universal**: Beasts, birds and deer all know — human beings hold no monopoly on awareness.",
+    "**Day-Blind, Night-Blind**: Every creature sees in its own element and is blind outside it; standpoint governs sight.",
+    "**Same Hunger, Same Bond**: Care for young driven by hunger binds animal and human alike — one mohā, different scales."
+    ]
   },
 {
     id: 'dm-1-41',
@@ -369,6 +379,11 @@ mahāmāyā hareś caiṣā tayā sammohyate jagat ||`,
     translation: `So no wonder need be made of this — this pattern is itself the Yoganidrā of the Lord of the world; She is the very Mahāmāyā of Hari, and by Her the universe is deluded.`,
     commentary: `**Sādhana-Samara Commentary:**
 The naming happens here, plainly: what has just been demonstrated across birds, beasts, and both grieving men is not scattered coincidence but the single operation of one power — Mahāmāyā, Hari's own Yoganidrā. This verse retroactively reframes everything since verse 30: Viṣṇu's cosmic sleep and Suratha's inexplicable grief are shown to be the very same force, operating at different scales, cosmic and personal, without any real distinction between them.`,
+    keyPoints: [
+    "**No Wonder Needed**: The pattern itself is Her — Yoganidrā, the Mahāmāyā of Hari, by whom the universe is deluded.",
+    "**Sleep as Goddess**: Cosmic sleep is not absence but a Person — the first naming of the veil as divine.",
+    "**Cause Located**: Suratha's 'what is this?' receives its single source before the battle-narrative resumes."
+    ]
   },
 {
     id: 'dm-1-43',
@@ -382,6 +397,11 @@ saiṣā prasannā varadā nṝṇāṃ bhavati muktaye ||`,
     translation: `By Her, this universe — the triple world together with all that moves and does not move — is brought forth; and this very Goddess, when gracious, becomes the bestower of boons and the cause of liberation for human beings.`,
     commentary: `**Sādhana-Samara Commentary:**
 The same power that binds (v.41) is here shown, without contradiction, to also liberate. This is the verse's real weight: Mahāmāyā is not one force among two — a binding power balanced by a separate liberating one — but a single power whose direction (bondage or freedom) depends entirely on Her own grace (*prasannā*) rather than on any technique the aspirant alone can force. This is the theological seed that the whole rest of the *Devī Māhātmya* — six more chapters of praise, request, and surrender — will spend itself elaborating.`,
+    keyPoints: [
+    "**One Power, Two Jobs**: The same Goddess brings forth the triple world and, when gracious, becomes the cause of liberation.",
+    "**Grace as Causality**: Bondage and freedom share one author — fortune turns on Her favour, not on technique alone.",
+    "**Bhoga and Mokṣa, One Hand**: Boons and liberation both hers — enjoyment and freedom from the same giver."
+    ]
   },
 {
     id: 'dm-1-44',
@@ -492,7 +512,12 @@ Having named Herself through the mantra-syllables in the previous verse, the God
 
 ---
 **Seven-Commentary Digest:**
-On verse 55, Santanavi is unusually expansive, working through several proposed derivations of "ardhamatra" - as the unvoiced half-beat completing the syllable Om, as the fourth, unspoken measure standing for the turiya state itself, and as "that which cannot be reached by words, which turn back from it together with the mind," explicitly invoking the Taittiriya Upanishad's language of the unreachable. Nagojibhatti's note here simply directs the reader back to its own remarks on the previous verse, treating 55 as a continuation of the same argument rather than a fresh topic - a sign the commentators read 54-55 as one philosophical unit. Guptavati keeps to the essentials: Savitri is glossed as the Gayatri mantra's presiding deity, "janani para" as the supreme mother precisely because, unlike ordinary mothers who beget only "this or that" limited offspring, she alone brings forth everything without exception. On verses 56-57, several commentators (Chaturdhari, Nagojibhatti) read the three verbs - dharyate, srjyate, palyate, atsi - as a direct restatement of Brahma-Vishnu-Rudra's three functions now reclaimed by the single Devi who underlies all three, with Santanavi spelling this out explicitly: creation by her Brahmi shakti, protection by her Vaishnavi shakti, dissolution by her Raudri shakti, three names for one undivided power. Verse 58's four "Maha-" names receive comparatively brief individual glosses (mostly grammatical formation notes) from Guptavati and Damsoddhara, with the commentators letting the verse's own accumulating rhythm - vidya, maya, medha, smrti, moha - carry its meaning without heavy interpretive overlay; the Hindi Candraprabha follows this same restrained approach, translating each name plainly in sequence.`
+On verse 55, Santanavi is unusually expansive, working through several proposed derivations of "ardhamatra" - as the unvoiced half-beat completing the syllable Om, as the fourth, unspoken measure standing for the turiya state itself, and as "that which cannot be reached by words, which turn back from it together with the mind," explicitly invoking the Taittiriya Upanishad's language of the unreachable. Nagojibhatti's note here simply directs the reader back to its own remarks on the previous verse, treating 55 as a continuation of the same argument rather than a fresh topic - a sign the commentators read 54-55 as one philosophical unit. Guptavati keeps to the essentials: Savitri is glossed as the Gayatri mantra's presiding deity, "janani para" as the supreme mother precisely because, unlike ordinary mothers who beget only "this or that" limited offspring, she alone brings forth everything without exception. On verses 56-57, several commentators (Chaturdhari, Nagojibhatti) read the three verbs - dharyate, srjyate, palyate, atsi - as a direct restatement of Brahma-Vishnu-Rudra's three functions now reclaimed by the single Devi who underlies all three, with Santanavi spelling this out explicitly: creation by her Brahmi shakti, protection by her Vaishnavi shakti, dissolution by her Raudri shakti, three names for one undivided power. Verse 58's four "Maha-" names receive comparatively brief individual glosses (mostly grammatical formation notes) from Guptavati and Damsoddhara, with the commentators letting the verse's own accumulating rhythm - vidya, maya, medha, smrti, moha - carry its meaning without heavy interpretive overlay; the Hindi Candraprabha follows this same restrained approach, translating each name plainly in sequence.`,
+    keyPoints: [
+    "**Ardhamātrā**: The eternal half-measure even knowers of its nature cannot utter — sound's edge where speech fails.",
+    "**Sāvitrī as Mother**: The Gāyatrī-source named supreme Mother — mantra and maternity are one power.",
+    "**Held, Born, Sustained**: By Her the universe is held, brought forth and maintained — and at the end, reabsorbed."
+    ]
   },
 {
     id: 'dm-1-59',
@@ -527,7 +552,12 @@ This is the great catalogue-hymn at the philosophical center of the *turīya*-pr
 
 ---
 **Seven-Commentary Digest:**
-Pradipa gives its fullest attention in this stretch to the weapon-catalogue of verse 61, tracing each named implement to the specific deity said elsewhere in the text to have gifted it - tying this verse forward to the weapon-donation scene of chapter 2 - and reading the accumulation as proof that Devi's martial capacity was never borrowed for a single occasion but is intrinsic to her nature from the very moment of her praise in chapter 1, well before Mahisha's war even begins. Nagojibhatti and Damsoddhara divide their notes mainly between resolving compound formations (guna-traya-vibhavini, sad-asad-vakhilatmike) and confirming variant readings found across manuscript traditions. Santanavi reads the qualities of verse 60 - Sri, Hri, buddhi, lajja, pusti, tusti, shanti, kshanti - as together constituting a complete inventory of what classical thought calls the sattvika endowments of a well-formed mind, so that the verse quietly instructs the sadhaka in what inner qualities to cultivate even while ostensibly describing the Goddess. On the closing verse's rhetorical question "how then are you to be praised," Guptavati and the Hindi Candraprabha agree this is not despair but the hymn's deliberate self-undercutting - a device meant to humble the one praising rather than to diminish the object of praise, consistent with apophatic gestures found elsewhere in Puranic stotra literature.`
+Pradipa gives its fullest attention in this stretch to the weapon-catalogue of verse 61, tracing each named implement to the specific deity said elsewhere in the text to have gifted it - tying this verse forward to the weapon-donation scene of chapter 2 - and reading the accumulation as proof that Devi's martial capacity was never borrowed for a single occasion but is intrinsic to her nature from the very moment of her praise in chapter 1, well before Mahisha's war even begins. Nagojibhatti and Damsoddhara divide their notes mainly between resolving compound formations (guna-traya-vibhavini, sad-asad-vakhilatmike) and confirming variant readings found across manuscript traditions. Santanavi reads the qualities of verse 60 - Sri, Hri, buddhi, lajja, pusti, tusti, shanti, kshanti - as together constituting a complete inventory of what classical thought calls the sattvika endowments of a well-formed mind, so that the verse quietly instructs the sadhaka in what inner qualities to cultivate even while ostensibly describing the Goddess. On the closing verse's rhetorical question "how then are you to be praised," Guptavati and the Hindi Candraprabha agree this is not despair but the hymn's deliberate self-undercutting - a device meant to humble the one praising rather than to diminish the object of praise, consistent with apophatic gestures found elsewhere in Puranic stotra literature.`,
+    keyPoints: [
+    "**Prakṛti of the Guṇas**: She manifests the three guṇas of everything — Sāṃkhya's evolute owned as Goddess.",
+    "**Three Nights**: Kālarātri, Mahārātri, dread Moharātri — time's dread faces gathered into Her.",
+    "**Virtues as Powers**: Śrī, Hrī, intellect, shame, nourishment, contentment, peace — excellences are Her, not ornaments."
+    ]
   },
 {
     id: 'dm-1-64',
@@ -558,7 +588,12 @@ The hymn closes not with abstraction but with a direct, urgent petition — the 
 
 ---
 **Seven-Commentary Digest:**
-Pradipa treats verses 64-65 - where Brahma admits that even Vishnu's cosmic function and his own existence as creator were "caused" by Devi - as the hymn's decisive theological claim, since it places Brahma and Vishnu, the two great gods of the earlier cosmology, explicitly downstream of Devi's causal power rather than beside her; several commentators note this is the strongest non-dual statement in chapter 1, anticipating the still bolder declaration Devi herself will make in chapter 10. Nagojibhatti's notes work through the causative constructions (karitah, literally "were made to do") with technical precision, since the grammar itself carries the theological weight - Brahma is not saying Devi assisted him, but that she is the agent behind his very agency. On the closing petition of verses 66-67, Chaturdhari and the Hindi Candraprabha both mark the shift in register from praise to request as the natural and necessary conclusion of any stotra in this tradition - a hymn that only praised without asking would, in the ritual logic these commentators assume throughout, be considered incomplete. Jagaccandracandrika's mantra-count notes conclude their running tally here, marking this as the close of the hymn-unit before the narrative resumes with Devi's answer to Brahma's request in the verses that follow.`
+Pradipa treats verses 64-65 - where Brahma admits that even Vishnu's cosmic function and his own existence as creator were "caused" by Devi - as the hymn's decisive theological claim, since it places Brahma and Vishnu, the two great gods of the earlier cosmology, explicitly downstream of Devi's causal power rather than beside her; several commentators note this is the strongest non-dual statement in chapter 1, anticipating the still bolder declaration Devi herself will make in chapter 10. Nagojibhatti's notes work through the causative constructions (karitah, literally "were made to do") with technical precision, since the grammar itself carries the theological weight - Brahma is not saying Devi assisted him, but that she is the agent behind his very agency. On the closing petition of verses 66-67, Chaturdhari and the Hindi Candraprabha both mark the shift in register from praise to request as the natural and necessary conclusion of any stotra in this tradition - a hymn that only praised without asking would, in the ritual logic these commentators assume throughout, be considered incomplete. Jagaccandracandrika's mantra-count notes conclude their running tally here, marking this as the close of the hymn-unit before the narrative resumes with Devi's answer to Brahma's request in the verses that follow.`,
+    keyPoints: [
+    "**Even He Sleeps**: Creator, preserver, consumer move only by Her — Viṣṇu himself lies under the sway of Her sleep.",
+    "**Praise Disarmed**: If the gods are Her instruments, what power has the praiser? — humility itself as method.",
+    "**Office as Gift**: Viṣṇu's embodied form and Brahmā's lordship both made by Her — rank itself is Her doing."
+    ]
   },
 {
     id: 'dm-1-66',

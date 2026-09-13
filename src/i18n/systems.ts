@@ -34,8 +34,12 @@ export const systemNames: Record<string, { en: { title: string; subtitle: string
     ml: { title: 'വേദാന്തം', subtitle: 'വേദങ്ങളുടെ അന്ത്യം (അദ്വൈതം)' },
   },
   tantra: {
-    en: { title: 'Tantra', subtitle: 'The non-dual science of Śakti — goddess, energy and recognition' },
-    ml: { title: 'തന്ത്രം', subtitle: 'ശക്തിയുടെ അദ്വൈതശാസ്ത്രം — ദേവി, ഊർജ്ജം, പ്രത്യഭിജ്ഞ' },
+    en: { title: 'Tantra', subtitle: 'The non-dual science of Śakti — goddess, energy and thousand names' },
+    ml: { title: 'തന്ത്രം', subtitle: 'ശക്തിയുടെ അദ്വൈതശാസ്ത്രം — ദേവി, ഊർജ്ജം, സഹസ്രനാമങ്ങൾ' },
+  },
+  'kashmir-shaivism': {
+    en: { title: 'Kashmir Shaivism', subtitle: 'The Trika recognition — aphorisms, pulsation, 112 gates, metaphysics' },
+    ml: { title: 'കാശ്മീരശൈവം', subtitle: 'ത്രികപ്രത്യഭിജ്ഞ — സൂത്രങ്ങൾ, സ്പന്ദനം, 112 വാതിലുകൾ, തത്ത്വശാസ്ത്രം' },
   },
 };
 

@@ -8,6 +8,7 @@ import { vaisesikaSystem } from './vaisesika';
 import { mimamsaSystem } from './mimamsa';
 import { vedantaSystem } from './vedanta';
 import { tantraSystem } from './tantra';
+import { kashmirShaivismSystem } from './kashmir-shaivism';
 
 export const systems: System[] = [
   {
@@ -34,7 +35,8 @@ export const systems: System[] = [
   vaisesikaSystem,
   mimamsaSystem,
   vedantaSystem,
-  tantraSystem
+  tantraSystem,
+  kashmirShaivismSystem
 ];
 
 export const getSystem = (id: string) => systems.find((s) => s.id === id);
