@@ -584,6 +584,21 @@ export const introSections: IntroSection[] = [
     body: {
       en: 'God meets devotees through the powers devotion discloses: the best devotee perceives Him in all beings, and relation runs through grace rather than fellow-feeling — sympathy in the human sense presupposes lack, while He approaches through essential power made intimate in worship. Bhakti is therefore not only the means but itself the emancipation: the path\'s end is the path intensified. Realisation is twofold — abstract as Brahman, concrete as personal God and supreme Soul — and the concrete enriches itself as diverse forms dawn, until the devotee identifies his own nature with God\'s bliss-nature; that identification felt is the emotion of devotion-joy (priti), experienced as one\'s own nature and as oneness with Him. Only through such joy does sorrow fully cease, other attributes and powers unveiling within it; ordinary seekers waste the same hunger on worldly objects, not knowing joy\'s true object. Purity (kaivalya) is thus redefined as God\'s own nature realised, and embodied release (jivan-mukti) as true self-knowledge in right relation to Him. Our Common-ground says liberation ends the cycle by right knowing; in some sayings knowing ends as joy, because here bliss is not the reward of vision but its substance.'
     }
+  },
+  {
+    id: 'tantra-vision',
+    title: { en: 'Tantra: enjoyment itself becomes liberation', ml: 'തന്ത്രം: ഭോഗം തന്നെ മോക്ഷമാകുന്നു' },
+    body: {
+      en: 'Beyond the nine classical schools mapped above, this app carries a seventh system: Tantra, the woven scripture that saves by expanding awareness. Its premise reverses the ascetic instinct — the world is not a trap but Śakti\'s own body, so rightly-known experience is worship, the body a temple, and enjoyment (bhukti) a road to freedom (mukti) rather than its opposite. Kashmir Śaivism, its philosophical centre, holds the Absolute as light that knows itself (prakāśa) inseparably united with power that moves itself (vimarśa); creation is that freedom appearing as thirty-six principles, bondage is forgetting, and practice is recognition (pratyabhijñā) — not becoming someone new but remembering what was never lost. Enter it through the Tantra system: goddess, serpent power, thousand names, recognition aphorisms, pulsation and metaphysics, closed by a study guide.',
+      ml: 'മുകളിലെ ഒമ്പത് ശാഖകൾക്കപ്പുറം ഈ ആപ്പിൽ ഏഴാമതൊരു വ്യവസ്ഥയുണ്ട്: അവബോധം വികസിപ്പിച്ച് രക്ഷിക്കുന്ന നെയ്ത ശാസ്ത്രമായ തന്ത്രം. ലോകം കെണിയല്ല, ശക്തിയുടെ സ്വന്തം ശരീരമാണ്; അതിനാൽ ശരിയായി അറിയപ്പെട്ട അനുഭവം ആരാധനയും ശരീരം ക്ഷേത്രവും ഭോഗം മോക്ഷത്തിലേക്കുള്ള വഴിയുമാണ്. സ്വയം അറിയുന്ന പ്രകാശവും സ്വയം ചലിക്കുന്ന വിമർശവും ചേർന്ന പരമമാണ് കാശ്മീരശൈവമതത്തിലെ സത്യം; സൃഷ്ടി ആ സ്വാതന്ത്ര്യത്തിന്റെ മുപ്പത്തിയാറ് തത്ത്വങ്ങളായുള്ള പ്രത്യക്ഷപ്പെടലും ബന്ധനം മറവിയും സാധന പ്രത്യഭിജ്ഞയുമാണ് — പുതിയ ഒരാളാകലല്ല, നഷ്ടപ്പെട്ടിട്ടില്ലാത്തതിനെ ഓർമ്മിക്കൽ. തന്ത്രവ്യവസ്ഥയിലൂടെ പ്രവേശിക്കൂ: ദേവി, സർപ്പശക്തി, സഹസ്രനാമങ്ങൾ, പ്രത്യഭിജ്ഞാസൂത്രങ്ങൾ, സ്പന്ദനം, തത്ത്വശാസ്ത്രം, ഒടുവിൽ ഒരു പഠനസഹായി.'
+    }
+  },
+  {
+    id: 'mishra-source',
+    title: { en: 'Source note: Mishra on Kashmir Śaivism' },
+    body: {
+      en: 'The Tantra system\'s closing study guide distils Kamalakar Mishra, Kashmir Śaivism: The Central Philosophy of Tantrism (Rudra Press 1993; First Indian Edition Delhi 1999): Ch. 1 Introduction (tantra/āgama meaning, nivṛtti-pravṛtti union, denominations, the five Ms, Abhinavagupta); Ch. 2 Epistemology (self-illumined consciousness, intrinsic validity, āgama as verifiable revelation, the Trika theory of error); Ch. 3 the Absolute as Śiva (first person, perfection, Knowledge-Will) and Śakti (kinds, levels, symbols, fourfold Speech); Chs. 4-5 creation (five functions, pure categories, māyā and her cloaks, the twenty-four, ābhāsavāda as freedom-theory); Ch. 6 evil (free will, karma, play); Ch. 7 recognition (meaning, levels, ego-dissolution, bhakti); Ch. 8 bondage and liberation (three stains, rival freedoms, seven knowers, four means, effort and grace, the relaxed life); Ch. 10 Kaula practice (sublimation, holiness, love). All wording here and in the guide is our own paraphrase; nothing is copied. For Mishra\'s full arguments, citations and notes, consult the printed book.'
+    }
   }
 ];
 

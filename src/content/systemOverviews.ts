@@ -301,7 +301,7 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
       ml: 'ശക്തിയുടെ അദ്വൈതശാസ്ത്രം — ദേവി, ഊർജ്ജം, പ്രത്യഭിജ്ഞ'
     },
     summary: {
-      en: "Tantra is the woven scripture that saves by expanding: revelation (Āgama) for an age too thin for the outer sacrifice, teaching that enjoyment itself becomes liberation because the world is Śakti's own body. This system unites three book-extracted texts on one path — the Devī Māhātmya (the goddess and the inner war, via Sādhana-Samara), Kuṇḍalinī Tantra (the serpent power and its ascent), and the Tantrāloka (Abhinavagupta's recognition metaphysics) — each lightly touched and paraphrased into this app's own summaries.",
+      en: "Tantra is the woven scripture that saves by expanding: revelation (Āgama) for an age too thin for the outer sacrifice, teaching that enjoyment itself becomes liberation because the world is Śakti's own body. This system unites six book-extracted root texts on one path — the Devī Māhātmya (the goddess and the inner war, via Sādhana-Samara), Kuṇḍalinī Tantra (the serpent power and its ascent), the Lalitā Sahasranāma (Śrīvidyā's complete icon), the Śiva-sūtras (recognition aphorisms), the Spanda-kārikās (dynamic pulsation) and the Tantrāloka (Abhinavagupta's recognition metaphysics) — closed by a study companion synthesising Kamalakar Mishra's Kashmir Shaivism: The Central Philosophy of Tantrism (abhasavada, evil and karma, the four means, Kaula sublimation), each lightly touched and paraphrased into this app's own summaries.",
       ml: "വികസിപ്പിച്ച് രക്ഷിക്കുന്ന നെയ്ത ശാസ്ത്രമാണ് തന്ത്രം: ബാഹ്യയാഗത്തിന് ശേഷിയില്ലാത്ത കലിയുഗത്തിനുള്ള വെളിപാട് (ആഗമം), ലോകം ശക്തിയുടെ സ്വന്തം ശരീരമായതിനാൽ ഭോഗം തന്നെ മോക്ഷമാകുന്നു എന്ന് പഠിപ്പിക്കുന്നു. ഈ വ്യവസ്ഥ മൂന്ന് ഗ്രന്ഥങ്ങളെ ഒരൊറ്റ പാതയിൽ യോജിപ്പിക്കുന്നു — ദേവീമാഹാത്മ്യം (ദേവിയും ആന്തരിക സമരവും, സാധനാ-സമരത്തിലൂടെ), കുണ്ഡലിനീതന്ത്രം (സർപ്പശക്തിയും ഉയർച്ചയും), തന്ത്രാലോകം (അഭിനവഗുപ്തന്റെ പ്രത്യഭിജ്ഞാ തത്ത്വശാസ്ത്രം)."
     },
     pillars: {
@@ -359,6 +359,18 @@ export const systemOverviews: Record<string, SystemOverviewData> = {
           sanskritTerm: 'Viṃśati-kriyā (विंशति-क्रिया)',
           summary: 'Nine eyes-open conductings clearing the passages, eleven eyes-closed seals culminating in the great seals — strict order, each rung opening the gate the next walks through.',
           conceptId: 'twenty-kriyas'
+        },
+        {
+          title: 'Appearance Is Real',
+          sanskritTerm: 'Ābhāsavāda (आभासवाद)',
+          summary: 'The world as consciousness extended into form — ideal yet real, dreamed by the cosmic mind and therefore objective for us; appearance-theory is freedom-theory, since appearing is what free consciousness does.',
+          conceptId: 'mishra-abhasavada'
+        },
+        {
+          title: 'Sublimation Through Holiness',
+          sanskritTerm: 'Kaula-sādhanā (कौलसाधना)',
+          summary: 'Sexual power sublimated works wonders and suppressed merely ferments; met as holy offering between perceived divinities, instinct is redirected by love into illumination rather than indulgence or repression.',
+          conceptId: 'mishra-kaula-sadhana'
         }
       ],
       ml: [
