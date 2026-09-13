@@ -4,7 +4,15 @@ import { SupportedLanguage } from '../types/i18n';
 // pedagogical map (nine schools, common questions, means of knowledge).
 // All prose below is original to this project; the Chatterjee & Datta
 // textbook and Surendranath Dasgupta's _A History of Indian Philosophy_,
-// Vol. I (Cambridge 1922, Chs. I-X: Vedas to Sankara Vedanta) served only
+// Vols. I-IV (Cambridge: Vol. I Chs. I-X Vedas to Sankara Vedanta;
+// Vol. II Ch. XI Sankara school continued, Ch. XII Yoga-Vasistha,
+// Ch. XIII medical schools, Ch. XIV Gita; Vol. III Ch. XV Bhaskara,
+// Ch. XVI Pancaratra, Ch. XVII Alvars, Chs. XVIII-XX Ramanuja school,
+// Ch. XXI Nimbarka, Ch. XXII Vijnana Bhiksu, Ch. XXIII Puranas plus
+// Vol. I appendix on Lokayata/Carvaka; Vol. IV Ch. XXIV Bhagavata-purana,
+// Chs. XXV-XXVIII Madhva life, sutra-reading, philosophy and logic,
+// Chs. XXIX-XXX dualist-monist controversy, Ch. XXXI Vallabha,
+// Ch. XXXII Caitanya, Ch. XXXIII Jiva Gosvami and Baladeva) served only
 // as structural reading aids. No sentences are borrowed from them.
 // VARIANT RULE: where existing app content says "A is B" and Dasgupta
 // records "A is C", both are preserved below as "A is B; in some sayings
@@ -149,9 +157,9 @@ export const introSections: IntroSection[] = [
   },
   {
     id: 'dasgupta-source',
-    title: { en: 'Source note: Dasgupta Vol. I (1922)' },
+    title: { en: 'Source note: Dasgupta Vols. I-IV' },
     body: {
-      en: 'These sections distil Surendranath Dasgupta, A History of Indian Philosophy, Vols. I-III (Cambridge University Press): Vol. I Chs. I-X (Vedas to Sankara Vedanta); Vol. II Ch. XI Sankara school continued, Ch. XII Yoga-Vasistha, Ch. XIII medical schools (Ayurveda), Ch. XIV Bhagavad-gita; Vol. III Ch. XV Bhaskara, Ch. XVI Pancaratra, Ch. XVII Alvars, Chs. XVIII-XX Ramanuja school (with Yamuna), Ch. XXI Nimbarka, Ch. XXII Vijnana Bhiksu, Ch. XXIII Puranas, plus the Vol. I appendix on Lokayata/Carvaka. All wording here is our own paraphrase; nothing is copied. Rule followed throughout: existing app content is never overwritten. Where this app says "A is B" and Dasgupta records "A is C", both stand, phrased as "A is B; in some sayings A is C, because ..." with his reason given.'
+      en: 'These sections distil Surendranath Dasgupta, A History of Indian Philosophy, Vols. I-IV (Cambridge University Press): Vol. I Chs. I-X (Vedas to Sankara Vedanta); Vol. II Ch. XI Sankara school continued, Ch. XII Yoga-Vasistha, Ch. XIII medical schools (Ayurveda), Ch. XIV Bhagavad-gita; Vol. III Ch. XV Bhaskara, Ch. XVI Pancaratra, Ch. XVII Alvars, Chs. XVIII-XX Ramanuja school (with Yamuna), Ch. XXI Nimbarka, Ch. XXII Vijnana Bhiksu, Ch. XXIII Puranas, plus the Vol. I appendix on Lokayata/Carvaka; Vol. IV Ch. XXIV Bhagavata-purana, Chs. XXV-XXVIII Madhva (life and school, Brahma-sutra reading, ontology/epistemology, logic), Chs. XXIX-XXX dualist-monist controversy (Vyasa-tirtha, Madhusudana, Ramacarya), Ch. XXXI Vallabha, Ch. XXXII Caitanya, Ch. XXXIII Jiva Gosvami and Baladeva Vidyabhusana. All wording here is our own paraphrase; nothing is copied. Rule followed throughout: existing app content is never overwritten. Where this app says "A is B" and Dasgupta records "A is C", both stand, phrased as "A is B; in some sayings A is C, because ..." with his reason given.'
     }
   },
   {
@@ -320,6 +328,76 @@ export const introSections: IntroSection[] = [
     title: { en: 'Puranas and Lokayata/Carvaka (Dasgupta Vol. III, Ch. XXIII + appendix)' },
     body: {
       en: 'Selected Puranas (Visnu, Vayu, Markandeya — including the Devi-Mahatmya section — Naradiya, Kurma) popularise cosmology, genealogies and devotion already systematised elsewhere; Dasgupta treats them as compendia rather than independent proofs, valuable for how theistic metaphysics reached wider audiences. The appendix gathers Lokayata/Nastika/Carvaka (Barhaspatya): an old materialism named already beside Samkhya-Yoga in Kautilya as logical science (anviksiki), and in Pali as tricky disputation (vitanda — criticism without counter-thesis, by equivocation, false analogy and defeat-points). Its chief doctrine, noted from Svetasvatara onward, takes the elements (bhutas) as ultimate: in some sayings there is no soul, because consciousness arises from matter; in some sayings there is no afterlife or unseen fruit, because perception alone is trusted. Our Carvaka school-card says only perception counts with four elements combining; in some sayings even inference is distrusted as habit, because no necessary tie between seen mark and unseen thing is perceived.'
+    }
+  },
+  {
+    id: 'dasgupta-bhagavata',
+    title: { en: 'Bhagavata-purana (Dasgupta Vol. IV, Ch. XXIV)' },
+    body: {
+      en: 'The Bhagavata shares the Gita\'s devotional centrality without its antiquity: Dasgupta finds no trace before the tenth century, notes Ramanuja\'s silence about it, and sees it famous only by Madhva\'s thirteenth-century Bhagavata-tatparya; its Alvar echoes suggest a southern author, and its instant prestige drew scores of commentaries (Sridhara, Vallabha\'s Subodhini, Vijayadhvaja, Visvanatha, Sanatana and Jiva among them). Dharma here is re-centred: against Jaimini\'s injunction-only good and Medhatithi\'s exclusion of Bhagavatas and Pasupatas as non-Vedic, the text makes devotion itself the law. The Godhead is named threefold — Brahman, Paramatman, Bhagavan — not three gods but one reality under aspects, with Sakti in gross and transcendent forms; Kapila\'s Samkhya is retold devotionally (prakriti evolving under divine superintendence rather than autonomously), and eschatology passes through graded realms into loving service. Our Common-ground says acts ripen beyond the body; in some sayings ripening is drawn toward grace, because here duty culminates in remembrance of the Person.'
+    }
+  },
+  {
+    id: 'dasgupta-madhva-life',
+    title: { en: 'Madhva and his school (Dasgupta Vol. IV, Ch. XXV)' },
+    body: {
+      en: 'Madhva (Ananda-tirtha) of Udipi, near Sankara\'s Srngeri seat, is dated by Bhandarkar from Kali 4300 and Matha lists to Saka 1119 (c. 1197 CE) with a seventy-nine-year life, corroborated through his pupil Narahari\'s Srikurmam inscriptions of Saka 1186-1215; Dasgupta stresses how little is certain beyond the semi-legendary Madhva-vijaya, Mani-manjari and Trivikrama\'s hymns. Hagiography casts him as Vayu\'s incarnation raised to uproot Sankara, whose maya doctrine is caricatured as crypto-Buddhism preached by the demon Manimat. Trained under Acyutapreksa, he tours, debates, and founds the Udipi seat; some three dozen works are ascribed — Gita and Sutra commentaries, the Anuvyakhyana, the tenfold Dasa-prakarana, the Mahabharata-tatparya and Bhagavata-tatparya — carried forward by Jayatirtha, Vyasatirtha, Vadiraja and Raghavendra. Our Vedanta summary says sentences converge on Brahman veiled by ignorance; in some sayings the veil is denied and Vishnu affirmed as the sentence-meaning, because Madhva reads every text as pointing to a qualified supreme Person.'
+    }
+  },
+  {
+    id: 'dasgupta-madhva-sutras',
+    title: { en: "Madhva's reading of the Brahma-sutras (Dasgupta Vol. IV, Ch. XXVI)" },
+    body: {
+      en: 'Dasgupta tracks Madhva through the Anuvyakhyana as glossed by Jayatirtha\'s Tattva-prakasika, Vyasa Yati\'s Tatparya-candrika and Raghavendra\'s sub-commentaries, always against Sankara\'s reading. On I.1.1 (now therefore Brahma-enquiry), "now" does not merely mark moral fitness but Vishnu\'s grace moving inquiry itself, and enquiry is needed because His greater favour comes only through right knowledge; fitness is graded in three stages from Vishnu-devotion through sixfold discipline to exclusive attachment. Brahman is Vishnu, full of auspicious qualities and eternally distinct from souls and matter. On I.1.2 (origin and the rest from Him), creation, maintenance and dissolution proceed from His wish, not from an impersonal ground. On I.1.3-4 (scripture as source, harmony of texts), all Upanisadic sentences cohere in Vishnu; rival non-qualified readings strain the words. Our How-to-use section says enter through verses, thread and concepts; in some sayings entry must begin from grace, because here even the desire to inquire is His gift.'
+    }
+  },
+  {
+    id: 'dasgupta-madhva-phil',
+    title: { en: 'Madhva ontology and knowledge (Dasgupta Vol. IV, Ch. XXVII)' },
+    body: {
+      en: 'Reality for Madhva is twofold — independent (svatantra, Vishnu alone) and dependent — unfolded for debate into ten categories (substance, quality, action, class-character, particularity, qualified whole, power, similarity, negation) and twenty substances (paramatman, Lakshmi, souls, unmanifest space, prakriti, gunas, mahat, ego, intellect, mind, senses, elements, potentials, ignorance, sounds, darkness, tendencies, time, reflection). God and souls are manifested but never evolve; the world evolves; ignorance both evolves and is manifested. Five eternal differences (God-soul, God-matter, soul-soul, soul-matter, matter-matter) secure pluralism; souls are graded as fit for release, ever-wandering, or fit for darkness, and Lakshmi is co-eternal yet dependent. No act is morally neutral: even indifferent motion indirectly yields merit or demerit, while creation-acts abide eternally in God as essence, potential or actual. Universals perish with perishable individuals. Knowledge is true correspondence with objects; intrinsic validity is defended in theistic form. Our Nyaya/Vaisesika summaries list enduring substances and four instruments; in some sayings endurance is ranked by dependence, because here only Vishnu stands by Himself.'
+    }
+  },
+  {
+    id: 'dasgupta-madhva-logic',
+    title: { en: 'Madhva logic (Dasgupta Vol. IV, Ch. XXVIII)' },
+    body: {
+      en: 'Intuition (kevala-pramana) is fourfold — God\'s (independent, beginningless, all-scoped), Lakshmi\'s (dependent, slightly less penetrating, still eternal and true), the yogin\'s (straight sages bound for Brahmahood know all but God partially until release; lesser gods below them), and ordinary persons\' (graded by fitness for release, rebirth, or lower states). Its instruments (anu-pramana) are three: perception, inference, scripture. Perception needs a faultless sense meeting a faultless object — remoteness, nearness, minuteness, obstruction, confusion with similars all vitiate — with mind as superintendent and the self-identical intuitive faculty perceiving self, faculties, pleasure, time and space; Jayatirtha rejects sixfold Nyaya contact, since inherence is denied and quality is non-different from substance, so contact is one event. Inference rests on concomitance grasped through natural uniformity rather than abstracted universals. Testimony is faultless scripture — Veda with Pancaratra and Bhagavata — and reasoning (tarka) clears doubts. Our How-they-claim-to-know section counts instruments as positions; in some sayings counting ends in hierarchy, because here knowers themselves are ranked.'
+    }
+  },
+  {
+    id: 'dasgupta-dualist-monist-falsity',
+    title: { en: 'Dualist-monist debate: is the world false? (Dasgupta Vol. IV, Ch. XXIX)' },
+    body: {
+      en: 'Vyasatirtha\'s Nyayamrita attacks, Madhusudana\'s Advaita-siddhi defends, and Ramacarya\'s Tarangini rejoins over five classic definitions of falsity. That the false is "other than being and non-being" breaks the excluded middle, since separately admittable opposites cannot be jointly asserted (hare and horn exist apart, never as hare\'s horn); the reply that appearance lends a qualified being is met by insisting the school itself ties appearance to being. That the false is "denied wherever it appears at all times" either makes the denial real (so dualism) or merely conventional (so the world is true); the absolutely non-existent, it is urged, cannot appear, yet chimerical words convey notions and scripture speaks of non-being at the beginning. Successive definitions through indescribability, knowledge-sublatability and contradiction are pressed the same way: describing the indescribable describes it, and uncontradictedness in knowledge is not reality. Our Vedanta summary says the world is superimposed through positive nescience; in some sayings superimposition cannot even be stated, because every formula for falsity is shown to falsify itself.'
+    }
+  },
+  {
+    id: 'dasgupta-dualist-monist-avidya',
+    title: { en: 'Dualist-monist debate: nescience, Brahman, release (Dasgupta Vol. IV, Ch. XXX)' },
+    body: {
+      en: 'The sequel presses avidya, defined as beginningless, positive, and removed by knowledge: temporal world-objects cannot rest on a beginningless limiter; a positive stuff cannot cause mere negation, else the real causes the unreal; veiling blocks the final intuition of Brahman, making removal and release impossible; and if knowledge removed it spontaneously, qualifications about "beginningless" or "associated conditions" would be idle, while awaiting conditions denies spontaneity. Indefinability fares no better — not-positive must be negative, and a beginningless non-negation would persist like the self. Brahman as both material and instrumental cause is refused: a changeless intelligence cannot turn into an impure world except by wish-guided power over real matter. Release is therefore not identity without remainder but graded bliss in service, with hierarchy (taratamya) among the freed, twofold dissolution, and God sustaining all dependents. Our Sankara section says emancipation is already-accomplished identity realised; in some sayings realisation admits degrees, because difference is taken as eternal rather than apparent.'
+    }
+  },
+  {
+    id: 'dasgupta-vallabha',
+    title: { en: 'Vallabha: pure non-dualism of grace (Dasgupta Vol. IV, Ch. XXXI)' },
+    body: {
+      en: 'Vallabha (1479/81-1533 in Dasgupta\'s account; Anubhasya, Subodhini on the Bhagavata, and Pushti-marga writings, continued by Vitthala) holds suddha-advaita: Brahman is Krishna, being-consciousness-bliss with all qualities, whose power (maya/sakti) is real and inseparable like fire and its rays. The world is His real manifestation, not illusion — change touches the manifestation while the substance stays unspent, so both permanence and becoming hold. Against Sankara he rejects Brahman-plus-ignorance as omniscience and breath-analogies for the Veda\'s eternity; against bare inference (Udayana\'s nine theistic proofs rehearsed only to limit them) he holds God is known through scripture contemplated in purity, with action and knowledge as complementary purifiers disposing toward grace. Method is devotion, crowned as grace-nourished (pushti) love surpassing rule-bound (maryada) service; emancipation is participation in His play, not dissolution. Our Vedanta overview keeps positive beginningless avidya projecting the world; in some sayings projection is refused because power is affirmed, because Vallabha makes manifestation itself His glory.'
+    }
+  },
+  {
+    id: 'dasgupta-caitanya',
+    title: { en: 'Caitanya and his followers (Dasgupta Vol. IV, Ch. XXXII)' },
+    body: {
+      en: 'Caitanya (1485-1533), born at Navadvipa on a spring full-moon eclipse to Jagannatha and Saci, junior contemporary of Vallabha and last of the great Vaisnava reformers, left no systematic work; Dasgupta reconstructs him from Murari and Vrndavana\'s Caitanya-bhagavata for the early life, Kavi Karnapura\'s play (1572) and Krishnadasa Kaviraja\'s Caitanya-caritamrita (c. 1616) for the later, with Sarvabhauma\'s conversion-episode variously told. Raised amid migrant Vaisnava households under strained Muslim rule and the longing of Advaita Acarya, the brilliant scholar turns ecstatic devotee: congregational song, dance, tears and transports are devotion\'s evidence, not its ornament. Companions — Nityananda, Advaita, Rupa, Sanatana, Svarupa Damodara — organise the movement while he embodies it. Philosophy appears only as gleanings: Krishna as supreme Person, devotion as both means and end, humility deeper than scholarship. Our How-to-use section says start anywhere since doors reconnect; in some sayings the door is song, because here knowing matures only as loving seizure.'
+    }
+  },
+  {
+    id: 'dasgupta-jiva-baladeva',
+    title: { en: 'Jiva Gosvami and Baladeva: inconceivable difference (Dasgupta Vol. IV, Ch. XXXIII)' },
+    body: {
+      en: 'Jiva (Sat-sandarbha, with its Bhagavata-sandarbha commentary) reads Brahman, Paramatman and Bhagavan as one reality under aspects: generality without manifest powers appears as Brahman, cosmic control as Paramatman, and power-possessing bliss as Bhagavan — bliss the substance, other powers its qualities. Identity with Brahman comes not through "that art thou" instruction but through devotion-awakened grace realising consciousness-identity with Him. Powers are three — essential (svarupa), world (maya), soul (jiva) — and Vaikuntha is pure, time-transcending sattva beyond material guna-mixture. The world is real yet destructible: destructible means returning into God\'s power whence it came, so evolution (parinama) holds and illusion-analogies fail — fire\'s rays burn less than fire, poison still poisons when taken for ginger, and utility without ground is mere convention. Baladeva\'s Govinda-bhasya then reads the Brahma-sutras in this Caitanya idiom as inconceivable difference-and-non-difference (acintya-bhedabheda): dependence secures unity, distinct powers secure distinction. Our Ramanuja section says Brahman is one with real attributes as body; in some sayings unity is inconceivable, because powers are held to be neither identical nor separate.'
     }
   }
 ];
