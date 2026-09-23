@@ -199,6 +199,10 @@ for (const text of corpus.texts) {
     unitCount: text.units.length,
     conceptCount: text.concepts.length,
     threadSteps: file.threadSteps,
+    languages: {
+      en: text.units.filter((u) => u.localisations.en).length,
+      ml: text.units.filter((u) => u.localisations.ml).length,
+    },
     sections: sectionList,
   });
 }

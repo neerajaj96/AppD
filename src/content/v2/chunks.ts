@@ -92,6 +92,8 @@ export interface TextSummary {
   unitCount: number;
   conceptCount: number;
   threadSteps: number;
+  /** Localised unit coverage, for language badges without loading chunks. */
+  languages: { en: number; ml: number };
   sections: Array<{ section: string; count: number }>;
 }
 

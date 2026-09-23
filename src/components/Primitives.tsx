@@ -88,6 +88,82 @@ export function SectionTitle({
   );
 }
 
+/** Collection page header: eyebrow kicker, display title and a short lede.
+ *  Data-agnostic — callers pass strings only. */
+export function PageHeader({
+  eyebrow,
+  accentPrimary,
+  title,
+  lede,
+  actions,
+}: {
+  eyebrow?: React.ReactNode;
+  accentPrimary?: string;
+  title: React.ReactNode;
+  lede?: React.ReactNode;
+  actions?: React.ReactNode;
+}) {
+  return (
+    <div className="border-b border-tamas-deep pb-6">
+      {eyebrow && (
+        <Eyebrow accentPrimary={accentPrimary} className="mb-3">
+          {eyebrow}
+        </Eyebrow>
+      )}
+      <h1 className="t-display1 text-sattva">{title}</h1>
+      {lede && <p className="t-subtitle text-sattva-dim mt-2 max-w-2xl">{lede}</p>}
+      {actions && <div className="flex flex-wrap gap-2 mt-4">{actions}</div>}
+    </div>
+  );
+}
+
+/** Section header: small heading row with an optional trailing action. */
+export function SectionHeader({
+  title,
+  action,
+  className = '',
+}: {
+  title: React.ReactNode;
+  action?: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={`flex items-end justify-between gap-3 ${className}`}>
+      <h2 className="t-h3 text-sattva">{title}</h2>
+      {action}
+    </div>
+  );
+}
+
+/** Single-line metadata row: dim label, sattva value, truncated. */
+export function MetaRow({ label, value }: { label: React.ReactNode; value: React.ReactNode }) {
+  return (
+    <div className="flex items-baseline justify-between gap-3 text-sm">
+      <dt className="shrink-0 text-tamas">{label}</dt>
+      <dd className="min-w-0 truncate text-right tabular-nums text-sattva-dim">{value}</dd>
+    </div>
+  );
+}
+
+/** Loading placeholder: polite live region, no layout shift surprises. */
+export function LoadingState({ text }: { text: string }) {
+  return (
+    <div role="status" className="py-16 text-center text-tamas text-sm animate-pulse">
+      {text}
+    </div>
+  );
+}
+
+/** Empty placeholder for lists with nothing to show yet. */
+export function EmptyState({ title, body }: { title: React.ReactNode; body?: React.ReactNode }) {
+  return (
+    <div className="rounded-2xl border border-tamas-deep bg-avyakta-2 px-6 py-10 text-center">
+      <p className="font-serif font-bold text-sattva">{title}</p>
+      {body && <p className="t-body-sans text-sattva-dim mt-1">{body}</p>}
+    </div>
+  );
+}
+
 export function Eyebrow({
   children,
   accentPrimary,

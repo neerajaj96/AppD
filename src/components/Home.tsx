@@ -1,39 +1,97 @@
 import React, { useMemo, useState, useEffect } from 'react';
-import { Link } from 'react-router';
-import { X as RemoveIcon, Map as ThreadIcon, Quote as VerseIcon, Sparkles as ConceptIcon } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router';
+import { X as RemoveIcon } from 'lucide-react';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { getTraditionDisplay, traditionHref } from '../content/v2/catalog';
+import type { TraditionSummary } from '../content/v2/chunks';
 import { useCatalog } from '../content/v2/hooks';
 import { getRecentVisits, resolveVerseRefs, type ResolvedVerseRef } from '../utils/readingHistory';
 import { getBookmarks, removeBookmark } from '../utils/bookmarks';
 import { getThreadProgress } from '../utils/threadProgress';
-import { ActionLink, Card, CardBody, Eyebrow, SectionTitle, chipBase } from './Primitives';
+import { ActionLink, Card, CardBody, CountBadge, Eyebrow, MetaRow, SectionHeader, SectionTitle, chipBase } from './Primitives';
+import { TraditionThreadRow } from './ThreadsIndex';
 
-const ONBOARD_KEY = 'darsana_onboarding_seen';
-
-function isOnboardingSeen(): boolean {
-  try {
-    return typeof window !== 'undefined' && window.localStorage.getItem(ONBOARD_KEY) === '1';
-  } catch {
-    return true;
-  }
+function scrollToTraditions() {
+  const reduced =
+    typeof window !== 'undefined' &&
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document
+    .getElementById('traditions')
+    ?.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
 }
+
+function TraditionCard({ tradition, unitTotal }: { tradition: TraditionSummary; unitTotal: number }) {
+  const { language } = useLanguage();
+  const accent = getSystemAccent(tradition.id);
+  const display = getTraditionDisplay(tradition, language);
+  const totalSteps = tradition.threadSteps;
+  const storedRaw = getThreadProgress(tradition.id);
+  const storedStep = storedRaw !== null && storedRaw < totalSteps ? storedRaw : -1;
+  const showProgress = totalSteps > 0 && storedStep > 0;
+  const percent = showProgress ? Math.round(((storedStep + 1) / totalSteps) * 100) : 0;
+  return (
+    <Link
+      key={tradition.id}
+      to={traditionHref(tradition)}
+      className="group flex min-w-0 flex-col rounded-2xl border border-tamas-deep bg-avyakta-2 p-6 shadow-xs hover:bg-avyakta-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sattva/70 focus-visible:ring-offset-2 focus-visible:ring-offset-avyakta transition-colors motion-reduce:transition-none relative overflow-hidden"
+    >
+      <div
+        aria-hidden="true"
+        className="absolute top-0 left-0 right-0 h-1 bg-(--accent) opacity-90 group-hover:opacity-100 transition-opacity motion-reduce:transition-none forced-colors:bg-[Highlight]"
+        style={{ '--accent': accent.primary } as React.CSSProperties}
+      />
+      <h3 className="font-serif text-2xl font-bold text-sattva">{display.title}</h3>
+      {language === 'ml' && tradition.transliteratedTitle && (
+        <p className="mt-0.5 truncate text-sm text-tamas">{tradition.transliteratedTitle}</p>
+      )}
+      <p className="mt-2 text-sm leading-relaxed text-sattva-dim line-clamp-2">{display.subtitle}</p>
+      <dl className="mt-4 space-y-1 border-t border-tamas-deep pt-3 text-sm">
+        <MetaRow
+          label={t(language, 'textsLabel')}
+          value={`${t(language, 'textsCount', { count: tradition.textIds.length })} · ${t(language, 'unitsCount', { count: unitTotal })}`}
+        />
+        {totalSteps > 0 && (
+          <MetaRow label={t(language, 'threadsNav')} value={t(language, 'stepsCount', { count: totalSteps })} />
+        )}
+      </dl>
+      {showProgress && (
+        <div className="mt-3">
+          <div className="flex items-center justify-between gap-2 text-xs">
+            <span className="min-w-0 truncate font-medium text-sattva-dim">
+              {t(language, 'resumeThread')} · {t(language, 'stepOf', { current: storedStep + 1, total: totalSteps })}
+            </span>
+            <span className="shrink-0 tabular-nums text-tamas">{percent}%</span>
+          </div>
+          <div aria-hidden="true" className="mt-1.5 h-1 overflow-hidden rounded-full bg-avyakta-3">
+            <div
+              className="h-full rounded-full forced-colors:bg-[Highlight]"
+              style={{ width: `${percent}%`, backgroundColor: accent.primary }}
+            />
+          </div>
+        </div>
+      )}
+      <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-sattva-dim group-hover:text-sattva transition-colors motion-reduce:transition-none">
+        {t(language, 'openSystemLabel')}
+      </span>
+    </Link>
+  );
+}
+
+const ORG_STEPS = [
+  { title: 'orgStepTradition', body: 'orgStepTraditionDesc' },
+  { title: 'orgStepText', body: 'orgStepTextDesc' },
+  { title: 'orgStepUnit', body: 'orgStepUnitDesc' },
+  { title: 'orgStepConcept', body: 'orgStepConceptDesc' },
+  { title: 'orgStepRelated', body: 'orgStepRelatedDesc' },
+] as const;
 
 export default function Home() {
   const { language } = useLanguage();
   const catalog = useCatalog();
-  // First-visit orientation only; dismissed readers never see it again.
-  const [showOnboard, setShowOnboard] = useState(() => !isOnboardingSeen());
-  const dismissOnboard = () => {
-    try {
-      window.localStorage.setItem(ONBOARD_KEY, '1');
-    } catch {
-      // Session-only dismissal then; the card simply returns next visit.
-    }
-    setShowOnboard(false);
-  };
+  const [searchParams] = useSearchParams();
   // One-tap return paths: curated shelf first, automatic trail after.
   // Stored refs resolve through text chunks (async); unresolvable entries
   // drop out exactly as before.
@@ -57,12 +115,26 @@ export default function Home() {
   };
 
   const traditions = catalog.status === 'ok' ? catalog.data.traditions : [];
-  const traditionById = useMemo(() => new Map(traditions.map((t) => [t.id, t])), [traditions]);
+  const texts = catalog.status === 'ok' ? catalog.data.texts : [];
+  const traditionById = useMemo(() => new Map(traditions.map((trad) => [trad.id, trad])), [traditions]);
+  const unitsByTradition = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const tx of texts) map.set(tx.traditionId, (map.get(tx.traditionId) || 0) + tx.unitCount);
+    return map;
+  }, [texts]);
+
+  // Header "Traditions" navigation lands here: scroll past the hero to
+  // the collection grid once the catalog has rendered it.
+  useEffect(() => {
+    if (searchParams.get('focus') === 'traditions' && catalog.status === 'ok') {
+      const timer = window.setTimeout(scrollToTraditions, 60);
+      return () => window.clearTimeout(timer);
+    }
+  }, [searchParams, catalog.status]);
 
   // Continuity hero: the most-recent verse wins, paired with its system's
   // thread resume when one exists. Thread-only readers fall back to their
   // furthest thread by completion fraction; otherwise the latest bookmark.
-  // Additive only — the shelf and trail sections below stay untouched.
   const continueTarget = useMemo(() => {
     const threadResumeFor = (sid: string) => {
       const sys = traditionById.get(sid);
@@ -87,80 +159,47 @@ export default function Home() {
         thread: threadResumeFor(r.systemId),
       };
     }
-    let best: { sid: string; total: number; stored: number; fraction: number } | null = null;
-    for (const sys of traditions) {
-      const resume = threadResumeFor(sys.id as string);
-      if (!resume) continue;
-      const fraction = (resume.stored + 1) / resume.total;
-      if (!best || fraction > best.fraction) {
-        best = { sid: sys.id as string, ...resume, fraction };
-      }
-    }
-    if (best) {
-      return {
-        kind: 'thread' as const,
-        systemId: best.sid,
-        title: t(language, 'resumeThread'),
-        context: `${contextOf(best.sid)} · ${t(language, 'stepOf', { current: best.stored + 1, total: best.total })}`,
-        threadHref: `/system/${best.sid}/thread?step=${best.stored + 1}`,
-      };
-    }
-    if (shelf.length > 0) {
-      const r = shelf[shelf.length - 1];
-      return {
-        kind: 'verse' as const,
-        systemId: r.systemId,
-        title: `${r.term} ${r.number} · ${r.textTitle}`,
-        context: contextOf(r.systemId),
-        verseHref: `/system/${r.systemId}/text/${r.textId}/verse/${r.verseId}`,
-        thread: threadResumeFor(r.systemId),
-      };
-    }
     return null;
-  }, [language, recent, shelf, traditions, traditionById]);
+  }, [language, recent, traditionById]);
   return (
-    <div className="space-y-8">
-      <div className="text-center py-12">
-        <h1 className="text-4xl font-serif font-bold text-sattva mb-4">{language === 'ml' ? 'ദർശന' : 'Darśana'}</h1>
-        <p className="text-lg text-sattva-dim max-w-2xl mx-auto">
+    <div className="space-y-12 animate-fade-in">
+      {/* Hero: what Darśana is, where to begin. */}
+      <div className="pt-4 text-center sm:pt-8">
+        <p className="t-eyebrow text-sattva-dim">{t(language, 'heroEyebrow')}</p>
+        <h1 className="t-display1 text-sattva mt-3">{language === 'ml' ? 'ദർശന' : 'Darśana'}</h1>
+        <p className="t-subtitle mx-auto mt-3 max-w-2xl text-lg">
           {t(language, 'appTagline')}
         </p>
-        <Link
-          to="/intro"
-          className="inline-flex items-center mt-6 px-5 py-2.5 rounded-xl bg-avyakta-2 border border-tamas-deep text-sm font-semibold text-sattva hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
-        >
-          {t(language, 'introTab')} →
-        </Link>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+          <ActionLink to="/?focus=traditions" variant="primary" label={t(language, 'beginExploring')}>
+            {t(language, 'beginExploring')}
+          </ActionLink>
+          <ActionLink to="/threads" variant="ghost" label={t(language, 'guidedLearning')}>
+            {t(language, 'guidedLearning')}
+          </ActionLink>
+        </div>
       </div>
 
       {continueTarget && (
-        <section aria-label={t(language, 'continueReading')} className="animate-fade-in">
+        <section aria-label={t(language, 'continueReading')}>
           <Card>
-            <CardBody>
+            <CardBody padding="plain">
               <Eyebrow accentPrimary={getSystemAccent(continueTarget.systemId).primary} className="mb-3">
                 {t(language, 'continueReading')}
               </Eyebrow>
               <h2 className="t-display2 text-sattva">{continueTarget.title}</h2>
               <p className="t-subtitle text-sattva-dim">{continueTarget.context}</p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                {continueTarget.kind === 'verse' ? (
-                  <>
-                    <ActionLink to={continueTarget.verseHref} variant="primary" label={t(language, 'openVerseLabel')}>
-                      {t(language, 'openVerseLabel')}
-                    </ActionLink>
-                    {continueTarget.thread && (
-                      <ActionLink
-                        to={`/system/${continueTarget.systemId}/thread?step=${continueTarget.thread.stored + 1}`}
-                        variant="ghost"
-                        label={`${t(language, 'resumeThread')} · ${t(language, 'stepOf', { current: continueTarget.thread.stored + 1, total: continueTarget.thread.total })}`}
-                      >
-                        {t(language, 'resumeThread')} · {t(language, 'stepOf', { current: continueTarget.thread.stored + 1, total: continueTarget.thread.total })}
-                      </ActionLink>
-                    )}
-                  </>
-                ) : (
-                  <ActionLink to={continueTarget.threadHref} variant="primary" label={t(language, 'resumeThread')}>
-                    {t(language, 'resumeThread')} →
+              <div className="flex flex-wrap gap-2 pt-3">
+                <ActionLink to={continueTarget.verseHref} variant="primary" label={t(language, 'openVerseLabel')}>
+                  {t(language, 'openVerseLabel')}
+                </ActionLink>
+                {continueTarget.thread && (
+                  <ActionLink
+                    to={`/system/${continueTarget.systemId}/thread?step=${continueTarget.thread.stored + 1}`}
+                    variant="ghost"
+                    label={`${t(language, 'resumeThread')} · ${t(language, 'stepOf', { current: continueTarget.thread.stored + 1, total: continueTarget.thread.total })}`}
+                  >
+                    {t(language, 'resumeThread')} · {t(language, 'stepOf', { current: continueTarget.thread.stored + 1, total: continueTarget.thread.total })}
                   </ActionLink>
                 )}
               </div>
@@ -169,71 +208,49 @@ export default function Home() {
         </section>
       )}
 
-      {showOnboard && (
-        <section
-          aria-label={t(language, 'onboardTitle')}
-          className="bg-avyakta-2 rounded-xl border border-tamas-deep shadow-xs p-6"
-        >
-          <div className="flex items-start justify-between gap-3 mb-4">
-            <h2 className="text-xl font-serif font-bold text-sattva">
-              {t(language, 'onboardTitle')}
-            </h2>
-            <button
-              type="button"
-              onClick={dismissOnboard}
-              aria-label={t(language, 'dismissLabel')}
-              className="flex items-center justify-center shrink-0 min-h-9 min-w-9 rounded-lg text-sattva-dim hover:text-sattva hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
+      {/* Explore traditions: the collection grid. */}
+      <section aria-labelledby="traditions-heading" id="traditions" className="scroll-mt-32 space-y-4">
+        <SectionHeader
+          title={<span id="traditions-heading">{t(language, 'exploreTraditions')}</span>}
+        />
+        <p className="-mt-2 text-sm text-sattva-dim">{t(language, 'traditionsLede')}</p>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {traditions.map((system) => (
+            <TraditionCard
+              key={system.id}
+              tradition={system}
+              unitTotal={unitsByTradition.get(system.id) || 0}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Guided threads: first-class learning paths. */}
+      <section aria-labelledby="threads-heading" className="space-y-4">
+        <SectionHeader
+          title={<span id="threads-heading">{t(language, 'threadsTitle')}</span>}
+          action={
+            <Link
+              to="/threads"
+              className="inline-flex min-h-11 items-center text-sm font-semibold text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
             >
-              <RemoveIcon aria-hidden="true" className="w-4 h-4" />
-            </button>
-          </div>
-          <ul className="space-y-3">
-            <li className="flex items-start gap-3">
-              <ThreadIcon aria-hidden="true" className="w-5 h-5 mt-0.5 shrink-0 text-rajas" />
-              <span className="min-w-0">
-                <span className="block text-sm font-semibold text-sattva">
-                  {t(language, 'coreThread')}
-                </span>
-                <span className="block text-sm text-sattva-dim">
-                  {t(language, 'threadFunction')}
-                </span>
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <VerseIcon aria-hidden="true" className="w-5 h-5 mt-0.5 shrink-0 text-rajas" />
-              <span className="min-w-0">
-                <span className="block text-sm font-semibold text-sattva">
-                  {t(language, 'textsLabel')}
-                </span>
-                <span className="block text-sm text-sattva-dim">
-                  {t(language, 'textsFunction')}
-                </span>
-              </span>
-            </li>
-            <li className="flex items-start gap-3">
-              <ConceptIcon aria-hidden="true" className="w-5 h-5 mt-0.5 shrink-0 text-rajas" />
-              <span className="min-w-0">
-                <span className="block text-sm font-semibold text-sattva">
-                  {t(language, 'conceptsLabel')}
-                </span>
-                <span className="block text-sm text-sattva-dim">
-                  {t(language, 'conceptsFunction')}
-                </span>
-              </span>
-            </li>
-          </ul>
-          <Link
-            to="/intro"
-            className="inline-flex items-center mt-4 text-sm font-semibold text-rajas-dim hover:underline"
-          >
-            {t(language, 'introTab')} →
-          </Link>
-        </section>
-      )}
+              {t(language, 'viewThread')} →
+            </Link>
+          }
+        />
+        <p className="-mt-2 text-sm text-sattva-dim">{t(language, 'threadsLede')}</p>
+        <div className="space-y-3">
+          {traditions
+            .filter((trad) => trad.threadSteps > 0)
+            .map((trad) => (
+              <TraditionThreadRow key={trad.id} tradition={trad} />
+            ))}
+        </div>
+      </section>
 
       {shelf.length > 0 && (
-        <section aria-label={t(language, 'savedLabel')}>
-          <SectionTitle count={shelf.length} className="mb-2">
+        <section aria-label={t(language, 'savedLabel')} className="space-y-2">
+          <SectionTitle count={shelf.length}>
             {t(language, 'savedLabel')}
           </SectionTitle>
           <div className="flex flex-wrap gap-2">
@@ -263,8 +280,8 @@ export default function Home() {
       )}
 
       {recent.length > 0 && (
-        <section aria-label={t(language, 'recentlyViewed')}>
-          <SectionTitle count={recent.length} className="mb-2">
+        <section aria-label={t(language, 'recentlyViewed')} className="space-y-2">
+          <SectionTitle count={recent.length}>
             {t(language, 'recentlyViewed')}
           </SectionTitle>
           <div className="flex flex-wrap gap-2">
@@ -281,86 +298,27 @@ export default function Home() {
         </section>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {traditions.map((system) => {
-          const accent = getSystemAccent(system.id);
-          const display = getTraditionDisplay(system, language);
-          // Single-text systems skip the interstitial: the System page would
-          // list exactly one row pointing where this card already can, so link
-          // straight to the text (Home → Text → Verse = 2 clicks, not 3).
-          // The overview stays reachable via every breadcrumb above it.
-          const target = traditionHref(system);
-          const texts = catalog.status === 'ok'
-            ? catalog.data.texts.filter((tx) => tx.traditionId === system.id)
-            : [];
-          const conceptTotal = texts.reduce((acc, tx) => acc + tx.conceptCount, 0);
-          // Per-card thread footprint, shown only past Step 1 to mirror the
-          // resume convention elsewhere. Display only, never a nested link —
-          // the card itself already navigates to the resume doorway.
-          const totalSteps = system.threadSteps;
-          const storedRaw = getThreadProgress(system.id);
-          const storedStep = storedRaw !== null && storedRaw < totalSteps ? storedRaw : -1;
-          const showProgress = totalSteps > 0 && storedStep > 0;
-          const percent = showProgress ? Math.round(((storedStep + 1) / totalSteps) * 100) : 0;
-          return (
-            <Link
-              key={system.id}
-              to={target}
-              className={`block group bg-avyakta-2 rounded-xl shadow-xs border border-tamas-deep hover:shadow-md transition-all motion-reduce:transition-none p-6 relative overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sattva/70 focus-visible:ring-offset-2 focus-visible:ring-offset-avyakta`}
+      {/* Library orientation: how the collection is organised. */}
+      <section aria-labelledby="orientation-heading" className="space-y-4">
+        <SectionHeader title={<span id="orientation-heading">{t(language, 'orgTitle')}</span>} />
+        <p className="-mt-2 text-sm text-sattva-dim">{t(language, 'orgLede')}</p>
+        <ol className="space-y-3">
+          {ORG_STEPS.map((step, i) => (
+            <li
+              key={step.title}
+              className="flex items-start gap-4 rounded-2xl border border-tamas-deep bg-avyakta-2 p-4"
             >
-              <div
-                aria-hidden="true"
-                className="absolute top-0 left-0 right-0 h-1.5 bg-(--accent) opacity-90 group-hover:opacity-100 group-focus-visible:opacity-100 group-focus-within:opacity-100 transition-opacity motion-reduce:transition-none forced-colors:bg-[Highlight]"
-                style={{ '--accent': accent.primary } as React.CSSProperties}
-              />
-              <h2
-                className="text-2xl font-serif font-bold text-sattva mb-2"
-              >
-                {display.title}
-              </h2>
-              <p className="text-sattva-dim mb-4 h-12 overflow-hidden">
-                {display.subtitle}
-              </p>
-              <div className="text-sm font-medium text-sattva-dim uppercase tracking-wider mb-2 flex items-center justify-between">
-                <span>{t(language, 'textsLabel')}</span>
-                <span className="text-xs font-normal text-tamas lowercase">
-                  {conceptTotal} {t(language, 'conceptsCount')}
+              <CountBadge variant="tile">{i + 1}</CountBadge>
+              <span className="min-w-0">
+                <span className="block font-serif font-bold text-sattva">{t(language, step.title)}</span>
+                <span className="mt-0.5 block text-sm leading-relaxed text-sattva-dim">
+                  {t(language, step.body)}
                 </span>
-              </div>
-              <ul className="space-y-1">
-                {texts.map((text) => (
-                  <li key={text.textId} className="text-sattva flex items-center justify-between text-sm">
-                    <div className="flex items-center min-w-0">
-                      <span
-                        aria-hidden="true"
-                        className="w-2 h-2 rounded-full me-2.5 shrink-0 bg-(--accent) ring-1 ring-inset ring-white/10 forced-colors:bg-[CanvasText]"
-                        style={{ '--accent': accent.primary } as React.CSSProperties}
-                      ></span>
-                      {text.transliteratedTitle}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-              {showProgress && (
-                <div className="mt-4 pt-3 border-t border-tamas-deep">
-                  <div className="flex items-center justify-between gap-2 text-xs">
-                    <span className="min-w-0 truncate font-medium text-sattva-dim">
-                      {t(language, 'resumeThread')} · {t(language, 'stepOf', { current: storedStep + 1, total: totalSteps })}
-                    </span>
-                    <span className="shrink-0 tabular-nums text-tamas">{percent}%</span>
-                  </div>
-                  <div aria-hidden="true" className="mt-1.5 h-1 overflow-hidden rounded-full bg-avyakta-3">
-                    <div
-                      className="h-full rounded-full forced-colors:bg-[Highlight]"
-                      style={{ width: `${percent}%`, backgroundColor: accent.primary }}
-                    />
-                  </div>
-                </div>
-              )}
-            </Link>
-          );
-        })}
-      </div>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </section>
     </div>
   );
 }

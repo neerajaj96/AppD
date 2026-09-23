@@ -10,6 +10,23 @@ React → V2 repository (`src/content/v2/repository.ts`) → fetch chunk
 loader (`src/content/v2/chunks.ts`) → `public/content/` JSON → only the
 opened text.
 
+## Shell and navigation
+
+- **Shell** (`src/App.tsx`): sticky two-row header (brand + global
+  search + EN/ML toggle; route-aware primary nav for Home, Traditions,
+  Threads, Introduction), skip link, `max-w-4xl` main, minimal footer.
+  New `/threads` route serves the catalog-only threads index.
+- **Home** (`src/components/Home.tsx`): hero → continue reading →
+  traditions grid → guided threads → saved/recent → library
+  orientation. The header Traditions link lands on `/?focus=traditions`
+  and scrolls to the grid.
+- **Tradition page** (`src/components/SystemDetail.tsx`): collection
+  landing from the global manifest only (stats, thread doorway with
+  progress, text cards with EN/ML badges).
+- **Primitives** (`src/components/Primitives.tsx`): generic,
+  data-agnostic `PageHeader`, `SectionHeader`, `MetaRow`, `LoadingState`
+  and `EmptyState` beside the existing set.
+
 ## Layers
 
 - **Chunk generation** (`scripts/build-content-chunks.ts`, `npm run

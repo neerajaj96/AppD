@@ -38,3 +38,16 @@ export function traditionHref(tradition: Pick<TraditionSummary, 'id' | 'textIds'
   }
   return `/system/${tradition.id}`;
 }
+
+/**
+ * Localised unit coverage for language badges. Falls back gracefully for
+ * manifests cached before language counts shipped (stale service-worker
+ * caches): English assumed present, Malayalam unknown.
+ */
+export function textLanguages(text: Pick<TextSummary, 'languages' | 'unitCount'>): { en: number; ml: number } {
+  const stored = (text as Partial<Pick<TextSummary, 'languages'>>).languages;
+  if (stored && typeof stored.en === 'number' && typeof stored.ml === 'number') {
+    return { en: stored.en, ml: stored.ml };
+  }
+  return { en: text.unitCount, ml: 0 };
+}
