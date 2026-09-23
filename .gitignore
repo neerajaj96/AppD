@@ -61,6 +61,10 @@ old_105.ts
 check*.ts
 check-pdf.js
 
+# Generated V2 content chunks (rebuilt by `npm run content:chunks` in
+# dev/build/CI — never committed; the corpus sources stay in src/content).
+public/content/
+
 # Keep build manifests committed for CI/Pages
 !package.json
 !package-lock.json

@@ -130,6 +130,8 @@ export interface CanonicalUnit {
   conceptIds?: string[];
   sourceIds?: string[];
   diagramIds?: string[];
+  /** Original textual notes (e.g. edition variants); carried verbatim. */
+  interpretiveNotes?: Array<{ note: string }>;
   provenance?: SourceProvenance;
   editorial?: EditorialStatus;
 }
@@ -147,6 +149,8 @@ export interface V2Concept {
 
 export interface V2ThreadStep {
   id: string;
+  /** Owning text for steps in a multi-text tradition thread. */
+  textId?: string;
   conceptId?: string;
   unitIds?: string[];
   localisations: Partial<Record<SupportedV2Language, UnitLocalisation>>;
@@ -217,6 +221,8 @@ export interface V2Text {
   traditionId: string;
   sourceRole: SourceRole;
   description?: string;
+  /** Display term for canonical units (Sūtra, Kārikā, …); carried from legacy meta. */
+  verseTerm?: string;
   contentStatus: ContentStatus;
   languages: SupportedV2Language[];
   units: CanonicalUnit[];

@@ -1,3 +1,10 @@
+/**
+ * DEPRECATED for runtime use: this module scans the monolithic corpus
+ * (`src/content`) on every search. Runtime search runs against the
+ * generated V2 index via `src/search/client.ts` (Web Worker first,
+ * main-thread fallback). Retained for the search unit tests until they
+ * migrate to `src/search/rank.ts`.
+ */
 import { systems } from '../content';
 import { Verse, System, ClassicalText } from '../types/content';
 import { normalizeSanskrit } from './sanskrit';

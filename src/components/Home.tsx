@@ -1,12 +1,12 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import { X as RemoveIcon, Map as ThreadIcon, Quote as VerseIcon, Sparkles as ConceptIcon } from 'lucide-react';
-import { systems, getSystem } from '../content';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
-import { getSystemDisplay } from '../i18n/systems';
-import { getRecentVisits, resolveVerseRefs } from '../utils/readingHistory';
+import { getTraditionDisplay, traditionHref } from '../content/v2/catalog';
+import { useCatalog } from '../content/v2/hooks';
+import { getRecentVisits, resolveVerseRefs, type ResolvedVerseRef } from '../utils/readingHistory';
 import { getBookmarks, removeBookmark } from '../utils/bookmarks';
 import { getThreadProgress } from '../utils/threadProgress';
 import { ActionLink, Card, CardBody, Eyebrow, SectionTitle, chipBase } from './Primitives';
@@ -23,6 +23,7 @@ function isOnboardingSeen(): boolean {
 
 export default function Home() {
   const { language } = useLanguage();
+  const catalog = useCatalog();
   // First-visit orientation only; dismissed readers never see it again.
   const [showOnboard, setShowOnboard] = useState(() => !isOnboardingSeen());
   const dismissOnboard = () => {
@@ -34,42 +35,60 @@ export default function Home() {
     setShowOnboard(false);
   };
   // One-tap return paths: curated shelf first, automatic trail after.
-  const recent = useMemo(() => resolveVerseRefs(getRecentVisits()), []);
-  const [shelf, setShelf] = useState(() => resolveVerseRefs(getBookmarks()));
+  // Stored refs resolve through text chunks (async); unresolvable entries
+  // drop out exactly as before.
+  const [recent, setRecent] = useState<ResolvedVerseRef[]>([]);
+  const [shelf, setShelf] = useState<ResolvedVerseRef[]>([]);
+  useEffect(() => {
+    let live = true;
+    resolveVerseRefs(getRecentVisits()).then((rows) => {
+      if (live) setRecent(rows);
+    });
+    resolveVerseRefs(getBookmarks()).then((rows) => {
+      if (live) setShelf(rows);
+    });
+    return () => {
+      live = false;
+    };
+  }, []);
   const handleRemove = (systemId: string, textId: string, verseId: string) => {
     removeBookmark(systemId, textId, verseId);
-    setShelf(resolveVerseRefs(getBookmarks()));
+    resolveVerseRefs(getBookmarks()).then(setShelf);
   };
+
+  const traditions = catalog.status === 'ok' ? catalog.data.traditions : [];
+  const traditionById = useMemo(() => new Map(traditions.map((t) => [t.id, t])), [traditions]);
+
   // Continuity hero: the most-recent verse wins, paired with its system's
   // thread resume when one exists. Thread-only readers fall back to their
   // furthest thread by completion fraction; otherwise the latest bookmark.
   // Additive only — the shelf and trail sections below stay untouched.
   const continueTarget = useMemo(() => {
     const threadResumeFor = (sid: string) => {
-      const sys = getSystem(sid);
-      const total = sys?.thread?.length ?? 0;
+      const sys = traditionById.get(sid);
+      const total = sys?.threadSteps ?? 0;
       if (!sys || total === 0) return null;
       const stored = getThreadProgress(sid);
       if (stored === null || stored <= 0 || stored >= total) return null;
-      const step = sys.thread[stored];
-      const title = step.content[language]?.title || step.content.en?.title || step.id;
-      return { total, stored, title };
+      return { total, stored };
+    };
+    const contextOf = (sid: string) => {
+      const sys = traditionById.get(sid);
+      return sys ? getTraditionDisplay(sys, language).title : sid;
     };
     if (recent.length > 0) {
       const r = recent[0];
-      const sys = getSystem(r.systemId);
-      const context = sys ? getSystemDisplay(sys, language).title : r.systemId;
       return {
         kind: 'verse' as const,
         systemId: r.systemId,
         title: `${r.term} ${r.number} · ${r.textTitle}`,
-        context,
+        context: contextOf(r.systemId),
         verseHref: `/system/${r.systemId}/text/${r.textId}/verse/${r.verseId}`,
         thread: threadResumeFor(r.systemId),
       };
     }
-    let best: { sid: string; total: number; stored: number; title: string; fraction: number } | null = null;
-    for (const sys of systems) {
+    let best: { sid: string; total: number; stored: number; fraction: number } | null = null;
+    for (const sys of traditions) {
       const resume = threadResumeFor(sys.id as string);
       if (!resume) continue;
       const fraction = (resume.stored + 1) / resume.total;
@@ -78,31 +97,27 @@ export default function Home() {
       }
     }
     if (best) {
-      const sys = getSystem(best.sid);
-      const context = sys ? getSystemDisplay(sys, language).title : best.sid;
       return {
         kind: 'thread' as const,
         systemId: best.sid,
-        title: best.title,
-        context: `${context} · ${t(language, 'stepOf', { current: best.stored + 1, total: best.total })}`,
+        title: t(language, 'resumeThread'),
+        context: `${contextOf(best.sid)} · ${t(language, 'stepOf', { current: best.stored + 1, total: best.total })}`,
         threadHref: `/system/${best.sid}/thread?step=${best.stored + 1}`,
       };
     }
     if (shelf.length > 0) {
       const r = shelf[shelf.length - 1];
-      const sys = getSystem(r.systemId);
-      const context = sys ? getSystemDisplay(sys, language).title : r.systemId;
       return {
         kind: 'verse' as const,
         systemId: r.systemId,
         title: `${r.term} ${r.number} · ${r.textTitle}`,
-        context,
+        context: contextOf(r.systemId),
         verseHref: `/system/${r.systemId}/text/${r.textId}/verse/${r.verseId}`,
         thread: threadResumeFor(r.systemId),
       };
     }
     return null;
-  }, [language, recent, shelf]);
+  }, [language, recent, shelf, traditions, traditionById]);
   return (
     <div className="space-y-8">
       <div className="text-center py-12">
@@ -267,21 +282,22 @@ export default function Home() {
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {systems.map((system) => {
+        {traditions.map((system) => {
           const accent = getSystemAccent(system.id);
-          const display = getSystemDisplay(system, language);
+          const display = getTraditionDisplay(system, language);
           // Single-text systems skip the interstitial: the System page would
           // list exactly one row pointing where this card already can, so link
           // straight to the text (Home → Text → Verse = 2 clicks, not 3).
           // The overview stays reachable via every breadcrumb above it.
-          const target =
-            system.texts.length === 1
-              ? `/system/${system.id}/text/${system.texts[0].id}`
-              : `/system/${system.id}`;
+          const target = traditionHref(system);
+          const texts = catalog.status === 'ok'
+            ? catalog.data.texts.filter((tx) => tx.traditionId === system.id)
+            : [];
+          const conceptTotal = texts.reduce((acc, tx) => acc + tx.conceptCount, 0);
           // Per-card thread footprint, shown only past Step 1 to mirror the
           // resume convention elsewhere. Display only, never a nested link —
           // the card itself already navigates to the resume doorway.
-          const totalSteps = system.thread?.length ?? 0;
+          const totalSteps = system.threadSteps;
           const storedRaw = getThreadProgress(system.id);
           const storedStep = storedRaw !== null && storedRaw < totalSteps ? storedRaw : -1;
           const showProgress = totalSteps > 0 && storedStep > 0;
@@ -308,12 +324,12 @@ export default function Home() {
               <div className="text-sm font-medium text-sattva-dim uppercase tracking-wider mb-2 flex items-center justify-between">
                 <span>{t(language, 'textsLabel')}</span>
                 <span className="text-xs font-normal text-tamas lowercase">
-                  {system.texts.reduce((acc, t) => acc + (t.concepts?.length || 0), 0)} {t(language, 'conceptsCount')}
+                  {conceptTotal} {t(language, 'conceptsCount')}
                 </span>
               </div>
               <ul className="space-y-1">
-                {system.texts.map((text) => (
-                  <li key={text.id} className="text-sattva flex items-center justify-between text-sm">
+                {texts.map((text) => (
+                  <li key={text.textId} className="text-sattva flex items-center justify-between text-sm">
                     <div className="flex items-center min-w-0">
                       <span
                         aria-hidden="true"
@@ -348,4 +364,3 @@ export default function Home() {
     </div>
   );
 }
-

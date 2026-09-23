@@ -8,8 +8,8 @@
  * (content edits) are filtered at read time, never at write time.
  */
 
-import { getText, getVerse } from '../content';
-import { getVerseTerm } from './textTerminology';
+import { getVerseTermForSummary } from '../content/v2/catalog';
+import { getRepository } from '../content/v2/repository';
 
 const STORAGE_KEY = 'darsana_recent_verses';
 const STORE_MAX = 12;
@@ -67,17 +67,20 @@ export interface ResolvedVerseRef extends RecentVisit {
 }
 
 /** Resolve stored refs to display rows, dropping what no longer exists. */
-export function resolveVerseRefs(refs: RecentVisit[]): ResolvedVerseRef[] {
+export async function resolveVerseRefs(refs: RecentVisit[]): Promise<ResolvedVerseRef[]> {
+  const repo = getRepository();
   const out: ResolvedVerseRef[] = [];
   for (const v of refs) {
-    const verse = getVerse(v.systemId, v.textId, v.verseId);
-    if (!verse) continue;
-    const text = getText(v.systemId, v.textId);
+    const [unit, summary] = await Promise.all([
+      repo.getUnit(v.textId, v.verseId),
+      repo.getTextSummary(v.textId),
+    ]);
+    if (unit.status !== 'ok') continue;
     out.push({
       ...v,
-      number: String(verse.number),
-      term: getVerseTerm(text, 1),
-      textTitle: text?.transliteratedTitle ?? v.textId,
+      number: String(unit.data.number),
+      term: getVerseTermForSummary(summary.status === 'ok' ? summary.data : undefined, 1),
+      textTitle: summary.status === 'ok' ? summary.data.transliteratedTitle : v.textId,
     });
   }
   return out;

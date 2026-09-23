@@ -1,9 +1,7 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router';
 import Markdown from 'react-markdown';
-import { linkifyReferences, type RefLink } from '../utils/crossref';
-import { findConcept } from '../utils/references';
-import { useLanguage } from '../context/LanguageContext';
+import { linkifyReferences, type ConceptLocation, type RefLink } from '../utils/crossref';
 
 interface RichTextProps {
   text: string;
@@ -11,6 +9,14 @@ interface RichTextProps {
   systemId?: string;
   textId?: string;
   className?: string;
+  /**
+   * Concepts known to exist in the current text (built from loaded chunks).
+   * Bare `[[concept-id]]` links resolve against this set; anything else
+   * renders as plain text rather than a dead link.
+   */
+  knownConcepts?: Pick<ConceptLocation, 'conceptId'>[] | Set<string>;
+  /** Display title for a linked concept (falls back to the concept id). */
+  conceptTitle?: (conceptId: string) => string | undefined;
 }
 
 /** Unwrap Markdown paragraphs so linkified prose stays inline. */
@@ -22,8 +28,7 @@ function InlineMarkdown({ source }: { source: string }) {
   );
 }
 
-function RefRouterLink({ link, label, fallback }: { link: RefLink; label?: string; fallback: string }) {
-  const { language } = useLanguage();
+function RefRouterLink({ link, label, fallback, conceptTitle }: { link: RefLink; label?: string; fallback: string; conceptTitle?: (conceptId: string) => string | undefined }) {
   const linkClass =
     'text-rajas hover:text-rajas-dim underline decoration-rajas/40 underline-offset-2 transition-colors motion-reduce:transition-none';
 
@@ -39,9 +44,7 @@ function RefRouterLink({ link, label, fallback }: { link: RefLink; label?: strin
     );
   }
   if (link.kind === 'concept') {
-    const hit = findConcept(link.conceptId, { systemId: link.systemId, textId: link.textId });
-    const title =
-      hit?.concept.content[language]?.title || hit?.concept.content.en?.title;
+    const title = conceptTitle?.(link.conceptId);
     return (
       <Link
         to={`/system/${link.systemId}/text/${link.textId}/concept/${link.conceptId}`}
@@ -75,17 +78,32 @@ function RefRouterLink({ link, label, fallback }: { link: RefLink; label?: strin
  * resolvable verse / concept / thread / text reference.
  * Unresolvable references render as plain text — never dead links.
  */
-export default function RichText({ text, systemId, textId, className }: RichTextProps) {
-  const segments = useMemo(
-    () => linkifyReferences(text || '', { systemId, textId }),
-    [text, systemId, textId],
-  );
+export default function RichText({ text, systemId, textId, className, knownConcepts, conceptTitle }: RichTextProps) {
+  const segments = useMemo(() => {
+    const known = knownConcepts instanceof Set
+      ? knownConcepts
+      : new Set((knownConcepts || []).map((c) => c.conceptId));
+    return linkifyReferences(
+      text || '',
+      { systemId, textId },
+      {
+        findConcept: (conceptId, preferred) => {
+          if (!known.has(conceptId)) return undefined;
+          return {
+            systemId: preferred?.systemId || systemId || '',
+            textId: preferred?.textId || textId || '',
+            conceptId,
+          };
+        },
+      },
+    );
+  }, [text, systemId, textId, knownConcepts]);
 
   return (
     <span className={className}>
       {segments.map((seg, i) =>
         seg.link ? (
-          <RefRouterLink key={i} link={seg.link} label={seg.label} fallback={seg.text} />
+          <RefRouterLink key={i} link={seg.link} label={seg.label} fallback={seg.text} conceptTitle={conceptTitle} />
         ) : (
           <InlineMarkdown key={i} source={seg.text} />
         ),

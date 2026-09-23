@@ -1,12 +1,12 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router';
-import { getText, getSystem } from '../content';
 import { Map as MapIcon, Sparkles } from 'lucide-react';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
-import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
-import { getSystemDisplay } from '../i18n/systems';
+import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
+import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
+import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
 import { CountBadge, DisclosureChevron, RowChevron, Breadcrumb, accentTint } from './Primitives';
 import { getThreadProgress } from '../utils/threadProgress';
 
@@ -18,39 +18,66 @@ type Panel = 'thread' | 'concepts' | null;
 // There is no separate top-level "Verses" section — the sections
 // themselves ARE the navigation. Thread + Concepts remain as
 // dropdowns below the section list.
+//
+// Data arrives through the V2 repository (manifest + text chunks), never
+// through the legacy corpus import. Visual behaviour is unchanged.
 export default function TextIndex() {
   const { systemId, textId } = useParams();
   const { language } = useLanguage();
-  const system = getSystem(systemId || '');
-  const text = getText(systemId || '', textId || '');
+  const catalog = useCatalog();
+  const textData = useV2Text(textId);
+  const traditionThread = useTraditionThread(systemId);
+
+  const tradition = catalog.status === 'ok'
+    ? catalog.data.traditions.find((t) => t.id === systemId)
+    : undefined;
+  const summary = catalog.status === 'ok'
+    ? catalog.data.texts.find((t) => t.textId === textId)
+    : undefined;
+
   const [openPanel, setOpenPanel] = useState<Panel>(null);
   // Which text sections (chapters) are expanded. First one opens by
   // default; reset whenever the user navigates to a different text.
   const [openSections, setOpenSections] = useState<string[]>([]);
 
-  const threadSteps = useMemo(() => {
-    if (!system || !text) return [] as { step: (typeof system.thread)[number]; globalIndex: number }[];
-    return system.thread
-      .map((step, globalIndex) => ({ step, globalIndex }))
-      .filter(({ step }) => (step.textId || system.texts[0]?.id) === text.id);
-  }, [system, text]);
+  const legacyThread = useMemo(() => {
+    if (traditionThread.status !== 'ok' || !textId) return [];
+    return traditionThread.data
+      .flatMap((thread) => thread.steps.map((step) => ({ step, thread })))
+      .map(({ step }, globalIndex) => ({
+        step: v2StepToThreadStep(step, step.textId || textId),
+        globalIndex,
+      }))
+      .filter(({ step }) => (step.textId as string) === textId);
+  }, [traditionThread, textId]);
+
+  const threadSteps = legacyThread;
 
   // Resume entry: furthest visited system-thread step, shown only when it
   // belongs to this text and lies beyond Step 1 (otherwise it is noise).
   const resumeStep = useMemo(() => {
-    if (!system || !text) return null;
-    const total = system.thread?.length ?? 0;
-    const stored = getThreadProgress(system.id);
+    if (!systemId || !textId || traditionThread.status !== 'ok') return null;
+    const all = traditionThread.data.flatMap((thread) => thread.steps);
+    const total = all.length;
+    const stored = getThreadProgress(systemId);
     if (stored === null || stored <= 0 || stored >= total) return null;
-    const step = system.thread[stored];
+    const step = all[stored];
     if (!step) return null;
-    if ((step.textId || system.texts[0]?.id) !== text.id) return null;
-    const content = step.content[language] ?? step.content.en;
+    if ((step.textId || '') !== textId) return null;
+    const content = step.localisations[language] ?? step.localisations.en;
     return { index: stored, total, title: content?.title || step.id };
-  }, [system, text, language]);
+  }, [systemId, textId, language, traditionThread]);
+
+  const verses = useMemo(
+    () => (textData.status === 'ok' ? textData.data.units.map(v2UnitToVerse) : []),
+    [textData],
+  );
+  const concepts = useMemo(
+    () => (textData.status === 'ok' ? textData.data.concepts.map(v2ConceptToConcept) : []),
+    [textData],
+  );
 
   const verseSections = useMemo(() => {
-    const verses = text?.verses ?? [];
     const seen: string[] = [];
     verses.forEach((v) => {
       const s = v.section || '';
@@ -60,7 +87,7 @@ export default function TextIndex() {
       section: s,
       verses: verses.filter((v) => (v.section || '') === s),
     }));
-  }, [text]);
+  }, [verses]);
 
   const multiSection = verseSections.length > 1;
 
@@ -72,20 +99,28 @@ export default function TextIndex() {
       setOpenSections([]);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [text?.id]);
+  }, [textId]);
 
-  if (!system || !text) {
-    return <div className="text-center py-12">{t(language, 'textNotFound')}</div>;
+  if (catalog.status === 'loading' || textData.status === 'loading' || traditionThread.status === 'loading') {
+    return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
   }
 
-  const accent = getSystemAccent(system.id);
-  const systemDisplay = getSystemDisplay(system, language);
-  const hasVerses = text.verses.length > 0;
-  const hasConcepts = text.concepts.length > 0;
+  if (catalog.status !== 'ok' || textData.status !== 'ok' || !tradition || !summary) {
+    const message = textData.status === 'offline' || catalog.status === 'offline'
+      ? t(language, 'offlineNotice')
+      : t(language, 'textNotFound');
+    return <div className="text-center py-12">{message}</div>;
+  }
+
+  const manifest = textData.data.manifest;
+  const accent = getSystemAccent(systemId || '');
+  const systemDisplay = getTraditionDisplay(tradition, language);
+  const hasVerses = verses.length > 0;
+  const hasConcepts = concepts.length > 0;
   const togglePanel = (p: Exclude<Panel, null>) => setOpenPanel((cur) => (cur === p ? null : p));
 
-  const verseTermPlural = getVerseTerm(text, 2).toLowerCase();
-  const verseTermSingular = getVerseTerm(text, 1);
+  const verseTermPlural = getVerseTermForSummary(summary, 2).toLowerCase();
+  const verseTermSingular = getVerseTermForSummary(summary, 1);
 
   const toggleSection = (section: string) =>
     setOpenSections((cur) =>
@@ -112,24 +147,24 @@ export default function TextIndex() {
   const sectionTitle = (section: string, count: number) => {
     if (section) return section;
     // Single-section / unsectioned texts: label the one dropdown.
-    return `${getVerseTerm(text, count)} (${count})`;
+    return `${getVerseTermForSummary(summary, count)} (${count})`;
   };
 
   return (
     <div className="space-y-4 animate-fade-in max-w-3xl mx-auto pb-16">
       <div className="mb-2">
         <Breadcrumb
-          trail={[{ to: `/system/${system.id}`, label: systemDisplay?.title ?? system.title }]}
-          current={text.transliteratedTitle}
+          trail={[{ to: `/system/${systemId}`, label: systemDisplay?.title ?? tradition.title }]}
+          current={manifest.transliteratedTitle}
         />
       </div>
 
       <div className="py-4 border-b border-tamas-deep">
         <h1 className="text-3xl font-serif font-bold text-sattva mb-2">
-          {text.transliteratedTitle}
+          {manifest.transliteratedTitle}
         </h1>
         <p className="text-sattva-dim">
-          {text.author ? `${t(language, 'authorLabel')}: ${text.author}` : ''}
+          {manifest.author ? `${t(language, 'authorLabel')}: ${manifest.author}` : ''}
         </p>
       </div>
 
@@ -139,7 +174,7 @@ export default function TextIndex() {
         <nav aria-label={t(language, 'chaptersLabel')} className="bg-avyakta-2 rounded-2xl border border-tamas-deep p-4">
           <div className="flex items-center justify-between gap-3 mb-2.5">
             <div className="text-xs font-semibold uppercase tracking-wider text-sattva-dim">
-              {t(language, 'chaptersLabel')} • {text.verses.length} {verseTermPlural}
+              {t(language, 'chaptersLabel')} • {verses.length} {verseTermPlural}
             </div>
             <div className="flex items-center gap-2 text-xs font-medium">
               <button
@@ -226,7 +261,7 @@ export default function TextIndex() {
                       return (
                         <Link
                           key={verse.id}
-                          to={`/system/${system.id}/text/${text.id}/verse/${verse.id}`}
+                          to={`/system/${systemId}/text/${textId}/verse/${verse.id}`}
                           className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                         >
                           <CountBadge accentPrimary={accent.primary} variant="numeral">
@@ -284,7 +319,7 @@ export default function TextIndex() {
               {resumeStep !== null && (
                 <Link
                   key="resume-thread"
-                  to={`/system/${system.id}/thread?step=${resumeStep.index + 1}`}
+                  to={`/system/${systemId}/thread?step=${resumeStep.index + 1}`}
                   className="flex items-center gap-3 px-4 py-2.5 rounded-xl transition-colors motion-reduce:transition-none group"
                   style={{ backgroundColor: accentTint(accent.primary) }}
                 >
@@ -302,7 +337,7 @@ export default function TextIndex() {
                 return (
                   <Link
                     key={step.id}
-                    to={`/system/${system.id}/thread?step=${globalIndex + 1}`}
+                    to={`/system/${systemId}/thread?step=${globalIndex + 1}`}
                     className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                   >
                     <CountBadge accentPrimary={accent.primary} variant="tile">
@@ -337,7 +372,7 @@ export default function TextIndex() {
             </span>
             <span className="flex-1 min-w-0">
               <span className="block text-lg font-serif font-bold text-sattva">
-                {t(language, 'conceptsLabel')} ({text.concepts.length})
+                {t(language, 'conceptsLabel')} ({concepts.length})
               </span>
               <span className="block text-sm text-sattva-dim mt-0.5">{t(language, 'conceptsFunction')}</span>
             </span>
@@ -346,12 +381,12 @@ export default function TextIndex() {
 
           {openPanel === 'concepts' && (
             <div id="concepts-panel" className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
-              {text.concepts.map((concept) => {
+              {concepts.map((concept) => {
                 const localized = concept.content[language] ?? concept.content.en;
                 return (
                   <Link
                     key={concept.id}
-                    to={`/system/${system.id}/text/${text.id}/concept/${concept.id}`}
+                    to={`/system/${systemId}/text/${textId}/concept/${concept.id}`}
                     className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                   >
                     <span className="text-sm text-sattva truncate">
@@ -368,4 +403,3 @@ export default function TextIndex() {
     </div>
   );
 }
-

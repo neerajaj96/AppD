@@ -9,15 +9,17 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { systems } from '../src/content/index.ts';
-import { adaptSystemsToV2 } from '../src/content/v2/adapters.ts';
+import { adaptSystemsToV2, adaptSystemThread } from '../src/content/v2/adapters.ts';
 import { buildSearchIndex } from '../src/content/v2/search-index.ts';
+import type { System } from '../src/types/content.ts';
 
 const args = process.argv.slice(2);
 const outFlag = args.indexOf('--out');
-const outPath = outFlag >= 0 && args[outFlag + 1] ? (args[outFlag + 1] as string) : 'dist/search-index.json';
+const outPath = outFlag >= 0 && args[outFlag + 1] ? (args[outFlag + 1] as string) : 'public/content/search-index.json';
 
 const corpus = adaptSystemsToV2(systems);
-const index = buildSearchIndex(corpus);
+const traditionThreads = (systems as System[]).flatMap((s) => adaptSystemThread(s));
+const index = buildSearchIndex(corpus, traditionThreads);
 
 const kinds: Record<string, number> = {};
 for (const entry of index.entries) {

@@ -2,15 +2,14 @@ import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { createPortal } from 'react-dom';
 import { Search as SearchIcon, X as ClearIcon, History as HistoryIcon } from 'lucide-react';
-import { systems, getSystem, getText } from '../content';
-import { searchVerses } from '../utils/searchIndex';
 import { matchesSanskritQuery } from '../utils/sanskrit';
-import { getConceptTitle, getConceptSummary, getThreadStepTitle, type ConceptHit } from '../utils/references';
+import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
+import { useCatalog } from '../content/v2/hooks';
+import { getSearchClient } from '../search/client';
+import type { RankedEntry } from '../search/rank';
 import { getRecentSearches, recordSearch, clearSearches } from '../utils/searchHistory';
-import { getVerseTerm } from '../utils/textTerminology';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
-import { getSystemDisplay } from '../i18n/systems';
 
 interface PaletteRow {
   key: string;
@@ -19,32 +18,27 @@ interface PaletteRow {
   context: string;
 }
 
-/** Mirrors the Home deep-link rule (UX-009): single-text systems open directly. */
-function systemHref(systemId: string): string {
-  const s = getSystem(systemId);
-  if (s && s.texts.length === 1) return `/system/${systemId}/text/${s.texts[0].id}`;
-  return `/system/${systemId}`;
-}
-
 /**
- * UX-012 — Corpus command palette.
+ * Corpus command palette over the generated V2 search index.
  *
- * The ranked verse engine (searchIndex.ts) shipped with no UI, leaving 2000+
- * verses reachable only by drill-down. This palette exposes it alongside
- * concept, thread-step and text jumps behind the 2026-standard Ctrl/⌘K
- * gesture plus a header trigger. All data stays local; the verse index
- * builds lazily on first keystroke.
+ * The ranked index builds at content-chunk time and loads lazily (Web
+ * Worker when available, main-thread fallback otherwise) — typing never
+ * scans the legacy corpus. Browse shortcuts and tradition/text jumps come
+ * from the tiny global manifest.
  */
 export default function SearchPalette() {
   const { language } = useLanguage();
   const navigate = useNavigate();
+  const catalog = useCatalog();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
-  // Deferred so each keystroke paints first and the full-corpus scan
-  // (thousands of verses and concepts) follows without blocking input.
+  // Deferred so each keystroke paints first and the index query
+  // follows without blocking input.
   const deferredQuery = useDeferredValue(query);
   const [recents, setRecents] = useState<string[]>([]);
+  const [results, setResults] = useState<RankedEntry[]>([]);
+  const [searching, setSearching] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
@@ -96,30 +90,58 @@ export default function SearchPalette() {
     return () => {
       document.body.style.overflow = prev;
     };
-  }, [open ]);
+  }, [open]);
+
+  // Query the generated index (worker first, main-thread fallback).
+  useEffect(() => {
+    const raw = deferredQuery.trim();
+    if (!raw || !open) {
+      setResults([]);
+      setSearching(false);
+      return;
+    }
+    let live = true;
+    setSearching(true);
+    getSearchClient()
+      .search(raw, 200)
+      .then((rows) => {
+        if (!live) return;
+        setResults(rows);
+        setSearching(false);
+        setActive(0);
+      });
+    return () => {
+      live = false;
+    };
+  }, [deferredQuery, open]);
+
+  const traditions = catalog.status === 'ok' ? catalog.data.traditions : [];
+  const texts = catalog.status === 'ok' ? catalog.data.texts : [];
 
   // Pre-typed browse shortcuts: every darshana, one tap away.
   const browse: PaletteRow[] = useMemo(
     () =>
-      systems.map((s) => ({
-        key: `browse:${s.id}`,
-        href: systemHref(s.id as string),
-        title: getSystemDisplay(s, language).title,
-        context: getSystemDisplay(s, language).subtitle,
-      })),
-    [language],
+      traditions.map((s) => {
+        const display = getTraditionDisplay(s, language);
+        return {
+          key: `browse:${s.id}`,
+          href: s.textIds.length === 1 ? `/system/${s.id}/text/${s.textIds[0]}` : `/system/${s.id}`,
+          title: display.title,
+          context: display.subtitle,
+        };
+      }),
+    [traditions, language],
   );
 
   const groups = useMemo(() => {
     // Diacritic-normalised matching throughout (matchesSanskritQuery), so a
-    // plain-ASCII query like "samkhya" still finds "Sāṃkhya" — the same
-    // behaviour the ranked verse engine already offers.
+    // plain-ASCII query like "samkhya" still finds "Sāṃkhya".
     const raw = deferredQuery.trim();
     if (!raw) return null;
 
     const nav: PaletteRow[] = [];
-    for (const s of systems) {
-      const display = getSystemDisplay(s, language);
+    for (const s of traditions) {
+      const display = getTraditionDisplay(s, language);
       if (
         matchesSanskritQuery(display.title, raw) ||
         matchesSanskritQuery(s.title, raw) ||
@@ -127,19 +149,19 @@ export default function SearchPalette() {
       ) {
         nav.push({
           key: `sys:${s.id}`,
-          href: systemHref(s.id as string),
+          href: s.textIds.length === 1 ? `/system/${s.id}/text/${s.textIds[0]}` : `/system/${s.id}`,
           title: display.title,
           context: t(language, 'systemsLabel'),
         });
       }
-      for (const txt of s.texts) {
+      for (const txt of texts.filter((x) => x.traditionId === s.id)) {
         if (
           matchesSanskritQuery(txt.transliteratedTitle, raw) ||
-          matchesSanskritQuery(txt.id as string, raw)
+          matchesSanskritQuery(txt.textId as string, raw)
         ) {
           nav.push({
-            key: `txt:${s.id}:${txt.id}`,
-            href: `/system/${s.id}/text/${txt.id}`,
+            key: `txt:${s.id}:${txt.textId}`,
+            href: `/system/${s.id}/text/${txt.textId}`,
             title: txt.transliteratedTitle,
             context: display.title,
           });
@@ -148,80 +170,62 @@ export default function SearchPalette() {
       if (nav.length >= 6) break;
     }
 
-    const concepts: PaletteRow[] = [];
-    outer: for (const s of systems) {
-      for (const txt of s.texts) {
-        for (const c of txt.concepts || []) {
-          const hit: ConceptHit = {
-            systemId: s.id as string,
-            textId: txt.id as string,
-            concept: c,
-          };
-          const title = getConceptTitle(hit, language);
-          const summary = getConceptSummary(hit, language) || '';
-          if (
-            matchesSanskritQuery(title, raw) ||
-            matchesSanskritQuery(summary, raw) ||
-            matchesSanskritQuery(c.category || '', raw) ||
-            matchesSanskritQuery(c.id as string, raw)
-          ) {
-            concepts.push({
-              key: `con:${s.id}:${txt.id}:${c.id}`,
-              href: `/system/${s.id}/text/${txt.id}/concept/${c.id}`,
-              title,
-              context: `${getSystemDisplay(s, language).title} • ${txt.transliteratedTitle}`,
-            });
-            if (concepts.length >= 8) break outer;
-          }
-        }
-      }
-    }
-
-    // Thread steps match their narrative and summary as well as the title,
-    // so a query for an idea ("release", "pramana") finds the step that
-    // teaches it rather than only steps that name it in the heading.
-    const steps: PaletteRow[] = [];
-    for (const s of systems) {
-      const total = s.thread?.length ?? 0;
-      (s.thread || []).forEach((step, i) => {
-        if (steps.length >= 6) return;
-        const title = getThreadStepTitle(step, language);
-        const narrative = step.content[language]?.narrative || step.content.en?.narrative || '';
-        const summary = step.content[language]?.summary || step.content.en?.summary || '';
-        if (
-          matchesSanskritQuery(title, raw) ||
-          matchesSanskritQuery(narrative, raw) ||
-          matchesSanskritQuery(summary, raw)
-        ) {
-          steps.push({
-            key: `thr:${s.id}:${i}`,
-            href: `/system/${s.id}/thread?step=${i + 1}`,
-            title: `${t(language, 'stepOf', { current: i + 1, total })}: ${title}`,
-            context: getSystemDisplay(s, language).title,
-          });
-        }
-      });
-    }
-
-    const verses: PaletteRow[] = searchVerses(raw)
-      .slice(0, 12)
-      .map(({ item }) => {
-        const translation =
-          item.verse.content[language]?.translation ||
-          item.verse.content.en?.translation ||
-          '';
+    const textById = new Map(texts.map((x) => [x.textId, x]));
+    const traditionById = new Map(traditions.map((x) => [x.id, x]));
+    const rowFor = (entry: RankedEntry['entry']): PaletteRow | undefined => {
+      const traditionTitle = traditionById.has(entry.traditionId)
+        ? getTraditionDisplay(traditionById.get(entry.traditionId) as (typeof traditions)[number], language).title
+        : entry.traditionId;
+      if (entry.kind === 'unit' && entry.unitId) {
+        const summary = textById.get(entry.textId);
+        const term = getVerseTermForSummary(summary, 1);
+        const snippet = (entry.en || '').split('\n')[0]?.slice(0, 90);
         return {
-          key: `ver:${item.systemId}:${item.textId}:${item.verse.id}`,
-          href: `/system/${item.systemId}/text/${item.textId}/verse/${item.verse.id}`,
-          title: `${getVerseTerm(getText(item.systemId, item.textId), 1)} ${item.verse.number}`,
-          context: `${item.systemTitle} • ${item.textTitle}${
-            translation ? ` — ${translation.slice(0, 90)}` : ''
-          }`,
+          key: entry.key,
+          href: `/system/${entry.traditionId}/text/${entry.textId}/verse/${entry.unitId}`,
+          title: `${term} ${entry.number || entry.unitId}`,
+          context: `${traditionTitle} • ${summary?.transliteratedTitle || entry.textId}${snippet ? ` — ${snippet}` : ''}`,
         };
-      });
+      }
+      if (entry.kind === 'concept' && entry.conceptId) {
+        const summary = textById.get(entry.textId);
+        return {
+          key: entry.key,
+          href: `/system/${entry.traditionId}/text/${entry.textId}/concept/${entry.conceptId}`,
+          title: entry.title || entry.conceptId,
+          context: `${traditionTitle} • ${summary?.transliteratedTitle || entry.textId}`,
+        };
+      }
+      if (entry.kind === 'thread-step') {
+        const total = traditionById.get(entry.traditionId)?.threadSteps ?? 0;
+        const stepNo = (entry.stepIndex ?? 0) + 1;
+        return {
+          key: entry.key,
+          href: `/system/${entry.traditionId}/thread?step=${stepNo}`,
+          title: total > 0
+            ? `${t(language, 'stepOf', { current: stepNo, total })}: ${entry.title}`
+            : (entry.title || ''),
+          context: traditionTitle,
+        };
+      }
+      return undefined;
+    };
+
+    const concepts: PaletteRow[] = [];
+    const steps: PaletteRow[] = [];
+    const verses: PaletteRow[] = [];
+    for (const { entry } of results) {
+      if (entry.kind === 'text' || entry.kind === 'tradition') continue;
+      const row = rowFor(entry);
+      if (!row) continue;
+      if (entry.kind === 'concept' && concepts.length < 8) concepts.push(row);
+      else if (entry.kind === 'thread-step' && steps.length < 6) steps.push(row);
+      else if (entry.kind === 'unit' && verses.length < 12) verses.push(row);
+      if (concepts.length >= 8 && steps.length >= 6 && verses.length >= 12) break;
+    }
 
     return { nav, concepts, steps, verses };
-  }, [deferredQuery, language]);
+  }, [deferredQuery, language, results, traditions, texts]);
 
   const flat: PaletteRow[] = groups
     ? [...groups.nav, ...groups.concepts, ...groups.steps, ...groups.verses]
@@ -234,9 +238,11 @@ export default function SearchPalette() {
   // label plus browse shortcuts already orient the reader.
   const statusMessage = !groups
     ? ''
-    : flat.length === 0
-      ? t(language, 'searchNoResults', { query: deferredQuery.trim() })
-      : t(language, 'searchResultsCount', { count: flat.length, query: deferredQuery.trim() });
+    : searching
+      ? ''
+      : flat.length === 0
+        ? t(language, 'searchNoResults', { query: deferredQuery.trim() })
+        : t(language, 'searchResultsCount', { count: flat.length, query: deferredQuery.trim() });
 
   // Keep the keyboard-active row in view.
   useEffect(() => {
@@ -455,7 +461,7 @@ export default function SearchPalette() {
 
                   {groups && flat.length === 0 && (
                     <div className="px-3 py-6 text-sm text-sattva-dim text-center">
-                      {t(language, 'searchNoResults', { query: query.trim() })}
+                      {searching ? t(language, 'loading') : t(language, 'searchNoResults', { query: query.trim() })}
                     </div>
                   )}
 

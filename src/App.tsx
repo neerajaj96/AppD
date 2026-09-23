@@ -7,9 +7,9 @@ import React, { Suspense, lazy } from 'react';
 import { HashRouter, Routes, Route, Link, useLocation, useNavigate } from 'react-router';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ReadingProvider } from './context/ReadingContext';
-import { systems } from './content';
+import { useCatalog } from './content/v2/hooks';
+import { getTraditionDisplay } from './content/v2/catalog';
 import { t } from './i18n/ui';
-import { getSystemDisplay } from './i18n/systems';
 import ErrorBoundary from './components/ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop';
 import SearchPalette from './components/SearchPalette';
@@ -52,6 +52,8 @@ function HeaderNav() {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
+  const catalog = useCatalog();
+  const traditions = catalog.status === 'ok' ? catalog.data.traditions : [];
   // Current system from the route (works for system/text/verse/concept/thread
   // paths alike) so the jump control always reflects where the reader is.
   const segments = location.pathname.split('/');
@@ -79,9 +81,9 @@ function HeaderNav() {
             className="flex-1 min-w-0 sm:w-44 sm:flex-none min-h-11 rounded-lg bg-avyakta-3 border border-tamas-deep px-2.5 text-sm text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
           >
           <option value="">{t(language, 'systemsLabel')}…</option>
-          {systems.map((s) => (
+          {traditions.map((s) => (
             <option key={s.id} value={s.id}>
-              {getSystemDisplay(s, language).title}
+              {getTraditionDisplay(s, language).title}
             </option>
           ))}
           </select>

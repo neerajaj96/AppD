@@ -5,9 +5,11 @@
     "noUncheckedIndexedAccess": false,
     "exactOptionalPropertyTypes": false,
     "noImplicitOverride": true,
-    "noEmit": true
+    "noEmit": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable", "WebWorker"]
   },
   "include": [
+    "src/vite-env.d.ts",
     "src/content/v2/schema.ts",
     "src/content/v2/tradition.ts",
     "src/content/v2/ids.ts",
@@ -18,6 +20,13 @@
     "src/content/v2/chunks.ts",
     "src/content/v2/graph.ts",
     "src/content/v2/search-index.ts",
+    "src/content/v2/repository.ts",
+    "src/content/v2/catalog.ts",
+    "src/content/v2/compat.ts",
+    "src/content/v2/hooks.ts",
+    "src/search/rank.ts",
+    "src/search/client.ts",
+    "src/search/search-worker.ts",
     "src/study/schema.ts",
     "src/study/migrations.ts",
     "src/study/store.ts",
@@ -26,6 +35,7 @@
     "src/offline/strategy.ts",
     "scripts/validate-content.ts",
     "scripts/content-report.ts",
-    "scripts/build-search-index.ts"
+    "scripts/build-search-index.ts",
+    "scripts/build-content-chunks.ts"
   ]
 }

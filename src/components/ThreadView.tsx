@@ -1,27 +1,40 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useParams, Link, useSearchParams } from 'react-router';
 import { createPortal } from 'react-dom';
-import { getSystem } from '../content';
 import { ChevronRight, ChevronLeft, ArrowLeft, List as ListIcon, X as CloseIcon } from 'lucide-react';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
 import { BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle, Breadcrumb, CountBadge, SwipeHint, accentTint } from './Primitives';
 import { useLanguage } from '../context/LanguageContext';
-import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
-import { getSystemDisplay } from '../i18n/systems';
+import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
+import { useCatalog, useTraditionThread, useV2Text } from '../content/v2/hooks';
+import { v2ConceptToConcept, threadStepTitle } from '../content/v2/compat';
 import { getSystemAccent } from '../utils/theme';
-import { getThreadStepTitle } from '../utils/references';
 import { getThreadProgress, setThreadProgress } from '../utils/threadProgress';
 import { usePagerKeys } from '../utils/pagerKeys';
 import { SWIPE_SURFACE_STYLE, useDismissSwipe, useSwipeNav } from '../utils/useSwipeNav';
 
+// Thread reading via the V2 repository: the full tradition thread loads as
+// one small chunk, while each step's concept card resolves from that step's
+// own text chunks on demand. Visual behaviour is unchanged.
 export default function ThreadView() {
   const { systemId } = useParams();
   const { language } = useLanguage();
-  const system = getSystem(systemId || '');
+  const catalog = useCatalog();
+  const traditionThread = useTraditionThread(systemId);
   const [searchParams, setSearchParams] = useSearchParams();
-  const totalSteps = system?.thread?.length ?? 0;
+
+  const steps = useMemo(
+    () => (traditionThread.status === 'ok' ? traditionThread.data.flatMap((t) => t.steps) : []),
+    [traditionThread],
+  );
+  const totalSteps = steps.length;
+
+  const tradition = catalog.status === 'ok'
+    ? catalog.data.traditions.find((t) => t.id === systemId)
+    : undefined;
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -147,12 +160,26 @@ export default function ThreadView() {
     (dismissRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
   };
 
-  if (!system || !system.thread || system.thread.length === 0) {
-    return <div className="text-center py-12">{t(language, 'threadNotFound')}</div>;
+  // The curated concept behind the current step resolves from that step's
+  // own text chunks (one small fetch, cached for the session).
+  const clampedIndex = Math.min(stepIndex, Math.max(totalSteps - 1, 0));
+  const step = totalSteps > 0 ? steps[clampedIndex] : undefined;
+  const targetTextId = step?.textId;
+  const stepText = useV2Text(targetTextId);
+  const stepConcept = useMemo(() => {
+    if (!step?.conceptId || stepText.status !== 'ok') return null;
+    const found = stepText.data.concepts.find((c) => c.id === step.conceptId);
+    return found ? v2ConceptToConcept(found) : null;
+  }, [step, stepText]);
+
+  if (catalog.status === 'loading' || traditionThread.status === 'loading') {
+    return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
   }
 
-  const clampedIndex = Math.min(stepIndex, totalSteps - 1);
-  const step = system.thread[clampedIndex];
+  if (catalog.status !== 'ok' || traditionThread.status !== 'ok' || !tradition || totalSteps === 0 || !step) {
+    const offline = catalog.status === 'offline' || traditionThread.status === 'offline';
+    return <div className="text-center py-12">{offline ? t(language, 'offlineNotice') : t(language, 'threadNotFound')}</div>;
+  }
 
   const goToStep = (next: number) => {
     const clamped = Math.min(Math.max(next, 0), totalSteps - 1);
@@ -165,28 +192,25 @@ export default function ThreadView() {
   const handleNext = () => goToStep(clampedIndex + 1);
   const handlePrev = () => goToStep(clampedIndex - 1);
 
-  const content = step.content[language] ?? step.content.en;
-  const isFallback = language === 'ml' && !step.content.ml;
-  const targetTextId = step.textId || system.texts[0]?.id;
-  const targetText = system.texts.find(t => t.id === targetTextId);
-  const verseTermSingular = getVerseTerm(targetText, 1);
-  const verseTermPlural = getVerseTerm(targetText, 2);
+  const content = step.localisations[language] ?? step.localisations.en;
+  const isFallback = language === 'ml' && !step.localisations.ml;
+  const summary = catalog.data.texts.find((t) => t.textId === targetTextId);
+  const verseTermSingular = getVerseTermForSummary(summary, 1);
+  const verseTermPlural = getVerseTermForSummary(summary, 2);
 
-  // The curated concept behind this step (kind === 'concept'), if it resolves.
-  const stepConcept = useMemo(() => {
-    if (step.kind !== 'concept' || !step.conceptId || !targetText) return null;
-    return targetText.concepts.find((c) => c.id === step.conceptId) ?? null;
-  }, [step, targetText]);
   const stepConceptTitle =
     stepConcept?.content[language]?.title || stepConcept?.content.en?.title;
   const stepConceptSummary =
     stepConcept?.content[language]?.summary || stepConcept?.content.en?.summary;
-  const systemDisplay = getSystemDisplay(system, language);
-  const accent = getSystemAccent(system.id);
+  const systemDisplay = getTraditionDisplay(tradition, language);
+  const accent = getSystemAccent(systemId || '');
   const percent = Math.round(((clampedIndex + 1) / totalSteps) * 100);
   // Reached vs unreached styling follows the furthest stored step, so a
   // reader who steps back still sees honest progress in the contents list.
-  const furthest = Math.max(clampedIndex, getThreadProgress(system.id) ?? clampedIndex);
+  const furthest = Math.max(clampedIndex, getThreadProgress(systemId || '') ?? clampedIndex);
+  const knownConceptIds = new Set(
+    stepText.status === 'ok' ? stepText.data.concepts.map((c) => c.id) : [],
+  );
 
   const closeDrawer = () => {
     setDrawerOpen(false);
@@ -198,7 +222,7 @@ export default function ThreadView() {
       <div className="flex items-center justify-between gap-3 mb-2">
         <div className="min-w-0 flex-1">
           <Breadcrumb
-            trail={[{ to: `/system/${system.id}`, label: systemDisplay.title }]}
+            trail={[{ to: `/system/${systemId}`, label: systemDisplay.title }]}
             current={t(language, 'threadLabel')}
           />
         </div>
@@ -261,8 +285,9 @@ export default function ThreadView() {
             <div className="t-body-serif text-sattva">
               <RichText
                 text={content.narrative}
-                systemId={system.id as string}
-                textId={targetTextId as string}
+                systemId={systemId}
+                textId={targetTextId}
+                knownConcepts={knownConceptIds}
               />
             </div>
           )}
@@ -271,7 +296,7 @@ export default function ThreadView() {
             <div className="pt-6 border-t border-tamas">
               <SectionTitle className="mb-4">{t(language, 'coreConcept')}</SectionTitle>
               <Link
-                to={`/system/${system.id}/text/${targetTextId}/concept/${stepConcept.id}`}
+                to={`/system/${systemId}/text/${targetTextId}/concept/${stepConcept.id}`}
                 className="block p-4 rounded-xl bg-avyakta-3/50 hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
               >
                 <div className="font-serif font-bold text-sattva text-base mb-1">
@@ -295,13 +320,14 @@ export default function ThreadView() {
               <div className="prose max-w-none text-sattva-dim">
                 <RichText
                   text={content.summary}
-                  systemId={system.id as string}
-                  textId={targetTextId as string}
+                  systemId={systemId}
+                  textId={targetTextId}
+                  knownConcepts={knownConceptIds}
                 />
               </div>
             </div>
           )}
-          
+
           {content?.keyPoints && content.keyPoints.length > 0 && (
             <div className="pt-6 border-t border-tamas">
               <SectionTitle className="mb-4">{t(language, 'keyInsights')}</SectionTitle>
@@ -312,8 +338,9 @@ export default function ThreadView() {
                     <span className="flex-1">
                       <RichText
                         text={point}
-                        systemId={system.id as string}
-                        textId={targetTextId as string}
+                        systemId={systemId}
+                        textId={targetTextId}
+                        knownConcepts={knownConceptIds}
                       />
                     </span>
                   </li>
@@ -321,15 +348,15 @@ export default function ThreadView() {
               </ul>
             </div>
           )}
-          
-          {step.verseIds && step.verseIds.length > 0 && targetTextId && (
+
+          {step.unitIds && step.unitIds.length > 0 && targetTextId && (
             <div className="pt-6 border-t border-tamas">
               <SectionTitle className="mb-4">{t(language, 'relatedVerses')} ({verseTermPlural})</SectionTitle>
               <div className="flex flex-wrap gap-2">
-                {step.verseIds.map((vId) => (
+                {step.unitIds.map((vId) => (
                   <ChipLink
                     key={vId}
-                    to={`/system/${system.id}/text/${targetTextId}/verse/${vId}`}
+                    to={`/system/${systemId}/text/${targetTextId}/verse/${vId}`}
                   >
                     {verseTermSingular} {vId}
                   </ChipLink>
@@ -381,8 +408,8 @@ export default function ThreadView() {
                   </button>
                 </div>
                 <div className="max-h-[60vh] overflow-y-auto p-2">
-                  {system.thread.map((s, i) => {
-                    const title = getThreadStepTitle(s, language);
+                  {steps.map((s, i) => {
+                    const title = threadStepTitle(s, language);
                     const isCurrent = i === clampedIndex;
                     const reached = i <= furthest;
                     return (
@@ -441,7 +468,7 @@ export default function ThreadView() {
         )}
 
         <Link
-          to={`/system/${system.id}`}
+          to={`/system/${systemId}`}
           className="flex items-center gap-1.5 px-4 min-h-11 min-w-0 max-w-[46vw] rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim hover:text-sattva"
           title={t(language, 'backToSystem')}
         >
@@ -465,4 +492,3 @@ export default function ThreadView() {
     </PageShell>
   );
 }
-

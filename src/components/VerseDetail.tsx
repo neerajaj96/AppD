@@ -1,6 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router';
-import { getVerse, getText, getSystem } from '../content';
+import { getSystemAccent } from '../utils/theme';
 import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check, Bookmark } from 'lucide-react';
 import Markdown from 'react-markdown';
 import RichText from './RichText';
@@ -11,48 +11,61 @@ import {
   RelatedVersesSection,
   ThreadMentionsSection,
 } from './ReferenceLinks';
-import {
-  getConceptsForVerse,
-  getRelatedVerses,
-  getThreadStepsForVerse,
-} from '../utils/references';
+import type { ConceptHit, ThreadStepHit, VerseHit } from '../utils/references';
 import { usePagerKeys } from '../utils/pagerKeys';
 import { SWIPE_SURFACE_STYLE, useSwipeNav } from '../utils/useSwipeNav';
 import { recordVerseVisit } from '../utils/readingHistory';
 import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
 import { useLanguage } from '../context/LanguageContext';
-import { getVerseTerm } from '../utils/textTerminology';
 import { t } from '../i18n/ui';
-import { getSystemDisplay } from '../i18n/systems';
+import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
+import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
+import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
 
+// Verse page via the V2 repository: the text's chunks arrive on demand and
+// relations resolve within the loaded text. Visual behaviour is unchanged.
 export default function VerseDetail() {
   const { systemId, textId, verseId } = useParams();
   const { language, setLanguage } = useLanguage();
   const [shareState, setShareState] = useState<'idle' | 'copied' | 'shared'>('idle');
-  const system = getSystem(systemId || '');
-  const text = getText(systemId || '', textId || '');
-  const verse = getVerse(systemId || '', textId || '', verseId || '');
+  const catalog = useCatalog();
+  const textData = useV2Text(textId);
+  const traditionThread = useTraditionThread(systemId);
 
-  const verseTerm = getVerseTerm(text, 1);
+  const tradition = catalog.status === 'ok'
+    ? catalog.data.traditions.find((t) => t.id === systemId)
+    : undefined;
+  const summary = catalog.status === 'ok'
+    ? catalog.data.texts.find((t) => t.textId === textId)
+    : undefined;
+
+  const units = useMemo(
+    () => (textData.status === 'ok' ? textData.data.units : []),
+    [textData],
+  );
+  const unit = useMemo(() => units.find((u) => u.id === verseId), [units, verseId]);
+  const verse = useMemo(() => (unit ? v2UnitToVerse(unit) : undefined), [unit]);
+
+  const verseTerm = getVerseTermForSummary(summary, 1);
 
   // Cache next/prev verses so the pager does not scan the array on every
   // render. Guarded: all hooks in this component stay unconditional so a
   // hop from a valid verse to a missing id never changes the hook order.
   const { prevVerse, nextVerse } = useMemo(() => {
-    if (!text || !verse) return { prevVerse: null, nextVerse: null };
-    const currentIndex = text.verses.findIndex(v => v.id === verse.id);
+    if (!unit) return { prevVerse: null, nextVerse: null };
+    const currentIndex = units.findIndex((u) => u.id === unit.id);
     return {
-      prevVerse: currentIndex > 0 ? text.verses[currentIndex - 1] : null,
-      nextVerse: currentIndex >= 0 && currentIndex < text.verses.length - 1 ? text.verses[currentIndex + 1] : null,
+      prevVerse: currentIndex > 0 ? units[currentIndex - 1] : null,
+      nextVerse: currentIndex >= 0 && currentIndex < units.length - 1 ? units[currentIndex + 1] : null,
     };
-  }, [text, verse]);
+  }, [units, unit]);
 
   const navigate = useNavigate();
-  const nextHref = system && text && nextVerse
-    ? `/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`
+  const nextHref = systemId && textId && nextVerse
+    ? `/system/${systemId}/text/${textId}/verse/${nextVerse.id}`
     : null;
-  const prevHref = system && text && prevVerse
-    ? `/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`
+  const prevHref = systemId && textId && prevVerse
+    ? `/system/${systemId}/text/${textId}/verse/${prevVerse.id}`
     : null;
   usePagerKeys(
     nextHref ? () => navigate(nextHref) : null,
@@ -69,42 +82,79 @@ export default function VerseDetail() {
   // Feed the Home continuity strip (deduped, most-recent-first) and keep
   // the bookmark toggle honest across prev/next walks of the same mount.
   const [saved, setSaved] = useState(() =>
-    system && text && verse
-      ? isBookmarked(system.id as string, text.id as string, verse.id as string)
+    systemId && textId && verseId
+      ? isBookmarked(systemId, textId, verseId)
       : false,
   );
   useEffect(() => {
-    if (!system || !text || !verse) return;
-    recordVerseVisit(system.id as string, text.id as string, verse.id as string);
-    setSaved(isBookmarked(system.id as string, text.id as string, verse.id as string));
-  }, [system, text, verse]);
+    if (!systemId || !textId || !verseId || !unit) return;
+    recordVerseVisit(systemId, textId, verseId);
+    setSaved(isBookmarked(systemId, textId, verseId));
+  }, [systemId, textId, verseId, unit]);
 
-  // Wikipedia-style interlinks, resolved against the reference graph.
-  const relatedConcepts = useMemo(
-    () => (system && text && verse
-      ? getConceptsForVerse(system.id as string, text.id as string, verse.id as string)
-      : []),
-    [system, text, verse],
-  );
-  const relatedVerses = useMemo(
-    () => (system && text && verse
-      ? getRelatedVerses(system.id as string, text.id as string, verse.id as string)
-      : []),
-    [system, text, verse],
-  );
-  const threadSteps = useMemo(
-    () => (system && text && verse
-      ? getThreadStepsForVerse(system.id as string, text.id as string, verse.id as string)
-      : []),
-    [system, text, verse],
-  );
+  // Wikipedia-style interlinks, resolved within the loaded text chunks.
+  const relatedConcepts: ConceptHit[] = useMemo(() => {
+    if (!systemId || !textId || !unit) return [];
+    const out: ConceptHit[] = [];
+    for (const cid of unit.conceptIds || []) {
+      const concept = textData.status === 'ok'
+        ? textData.data.concepts.find((c) => c.id === cid)
+        : undefined;
+      if (concept) {
+        out.push({
+          systemId,
+          textId,
+          concept: v2ConceptToConcept(concept),
+        });
+      }
+    }
+    return out;
+  }, [systemId, textId, unit, textData]);
 
-  if (!system || !text || !verse) {
-    return <div className="text-center py-12">{t(language, 'verseNotFoundFallback', { term: getVerseTerm(text, 1) })}</div>;
+  const relatedVerses: VerseHit[] = useMemo(() => {
+    if (!systemId || !textId || !unit || textData.status !== 'ok') return [];
+    const mine = new Set(unit.conceptIds || []);
+    if (mine.size === 0) return [];
+    const scored: Array<{ verse: ReturnType<typeof v2UnitToVerse>; shared: number }> = [];
+    for (const other of textData.data.units) {
+      if (other.id === unit.id) continue;
+      let shared = 0;
+      for (const cid of other.conceptIds || []) if (mine.has(cid)) shared += 1;
+      if (shared > 0) scored.push({ verse: v2UnitToVerse(other), shared });
+    }
+    scored.sort((a, b) => b.shared - a.shared);
+    return scored.slice(0, 8).map((s) => ({ systemId, textId, verse: s.verse }));
+  }, [systemId, textId, unit, textData]);
+
+  const threadSteps: ThreadStepHit[] = useMemo(() => {
+    if (!systemId || !textId || !verseId || traditionThread.status !== 'ok') return [];
+    const out: ThreadStepHit[] = [];
+    traditionThread.data.forEach((thread) => {
+      thread.steps.forEach((step, stepIndex) => {
+        if ((step.textId || thread.textId) !== textId) return;
+        if ((step.unitIds || []).includes(verseId)) {
+          out.push({ systemId, stepIndex, step: v2StepToThreadStep(step, textId) });
+        }
+      });
+    });
+    return out;
+  }, [systemId, textId, verseId, traditionThread]);
+
+  if (catalog.status === 'loading' || textData.status === 'loading') {
+    return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
+  }
+
+  if (catalog.status !== 'ok' || textData.status !== 'ok' || !unit || !verse || !tradition || !summary) {
+    const offline = textData.status === 'offline' || catalog.status === 'offline';
+    return (
+      <div className="text-center py-12">
+        {offline ? t(language, 'offlineNotice') : t(language, 'verseNotFoundFallback', { term: getVerseTermForSummary(summary, 1) })}
+      </div>
+    );
   }
 
   const handleBookmark = () => {
-    setSaved(toggleBookmark(system.id as string, text.id as string, verse.id as string));
+    setSaved(toggleBookmark(systemId as string, textId as string, verseId as string));
   };
 
   const activeContent = verse.content[language] ?? verse.content.en;
@@ -143,9 +193,10 @@ export default function VerseDetail() {
       .trim();
 
   const handleShare = async () => {
-    const systemTitle = getSystemDisplay(system, language).title;
+    const systemTitle = getTraditionDisplay(tradition, language).title;
+    const manifest = textData.data.manifest;
     const body = [
-      `${systemTitle} — ${text.transliteratedTitle}`,
+      `${systemTitle} — ${manifest.transliteratedTitle}`,
       `${verse.section ? `${verse.section} • ` : ''}${verseTerm} ${verse.number}`,
       verse.devanagari?.trim(),
       verse.iast?.trim(),
@@ -162,7 +213,7 @@ export default function VerseDetail() {
     if (nav.share) {
       try {
         await nav.share({
-          title: `${verseTerm} ${verse.number} · ${text.transliteratedTitle}`,
+          title: `${verseTerm} ${verse.number} · ${manifest.transliteratedTitle}`,
           text: body,
           url: window.location.href,
         });
@@ -191,6 +242,11 @@ export default function VerseDetail() {
     }
   };
 
+  const knownConceptIds = useMemo(
+    () => new Set((unit.conceptIds || []).concat(relatedConcepts.map((h) => h.concept.id as string))),
+    [unit, relatedConcepts],
+  );
+
   return (
     <PageShell className="select-text">
       {/* Breadcrumb on its own row; controls wrap below on narrow
@@ -199,8 +255,8 @@ export default function VerseDetail() {
         <div className="min-w-0 flex-1">
           <Breadcrumb
             trail={[
-              { to: `/system/${system.id}`, label: getSystemDisplay(system, language).title },
-              { to: `/system/${system.id}/text/${text.id}`, label: text.transliteratedTitle },
+              { to: `/system/${systemId}`, label: getTraditionDisplay(tradition, language).title },
+              { to: `/system/${systemId}/text/${textId}`, label: textData.data.manifest.transliteratedTitle },
             ]}
             current={`${verseTerm} ${verse.number}`}
           />
@@ -291,7 +347,7 @@ export default function VerseDetail() {
             <h2 className="text-lg font-medium text-tamas tracking-widest uppercase">
               {verse.section ? `${verse.section} • ` : ''} {verseTerm} {verse.number}
             </h2>
-            
+
             {verse.devanagari && (
               <div lang="sa" className="t-devanagari text-3xl md:text-4xl text-sattva">
                 {verse.devanagari.split('\n').map((line, i) => (
@@ -299,12 +355,12 @@ export default function VerseDetail() {
                 ))}
               </div>
             )}
-            
+
             {verse.iast && (
             <div lang="sa-Latn" className="text-xl md:text-2xl text-sattva italic leading-relaxed">
               {verse.iast.split('\n').map((line, i) => (
                   <div key={i}>{line}</div>
-                ))}
+              ))}
             </div>
             )}
           </div>
@@ -351,8 +407,9 @@ export default function VerseDetail() {
               <div className="prose max-w-none text-sattva">
                 <RichText
                   text={commentary}
-                  systemId={system.id as string}
-                  textId={text.id as string}
+                  systemId={systemId}
+                  textId={textId}
+                  knownConcepts={knownConceptIds}
                 />
               </div>
             </CollapsibleSection>
@@ -373,8 +430,9 @@ export default function VerseDetail() {
                     <span className="flex-1">
                       <RichText
                         text={point}
-                        systemId={system.id as string}
-                        textId={text.id as string}
+                        systemId={systemId}
+                        textId={textId}
+                        knownConcepts={knownConceptIds}
                       />
                     </span>
                   </li>
@@ -400,8 +458,9 @@ export default function VerseDetail() {
                     <span className="flex-1">
                       <RichText
                         text={n.note}
-                        systemId={system.id as string}
-                        textId={text.id as string}
+                        systemId={systemId}
+                        textId={textId}
+                        knownConcepts={knownConceptIds}
                       />
                     </span>
                   </li>
@@ -410,8 +469,8 @@ export default function VerseDetail() {
             </CollapsibleSection>
           )}
 
-          <RelatedConceptsSection items={relatedConcepts} currentSystemId={system.id as string} />
-          <RelatedVersesSection items={relatedVerses} />
+          <RelatedConceptsSection items={relatedConcepts} currentSystemId={systemId} />
+          <RelatedVersesSection items={relatedVerses} verseTerm={verseTerm} />
           <ThreadMentionsSection steps={threadSteps} />
         </CardBody>
       </Card>
@@ -421,7 +480,7 @@ export default function VerseDetail() {
       <BottomBar>
         {prevVerse ? (
           <Link
-            to={`/system/${system.id}/text/${text.id}/verse/${prevVerse.id}`}
+            to={`/system/${systemId}/text/${textId}/verse/${prevVerse.id}`}
             aria-label={`${t(language, 'previous')}: ${verseTerm} ${prevVerse.number}`}
             className="flex items-center shrink-0 min-h-11 min-w-11 px-2 text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
@@ -433,7 +492,7 @@ export default function VerseDetail() {
         )}
 
         <Link
-          to={`/system/${system.id}/text/${text.id}`}
+          to={`/system/${systemId}/text/${textId}`}
           className="flex items-center gap-1.5 px-4 min-h-11 min-w-0 max-w-[46vw] rounded-full hover:bg-avyakta-3 transition-colors motion-reduce:transition-none text-sattva-dim hover:text-sattva"
           title={t(language, 'backToIndex')}
         >
@@ -443,7 +502,7 @@ export default function VerseDetail() {
 
         {nextVerse ? (
           <Link
-            to={`/system/${system.id}/text/${text.id}/verse/${nextVerse.id}`}
+            to={`/system/${systemId}/text/${textId}/verse/${nextVerse.id}`}
             aria-label={`${t(language, 'next')}: ${verseTerm} ${nextVerse.number}`}
             className="flex items-center shrink-0 min-h-11 min-w-11 px-2 text-sm font-medium text-sattva-dim hover:text-rajas transition-colors motion-reduce:transition-none"
           >
@@ -457,4 +516,3 @@ export default function VerseDetail() {
     </PageShell>
   );
 }
-

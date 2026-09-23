@@ -12,6 +12,17 @@ import {
   getThreadStepsForConcept,
 } from '../../utils/references';
 
+// Strict build-time resolvers: the runtime linkifier stays corpus-free, so
+// integrity checks inject the registry-backed validators explicitly.
+const strictResolvers = {
+  verseExists: (systemId: string, textId: string, verseId: string) =>
+    hasVerse(systemId, textId, verseId),
+  findConcept: (conceptId: string, preferred?: { systemId?: string; textId?: string }) => {
+    const hit = findConcept(conceptId, preferred);
+    return hit ? { systemId: hit.systemId, textId: hit.textId, conceptId: hit.concept.id as string } : undefined;
+  },
+};
+
 describe('content integrity', () => {
   for (const sys of systems) {
     for (const text of sys.texts) {
@@ -153,7 +164,7 @@ describe('content integrity', () => {
     });
 
     it('resolves verse shorthands cited across systems', () => {
-      const segs = linkifyReferences('as in Kārikā LXV and YS I.2 and NS 1.1.1');
+      const segs = linkifyReferences('as in Kārikā LXV and YS I.2 and NS 1.1.1', {}, strictResolvers);
       const links = segs.filter((s) => s.link);
       expect(links.map((s) => s.link)).toEqual([
         { kind: 'verse', systemId: 'samkhya', textId: 'samkhya-karika', verseId: '65' },
@@ -166,7 +177,7 @@ describe('content integrity', () => {
       const segs = linkifyReferences('see [[concept:satkaryavada]] and [[YS I.2|the definition]]', {
         systemId: 'yoga',
         textId: 'yoga-sutras',
-      });
+      }, strictResolvers);
       const links = segs.filter((s) => s.link);
       expect(links[0].link?.kind).toBe('concept');
       expect(links[1]).toMatchObject({
@@ -195,7 +206,7 @@ describe('content integrity', () => {
             prose.push(t.content.en?.summary || '');
           });
           prose.forEach((p) => {
-            extractRefLinks(p, ctx).forEach((link) => {
+            extractRefLinks(p, ctx, strictResolvers).forEach((link) => {
               if (link.kind === 'verse' && !hasVerse(link.systemId, link.textId, link.verseId)) {
                 bad.push(`verse ${link.systemId}/${link.textId}/${link.verseId}`);
               }

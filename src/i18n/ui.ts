@@ -112,6 +112,8 @@ const en = {
   verseNotFoundFallback: '{term} not found',
   skipToContent: 'Skip to main content',
   swipeHint: 'Tip: swipe left for the next, right for the previous. The buttons below always work.',
+  offlineNotice: 'This content is not available offline yet. Reconnect to load it.',
+  retryLabel: 'Try again',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -218,6 +220,8 @@ const ml: Record<keyof typeof en, string> = {
   verseNotFoundFallback: '{term} കണ്ടെത്താനായില്ല',
   skipToContent: 'പ്രധാന ഉള്ളടക്കത്തിലേക്ക് പോകുക',
   swipeHint: 'സൂചന: അടുത്തതിന് ഇടത്തേക്ക്, മുമ്പത്തേതിന് വലത്തേക്ക് സ്വൈപ്പ് ചെയ്യൂ. താഴെയുള്ള ബട്ടണുകൾ എപ്പോഴും ലഭ്യമാണ്.',
+  offlineNotice: 'ഈ ഉള്ളടക്കം ഓഫ്‌ലൈനിൽ ലഭ്യമല്ല. ലോഡ് ചെയ്യാൻ വീണ്ടും ബന്ധിപ്പിക്കൂ.',
+  retryLabel: 'വീണ്ടും ശ്രമിക്കൂ',
 };
 
 export type UIKey = keyof typeof en;

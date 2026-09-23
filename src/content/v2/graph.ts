@@ -147,11 +147,11 @@ export class V2Graph {
     return out;
   }
 
-  getThreadReferences(traditionId: string, textId: string): Array<{ stepId: string; conceptId?: string; unitIds: string[] }> {
+  getThreadReferences(traditionId: string, textId: string): Array<{ stepId: string; textId?: string; conceptId?: string; unitIds: string[] }> {
     const text = this.textIndex.get(`${traditionId}/${textId}`) || this.textIndex.get(textId);
     if (!text?.threads) return [];
     return text.threads.flatMap((thread) =>
-      thread.steps.map((step) => ({ stepId: step.id, conceptId: step.conceptId, unitIds: step.unitIds || [] })),
+      thread.steps.map((step) => ({ stepId: step.id, textId: step.textId, conceptId: step.conceptId, unitIds: step.unitIds || [] })),
     );
   }
 }

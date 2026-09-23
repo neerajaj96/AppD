@@ -1,15 +1,17 @@
 /**
- * UX-020 — Offline service worker.
+ * UX-020 — Offline service worker (V2 content-chunk aware).
  *
- * The app is fully static (all philosophical content ships as local
- * TypeScript; the only network dependency is Google Fonts, which degrades
- * to system serif/sans). This worker makes the second visit onwards work
- * offline: same-origin GETs are cached on first use, navigations fall back
- * to the cached shell, and only this file's CACHE name needs a bump to
+ * The app is fully static. Content now ships as JSON chunks under
+ * `./content/` (see `scripts/build-content-chunks.ts`) instead of a
+ * TypeScript bundle; the only network dependency remains Google Fonts,
+ * which degrades to system serif/sans. This worker makes the second visit
+ * onwards work offline: same-origin GETs — including content chunks and
+ * the search index — are cached on first use, navigations fall back to
+ * the cached shell, and only this file's CACHE name needs a bump to
  * invalidate everything. No build plugin, no precache manifest to drift.
  */
 
-const CACHE = 'darsana-v1';
+const CACHE = 'darsana-v2';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

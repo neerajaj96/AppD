@@ -1,3 +1,11 @@
+/**
+ * Legacy corpus assembly — BUILD-TIME ONLY for runtime purposes.
+ *
+ * Scripts (`scripts/build-content-chunks.ts`, validators, reports) and the
+ * vitest integrity suite import this module in Node. Browser code must NOT
+ * import it: the V2 repository (`src/content/v2/repository.ts`) serves
+ * manifest/chunk JSON instead, keeping the corpus out of the initial bundle.
+ */
 import { System, SystemId } from '../types/content';
 import { samkhyaKarika } from './samkhya/samkhya-karika';
 import { samkhyaSutra } from './samkhya/samkhya-sutra';

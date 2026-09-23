@@ -86,6 +86,7 @@ function adaptVerse(unit: Verse, unitType: UnitType): CanonicalUnit {
     },
     conceptIds: (unit.conceptIds || []).map(String),
     diagramIds: unit.diagramId ? [unit.diagramId] : [],
+    interpretiveNotes: unit.interpretiveNotes,
   };
 }
 
@@ -116,6 +117,7 @@ export function adaptText(text: ClassicalText, traditionId: string): V2Text {
     author: text.author,
     traditionId,
     sourceRole: inferSourceRole(text),
+    verseTerm: text.verseTerm,
     contentStatus:
       text.contentStatus === 'partial'
         ? 'partial'
@@ -131,6 +133,7 @@ export function adaptText(text: ClassicalText, traditionId: string): V2Text {
 export function adaptSystemThread(system: System): V2Thread[] {
   const steps: V2ThreadStep[] = system.thread.map((step) => ({
     id: step.id as string,
+    textId: (step.textId as string) || undefined,
     conceptId: step.conceptId ? (step.conceptId as string) : undefined,
     unitIds: (step.verseIds || []).map(String),
     localisations: {
@@ -173,6 +176,7 @@ export function adaptSystemsToV2(systems: System[]): V2Corpus {
         .filter((step) => (step.textId as string) === (text.id as string))
         .map((step) => ({
           id: step.id as string,
+          textId: text.id as string,
           conceptId: step.conceptId ? (step.conceptId as string) : undefined,
           unitIds: (step.verseIds || []).map(String),
           localisations: {

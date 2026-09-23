@@ -1,4 +1,4 @@
-import type { V2Corpus } from './schema';
+import type { V2Corpus, V2Thread } from './schema';
 import { normaliseId } from './ids';
 
 /**
@@ -18,6 +18,14 @@ export interface SearchIndexEntry {
   unitId?: string;
   conceptId?: string;
   kind: 'unit' | 'concept' | 'thread-step' | 'text' | 'tradition';
+  /** Canonical unit number (units only) for exact-match ranking. */
+  number?: string;
+  /** Display title (units: number fallback; concepts/texts/traditions: title). */
+  title?: string;
+  /** Section within the text (units only). */
+  section?: string;
+  /** 0-based step index within the tradition thread (thread steps only). */
+  stepIndex?: number;
   en: string;
   ml: string;
   devanagari: string;
@@ -35,7 +43,7 @@ function fold(...parts: Array<string | undefined>): string {
   return parts.filter(Boolean).join(' \n ');
 }
 
-export function buildSearchIndex(corpus: V2Corpus): SearchIndex {
+export function buildSearchIndex(corpus: V2Corpus, traditionThreads?: V2Thread[]): SearchIndex {
   const entries: SearchIndexEntry[] = [];
 
   for (const tradition of corpus.traditions) {
@@ -44,6 +52,7 @@ export function buildSearchIndex(corpus: V2Corpus): SearchIndex {
       traditionId: tradition.id,
       textId: '',
       kind: 'tradition',
+      title: tradition.title,
       en: fold(tradition.title, tradition.transliteratedTitle, tradition.description),
       ml: '',
       devanagari: '',
@@ -58,6 +67,7 @@ export function buildSearchIndex(corpus: V2Corpus): SearchIndex {
       traditionId: text.traditionId,
       textId: text.id,
       kind: 'text',
+      title: text.transliteratedTitle,
       en: fold(text.title, text.transliteratedTitle, text.description),
       ml: '',
       devanagari: '',
@@ -87,6 +97,9 @@ export function buildSearchIndex(corpus: V2Corpus): SearchIndex {
         textId: text.id,
         unitId: unit.id,
         kind: 'unit',
+        number: unit.number,
+        title: unit.localisations.en?.title || unit.number,
+        section: unit.section,
         en,
         ml,
         devanagari: unit.devanagari || '',
@@ -104,6 +117,7 @@ export function buildSearchIndex(corpus: V2Corpus): SearchIndex {
         textId: text.id,
         conceptId: concept.id,
         kind: 'concept',
+        title: concept.localisations.en?.title || concept.id,
         en,
         ml,
         devanagari: '',
@@ -113,12 +127,16 @@ export function buildSearchIndex(corpus: V2Corpus): SearchIndex {
     }
 
     for (const thread of text.threads || []) {
+      // Per-text slices are covered by the tradition-thread pass below when
+      // provided; otherwise index the slices without a global step index.
+      if (traditionThreads) continue;
       for (const step of thread.steps) {
         entries.push({
           key: `thread-step:${text.traditionId}/${text.id}/${step.id}`,
           traditionId: text.traditionId,
-          textId: text.id,
+          textId: step.textId || text.id,
           kind: 'thread-step',
+          title: step.localisations.en?.title || step.id,
           en: fold(step.localisations.en?.title, step.localisations.en?.narrative),
           ml: fold(step.localisations.ml?.title, step.localisations.ml?.narrative),
           devanagari: '',
@@ -127,6 +145,25 @@ export function buildSearchIndex(corpus: V2Corpus): SearchIndex {
         });
       }
     }
+  }
+
+  // Full tradition threads carry the global step index used by thread URLs.
+  for (const thread of traditionThreads || []) {
+    thread.steps.forEach((step, stepIndex) => {
+      entries.push({
+        key: `thread-step:${thread.traditionId}/${step.textId || ''}/${step.id}`,
+        traditionId: thread.traditionId,
+        textId: step.textId || thread.textId || '',
+        kind: 'thread-step',
+        title: step.localisations.en?.title || step.id,
+        stepIndex,
+        en: fold(step.localisations.en?.title, step.localisations.en?.narrative),
+        ml: fold(step.localisations.ml?.title, step.localisations.ml?.narrative),
+        devanagari: '',
+        iast: '',
+        normalised: normaliseId(fold(step.localisations.en?.title, step.localisations.en?.narrative)),
+      });
+    });
   }
 
   return { version: 2, generatedAt: new Date().toISOString(), entries };

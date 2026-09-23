@@ -11,6 +11,13 @@ import type { SupportedLanguage } from '../types/i18n';
 /**
  * Central reference graph — the "Wikipedia layer" of the Darshana app.
  *
+ * DEPRECATED for runtime use: this module imports the monolithic corpus
+ * (`src/content`), which must stay out of the initial bundle. Runtime
+ * screens resolve relations through `src/content/v2/repository.ts` over
+ * loaded chunks instead. This module is retained for the build-time
+ * content-integrity suite (tests only) until the V2 graph covers every
+ * query it offers.
+ *
  * All interlinking between verses, concepts, thread steps and systems is
  * derived here at runtime from the compiled content (see `src/content/` and
  * the bidirectional stitching in `src/content/factory.ts`). Nothing is

@@ -1,47 +1,50 @@
-# Architecture (V2 foundation)
+# Architecture (V2 runtime pipeline)
 
 The web client in `src/` remains the shipped target (HashRouter, Vite,
-`src/main.tsx`). This phase introduces a content-first scholarly library
-layer beside the existing monolith — it does not replace screens yet.
+`src/main.tsx`). Content now loads as static JSON chunks — the initial
+bundle no longer contains the philosophical corpus.
+
+## Runtime flow
+
+React → V2 repository (`src/content/v2/repository.ts`) → fetch chunk
+loader (`src/content/v2/chunks.ts`) → `public/content/` JSON → only the
+opened text.
 
 ## Layers
 
-- **Canonical contract** (`src/content/v2/schema.ts`, `content/schema/*.json`):
-  versioned (`schemaVersion: 2`) pure-data entities for tradition, text,
-  canonical unit, concept, thread, reference, source, provenance,
-  editorial status, diagram and alias. No React dependency.
-- **Traditions** (`src/content/v2/tradition.ts`): explicit scholarly
-  categories (philosophical school, scriptural, sectarian, Tantric,
-  devotional, practice, modern synthesis, secondary exposition) reusing
-  existing system IDs so shared links keep working.
-- **Ingestion** (`src/content/v2/ingest.ts`): normalises JSON, legacy
-  TypeScript maps, generated output and manifests into V2.
-- **Compatibility** (`src/content/v2/adapters.ts`): legacy `System` →
-  V2 corpus without data loss. The old factory stays runtime truth until
-  chunked loading ships.
-- **Validation / reporting** (`src/content/v2/validate.ts`,
-  `report.ts`, `scripts/validate-content.ts`, `scripts/content-report.ts`).
-- **Chunking** (`src/content/v2/chunks.ts`): manifest-first addresses
-  (`/content/<text>/manifest`, `/content/<text>/section/<s>`, …) and a
-  `TextChunkLoader` interface. The memory loader proves discovery without
-  importing every text.
-- **Search** (`src/content/v2/search-index.ts`,
-  `scripts/build-search-index.ts`): build-time multilingual index shaped
-  for a future Web Worker consumer.
-- **Graph** (`src/content/v2/graph.ts`): canonical-ID lookups with
-  explicit `found | missing | ambiguous` states.
-- **Design** (`src/design/semantic-tokens.ts`): Guṇa palette preserved,
-  exposed as semantic roles.
-- **Accessibility** (`src/a11y/`): focus, dialog/sheet trap, live
-  regions, keyboard roving, reduced-motion and language metadata.
-- **Study state** (`src/study/`): versioned store unifying bookmarks,
-  history, thread progress, searches, notes, highlights and offline
-  selections; IndexedDB first, localStorage fallback, legacy migration.
-- **Offline** (`src/offline/strategy.ts`): shell / metadata / text-pack
-  cache architecture with versioned names.
+- **Chunk generation** (`scripts/build-content-chunks.ts`, `npm run
+  content:chunks`): legacy corpus → V2 adapter → validation (fails the
+  build on errors) → `public/content/manifest.json`, per-text
+  `manifest.json`/`meta.json`/`threads.json`, section-grouped
+  `units/chunk-N.json`, `concepts/chunk-N.json`,
+  `threads/<tradition>.json` and `search-index.json`. Units split at
+  ≤150 per chunk, concepts at ≤200. Generated output is gitignored and
+  rebuilt in dev (`predev --if-missing`), CI and `npm run build`.
+- **Loader** (`src/content/v2/chunks.ts`): `FetchChunkLoader` with an
+  in-memory session cache and typed `ok | missing | offline | error`
+  results. Discovery happens through the global manifest only.
+- **Repository** (`src/content/v2/repository.ts`): `getTraditions`,
+  `getText`, `getUnits`, `getUnit`, `getConcepts`, `getConcept`,
+  `getThreads`, `getTraditionThread` plus in-text relation queries.
+  React-independent; screens use `src/content/v2/hooks.ts`.
+- **Compatibility** (`src/content/v2/compat.ts`): V2 → legacy shapes
+  with IDs preserved verbatim (bookmarks, history, thread progress and
+  URLs keep working).
+- **Search** (`src/search/`): pure ranking (`rank.ts`) shared by a Web
+  Worker (`search-worker.ts`, index fetched inside the worker) and a
+  main-thread fallback (`client.ts`). The palette queries the generated
+  index; nothing scans the corpus at runtime.
+- **Linkifier** (`src/utils/crossref.ts`): corpus-free with injectable
+  resolvers. Build-time tests inject the strict registry; `RichText`
+  resolves bare concept links against the loaded text's concept set.
+- **Study state** (`src/study/`): unchanged storage contract; history
+  resolution is async over chunks (`resolveVerseRefs`).
+- **Offline** (`public/sw.js`, cache `darsana-v2`): same-origin GETs —
+  including content chunks and the search index — cache on first use.
 
 ## What still uses the monolith
 
-Runtime screens, `src/content/index.ts`, `factory.ts`,
-`src/utils/references.ts` and `searchIndex.ts` are unchanged. V2 modules
-read an adapted snapshot; they never mutate legacy content.
+Only build-time Node (chunk generation, validators, reports) and the
+vitest integrity suite import `src/content/index.ts`. The deprecated
+runtime modules `src/utils/references.ts` and `src/utils/searchIndex.ts`
+are retained for tests only and must not be re-imported by screens.

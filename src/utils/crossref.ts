@@ -1,12 +1,8 @@
-import { hasVerse } from '../content';
-import { findConcept } from './references';
-
 /**
  * Wikipedia-style reference linkifier.
  *
  * Recognises three families of inline references in commentary / narrative /
- * summary prose and resolves each against the compiled content registry, so a
- * stale or out-of-range reference never renders as a dead link:
+ * summary prose:
  *
  * 1. Traditional scholarly shorthands (auto-detected):
  *    - Yoga: "I.2", "II.29" (bare or as "YS I.2")
@@ -14,11 +10,18 @@ import { findConcept } from './references';
  *    - Cross-system: "NS 1.1.1", "VS 2.1.1", "BS 1.1.1", "PMS 3.4.5", "YS I.2"
  * 2. Explicit wiki links (author-controlled, always preferred):
  *    - [[YS I.2]] / [[Kārikā 12]] — verse shorthands in brackets
- *    - [[satkaryavada]] — bare concept id, resolved globally
+ *    - [[satkaryavada]] — bare concept id, resolved via the injected resolver
  *    - [[concept:satkaryavada]] or [[concept:yoga/yoga-sutras/satkaryavada]]
  *    - [[verse:yoga/yoga-sutras/I.2]]
  *    - [[thread:samkhya]] / [[text:vedanta/brahma-sutras]]
  *    - Custom label: [[YS I.2|the famous definition]]
+ *
+ * Existence checks are injectable so this module never imports the content
+ * corpus (which must stay out of the initial bundle). Build-time callers
+ * (tests, validators) inject the strict registry-backed resolvers; runtime
+ * callers (RichText) inject a resolver built from the loaded text chunks,
+ * falling back to permissive conventional verse targets. Unresolvable
+ * references always render as plain text — never dead links.
  */
 
 export type RefLink =
@@ -32,6 +35,17 @@ export type TextSegment = { text: string; link?: RefLink; label?: string };
 export interface LinkifyContext {
   systemId?: string;
   textId?: string;
+}
+
+export interface ConceptLocation {
+  systemId: string;
+  textId: string;
+  conceptId: string;
+}
+
+export interface LinkResolvers {
+  verseExists?: (systemId: string, textId: string, verseId: string) => boolean;
+  findConcept?: (conceptId: string, preferred?: { systemId?: string; textId?: string }) => ConceptLocation | undefined;
 }
 
 const YOGA_REF = /\b([IVXLC]+\.\d+)\b/g;
@@ -74,8 +88,9 @@ export function romanToInt(roman: string): number {
   return total;
 }
 
-function verseExists(systemId: string, textId: string, verseId: string): boolean {
-  return hasVerse(systemId, textId, verseId);
+/** Permissive default: conventional targets link without a registry check. */
+function defaultVerseExists(): boolean {
+  return true;
 }
 
 type PendingMatch = {
@@ -90,6 +105,7 @@ type PendingMatch = {
 
 function parseVerseShorthand(
   inner: string,
+  verseExists: (systemId: string, textId: string, verseId: string) => boolean,
 ): { systemId: string; textId: string; verseId: string } | undefined {
   // "YS I.2" / "NS 1.1.1" style
   const generic = /^(NS|VS|BS|PMS|YS)\s+(\d+(?:\.\d+)*|[IVXLC]+\.\d+)$/i.exec(inner.trim());
@@ -118,7 +134,13 @@ function parseVerseShorthand(
   return undefined;
 }
 
-function parseWikiInner(inner: string, label: string | undefined, ctx: LinkifyContext): PendingMatch {
+function parseWikiInner(
+  inner: string,
+  label: string | undefined,
+  ctx: LinkifyContext,
+  verseExists: (systemId: string, textId: string, verseId: string) => boolean,
+  findConcept: ((conceptId: string, preferred?: { systemId?: string; textId?: string }) => ConceptLocation | undefined) | undefined,
+): PendingMatch {
   const target = inner.trim();
   const lowered = target.toLowerCase();
 
@@ -131,18 +153,16 @@ function parseWikiInner(inner: string, label: string | undefined, ctx: LinkifyCo
     const rest = target.slice(scheme.length + 1).trim();
     if (scheme === 'concept') {
       const parts = rest.split('/').map((p) => p.trim()).filter(Boolean);
-      let hit;
       if (parts.length === 3) {
-        hit = findConcept(parts[2], { systemId: parts[0], textId: parts[1] });
-      } else {
-        hit = findConcept(parts[0], { systemId: ctx.systemId, textId: ctx.textId });
+        return withLabel({ kind: 'concept', systemId: parts[0], textId: parts[1], conceptId: parts[2] });
       }
+      const hit = findConcept ? findConcept(parts[0], { systemId: ctx.systemId, textId: ctx.textId }) : undefined;
       if (hit) {
         return withLabel({
           kind: 'concept',
           systemId: hit.systemId,
           textId: hit.textId,
-          conceptId: hit.concept.id as string,
+          conceptId: hit.conceptId,
         });
       }
       return { start: -1, end: -1, plain: label || parts[parts.length - 1] || target };
@@ -171,19 +191,19 @@ function parseWikiInner(inner: string, label: string | undefined, ctx: LinkifyCo
   }
 
   // Verse shorthand inside brackets: [[YS I.2]], [[Kārikā LXV]], [[I.2]]
-  const shorthand = parseVerseShorthand(target);
+  const shorthand = parseVerseShorthand(target, verseExists);
   if (shorthand) {
     return withLabel({ kind: 'verse', ...shorthand });
   }
 
   // Bare concept id: [[satkaryavada]]
-  const hit = findConcept(target, { systemId: ctx.systemId, textId: ctx.textId });
+  const hit = findConcept ? findConcept(target, { systemId: ctx.systemId, textId: ctx.textId }) : undefined;
   if (hit) {
     return withLabel({
       kind: 'concept',
       systemId: hit.systemId,
       textId: hit.textId,
-      conceptId: hit.concept.id as string,
+      conceptId: hit.conceptId,
     });
   }
 
@@ -194,10 +214,12 @@ function parseWikiInner(inner: string, label: string | undefined, ctx: LinkifyCo
 /**
  * Splits prose into plain-text and linkable segments.
  * Wiki `[[…]]` links take precedence over auto-detected shorthands; every
- * candidate is validated against the content registry before it becomes a link.
+ * candidate passes the injected existence checks before it becomes a link.
  */
-export function linkifyReferences(raw: string, ctx: LinkifyContext = {}): TextSegment[] {
+export function linkifyReferences(raw: string, ctx: LinkifyContext = {}, resolvers: LinkResolvers = {}): TextSegment[] {
   if (!raw) return [];
+  const verseExists = resolvers.verseExists || defaultVerseExists;
+  const findConcept = resolvers.findConcept;
   type Match = { start: number; end: number; link?: RefLink; label?: string; plain?: string };
   const matches: Match[] = [];
 
@@ -206,7 +228,7 @@ export function linkifyReferences(raw: string, ctx: LinkifyContext = {}): TextSe
   WIKI_REF.lastIndex = 0;
   const wikiSpans: { start: number; end: number }[] = [];
   while ((m = WIKI_REF.exec(raw))) {
-    const parsed = parseWikiInner(m[1], m[2], ctx);
+    const parsed = parseWikiInner(m[1], m[2], ctx, verseExists, findConcept);
     wikiSpans.push({ start: m.index, end: m.index + m[0].length });
     if (parsed.link) {
       matches.push({ start: m.index, end: m.index + m[0].length, link: parsed.link, label: parsed.label });
@@ -285,8 +307,8 @@ export function linkifyReferences(raw: string, ctx: LinkifyContext = {}): TextSe
 }
 
 /** All resolvable reference links found in a prose string (for "See also" sections). */
-export function extractRefLinks(raw: string, ctx: LinkifyContext = {}): RefLink[] {
-  return linkifyReferences(raw, ctx)
+export function extractRefLinks(raw: string, ctx: LinkifyContext = {}, resolvers: LinkResolvers = {}): RefLink[] {
+  return linkifyReferences(raw, ctx, resolvers)
     .filter((s) => s.link !== undefined)
     .map((s) => s.link as RefLink);
 }
