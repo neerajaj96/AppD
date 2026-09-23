@@ -23,8 +23,10 @@
     "scripts",
     "scratch",
     "src/content/__tests__",
+    "src/content/v2/__tests__",
     "src/utils/__tests__",
     "src/__tests__",
+    "src/**/*.test.ts",
     "src/components/ErrorBoundary.tsx"
   ]
 }

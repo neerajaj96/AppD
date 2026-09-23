@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://darshana.app/content/schema/concepts.json",
+  "title": "V2 Concept schema",
+  "type": "object",
+  "required": ["id", "localisations"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "category": { "type": "string" },
+    "diagramIds": { "type": "array", "items": { "type": "string" } },
+    "relatedUnitIds": { "type": "array", "items": { "type": "string" } },
+    "relatedConceptIds": { "type": "array", "items": { "type": "string" } },
+    "localisations": {
+      "type": "object",
+      "properties": {
+        "en": { "type": "object", "required": ["title", "summary"] },
+        "ml": { "type": "object" }
+      }
+    }
+  }
+}

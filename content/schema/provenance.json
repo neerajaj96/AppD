@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://darshana.app/content/schema/provenance.json",
+  "title": "V2 Provenance schema",
+  "type": "object",
+  "properties": {
+    "sourceTitle": { "type": "string" },
+    "author": { "type": "string" },
+    "edition": { "type": "string" },
+    "publisher": { "type": "string" },
+    "year": { "type": ["string", "number"] },
+    "translator": { "type": "string" },
+    "page": { "type": "string" },
+    "section": { "type": "string" },
+    "volume": { "type": "string" },
+    "locator": { "type": "string" },
+    "url": { "type": "string" },
+    "rights": { "type": "string", "enum": ["public-domain", "original", "licensed", "unknown"] },
+    "notes": { "type": "string" }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://darshana.app/content/schema/references.json",
+  "title": "V2 Reference schema",
+  "type": "object",
+  "required": ["kind", "from", "to"],
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "unit-to-concept",
+        "concept-to-unit",
+        "concept-to-concept",
+        "unit-to-unit",
+        "text-to-text",
+        "thread-to-concept",
+        "thread-to-unit",
+        "concept-to-tradition",
+        "cross-tradition",
+        "source-to-unit"
+      ]
+    },
+    "from": { "type": "string", "minLength": 1 },
+    "to": { "type": "string", "minLength": 1 },
+    "note": { "type": "string" }
+  }
+}

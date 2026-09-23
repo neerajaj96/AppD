@@ -1,0 +1,31 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": false,
+    "exactOptionalPropertyTypes": false,
+    "noImplicitOverride": true,
+    "noEmit": true
+  },
+  "include": [
+    "src/content/v2/schema.ts",
+    "src/content/v2/tradition.ts",
+    "src/content/v2/ids.ts",
+    "src/content/v2/adapters.ts",
+    "src/content/v2/ingest.ts",
+    "src/content/v2/validate.ts",
+    "src/content/v2/report.ts",
+    "src/content/v2/chunks.ts",
+    "src/content/v2/graph.ts",
+    "src/content/v2/search-index.ts",
+    "src/study/schema.ts",
+    "src/study/migrations.ts",
+    "src/study/store.ts",
+    "src/a11y/index.ts",
+    "src/design/semantic-tokens.ts",
+    "src/offline/strategy.ts",
+    "scripts/validate-content.ts",
+    "scripts/content-report.ts",
+    "scripts/build-search-index.ts"
+  ]
+}

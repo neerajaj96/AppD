@@ -22,11 +22,17 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Type Check
-      run: npx tsc --noEmit
+    - name: Type Check (legacy + V2 strict)
+      run: npm run typecheck
 
     - name: Content Integrity Tests
       run: npm test
+
+    - name: Content Validation (V2)
+      run: npm run content:validate
+
+    - name: Content Report (V2)
+      run: npm run content:report
 
     - name: Build
       run: npm run build

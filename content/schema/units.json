@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://darshana.app/content/schema/units.json",
+  "title": "V2 Canonical Unit schema",
+  "type": "object",
+  "required": ["id", "number", "section", "unitType", "localisations"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "number": { "type": "string", "minLength": 1 },
+    "section": { "type": "string" },
+    "subsection": { "type": "string" },
+    "unitType": { "type": "string", "enum": ["sutra", "sloka", "karika", "mantra", "verse", "paragraph", "section"] },
+    "devanagari": { "type": "string" },
+    "iast": { "type": "string" },
+    "localisations": {
+      "type": "object",
+      "properties": {
+        "en": { "type": "object" },
+        "ml": { "type": "object" }
+      }
+    },
+    "conceptIds": { "type": "array", "items": { "type": "string" } },
+    "diagramIds": { "type": "array", "items": { "type": "string" } }
+  }
+}

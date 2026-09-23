@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://darshana.app/content/schema/systems.json",
+  "title": "V2 Tradition (system) schema",
+  "type": "object",
+  "required": ["id", "title", "category"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "transliteratedTitle": { "type": "string" },
+    "category": {
+      "type": "string",
+      "enum": [
+        "philosophical-school",
+        "scriptural-tradition",
+        "sectarian-tradition",
+        "tantric-tradition",
+        "devotional-tradition",
+        "practice-tradition",
+        "modern-synthesis",
+        "secondary-exposition"
+      ]
+    },
+    "description": { "type": "string" },
+    "accentKey": { "type": "string" }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://darshana.app/content/schema/manifests.json",
+  "title": "V2 Text manifest schema",
+  "type": "object",
+  "required": ["schemaVersion", "textId", "traditionId", "units", "languages", "status"],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "textId": { "type": "string", "minLength": 1 },
+    "traditionId": { "type": "string", "minLength": 1 },
+    "units": {
+      "type": "object",
+      "required": ["expected", "present"],
+      "properties": {
+        "expected": { "type": "number", "minimum": 0 },
+        "present": { "type": "number", "minimum": 0 }
+      }
+    },
+    "languages": {
+      "type": "object",
+      "required": ["en", "ml"],
+      "properties": {
+        "en": { "type": "object", "required": ["units", "concepts"] },
+        "ml": { "type": "object", "required": ["units", "concepts"] }
+      }
+    },
+    "status": { "type": "string", "enum": ["complete", "partial", "concepts-only", "unknown"] }
+  }
+}

@@ -8,7 +8,11 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "tsc --noEmit",
-    "test": "vitest run"
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.v2.json",
+    "test": "vitest run",
+    "content:validate": "esbuild scripts/validate-content.ts --bundle --platform=node --format=esm --outfile=node_modules/.cache/darsana-validate.mjs --log-level=error && node node_modules/.cache/darsana-validate.mjs",
+    "content:report": "esbuild scripts/content-report.ts --bundle --platform=node --format=esm --outfile=node_modules/.cache/darsana-report.mjs --log-level=error && node node_modules/.cache/darsana-report.mjs",
+    "content:index": "esbuild scripts/build-search-index.ts --bundle --platform=node --format=esm --outfile=node_modules/.cache/darsana-index.mjs --log-level=error && node node_modules/.cache/darsana-index.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.546.0",

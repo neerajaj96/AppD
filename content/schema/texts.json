@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://darshana.app/content/schema/texts.json",
+  "title": "V2 Text schema",
+  "type": "object",
+  "required": ["id", "title", "transliteratedTitle", "traditionId", "sourceRole", "contentStatus", "units", "concepts"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "transliteratedTitle": { "type": "string", "minLength": 1 },
+    "author": { "type": "string" },
+    "traditionalAttribution": { "type": "string" },
+    "traditionId": { "type": "string", "minLength": 1 },
+    "sourceRole": {
+      "type": "string",
+      "enum": ["primary", "scripture", "commentary", "devotional", "secondary", "modern-synthesis", "practice", "reference"]
+    },
+    "description": { "type": "string" },
+    "contentStatus": { "type": "string", "enum": ["complete", "partial", "concepts-only", "unknown"] },
+    "units": { "type": "array" },
+    "concepts": { "type": "array" }
+  }
+}
