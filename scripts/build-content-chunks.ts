@@ -16,7 +16,7 @@ import { validateCorpus } from '../src/content/v2/validate.ts';
 import { buildManifest } from '../src/content/v2/chunks.ts';
 import { buildSearchIndex, splitSearchIndex } from '../src/content/v2/search-index.ts';
 import { buildConceptOccurrenceIndex } from '../src/content/v2/occurrences.ts';
-import { buildTextSource, formatSourceTable } from '../src/content/v2/textSources.ts';
+import { buildTextSource, extractLocatorStems, formatSourceTable, matchUnitLocator } from '../src/content/v2/textSources.ts';
 import { lalitaSahasranamaSourceProvenance } from '../src/content/lalita-sahasranama/lalita-sahasranama-source-provenance.ts';
 import { vishnuSahasranamaSourceProvenance } from '../src/content/vishnu-sahasranama/vishnu-sahasranama-source-provenance.ts';
 import { deviMahatmyaSourceProvenance } from '../src/content/devi-mahatmya/devi-mahatmya-source-provenance.ts';
@@ -137,6 +137,31 @@ for (const text of corpus.texts) {
             ? buildTextSource(text.id, text.transliteratedTitle, formatSourceTable(mishraSourceProvenance))
             : null;
   if (record) text.sources = [record];
+}
+// Pilot curation (devi-mahatmya): per-unit source locators from the
+// legacy section table, longest-stem match. Units without a match keep
+// no locator rather than receiving a guessed one. Runs before validation
+// so curated provenance is itself validated.
+{
+  const devi = corpus.texts.find((t) => t.id === 'devi-mahatmya');
+  if (devi) {
+    const stems = extractLocatorStems(deviMahatmyaSourceProvenance);
+    let matched = 0;
+    for (const unit of devi.units) {
+      if (unit.provenance?.locator) continue;
+      const locator = matchUnitLocator(unit.id, stems);
+      if (locator) {
+        unit.provenance = { ...(unit.provenance || {}), locator };
+        matched += 1;
+      }
+    }
+    const total = devi.units.length;
+    console.log(`Provenance pilot (devi-mahatmya): ${matched}/${total} units carry a source locator; ${total - matched} remain unresolved.`);
+    if (matched === 0) {
+      console.error('Provenance pilot matched zero units; refusing to emit uncurated chunks.');
+      process.exit(1);
+    }
+  }
 }
 const validation = validateCorpus(corpus);
 if (validation.errors.length > 0) {

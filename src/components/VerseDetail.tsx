@@ -63,8 +63,8 @@ function UnitSourceArea({
     edition: primary?.edition,
     publisher: primary?.publisher,
     year: primary?.year,
-    locator: primary?.locator,
-    page: primary?.page,
+    locator: primary?.locator || unit.provenance?.locator,
+    page: primary?.page || unit.provenance?.page,
     url: unitCanonicalUrl(origin, systemId, textId, verseId),
   });
   return (

@@ -1,8 +1,9 @@
 import { FetchChunkLoader } from '../chunks';
 import { V2Repository } from '../repository';
 import { validateCorpus } from '../validate';
-import { buildTextSource, formatSourceTable, joinSourceNotes } from '../textSources';
+import { buildTextSource, extractLocatorStems, formatSourceTable, joinSourceNotes, matchUnitLocator } from '../textSources';
 import { formatCitation, unitCanonicalUrl } from '../citation';
+import { deviMahatmyaSourceProvenance } from '../../../content/devi-mahatmya/devi-mahatmya-source-provenance';
 import { uiStrings, type UIKey } from '../../../i18n/ui';
 import type { V2Corpus, V2Source } from '../schema';
 
@@ -207,5 +208,45 @@ describe('source/citation interface strings', () => {
       expect(uiStrings.en[key].trim().length).toBeGreaterThan(0);
       expect(uiStrings.ml[key].trim().length).toBeGreaterThan(0);
     }
+  });
+});
+
+describe('pilot locator matching (devi-mahatmya table)', () => {
+  const stems = extractLocatorStems(deviMahatmyaSourceProvenance);
+
+  it('reduces the table to prefix and exact stems, skipping slash lists', () => {
+    // 44 rows minus the slash-separated navarna/dhyana/mala/nyasa row.
+    expect(stems).toHaveLength(43);
+    expect(stems.every((s) => s.stem.length > 0 && s.locator.length > 0)).toBe(true);
+  });
+
+  it('matches adhyaya units to their page ranges', () => {
+    expect(matchUnitLocator('dm-8-39', stems)).toBe('pp.472-523');
+    expect(matchUnitLocator('dm-8-39b', stems)).toBe('pp.472-523');
+    expect(matchUnitLocator('dm-kavacha-1', stems)).toBe('pp.31-46');
+    expect(matchUnitLocator('dm-kshama-prarthana', stems)).toBe('pp.723-724');
+  });
+
+  it('respects dash boundaries and leaves near-misses unresolved', () => {
+    // dm-1- must never catch dm-13-5; longest stem wins instead.
+    expect(matchUnitLocator('dm-13-5', stems)).toBe('pp.665-684');
+    // Group pattern without a matching unit id stays unresolved.
+    expect(matchUnitLocator('dm-guru-kilaka', stems)).toBeNull();
+    expect(matchUnitLocator('dm-manasa-atharva-note', stems)).toBeNull();
+    expect(matchUnitLocator('no-such-unit', stems)).toBeNull();
+  });
+
+  it('accepts locator-only unit provenance without new validation codes', () => {
+    const withLocator = corpusWith([]);
+    const unit = withLocator.texts[0].units[0];
+    unit.provenance = { locator: 'pp.472-523' };
+    const result = validateCorpus(withLocator);
+    expect(result.errors).toEqual([]);
+  });
+
+  it('flows locators into citations', () => {
+    expect(
+      formatCitation({ textTitle: 'Devī Māhātmya', unitNumber: '8.39', author: 'A', locator: 'pp.472-523', url: 'u' }),
+    ).toBe('Devī Māhātmya, 8.39. A. pp.472-523. Darśana canonical unit: u.');
   });
 });
