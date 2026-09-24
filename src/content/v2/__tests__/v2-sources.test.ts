@@ -1,7 +1,10 @@
 import { FetchChunkLoader } from '../chunks';
 import { V2Repository } from '../repository';
 import { validateCorpus } from '../validate';
-import { buildTextSource, extractLocatorStems, formatSourceTable, joinSourceNotes, matchUnitLocator } from '../textSources';
+import { buildTextSource, extractLocatorStems, formatSourceTable, joinSourceNotes, matchUnitLocator, matchUnitSources } from '../textSources';
+import { CURATED_SOURCES_BY_TEXT, SOURCE_NOTE_PREFIXES } from '../curatedSources';
+import { adaptSystemsToV2 } from '../adapters';
+import { systems } from '../../../content/index';
 import { formatCitation, unitCanonicalUrl } from '../citation';
 import { deviMahatmyaSourceProvenance } from '../../../content/devi-mahatmya/devi-mahatmya-source-provenance';
 import { uiStrings, type UIKey } from '../../../i18n/ui';
@@ -248,5 +251,81 @@ describe('pilot locator matching (devi-mahatmya table)', () => {
     expect(
       formatCitation({ textTitle: 'Devī Māhātmya', unitNumber: '8.39', author: 'A', locator: 'pp.472-523', url: 'u' }),
     ).toBe('Devī Māhātmya, 8.39. A. pp.472-523. Darśana canonical unit: u.');
+  });
+});
+
+describe('scaled curation (Class A texts)', () => {
+  const curatedIds = new Set(
+    Object.values(CURATED_SOURCES_BY_TEXT).flat().map((r) => r.id),
+  );
+
+  it('keeps curated records valid: stable ids, titles, traceable notes', () => {
+    for (const [textId, records] of Object.entries(CURATED_SOURCES_BY_TEXT)) {
+      expect(records.length).toBeGreaterThan(0);
+      for (const record of records) {
+        expect(record.id.startsWith(`${textId}-source-`)).toBe(true);
+        expect(record.title.trim().length).toBeGreaterThan(0);
+        expect((record.notes || '').trim().length).toBeGreaterThan(0);
+        expect(record).not.toHaveProperty('publisher', undefined);
+      }
+    }
+    // No invented publishers: only the Satyananda note names one.
+    const withPublisher = Object.values(CURATED_SOURCES_BY_TEXT)
+      .flat()
+      .filter((r) => r.publisher);
+    expect(withPublisher.map((r) => r.id)).toEqual([
+      'yoga-sutras-source-satyananda-four-chapters',
+    ]);
+  });
+
+  it('matches units to sources by note prefix, stably ordered', () => {
+    const candidates = [
+      { sourceId: 't-source-a', prefix: 'Kashi Sanskrit' },
+      { sourceId: 't-source-b', prefix: 'Swami Vivekananda' },
+    ];
+    expect(matchUnitSources(['Swami Vivekananda, x', 'Kashi Sanskrit, y'], candidates)).toEqual([
+      't-source-a',
+      't-source-b',
+    ]);
+    expect(matchUnitSources([], candidates)).toEqual([]);
+    expect(matchUnitSources(['unrelated note'], candidates)).toEqual([]);
+  });
+
+  it('curates yoga and gita from the real adapted corpus', () => {
+    const corpus = adaptSystemsToV2(systems);
+    for (const [textId, records] of Object.entries(CURATED_SOURCES_BY_TEXT)) {
+      const text = corpus.texts.find((t) => t.id === textId);
+      expect(text).toBeDefined();
+      if (!text) continue;
+      text.sources = [...(text.sources || []), ...records];
+      const candidates = SOURCE_NOTE_PREFIXES.filter((c) => c.textId === textId);
+      const counts: Record<string, number> = {};
+      for (const unit of text.units) {
+        const notes = (unit.interpretiveNotes || []).map((n) => n.note);
+        const ids = matchUnitSources(notes, candidates).filter((id) =>
+          records.some((r) => r.id === id),
+        );
+        if (ids.length > 0) {
+          unit.sourceIds = ids;
+          counts[ids.length] = (counts[ids.length] || 0) + 1;
+        }
+      }
+      // Every attached id resolves in the text registry (validator re-checks).
+      for (const unit of text.units) {
+        for (const sid of unit.sourceIds || []) {
+          expect(curatedIds.has(sid)).toBe(true);
+        }
+      }
+      if (textId === 'yoga-sutras') {
+        expect(counts).toEqual({ 3: 193, 2: 2 });
+      }
+      if (textId === 'bhagavad-gita') {
+        expect(counts).toEqual({ 1: 701 });
+        const bare = text.units.filter((u) => !(u.sourceIds || []).length);
+        expect(bare).toHaveLength(13);
+        expect(bare.every((u) => u.id.startsWith('adhika.'))).toBe(true);
+      }
+    }
+    expect(validateCorpus(corpus).errors).toEqual([]);
   });
 });

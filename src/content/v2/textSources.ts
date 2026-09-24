@@ -98,7 +98,25 @@ export function matchUnitLocator(unitId: string, stems: LocatorStem[]): string |
 }
 
 /**
- * Build the single source record for a text, or null when there is
+ * Match a unit's interpretive-note openings against curated source
+ * prefixes for its text. Returns registry ids in stable candidate order.
+ * A unit attaches exactly the sources its own notes invoke — no more.
+ */
+export function matchUnitSources(
+  unitNotes: string[],
+  candidates: Array<{ sourceId: string; prefix: string }>,
+): string[] {
+  const out: string[] = [];
+  for (const candidate of candidates) {
+    if (unitNotes.some((note) => typeof note === 'string' && note.startsWith(candidate.prefix))) {
+      if (!out.includes(candidate.sourceId)) out.push(candidate.sourceId);
+    }
+  }
+  return out;
+}
+
+/**
+ * Build the single source-notes record for a text, or null when there is
  * nothing to carry. The record id is stable and canonical.
  */
 export function buildTextSource(

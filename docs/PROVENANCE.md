@@ -71,3 +71,29 @@ notes-only records), add its mapping in `build-content-chunks.ts`,
 extend the pilot tests, and confirm validator errors stay zero. Unit
 variants, translation provenance and editorial review states follow the
 same `provenance`/`sourceIds`/notes mechanisms — no new systems.
+
+## Corpus classification (evidence already in the repository)
+
+No external research was used; classes reflect only what the repo states.
+
+| Class | Texts | Basis |
+|---|---|---|
+| A — directly curatable | devi-mahatmya (reference pilot), yoga-sutras, bhagavad-gita | per-unit edition statements mapping deterministically to units |
+| B | — (none; yoga/gita exceptions are documented per-unit instead) | — |
+| C — notes-only | lalita-sahasranama, vishnu-sahasranama, tantraloka (Mishra companion) | free-prose records, no safe unit mapping |
+| D — no usable evidence | samkhya-karika, samkhya-sutra, nyaya-sutras, vaisesika-sutras, mimamsa-sutras, brahma-sutras, adhyatma-ramayana, kundalini-tantra, shiva-sutras, spanda-karika, vijnanabhairava | single interpretive note or nothing source-bearing |
+
+Curated registries (`src/content/v2/curatedSources.ts`, verbatim
+transcription only): yoga-sutras 3 records (Kashi Series No.83 /
+1930; Raja-Yoga / Vivekananda / 1895–96 / public-domain; Four Chapters
+on Freedom / Satyananda / Yoga Publications Trust, Munger),
+bhagavad-gita 1 record (KSTS No. LXIV / 1943). Units attach exactly the
+records their own notes invoke.
+
+## Coverage (generated, not estimated)
+
+- devi-mahatmya: 182/184 units with locators (2 near-misses unresolved)
+- yoga-sutras: 195/195 attach sources (193 × 3 records, IV.17/IV.18 × 2)
+- bhagavad-gita: 701/714 attach the KSTS record (13 adhika appendix units unresolved)
+- Corpus provenance-bearing units: 1078/4060 (26.6%); source records exist for 6/17 texts
+- Validation: 0 errors; warnings unchanged (no new codes fired)

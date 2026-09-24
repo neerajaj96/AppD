@@ -16,7 +16,8 @@ import { validateCorpus } from '../src/content/v2/validate.ts';
 import { buildManifest } from '../src/content/v2/chunks.ts';
 import { buildSearchIndex, splitSearchIndex } from '../src/content/v2/search-index.ts';
 import { buildConceptOccurrenceIndex } from '../src/content/v2/occurrences.ts';
-import { buildTextSource, extractLocatorStems, formatSourceTable, matchUnitLocator } from '../src/content/v2/textSources.ts';
+import { buildTextSource, extractLocatorStems, formatSourceTable, matchUnitLocator, matchUnitSources } from '../src/content/v2/textSources.ts';
+import { CURATED_SOURCES_BY_TEXT, SOURCE_NOTE_PREFIXES } from '../src/content/v2/curatedSources.ts';
 import { lalitaSahasranamaSourceProvenance } from '../src/content/lalita-sahasranama/lalita-sahasranama-source-provenance.ts';
 import { vishnuSahasranamaSourceProvenance } from '../src/content/vishnu-sahasranama/vishnu-sahasranama-source-provenance.ts';
 import { deviMahatmyaSourceProvenance } from '../src/content/devi-mahatmya/devi-mahatmya-source-provenance.ts';
@@ -161,6 +162,36 @@ for (const text of corpus.texts) {
       console.error('Provenance pilot matched zero units; refusing to emit uncurated chunks.');
       process.exit(1);
     }
+  }
+}
+// Scaled curation (Class A texts): curated edition registries plus
+// per-unit sourceIds exactly where a unit's own notes invoke the source.
+// Appendix/adhika units without edition notes attach nothing.
+for (const [textId, records] of Object.entries(CURATED_SOURCES_BY_TEXT)) {
+  const text = corpus.texts.find((t) => t.id === textId);
+  if (!text) {
+    console.error(`Curated sources reference unknown text ${textId}; refusing to emit.`);
+    process.exit(1);
+  }
+  text.sources = [...(text.sources || []), ...records];
+  const candidates = SOURCE_NOTE_PREFIXES.filter((c) => c.textId === textId);
+  let attached = 0;
+  let bare = 0;
+  for (const unit of text.units) {
+    const notes = (unit.interpretiveNotes || []).map((n) => n.note);
+    const ids = matchUnitSources(notes, candidates);
+    const known = ids.filter((id) => records.some((r) => r.id === id));
+    if (known.length > 0) {
+      unit.sourceIds = [...(unit.sourceIds || []), ...known.filter((id) => !(unit.sourceIds || []).includes(id))];
+      attached += 1;
+    } else {
+      bare += 1;
+    }
+  }
+  console.log(`Provenance curation (${textId}): ${attached}/${text.units.length} units attach sources; ${bare} remain unresolved.`);
+  if (attached === 0) {
+    console.error(`Curated sources for ${textId} matched zero units; refusing to emit.`);
+    process.exit(1);
   }
 }
 const validation = validateCorpus(corpus);
