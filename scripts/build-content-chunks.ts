@@ -231,6 +231,14 @@ const global: GlobalManifest = {
 };
 track(path.join(OUT, 'manifest.json'), global);
 
+// Editorial alias table: the versioned human-spelling → canonical
+// triple dataset both the validator and the runtime resolve against.
+track(path.join(OUT, 'aliases.json'), {
+  schemaVersion: corpus.schemaVersion,
+  generatedAt: new Date().toISOString(),
+  aliases: corpus.aliases,
+});
+
 const indexThreads = Array.from(traditionThreads.values()).flat();
 const searchIndex = buildSearchIndex(corpus, indexThreads);
 track(path.join(OUT, 'search-index.json'), searchIndex);

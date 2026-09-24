@@ -207,9 +207,15 @@ export interface V2Diagram {
 }
 
 /** Human alias pointing at a canonical namespaced ID. */
+export type AliasStatus = 'verified' | 'review';
+
 export interface V2Alias {
   alias: string;
+  /** Canonical concept identity in `tradition/text/concept` triple form. */
   canonicalId: string;
+  /** verified: curated equivalence, safe to resolve. review: candidate, inert. */
+  status?: AliasStatus;
+  note?: string;
 }
 
 export interface V2Text {

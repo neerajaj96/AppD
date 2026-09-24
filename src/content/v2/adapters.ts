@@ -16,6 +16,7 @@ import {
   type V2ThreadStep,
 } from './schema';
 import { TRADITIONS } from './tradition';
+import { EDITORIAL_ALIASES } from './aliases';
 
 /**
  * Temporary compatibility path: legacy content → V2 canonical model.
@@ -218,6 +219,14 @@ export function adaptSystemsToV2(systems: System[]): V2Corpus {
     schemaVersion: SCHEMA_VERSION,
     traditions: TRADITIONS.filter((t) => systems.some((s) => (s.id as string) === t.id)),
     texts,
-    aliases: [],
+    // Editorial identity table: curated alias → canonical triple rows.
+    // Resolution is single-step (name → triple, never chained), so alias
+    // cycles are impossible by construction.
+    aliases: EDITORIAL_ALIASES.map(({ alias, canonicalId, status, note }) => ({
+      alias,
+      canonicalId,
+      status,
+      note,
+    })),
   };
 }

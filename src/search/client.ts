@@ -1,5 +1,7 @@
-import { searchIndexUrl } from '../content/v2/chunks';
+import { searchIndexUrl, aliasesUrl } from '../content/v2/chunks';
 import type { SearchIndex, SearchIndexEntry } from '../content/v2/search-index';
+import { buildAliasTable, resolveAlias, type AliasResolution } from '../content/v2/ids';
+import { verifiedAliases, type AliasFile } from '../content/v2/aliases';
 import { rankEntries, type RankedEntry } from './rank';
 
 /**
@@ -22,6 +24,8 @@ class SearchClient {
   private pending = new Map<number, Pending>();
   private mainEntries: SearchIndexEntry[] | undefined;
   private mainPromise: Promise<SearchIndexEntry[]> | undefined;
+  private aliasTable: Map<string, string[]> | undefined;
+  private aliasPromise: Promise<Map<string, string[]> | undefined> | undefined;
 
   private ensureWorker(): Worker | undefined {
     if (this.worker || this.workerFailed) return this.worker;
@@ -122,6 +126,38 @@ class SearchClient {
         .map((entry) => ({ entry, score: 1 }));
     } catch {
       return [];
+    }
+  }
+
+  /**
+   * Editorial alias lookup for a raw query (verified rows only — review
+   * candidates never resolve). The worker is untouched: this is a tiny
+   * main-thread table fetch, and callers build disambiguation rows from
+   * the returned canonical triples. Never throws.
+   */
+  async resolveQueryAlias(query: string): Promise<AliasResolution> {
+    const q = query.trim();
+    if (!q) return { status: 'missing', alias: query };
+    try {
+      if (!this.aliasTable && !this.aliasPromise) {
+        this.aliasPromise = fetch(aliasesUrl())
+          .then(async (response) => {
+            if (!response.ok) throw new Error(`Alias table request failed (${response.status})`);
+            const file = (await response.json()) as AliasFile;
+            const table = buildAliasTable(verifiedAliases(file.aliases || []));
+            this.aliasTable = table;
+            return table;
+          })
+          .catch(() => {
+            this.aliasPromise = undefined;
+            return undefined;
+          });
+      }
+      const table = this.aliasTable || (await this.aliasPromise);
+      if (!table) return { status: 'missing', alias: query };
+      return resolveAlias(q, table);
+    } catch {
+      return { status: 'missing', alias: query };
     }
   }
 }

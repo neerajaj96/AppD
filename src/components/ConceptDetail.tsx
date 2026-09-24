@@ -146,19 +146,24 @@ export default function ConceptDetail() {
   // search index and never full unit chunks. Distinct canonical
   // identities stay distinct; nothing is merged.
   const [occurrences, setOccurrences] = useState<ConceptOccurrence[]>([]);
+  const [alsoFoundAs, setAlsoFoundAs] = useState<string[]>([]);
   useEffect(() => {
     if (!conceptId) return;
     let live = true;
-    getRepository()
-      .getConceptOccurrences(conceptId)
-      .then((result) => {
-        if (!live) return;
-        setOccurrences(result.status === 'ok' ? result.data : []);
+    const repo = getRepository();
+    repo.getConceptOccurrences(conceptId).then((result) => {
+      if (!live) return;
+      setOccurrences(result.status === 'ok' ? result.data : []);
+    });
+    if (systemId && textId) {
+      repo.getConceptAliases(systemId, textId, conceptId).then((names) => {
+        if (live) setAlsoFoundAs(names);
       });
+    }
     return () => {
       live = false;
     };
-  }, [conceptId]);
+  }, [conceptId, systemId, textId]);
 
   // Long defining-verse lists collapse to 12 with an explicit expander —
   // the heading always states the true total, so nothing is silently lost.
@@ -277,11 +282,16 @@ export default function ConceptDetail() {
             <div className="text-xs font-semibold text-tamas uppercase tracking-widest">
               {t(language, 'conceptLabel')} • {textData.data.manifest.transliteratedTitle}
             </div>
-            <h1 className="text-3xl font-serif font-bold text-sattva leading-tight">{title}</h1>
+            <h1 className="text-3xl font-serif font-bold text-sattva leading-tight break-words">{title}</h1>
             {concept.category && (
               <span className="inline-block px-2.5 py-0.5 text-xs rounded-full bg-avyakta-3 text-sattva-dim font-medium">
                 {concept.category}
               </span>
+            )}
+            {alsoFoundAs.length > 0 && (
+              <p className="text-sm text-tamas">
+                {t(language, 'aliasAlsoFound')}: {alsoFoundAs.join(' · ')}
+              </p>
             )}
           </div>
 

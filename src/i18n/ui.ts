@@ -185,6 +185,8 @@ const en = {
   graphMore: 'Showing {shown} of {total} relationships — the full list follows below.',
   graphLegendConcept: 'Concept',
   graphLegendTradition: 'Tradition',
+  aliasMatch: 'Editorial alias',
+  aliasAlsoFound: 'Also found as',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -364,6 +366,8 @@ const ml: Record<keyof typeof en, string> = {
   graphMore: '{total} ബന്ധങ്ങളിൽ {shown} എണ്ണം കാണിക്കുന്നു — പൂർണ്ണ പട്ടിക താഴെ.',
   graphLegendConcept: 'ആശയം',
   graphLegendTradition: 'പാരമ്പര്യം',
+  aliasMatch: 'സമ്പാദകീയ പര്യായം',
+  aliasAlsoFound: 'ഇങ്ങനെയും അറിയപ്പെടുന്നു',
 };
 
 export type UIKey = keyof typeof en;

@@ -1,5 +1,5 @@
 import { SCHEMA_VERSION, type V2Corpus, type V2Text } from './schema';
-import { isCanonicalId, normaliseId, validateLocator } from './ids';
+import { isCanonicalId, normaliseId, parseCanonicalConceptId, validateLocator } from './ids';
 
 /**
  * V2 content validator — pure functions over a V2 corpus snapshot.
@@ -99,16 +99,44 @@ export function validateCorpus(corpus: V2Corpus): ValidationResult {
     }
   }
 
-  // Alias ambiguity: one normalised alias → several canonical IDs.
+  // Editorial identity: every alias row must name a real canonical
+  // concept triple. Ambiguity across verified rows is legitimate
+  // scholarly ambiguity (disambiguation UI, not a data error); review
+  // rows are inert candidates. Resolution is single-step, so cycles are
+  // impossible by construction and need no check.
+  const conceptTriples = new Set<string>();
+  for (const text of corpus.texts) {
+    for (const concept of text.concepts) {
+      conceptTriples.add(`${text.traditionId}/${text.id}/${concept.id}`);
+    }
+  }
   const aliasBuckets = new Map<string, Set<string>>();
+  const seenAliasRows = new Set<string>();
   for (const alias of corpus.aliases || []) {
     const key = normaliseId(alias.alias);
     if (!key) {
       push({ severity: 'error', code: 'malformed-alias', message: `Empty alias for ${alias.canonicalId}`, entityId: alias.canonicalId });
       continue;
     }
-    if (!isCanonicalId(alias.canonicalId) && !alias.canonicalId.includes('/')) {
-      push({ severity: 'warning', code: 'alias-target-shape', message: `Alias ${alias.alias} points at odd id ${alias.canonicalId}`, entityId: alias.canonicalId });
+    // Duplicates compare raw spellings: distinct spellings that
+    // normalise identically (adṛṣṭa vs adrsta) are separate rows.
+    const rowId = `${alias.alias} → ${alias.canonicalId}`;
+    if (seenAliasRows.has(rowId)) {
+      push({ severity: 'error', code: 'alias-duplicate', message: `Duplicate alias row: ${rowId}`, entityId: key });
+      continue;
+    }
+    seenAliasRows.add(rowId);
+    const triple = parseCanonicalConceptId(alias.canonicalId);
+    if (!triple) {
+      push({ severity: 'error', code: 'alias-target-malformed', message: `Alias ${alias.alias} points at malformed target ${alias.canonicalId}; want tradition/text/concept`, entityId: key });
+      continue;
+    }
+    if (!conceptTriples.has(alias.canonicalId)) {
+      push({ severity: 'error', code: 'alias-target-missing', message: `Alias ${alias.alias} points at missing concept ${alias.canonicalId}`, entityId: key });
+      continue;
+    }
+    if (alias.status !== 'verified') {
+      push({ severity: 'warning', code: 'alias-review-pending', message: `Alias ${alias.alias} → ${alias.canonicalId} awaits scholarship; inert in resolution`, entityId: key });
     }
     const bucket = aliasBuckets.get(key);
     if (bucket) bucket.add(alias.canonicalId);
@@ -117,9 +145,9 @@ export function validateCorpus(corpus: V2Corpus): ValidationResult {
   for (const [key, targets] of aliasBuckets) {
     if (targets.size > 1) {
       push({
-        severity: 'error',
-        code: 'ambiguous-alias',
-        message: `Alias ${key} resolves ambiguously to ${Array.from(targets).join(', ')}`,
+        severity: 'warning',
+        code: 'alias-ambiguous',
+        message: `Alias ${key} names ${targets.size} distinct concepts (${Array.from(targets).join(', ')}) — disambiguate, never merge`,
         entityId: key,
       });
     }

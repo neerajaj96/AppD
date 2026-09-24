@@ -7,7 +7,10 @@ import {
   type TraditionSummary,
 } from './chunks';
 import type { CanonicalUnit, V2Concept, V2Thread } from './schema';
-import { normaliseId } from './ids';
+import { buildAliasTable, normaliseId, parseCanonicalConceptId, resolveAlias, type AliasResolution } from './ids';
+import { verifiedAliases } from './aliases';
+import type { AliasFile } from './aliases';
+import type { V2Alias } from './schema';
 import type { ConceptOccurrenceIndex, ConceptOccurrence } from './occurrences';
 
 /**
@@ -25,6 +28,9 @@ export class V2Repository {
   private catalogPromise: Promise<LoadResult<GlobalManifest>> | undefined;
   private conceptIndex: ConceptOccurrenceIndex | undefined;
   private conceptIndexPromise: Promise<LoadResult<ConceptOccurrenceIndex>> | undefined;
+  private aliasTable: Map<string, string[]> | undefined;
+  private aliasTablePromise: Promise<Map<string, string[]> | undefined> | undefined;
+  private aliasRows: V2Alias[] | undefined;
 
   constructor(loader?: FetchChunkLoader) {
     this.loader = loader || new FetchChunkLoader();
@@ -285,6 +291,59 @@ export class V2Repository {
       });
     }
     return { status: 'ok', data: [...direct, ...viaUnit] };
+  }
+
+  /**
+   * Verified-only alias table from `aliases.json` (review rows excluded).
+   * Tiny file, loaded once per session; undefined when unreachable, in
+   * which case callers treat every name as missing rather than failing.
+   */
+  private async getAliasTable(): Promise<Map<string, string[]> | undefined> {
+    if (this.aliasTable) return this.aliasTable;
+    if (!this.aliasTablePromise) {
+      this.aliasTablePromise = this.loader.loadAliases().then((result: LoadResult<AliasFile>) => {
+        if (result.status !== 'ok') {
+          this.aliasTablePromise = undefined;
+          return undefined;
+        }
+        const rows = verifiedAliases(result.data.aliases || []);
+        this.aliasRows = rows;
+        const table = buildAliasTable(rows);
+        this.aliasTable = table;
+        return table;
+      });
+    }
+    return this.aliasTablePromise;
+  }
+
+  /**
+   * Resolve a human spelling to canonical concept triples. Verified rows
+   * only; review candidates never resolve. Ambiguity is returned, never
+   * guessed away.
+   */
+  async resolveAliasName(name: string): Promise<AliasResolution> {
+    const table = await this.getAliasTable();
+    if (!table) return { status: 'missing', alias: name };
+    const resolved = resolveAlias(name, table);
+    if (resolved.status !== 'resolved') return resolved;
+    // Belt-and-braces: the triple must still parse (validator enforces).
+    return parseCanonicalConceptId(resolved.canonicalId) ? resolved : { status: 'missing', alias: name };
+  }
+
+  /**
+   * Alternate spellings explicitly curated for one canonical concept
+   * (verified only) — for an "also found as" line, not navigation.
+   * Original spellings preserved; never throws.
+   */
+  async getConceptAliases(traditionId: string, textId: string, conceptId: string): Promise<string[]> {
+    await this.getAliasTable();
+    const rows = this.aliasRows || [];
+    const triple = `${traditionId}/${textId}/${conceptId}`;
+    const out: string[] = [];
+    for (const row of rows) {
+      if (row.canonicalId === triple && !out.includes(row.alias)) out.push(row.alias);
+    }
+    return out;
   }
 }
 

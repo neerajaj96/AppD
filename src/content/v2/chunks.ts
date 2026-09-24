@@ -11,6 +11,7 @@ import {
 } from './schema';
 
 import type { ConceptOccurrenceIndex } from './occurrences';
+import type { AliasFile } from './aliases';
 
 /**
  * Chunked content delivery — the runtime replacement for importing the
@@ -84,6 +85,10 @@ export function searchIndexUrl(): string {
 
 export function conceptOccurrenceIndexUrl(): string {
   return `${contentBase()}/concepts/index.json`;
+}
+
+export function aliasesUrl(): string {
+  return `${contentBase()}/aliases.json`;
 }
 
 /** One row of the global catalog — enough to navigate without any chunks. */
@@ -271,6 +276,10 @@ export class FetchChunkLoader {
   /** Alias matching the repository's vocabulary. */
   loadConceptIndex(): Promise<LoadResult<ConceptOccurrenceIndex>> {
     return this.loadConceptOccurrenceIndex();
+  }
+
+  loadAliases(): Promise<LoadResult<AliasFile>> {
+    return this.getJson<AliasFile>(aliasesUrl());
   }
 
   loadTextManifest(textId: string): Promise<LoadResult<TextManifestFile>> {

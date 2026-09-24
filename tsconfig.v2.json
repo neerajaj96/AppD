@@ -13,6 +13,7 @@
     "src/content/v2/schema.ts",
     "src/content/v2/tradition.ts",
     "src/content/v2/ids.ts",
+    "src/content/v2/aliases.ts",
     "src/content/v2/adapters.ts",
     "src/content/v2/ingest.ts",
     "src/content/v2/validate.ts",

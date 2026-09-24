@@ -35,6 +35,31 @@ export function splitNamespacedId(id: string): { namespace?: string; local: stri
   return { namespace: id.slice(0, idx), local: id.slice(idx + 2) };
 }
 
+export interface CanonicalConceptTriple {
+  traditionId: string;
+  textId: string;
+  conceptId: string;
+}
+
+/**
+ * Canonical concept identity in `tradition/text/concept` triple form.
+ * Namespaces are explicit: `samkhya/samkhya-karika/purusha-svarupa` can
+ * never collide with `vedanta/brahma-sutras/concept_samkhya_purusha`,
+ * however alike their local names look.
+ */
+export function canonicalConceptId(traditionId: string, textId: string, conceptId: string): string {
+  return `${traditionId}/${textId}/${conceptId}`;
+}
+
+/** Parse a triple back into parts; undefined when malformed. */
+export function parseCanonicalConceptId(id: string): CanonicalConceptTriple | undefined {
+  if (typeof id !== 'string') return undefined;
+  const parts = id.split('/');
+  if (parts.length !== 3 || parts.some((p) => !p || !p.trim())) return undefined;
+  const [traditionId, textId, conceptId] = parts as [string, string, string];
+  return { traditionId, textId, conceptId };
+}
+
 export type AliasResolution =
   | { status: 'resolved'; canonicalId: string }
   | { status: 'ambiguous'; candidates: string[] }

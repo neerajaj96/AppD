@@ -69,6 +69,7 @@ describe('no legacy-corpus imports in runtime code', () => {
     'src/content/v2/hooks.ts',
     'src/content/v2/compat.ts',
     'src/content/v2/select.ts',
+    'src/content/v2/aliases.ts',
     'src/content/v2/occurrences.ts',
     'src/content/v2/conceptGraph.ts',
     'src/components/concept-graph/ConceptGraphViewport.tsx',

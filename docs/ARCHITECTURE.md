@@ -81,6 +81,27 @@ opened text.
 - **Selection helpers** (`content/v2/select.ts`): English-fallback
   language rule and boundary-safe adjacency as pure, tested functions.
 
+## Editorial identity layer (Prompt 7)
+
+- **Dataset** (`content/v2/aliases.ts`): explicit alias → canonical
+  `tradition/text/concept` triple rows with `verified`/`review` status
+  and notes. Canonical identity is the namespaced triple
+  (`ids.canonicalConceptId`); local names never merge across
+  traditions. String similarity (even edit distance 1, e.g.
+  asat/sat-kāryavāda opposites) never establishes identity.
+- **Resolution** is single-step and verified-only: `resolveAlias`
+  returns resolved / ambiguous / missing; review rows stay inert.
+  Ambiguity (ātman, adṛṣṭa) surfaces as disambiguation, never a pick.
+- **Runtime**: `aliases.json` (~2 KB) feeds repository
+  (`resolveAliasName`, `getConceptAliases`) and the search client
+  (pinned alias rows + per-candidate disambiguation rows; worker
+  untouched). Concept pages show an "also found as" line from reverse
+  lookup. Occurrences stay lexical (same-name) with the neutrality
+  note; the graph is unchanged by design.
+- **Validation**: missing/malformed targets and duplicate rows are
+  errors; ambiguity and review candidacy are warnings. Cycles are
+  impossible by construction.
+
 ## Concept knowledge layer (Prompt 5)
 
 - **Occurrence index** (`content/v2/occurrences.ts`, emitted as

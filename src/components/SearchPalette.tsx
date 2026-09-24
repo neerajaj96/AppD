@@ -6,6 +6,8 @@ import { matchesSanskritQuery } from '../utils/sanskrit';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
 import { useCatalog } from '../content/v2/hooks';
 import { getSearchClient } from '../search/client';
+import { getRepository } from '../content/v2/repository';
+import { parseCanonicalConceptId } from '../content/v2/ids';
 import type { RankedEntry } from '../search/rank';
 import { conceptSummary } from '../search/rank';
 import { getRecentSearches, recordSearch, clearSearches } from '../utils/searchHistory';
@@ -39,6 +41,7 @@ export default function SearchPalette() {
   const deferredQuery = useDeferredValue(query);
   const [recents, setRecents] = useState<string[]>([]);
   const [results, setResults] = useState<RankedEntry[]>([]);
+  const [aliasRows, setAliasRows] = useState<PaletteRow[]>([]);
   const [searching, setSearching] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -98,6 +101,7 @@ export default function SearchPalette() {
     const raw = deferredQuery.trim();
     if (!raw || !open) {
       setResults([]);
+      setAliasRows([]);
       setSearching(false);
       return;
     }
@@ -118,6 +122,57 @@ export default function SearchPalette() {
 
   const traditions = catalog.status === 'ok' ? catalog.data.traditions : [];
   const texts = catalog.status === 'ok' ? catalog.data.texts : [];
+
+  // Editorial alias matches (verified rows only): a query spelling the
+  // table knows resolves to canonical triples. Ambiguous names surface
+  // one row per candidate — a disambiguation path, never a silent pick.
+  useEffect(() => {
+    const raw = deferredQuery.trim();
+    if (!raw || !open || catalog.status !== 'ok') {
+      setAliasRows([]);
+      return;
+    }
+    let live = true;
+    const traditionById = new Map(traditions.map((s) => [s.id, s]));
+    const textById = new Map(texts.map((x) => [x.textId, x]));
+    getSearchClient()
+      .resolveQueryAlias(raw)
+      .then(async (resolution) => {
+        if (!live) return [];
+        const triples =
+          resolution.status === 'resolved'
+            ? [resolution.canonicalId]
+            : resolution.status === 'ambiguous'
+              ? resolution.candidates.slice(0, 4)
+              : [];
+        const rows: PaletteRow[] = [];
+        for (const triple of triples) {
+          const parsed = parseCanonicalConceptId(triple);
+          if (!parsed) continue;
+          const hit = await getRepository().getConcept(parsed.textId, parsed.conceptId);
+          if (!live || hit.status !== 'ok') continue;
+          const title =
+            hit.data.localisations[language]?.title || hit.data.localisations.en?.title || parsed.conceptId;
+          const trad = traditionById.get(parsed.traditionId);
+          const traditionTitle = trad ? getTraditionDisplay(trad, language).title : parsed.traditionId;
+          const textTitle = textById.get(parsed.textId)?.transliteratedTitle || parsed.textId;
+          rows.push({
+            key: `alias:${triple}`,
+            href: `/system/${parsed.traditionId}/text/${parsed.textId}/concept/${parsed.conceptId}`,
+            title,
+            context: `${traditionTitle} • ${textTitle} · ${t(language, 'aliasMatch')}`,
+          });
+        }
+        return rows;
+      })
+      .then((rows) => {
+        if (live) setAliasRows(rows);
+      });
+    return () => {
+      live = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [deferredQuery, open, catalog.status, language]);
 
   // Pre-typed browse shortcuts: every darshana, one tap away.
   const browse: PaletteRow[] = useMemo(
@@ -226,11 +281,11 @@ export default function SearchPalette() {
       if (concepts.length >= 8 && steps.length >= 6 && verses.length >= 12) break;
     }
 
-    return { nav, concepts, steps, verses };
-  }, [deferredQuery, language, results, traditions, texts]);
+    return { nav, alias: aliasRows, concepts, steps, verses };
+  }, [deferredQuery, language, results, traditions, texts, aliasRows]);
 
   const flat: PaletteRow[] = groups
-    ? [...groups.nav, ...groups.concepts, ...groups.steps, ...groups.verses]
+    ? [...groups.alias, ...groups.nav, ...groups.concepts, ...groups.steps, ...groups.verses]
     : [];
 
   // Screen-reader status for the ranked result set (WCAG 4.1.3). Sighted
@@ -469,21 +524,22 @@ export default function SearchPalette() {
 
                   {groups && (
                     <>
-                      {renderGroup(t(language, 'systemsLabel'), groups.nav, 0)}
+                      {renderGroup(t(language, 'aliasMatch'), groups.alias, 0)}
+                      {renderGroup(t(language, 'systemsLabel'), groups.nav, groups.alias.length)}
                       {renderGroup(
                         t(language, 'conceptsLabel'),
                         groups.concepts,
-                        groups.nav.length,
+                        groups.alias.length + groups.nav.length,
                       )}
                       {renderGroup(
                         t(language, 'threadLabel'),
                         groups.steps,
-                        groups.nav.length + groups.concepts.length,
+                        groups.alias.length + groups.nav.length + groups.concepts.length,
                       )}
                       {renderGroup(
                         t(language, 'versesLabel'),
                         groups.verses,
-                        groups.nav.length + groups.concepts.length + groups.steps.length,
+                        groups.alias.length + groups.nav.length + groups.concepts.length + groups.steps.length,
                       )}
                     </>
                   )}
