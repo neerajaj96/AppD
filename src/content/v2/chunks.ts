@@ -6,6 +6,7 @@ import {
   type Tradition,
   type V2Concept,
   type V2Corpus,
+  type V2Source,
   type V2TextManifest,
   type V2Thread,
 } from './schema';
@@ -58,6 +59,10 @@ export function textMetaUrl(textId: string): string {
 
 export function textThreadsUrl(textId: string): string {
   return `${contentBase()}/${encodeURIComponent(textId)}/threads.json`;
+}
+
+export function textSourcesUrl(textId: string): string {
+  return `${contentBase()}/${encodeURIComponent(textId)}/sources.json`;
 }
 
 export function traditionThreadUrl(traditionId: string): string {
@@ -301,6 +306,16 @@ export class FetchChunkLoader {
 
   loadTextThreads(textId: string): Promise<LoadResult<V2Thread[]>> {
     return this.getJson<V2Thread[]>(textThreadsUrl(textId));
+  }
+
+  /** Per-text source registry. Empty array is valid: most texts record none. */
+  async loadTextSources(textId: string): Promise<LoadResult<V2Source[]>> {
+    const result = await this.getJson<unknown>(textSourcesUrl(textId));
+    if (result.status !== 'ok') return result;
+    if (!Array.isArray(result.data)) {
+      return { status: 'error', message: `Malformed sources for ${textId}: expected an array` };
+    }
+    return { status: 'ok', data: result.data as V2Source[] };
   }
 
   loadTraditionThread(traditionId: string): Promise<LoadResult<V2Thread[]>> {

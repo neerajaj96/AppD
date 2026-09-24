@@ -5,13 +5,20 @@ import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary, textLanguages } from '../content/v2/catalog';
-import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
+import { useCatalog, useV2Text, useTraditionThread, useTextSources } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
 import { CountBadge, DisclosureChevron, RowChevron, Breadcrumb, ActionLink, ActionButton, PageHeader, SectionHeader, accentTint } from './Primitives';
-import SourceInfo from './Provenance';
+import SourceInfo, { SourceList } from './Provenance';
 import { getThreadProgress } from '../utils/threadProgress';
 
 type Panel = 'thread' | 'concepts' | null;
+
+/** Text source registry section. Silent unless records exist. */
+function TextSourceSection({ textId }: { textId: string | undefined }) {
+  const state = useTextSources(textId);
+  if (state.status !== 'ok' || state.data.length === 0) return null;
+  return <SourceList sources={state.data} />;
+}
 
 // Scholarly text landing page (Prompt 4): Tradition → Text → Structure →
 // Study modes. Breadcrumb, identity, counts, language coverage, study
@@ -244,6 +251,7 @@ export default function TextIndex() {
       </dl>
 
       <SourceInfo provenance={manifest.source} editorial={undefined} />
+      <TextSourceSection textId={textId} />
 
       {/* Chapter / section quick-jump — one pill per verse section.
           Clicking a pill expands that section dropdown and scrolls to it. */}

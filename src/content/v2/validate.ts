@@ -165,6 +165,24 @@ function validateText(
   const unitNumbers = new Map<string, number>();
   const conceptIds = new Set<string>();
 
+  // Text source registry: ids must be unique and records well formed.
+  // Optional fields simply stay missing — validation never demands
+  // author, year, translator, publisher or edition.
+  const sourceIds = new Set<string>();
+  for (const source of text.sources || []) {
+    if (!source.id || !source.title?.trim()) {
+      push({ severity: 'error', code: 'malformed-source', message: `Text ${text.id} has a source without id or title`, textId: text.id });
+      continue;
+    }
+    if (sourceIds.has(source.id)) {
+      push({ severity: 'error', code: 'duplicate-source-id', message: `Duplicate source id ${source.id} in ${text.id}`, textId: text.id, entityId: source.id });
+    }
+    sourceIds.add(source.id);
+    if (source.url && !/^https?:\/\//.test(source.url)) {
+      push({ severity: 'warning', code: 'malformed-source-url', message: `Source ${source.id} has a non-URL locator`, textId: text.id, entityId: source.id });
+    }
+  }
+
   for (const unit of text.units) {
     if (!unit.id) {
       push({ severity: 'error', code: 'missing-unit-id', message: `Text ${text.id} has a unit without id`, textId: text.id });
@@ -225,6 +243,12 @@ function validateText(
     for (const did of unit.diagramIds || []) {
       if (!did || !/^[a-z0-9-]+$/.test(did)) {
         push({ severity: 'warning', code: 'dangling-diagram', message: `Unit ${unit.id} names malformed diagram ${did}`, textId: text.id, entityId: unit.id });
+      }
+    }
+
+    for (const sid of unit.sourceIds || []) {
+      if (!sourceIds.has(sid)) {
+        push({ severity: 'error', code: 'dangling-source-ref', message: `Unit ${unit.id} points at missing source ${sid}`, textId: text.id, entityId: unit.id });
       }
     }
   }

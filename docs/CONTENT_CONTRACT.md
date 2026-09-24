@@ -34,7 +34,10 @@ material into verse semantics.
 - **Source / Provenance**: title, author, edition, publisher, year,
   translator, page, section, volume, locator, URL, rights
   (`public-domain`, `original`, `licensed`, `unknown`), notes. Unknown
-  stays unknown — ingestion never fabricates values.
+  stays unknown — ingestion never fabricates values. A source record, a
+  unit's provenance, editorial status and the canonical citation are
+  four different things (see `docs/PROVENANCE.md`); units attach to
+  records through `sourceIds`, validated per text.
 - **EditorialStatus**: field-level states (`missing`, `draft`,
   `generated`, `review-needed`, `reviewed`, `verified`) for Sanskrit,
   IAST, English/Malayalam translation and commentary, concepts,

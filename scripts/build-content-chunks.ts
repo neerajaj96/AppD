@@ -16,6 +16,11 @@ import { validateCorpus } from '../src/content/v2/validate.ts';
 import { buildManifest } from '../src/content/v2/chunks.ts';
 import { buildSearchIndex, splitSearchIndex } from '../src/content/v2/search-index.ts';
 import { buildConceptOccurrenceIndex } from '../src/content/v2/occurrences.ts';
+import { buildTextSource, formatSourceTable } from '../src/content/v2/textSources.ts';
+import { lalitaSahasranamaSourceProvenance } from '../src/content/lalita-sahasranama/lalita-sahasranama-source-provenance.ts';
+import { vishnuSahasranamaSourceProvenance } from '../src/content/vishnu-sahasranama/vishnu-sahasranama-source-provenance.ts';
+import { deviMahatmyaSourceProvenance } from '../src/content/devi-mahatmya/devi-mahatmya-source-provenance.ts';
+import { mishraSourceProvenance } from '../src/content/kashmir-shaivism/mishra-source-provenance.ts';
 import type { System } from '../src/types/content.ts';
 import type {
   ConceptIndexFile,
@@ -115,6 +120,24 @@ if (args.includes('--if-missing') && fs.existsSync(path.join(OUT, 'manifest.json
 }
 
 const corpus = adaptSystemsToV2(systems);
+
+// Text-level source records carried verbatim from legacy provenance
+// statements (free prose/tables, never parsed into invented fields).
+// The Mishra Trika companion material merged into the tantraloka text,
+// so its provenance table travels with that text.
+for (const text of corpus.texts) {
+  const record =
+    text.id === 'lalita-sahasranama'
+      ? buildTextSource(text.id, text.transliteratedTitle, lalitaSahasranamaSourceProvenance)
+      : text.id === 'vishnu-sahasranama'
+        ? buildTextSource(text.id, text.transliteratedTitle, vishnuSahasranamaSourceProvenance)
+        : text.id === 'devi-mahatmya'
+          ? buildTextSource(text.id, text.transliteratedTitle, formatSourceTable(deviMahatmyaSourceProvenance))
+          : text.id === 'tantraloka'
+            ? buildTextSource(text.id, text.transliteratedTitle, formatSourceTable(mishraSourceProvenance))
+            : null;
+  if (record) text.sources = [record];
+}
 const validation = validateCorpus(corpus);
 if (validation.errors.length > 0) {
   console.error(`Validation failed with ${validation.errors.length} errors:`);
@@ -164,6 +187,7 @@ for (const text of corpus.texts) {
   track(path.join(OUT, text.id, 'manifest.json'), file);
   track(path.join(OUT, text.id, 'meta.json'), file);
   track(path.join(OUT, text.id, 'threads.json'), text.threads || []);
+  track(path.join(OUT, text.id, 'sources.json'), text.sources || []);
 
   const units = chunkUnits(text.units);
   const unitIndex: UnitIndexFile = {

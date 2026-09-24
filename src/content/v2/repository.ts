@@ -6,7 +6,7 @@ import {
   type TextSummary,
   type TraditionSummary,
 } from './chunks';
-import type { CanonicalUnit, V2Concept, V2Thread } from './schema';
+import type { CanonicalUnit, V2Concept, V2Source, V2Thread } from './schema';
 import { buildAliasTable, normaliseId, parseCanonicalConceptId, resolveAlias, type AliasResolution } from './ids';
 import { verifiedAliases } from './aliases';
 import type { AliasFile } from './aliases';
@@ -102,6 +102,22 @@ export class V2Repository {
 
   getThreads(textId: string): Promise<LoadResult<V2Thread[]>> {
     return this.loader.loadTextThreads(textId);
+  }
+
+  /**
+   * Per-text source registry. Small JSON, fetched lazily and cached —
+   * unit chunks never load merely to discover sources.
+   */
+  getSources(textId: string): Promise<LoadResult<V2Source[]>> {
+    return this.loader.loadTextSources(textId);
+  }
+
+  /** One source record by stable id, or missing when unrecorded. */
+  async getSource(textId: string, sourceId: string): Promise<LoadResult<V2Source>> {
+    const sources = await this.getSources(textId);
+    if (sources.status !== 'ok') return sources;
+    const hit = sources.data.find((s) => s.id === sourceId);
+    return hit ? { status: 'ok', data: hit } : { status: 'missing', message: `No such source: ${textId}/${sourceId}` };
   }
 
   /** Full tradition thread (all texts), used by ThreadView. */

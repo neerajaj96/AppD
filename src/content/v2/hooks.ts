@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getRepository } from './repository';
 import type { GlobalManifest, TextManifestFile } from './chunks';
-import type { CanonicalUnit, V2Concept, V2Thread } from './schema';
+import type { CanonicalUnit, V2Concept, V2Source, V2Thread } from './schema';
 
 export type AsyncState<T> =
   | { status: 'loading' }
@@ -112,5 +112,28 @@ export function useTraditionThread(traditionId: string | undefined): AsyncState<
       live = false;
     };
   }, [traditionId]);
+  return state;
+}
+
+/** Per-text source registry. Empty array is a valid quiet state. */
+export function useTextSources(textId: string | undefined): AsyncState<V2Source[]> {
+  const [state, setState] = useState<AsyncState<V2Source[]>>({ status: 'loading' });
+  useEffect(() => {
+    if (!textId) {
+      setState({ status: 'missing', message: 'No text id' });
+      return;
+    }
+    let live = true;
+    setState({ status: 'loading' });
+    getRepository()
+      .getSources(textId)
+      .then((result) => {
+        if (!live) return;
+        setState(result.status === 'ok' ? { status: 'ok', data: result.data } : result);
+      });
+    return () => {
+      live = false;
+    };
+  }, [textId]);
   return state;
 }

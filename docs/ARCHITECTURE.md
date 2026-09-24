@@ -43,8 +43,9 @@ opened text.
   results. Discovery happens through the global manifest only.
 - **Repository** (`src/content/v2/repository.ts`): `getTraditions`,
   `getText`, `getUnits`, `getUnit`, `getConcepts`, `getConcept`,
-  `getThreads`, `getTraditionThread` plus in-text relation queries.
-  React-independent; screens use `src/content/v2/hooks.ts`.
+  `getThreads`, `getTraditionThread`, `getSources`/`getSource` plus
+  in-text relation queries. React-independent; screens use
+  `src/content/v2/hooks.ts`.
 - **Compatibility** (`src/content/v2/compat.ts`): V2 → legacy shapes
   with IDs preserved verbatim (bookmarks, history, thread progress and
   URLs keep working).
@@ -56,6 +57,12 @@ opened text.
   alias resolution stays a tiny main-thread table, the worker unchanged
   by identity concerns. The palette queries the tiers; nothing scans
   the corpus at runtime.
+- **Scholarly evidence** (`textSources.ts`, `citation.ts`,
+  `Provenance.tsx`): per-text `sources.json` registries (legacy
+  provenance prose carried verbatim, never parsed into fake fields),
+  unit→source resolution via `sourceIds`, and deterministic canonical
+  citations with clipboard copy. Text hub, verse reader and concept
+  pages all consume the same primitives.
 - **Linkifier** (`src/utils/crossref.ts`): corpus-free with injectable
   resolvers. Build-time tests inject the strict registry; `RichText`
   resolves bare concept links against the loaded text's concept set.

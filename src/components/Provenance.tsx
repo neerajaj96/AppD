@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { t, type UIKey } from '../i18n/ui';
-import type { EditorialFieldState, EditorialStatus, SourceProvenance } from '../content/v2/schema';
-import { CollapsibleSection } from './Primitives';
+import type { EditorialFieldState, EditorialStatus, SourceProvenance, V2Source } from '../content/v2/schema';
+import { copyText } from '../content/v2/citation';
+import { announce } from '../a11y';
+import { CollapsibleSection, SectionTitle } from './Primitives';
 
 /**
  * Restrained Source / Textual information area (Prompt 4).
@@ -132,46 +135,136 @@ export default function SourceInfo({
   if (prov.length === 0 && ed.length === 0) return null;
   return (
     <CollapsibleSection title={t(language, 'sourceInfoTitle')} defaultOpen={false}>
-      <div className="space-y-4">
-        {prov.length > 0 && (
-          <dl className="space-y-2">
-            {prov.map((row, i) => (
-              <div key={`${row.key}-${i}`} className="flex items-baseline justify-between gap-3 text-sm">
-                <dt className="shrink-0 text-tamas">{t(language, PROV_LABEL[row.key])}</dt>
-                <dd className="min-w-0 text-right text-sattva-dim">
-                  {row.key === 'rights' && RIGHTS_LABEL[row.value] ? (
-                    t(language, RIGHTS_LABEL[row.value])
-                  ) : row.url ? (
-                    <a
-                      href={row.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="break-all underline decoration-rajas/40 underline-offset-2 hover:text-sattva transition-colors motion-reduce:transition-none"
-                    >
-                      {row.value}
-                    </a>
-                  ) : (
-                    <span className="break-words">{row.value}</span>
-                  )}
-                </dd>
+      <ProvenanceContent provenance={provenance} editorial={editorial} />
+    </CollapsibleSection>
+  );
+}
+
+/** Inner provenance/editorial content without its own disclosure wrapper. */
+export function ProvenanceContent({
+  provenance,
+  editorial,
+}: {
+  provenance?: SourceProvenance;
+  editorial?: EditorialStatus;
+}) {
+  const { language } = useLanguage();
+  const prov = provenanceRows(provenance);
+  const ed = editorialRows(editorial);
+  if (prov.length === 0 && ed.length === 0) return null;
+  return (
+    <div className="space-y-4">
+      {prov.length > 0 && <ProvRows rows={prov} />}
+      {ed.length > 0 && (
+        <div>
+          <h4 className="t-label text-tamas mb-2">{t(language, 'edTitle')}</h4>
+          <dl className="space-y-1.5">
+            {ed.map((row) => (
+              <div key={row.field} className="flex items-baseline justify-between gap-3 text-sm">
+                <dt className="shrink-0 text-tamas">{t(language, ED_FIELD_LABEL[row.field])}</dt>
+                <dd className="text-right text-sattva-dim">{t(language, ED_STATE_LABEL[row.state])}</dd>
               </div>
             ))}
           </dl>
-        )}
-        {ed.length > 0 && (
-          <div>
-            <h4 className="t-label text-tamas mb-2">{t(language, 'edTitle')}</h4>
-            <dl className="space-y-1.5">
-              {ed.map((row) => (
-                <div key={row.field} className="flex items-baseline justify-between gap-3 text-sm">
-                  <dt className="shrink-0 text-tamas">{t(language, ED_FIELD_LABEL[row.field])}</dt>
-                  <dd className="text-right text-sattva-dim">{t(language, ED_STATE_LABEL[row.state])}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** Shared definition-list rendering for provenance rows. */
+function ProvRows({ rows }: { rows: ProvRow[] }) {
+  const { language } = useLanguage();
+  return (
+    <dl className="space-y-2">
+      {rows.map((row, i) => (
+        <div key={`${row.key}-${i}`} className="flex items-baseline justify-between gap-3 text-sm">
+          <dt className="shrink-0 text-tamas">{t(language, PROV_LABEL[row.key])}</dt>
+          <dd className="min-w-0 text-right text-sattva-dim">
+            {row.key === 'rights' && RIGHTS_LABEL[row.value] ? (
+              t(language, RIGHTS_LABEL[row.value])
+            ) : row.url ? (
+              <a
+                href={row.url}
+                target="_blank"
+                rel="noreferrer"
+                className="break-all underline decoration-rajas/40 underline-offset-2 hover:text-sattva transition-colors motion-reduce:transition-none"
+              >
+                {row.value}
+              </a>
+            ) : (
+              <span className="break-words">{row.value}</span>
+            )}
+          </dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+/**
+ * One source record as a stable, linkable card. Only carried fields
+ * render — the record id anchors it as a semantic reference.
+ */
+export function SourceCard({ source }: { source: V2Source }) {
+  return (
+    <article
+      id={`source-${source.id}`}
+      aria-label={source.title}
+      className="rounded-2xl border border-tamas-deep bg-avyakta-2 p-5"
+    >
+      <h4 className="font-serif font-bold text-sattva break-words">{source.title}</h4>
+      <p className="mt-0.5 text-xs tabular-nums text-tamas">{source.id}</p>
+      <div className="mt-3">
+        <ProvRows rows={provenanceRows(source)} />
       </div>
-    </CollapsibleSection>
+    </article>
+  );
+}
+
+/** List of source records. Renders nothing when the registry is empty. */
+export function SourceList({ sources }: { sources: V2Source[] }) {
+  const { language } = useLanguage();
+  if (sources.length === 0) return null;
+  return (
+    <section aria-label={t(language, 'sourcesTitle')} className="space-y-3">
+      <SectionTitle count={sources.length}>{t(language, 'sourcesTitle')}</SectionTitle>
+      {sources.map((source) => (
+        <SourceCard key={source.id} source={source} />
+      ))}
+    </section>
+  );
+}
+
+/** Deterministic citation text for a canonical unit. */
+export function CitationText({ citation }: { citation: string }) {
+  const { language } = useLanguage();
+  return (
+    <p aria-label={t(language, 'citationLabel')} className="t-body-sans text-sattva-dim break-words">
+      {citation}
+    </p>
+  );
+}
+
+/** Copy-citation action with polite success / assertive failure announcements. */
+export function CitationButton({ citation }: { citation: string }) {
+  const { language } = useLanguage();
+  const [copied, setCopied] = useState(false);
+  return (
+    <button
+      type="button"
+      onClick={async () => {
+        const ok = await copyText(citation);
+        announce(t(language, ok ? 'citationCopied' : 'citationCopyFailed'), ok ? 'polite' : 'assertive');
+        if (ok) {
+          setCopied(true);
+          window.setTimeout(() => setCopied(false), 2000);
+        }
+      }}
+      aria-label={t(language, 'copyCitation')}
+      className="inline-flex items-center justify-center min-h-11 px-5 py-2.5 rounded-xl text-sm font-semibold bg-avyakta-3 border border-tamas-deep text-sattva hover:bg-avyakta-4 transition-colors motion-reduce:transition-none"
+    >
+      {copied ? t(language, 'citationCopied') : t(language, 'copyCitation')}
+    </button>
   );
 }

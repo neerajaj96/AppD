@@ -187,6 +187,14 @@ const en = {
   graphLegendTradition: 'Tradition',
   aliasMatch: 'Editorial alias',
   aliasAlsoFound: 'Also found as',
+  sourcesTitle: 'Sources & editions',
+  sourcesAndCitation: 'Sources & citation',
+  citeThisUnit: 'Cite this unit',
+  citationLabel: 'Citation',
+  copyCitation: 'Copy citation',
+  citationCopied: 'Citation copied',
+  citationCopyFailed: 'Copy unavailable in this browser',
+  viewTextSources: 'View text sources',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -368,6 +376,14 @@ const ml: Record<keyof typeof en, string> = {
   graphLegendTradition: 'പാരമ്പര്യം',
   aliasMatch: 'സമ്പാദകീയ പര്യായം',
   aliasAlsoFound: 'ഇങ്ങനെയും അറിയപ്പെടുന്നു',
+  sourcesTitle: 'ഉറവകളും പതിപ്പുകളും',
+  sourcesAndCitation: 'ഉറവകളും ഉദ്ധരണിയും',
+  citeThisUnit: 'ഈ ഏകകം ഉദ്ധരിക്കുക',
+  citationLabel: 'ഉദ്ധരണി',
+  copyCitation: 'ഉദ്ധരണി പകർത്തുക',
+  citationCopied: 'ഉദ്ധരണി പകർത്തി',
+  citationCopyFailed: 'ഈ ബ്രൗസറിൽ പകർത്തൽ ലഭ്യമല്ല',
+  viewTextSources: 'ഗ്രന്ഥത്തിന്റെ ഉറവകൾ കാണുക',
 };
 
 export type UIKey = keyof typeof en;

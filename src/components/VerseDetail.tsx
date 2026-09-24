@@ -4,7 +4,9 @@ import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check, Bookmark } from 'l
 import Markdown from 'react-markdown';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
-import SourceInfo from './Provenance';
+import { CitationButton, CitationText, ProvenanceContent, SourceCard } from './Provenance';
+import { formatCitation, unitCanonicalUrl } from '../content/v2/citation';
+import type { V2Source } from '../content/v2/schema';
 import { useReading } from '../context/ReadingContext';
 import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell, SwipeHint, ActionButton } from './Primitives';
 import {
@@ -20,9 +22,77 @@ import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
-import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
+import { useCatalog, useV2Text, useTraditionThread, useTextSources } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
 import { getAdjacentUnits, pickLocalisation } from '../content/v2/select';
+import type { CanonicalUnit } from '../content/v2/schema';
+import type { TextManifestFile } from '../content/v2/chunks';
+
+/**
+ * Sources & Citation area for one canonical unit. Distinguishes the
+ * source record(s) attached through `sourceIds`, the unit's own
+ * provenance/editorial state, and the deterministic citation — without
+ * duplicating identical information or inventing absent fields.
+ */
+function UnitSourceArea({
+  unit,
+  manifest,
+  systemId,
+  textId,
+  verseId,
+}: {
+  unit: CanonicalUnit;
+  manifest: TextManifestFile;
+  systemId: string;
+  textId: string;
+  verseId: string;
+}) {
+  const { language } = useLanguage();
+  const sourcesState = useTextSources(textId);
+  const attached: V2Source[] =
+    sourcesState.status === 'ok' && unit.sourceIds
+      ? sourcesState.data.filter((s) => unit.sourceIds?.includes(s.id))
+      : [];
+  const registryCount = sourcesState.status === 'ok' ? sourcesState.data.length : 0;
+  const primary = attached[0];
+  const origin = typeof window !== 'undefined' ? window.location.origin : '';
+  const citation = formatCitation({
+    textTitle: manifest.transliteratedTitle,
+    unitNumber: unit.number,
+    author: manifest.author,
+    edition: primary?.edition,
+    publisher: primary?.publisher,
+    year: primary?.year,
+    locator: primary?.locator,
+    page: primary?.page,
+    url: unitCanonicalUrl(origin, systemId, textId, verseId),
+  });
+  return (
+    <CollapsibleSection title={t(language, 'sourcesAndCitation')} defaultOpen={false}>
+      <div className="space-y-4">
+        {attached.map((source) => (
+          <SourceCard key={source.id} source={source} />
+        ))}
+        <ProvenanceContent provenance={unit.provenance} editorial={unit.editorial} />
+        {attached.length === 0 && registryCount > 0 && (
+          <p className="text-sm text-sattva-dim">
+            <Link
+              to={`/system/${systemId}/text/${textId}`}
+              className="underline decoration-rajas/40 underline-offset-2 hover:text-sattva transition-colors motion-reduce:transition-none"
+            >
+              {t(language, 'viewTextSources')}
+            </Link>
+          </p>
+        )}
+        <div className="space-y-2 border-t border-tamas-deep pt-4">
+          <h4 className="t-label text-tamas">{t(language, 'citeThisUnit')}</h4>
+          <CitationText citation={citation} />
+          <CitationButton citation={citation} />
+        </div>
+      </div>
+    </CollapsibleSection>
+  );
+}
 
 /**
  * Scholarly unit reader (Prompt 4) — the core reading surface.
@@ -515,7 +585,13 @@ export default function VerseDetail() {
             </CollapsibleSection>
           )}
 
-          <SourceInfo provenance={unit.provenance} editorial={unit.editorial} />
+          <UnitSourceArea
+            unit={unit}
+            manifest={textData.data.manifest}
+            systemId={systemId as string}
+            textId={textId as string}
+            verseId={verseId as string}
+          />
 
           <RelatedConceptRows items={relatedConcepts} />
           <RelatedVersesSection items={relatedVerses} title={t(language, 'relatedUnits')} verseTerm={verseTerm} />
