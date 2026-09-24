@@ -154,11 +154,11 @@ export function RelatedVersesSection({ items, title, verseTerm }: { items: Verse
   );
 }
 
-export function ThreadMentionsSection({ steps }: { steps: ThreadStepHit[] }) {
+export function ThreadMentionsSection({ steps, title }: { steps: ThreadStepHit[]; title?: string }) {
   const { language } = useLanguage();
   if (steps.length === 0) return null;
   return (
-    <RefSection icon={<ListTree aria-hidden="true" className="w-4 h-4" />} title={t(language, 'exploredInThread')} count={steps.length}>
+    <RefSection icon={<ListTree aria-hidden="true" className="w-4 h-4" />} title={title || t(language, 'exploredInThread')} count={steps.length}>
       <ThreadStepLinks steps={steps} />
     </RefSection>
   );

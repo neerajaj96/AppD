@@ -1,11 +1,12 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router';
-import { getSystemAccent } from '../utils/theme';
 import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check, Bookmark } from 'lucide-react';
 import Markdown from 'react-markdown';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
-import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell, SwipeHint } from './Primitives';
+import SourceInfo from './Provenance';
+import { useReading } from '../context/ReadingContext';
+import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell, SwipeHint, ActionButton } from './Primitives';
 import {
   RelatedConceptsSection,
   RelatedVersesSection,
@@ -21,12 +22,22 @@ import { t } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
 import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
+import { getAdjacentUnits, pickLocalisation } from '../content/v2/select';
 
-// Verse page via the V2 repository: the text's chunks arrive on demand and
-// relations resolve within the loaded text. Visual behaviour is unchanged.
+/**
+ * Scholarly unit reader (Prompt 4) — the core reading surface.
+ *
+ * Reading order: breadcrumb → unit identifier → Sanskrit source
+ * (Devanāgarī + IAST as one textual object) → translation → commentary →
+ * textual notes → word meanings → key points → related concepts → related
+ * units → thread appearances → prev/next navigation. Layer visibility
+ * follows the persisted reading preferences; provenance renders only from
+ * V2 data actually present. Data arrives through the V2 repository.
+ */
 export default function VerseDetail() {
   const { systemId, textId, verseId } = useParams();
   const { language, setLanguage } = useLanguage();
+  const { display } = useReading();
   const [shareState, setShareState] = useState<'idle' | 'copied' | 'shared'>('idle');
   const catalog = useCatalog();
   const textData = useV2Text(textId);
@@ -48,16 +59,13 @@ export default function VerseDetail() {
 
   const verseTerm = getVerseTermForSummary(summary, 1);
 
-  // Cache next/prev verses so the pager does not scan the array on every
-  // render. Guarded: all hooks in this component stay unconditional so a
-  // hop from a valid verse to a missing id never changes the hook order.
+  // Adjacent units in actual V2 chunk order; null at each boundary.
+  // Guarded: all hooks stay unconditional so a hop from a valid verse to
+  // a missing id never changes the hook order.
   const { prevVerse, nextVerse } = useMemo(() => {
     if (!unit) return { prevVerse: null, nextVerse: null };
-    const currentIndex = units.findIndex((u) => u.id === unit.id);
-    return {
-      prevVerse: currentIndex > 0 ? units[currentIndex - 1] : null,
-      nextVerse: currentIndex >= 0 && currentIndex < units.length - 1 ? units[currentIndex + 1] : null,
-    };
+    const { prev, next } = getAdjacentUnits(units, unit.id);
+    return { prevVerse: prev, nextVerse: next };
   }, [units, unit]);
 
   const navigate = useNavigate();
@@ -144,6 +152,18 @@ export default function VerseDetail() {
     return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
   }
 
+  const failed = catalog.status === 'error' || textData.status === 'error';
+  if (failed) {
+    return (
+      <div className="text-center py-12 space-y-4">
+        <p className="text-sattva-dim">{t(language, 'offlineNotice')}</p>
+        <ActionButton onClick={() => window.location.reload()} label={t(language, 'retryLabel')}>
+          {t(language, 'retryLabel')}
+        </ActionButton>
+      </div>
+    );
+  }
+
   if (catalog.status !== 'ok' || textData.status !== 'ok' || !unit || !verse || !tradition || !summary) {
     const offline = textData.status === 'offline' || catalog.status === 'offline';
     return (
@@ -157,19 +177,23 @@ export default function VerseDetail() {
     setSaved(toggleBookmark(systemId as string, textId as string, verseId as string));
   };
 
-  const activeContent = verse.content[language] ?? verse.content.en;
-  const fallbackContent = verse.content.en;
+  // Language selection with English fallback lives in the shared selector
+  // so the rule is identical everywhere and unit-testable.
+  const { active: activeLoc, isFallback } = pickLocalisation(unit.localisations, language);
+  const enLoc = unit.localisations.en;
+  const translation = activeLoc?.translation || enLoc?.translation;
+  const commentary = activeLoc?.commentary || enLoc?.commentary;
+  const wordMeaning = (activeLoc as { wordMeaning?: string } | undefined)?.wordMeaning
+    || (enLoc as { wordMeaning?: string } | undefined)?.wordMeaning;
+  const variantNote = (activeLoc as { variantNote?: string } | undefined)?.variantNote
+    || (enLoc as { variantNote?: string } | undefined)?.variantNote;
+  const activeKeys = activeLoc?.keyPoints && activeLoc.keyPoints.length > 0
+    ? activeLoc.keyPoints
+    : enLoc?.keyPoints;
+  const keyPoints = activeKeys && activeKeys.length > 0 ? activeKeys : undefined;
 
-  const translation = activeContent?.translation || fallbackContent?.translation;
-  const commentary = activeContent?.commentary || fallbackContent?.commentary;
-  const wordMeaning = (activeContent as any)?.wordMeaning || (fallbackContent as any)?.wordMeaning;
-  const variantNote = (activeContent as any)?.variantNote || (fallbackContent as any)?.variantNote;
-  const keyPoints = (activeContent?.keyPoints && activeContent.keyPoints.length > 0)
-    ? activeContent.keyPoints
-    : fallbackContent?.keyPoints;
-
-  const isCurrentLangAvailable = !!verse.content[language];
-  const isShowingFallback = !isCurrentLangAvailable && language === 'ml';
+  const isShowingFallback = isFallback && language === 'ml' && !!enLoc;
+  const layersHidden = !display.showTranslation && !display.showCommentary;
 
   // Interlink sections above (kept with the other hooks so hook order is
   // stable); the narrowed system/text/verse below are safe to dereference.
@@ -263,12 +287,13 @@ export default function VerseDetail() {
         </div>
 
         <div className="flex flex-wrap items-center gap-x-1.5 gap-y-2 sm:justify-end sm:shrink-0 sm:ms-2">
-          <ReadingControls />
+          <ReadingControls showLayers />
           <button
             type="button"
             onClick={handleBookmark}
             aria-pressed={saved}
             title={saved ? t(language, 'savedLabel') : t(language, 'saveLabel')}
+            aria-label={saved ? t(language, 'savedLabel') : t(language, 'saveLabel')}
             className="flex items-center justify-center min-h-9 min-w-9 rounded-lg bg-avyakta-3 hover:bg-avyakta-4 transition-colors motion-reduce:transition-none"
           >
             <Bookmark
@@ -276,9 +301,6 @@ export default function VerseDetail() {
               fill={saved ? 'currentColor' : 'none'}
               className={`w-4 h-4 ${saved ? 'text-rajas' : 'text-sattva-dim'}`}
             />
-            <span className="sr-only">
-              {saved ? t(language, 'savedLabel') : t(language, 'saveLabel')}
-            </span>
           </button>
           {verse.content.en && (
             <button
@@ -343,29 +365,49 @@ export default function VerseDetail() {
       <div ref={swipeRef} style={SWIPE_SURFACE_STYLE}>
       <Card>
         <CardBody>
-          <div className="text-center space-y-6">
-            <h2 className="text-lg font-medium text-tamas tracking-widest uppercase">
-              {verse.section ? `${verse.section} • ` : ''} {verseTerm} {verse.number}
-            </h2>
-
-            {verse.devanagari && (
-              <div lang="sa" className="t-devanagari text-3xl md:text-4xl text-sattva">
-                {verse.devanagari.split('\n').map((line, i) => (
-                  <div key={i}>{line}</div>
-                ))}
+          {/* The Sanskrit source is the primary textual object: centred,
+              set large in the Devanagari and transliteration faces, with
+              word-wrap guards for narrow viewports. */}
+          {display.showSanskrit && (verse.devanagari || verse.iast) && (
+            <div className="text-center space-y-6">
+              <div>
+                {verse.section && (
+                  <p className="t-eyebrow text-tamas mb-2">{verse.section}</p>
+                )}
+                <h1 className="t-display2 text-sattva">
+                  {verseTerm} {verse.number}
+                </h1>
               </div>
-            )}
 
-            {verse.iast && (
-            <div lang="sa-Latn" className="text-xl md:text-2xl text-sattva italic leading-relaxed">
-              {verse.iast.split('\n').map((line, i) => (
-                  <div key={i}>{line}</div>
-              ))}
+              {verse.devanagari && (
+                <div lang="sa" className="t-devanagari text-3xl md:text-4xl text-sattva break-words">
+                  {verse.devanagari.split('\n').map((line, i) => (
+                    <div key={i}>{line}</div>
+                  ))}
+                </div>
+              )}
+
+              {verse.iast && (
+                <div lang="sa-Latn" className="text-xl md:text-2xl text-sattva italic leading-relaxed break-words">
+                  {verse.iast.split('\n').map((line, i) => (
+                    <div key={i}>{line}</div>
+                  ))}
+                </div>
+              )}
             </div>
-            )}
-          </div>
+          )}
+          {(!display.showSanskrit || (!verse.devanagari && !verse.iast)) && (
+            <div className="text-center">
+              {verse.section && (
+                <p className="t-eyebrow text-tamas mb-2">{verse.section}</p>
+              )}
+              <h1 className="t-display2 text-sattva">
+                {verseTerm} {verse.number}
+              </h1>
+            </div>
+          )}
 
-          {translation && (
+          {display.showTranslation && translation && (
             <CollapsibleSection
               title={
                 language === 'ml' && verse.content.ml?.translation
@@ -380,22 +422,7 @@ export default function VerseDetail() {
             </CollapsibleSection>
           )}
 
-          {wordMeaning && (
-            <CollapsibleSection
-              title={
-                language === 'ml' && (verse.content.ml as any)?.wordMeaning
-                  ? `${t(language, 'wordMeaningLabel')} (Word by Word)`
-                  : t(language, 'wordMeaningLabel')
-              }
-              defaultOpen={false}
-            >
-              <div className="t-body-sans text-sattva-dim">
-                <Markdown>{wordMeaning}</Markdown>
-              </div>
-            </CollapsibleSection>
-          )}
-
-          {commentary && (
+          {display.showCommentary && commentary && (
             <CollapsibleSection
               title={
                 language === 'ml' && verse.content.ml?.commentary
@@ -415,30 +442,8 @@ export default function VerseDetail() {
             </CollapsibleSection>
           )}
 
-          {keyPoints && keyPoints.length > 0 && (
-            <CollapsibleSection
-              title={
-                language === 'ml' && verse.content.ml?.keyPoints
-                  ? `${t(language, 'keyPoints')} (Key Points)`
-                  : t(language, 'keyPoints')
-              }
-            >
-              <ul className="space-y-2">
-                {keyPoints.map((point, idx) => (
-                  <li key={idx} className="flex text-sattva items-start">
-                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 me-3 shrink-0 forced-colors:bg-[CanvasText]"></span>
-                    <span className="flex-1">
-                      <RichText
-                        text={point}
-                        systemId={systemId}
-                        textId={textId}
-                        knownConcepts={knownConceptIds}
-                      />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </CollapsibleSection>
+          {layersHidden && (translation || commentary) && (
+            <Notice tone="neutral">{t(language, 'readingHiddenNotice')}</Notice>
           )}
 
           {variantNote && (
@@ -469,9 +474,52 @@ export default function VerseDetail() {
             </CollapsibleSection>
           )}
 
+          {wordMeaning && (
+            <CollapsibleSection
+              title={
+                language === 'ml' && (verse.content.ml as { wordMeaning?: string } | undefined)?.wordMeaning
+                  ? `${t(language, 'wordMeaningLabel')} (Word by Word)`
+                  : t(language, 'wordMeaningLabel')
+              }
+              defaultOpen={false}
+            >
+              <div className="t-body-sans text-sattva-dim">
+                <Markdown>{wordMeaning}</Markdown>
+              </div>
+            </CollapsibleSection>
+          )}
+
+          {keyPoints && keyPoints.length > 0 && (
+            <CollapsibleSection
+              title={
+                language === 'ml' && verse.content.ml?.keyPoints
+                  ? `${t(language, 'keyPoints')} (Key Points)`
+                  : t(language, 'keyPoints')
+              }
+            >
+              <ul className="space-y-2">
+                {keyPoints.map((point, idx) => (
+                  <li key={idx} className="flex text-sattva items-start">
+                    <span aria-hidden="true" className="w-1.5 h-1.5 rounded-full bg-rajas mt-2 me-3 shrink-0 forced-colors:bg-[CanvasText]"></span>
+                    <span className="flex-1">
+                      <RichText
+                        text={point}
+                        systemId={systemId}
+                        textId={textId}
+                        knownConcepts={knownConceptIds}
+                      />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </CollapsibleSection>
+          )}
+
+          <SourceInfo provenance={unit.provenance} editorial={unit.editorial} />
+
           <RelatedConceptsSection items={relatedConcepts} currentSystemId={systemId} />
-          <RelatedVersesSection items={relatedVerses} verseTerm={verseTerm} />
-          <ThreadMentionsSection steps={threadSteps} />
+          <RelatedVersesSection items={relatedVerses} title={t(language, 'relatedUnits')} verseTerm={verseTerm} />
+          <ThreadMentionsSection steps={threadSteps} title={t(language, 'threadAppearances')} />
         </CardBody>
       </Card>
       </div>

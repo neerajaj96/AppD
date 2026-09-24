@@ -10,9 +10,10 @@ import { getSearchClient } from '../search/client';
 import type { ConceptHit } from '../utils/references';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
+import SourceInfo from './Provenance';
 import { usePagerKeys } from '../utils/pagerKeys';
 import { SWIPE_SURFACE_STYLE, useSwipeNav } from '../utils/useSwipeNav';
-import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell, SectionTitle, SwipeHint } from './Primitives';
+import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell, SectionTitle, SwipeHint, ActionButton } from './Primitives';
 import {
   RelatedConceptsSection,
   RelatedVersesSection,
@@ -174,6 +175,17 @@ export default function ConceptDetail() {
     return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
   }
 
+  if (catalog.status === 'error' || textData.status === 'error') {
+    return (
+      <div className="text-center py-12 space-y-4">
+        <p className="text-sattva-dim">{t(language, 'offlineNotice')}</p>
+        <ActionButton onClick={() => window.location.reload()} label={t(language, 'retryLabel')}>
+          {t(language, 'retryLabel')}
+        </ActionButton>
+      </div>
+    );
+  }
+
   if (catalog.status !== 'ok' || textData.status !== 'ok' || !v2Concept || !concept || !tradition || !summary) {
     const offline = textData.status === 'offline' || catalog.status === 'offline';
     return <div className="text-center py-12">{offline ? t(language, 'offlineNotice') : t(language, 'conceptNotFound')}</div>;
@@ -228,6 +240,8 @@ export default function ConceptDetail() {
               <RichText text={summaryText} systemId={systemId} textId={textId} knownConcepts={knownConceptIds} />
             </div>
           )}
+
+          <SourceInfo provenance={v2Concept.provenance} editorial={v2Concept.editorial} />
 
           {verses.length > 0 && (
             <div className="pt-6 border-t border-tamas">

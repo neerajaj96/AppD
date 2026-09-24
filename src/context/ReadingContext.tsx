@@ -1,4 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import {
+  loadDisplayPrefs,
+  saveDisplayPrefs,
+  type ReadingDisplayPrefs,
+} from './readingPrefs';
 
 /**
  * UX-015 — Persistent reading size.
@@ -19,6 +24,8 @@ interface ReadingContextType {
   maxScale: number;
   decrease: () => void;
   increase: () => void;
+  display: ReadingDisplayPrefs;
+  toggleDisplay: (key: keyof ReadingDisplayPrefs) => void;
 }
 
 const ReadingContext = createContext<ReadingContextType>({
@@ -26,6 +33,8 @@ const ReadingContext = createContext<ReadingContextType>({
   maxScale: SCALES.length - 1,
   decrease: () => {},
   increase: () => {},
+  display: { showSanskrit: true, showTranslation: true, showCommentary: true },
+  toggleDisplay: () => {},
 });
 
 export const ReadingProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -47,6 +56,12 @@ export const ReadingProvider: React.FC<{ children: React.ReactNode }> = ({ child
     }
   }, [scale]);
 
+  const [display, setDisplay] = useState<ReadingDisplayPrefs>(() => loadDisplayPrefs());
+
+  useEffect(() => {
+    saveDisplayPrefs(display);
+  }, [display]);
+
   return (
     <ReadingContext.Provider
       value={{
@@ -54,6 +69,8 @@ export const ReadingProvider: React.FC<{ children: React.ReactNode }> = ({ child
         maxScale: SCALES.length - 1,
         decrease: () => setScale((s) => Math.max(0, s - 1)),
         increase: () => setScale((s) => Math.min(SCALES.length - 1, s + 1)),
+        display,
+        toggleDisplay: (key) => setDisplay((d) => ({ ...d, [key]: !d[key] })),
       }}
     >
       {children}

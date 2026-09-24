@@ -1,26 +1,25 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router';
-import { Map as MapIcon, Sparkles } from 'lucide-react';
+import { Map as MapIcon, Sparkles, BookOpen as TextIcon } from 'lucide-react';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
-import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
+import { getTraditionDisplay, getVerseTermForSummary, textLanguages } from '../content/v2/catalog';
 import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
-import { CountBadge, DisclosureChevron, RowChevron, Breadcrumb, accentTint } from './Primitives';
+import { CountBadge, DisclosureChevron, RowChevron, Breadcrumb, ActionLink, ActionButton, PageHeader, SectionHeader, accentTint } from './Primitives';
+import SourceInfo from './Provenance';
 import { getThreadProgress } from '../utils/threadProgress';
 
 type Panel = 'thread' | 'concepts' | null;
 
-// Text (subsystem) page: chapters/sections are the dropdowns. Each
-// section button expands to the list of ślokas it contains, and each
-// śloka is a clickable row that opens its in-depth verse page.
-// There is no separate top-level "Verses" section — the sections
-// themselves ARE the navigation. Thread + Concepts remain as
-// dropdowns below the section list.
+// Scholarly text landing page (Prompt 4): Tradition → Text → Structure →
+// Study modes. Breadcrumb, identity, counts, language coverage, study
+// actions, expandable section navigation, concepts with link counts, and
+// related texts from the same tradition.
 //
 // Data arrives through the V2 repository (manifest + text chunks), never
-// through the legacy corpus import. Visual behaviour is unchanged.
+// through the legacy corpus import.
 export default function TextIndex() {
   const { systemId, textId } = useParams();
   const { language } = useLanguage();
@@ -83,15 +82,25 @@ export default function TextIndex() {
       const s = v.section || '';
       if (!seen.includes(s)) seen.push(s);
     });
-    return seen.map((s) => ({
-      section: s,
-      verses: verses.filter((v) => (v.section || '') === s),
-    }));
+    return seen.map((s) => {
+      const list = verses.filter((v) => (v.section || '') === s);
+      return {
+        section: s,
+        verses: list,
+        range: list.length > 0 ? `${list[0].number} – ${list[list.length - 1].number}` : '',
+      };
+    });
   }, [verses]);
 
   const multiSection = verseSections.length > 1;
 
-  // Open the first section by default so users see where the ślokas live.
+  // Sibling texts in the same tradition for onward study.
+  const siblingTexts = useMemo(() => {
+    if (catalog.status !== 'ok' || !systemId || !textId) return [];
+    return catalog.data.texts.filter((tx) => tx.traditionId === systemId && tx.textId !== textId);
+  }, [catalog, systemId, textId]);
+
+  // Open the first section by default so users see where the units live.
   useEffect(() => {
     if (verseSections.length > 0) {
       setOpenSections([verseSections[0].section]);
@@ -103,6 +112,17 @@ export default function TextIndex() {
 
   if (catalog.status === 'loading' || textData.status === 'loading' || traditionThread.status === 'loading') {
     return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
+  }
+
+  if (catalog.status === 'error' || textData.status === 'error') {
+    return (
+      <div className="text-center py-12 space-y-4">
+        <p className="text-sattva-dim">{t(language, 'offlineNotice')}</p>
+        <ActionButton onClick={() => window.location.reload()} label={t(language, 'retryLabel')}>
+          {t(language, 'retryLabel')}
+        </ActionButton>
+      </div>
+    );
   }
 
   if (catalog.status !== 'ok' || textData.status !== 'ok' || !tradition || !summary) {
@@ -121,6 +141,10 @@ export default function TextIndex() {
 
   const verseTermPlural = getVerseTermForSummary(summary, 2).toLowerCase();
   const verseTermSingular = getVerseTermForSummary(summary, 1);
+  const langs = textLanguages(summary);
+  const langBadge = langs.ml > 0 ? 'EN · ML' : langs.en > 0 ? 'EN' : '';
+  const firstVerse = verses[0];
+  const showTranslit = manifest.title !== manifest.transliteratedTitle;
 
   const toggleSection = (section: string) =>
     setOpenSections((cur) =>
@@ -151,22 +175,75 @@ export default function TextIndex() {
   };
 
   return (
-    <div className="space-y-4 animate-fade-in max-w-3xl mx-auto pb-16">
-      <div className="mb-2">
-        <Breadcrumb
-          trail={[{ to: `/system/${systemId}`, label: systemDisplay?.title ?? tradition.title }]}
-          current={manifest.transliteratedTitle}
-        />
-      </div>
+    <div className="space-y-8 animate-fade-in max-w-3xl mx-auto pb-16">
+      <Breadcrumb
+        trail={[{ to: `/system/${systemId}`, label: systemDisplay?.title ?? tradition.title }]}
+        current={manifest.transliteratedTitle}
+      />
 
-      <div className="py-4 border-b border-tamas-deep">
-        <h1 className="text-3xl font-serif font-bold text-sattva mb-2">
-          {manifest.transliteratedTitle}
-        </h1>
-        <p className="text-sattva-dim">
-          {manifest.author ? `${t(language, 'authorLabel')}: ${manifest.author}` : ''}
-        </p>
-      </div>
+      <PageHeader
+        eyebrow={`${systemDisplay?.title ?? tradition.title} · ${t(language, 'textsLabel')}`}
+        accentPrimary={accent.primary}
+        title={manifest.title}
+        lede={
+          <>
+            {showTranslit && <span className="block">{manifest.transliteratedTitle}</span>}
+            {manifest.author && (
+              <span className="block">
+                {t(language, 'authorLabel')}: {manifest.author}
+              </span>
+            )}
+          </>
+        }
+        actions={
+          <>
+            {firstVerse && (
+              <ActionLink
+                to={`/system/${systemId}/text/${textId}/verse/${firstVerse.id}`}
+                variant="primary"
+                label={t(language, 'beginReading')}
+              >
+                {t(language, 'beginReading')}
+              </ActionLink>
+            )}
+            {threadSteps.length > 0 && (
+              <ActionLink
+                to={resumeStep !== null
+                  ? `/system/${systemId}/thread?step=${resumeStep.index + 1}`
+                  : `/system/${systemId}/thread`}
+                variant="ghost"
+                label={resumeStep !== null ? t(language, 'resumeThread') : t(language, 'viewThread')}
+              >
+                {resumeStep !== null ? t(language, 'resumeThread') : t(language, 'viewThread')}
+              </ActionLink>
+            )}
+          </>
+        }
+      />
+
+      {/* Collection statistics: quietly factual, never dominant. */}
+      <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-tamas-deep bg-tamas-deep sm:grid-cols-4">
+        <div className="bg-avyakta-2 px-4 py-3">
+          <dt className="t-eyebrow text-tamas">{t(language, 'versesLabel')}</dt>
+          <dd className="mt-1 font-serif text-2xl font-bold tabular-nums text-sattva">{verses.length}</dd>
+        </div>
+        <div className="bg-avyakta-2 px-4 py-3">
+          <dt className="t-eyebrow text-tamas">{t(language, 'conceptsLabel')}</dt>
+          <dd className="mt-1 font-serif text-2xl font-bold tabular-nums text-sattva">{concepts.length}</dd>
+        </div>
+        <div className="bg-avyakta-2 px-4 py-3">
+          <dt className="t-eyebrow text-tamas">{t(language, 'languagesLabel')}</dt>
+          <dd className="mt-1 font-serif text-2xl font-bold tabular-nums text-sattva">{langBadge || '—'}</dd>
+        </div>
+        <div className="bg-avyakta-2 px-4 py-3">
+          <dt className="t-eyebrow text-tamas">{t(language, 'threadLabel')}</dt>
+          <dd className="mt-1 font-serif text-2xl font-bold tabular-nums text-sattva">
+            {threadSteps.length > 0 ? threadSteps.length : '—'}
+          </dd>
+        </div>
+      </dl>
+
+      <SourceInfo provenance={manifest.source} editorial={undefined} />
 
       {/* Chapter / section quick-jump — one pill per verse section.
           Clicking a pill expands that section dropdown and scrolls to it. */}
@@ -216,9 +293,9 @@ export default function TextIndex() {
         </nav>
       )}
 
-      {/* Sections as dropdowns — each expands to its clickable ślokas. */}
+      {/* Sections as dropdowns — each expands to its clickable units. */}
       {hasVerses && (
-        <div className="space-y-3">
+        <section aria-label={t(language, 'chaptersLabel')} className="space-y-3">
           {verseSections.map((g, idx) => {
             const expanded = openSections.includes(g.section);
             // Index-based panel id: section names carry spaces and
@@ -242,8 +319,8 @@ export default function TextIndex() {
                     <span className="block text-lg font-serif font-bold text-sattva truncate" title={g.section || undefined}>
                       {sectionTitle(g.section, g.verses.length)}
                     </span>
-                    <span className="block text-sm text-sattva-dim mt-0.5">
-                      {g.verses.length} {verseTermPlural} — {t(language, 'versesFunction')}
+                    <span className="block text-sm text-sattva-dim mt-0.5 tabular-nums">
+                      {g.range ? `${verseTermSingular} ${g.range} · ` : ''}{g.verses.length} {verseTermPlural}
                     </span>
                   </span>
                   <DisclosureChevron open={expanded} />
@@ -286,7 +363,7 @@ export default function TextIndex() {
               </div>
             );
           })}
-        </div>
+        </section>
       )}
 
       {/* Thread steps dropdown */}
@@ -355,7 +432,7 @@ export default function TextIndex() {
         </section>
       )}
 
-      {/* Concepts dropdown */}
+      {/* Concepts with link counts */}
       {hasConcepts && (
         <section className="bg-avyakta-2 rounded-2xl border border-tamas-deep shadow-xs overflow-hidden">
           <button
@@ -383,14 +460,22 @@ export default function TextIndex() {
             <div id="concepts-panel" className="px-3 pb-3 space-y-1 border-t border-tamas-deep pt-3">
               {concepts.map((concept) => {
                 const localized = concept.content[language] ?? concept.content.en;
+                const linked = concept.relatedVerseIds?.length || 0;
                 return (
                   <Link
                     key={concept.id}
                     to={`/system/${systemId}/text/${textId}/concept/${concept.id}`}
                     className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-xl hover:bg-avyakta-3 transition-colors motion-reduce:transition-none group"
                   >
-                    <span className="text-sm text-sattva truncate">
-                      {localized?.title || concept.id}
+                    <span className="min-w-0 flex-1">
+                      <span className="block text-sm text-sattva truncate">
+                        {localized?.title || concept.id}
+                      </span>
+                      {linked > 0 && (
+                        <span className="block text-xs text-tamas tabular-nums">
+                          {t(language, 'linkedVerses', { count: linked, term: verseTermPlural })}
+                        </span>
+                      )}
                     </span>
                     <RowChevron />
                   </Link>
@@ -398,6 +483,37 @@ export default function TextIndex() {
               })}
             </div>
           )}
+        </section>
+      )}
+
+      {/* Related study: sibling texts in the same tradition. */}
+      {siblingTexts.length > 0 && (
+        <section aria-label={t(language, 'otherTexts')} className="space-y-3">
+          <SectionHeader title={t(language, 'otherTexts')} />
+          {siblingTexts.map((text) => (
+            <Link
+              key={text.textId}
+              to={`/system/${systemId}/text/${text.textId}`}
+              className="group flex items-center gap-4 rounded-2xl border border-tamas-deep bg-avyakta-2 p-5 shadow-xs hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
+            >
+              <span
+                aria-hidden="true"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                style={{ backgroundColor: accentTint(accent.primary), color: accent.primary }}
+              >
+                <TextIcon className="h-5 w-5" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="block truncate font-serif text-lg font-bold text-sattva">
+                  {text.transliteratedTitle}
+                </span>
+                <span className="mt-0.5 block truncate text-sm tabular-nums text-sattva-dim">
+                  {text.unitCount} {getVerseTermForSummary(text, text.unitCount).toLowerCase()} · {text.conceptCount} {t(language, 'conceptsLabel').toLowerCase()}
+                </span>
+              </span>
+              <RowChevron />
+            </Link>
+          ))}
         </section>
       )}
     </div>

@@ -68,6 +68,11 @@ describe('no legacy-corpus imports in runtime code', () => {
     'src/content/v2/catalog.ts',
     'src/content/v2/hooks.ts',
     'src/content/v2/compat.ts',
+    'src/content/v2/select.ts',
+    'src/context/readingPrefs.ts',
+    'src/context/ReadingContext.tsx',
+    'src/components/Provenance.tsx',
+    'src/components/ReadingControls.tsx',
     'src/search/client.ts',
     'src/search/rank.ts',
   ];

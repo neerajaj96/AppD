@@ -11,7 +11,6 @@ loader (`src/content/v2/chunks.ts`) → `public/content/` JSON → only the
 opened text.
 
 ## Shell and navigation
-
 - **Shell** (`src/App.tsx`): sticky two-row header (brand + global
   search + EN/ML toggle; route-aware primary nav for Home, Traditions,
   Threads, Introduction), skip link, `max-w-4xl` main, minimal footer.
@@ -58,6 +57,29 @@ opened text.
   resolution is async over chunks (`resolveVerseRefs`).
 - **Offline** (`public/sw.js`, cache `darsana-v2`): same-origin GETs —
   including content chunks and the search index — cache on first use.
+
+## Scholarly reader (Prompt 4)
+
+- **Text landing** (`TextIndex.tsx`): manifest-driven header (identity,
+  author, unit/concept/language/thread stats), begin-reading and guided
+  thread actions, expandable section navigation with unit ranges,
+  concepts with link counts, sibling texts. No description or
+  provenance is ever invented — absent fields are omitted.
+- **Unit reader** (`VerseDetail.tsx`): breadcrumb → h1 identifier →
+  Sanskrit object (Devanāgarī + IAST, `lang` attributes, word-wrap
+  guards) → translation → commentary → textual notes → word meanings →
+  key points → concepts → related units → thread appearances → prev/next
+  in true V2 chunk order (`getAdjacentUnits`).
+- **Preferences** (`context/readingPrefs.ts` + `ReadingContext`):
+  persisted Sanskrit/translation/commentary layer toggles beside the
+  text scale; `ReadingControls` exposes them only on the verse reader.
+- **Provenance** (`components/Provenance.tsx`): renders V2 provenance
+  and editorial states only when present (`provenanceRows` /
+  `editorialRows` skip unknowns); null otherwise. No generated chunk
+  currently carries provenance, so the area stays hidden until sources
+  record it.
+- **Selection helpers** (`content/v2/select.ts`): English-fallback
+  language rule and boundary-safe adjacency as pure, tested functions.
 
 ## What still uses the monolith
 
