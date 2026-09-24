@@ -26,14 +26,21 @@ Rules:
   (`src/content/v2/textSources.ts`); they are never parsed into fake
   structured fields.
 - **Unit provenance** (`CanonicalUnit.provenance`): what is known about
-  one specific unit. Empty across the current corpus.
+  one specific unit (currently only Devi-Mahatmya page-range locators).
+- **Evidence link** (`V2EvidenceLink` on the unit): the precise layer —
+  `text | translation | commentary | interpretation | provenance` — one
+  attached source supports for that unit, encoded only where unit notes
+  state it. Absence of a link means: “No finer-grained relationship
+  has been established” — not: “The source is unrelated.”
 - **Editorial status** (`EditorialStatus`): field-level workflow state
   (`missing`/`draft`/`reviewed`/…), not a source claim.
 - **Canonical citation**: a deterministic string built only from
   available metadata (text title, unit number, known author/edition/
   locator) plus the canonical unit URL
   (`src/content/v2/citation.ts`). Copy uses the clipboard API with a
-  live-region announcement; no external libraries.
+  live-region announcement; no external libraries. Edition metadata
+  prefers the `text`-relation source when evidence links establish one;
+  output is unchanged wherever they do not.
 
 ## Runtime path
 
@@ -73,6 +80,14 @@ Chapters on Freedom → `commentary` (both notes say so); KSTS No. LXIV →
 `primary-text` ("Sanskrit-only source"). The four `*-source-notes`
 records stay role-absent: each mixes edition tables with policy
 statements, and no single role is evidenced.
+
+Evidence links extend the same sentences one step further: Kashi/KSTS
+notes state where the Sanskrit text comes from (`text`), the two yoga
+gloss notes state consultation *in the commentary* (`commentary`).
+`translation` / `interpretation` / `provenance` relations stay unused
+until unit notes support them; Devi-Mahatmya units carry locators but
+no links, because a page range is provenance, not a source
+association.
 
 ## Pilot: Devi-Mahatmya (repeatable editorial workflow)
 

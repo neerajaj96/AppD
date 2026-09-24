@@ -5,7 +5,7 @@ import Markdown from 'react-markdown';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
 import { CitationButton, CitationText, ProvenanceContent, SourceCard } from './Provenance';
-import { formatCitation, unitCanonicalUrl } from '../content/v2/citation';
+import { formatCitation, selectCitationSource, unitCanonicalUrl } from '../content/v2/citation';
 import type { V2Source } from '../content/v2/schema';
 import { useReading } from '../context/ReadingContext';
 import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell, SwipeHint, ActionButton } from './Primitives';
@@ -54,7 +54,12 @@ function UnitSourceArea({
       ? sourcesState.data.filter((s) => unit.sourceIds?.includes(s.id))
       : [];
   const registryCount = sourcesState.status === 'ok' ? sourcesState.data.length : 0;
-  const primary = attached[0];
+  // Citation edition metadata comes from the source carrying the `text`
+  // relation when evidence links establish one, else the first attached
+  // source — identical output wherever no precise link exists.
+  const primary = selectCitationSource(attached, unit.evidenceLinks);
+  const relationFor = (sourceId: string) =>
+    unit.evidenceLinks?.find((link) => link.sourceId === sourceId)?.relation;
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const citation = formatCitation({
     textTitle: manifest.transliteratedTitle,
@@ -71,7 +76,7 @@ function UnitSourceArea({
     <CollapsibleSection title={t(language, 'sourcesAndCitation')} defaultOpen={false}>
       <div className="space-y-4">
         {attached.map((source) => (
-          <SourceCard key={source.id} source={source} />
+          <SourceCard key={source.id} source={source} relation={relationFor(source.id)} />
         ))}
         <ProvenanceContent provenance={unit.provenance} editorial={unit.editorial} />
         {attached.length === 0 && registryCount > 0 && (

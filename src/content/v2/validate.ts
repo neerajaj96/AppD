@@ -1,4 +1,4 @@
-import { SCHEMA_VERSION, isSourceRecordRole, type V2Corpus, type V2Text } from './schema';
+import { SCHEMA_VERSION, isEvidenceRelation, isSourceRecordRole, type V2Corpus, type V2Text } from './schema';
 import { isCanonicalId, normaliseId, parseCanonicalConceptId, validateLocator } from './ids';
 
 /**
@@ -256,6 +256,33 @@ function validateText(
       if (!sourceIds.has(sid)) {
         push({ severity: 'error', code: 'dangling-source-ref', message: `Unit ${unit.id} points at missing source ${sid}`, textId: text.id, entityId: unit.id });
       }
+    }
+
+    // Precise evidence links: well-formed, resolvable, and at most one
+    // relation per unit-source pair. Units without links are fine —
+    // absence means no finer-grained relationship was established.
+    const linkedSources = new Map<string, string>();
+    for (const link of unit.evidenceLinks || []) {
+      const sid = typeof link?.sourceId === 'string' ? link.sourceId : '';
+      const relation = typeof link?.relation === 'string' ? link.relation : '';
+      if (!sid || !isEvidenceRelation(relation)) {
+        push({ severity: 'error', code: 'malformed-evidence-link', message: `Unit ${unit.id} has a malformed evidence link`, textId: text.id, entityId: unit.id });
+        continue;
+      }
+      if (!sourceIds.has(sid)) {
+        push({ severity: 'error', code: 'dangling-evidence-source', message: `Unit ${unit.id} links evidence to missing source ${sid}`, textId: text.id, entityId: unit.id });
+        continue;
+      }
+      const previous = linkedSources.get(sid);
+      if (previous !== undefined) {
+        if (previous !== relation) {
+          push({ severity: 'error', code: 'contradictory-evidence-link', message: `Unit ${unit.id} links source ${sid} as both ${previous} and ${relation}`, textId: text.id, entityId: unit.id });
+        } else {
+          push({ severity: 'error', code: 'duplicate-evidence-link', message: `Unit ${unit.id} links source ${sid} twice`, textId: text.id, entityId: unit.id });
+        }
+        continue;
+      }
+      linkedSources.set(sid, relation);
     }
   }
 

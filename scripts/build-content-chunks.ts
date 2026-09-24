@@ -16,7 +16,7 @@ import { validateCorpus } from '../src/content/v2/validate.ts';
 import { buildManifest } from '../src/content/v2/chunks.ts';
 import { buildSearchIndex, splitSearchIndex } from '../src/content/v2/search-index.ts';
 import { buildConceptOccurrenceIndex } from '../src/content/v2/occurrences.ts';
-import { buildTextSource, extractLocatorStems, formatSourceTable, matchUnitLocator, matchUnitSources } from '../src/content/v2/textSources.ts';
+import { buildTextSource, extractLocatorStems, formatSourceTable, matchUnitEvidence, matchUnitLocator, matchUnitSources } from '../src/content/v2/textSources.ts';
 import { CURATED_SOURCES_BY_TEXT, SOURCE_NOTE_PREFIXES } from '../src/content/v2/curatedSources.ts';
 import { lalitaSahasranamaSourceProvenance } from '../src/content/lalita-sahasranama/lalita-sahasranama-source-provenance.ts';
 import { vishnuSahasranamaSourceProvenance } from '../src/content/vishnu-sahasranama/vishnu-sahasranama-source-provenance.ts';
@@ -165,7 +165,8 @@ for (const text of corpus.texts) {
   }
 }
 // Scaled curation (Class A texts): curated edition registries plus
-// per-unit sourceIds exactly where a unit's own notes invoke the source.
+// per-unit sourceIds exactly where a unit's own notes invoke the source,
+// with precise evidence links carrying each candidate's curated relation.
 // Appendix/adhika units without edition notes attach nothing.
 for (const [textId, records] of Object.entries(CURATED_SOURCES_BY_TEXT)) {
   const text = corpus.texts.find((t) => t.id === textId);
@@ -183,6 +184,16 @@ for (const [textId, records] of Object.entries(CURATED_SOURCES_BY_TEXT)) {
     const known = ids.filter((id) => records.some((r) => r.id === id));
     if (known.length > 0) {
       unit.sourceIds = [...(unit.sourceIds || []), ...known.filter((id) => !(unit.sourceIds || []).includes(id))];
+      const links = matchUnitEvidence(notes, candidates).filter((link) =>
+        known.includes(link.sourceId),
+      );
+      if (links.length > 0) {
+        const existing = unit.evidenceLinks || [];
+        unit.evidenceLinks = [
+          ...existing,
+          ...links.filter((link) => !existing.some((e) => e.sourceId === link.sourceId)),
+        ];
+      }
       attached += 1;
     } else {
       bare += 1;

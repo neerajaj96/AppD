@@ -129,6 +129,13 @@ export interface CanonicalUnit {
   localisations: Partial<Record<SupportedV2Language, UnitLocalisation>>;
   conceptIds?: string[];
   sourceIds?: string[];
+  /**
+   * Precise evidence relationships to attached sources. Optional and
+   * sparse: `sourceIds` alone remains the broad association, and units
+   * without links behave exactly as before. A link is only encoded
+   * where repository evidence states what the source supplied.
+   */
+  evidenceLinks?: V2EvidenceLink[];
   diagramIds?: string[];
   /** Original textual notes (e.g. edition variants); carried verbatim. */
   interpretiveNotes?: Array<{ note: string }>;
@@ -204,6 +211,33 @@ export type SourceRecordRole = (typeof SOURCE_RECORD_ROLES)[number];
 
 export function isSourceRecordRole(value: unknown): value is SourceRecordRole {
   return typeof value === 'string' && (SOURCE_RECORD_ROLES as readonly string[]).includes(value);
+}
+
+/**
+ * Precise evidence relationship between one unit and one attached
+ * source: which layer of the unit the source supports. Distinct from
+ * the source record's own role (what the source IS for the text) and
+ * from the broad `sourceIds` association (WHICH sources are attached).
+ * A link is only encoded where repository evidence states the layer;
+ * vague consultation notes keep the broad association without a link.
+ */
+export const EVIDENCE_RELATIONS = [
+  'text',
+  'translation',
+  'commentary',
+  'interpretation',
+  'provenance',
+] as const;
+
+export type V2EvidenceRelation = (typeof EVIDENCE_RELATIONS)[number];
+
+export function isEvidenceRelation(value: unknown): value is V2EvidenceRelation {
+  return typeof value === 'string' && (EVIDENCE_RELATIONS as readonly string[]).includes(value);
+}
+
+export interface V2EvidenceLink {
+  sourceId: string;
+  relation: V2EvidenceRelation;
 }
 
 export interface V2Source {

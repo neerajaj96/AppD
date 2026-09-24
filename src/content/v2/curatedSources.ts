@@ -1,4 +1,4 @@
-import type { V2Source } from './schema';
+import type { V2EvidenceRelation, V2Source } from './schema';
 
 /**
  * Curated edition/source records (evidence-backed provenance scaling).
@@ -86,9 +86,23 @@ export const CURATED_SOURCES_BY_TEXT: Record<string, CuratedSource[]> = {
  * records whose notes it carries — 193 yoga units attach all three,
  * IV.17/IV.18 attach two, gita adhika units attach none.
  */
-export const SOURCE_NOTE_PREFIXES: Array<{ textId: string; sourceId: string; prefix: string }> = [
-  { textId: 'yoga-sutras', sourceId: 'yoga-sutras-source-kashi-83', prefix: 'Kashi Sanskrit Series No.83' },
-  { textId: 'yoga-sutras', sourceId: 'yoga-sutras-source-vivekananda-raja-yoga', prefix: 'Swami Vivekananda, Raja-Yoga' },
-  { textId: 'yoga-sutras', sourceId: 'yoga-sutras-source-satyananda-four-chapters', prefix: 'Swami Satyananda Saraswati, Four Chapters on Freedom' },
-  { textId: 'bhagavad-gita', sourceId: 'bhagavad-gita-source-ksts-64', prefix: 'Kashmir Series of Texts and Studies No. LXIV' },
+export interface SourceNotePrefix {
+  textId: string;
+  sourceId: string;
+  prefix: string;
+  /**
+   * Precise layer this source supports for matching units, stated only
+   * where the unit notes say so explicitly:
+   * - Kashi/KSTS notes name the edition the Sanskrit text comes from.
+   * - Vivekananda/Satyananda notes say the work was consulted for a
+   *   gloss *in the commentary* — hence commentary, not interpretation.
+   */
+  relation: V2EvidenceRelation;
+}
+
+export const SOURCE_NOTE_PREFIXES: Array<SourceNotePrefix> = [
+  { textId: 'yoga-sutras', sourceId: 'yoga-sutras-source-kashi-83', prefix: 'Kashi Sanskrit Series No.83', relation: 'text' },
+  { textId: 'yoga-sutras', sourceId: 'yoga-sutras-source-vivekananda-raja-yoga', prefix: 'Swami Vivekananda, Raja-Yoga', relation: 'commentary' },
+  { textId: 'yoga-sutras', sourceId: 'yoga-sutras-source-satyananda-four-chapters', prefix: 'Swami Satyananda Saraswati, Four Chapters on Freedom', relation: 'commentary' },
+  { textId: 'bhagavad-gita', sourceId: 'bhagavad-gita-source-ksts-64', prefix: 'Kashmir Series of Texts and Studies No. LXIV', relation: 'text' },
 ];

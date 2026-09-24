@@ -1,4 +1,4 @@
-import { SCHEMA_VERSION, type CanonicalUnit, type V2Concept, type V2Corpus, type V2Text } from './schema';
+import { SCHEMA_VERSION, type CanonicalUnit, type V2Concept, type V2Corpus, type V2EvidenceLink, type V2Text } from './schema';
 import { TRADITIONS } from './tradition';
 
 /**
@@ -71,6 +71,25 @@ export function ingestUnit(raw: unknown): IngestResult<CanonicalUnit> {
         : typeof r['diagramId'] === 'string'
           ? [r['diagramId'] as string]
           : [],
+      sourceIds: Array.isArray(r['sourceIds'])
+        ? (r['sourceIds'] as unknown[]).filter((s): s is string => typeof s === 'string')
+        : [],
+      evidenceLinks: Array.isArray(r['evidenceLinks'])
+        ? (r['evidenceLinks'] as unknown[]).flatMap((link) => {
+            if (!link || typeof link !== 'object') {
+              warnings.push('dropping malformed evidence link');
+              return [];
+            }
+            const record = link as Record<string, unknown>;
+            if (typeof record['sourceId'] !== 'string' || typeof record['relation'] !== 'string') {
+              warnings.push('dropping malformed evidence link');
+              return [];
+            }
+            // Relation vocabulary is the validator's judgement, not the
+            // importer's: carry the string through for downstream checks.
+            return [{ sourceId: record['sourceId'], relation: record['relation'] as V2EvidenceLink['relation'] }];
+          })
+        : [],
     },
     warnings,
   };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { t, type UIKey } from '../i18n/ui';
-import type { EditorialFieldState, EditorialStatus, SourceProvenance, SourceRecordRole, V2Source } from '../content/v2/schema';
+import type { EditorialFieldState, EditorialStatus, SourceProvenance, SourceRecordRole, V2EvidenceRelation, V2Source } from '../content/v2/schema';
 import { copyText } from '../content/v2/citation';
 import { announce } from '../a11y';
 import { CollapsibleSection, SectionTitle } from './Primitives';
@@ -132,6 +132,15 @@ export const SOURCE_ROLE_LABEL: Record<SourceRecordRole, UIKey> = {
   editorial: 'roleEditorial',
 };
 
+/** Localised label for a unit→source evidence relationship. */
+export const EVIDENCE_RELATION_LABEL: Record<V2EvidenceRelation, UIKey> = {
+  text: 'relationText',
+  translation: 'relationTranslation',
+  commentary: 'relationCommentary',
+  interpretation: 'relationInterpretation',
+  provenance: 'relationProvenance',
+};
+
 export default function SourceInfo({
   provenance,
   editorial,
@@ -214,10 +223,16 @@ function ProvRows({ rows }: { rows: ProvRow[] }) {
 
 /**
  * One source record as a stable, linkable card. Only carried fields
- * render — the record id anchors it as a semantic reference.
+ * render — the record id anchors it as a semantic reference. An
+ * optional evidence relation names what this source supports for the
+ * calling unit; without one the card shows the source normally.
  */
-export function SourceCard({ source }: { source: V2Source }) {
+export function SourceCard({ source, relation }: { source: V2Source; relation?: V2EvidenceRelation }) {
   const { language } = useLanguage();
+  const qualifiers = [
+    source.role ? t(language, SOURCE_ROLE_LABEL[source.role]) : '',
+    relation ? t(language, EVIDENCE_RELATION_LABEL[relation]) : '',
+  ].filter(Boolean);
   return (
     <article
       id={`source-${source.id}`}
@@ -226,7 +241,7 @@ export function SourceCard({ source }: { source: V2Source }) {
     >
       <h4 className="font-serif font-bold text-sattva break-words">{source.title}</h4>
       <p className="mt-0.5 text-xs tabular-nums text-tamas">
-        {source.role ? `${t(language, SOURCE_ROLE_LABEL[source.role])} · ` : ''}{source.id}
+        {qualifiers.length > 0 ? `${qualifiers.join(' · ')} · ` : ''}{source.id}
       </p>
       <div className="mt-3">
         <ProvRows rows={provenanceRows(source)} />

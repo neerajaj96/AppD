@@ -1,4 +1,4 @@
-import type { V2Source } from './schema';
+import type { V2EvidenceLink, V2EvidenceRelation, V2Source } from './schema';
 
 /**
  * Text-level source records carried from legacy provenance statements.
@@ -110,6 +110,29 @@ export function matchUnitSources(
   for (const candidate of candidates) {
     if (unitNotes.some((note) => typeof note === 'string' && note.startsWith(candidate.prefix))) {
       if (!out.includes(candidate.sourceId)) out.push(candidate.sourceId);
+    }
+  }
+  return out;
+}
+
+/**
+ * Precise evidence links for a unit: same matching as `matchUnitSources`,
+ * plus the curated relation per candidate. Order follows candidate
+ * order, so output stays deterministic.
+ */
+export function matchUnitEvidence(
+  unitNotes: string[],
+  candidates: Array<{ sourceId: string; prefix: string; relation: V2EvidenceRelation }>,
+): V2EvidenceLink[] {
+  const out: V2EvidenceLink[] = [];
+  const seen = new Set<string>();
+  for (const candidate of candidates) {
+    if (
+      unitNotes.some((note) => typeof note === 'string' && note.startsWith(candidate.prefix)) &&
+      !seen.has(candidate.sourceId)
+    ) {
+      seen.add(candidate.sourceId);
+      out.push({ sourceId: candidate.sourceId, relation: candidate.relation });
     }
   }
   return out;

@@ -56,3 +56,31 @@ export async function copyText(text: string): Promise<boolean> {
     return false;
   }
 }
+
+export interface CitationSourceInput {
+  id: string;
+  edition?: string;
+  publisher?: string;
+  year?: string | number;
+  locator?: string;
+  page?: string;
+}
+
+/**
+ * Choose the source whose edition metadata feeds a citation: the linked
+ * source carrying the `text` relation when one exists, otherwise the
+ * first attached source. Pure and deterministic; citations that lack
+ * precise links behave exactly as before.
+ */
+export function selectCitationSource<T extends CitationSourceInput>(
+  sources: T[],
+  evidenceLinks?: Array<{ sourceId: string; relation: string }>,
+): T | undefined {
+  if (sources.length === 0) return undefined;
+  const textual = (evidenceLinks || []).find((link) => link.relation === 'text');
+  if (textual) {
+    const hit = sources.find((s) => s.id === textual.sourceId);
+    if (hit) return hit;
+  }
+  return sources[0];
+}

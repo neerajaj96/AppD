@@ -201,6 +201,11 @@ const en = {
   roleSecondary: 'Secondary scholarship',
   roleProvenance: 'Provenance record',
   roleEditorial: 'Editorial material',
+  relationText: 'Text',
+  relationTranslation: 'Translation',
+  relationCommentary: 'Commentary',
+  relationInterpretation: 'Interpretation',
+  relationProvenance: 'Provenance',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -396,6 +401,11 @@ const ml: Record<keyof typeof en, string> = {
   roleSecondary: 'അനുബന്ധ പഠനം',
   roleProvenance: 'ഉറവ് രേഖ',
   roleEditorial: 'സമ്പാദകീയം',
+  relationText: 'പാഠം',
+  relationTranslation: 'പരിഭാഷ',
+  relationCommentary: 'ഭാഷ്യം',
+  relationInterpretation: 'അർത്ഥവ്യാഖ്യാനം',
+  relationProvenance: 'ഉറവ് രേഖ',
 };
 
 export type UIKey = keyof typeof en;
