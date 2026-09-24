@@ -184,6 +184,28 @@ export interface V2Reference {
   note?: string;
 }
 
+/**
+ * Role a source record plays in producing Darśana content — distinct
+ * from the record's identity (what the source IS) and from the
+ * text-level `SourceRole` (what a text is within its tradition).
+ * Optional: records whose evidence supports no single role stay absent
+ * rather than carrying a guessed label.
+ */
+export const SOURCE_RECORD_ROLES = [
+  'primary-text',
+  'translation',
+  'commentary',
+  'secondary',
+  'provenance',
+  'editorial',
+] as const;
+
+export type SourceRecordRole = (typeof SOURCE_RECORD_ROLES)[number];
+
+export function isSourceRecordRole(value: unknown): value is SourceRecordRole {
+  return typeof value === 'string' && (SOURCE_RECORD_ROLES as readonly string[]).includes(value);
+}
+
 export interface V2Source {
   id: string;
   title: string;
@@ -199,6 +221,7 @@ export interface V2Source {
   url?: string;
   rights?: RightsStatus;
   notes?: string;
+  role?: SourceRecordRole;
 }
 
 export interface V2Diagram {

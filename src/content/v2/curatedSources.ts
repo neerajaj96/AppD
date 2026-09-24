@@ -26,6 +26,9 @@ export const YOGA_SOURCES: CuratedSource[] = [
     title: 'Kashi Sanskrit Series No.83',
     edition: 'Yogashastra Section No.1',
     year: 1930,
+    // Role evidence: the note states the sutra-patha comes from this
+    // edition's opening gathering — it is the primary Sanskrit text.
+    role: 'primary-text',
     notes:
       'Kashi Sanskrit Series No.83 (Yogashastra Section No.1), Dhundhiraj Shastri ed. (Benares, 1930): sutra-patha in the opening gathering; tika section opens with Bhoja’s Rajamartanda, followed by Bhava-Ganesa’s Pradipika, Nagoji Bhatta’s Vrtti, Ramananda’s Maniprabha, Anantadeva’s Chandrika and Sadasivendra’s Yogasudhakar.',
   },
@@ -35,6 +38,9 @@ export const YOGA_SOURCES: CuratedSource[] = [
     author: 'Swami Vivekananda',
     year: '1895-96',
     rights: 'public-domain',
+    // Role evidence: the note twice calls this a commentary consulted
+    // for glosses — not a source of the Sanskrit text.
+    role: 'commentary',
     notes:
       'Swami Vivekananda, Raja-Yoga commentary on the Patanjali Yoga Sutras (1895-96 New York lectures; public-domain edition): consulted for the Vivekananda gloss in the commentary; where his edition numbers or omits a sutra differently, the commentary notes it.',
   },
@@ -43,6 +49,10 @@ export const YOGA_SOURCES: CuratedSource[] = [
     title: 'Four Chapters on Freedom',
     author: 'Swami Satyananda Saraswati',
     publisher: 'Yoga Publications Trust, Munger',
+    // Role evidence: the note names it a commentary consulted for
+    // glosses. Its practice orientation describes emphasis, not a
+    // separate role, so no second label is invented.
+    role: 'commentary',
     notes:
       'Swami Satyananda Saraswati, Four Chapters on Freedom: Commentary on the Yoga Sutras of Patanjali (Yoga Publications Trust, Munger): consulted for the practice-orientated gloss — sutras as complete instructions and map for sadhana, verified by experience rather than debate.',
   },
@@ -54,6 +64,11 @@ export const GITA_SOURCES: CuratedSource[] = [
     title: 'Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha',
     edition: 'Kashmir Series of Texts and Studies No. LXIV',
     year: 1943,
+    // Role evidence: the note calls this the Sanskrit-only source from
+    // which the rendering was made — the primary text, not a translation
+    // (the English is the project's own, unattributed, so no author or
+    // translator field is filled).
+    role: 'primary-text',
     notes:
       'Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project.',
   },

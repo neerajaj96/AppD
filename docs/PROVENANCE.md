@@ -42,6 +42,38 @@ React → `V2Repository.getSources/getSource` → `text/sources.json`
 to records through `sourceIds`, validated per text (duplicates and
 dangling references are errors, malformed URLs warnings).
 
+## Evidence semantics (source roles)
+
+Six concepts the system keeps strictly separate:
+
+- **Source**: the record itself (`V2Source`) — what an external source
+  IS (title, author, edition, …). Identity only, no usage claim.
+- **Source role** (`V2Source.role`, controlled vocabulary
+  `primary-text | translation | commentary | secondary | provenance |
+  editorial`): how Darśana uses that source. Assigned only where the
+  record's own evidence states it; otherwise absent, never guessed.
+- **Provenance** (`CanonicalUnit.provenance`): what is known about one
+  particular unit (e.g. a source page range).
+- **Editorial status** (`EditorialStatus`): field-level workflow state,
+  not a source claim.
+- **Citation**: deterministic string from available metadata plus the
+  canonical URL. Roles inform disclosure (source cards), never citation
+  wording.
+- **Project-original material**: translations, commentaries, summaries
+  and paraphrases the legacy files explicitly mark as this project's
+  own work (lalita/vishnu/mishra/gita carry-over policies). Such
+  material is never attributed to an external author; unattributed
+  English renderings leave author/translator absent.
+- **Unknown**: anything not established above. Unknown stays unknown —
+  an absent role or field is a deliberate statement, not a gap to fill.
+
+Curated examples (all traceable to verbatim unit notes): Kashi Series
+No.83 → `primary-text` (sutra-patha comes from it); Raja-Yoga and Four
+Chapters on Freedom → `commentary` (both notes say so); KSTS No. LXIV →
+`primary-text` ("Sanskrit-only source"). The four `*-source-notes`
+records stay role-absent: each mixes edition tables with policy
+statements, and no single role is evidenced.
+
 ## Pilot: Devi-Mahatmya (repeatable editorial workflow)
 
 The first text curated end-to-end (182/184 units with source locators;

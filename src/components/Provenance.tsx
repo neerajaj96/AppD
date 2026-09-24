@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { t, type UIKey } from '../i18n/ui';
-import type { EditorialFieldState, EditorialStatus, SourceProvenance, V2Source } from '../content/v2/schema';
+import type { EditorialFieldState, EditorialStatus, SourceProvenance, SourceRecordRole, V2Source } from '../content/v2/schema';
 import { copyText } from '../content/v2/citation';
 import { announce } from '../a11y';
 import { CollapsibleSection, SectionTitle } from './Primitives';
@@ -122,6 +122,16 @@ const ED_STATE_LABEL: Record<EditorialFieldState, UIKey> = {
   verified: 'edVerified',
 };
 
+/** Localised label for a source-record role; absent role renders nothing. */
+export const SOURCE_ROLE_LABEL: Record<SourceRecordRole, UIKey> = {
+  'primary-text': 'rolePrimaryText',
+  translation: 'roleTranslation',
+  commentary: 'roleCommentary',
+  secondary: 'roleSecondary',
+  provenance: 'roleProvenance',
+  editorial: 'roleEditorial',
+};
+
 export default function SourceInfo({
   provenance,
   editorial,
@@ -207,6 +217,7 @@ function ProvRows({ rows }: { rows: ProvRow[] }) {
  * render — the record id anchors it as a semantic reference.
  */
 export function SourceCard({ source }: { source: V2Source }) {
+  const { language } = useLanguage();
   return (
     <article
       id={`source-${source.id}`}
@@ -214,7 +225,9 @@ export function SourceCard({ source }: { source: V2Source }) {
       className="rounded-2xl border border-tamas-deep bg-avyakta-2 p-5"
     >
       <h4 className="font-serif font-bold text-sattva break-words">{source.title}</h4>
-      <p className="mt-0.5 text-xs tabular-nums text-tamas">{source.id}</p>
+      <p className="mt-0.5 text-xs tabular-nums text-tamas">
+        {source.role ? `${t(language, SOURCE_ROLE_LABEL[source.role])} · ` : ''}{source.id}
+      </p>
       <div className="mt-3">
         <ProvRows rows={provenanceRows(source)} />
       </div>

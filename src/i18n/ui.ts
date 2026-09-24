@@ -195,6 +195,12 @@ const en = {
   citationCopied: 'Citation copied',
   citationCopyFailed: 'Copy unavailable in this browser',
   viewTextSources: 'View text sources',
+  rolePrimaryText: 'Primary text',
+  roleTranslation: 'Translation',
+  roleCommentary: 'Commentary',
+  roleSecondary: 'Secondary scholarship',
+  roleProvenance: 'Provenance record',
+  roleEditorial: 'Editorial material',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -384,6 +390,12 @@ const ml: Record<keyof typeof en, string> = {
   citationCopied: 'ഉദ്ധരണി പകർത്തി',
   citationCopyFailed: 'ഈ ബ്രൗസറിൽ പകർത്തൽ ലഭ്യമല്ല',
   viewTextSources: 'ഗ്രന്ഥത്തിന്റെ ഉറവകൾ കാണുക',
+  rolePrimaryText: 'മൂലപാഠം',
+  roleTranslation: 'വിവർത്തനം',
+  roleCommentary: 'വ്യാഖ്യാനം',
+  roleSecondary: 'അനുബന്ധ പഠനം',
+  roleProvenance: 'ഉറവ് രേഖ',
+  roleEditorial: 'സമ്പാദകീയം',
 };
 
 export type UIKey = keyof typeof en;

@@ -1,4 +1,4 @@
-import { SCHEMA_VERSION, type V2Corpus, type V2Text } from './schema';
+import { SCHEMA_VERSION, isSourceRecordRole, type V2Corpus, type V2Text } from './schema';
 import { isCanonicalId, normaliseId, parseCanonicalConceptId, validateLocator } from './ids';
 
 /**
@@ -180,6 +180,12 @@ function validateText(
     sourceIds.add(source.id);
     if (source.url && !/^https?:\/\//.test(source.url)) {
       push({ severity: 'warning', code: 'malformed-source-url', message: `Source ${source.id} has a non-URL locator`, textId: text.id, entityId: source.id });
+    }
+    // Role is optional (unknown stays unknown), but a present role must
+    // belong to the controlled vocabulary — free-text roles would let
+    // invented certainty slip past review unnoticed.
+    if (source.role !== undefined && !isSourceRecordRole(source.role)) {
+      push({ severity: 'error', code: 'invalid-source-role', message: `Source ${source.id} has invalid role ${JSON.stringify(source.role)}`, textId: text.id, entityId: source.id });
     }
   }
 
