@@ -97,12 +97,16 @@ opened text.
   thread appearances → Related across traditions (with a shared-names
   neutrality note) → provenance. The old search-index-based
   cross-system section is replaced by the occurrence index.
-- **Concept map** (`content/v2/conceptGraph.ts` + `ConceptGraph.tsx`):
-  hub-and-spoke SVG over real relations only (centre + ≤8 related
-  concepts + ≤6 other traditions; hidden when sparse). Zero
-  dependencies, zero animation; nodes are keyboard-focusable router
-  links with a visible-focus CSS rule, shape- (not colour-) encoded,
-  plus a figcaption and the authoritative semantic lists.
+- **Concept map** (`content/v2/conceptGraph.ts` + `components/concept-graph/`):
+  hub-and-spoke data over real relations only (centre + ≤8 related
+  concepts + ≤6 other traditions, with overflow counts; hidden when
+  sparse). `ConceptExplorer` owns selection and composes the wide SVG
+  viewport, the narrow tappable list (under 640px — never a shrunken
+  diagram), the shape-plus-text legend and the selection detail panel
+  (honest linkage vs occurrence wording, one onward action, reset).
+  Zero dependencies, zero animation; nodes are keyboard-focusable
+  router links with a visible-focus rule, and the semantic lists stay
+  authoritative.
 - **Verse reader**: related concepts render as title + summary rows
   (`RelatedConceptRows`); search concept results carry language-aware
   summary blurbs (`conceptSummary` in `search/rank.ts`).

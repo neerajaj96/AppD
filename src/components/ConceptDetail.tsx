@@ -22,7 +22,7 @@ import {
   RelatedConceptsSection,
   ThreadMentionsSection,
 } from './ReferenceLinks';
-import ConceptGraph from './ConceptGraph';
+import ConceptExplorer from './concept-graph/ConceptExplorer';
 
 /**
  * Concept article — the knowledge node for a single tattva / padartha.
@@ -169,13 +169,20 @@ export default function ConceptDetail() {
     return new Map<string, TraditionSummary>(catalog.data.traditions.map((tr) => [tr.id, tr]));
   }, [catalog]);
 
-  // Hub-and-spoke map over first-degree relations plus other traditions
-  // holding this identity. Null when too sparse — the lists below stand
-  // alone then.
+  // Explorer map over first-degree relations plus other traditions
+  // holding this identity. Tradition labels and per-tradition details
+  // resolve here so the graph never shows raw ids. Null when too sparse
+  // — the semantic lists below stand alone then.
   const graph = useMemo(() => {
     if (!systemId || !textId || !conceptId || !v2Concept) return null;
     const graphTitle =
       v2Concept.localisations[language]?.title || v2Concept.localisations.en?.title || conceptId;
+    const perTradition = new Map<string, ConceptOccurrence[]>();
+    for (const occ of occurrences) {
+      const list = perTradition.get(occ.traditionId);
+      if (list) list.push(occ);
+      else perTradition.set(occ.traditionId, [occ]);
+    }
     return buildConceptGraph({
       traditionId: systemId,
       textId,
@@ -188,9 +195,18 @@ export default function ConceptDetail() {
         title:
           h.concept.content[language]?.title || h.concept.content.en?.title || (h.concept.id as string),
       })),
-      occurrences,
+      occurrences: occurrences.map((occ) => {
+        const trad = traditionById.get(occ.traditionId);
+        const group = perTradition.get(occ.traditionId) || [];
+        const units = group.reduce((n, o) => n + o.unitCount, 0);
+        return {
+          traditionId: occ.traditionId,
+          traditionLabel: trad ? getTraditionDisplay(trad, language).title : undefined,
+          detail: `${t(language, 'textsCount', { count: group.length })} · ${t(language, 'unitsCount', { count: units })}`,
+        };
+      }),
     });
-  }, [systemId, textId, conceptId, v2Concept, language, related, occurrences]);
+  }, [systemId, textId, conceptId, v2Concept, language, related, occurrences, traditionById]);
 
   // Occurrences grouped by other traditions (current tradition is covered
   // by the source-unit and related-concept sections above).
@@ -280,8 +296,10 @@ export default function ConceptDetail() {
               <SectionTitle className="mb-4" icon={<Network aria-hidden="true" className="h-4 w-4" />}>
                 {t(language, 'conceptMap')}
               </SectionTitle>
-              <ConceptGraph
+              <ConceptExplorer
+                key={conceptId}
                 data={graph}
+                contextName={textData.data.manifest.transliteratedTitle}
                 caption={t(language, 'conceptMapSummary', {
                   title,
                   related: graph.satellites.filter((s) => s.kind === 'concept').length,

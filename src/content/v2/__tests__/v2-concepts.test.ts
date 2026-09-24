@@ -8,7 +8,7 @@ import {
   occurrenceTraditions,
 } from '../occurrences';
 import type { ConceptOccurrenceIndex } from '../occurrences';
-import { buildConceptGraph } from '../conceptGraph';
+import { buildConceptGraph, layoutGraph } from '../conceptGraph';
 import { conceptSummary } from '../../../search/rank';
 import type { CanonicalUnit, V2Concept } from '../schema';
 
@@ -208,6 +208,68 @@ describe('concept graph data', () => {
     expect(concepts[0].href).toBe('/system/yoga/text/yoga-sutras/concept/c0');
     // Current tradition excluded from tradition nodes.
     expect(traditions.map((s) => s.id)).toEqual(['tradition:samkhya', 'tradition:vedanta']);
+    expect(graph?.hiddenRelated).toBe(2);
+    expect(graph?.hiddenTraditions).toBe(0);
+  });
+
+  it('labels traditions with caller-resolved display titles, never raw ids', () => {
+    const graph = buildConceptGraph({
+      traditionId: 'yoga',
+      textId: 'yoga-sutras',
+      conceptId: 'c',
+      title: 'C',
+      related: related(3),
+      occurrences: [
+        { traditionId: 'kashmir-shaivism', traditionLabel: 'Kashmir Shaivism', detail: '2 texts · 5 units' },
+      ],
+    });
+    const node = graph?.satellites.find((s) => s.kind === 'tradition');
+    expect(node?.label).toBe('Kashmir Shaivism');
+    expect(node?.detail).toBe('2 texts · 5 units');
+    expect(node?.href).toBe('/system/kashmir-shaivism');
+  });
+
+  it('counts overflow beyond the display caps deterministically', () => {
+    const occurrences = Array.from({ length: 8 }, (_, i) => ({ traditionId: `t${i}` }));
+    const graph = buildConceptGraph({
+      traditionId: 'home',
+      textId: 'x',
+      conceptId: 'c',
+      title: 'C',
+      related: related(2),
+      occurrences,
+    });
+    expect(graph?.satellites.filter((s) => s.kind === 'tradition')).toHaveLength(6);
+    expect(graph?.hiddenTraditions).toBe(2);
+  });
+
+  it('lays out every node inside the canvas, deterministically', () => {
+    const graph = buildConceptGraph({
+      traditionId: 'yoga',
+      textId: 'yoga-sutras',
+      conceptId: 'c',
+      title: 'C',
+      related: related(8),
+      occurrences: [{ traditionId: 'samkhya' }, { traditionId: 'vedanta' }],
+    });
+    if (!graph) throw new Error('expected a graph');
+    const first = layoutGraph(graph);
+    const second = layoutGraph(graph);
+    expect(first).toEqual(second);
+    expect(first.nodes).toHaveLength(10);
+    for (const node of first.nodes) {
+      expect(node.x).toBeGreaterThanOrEqual(0);
+      expect(node.x).toBeLessThanOrEqual(first.width);
+      expect(node.y).toBeGreaterThanOrEqual(0);
+      expect(node.y).toBeLessThanOrEqual(first.height);
+      expect(typeof node.labelBelow).toBe('boolean');
+    }
+    // Narrow canvas (mobile report width) stays bounded too.
+    const narrow = layoutGraph(graph, 320, 300);
+    for (const node of narrow.nodes) {
+      expect(node.x).toBeGreaterThanOrEqual(0);
+      expect(node.x).toBeLessThanOrEqual(narrow.width);
+    }
   });
 });
 

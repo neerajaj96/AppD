@@ -176,6 +176,15 @@ const en = {
   samenameNote: 'Shared names do not imply identical doctrines; each occurrence keeps its own identity.',
   conceptMap: 'Concept map',
   conceptMapSummary: 'Map of {title}: {related} related concepts across {traditions} traditions.',
+  graphRelatedConcept: 'Related concept',
+  graphOccurrence: 'Occurrence in another tradition',
+  graphLinkedIn: 'Linked as a related concept in {text}.',
+  graphOpenConcept: 'Open concept',
+  graphOpenTradition: 'Open tradition',
+  graphClear: 'Clear selection',
+  graphMore: 'Showing {shown} of {total} relationships — the full list follows below.',
+  graphLegendConcept: 'Concept',
+  graphLegendTradition: 'Tradition',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -346,6 +355,15 @@ const ml: Record<keyof typeof en, string> = {
   samenameNote: 'പേരുകൾ ഒന്നായാലും സിദ്ധാന്തങ്ങൾ ഒന്നാണെന്ന് അർത്ഥമില്ല; ഓരോ ഇടത്തിനും അതിന്റേതായ തനിമയുണ്ട്.',
   conceptMap: 'ആശയ ഭൂപടം',
   conceptMapSummary: '{title} ഭൂപടം: {traditions} പാരമ്പര്യങ്ങളിലായി {related} ബന്ധപ്പെട്ട ആശയങ്ങൾ.',
+  graphRelatedConcept: 'ബന്ധപ്പെട്ട ആശയം',
+  graphOccurrence: 'മറ്റൊരു പാരമ്പര്യത്തിലെ പ്രയോഗം',
+  graphLinkedIn: '{text}-ൽ ബന്ധപ്പെട്ട ആശയമായി ബന്ധിപ്പിച്ചിരിക്കുന്നു.',
+  graphOpenConcept: 'ആശയം തുറക്കുക',
+  graphOpenTradition: 'പാരമ്പര്യം തുറക്കുക',
+  graphClear: 'തിരഞ്ഞെടുപ്പ് മായ്ക്കുക',
+  graphMore: '{total} ബന്ധങ്ങളിൽ {shown} എണ്ണം കാണിക്കുന്നു — പൂർണ്ണ പട്ടിക താഴെ.',
+  graphLegendConcept: 'ആശയം',
+  graphLegendTradition: 'പാരമ്പര്യം',
 };
 
 export type UIKey = keyof typeof en;
