@@ -30,6 +30,7 @@
     "src/content/v2/conceptGraph.ts",
     "src/context/readingPrefs.ts",
     "src/search/rank.ts",
+    "src/search/tiered.ts",
     "src/search/client.ts",
     "src/search/search-worker.ts",
     "src/study/schema.ts",

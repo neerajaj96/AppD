@@ -1,31 +1,64 @@
-import { searchIndexUrl, aliasesUrl } from '../content/v2/chunks';
-import type { SearchIndex, SearchIndexEntry } from '../content/v2/search-index';
+import { aliasesUrl, searchDiscoveryMlUrl, searchDiscoveryUrl, searchShardUrl } from '../content/v2/chunks';
 import { buildAliasTable, resolveAlias, type AliasResolution } from '../content/v2/ids';
 import { verifiedAliases, type AliasFile } from '../content/v2/aliases';
-import { rankEntries, type RankedEntry } from './rank';
+import { TieredSearch } from './tiered';
+import type { RankedEntry } from './rank';
 
 /**
- * Search client — queries the generated V2 index without importing the
- * corpus. Prefers a Web Worker; falls back to main-thread ranking when
- * workers are unavailable or fail. The index JSON loads lazily on first
- * query and is then cached for the session.
+ * Search client — tiered V2 search without importing the corpus.
+ *
+ * First keystrokes cost only the small discovery index; text shards
+ * follow the query plan (bounded per query) and stay cached for the
+ * session. Prefers the Web Worker; falls back to the identical
+ * main-thread engine when workers are unavailable or fail. Alias
+ * resolution stays a tiny main-thread table fetch; the worker is
+ * untouched by identity concerns.
  */
 
 type Pending = {
-  resolve: (value: RankedEntry[]) => void;
+  resolve: (value: RankedEntry[] | true) => void;
   reject: (reason: Error) => void;
 };
+
+function shardPrefixSuffix(): { prefix: string; suffix: string } {
+  // Split around a sentinel text id so the worker can address shards
+  // without receiving functions across the message boundary.
+  const sentinel = '__TEXT__';
+  const sample = searchShardUrl(sentinel);
+  const parts = sample.split(sentinel);
+  return { prefix: parts[0] || '', suffix: parts[1] || '' };
+}
 
 class SearchClient {
   private worker: Worker | undefined;
   private workerFailed = false;
-  private workerLoaded = false;
+  private workerReady = false;
   private nextId = 1;
   private pending = new Map<number, Pending>();
-  private mainEntries: SearchIndexEntry[] | undefined;
-  private mainPromise: Promise<SearchIndexEntry[]> | undefined;
+  private fallback: TieredSearch | undefined;
   private aliasTable: Map<string, string[]> | undefined;
   private aliasPromise: Promise<Map<string, string[]> | undefined> | undefined;
+
+  private tieredUrls() {
+    return {
+      discovery: searchDiscoveryUrl(),
+      discoveryMl: searchDiscoveryMlUrl(),
+      shard: (textId: string) => searchShardUrl(textId),
+    };
+  }
+
+  private fallbackEngine(): TieredSearch {
+    if (!this.fallback) {
+      this.fallback = new TieredSearch(this.tieredUrls(), {
+        fetchJson: async <T>(url: string): Promise<T> => {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error(`Search request failed (${response.status}): ${url}`);
+          return (await response.json()) as T;
+        },
+      });
+    }
+    return this.fallback;
+  }
 
   private ensureWorker(): Worker | undefined {
     if (this.worker || this.workerFailed) return this.worker;
@@ -33,11 +66,15 @@ class SearchClient {
       if (typeof Worker === 'undefined') return undefined;
       const worker = new Worker(new URL('./search-worker.ts', import.meta.url), { type: 'module' });
       worker.onmessage = (event: MessageEvent) => {
-        const data = event.data as { id: number; type: string; results?: RankedEntry[]; message?: string };
+        const data = event.data as
+          | { id: number; type: 'ready' }
+          | { id: number; type: 'results'; results: RankedEntry[] }
+          | { id: number; type: 'error'; message?: string };
         const entry = this.pending.get(data.id);
         if (!entry) return;
         this.pending.delete(data.id);
-        if (data.type === 'results' && data.results) entry.resolve(data.results);
+        if (data.type === 'results') entry.resolve(data.results);
+        else if (data.type === 'ready') entry.resolve(true);
         else entry.reject(new Error(data.message || 'Search worker failed'));
       };
       worker.onerror = () => {
@@ -65,65 +102,37 @@ class SearchClient {
     const id = this.nextId++;
     return new Promise<T>((resolve, reject) => {
       this.pending.set(id, {
-        resolve: resolve as (value: RankedEntry[]) => void,
+        resolve: resolve as (value: RankedEntry[] | true) => void,
         reject,
       });
       worker.postMessage({ ...message, id });
     });
   }
 
-  private async loadMainEntries(): Promise<SearchIndexEntry[]> {
-    if (this.mainEntries) return this.mainEntries;
-    if (!this.mainPromise) {
-      this.mainPromise = fetch(searchIndexUrl())
-        .then(async (response) => {
-          if (!response.ok) throw new Error(`Search index request failed (${response.status})`);
-          const index = (await response.json()) as SearchIndex;
-          this.mainEntries = index.entries;
-          return index.entries;
-        })
-        .catch((error: Error) => {
-          this.mainPromise = undefined;
-          throw error;
-        });
-    }
-    return this.mainPromise;
-  }
-
   /** Ranked results for a query; empty for blank input. Never throws. */
-  async search(query: string, limit = 200): Promise<RankedEntry[]> {
+  async search(query: string, limit = 200, lang: 'en' | 'ml' = 'en'): Promise<RankedEntry[]> {
     if (!query.trim()) return [];
     const worker = this.ensureWorker();
     if (worker && !this.workerFailed) {
       try {
-        // The worker keeps the index for its lifetime; load once, then
-        // query against the resident entries.
-        if (!this.workerLoaded) {
-          await this.send<{ entries: number }>({ type: 'load', url: searchIndexUrl() });
-          this.workerLoaded = true;
+        if (!this.workerReady) {
+          const { prefix, suffix } = shardPrefixSuffix();
+          await this.send<true>({
+            type: 'init',
+            discoveryUrl: searchDiscoveryUrl(),
+            discoveryMlUrl: searchDiscoveryMlUrl(),
+            shardPrefix: prefix,
+            shardSuffix: suffix,
+          });
+          this.workerReady = true;
         }
-        return await this.send<RankedEntry[]>({ type: 'query', query, limit });
+        return await this.send<RankedEntry[]>({ type: 'query', query, limit, lang });
       } catch {
         // Fall through to main-thread ranking below.
       }
     }
     try {
-      const entries = await this.loadMainEntries();
-      return rankEntries(entries, query, limit);
-    } catch {
-      return [];
-    }
-  }
-
-  /** Same-concept occurrences across traditions (cross-darshana links). */
-  async findConceptsById(conceptId: string): Promise<RankedEntry[]> {
-    if (!conceptId) return [];
-    try {
-      const entries = await this.loadMainEntries();
-      const norm = conceptId.toLowerCase();
-      return entries
-        .filter((e) => e.kind === 'concept' && (e.conceptId === conceptId || (e.conceptId || '').toLowerCase() === norm))
-        .map((entry) => ({ entry, score: 1 }));
+      return await this.fallbackEngine().query(query, limit, lang);
     } catch {
       return [];
     }
@@ -131,9 +140,7 @@ class SearchClient {
 
   /**
    * Editorial alias lookup for a raw query (verified rows only — review
-   * candidates never resolve). The worker is untouched: this is a tiny
-   * main-thread table fetch, and callers build disambiguation rows from
-   * the returned canonical triples. Never throws.
+   * candidates never resolve). Tiny table fetch, cached. Never throws.
    */
   async resolveQueryAlias(query: string): Promise<AliasResolution> {
     const q = query.trim();

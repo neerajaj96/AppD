@@ -14,7 +14,7 @@ import { systems } from '../src/content/index.ts';
 import { adaptSystemsToV2, adaptSystemThread } from '../src/content/v2/adapters.ts';
 import { validateCorpus } from '../src/content/v2/validate.ts';
 import { buildManifest } from '../src/content/v2/chunks.ts';
-import { buildSearchIndex } from '../src/content/v2/search-index.ts';
+import { buildSearchIndex, splitSearchIndex } from '../src/content/v2/search-index.ts';
 import { buildConceptOccurrenceIndex } from '../src/content/v2/occurrences.ts';
 import type { System } from '../src/types/content.ts';
 import type {
@@ -241,7 +241,23 @@ track(path.join(OUT, 'aliases.json'), {
 
 const indexThreads = Array.from(traditionThreads.values()).flat();
 const searchIndex = buildSearchIndex(corpus, indexThreads);
-track(path.join(OUT, 'search-index.json'), searchIndex);
+// Tiered search layout: one small discovery file plus full per-text
+// shards, so first keystrokes never download the whole corpus index.
+const searchSplit = splitSearchIndex(searchIndex);
+track(path.join(OUT, 'search', 'discovery.json'), searchSplit.discovery);
+track(path.join(OUT, 'search', 'discovery-ml.json'), searchSplit.discoveryMl);
+const shardSizes: Array<{ textId: string; bytes: number }> = [];
+for (const [textId, entries] of searchSplit.shards) {
+  const file = path.join(OUT, 'search', 'texts', `${textId}.json`);
+  bytes += writeJson(file, { version: 2, generatedAt: searchIndex.generatedAt, entries });
+  const stat = fs.statSync(file);
+  shardSizes.push({ textId, bytes: stat.size });
+  files += 1;
+}
+// The monolithic index is superseded by the tiered layout; never ship a
+// stale copy from an earlier generation.
+fs.rmSync(path.join(OUT, 'search-index.json'), { force: true });
+shardSizes.sort((a, b) => b.bytes - a.bytes);
 const kinds: Record<string, number> = {};
 for (const entry of searchIndex.entries) kinds[entry.kind] = (kinds[entry.kind] || 0) + 1;
 track(path.join(OUT, 'search-index-meta.json'), {
@@ -249,6 +265,10 @@ track(path.join(OUT, 'search-index-meta.json'), {
   generatedAt: searchIndex.generatedAt,
   entries: searchIndex.entries.length,
   kinds,
+  tiers: {
+    discoveryEntries: searchSplit.discovery.entries.length,
+    shards: shardSizes,
+  },
 });
 
 // Cross-text concept occurrence index: normalised identity → every text

@@ -90,3 +90,57 @@ export function rankEntries(entries: SearchIndexEntry[], rawQuery: string, limit
   });
   return out.slice(0, limit);
 }
+
+/** Kinds carrying per-text depth (duplicated between discovery and shards). */
+function isShardable(entry: SearchIndexEntry): boolean {
+  return entry.kind === 'unit' || entry.kind === 'concept' || entry.kind === 'thread-step';
+}
+
+export const MAX_NEW_SHARDS_PER_QUERY = 3;
+const SHARD_PLANNING_HITS = 40;
+
+/**
+ * Which text shards a query needs, from discovery hits alone: distinct
+ * owning texts of the top hits, excluding already-loaded ones, bounded
+ * so one keystroke never triggers an unbounded fetch fan-out.
+ * Deterministic — input rank order decides.
+ */
+export function selectShardTexts(
+  discoveryHits: RankedEntry[],
+  loadedTexts: ReadonlySet<string>,
+  maxNew: number = MAX_NEW_SHARDS_PER_QUERY,
+): string[] {
+  const out: string[] = [];
+  for (const hit of discoveryHits.slice(0, SHARD_PLANNING_HITS)) {
+    const textId = hit.entry.textId;
+    if (!textId || loadedTexts.has(textId) || out.includes(textId)) continue;
+    out.push(textId);
+    if (out.length >= maxNew) break;
+  }
+  return out;
+}
+
+/**
+ * Rankable union for a query: discovery entries minus the shardable
+ * kinds of already-loaded texts (their richer shard versions replace
+ * them), plus every loaded shard entry. When all shards are loaded the
+ * union equals the full index, so tiered ranking converges exactly.
+ */
+export function mergeRankedSets(
+  discovery: SearchIndexEntry[],
+  shards: ReadonlyMap<string, SearchIndexEntry[]>,
+  rawQuery: string,
+  limit = 200,
+): RankedEntry[] {
+  const query = rawQuery.trim();
+  if (!query) return [];
+  const union: SearchIndexEntry[] = [];
+  for (const entry of discovery) {
+    if (isShardable(entry) && entry.textId && shards.has(entry.textId)) continue;
+    union.push(entry);
+  }
+  for (const entries of shards.values()) {
+    for (const entry of entries) union.push(entry);
+  }
+  return rankEntries(union, query, limit);
+}

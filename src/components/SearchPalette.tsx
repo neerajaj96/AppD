@@ -96,7 +96,9 @@ export default function SearchPalette() {
     };
   }, [open]);
 
-  // Query the generated index (worker first, main-thread fallback).
+  // Query the tiered index (worker first, main-thread fallback).
+  // Language selects the discovery file; Malayalam-script queries pull
+  // the ml companion whatever the UI language.
   useEffect(() => {
     const raw = deferredQuery.trim();
     if (!raw || !open) {
@@ -108,7 +110,7 @@ export default function SearchPalette() {
     let live = true;
     setSearching(true);
     getSearchClient()
-      .search(raw, 200)
+      .search(raw, 200, language)
       .then((rows) => {
         if (!live) return;
         setResults(rows);
@@ -118,7 +120,7 @@ export default function SearchPalette() {
     return () => {
       live = false;
     };
-  }, [deferredQuery, open]);
+  }, [deferredQuery, open, language]);
 
   const traditions = catalog.status === 'ok' ? catalog.data.traditions : [];
   const texts = catalog.status === 'ok' ? catalog.data.texts : [];

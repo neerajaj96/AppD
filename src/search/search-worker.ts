@@ -1,52 +1,64 @@
 /**
- * Search worker — executes V2 index ranking off the main thread.
+ * Search worker — tiered V2 search off the main thread.
  *
  * Protocol:
- *   main → worker: { id, type: 'load' } | { id, type: 'query', query, limit }
- *   worker → main: { id, type: 'ready', entries } | { id, type: 'results', results } | { id, type: 'error', message }
+ *   main → worker: { id, type: 'init', discoveryUrl, shardPrefix, shardSuffix }
+ *   main → worker: { id, type: 'query', query, limit? }
+ *   worker → main: { id, type: 'ready' }
+ *                 | { id, type: 'results', results }
+ *                 | { id, type: 'error', message }
  *
- * The index JSON is fetched inside the worker so the main thread never
- * holds the full corpus or the full index during typing.
+ * URL construction stays on the main thread (document base URI); the
+ * worker only fetches. Discovery loads once; text shards load on demand
+ * per query plan and stay cached in the worker for the session.
  */
-import { rankEntries } from './rank';
-import type { SearchIndex, SearchIndexEntry } from '../content/v2/search-index';
+import { TieredSearch } from './tiered';
+import type { RankedEntry } from './rank';
 
 type InMessage =
-  | { id: number; type: 'load'; url: string }
-  | { id: number; type: 'query'; query: string; limit?: number };
+  | { id: number; type: 'init'; discoveryUrl: string; discoveryMlUrl: string; shardPrefix: string; shardSuffix: string }
+  | { id: number; type: 'query'; query: string; limit?: number; lang?: 'en' | 'ml' };
 
 type OutMessage =
-  | { id: number; type: 'ready'; entries: number }
-  | { id: number; type: 'results'; results: Array<{ entry: SearchIndexEntry; score: number }> }
+  | { id: number; type: 'ready' }
+  | { id: number; type: 'results'; results: RankedEntry[] }
   | { id: number; type: 'error'; message: string };
 
-let entries: SearchIndexEntry[] | undefined;
+let engine: TieredSearch | undefined;
 
 const scope = self as unknown as {
   postMessage: (message: OutMessage) => void;
   onmessage: ((event: MessageEvent<InMessage>) => void) | null;
 };
 
+async function fetchJson<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Search request failed (${response.status}): ${url}`);
+  return (await response.json()) as T;
+}
+
 scope.onmessage = async (event: MessageEvent<InMessage>) => {
   const message = event.data;
   try {
-    if (message.type === 'load') {
-      const response = await fetch(message.url);
-      if (!response.ok) {
-        scope.postMessage({ id: message.id, type: 'error', message: `Search index request failed (${response.status})` });
-        return;
-      }
-      const index = (await response.json()) as SearchIndex;
-      entries = index.entries;
-      scope.postMessage({ id: message.id, type: 'ready', entries: entries.length });
+    if (message.type === 'init') {
+      engine = new TieredSearch(
+        {
+          discovery: message.discoveryUrl,
+          discoveryMl: message.discoveryMlUrl,
+          shard: (textId: string) => `${message.shardPrefix}${encodeURIComponent(textId)}${message.shardSuffix}`,
+        },
+        { fetchJson },
+      );
+      await engine.ensureDiscovery();
+      scope.postMessage({ id: message.id, type: 'ready' });
       return;
     }
     if (message.type === 'query') {
-      if (!entries) {
-        scope.postMessage({ id: message.id, type: 'error', message: 'Search index not loaded' });
+      if (!engine) {
+        scope.postMessage({ id: message.id, type: 'error', message: 'Search engine not initialised' });
         return;
       }
-      const results = rankEntries(entries, message.query, message.limit || 200);
+      const results = await engine.query(message.query, message.limit || 200, message.lang || 'en');
       scope.postMessage({ id: message.id, type: 'results', results });
     }
   } catch (error) {

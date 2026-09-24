@@ -33,7 +33,9 @@ opened text.
   build on errors) → `public/content/manifest.json`, per-text
   `manifest.json`/`meta.json`/`threads.json`, section-grouped
   `units/chunk-N.json`, `concepts/chunk-N.json`,
-  `threads/<tradition>.json` and `search-index.json`. Units split at
+  `threads/<tradition>.json` and the tiered search layout
+  (`search/discovery.json`, `search/discovery-ml.json`,
+  `search/texts/<text>.json`). Units split at
   ≤150 per chunk, concepts at ≤200. Generated output is gitignored and
   rebuilt in dev (`predev --if-missing`), CI and `npm run build`.
 - **Loader** (`src/content/v2/chunks.ts`): `FetchChunkLoader` with an
@@ -46,10 +48,14 @@ opened text.
 - **Compatibility** (`src/content/v2/compat.ts`): V2 → legacy shapes
   with IDs preserved verbatim (bookmarks, history, thread progress and
   URLs keep working).
-- **Search** (`src/search/`): pure ranking (`rank.ts`) shared by a Web
-  Worker (`search-worker.ts`, index fetched inside the worker) and a
-  main-thread fallback (`client.ts`). The palette queries the generated
-  index; nothing scans the corpus at runtime.
+- **Search** (`src/search/`): tiered engine (`tiered.ts`) shared by a Web
+  Worker (`search-worker.ts`) and a main-thread fallback (`client.ts`).
+  First keystrokes cost only the discovery file (~0.7 MB gz); text
+  shards follow the query plan (≤3 new per query) and stay session
+  cached, so repeats cost nothing. `rank.ts` ranking is untouched;
+  alias resolution stays a tiny main-thread table, the worker unchanged
+  by identity concerns. The palette queries the tiers; nothing scans
+  the corpus at runtime.
 - **Linkifier** (`src/utils/crossref.ts`): corpus-free with injectable
   resolvers. Build-time tests inject the strict registry; `RichText`
   resolves bare concept links against the loaded text's concept set.

@@ -29,8 +29,9 @@ import type { AliasFile } from './aliases';
  *   content/<text>/concepts/index.json      chunk map
  *   content/<text>/concepts/chunk-N.json    concepts (≤200 per chunk)
  *   content/threads/<tradition>.json        full tradition thread
- *   content/concepts/index.json             cross-text occurrence index
- *   content/search-index.json               build-time search index
+ *   content/concepts/index.json           cross-text occurrence index
+ *   content/search/discovery.json         tiered search discovery entries
+ *   content/search/texts/<text>.json      tiered full per-text search shards
  *
  * Runtime discovers texts through the global manifest only. Chunks are
  * fetched on demand, cached in memory, and every failure is typed so the
@@ -79,8 +80,16 @@ export function conceptChunkUrl(textId: string, file: string): string {
   return `${contentBase()}/${encodeURIComponent(textId)}/concepts/${encodeURIComponent(file)}`;
 }
 
-export function searchIndexUrl(): string {
-  return `${contentBase()}/search-index.json`;
+export function searchDiscoveryUrl(): string {
+  return `${contentBase()}/search/discovery.json`;
+}
+
+export function searchDiscoveryMlUrl(): string {
+  return `${contentBase()}/search/discovery-ml.json`;
+}
+
+export function searchShardUrl(textId: string): string {
+  return `${contentBase()}/search/texts/${encodeURIComponent(textId)}.json`;
 }
 
 export function conceptOccurrenceIndexUrl(): string {
