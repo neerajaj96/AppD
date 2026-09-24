@@ -7,6 +7,7 @@ import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catal
 import { useCatalog } from '../content/v2/hooks';
 import { getSearchClient } from '../search/client';
 import type { RankedEntry } from '../search/rank';
+import { conceptSummary } from '../search/rank';
 import { getRecentSearches, recordSearch, clearSearches } from '../utils/searchHistory';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
@@ -189,11 +190,12 @@ export default function SearchPalette() {
       }
       if (entry.kind === 'concept' && entry.conceptId) {
         const summary = textById.get(entry.textId);
+        const blurb = conceptSummary(entry, language === 'ml' ? 'ml' : 'en');
         return {
           key: entry.key,
           href: `/system/${entry.traditionId}/text/${entry.textId}/concept/${entry.conceptId}`,
           title: entry.title || entry.conceptId,
-          context: `${traditionTitle} • ${summary?.transliteratedTitle || entry.textId}`,
+          context: `${traditionTitle} • ${summary?.transliteratedTitle || entry.textId}${blurb ? ` — ${blurb}` : ''}`,
         };
       }
       if (entry.kind === 'thread-step') {

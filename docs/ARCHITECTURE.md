@@ -81,6 +81,32 @@ opened text.
 - **Selection helpers** (`content/v2/select.ts`): English-fallback
   language rule and boundary-safe adjacency as pure, tested functions.
 
+## Concept knowledge layer (Prompt 5)
+
+- **Occurrence index** (`content/v2/occurrences.ts`, emitted as
+  `public/content/concepts/index.json`, ~1.3 MB lazy): normalised
+  concept identity → every text occurrence with unit id/number/section
+  only. 2752 identities, 28 multi-text. Distinct canonical triples are
+  never merged; unit content still loads lazily per text.
+- **Repository** additions: `getConceptOccurrences` (catalog-ordered,
+  cached) and `getTraditionConceptThreadSteps` (single thread file).
+  In-text relations keep resolving from loaded chunks with no extra
+  requests and no second relationship system.
+- **Concept page** (`ConceptDetail.tsx`): identity → summary → concept
+  map → source units (with sections) → related concepts → Appears in →
+  thread appearances → Related across traditions (with a shared-names
+  neutrality note) → provenance. The old search-index-based
+  cross-system section is replaced by the occurrence index.
+- **Concept map** (`content/v2/conceptGraph.ts` + `ConceptGraph.tsx`):
+  hub-and-spoke SVG over real relations only (centre + ≤8 related
+  concepts + ≤6 other traditions; hidden when sparse). Zero
+  dependencies, zero animation; nodes are keyboard-focusable router
+  links with a visible-focus CSS rule, shape- (not colour-) encoded,
+  plus a figcaption and the authoritative semantic lists.
+- **Verse reader**: related concepts render as title + summary rows
+  (`RelatedConceptRows`); search concept results carry language-aware
+  summary blurbs (`conceptSummary` in `search/rank.ts`).
+
 ## What still uses the monolith
 
 Only build-time Node (chunk generation, validators, reports) and the

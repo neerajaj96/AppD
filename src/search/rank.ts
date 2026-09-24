@@ -14,6 +14,20 @@ export interface RankedEntry {
   score: number;
 }
 
+/**
+ * One-line summary for a concept result, preferring the requested
+ * language. Index `en`/`ml` fold title + summary, so the title prefix is
+ * stripped to avoid repeating the row heading.
+ */
+export function conceptSummary(entry: SearchIndexEntry, lang: 'en' | 'ml'): string {
+  const blob = (lang === 'ml' && entry.ml ? entry.ml : entry.en) || '';
+  const title = entry.title || '';
+  let rest = blob;
+  if (title && rest.startsWith(title)) rest = rest.slice(title.length);
+  const firstLine = rest.split('\n').map((s) => s.trim()).filter(Boolean)[0] || '';
+  return firstLine.slice(0, 120);
+}
+
 export function normaliseLatin(text: string): string {
   if (!text) return '';
   return text

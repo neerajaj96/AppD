@@ -15,6 +15,7 @@ import { adaptSystemsToV2, adaptSystemThread } from '../src/content/v2/adapters.
 import { validateCorpus } from '../src/content/v2/validate.ts';
 import { buildManifest } from '../src/content/v2/chunks.ts';
 import { buildSearchIndex } from '../src/content/v2/search-index.ts';
+import { buildConceptOccurrenceIndex } from '../src/content/v2/occurrences.ts';
 import type { System } from '../src/types/content.ts';
 import type {
   ConceptIndexFile,
@@ -242,5 +243,19 @@ track(path.join(OUT, 'search-index-meta.json'), {
   kinds,
 });
 
+// Cross-text concept occurrence index: normalised identity → every text
+// occurrence with unit id/number/section only. Unit content stays lazy.
+const occurrenceIndex = buildConceptOccurrenceIndex(
+  corpus.texts.map((text) => ({
+    traditionId: text.traditionId,
+    textId: text.id,
+    concepts: text.concepts,
+    units: text.units,
+  })),
+);
+track(path.join(OUT, 'concepts', 'index.json'), occurrenceIndex);
+const multiText = occurrenceIndex.concepts.filter((c) => c.occurrences.length > 1).length;
+
 console.log(`Content chunks: ${files} files, ${(bytes / 1024 / 1024).toFixed(1)} MB → ${OUT}/`);
 console.log(`Texts: ${summaries.length} · Units: ${summaries.reduce((n, s) => n + s.unitCount, 0)} · Warnings: ${validation.warnings.length}`);
+console.log(`Concept identities: ${occurrenceIndex.concepts.length} · multi-text: ${multiText}`);

@@ -150,6 +150,13 @@ a {
   scroll-margin-top: 5rem;
 }
 
+/* Concept map keyboard focus: SVG children take a visible outline using
+   the same sattva-on-avyakta language as the global focus rule. */
+.concept-graph a:focus-visible {
+  outline: 2px solid var(--color-sattva);
+  outline-offset: 3px;
+}
+
 @media (forced-colors: active) {
   :focus-visible {
     outline-color: Highlight;

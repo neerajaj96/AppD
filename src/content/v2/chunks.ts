@@ -10,6 +10,8 @@ import {
   type V2Thread,
 } from './schema';
 
+import type { ConceptOccurrenceIndex } from './occurrences';
+
 /**
  * Chunked content delivery — the runtime replacement for importing the
  * entire corpus as one JavaScript module.
@@ -26,6 +28,7 @@ import {
  *   content/<text>/concepts/index.json      chunk map
  *   content/<text>/concepts/chunk-N.json    concepts (≤200 per chunk)
  *   content/threads/<tradition>.json        full tradition thread
+ *   content/concepts/index.json             cross-text occurrence index
  *   content/search-index.json               build-time search index
  *
  * Runtime discovers texts through the global manifest only. Chunks are
@@ -77,6 +80,10 @@ export function conceptChunkUrl(textId: string, file: string): string {
 
 export function searchIndexUrl(): string {
   return `${contentBase()}/search-index.json`;
+}
+
+export function conceptOccurrenceIndexUrl(): string {
+  return `${contentBase()}/concepts/index.json`;
 }
 
 /** One row of the global catalog — enough to navigate without any chunks. */
@@ -255,6 +262,15 @@ export class FetchChunkLoader {
 
   loadGlobalManifest(): Promise<LoadResult<GlobalManifest>> {
     return this.getJson<GlobalManifest>(globalManifestUrl());
+  }
+
+  loadConceptOccurrenceIndex(): Promise<LoadResult<ConceptOccurrenceIndex>> {
+    return this.getJson<ConceptOccurrenceIndex>(conceptOccurrenceIndexUrl());
+  }
+
+  /** Alias matching the repository's vocabulary. */
+  loadConceptIndex(): Promise<LoadResult<ConceptOccurrenceIndex>> {
+    return this.loadConceptOccurrenceIndex();
   }
 
   loadTextManifest(textId: string): Promise<LoadResult<TextManifestFile>> {

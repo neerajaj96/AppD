@@ -6,7 +6,7 @@ import type { SupportedLanguage } from '../types/i18n';
 import { useLanguage } from '../context/LanguageContext';
 import { systemNames } from '../i18n/systems';
 import { t } from '../i18n/ui';
-import { CollapsibleSection, chipBase } from './Primitives';
+import { CollapsibleSection, RowChevron, chipBase } from './Primitives';
 
 /**
  * Reference sections without the content corpus. Hits arrive as legacy
@@ -140,6 +140,44 @@ export function RelatedConceptsSection({
   return (
     <RefSection icon={<Network aria-hidden="true" className="w-4 h-4" />} title={t(language, 'relatedConcepts')} count={items.length}>
       <ConceptChips items={items} currentSystemId={currentSystemId} />
+    </RefSection>
+  );
+}
+
+/**
+ * Scholarly concept rows for the verse reader: each linked concept shows
+ * its localised title plus a short summary, so concepts read as
+ * meaningful connections rather than bare tags. Data already loaded —
+ * no extra fetching.
+ */
+export function RelatedConceptRows({ items }: { items: ConceptHit[] }) {
+  const { language } = useLanguage();
+  if (items.length === 0) return null;
+  return (
+    <RefSection icon={<Network aria-hidden="true" className="w-4 h-4" />} title={t(language, 'relatedConcepts')} count={items.length}>
+      <div className="space-y-2">
+        {items.map((hit) => {
+          const title = conceptTitleOf(hit, language);
+          const summary = hit.concept.content[language]?.summary || hit.concept.content.en?.summary;
+          return (
+            <Link
+              key={`${hit.systemId}:${hit.textId}:${hit.concept.id}`}
+              to={`/system/${hit.systemId}/text/${hit.textId}/concept/${hit.concept.id}`}
+              className="group flex items-center gap-3 rounded-xl bg-avyakta-3/50 p-4 hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
+            >
+              <span className="min-w-0 flex-1">
+                <span className="block truncate font-serif font-bold text-sattva">{title}</span>
+                {summary && (
+                  <span className="mt-0.5 block truncate text-sm text-sattva-dim" title={summary}>
+                    {summary}
+                  </span>
+                )}
+              </span>
+              <RowChevron />
+            </Link>
+          );
+        })}
+      </div>
     </RefSection>
   );
 }

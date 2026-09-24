@@ -1,31 +1,35 @@
 import { useMemo, useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router';
-import { ChevronRight, ChevronLeft, ArrowLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft, ArrowLeft, BookOpen, Globe2, Network } from 'lucide-react';
+import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
 import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
-import { getSearchClient } from '../search/client';
+import { getRepository } from '../content/v2/repository';
+import { buildConceptGraph } from '../content/v2/conceptGraph';
+import type { ConceptOccurrence } from '../content/v2/occurrences';
 import type { ConceptHit } from '../utils/references';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
 import SourceInfo from './Provenance';
 import { usePagerKeys } from '../utils/pagerKeys';
 import { SWIPE_SURFACE_STYLE, useSwipeNav } from '../utils/useSwipeNav';
-import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell, SectionTitle, SwipeHint, ActionButton } from './Primitives';
+import { BottomBar, Notice, Card, CardBody, Breadcrumb, PageShell, SectionTitle, SwipeHint, ActionButton, RowChevron, chipBase, accentTint } from './Primitives';
+import type { TraditionSummary } from '../content/v2/chunks';
 import {
   RelatedConceptsSection,
-  RelatedVersesSection,
   ThreadMentionsSection,
-  CrossSystemSection,
 } from './ReferenceLinks';
+import ConceptGraph from './ConceptGraph';
 
 /**
- * Concept article — the Wikipedia-style entry point for a single tattva /
- * padartha. Aggregates everything that links to it: defining verses, related
- * concepts, thread steps, and occurrences in other darshanas (via the
- * generated search index). Data arrives through the V2 repository.
+ * Concept article — the knowledge node for a single tattva / padartha.
+ * Identity, definition, concept map, source units, related concepts,
+ * cross-text occurrences, thread appearances, related traditions and
+ * provenance. Data arrives through the V2 repository; cross-text
+ * discovery uses the lightweight occurrence index, never full chunks.
  */
 export default function ConceptDetail() {
   const { systemId, textId, conceptId } = useParams();
@@ -137,39 +141,69 @@ export default function ConceptDetail() {
     return [...direct, ...viaUnit];
   }, [systemId, textId, conceptId, traditionThread, v2Concept]);
 
-  // Cross-darshana occurrences resolve through the generated search index
-  // (lazy, cached) rather than a corpus-wide scan.
-  const [crossSystem, setCrossSystem] = useState<ConceptHit[]>([]);
+  // Cross-text occurrences resolve through the lightweight build-time
+  // occurrence index (1.3 MB, cached per session) — never the 17 MB
+  // search index and never full unit chunks. Distinct canonical
+  // identities stay distinct; nothing is merged.
+  const [occurrences, setOccurrences] = useState<ConceptOccurrence[]>([]);
   useEffect(() => {
-    if (!systemId || !conceptId) return;
+    if (!conceptId) return;
     let live = true;
-    getSearchClient()
-      .findConceptsById(conceptId)
-      .then((hits) => {
+    getRepository()
+      .getConceptOccurrences(conceptId)
+      .then((result) => {
         if (!live) return;
-        setCrossSystem(
-          hits
-            .filter((h) => h.entry.traditionId !== systemId)
-            .map((h) => ({
-              systemId: h.entry.traditionId,
-              textId: h.entry.textId,
-              concept: {
-                id: h.entry.conceptId as never,
-                content: {
-                  en: { title: h.entry.title, summary: undefined },
-                },
-              } as ConceptHit['concept'],
-            })),
-        );
+        setOccurrences(result.status === 'ok' ? result.data : []);
       });
     return () => {
       live = false;
     };
-  }, [systemId, conceptId]);
+  }, [conceptId]);
 
   // Long defining-verse lists collapse to 12 with an explicit expander —
   // the heading always states the true total, so nothing is silently lost.
   const [versesExpanded, setVersesExpanded] = useState(false);
+
+  const traditionById = useMemo(() => {
+    if (catalog.status !== 'ok') return new Map<string, TraditionSummary>();
+    return new Map<string, TraditionSummary>(catalog.data.traditions.map((tr) => [tr.id, tr]));
+  }, [catalog]);
+
+  // Hub-and-spoke map over first-degree relations plus other traditions
+  // holding this identity. Null when too sparse — the lists below stand
+  // alone then.
+  const graph = useMemo(() => {
+    if (!systemId || !textId || !conceptId || !v2Concept) return null;
+    const graphTitle =
+      v2Concept.localisations[language]?.title || v2Concept.localisations.en?.title || conceptId;
+    return buildConceptGraph({
+      traditionId: systemId,
+      textId,
+      conceptId,
+      title: graphTitle,
+      related: related.map((h) => ({
+        traditionId: h.systemId,
+        textId: h.textId,
+        conceptId: h.concept.id as string,
+        title:
+          h.concept.content[language]?.title || h.concept.content.en?.title || (h.concept.id as string),
+      })),
+      occurrences,
+    });
+  }, [systemId, textId, conceptId, v2Concept, language, related, occurrences]);
+
+  // Occurrences grouped by other traditions (current tradition is covered
+  // by the source-unit and related-concept sections above).
+  const acrossTraditions = useMemo(() => {
+    const groups = new Map<string, ConceptOccurrence[]>();
+    for (const occ of occurrences) {
+      if (occ.traditionId === systemId) continue;
+      const list = groups.get(occ.traditionId);
+      if (list) list.push(occ);
+      else groups.set(occ.traditionId, [occ]);
+    }
+    return Array.from(groups.entries());
+  }, [occurrences, systemId]);
 
   if (catalog.status === 'loading' || textData.status === 'loading') {
     return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
@@ -241,7 +275,21 @@ export default function ConceptDetail() {
             </div>
           )}
 
-          <SourceInfo provenance={v2Concept.provenance} editorial={v2Concept.editorial} />
+          {graph && (
+            <div className="pt-6 border-t border-tamas">
+              <SectionTitle className="mb-4" icon={<Network aria-hidden="true" className="h-4 w-4" />}>
+                {t(language, 'conceptMap')}
+              </SectionTitle>
+              <ConceptGraph
+                data={graph}
+                caption={t(language, 'conceptMapSummary', {
+                  title,
+                  related: graph.satellites.filter((s) => s.kind === 'concept').length,
+                  traditions: graph.satellites.filter((s) => s.kind === 'tradition').length + 1,
+                })}
+              />
+            </div>
+          )}
 
           {verses.length > 0 && (
             <div className="pt-6 border-t border-tamas">
@@ -260,6 +308,9 @@ export default function ConceptDetail() {
                     >
                       <div className="text-sm font-semibold text-rajas mb-1">
                         {verseTermSingular} {verse.number}
+                        {verse.section && (
+                          <span className="ms-1.5 font-normal text-sattva-dim">{verse.section}</span>
+                        )}
                       </div>
                       {translation && (
                         <div className="text-sm text-sattva-dim line-clamp-2 leading-relaxed">
@@ -287,7 +338,91 @@ export default function ConceptDetail() {
 
           <RelatedConceptsSection items={related} currentSystemId={systemId} />
           <ThreadMentionsSection steps={threadSteps} />
-          <CrossSystemSection items={crossSystem} />
+
+          {occurrences.length > 0 && (
+            <div className="pt-6 border-t border-tamas">
+              <SectionTitle className="mb-1">
+                {t(language, 'appearsIn')} ({occurrences.length})
+              </SectionTitle>
+              <p className="mb-4 text-sm text-sattva-dim">
+                {t(language, 'definedIn')}: {textData.data.manifest.transliteratedTitle}
+              </p>
+              <div className="space-y-2">
+                {occurrences.map((occ) => {
+                  const trad = traditionById.get(occ.traditionId);
+                  const tradTitle = trad ? getTraditionDisplay(trad, language).title : occ.traditionId;
+                  const isSelf = occ.traditionId === systemId && occ.textId === textId;
+                  return (
+                    <Link
+                      key={`${occ.traditionId}/${occ.textId}/${occ.conceptId}`}
+                      to={`/system/${occ.traditionId}/text/${occ.textId}/concept/${occ.conceptId}`}
+                      aria-current={isSelf ? 'page' : undefined}
+                      className="group flex items-center gap-3 rounded-xl bg-avyakta-3/50 p-4 hover:bg-avyakta-3 transition-colors motion-reduce:transition-none"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl"
+                        style={{
+                          backgroundColor: accentTint(getSystemAccent(occ.traditionId).primary),
+                          color: getSystemAccent(occ.traditionId).primary,
+                        }}
+                      >
+                        <BookOpen className="h-4 w-4" />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-sm font-semibold text-sattva">
+                          {tradTitle} · {occ.title}
+                        </span>
+                        <span className="mt-0.5 block truncate text-xs tabular-nums text-sattva-dim">
+                          {t(language, 'unitsCount', { count: occ.unitCount })}
+                          {occ.units.length > 0 &&
+                            ` · ${occ.units.slice(0, 3).map((u) => u.number).join(', ')}${occ.units.length > 3 ? '…' : ''}`}
+                        </span>
+                      </span>
+                      <RowChevron />
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {acrossTraditions.length > 0 && (
+            <div className="pt-6 border-t border-tamas">
+              <SectionTitle className="mb-1">
+                {t(language, 'relatedAcrossTraditions')} ({acrossTraditions.length})
+              </SectionTitle>
+              <p className="mb-4 text-sm text-sattva-dim">{t(language, 'samenameNote')}</p>
+              <div className="space-y-4">
+                {acrossTraditions.map(([traditionId, occs]) => {
+                  const trad = traditionById.get(traditionId);
+                  const tradTitle = trad ? getTraditionDisplay(trad, language).title : traditionId;
+                  return (
+                    <div key={traditionId}>
+                      <h4 className="mb-2 flex items-center gap-1.5 text-sm font-semibold text-sattva">
+                        <Globe2 aria-hidden="true" className="h-4 w-4 text-tamas" />
+                        {tradTitle}
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {occs.map((occ) => (
+                          <Link
+                            key={`${occ.textId}/${occ.conceptId}`}
+                            to={`/system/${occ.traditionId}/text/${occ.textId}/concept/${occ.conceptId}`}
+                            className={chipBase}
+                            title={occ.title}
+                          >
+                            {occ.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          <SourceInfo provenance={v2Concept.provenance} editorial={v2Concept.editorial} />
         </CardBody>
       </Card>
       </div>

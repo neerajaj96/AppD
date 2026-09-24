@@ -170,6 +170,12 @@ const en = {
   edMlCommentary: 'Malayalam commentary',
   edReferences: 'Cross-references',
   edProvenance: 'Provenance',
+  appearsIn: 'Appears in',
+  definedIn: 'Defined in',
+  relatedAcrossTraditions: 'Related across traditions',
+  samenameNote: 'Shared names do not imply identical doctrines; each occurrence keeps its own identity.',
+  conceptMap: 'Concept map',
+  conceptMapSummary: 'Map of {title}: {related} related concepts across {traditions} traditions.',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -334,6 +340,12 @@ const ml: Record<keyof typeof en, string> = {
   edMlCommentary: 'മലയാള വ്യാഖ്യാനം',
   edReferences: 'പരാമർശങ്ങൾ',
   edProvenance: 'ഉറവവിവരം',
+  appearsIn: 'കാണപ്പെടുന്നത്',
+  definedIn: 'നിർവ്വചിച്ചിരിക്കുന്നത്',
+  relatedAcrossTraditions: 'പാരമ്പര്യങ്ങളിലുടനീളമുള്ള ബന്ധങ്ങൾ',
+  samenameNote: 'പേരുകൾ ഒന്നായാലും സിദ്ധാന്തങ്ങൾ ഒന്നാണെന്ന് അർത്ഥമില്ല; ഓരോ ഇടത്തിനും അതിന്റേതായ തനിമയുണ്ട്.',
+  conceptMap: 'ആശയ ഭൂപടം',
+  conceptMapSummary: '{title} ഭൂപടം: {traditions} പാരമ്പര്യങ്ങളിലായി {related} ബന്ധപ്പെട്ട ആശയങ്ങൾ.',
 };
 
 export type UIKey = keyof typeof en;

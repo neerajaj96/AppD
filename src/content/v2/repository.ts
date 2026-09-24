@@ -7,6 +7,8 @@ import {
   type TraditionSummary,
 } from './chunks';
 import type { CanonicalUnit, V2Concept, V2Thread } from './schema';
+import { normaliseId } from './ids';
+import type { ConceptOccurrenceIndex, ConceptOccurrence } from './occurrences';
 
 /**
  * V2 content repository — the single runtime gateway to chunked content.
@@ -21,6 +23,8 @@ export class V2Repository {
   private loader: FetchChunkLoader;
   private catalog: GlobalManifest | undefined;
   private catalogPromise: Promise<LoadResult<GlobalManifest>> | undefined;
+  private conceptIndex: ConceptOccurrenceIndex | undefined;
+  private conceptIndexPromise: Promise<LoadResult<ConceptOccurrenceIndex>> | undefined;
 
   constructor(loader?: FetchChunkLoader) {
     this.loader = loader || new FetchChunkLoader();
@@ -97,6 +101,77 @@ export class V2Repository {
   /** Full tradition thread (all texts), used by ThreadView. */
   getTraditionThread(traditionId: string): Promise<LoadResult<V2Thread[]>> {
     return this.loader.loadTraditionThread(traditionId);
+  }
+
+  /**
+   * Cross-text occurrences of one concept identity from the lightweight
+   * build-time index — no unit chunks load to discover them. Ordered by
+   * catalog tradition order, then text, so the sequence is stable and
+   * meaningful rather than alphabetical noise. Distinct canonical
+   * identities (different tradition/text/conceptId triples) are preserved
+   * as separate occurrences, never merged.
+   */
+  async getConceptOccurrences(conceptId: string): Promise<LoadResult<ConceptOccurrence[]>> {
+    const key = normaliseId(conceptId);
+    if (!key) return { status: 'missing', message: `No such concept: ${conceptId}` };
+    let index = this.conceptIndex;
+    if (!index) {
+      if (!this.conceptIndexPromise) {
+        this.conceptIndexPromise = this.loader.loadConceptIndex().then((result) => {
+          if (result.status === 'ok') this.conceptIndex = result.data;
+          else this.conceptIndexPromise = undefined;
+          return result;
+        });
+      }
+      const loaded = await this.conceptIndexPromise;
+      if (loaded.status !== 'ok') return loaded;
+      index = loaded.data;
+    }
+    const entry = index.concepts.find((e) => e.key === key);
+    if (!entry || entry.occurrences.length === 0) {
+      return { status: 'missing', message: `No such concept: ${conceptId}` };
+    }
+    const catalog = await this.getCatalog();
+    const order = new Map<string, number>();
+    if (catalog.status === 'ok') {
+      catalog.data.traditions.forEach((t, i) => order.set(t.id, i));
+    }
+    const occurrences = [...entry.occurrences].sort((a, b) => {
+      const ta = order.get(a.traditionId) ?? 999;
+      const tb = order.get(b.traditionId) ?? 999;
+      if (ta !== tb) return ta - tb;
+      if (a.traditionId !== b.traditionId) return a.traditionId < b.traditionId ? -1 : 1;
+      if (a.textId !== b.textId) return a.textId < b.textId ? -1 : 1;
+      return a.conceptId < b.conceptId ? -1 : 1;
+    });
+    return { status: 'ok', data: occurrences };
+  }
+
+  /**
+   * Thread steps of one tradition mentioning a concept, matched on the
+   * normalised identity so diacritic variants coincide. Combines direct
+   * concept steps with steps whose units the concept defines. Loads only
+   * that tradition's thread file.
+   */
+  async getTraditionConceptThreadSteps(
+    traditionId: string,
+    conceptId: string,
+  ): Promise<LoadResult<Array<{ thread: V2Thread; stepIndex: number }>>> {
+    const key = normaliseId(conceptId);
+    const threads = await this.getTraditionThread(traditionId);
+    if (threads.status !== 'ok') {
+      if (threads.status === 'missing') return { status: 'ok', data: [] };
+      return threads;
+    }
+    const out: Array<{ thread: V2Thread; stepIndex: number }> = [];
+    for (const thread of threads.data) {
+      thread.steps.forEach((step, stepIndex) => {
+        if (step.conceptId && normaliseId(step.conceptId) === key) {
+          out.push({ thread, stepIndex });
+        }
+      });
+    }
+    return { status: 'ok', data: out };
   }
 
   /** Concepts linked from one unit, resolved within the same text. */

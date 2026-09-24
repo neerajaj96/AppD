@@ -8,7 +8,7 @@ import SourceInfo from './Provenance';
 import { useReading } from '../context/ReadingContext';
 import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell, SwipeHint, ActionButton } from './Primitives';
 import {
-  RelatedConceptsSection,
+  RelatedConceptRows,
   RelatedVersesSection,
   ThreadMentionsSection,
 } from './ReferenceLinks';
@@ -517,7 +517,7 @@ export default function VerseDetail() {
 
           <SourceInfo provenance={unit.provenance} editorial={unit.editorial} />
 
-          <RelatedConceptsSection items={relatedConcepts} currentSystemId={systemId} />
+          <RelatedConceptRows items={relatedConcepts} />
           <RelatedVersesSection items={relatedVerses} title={t(language, 'relatedUnits')} verseTerm={verseTerm} />
           <ThreadMentionsSection steps={threadSteps} title={t(language, 'threadAppearances')} />
         </CardBody>
