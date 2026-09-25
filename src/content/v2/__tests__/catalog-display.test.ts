@@ -70,6 +70,7 @@ describe('no legacy-corpus imports in runtime code', () => {
     'src/content/v2/compat.ts',
     'src/content/v2/select.ts',
     'src/content/v2/textSources.ts',
+    'src/content/v2/gitaDocument.ts',
     'src/content/v2/evidenceSummary.ts',
     'src/content/v2/citation.ts',
     'src/content/v2/aliases.ts',
