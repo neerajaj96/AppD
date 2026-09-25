@@ -214,6 +214,27 @@ const en = {
   editorialNote: 'Project workflow metadata; it does not verify the historical record.',
   sourceDetails: 'Source details',
   externalLinkNote: '(external link; leaves Darśana)',
+  evidenceOverviewTitle: 'Scholarly evidence',
+  evidenceOverviewLede:
+    'What Darśana currently represents for this text: its source records, evidence relationships and coverage. Absence here describes the repository, not the historical record.',
+  metricUnits: 'Units',
+  metricSources: 'Source records',
+  metricEvidenceLinked: 'Evidence-linked',
+  metricLocatorOnly: 'Locator-only',
+  evidenceCoverageTitle: 'Evidence coverage',
+  evidenceRelationsTitle: 'Evidence relationships represented',
+  sourcesRoleCoverage: '{roled} of {total} with an explicit role',
+  evidenceSourceOnly: 'Source-associated only',
+  evidenceNotRepresented: 'Not currently represented',
+  unresolvedBody:
+    'Some units do not currently have structured source or evidence metadata in Darśana. This describes the present state of the repository, not the historical availability or validity of sources.',
+  reasonNoSourceRecord: 'No source record',
+  reasonNoUnitAssociation: 'No unit association',
+  reasonNotesWithoutMapping: 'Notes without a mappable reference',
+  reasonUnclassified: 'Unclassified',
+  openFirstEvidenceUnit: 'Open first evidence-linked unit',
+  openFirstLocatorUnit: 'Open first locator-only unit',
+  openFirstUnresolvedUnit: 'Open first unrepresented unit',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -422,6 +443,27 @@ const ml: Record<keyof typeof en, string> = {
   editorialNote: 'പദ്ധതി പ്രവർത്തനവിവരം മാത്രമാണിത്; ചരിത്രരേഖയുടെ സ്ഥിരീകരണമല്ല.',
   sourceDetails: 'ഉറവ വിവരങ്ങൾ',
   externalLinkNote: '(ബാഹ്യ കണ്ണി; ദർശനയിൽ നിന്ന് പുറത്തേക്ക്)',
+  evidenceOverviewTitle: 'ശാസ്ത്രീയ തെളിവ്',
+  evidenceOverviewLede:
+    'ഈ ഗ്രന്ഥത്തിന് ദർശനയിൽ ഇപ്പോഴുള്ളത് എന്തെന്ന്: ഉറവ രേഖകൾ, തെളിവ് ബന്ധങ്ങൾ, പരിധി. ഇവിടത്തെ അഭാവം ശേഖരത്തിന്റെ അവസ്ഥയാണ് വിവരിക്കുന്നത്, ചരിത്രരേഖയുടേതല്ല.',
+  metricUnits: 'ഏകകങ്ങൾ',
+  metricSources: 'ഉറവ രേഖകൾ',
+  metricEvidenceLinked: 'തെളിവ് ബന്ധമുള്ളവ',
+  metricLocatorOnly: 'ഉറവസ്ഥാനം മാത്രമുള്ളവ',
+  evidenceCoverageTitle: 'തെളിവ് വ്യാപ്തി',
+  evidenceRelationsTitle: 'രേഖപ്പെടുത്തിയ തെളിവ് ബന്ധങ്ങൾ',
+  sourcesRoleCoverage: '{total} രേഖകളിൽ {roled} എണ്ണത്തിന് വ്യക്തമായ പങ്കുണ്ട്',
+  evidenceSourceOnly: 'ഉറവബന്ധം മാത്രമുള്ളവ',
+  evidenceNotRepresented: 'ഇപ്പോൾ രേഖപ്പെടുത്തിയിട്ടില്ല',
+  unresolvedBody:
+    'ചില ഏകകങ്ങൾക്ക് ദർശനയിൽ ഇപ്പോൾ ഘടനാപരമായ ഉറവ അല്ലെങ്കിൽ തെളിവ് വിവരങ്ങളില്ല. ഇത് ശേഖരത്തിന്റെ ഇപ്പോഴത്തെ അവസ്ഥയാണ് വിവരിക്കുന്നത്, ഉറവകളുടെ ചരിത്രപരമായ ലഭ്യതയോ സാധുതയോ അല്ല.',
+  reasonNoSourceRecord: 'ഉറവ രേഖയില്ല',
+  reasonNoUnitAssociation: 'ഏകകബന്ധമില്ല',
+  reasonNotesWithoutMapping: 'സൂചനയുമായി ബന്ധിപ്പിക്കാൻ കഴിയാത്ത കുറിപ്പുകൾ',
+  reasonUnclassified: 'തരംതിരിവില്ലാത്തവ',
+  openFirstEvidenceUnit: 'തെളിവ് ബന്ധമുള്ള ആദ്യ ഏകകം തുറക്കുക',
+  openFirstLocatorUnit: 'ഉറവസ്ഥാനം മാത്രമുള്ള ആദ്യ ഏകകം തുറക്കുക',
+  openFirstUnresolvedUnit: 'രേഖപ്പെടുത്താത്ത ആദ്യ ഏകകം തുറക്കുക',
 };
 
 export type UIKey = keyof typeof en;

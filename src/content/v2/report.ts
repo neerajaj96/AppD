@@ -234,7 +234,13 @@ function emptyReasons(): Record<UnresolvedReason, number> {
   };
 }
 
-function auditText(textId: string, traditionId: string, units: CanonicalUnit[], sources: V2Source[]): TextEvidenceAudit {
+/**
+ * Per-text evidence audit — the single shared derivation. The corpus
+ * audit (`buildEvidenceAudit`) and the text-level reader UI both consume
+ * this function, so the two can never drift into competing calculations.
+ * Pure and deterministic: same units and sources in, same counts out.
+ */
+export function auditText(textId: string, traditionId: string, units: CanonicalUnit[], sources: V2Source[]): TextEvidenceAudit {
   let sourceLinkedUnits = 0;
   let evidenceLinkedUnits = 0;
   let locatorUnits = 0;
