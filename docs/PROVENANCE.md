@@ -144,3 +144,33 @@ records their own notes invoke.
 - bhagavad-gita: 701/714 attach the KSTS record (13 adhika appendix units unresolved)
 - Corpus provenance-bearing units: 1078/4060 (26.6%); source records exist for 6/17 texts
 - Validation: 0 errors; warnings unchanged (no new codes fired)
+
+## Evidence Audit (`npm run content:audit`)
+
+The audit makes coverage measurable without inventing data. It adapts
+the corpus, applies the same shared curation the chunk builder runs
+(`src/content/v2/curate.ts`), fails loudly on any validation error,
+then counts. Human output by default, machine-readable matrix with
+`--json`. No timestamps are embedded, so repeat runs are byte-identical.
+
+- **Dimensions are independent**: a locator-only unit (Devi-Mahatmya
+  page ranges) is never counted as evidence-linked; a source-linked
+  unit without links stays source-linked only; `fullyLinked` requires
+  a source association *plus* a link or locator.
+- **Unresolved reasons are observable states, not causes**:
+  `no-source-record` (registry empty), `no-unit-association`
+  (records exist but the unit offered no notes to match),
+  `notes-without-deterministic-mapping` (notes exist, nothing matched),
+  `unclassified` (reserved; currently zero). Causal readings — the
+  gita adhika appendix, the two devi near-misses — live in prose here
+  and in code comments, never as machine claims.
+- **Absence of structured evidence is not proof that no historical
+  source exists** — only that none is represented in this repository.
+  Likewise, unresolved does not mean incorrect.
+- **Curation queue is factual, not ranked**: curated / notes-only /
+  no-evidence lists in corpus order. No scores, no "best" text.
+
+Future curators: run the audit, pick a text from the queue, supply a
+locator table or notes-only record following the Devi-Mahatmya pilot
+pattern, extend the audit tests with its expected counts, and confirm
+validator errors stay zero.

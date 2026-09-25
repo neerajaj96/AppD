@@ -16,12 +16,7 @@ import { validateCorpus } from '../src/content/v2/validate.ts';
 import { buildManifest } from '../src/content/v2/chunks.ts';
 import { buildSearchIndex, splitSearchIndex } from '../src/content/v2/search-index.ts';
 import { buildConceptOccurrenceIndex } from '../src/content/v2/occurrences.ts';
-import { buildTextSource, extractLocatorStems, formatSourceTable, matchUnitEvidence, matchUnitLocator, matchUnitSources } from '../src/content/v2/textSources.ts';
-import { CURATED_SOURCES_BY_TEXT, SOURCE_NOTE_PREFIXES } from '../src/content/v2/curatedSources.ts';
-import { lalitaSahasranamaSourceProvenance } from '../src/content/lalita-sahasranama/lalita-sahasranama-source-provenance.ts';
-import { vishnuSahasranamaSourceProvenance } from '../src/content/vishnu-sahasranama/vishnu-sahasranama-source-provenance.ts';
-import { deviMahatmyaSourceProvenance } from '../src/content/devi-mahatmya/devi-mahatmya-source-provenance.ts';
-import { mishraSourceProvenance } from '../src/content/kashmir-shaivism/mishra-source-provenance.ts';
+import { applyProvenanceCuration } from '../src/content/v2/curate.ts';
 import type { System } from '../src/types/content.ts';
 import type {
   ConceptIndexFile,
@@ -122,85 +117,32 @@ if (args.includes('--if-missing') && fs.existsSync(path.join(OUT, 'manifest.json
 
 const corpus = adaptSystemsToV2(systems);
 
-// Text-level source records carried verbatim from legacy provenance
-// statements (free prose/tables, never parsed into invented fields).
-// The Mishra Trika companion material merged into the tantraloka text,
-// so its provenance table travels with that text.
-for (const text of corpus.texts) {
-  const record =
-    text.id === 'lalita-sahasranama'
-      ? buildTextSource(text.id, text.transliteratedTitle, lalitaSahasranamaSourceProvenance)
-      : text.id === 'vishnu-sahasranama'
-        ? buildTextSource(text.id, text.transliteratedTitle, vishnuSahasranamaSourceProvenance)
-        : text.id === 'devi-mahatmya'
-          ? buildTextSource(text.id, text.transliteratedTitle, formatSourceTable(deviMahatmyaSourceProvenance))
-          : text.id === 'tantraloka'
-            ? buildTextSource(text.id, text.transliteratedTitle, formatSourceTable(mishraSourceProvenance))
-            : null;
-  if (record) text.sources = [record];
-}
-// Pilot curation (devi-mahatmya): per-unit source locators from the
-// legacy section table, longest-stem match. Units without a match keep
-// no locator rather than receiving a guessed one. Runs before validation
-// so curated provenance is itself validated.
-{
-  const devi = corpus.texts.find((t) => t.id === 'devi-mahatmya');
-  if (devi) {
-    const stems = extractLocatorStems(deviMahatmyaSourceProvenance);
-    let matched = 0;
-    for (const unit of devi.units) {
-      if (unit.provenance?.locator) continue;
-      const locator = matchUnitLocator(unit.id, stems);
-      if (locator) {
-        unit.provenance = { ...(unit.provenance || {}), locator };
-        matched += 1;
-      }
-    }
-    const total = devi.units.length;
-    console.log(`Provenance pilot (devi-mahatmya): ${matched}/${total} units carry a source locator; ${total - matched} remain unresolved.`);
-    if (matched === 0) {
-      console.error('Provenance pilot matched zero units; refusing to emit uncurated chunks.');
-      process.exit(1);
-    }
-  }
-}
-// Scaled curation (Class A texts): curated edition registries plus
-// per-unit sourceIds exactly where a unit's own notes invoke the source,
-// with precise evidence links carrying each candidate's curated relation.
-// Appendix/adhika units without edition notes attach nothing.
-for (const [textId, records] of Object.entries(CURATED_SOURCES_BY_TEXT)) {
-  const text = corpus.texts.find((t) => t.id === textId);
-  if (!text) {
+// Provenance curation (shared with the evidence audit): text records,
+// devi locators and Class A sourceIds/evidence links. Guards below
+// preserve the historical failure policy of this script.
+const curation = applyProvenanceCuration(corpus);
+const curatedTextIds = Object.keys(curation.stats);
+for (const textId of curatedTextIds) {
+  if (!corpus.texts.some((t) => t.id === textId)) {
     console.error(`Curated sources reference unknown text ${textId}; refusing to emit.`);
     process.exit(1);
   }
-  text.sources = [...(text.sources || []), ...records];
-  const candidates = SOURCE_NOTE_PREFIXES.filter((c) => c.textId === textId);
-  let attached = 0;
-  let bare = 0;
-  for (const unit of text.units) {
-    const notes = (unit.interpretiveNotes || []).map((n) => n.note);
-    const ids = matchUnitSources(notes, candidates);
-    const known = ids.filter((id) => records.some((r) => r.id === id));
-    if (known.length > 0) {
-      unit.sourceIds = [...(unit.sourceIds || []), ...known.filter((id) => !(unit.sourceIds || []).includes(id))];
-      const links = matchUnitEvidence(notes, candidates).filter((link) =>
-        known.includes(link.sourceId),
-      );
-      if (links.length > 0) {
-        const existing = unit.evidenceLinks || [];
-        unit.evidenceLinks = [
-          ...existing,
-          ...links.filter((link) => !existing.some((e) => e.sourceId === link.sourceId)),
-        ];
-      }
-      attached += 1;
-    } else {
-      bare += 1;
-    }
+}
+{
+  const devi = curation.stats['devi-mahatmya'];
+  const total = corpus.texts.find((t) => t.id === 'devi-mahatmya')?.units.length ?? 0;
+  console.log(`Provenance pilot (devi-mahatmya): ${devi?.locatorMatched ?? 0}/${total} units carry a source locator; ${total - (devi?.locatorMatched ?? 0)} remain unresolved.`);
+  if ((devi?.locatorMatched ?? 0) === 0) {
+    console.error('Provenance pilot matched zero units; refusing to emit uncurated chunks.');
+    process.exit(1);
   }
-  console.log(`Provenance curation (${textId}): ${attached}/${text.units.length} units attach sources; ${bare} remain unresolved.`);
-  if (attached === 0) {
+}
+for (const textId of curatedTextIds) {
+  if (textId === 'devi-mahatmya') continue;
+  const text = corpus.texts.find((t) => t.id === textId);
+  const stats = curation.stats[textId];
+  console.log(`Provenance curation (${textId}): ${stats?.attached ?? 0}/${text?.units.length ?? 0} units attach sources; ${stats?.bare ?? 0} remain unresolved.`);
+  if ((stats?.attached ?? 0) === 0) {
     console.error(`Curated sources for ${textId} matched zero units; refusing to emit.`);
     process.exit(1);
   }
