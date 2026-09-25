@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ExternalLink } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { t, type UIKey } from '../i18n/ui';
-import type { EditorialFieldState, EditorialStatus, SourceProvenance, SourceRecordRole, V2EvidenceRelation, V2Source } from '../content/v2/schema';
+import type { EditorialFieldState, EditorialStatus, SourceProvenance, SourceRecordRole, V2EvidenceLink, V2EvidenceRelation, V2Source } from '../content/v2/schema';
 import { copyText } from '../content/v2/citation';
 import { announce } from '../a11y';
-import { CollapsibleSection, SectionTitle } from './Primitives';
+import { CollapsibleSection, DisclosureChevron, SectionTitle } from './Primitives';
 
 /**
  * Restrained Source / Textual information area (Prompt 4).
@@ -141,6 +142,44 @@ export const EVIDENCE_RELATION_LABEL: Record<V2EvidenceRelation, UIKey> = {
   provenance: 'relationProvenance',
 };
 
+/**
+ * Crash-safe lookups for role/relation labels. Typed callers always hit,
+ * but repository payloads arrive as JSON — an unrecognised value renders
+ * nothing instead of throwing inside `t()`.
+ */
+export function sourceRoleLabelKey(role: string | undefined): UIKey | undefined {
+  if (!role) return undefined;
+  return (SOURCE_ROLE_LABEL as Record<string, UIKey | undefined>)[role];
+}
+
+/** Crash-safe lookup for evidence-relation labels; unknown values render nothing. */
+export function evidenceRelationLabelKey(relation: string | undefined): UIKey | undefined {
+  if (!relation) return undefined;
+  return (EVIDENCE_RELATION_LABEL as Record<string, UIKey | undefined>)[relation];
+}
+
+export interface EvidenceRow {
+  source: V2Source;
+  relation?: V2EvidenceRelation;
+}
+
+/**
+ * Pair each attached source with its evidence relation, preserving every
+ * record in registry order. Sources without a link keep no relation (the
+ * card renders normally, never fabricating one); dangling link targets
+ * match nothing and are ignored.
+ */
+export function resolveEvidenceRows(
+  sources: V2Source[],
+  evidenceLinks?: V2EvidenceLink[],
+): EvidenceRow[] {
+  return sources.map((source) => {
+    const link = (evidenceLinks || []).find((l) => l.sourceId === source.id);
+    const relation = link && evidenceRelationLabelKey(link.relation) ? link.relation : undefined;
+    return { source, relation };
+  });
+}
+
 export default function SourceInfo({
   provenance,
   editorial,
@@ -174,25 +213,32 @@ export function ProvenanceContent({
   return (
     <div className="space-y-4">
       {prov.length > 0 && <ProvRows rows={prov} />}
-      {ed.length > 0 && (
-        <div>
-          <h4 className="t-label text-tamas mb-2">{t(language, 'edTitle')}</h4>
-          <dl className="space-y-1.5">
-            {ed.map((row) => (
-              <div key={row.field} className="flex items-baseline justify-between gap-3 text-sm">
-                <dt className="shrink-0 text-tamas">{t(language, ED_FIELD_LABEL[row.field])}</dt>
-                <dd className="text-right text-sattva-dim">{t(language, ED_STATE_LABEL[row.state])}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      )}
+      {ed.length > 0 && <EditorialRows rows={ed} />}
+    </div>
+  );
+}
+
+/** Field-level editorial workflow state, kept separate from source evidence. */
+export function EditorialRows({ rows }: { rows: EdRow[] }) {
+  const { language } = useLanguage();
+  return (
+    <div>
+      <h4 className="t-label text-tamas mb-2">{t(language, 'edTitle')}</h4>
+      <dl className="space-y-1.5">
+        {rows.map((row) => (
+          <div key={row.field} className="flex items-baseline justify-between gap-3 text-sm">
+            <dt className="shrink-0 text-tamas">{t(language, ED_FIELD_LABEL[row.field])}</dt>
+            <dd className="text-right text-sattva-dim">{t(language, ED_STATE_LABEL[row.state])}</dd>
+          </div>
+        ))}
+      </dl>
+      <p className="t-caption text-tamas mt-2">{t(language, 'editorialNote')}</p>
     </div>
   );
 }
 
 /** Shared definition-list rendering for provenance rows. */
-function ProvRows({ rows }: { rows: ProvRow[] }) {
+export function ProvRows({ rows }: { rows: ProvRow[] }) {
   const { language } = useLanguage();
   return (
     <dl className="space-y-2">
@@ -210,6 +256,8 @@ function ProvRows({ rows }: { rows: ProvRow[] }) {
                 className="break-all underline decoration-rajas/40 underline-offset-2 hover:text-sattva transition-colors motion-reduce:transition-none"
               >
                 {row.value}
+                <ExternalLink aria-hidden="true" focusable="false" className="ms-1 inline h-3.5 w-3.5 shrink-0 align-baseline" />
+                <span className="sr-only">{t(language, 'externalLinkNote')}</span>
               </a>
             ) : (
               <span className="break-words">{row.value}</span>
@@ -222,31 +270,101 @@ function ProvRows({ rows }: { rows: ProvRow[] }) {
 }
 
 /**
- * One source record as a stable, linkable card. Only carried fields
- * render — the record id anchors it as a semantic reference. An
- * optional evidence relation names what this source supports for the
- * calling unit; without one the card shows the source normally.
+ * Quiet semantic badge naming what an attached source establishes for one
+ * unit. Bracketed text (never colour alone) carries the meaning; the chip
+ * stays visually secondary to the source title.
+ */
+export function EvidenceRelationBadge({ relation }: { relation: V2EvidenceRelation }) {
+  const { language } = useLanguage();
+  const key = evidenceRelationLabelKey(relation);
+  if (!key) return null;
+  return (
+    <span className="inline-flex shrink-0 items-center rounded-full border border-tamas-deep bg-avyakta-3 px-2 py-0.5 text-xs font-semibold text-sattva-dim">
+      [{t(language, key)}]
+    </span>
+  );
+}
+
+/**
+ * One source record as a compact expandable row. The title leads; the
+ * source role (what the source IS for Darśana) renders as a quiet line
+ * while the evidence relation (what the source establishes for this
+ * unit) renders as a bracketed badge — the two are never merged into one
+ * label. Full edition metadata opens in place; a record carrying nothing
+ * beyond its title renders statically with no empty disclosure.
  */
 export function SourceCard({ source, relation }: { source: V2Source; relation?: V2EvidenceRelation }) {
   const { language } = useLanguage();
-  const qualifiers = [
-    source.role ? t(language, SOURCE_ROLE_LABEL[source.role]) : '',
-    relation ? t(language, EVIDENCE_RELATION_LABEL[relation]) : '',
-  ].filter(Boolean);
+  const roleKey = sourceRoleLabelKey(source.role);
+  const relationKey = evidenceRelationLabelKey(relation);
+  const details = provenanceRows(source);
+  const header = (
+    <span className="min-w-0 flex-1">
+      <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+        {relationKey && relation && <EvidenceRelationBadge relation={relation} />}
+        <span className="font-serif font-bold text-sattva break-words">{source.title}</span>
+      </span>
+      {roleKey && <span className="mt-0.5 block text-xs text-tamas">{t(language, roleKey)}</span>}
+    </span>
+  );
+  // Nothing to expand: show the source normally, without fabricating chrome.
+  if (details.length === 0) {
+    return (
+      <article aria-label={source.title} className="border-b border-tamas-deep py-2.5 last:border-b-0">
+        {header}
+      </article>
+    );
+  }
   return (
     <article
       id={`source-${source.id}`}
       aria-label={source.title}
-      className="rounded-2xl border border-tamas-deep bg-avyakta-2 p-5"
+      className="border-b border-tamas-deep py-1 last:border-b-0"
     >
-      <h4 className="font-serif font-bold text-sattva break-words">{source.title}</h4>
-      <p className="mt-0.5 text-xs tabular-nums text-tamas">
-        {qualifiers.length > 0 ? `${qualifiers.join(' · ')} · ` : ''}{source.id}
-      </p>
-      <div className="mt-3">
-        <ProvRows rows={provenanceRows(source)} />
-      </div>
+      <details className="group">
+        <summary className="flex cursor-pointer list-none items-start gap-2.5 rounded-lg py-2.5 [&::-webkit-details-marker]:hidden">
+          {header}
+          <span className="sr-only">{t(language, 'sourceDetails')}</span>
+          <DisclosureChevron open={false} className="mt-1 shrink-0 group-open:rotate-180" />
+        </summary>
+        <div className="pb-3">
+          <ProvRows rows={details} />
+        </div>
+      </details>
     </article>
+  );
+}
+
+/**
+ * Compact evidence list for one unit: every attached source stays
+ * represented as its own expandable row with its own relation badge.
+ * With no attachments, a localised empty state explains the absence —
+ * absence from the repository never claims absence of a historical
+ * source.
+ */
+export function EvidenceList({ rows }: { rows: EvidenceRow[] }) {
+  const { language } = useLanguage();
+  return (
+    <section aria-label={t(language, 'evidenceTitle')}>
+      <h4 className="t-label text-tamas mb-1">
+        {t(language, 'evidenceTitle')}
+        {rows.length > 0 && <span className="ms-1.5 font-medium">({rows.length})</span>}
+      </h4>
+      {rows.length > 0 ? (
+        <ul>
+          {rows.map(({ source, relation }) => (
+            <li key={source.id}>
+              <SourceCard source={source} relation={relation} />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className="py-1">
+          <p className="text-sm font-semibold text-sattva">{t(language, 'noSourcesTitle')}</p>
+          <p className="t-body-sans text-sattva-dim mt-0.5">{t(language, 'noSourcesBody')}</p>
+        </div>
+      )}
+    </section>
   );
 }
 
@@ -268,31 +386,48 @@ export function SourceList({ sources }: { sources: V2Source[] }) {
 export function CitationText({ citation }: { citation: string }) {
   const { language } = useLanguage();
   return (
-    <p aria-label={t(language, 'citationLabel')} className="t-body-sans text-sattva-dim break-words">
+    <p aria-label={t(language, 'citationLabel')} className="t-body-sans text-sattva-dim break-words [overflow-wrap:anywhere]">
       {citation}
     </p>
   );
 }
 
-/** Copy-citation action with polite success / assertive failure announcements. */
+/**
+ * Copy-citation action. The visible label never depends on hover; success
+ * swaps the label briefly while failure shows a persistent inline error.
+ * Screen-reader confirmation travels through the shared live-region
+ * announcer (mirroring the reader share control: visual feedback stays
+ * aria-hidden so the message is never announced twice). No new clipboard
+ * abstraction — the shared `copyText` helper does the work.
+ */
 export function CitationButton({ citation }: { citation: string }) {
   const { language } = useLanguage();
-  const [copied, setCopied] = useState(false);
+  const [state, setState] = useState<'idle' | 'copied' | 'failed'>('idle');
+  const timer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(timer.current), []);
   return (
-    <button
-      type="button"
-      onClick={async () => {
-        const ok = await copyText(citation);
-        announce(t(language, ok ? 'citationCopied' : 'citationCopyFailed'), ok ? 'polite' : 'assertive');
-        if (ok) {
-          setCopied(true);
-          window.setTimeout(() => setCopied(false), 2000);
-        }
-      }}
-      aria-label={t(language, 'copyCitation')}
-      className="inline-flex items-center justify-center min-h-11 px-5 py-2.5 rounded-xl text-sm font-semibold bg-avyakta-3 border border-tamas-deep text-sattva hover:bg-avyakta-4 transition-colors motion-reduce:transition-none"
-    >
-      {copied ? t(language, 'citationCopied') : t(language, 'copyCitation')}
-    </button>
+    <div className="space-y-1.5">
+      <button
+        type="button"
+        onClick={async () => {
+          window.clearTimeout(timer.current);
+          const ok = await copyText(citation);
+          announce(t(language, ok ? 'citationCopied' : 'citationCopyFailed'), ok ? 'polite' : 'assertive');
+          setState(ok ? 'copied' : 'failed');
+          if (ok) {
+            timer.current = window.setTimeout(() => setState('idle'), 2000);
+          }
+        }}
+        aria-label={t(language, 'copyCitation')}
+        className="inline-flex items-center justify-center min-h-11 px-5 py-2.5 rounded-xl text-sm font-semibold bg-avyakta-3 border border-tamas-deep text-sattva hover:bg-avyakta-4 transition-colors motion-reduce:transition-none"
+      >
+        {state === 'copied' ? t(language, 'citationCopied') : t(language, 'copyCitation')}
+      </button>
+      {state !== 'idle' && (
+        <p aria-hidden="true" className={`text-xs ${state === 'copied' ? 'text-teal' : 'text-crimson'}`}>
+          {t(language, state === 'copied' ? 'citationCopied' : 'citationCopyFailed')}
+        </p>
+      )}
+    </div>
   );
 }

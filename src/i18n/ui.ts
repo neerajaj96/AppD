@@ -206,6 +206,14 @@ const en = {
   relationCommentary: 'Commentary',
   relationInterpretation: 'Interpretation',
   relationProvenance: 'Provenance',
+  evidenceTitle: 'Evidence',
+  sourceLocatorLabel: 'Source locator',
+  noSourcesTitle: 'No source attached',
+  noSourcesBody: 'No structured source association has been established for this unit.',
+  locatorOnlyNote: 'No finer-grained source relationship has been established.',
+  editorialNote: 'Project workflow metadata; it does not verify the historical record.',
+  sourceDetails: 'Source details',
+  externalLinkNote: '(external link; leaves Darśana)',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -406,6 +414,14 @@ const ml: Record<keyof typeof en, string> = {
   relationCommentary: 'ഭാഷ്യം',
   relationInterpretation: 'അർത്ഥവ്യാഖ്യാനം',
   relationProvenance: 'ഉറവ് രേഖ',
+  evidenceTitle: 'തെളിവ്',
+  sourceLocatorLabel: 'ഉറവസ്ഥാനം',
+  noSourcesTitle: 'ഉറവ ചേർത്തിട്ടില്ല',
+  noSourcesBody: 'ഈ ഏകകത്തിന് ഘടനാപരമായ ഉറവബന്ധം സ്ഥാപിക്കപ്പെട്ടിട്ടില്ല.',
+  locatorOnlyNote: 'സൂക്ഷ്മതല ഉറവബന്ധമൊന്നും സ്ഥാപിക്കപ്പെട്ടിട്ടില്ല.',
+  editorialNote: 'പദ്ധതി പ്രവർത്തനവിവരം മാത്രമാണിത്; ചരിത്രരേഖയുടെ സ്ഥിരീകരണമല്ല.',
+  sourceDetails: 'ഉറവ വിവരങ്ങൾ',
+  externalLinkNote: '(ബാഹ്യ കണ്ണി; ദർശനയിൽ നിന്ന് പുറത്തേക്ക്)',
 };
 
 export type UIKey = keyof typeof en;

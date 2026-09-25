@@ -4,7 +4,7 @@ import { ChevronRight, ChevronLeft, ArrowLeft, Share2, Check, Bookmark } from 'l
 import Markdown from 'react-markdown';
 import RichText from './RichText';
 import ReadingControls from './ReadingControls';
-import { CitationButton, CitationText, ProvenanceContent, SourceCard } from './Provenance';
+import { CitationButton, CitationText, EditorialRows, EvidenceList, ProvRows, editorialRows, provenanceRows, resolveEvidenceRows } from './Provenance';
 import { formatCitation, selectCitationSource, unitCanonicalUrl } from '../content/v2/citation';
 import type { V2Source } from '../content/v2/schema';
 import { useReading } from '../context/ReadingContext';
@@ -29,10 +29,14 @@ import type { CanonicalUnit } from '../content/v2/schema';
 import type { TextManifestFile } from '../content/v2/chunks';
 
 /**
- * Sources & Citation area for one canonical unit. Distinguishes the
- * source record(s) attached through `sourceIds`, the unit's own
- * provenance/editorial state, and the deterministic citation — without
- * duplicating identical information or inventing absent fields.
+ * Scholarly apparatus for one canonical unit, ordered to answer: what is
+ * the citation, what source relationship is established, where is the
+ * unit located, and what is its editorial state. Citation first
+ * (compact but prominent), then evidence rows pairing each attached
+ * source with its own relation badge, then the unit's provenance
+ * locator kept strictly separate from evidence relations, then
+ * editorial workflow metadata — never implying review equals
+ * historical verification. Citation generation is untouched.
  */
 function UnitSourceArea({
   unit,
@@ -58,8 +62,7 @@ function UnitSourceArea({
   // relation when evidence links establish one, else the first attached
   // source — identical output wherever no precise link exists.
   const primary = selectCitationSource(attached, unit.evidenceLinks);
-  const relationFor = (sourceId: string) =>
-    unit.evidenceLinks?.find((link) => link.sourceId === sourceId)?.relation;
+  const rows = resolveEvidenceRows(attached, unit.evidenceLinks);
   const origin = typeof window !== 'undefined' ? window.location.origin : '';
   const citation = formatCitation({
     textTitle: manifest.transliteratedTitle,
@@ -72,13 +75,20 @@ function UnitSourceArea({
     page: primary?.page || unit.provenance?.page,
     url: unitCanonicalUrl(origin, systemId, textId, verseId),
   });
+  const locator = unit.provenance?.locator?.trim();
+  const ed = editorialRows(unit.editorial);
+  const showProvenance = Boolean(locator) || provenanceRows(unit.provenance).length > 0;
   return (
     <CollapsibleSection title={t(language, 'sourcesAndCitation')} defaultOpen={false}>
-      <div className="space-y-4">
-        {attached.map((source) => (
-          <SourceCard key={source.id} source={source} relation={relationFor(source.id)} />
-        ))}
-        <ProvenanceContent provenance={unit.provenance} editorial={unit.editorial} />
+      <div className="space-y-6">
+        <section aria-label={t(language, 'citeThisUnit')}>
+          <h4 className="t-label text-tamas mb-2">{t(language, 'citeThisUnit')}</h4>
+          <div className="space-y-2">
+            <CitationText citation={citation} />
+            <CitationButton citation={citation} />
+          </div>
+        </section>
+        <EvidenceList rows={rows} />
         {attached.length === 0 && registryCount > 0 && (
           <p className="text-sm text-sattva-dim">
             <Link
@@ -89,11 +99,29 @@ function UnitSourceArea({
             </Link>
           </p>
         )}
-        <div className="space-y-2 border-t border-tamas-deep pt-4">
-          <h4 className="t-label text-tamas">{t(language, 'citeThisUnit')}</h4>
-          <CitationText citation={citation} />
-          <CitationButton citation={citation} />
-        </div>
+        {showProvenance && (
+          <section aria-label={t(language, 'edProvenance')}>
+            <h4 className="t-label text-tamas mb-2">{t(language, 'edProvenance')}</h4>
+            {locator ? (
+              <dl className="space-y-2">
+                <div className="flex items-baseline justify-between gap-3 text-sm">
+                  <dt className="shrink-0 text-tamas">{t(language, 'sourceLocatorLabel')}</dt>
+                  <dd className="min-w-0 text-right text-sattva-dim break-words">{locator}</dd>
+                </div>
+              </dl>
+            ) : (
+              <ProvRows rows={provenanceRows(unit.provenance)} />
+            )}
+            {attached.length === 0 && locator && (
+              <p className="t-body-sans text-sattva-dim mt-1.5">{t(language, 'locatorOnlyNote')}</p>
+            )}
+          </section>
+        )}
+        {ed.length > 0 && (
+          <section aria-label={t(language, 'edTitle')}>
+            <EditorialRows rows={ed} />
+          </section>
+        )}
       </div>
     </CollapsibleSection>
   );
