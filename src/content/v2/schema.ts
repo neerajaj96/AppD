@@ -124,6 +124,20 @@ export interface CanonicalUnit {
   unitType: UnitType;
   devanagari?: string;
   iast?: string;
+  /**
+   * Speaker label exactly as printed in the source edition, where the
+   * edition states one (e.g. Gītā `अर्जुन`). Absent means no label is
+   * printed at that unit — normal mid-run — never an unknown speaker.
+   * Optional: units without edition evidence stay absent, never guessed.
+   */
+  speaker?: string;
+  /**
+   * The edition's own number for this unit where it differs from, or
+   * clarifies, the canonical `number` (e.g. Gītā KSTS `12` for canonical
+   * `2.11`, `78-79` for a split verse, `6.10` for transposed text).
+   * Absent means identical to canonical or unestablished — never invented.
+   */
+  sourceNumber?: string;
   /** Language-independent metadata (metre, adhyāya, pāda, …). */
   metadata?: Record<string, string>;
   localisations: Partial<Record<SupportedV2Language, UnitLocalisation>>;

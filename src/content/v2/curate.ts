@@ -3,6 +3,7 @@ import { lalitaSahasranamaSourceProvenance } from '../lalita-sahasranama/lalita-
 import { vishnuSahasranamaSourceProvenance } from '../vishnu-sahasranama/vishnu-sahasranama-source-provenance';
 import { mishraSourceProvenance } from '../kashmir-shaivism/mishra-source-provenance';
 import { CURATED_SOURCES_BY_TEXT, SOURCE_NOTE_PREFIXES } from './curatedSources';
+import { GITA_ADHIKA_MAP, GITA_UNIT_MAP, gitaSourceNumber } from './gitaPageMap';
 import {
   buildTextSource,
   extractLocatorStems,
@@ -40,6 +41,10 @@ export interface TextCurationStats {
   bare: number;
   /** Devi-Mahatmya units that gained a source locator. */
   locatorMatched: number;
+  /** Gītā units that gained backbone fields (speaker/sourceNumber/locator). */
+  backboneMapped?: number;
+  /** Gītā units with no backbone row (vulgate-only or unmapped). */
+  backboneUnmapped?: number;
 }
 
 export interface CurationResult {
@@ -94,8 +99,8 @@ export function applyProvenanceCuration(corpus: V2Corpus): CurationResult {
   // Scaled curation (Class A texts): curated edition registries plus
   // per-unit sourceIds exactly where a unit's own notes invoke the
   // source, with precise evidence links carrying each candidate's
-  // curated relation. Appendix/adhika units without edition notes
-  // attach nothing.
+  // curated relation. Gītā adhika units invoke the same KSTS record
+  // through their appendix prefix.
   for (const [textId, records] of Object.entries(CURATED_SOURCES_BY_TEXT)) {
     const text = corpus.texts.find((t) => t.id === textId);
     if (!text) continue;
@@ -124,6 +129,36 @@ export function applyProvenanceCuration(corpus: V2Corpus): CurationResult {
       }
     }
     stats[textId] = textStats;
+  }
+
+  // Gītā source backbone (Phase 2): speaker labels, KSTS source numbers
+  // and printed-folio locators from the verified page map. Only fields
+  // with deterministic source evidence are set; vulgate-only units keep
+  // no KSTS-backed fields rather than receiving guesses.
+  {
+    const gita = corpus.texts.find((t) => t.id === 'bhagavad-gita');
+    if (gita) {
+      const textStats = stats['bhagavad-gita'] || emptyStats();
+      let mapped = 0;
+      let unmapped = 0;
+      for (const unit of gita.units) {
+        const row = GITA_UNIT_MAP[unit.id] || GITA_ADHIKA_MAP[unit.id];
+        if (!row) {
+          unmapped += 1;
+          continue;
+        }
+        mapped += 1;
+        if (row.speaker && !unit.speaker) unit.speaker = row.speaker;
+        const sourceNumber = gitaSourceNumber(unit.id);
+        if (sourceNumber && !unit.sourceNumber) unit.sourceNumber = sourceNumber;
+        if (row.folio !== undefined && !unit.provenance?.locator) {
+          unit.provenance = { ...(unit.provenance || {}), locator: `p. ${row.folio}` };
+        }
+      }
+      textStats.backboneMapped = (textStats.backboneMapped || 0) + mapped;
+      textStats.backboneUnmapped = (textStats.backboneUnmapped || 0) + unmapped;
+      stats['bhagavad-gita'] = textStats;
+    }
   }
 
   return { stats };

@@ -485,3 +485,94 @@ presented as Rāmakaṇṭha.
 8. Joint-commentary units (18.74–75, 76–77): one unit with spans vs.
    linked units (phase 5 decision).
 9. Any second witness for readings where only `पु.` disagrees.
+
+---
+
+## Phase 2 implementation status
+
+Implemented in `feat: build Bhagavad Gita Sarvatobhadra source backbone`
+(Phase-1 findings above are preserved unchanged). Categories below use
+the same **[FACT]** / **[CURRENT]** / **[PROPOSAL]** / **[OPEN]** labels.
+
+### Implemented and source-verified
+
+**[FACT]** Canonical↔KSTS concordance (`src/content/v2/gitaPageMap.ts`,
+701 mūla rows + 13 adhika rows + 13 extras). Determination method per
+chapter: KSTS verse-text markers extracted from the file, validated by
+(1) exact 1..N coverage per chapter, (2) 126 running-head cross-checks
+with zero violations, (3) anchor matching of distinctive verses against
+vulgate order, (4) absence searches for every claimed omission, (5)
+manual review of all duplicates and gaps. Results:
+
+- Identical numbering: chs. 1, 4, 7, 8, 10, 12, 14, 15, 16, 17
+  (endpoints plus mid-anchors verified; residual compensating-swap
+  risk noted but unevidenced).
+- KSTS extras (numbered, no canonical counterpart): 2.11, 2.50,
+  3.38–42, 6.39 (shares V37cd), 9.7, 11.28, 11.47, 11.48, 11.49,
+  11.50 (13 in `GITA_KSTS_EXTRAS`; shared-span numbers stay mapped).
+- Vulgate verses absent from KSTS (verified by absence search):
+  13.1 question, 11.46, 5.19-in-ch.5 (its text stands as KSTS 6.10),
+  V47ab (`मया प्रसादेन`), V37ab (`कस्माच्च`), V33ab, V34ab.
+- Recombinations: repo 6.37 spans KSTS 38–39; repo 11.39 spans
+  40–41; repo 11.40 spans 41–42; repo 18.78 spans 78–79; KSTS
+  18.61/62 number only first halves (seconds unnumbered:
+  भ्रामयन्, मत्प्रसादात्परां सिद्धिं); many ch. 11 second halves print
+  numbered with first halves unnumbered (`partial` rows).
+- Chapter-13 fix: repo 13.1 is vulgate-only (note corrected — the old
+  "Kashmir-only" claim was inverted against the file); repo
+  13.2–13.35 map to KSTS 1–34; all 34 legacy concordance notes were
+  mechanically corrected (`KSTS 13.(N-1) = vulgate 13.N`).
+- Page/folio map: all 716 KSTS verses to PDF pages (printed = PDF −
+  10); 712 canonical units carry `p. NNN` locators (13.1 and 11.46
+  honestly locator-less). Speaker labels exactly as printed (23
+  भगवान्-fused forms included); null means no printed label, normal
+  mid-run.
+- Chapters (`gitaChapters.ts`): 18 contiguous rows with PDF/printed
+  ranges, both numbering systems, extras and absences.
+- Spans (`gitaSpans.ts`): 18.74–75 and 18.76–77 joint spans;
+  11.26–30 निगद-pentad noted but left unverified for span semantics.
+- References (`gitaXrefs.ts`): 53 quotation edges, each pairing
+  quoted text with its printed locator and a quote-identified target
+  (KSTS-numbered, proven by the (11,47) test). Disagreeing refs
+  (mismatched numbers, fused footnote digits, span-quotes) were
+  excluded and are listed as **[OPEN]** items for re-examination, not
+  silently dropped — see §12 of Phase 1, extended below.
+- Schema: optional `speaker` and `sourceNumber` on `CanonicalUnit`
+  (generic, justified in code comments); curation applies the backbone
+  (speaker, sourceNumber, folio locator) for bhagavad-gita only.
+- Adhika fix: the 13 appendix units attach the KSTS record through
+  their `KSTS LXIV p.431:` prefix with the `text` relation (same
+  layer as mūla links — the appendix prints their Sanskrit).
+  Mappings: adhika.3–7 → KSTS 3.38–42, adhika.8 → KSTS 2.50
+  (repo host label `→4.50` contradicts the evidence — flagged, not
+  edited), adhika.10 → KSTS 9.7, adhika.11 → KSTS 11.28,
+  adhika.1/2/9/12/13 appendix-anchored with inline notes.
+- Errata/variants: `GitaVariant`/`GitaErratum` models,
+  `parseErratumRow` (unambiguous rows only), `GITA_SIGLA` with `पु.`
+  preserved unexplained. No mass import (per plan).
+
+**[CURRENT]** Audit figures after Phase 2 (all changes data-driven):
+sourceIds 909 (+13 adhika), evidenceLinks 909, locators 894 (+712
+Gītā folios), fullyLinked 909, unresolved 2969 (−13); Gītā row:
+714 linked / 714 evidence-linked / 712 locator-linked / 0 unresolved.
+Validation 0 errors, warnings unchanged at 484. Production build
+succeeds.
+
+### Intentionally deferred
+
+**[PROPOSAL]** Unchanged from Phase 1: root Sanskrit/IAST import (the
+representation — raw vs normalised, errata as explicit relations — is
+specified, the text is not yet carried); variant mass-import (185
+notes + table); commentary segmentation; concept/thread generation;
+reader changes; chapter-title display (still project metadata).
+
+### Newly unresolved (from Phase-2 evidence)
+
+**[OPEN]** In addition to Phase-1 §12: (a) ~25 excluded reference
+edges with mismatched or fused refs (mechanism per edge: Rāmakaṇṭha
+slip vs footnote-merge vs insertion — needs page-image confirmation);
+(b) repo adhika.8 host label `→4.50` vs evidence `2.50`; (c) whether
+the `यष्टुं शीलं`-style glosses ever cross into verse status (ruled
+commentary here); (d) half-numbered ab-halves needing pāda-level
+collation before Sanskrit import; (e) unparenthesised cross-quotes
+(e.g. नानारूपैः on printed p. 279) for a later reference pass.

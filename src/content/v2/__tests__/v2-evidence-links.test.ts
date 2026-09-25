@@ -135,7 +135,8 @@ describe('curated evidence links (real corpus)', () => {
       'commentary',
       'text',
     ]);
-    expect((byText.get('bhagavad-gita') || []).map((c) => c.relation)).toEqual(['text']);
+    // Gītā: the mūla prefix plus the appendix prefix, both text layer.
+    expect((byText.get('bhagavad-gita') || []).map((c) => c.relation)).toEqual(['text', 'text']);
   });
 
   it('keeps devi-mahatmya free of evidence links (locators are not associations)', () => {

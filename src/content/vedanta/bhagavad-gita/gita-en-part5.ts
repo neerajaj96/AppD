@@ -8,9 +8,9 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Kashmir-only opening question; absent in Śaṅkara vulgate."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Vulgate opening question (Śaṅkara 13.1); not numbered among the 34 KSTS chapter-13 verses, which begin इदं शरीरं as 13.1. Canonical numbering follows vulgate here."}],
     "translation": "Arjuna asks to know prakriti, purusha, kshetra, kshetrajna, jnana and jneya.",
-    "commentary": "This introductory question is absent in vulgate Shankara but present in Kashmir recension. Ramakantha uses it to frame Ch.13 as jnana-karma-samuccaya bhumika.",
+    "commentary": "This introductory question is Śaṅkara's 13.1; the KSTS edition numbers 34 verses beginning इदं शरीरं as its 13.1–13.34. In this project's reading it frames Ch.13 as jnana-karma-samuccaya bhumika.",
     "keyPoints": ["Kashmir extra prccha", "frames kshetra-vicara"]
   },
   {
@@ -20,7 +20,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.2 = vulgate 13.1."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.1 = vulgate 13.2."}],
     "translation": "This body is called kshetra, and one who knows it is called kshetrajna.",
     "commentary": "Kshetra is the objective field, kshetrajna the knower. Ramakantha stresses kshetrajna as Shiva-svarupa sakshin, not mere jiva.",
     "keyPoints": ["deha=kshetra", "jnata=kshetrajna"]
@@ -32,7 +32,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.3 = vulgate 13.2."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.2 = vulgate 13.3."}],
     "translation": "Know Me as kshetrajna in all kshetras; knowledge of both is true jnana.",
     "commentary": "Universalizes the knower as Ishvara. Ramakantha reads this as advaya Shaiva atman, witnessing all fields without division.",
     "keyPoints": ["sarva-kshetra eka jnata", "jnana-lakshana"]
@@ -44,7 +44,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.4 = vulgate 13.3."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.3 = vulgate 13.4."}],
     "translation": "Hear briefly what the field is, its nature, modifications, origin, and the knower's power.",
     "commentary": "Programmatic verse for six questions. Ramakantha divides exposition into kshetra-svarupa, vikara, and kshetrajna-mahima.",
     "keyPoints": ["shad-prashna", "samasena exposition"]
@@ -56,7 +56,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.5 = vulgate 13.4."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.4 = vulgate 13.5."}],
     "translation": "It has been sung by rishis in various hymns and settled Brahmasutra aphorisms.",
     "commentary": "Authority is shruti and yukti. Ramakantha cites Shaiva agamas alongside Vedanta-sutras as pramana.",
     "keyPoints": ["rishi-vacana", "hetumad Brahma-sutra"]
@@ -68,7 +68,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.6 = vulgate 13.5."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.5 = vulgate 13.6."}],
     "translation": "The field comprises great elements, ahankara, buddhi, avyakta, ten senses plus mind, and five sense-objects.",
     "commentary": "Samkhya 24-tattva enumeration adapted. Ramakantha maps avyakta to maya-shakti, not independent prakriti.",
     "keyPoints": ["24-tattva kshetra", "Samkhya frame"]
@@ -80,7 +80,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.7 = vulgate 13.6."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.6 = vulgate 13.7."}],
     "translation": "Desire, hatred, pleasure, pain, the aggregate, consciousness-signs, and resolve are modifications of the field.",
     "commentary": "Vikaras are dharmas of kshetra, not of atman. Ramakantha insists cetana here is anta-karana-vritti, not pure caitanya.",
     "keyPoints": ["vikara=kshetra-dharma", "cetana as vritti"]
@@ -92,7 +92,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.8 = vulgate 13.7."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.7 = vulgate 13.8."}],
     "translation": "Humility, pridelessness, nonviolence, patience, honesty, teacher-service, purity, steadfastness and self-control constitute jnana.",
     "commentary": "First of jnana-sadhana virtues. Ramakantha treats them as karma-shuddhi preparing samuccaya.",
     "keyPoints": ["amanitya etc.", "jnana-sadhana"]
@@ -104,7 +104,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.9 = vulgate 13.8."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.8 = vulgate 13.9."}],
     "translation": "Dispassion toward sense-objects, egolessness, and constant perception of suffering in birth, death, age and disease.",
     "commentary": "Vairagya and dosha-darshana detach from kshetra. Ramakantha pathantara links this discipline directly to kshetrajna-avabodha, hence  gloss.",
     "keyPoints": ["vairagya", "janma-duhkha-darshana"]
@@ -116,7 +116,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.10 = vulgate 13.9."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.9 = vulgate 13.10."}],
     "translation": "Non-attachment without clinging to son, wife and home, and constant equanimity in pleasant and unpleasant events.",
     "commentary": "Asakti is inner freedom while acting. Ramakantha allows grihastha-karma with samuccaya, not forced sannyasa.",
     "keyPoints": ["asakti", "sama-cittatva"]
@@ -128,7 +128,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.11 = vulgate 13.10."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.10 = vulgate 13.11."}],
     "translation": "Unswerving devotion to Me through exclusive yoga, resort to solitude, and distaste for crowds.",
     "commentary": "Bhakti stabilizes jnana. Ramakantha reads ananya-bhakti as Shivaika-bhakti, support for karma-jnana unity.",
     "keyPoints": ["ananya-bhakti", "vivikta-seva"]
@@ -140,7 +140,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.12 = vulgate 13.11."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.11 = vulgate 13.12."}],
     "translation": "Constancy in self-knowledge and insight into the goal of truth-knowledge is called jnana, all else is ajnana.",
     "commentary": "Closes the 20-fold jnana list. Ramakantha: these are means, not end; jneya follows.",
     "keyPoints": ["adhyatma-nityatva", "jnana/ajnana divide"]
@@ -152,7 +152,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha: Rāmakantha: na sannāsat tad ucyate."}, {"note": "Concordance: Kashmir 13.13 = vulgate 13.12."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha: Rāmakantha: na sannāsat tad ucyate."}, {"note": "Concordance: KSTS 13.12 = vulgate 13.13."}],
     "translation": "I shall teach the knowable by which immortality is gained, beginningless supreme Brahman called neither being nor non-being.",
     "commentary": "Jneya transcends sat/asat categories. Ramakantha:   emphasizes anubhava-avyapadesya Shiva-tattva beyond affirmation-negation.",
     "keyPoints": ["anadi para Brahman", "na san-na-asat"]
@@ -164,7 +164,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.14 = vulgate 13.13."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.13 = vulgate 13.14."}],
     "translation": "Everywhere hands and feet, everywhere eyes, heads, mouths and ears, it abides enveloping all.",
     "commentary": "Omnipresence through borrowed organs. Ramakantha: Shakti-vyapti, not physical limbs.",
     "keyPoints": ["sarvatah-pani", "vyapti"]
@@ -176,7 +176,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.15 = vulgate 13.14."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.14 = vulgate 13.15."}],
     "translation": "Shining through all sense-qualities yet devoid of senses, detached yet sustaining all, attributeless yet experiencing gunas.",
     "commentary": "Paradox of nirguna-saguna. Ramakantha resolves via svatantrya: Shiva reveals through instruments without bondage.",
     "keyPoints": ["nirguna yet bhoktri", "svatantrya"]
@@ -188,7 +188,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.16 = vulgate 13.15."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.15 = vulgate 13.16."}],
     "translation": "Outside and inside beings, moving and unmoving, subtle hence unknowable, yet far and near.",
     "commentary": "Proximity is epistemic, not spatial. Ramakantha: subtlety requires diksha-shuddha buddhi.",
     "keyPoints": ["bahir-antah", "suksmatva"]
@@ -200,7 +200,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.17 = vulgate 13.16."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.16 = vulgate 13.17."}],
     "translation": "Undivided yet standing as if divided among beings, the knowable sustains, devours and creates beings.",
     "commentary": "One sustainer appearing manifold. Ramakantha: srishti-samhara as Shiva-kritya.",
     "keyPoints": ["avibhakta-vibhakta", "bharta-prabhavishnu"]
@@ -212,7 +212,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.18 = vulgate 13.17."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.17 = vulgate 13.18."}],
     "translation": "Light of lights beyond darkness, knowledge itself, the knowable and goal of knowledge, seated in every heart.",
     "commentary": "Hridaya-stha jyotis is directly realisable. Ramakantha: heart is samvit-pitha.",
     "keyPoints": ["jyotir-jyotis", "hridi-sthita"]
@@ -224,7 +224,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.19 = vulgate 13.18."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.18 = vulgate 13.19."}],
     "translation": "Thus field, knowledge and knowable are briefly told; knowing this My devotee attains My state.",
     "commentary": "Phala-shruti for jnana-prakarana. Ramakantha: mad-bhava is Shivatva-patti through samuccaya.",
     "keyPoints": ["samasa-upasamhara", "mad-bhava"]
@@ -236,7 +236,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.20 = vulgate 13.19."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.19 = vulgate 13.20."}],
     "translation": "Know prakriti and purusha both as beginningless; modifications and gunas arise from prakriti.",
     "commentary": "Dual beginningless principles for vyavahara. Ramakantha subordinates both to Parama-Shiva as prakasha-vimarsha.",
     "keyPoints": ["ubhau anadi", "vikara from prakriti"]
@@ -248,7 +248,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha: Rāmakantha: kārya-kāraṇa (vs kārya-karaṇa)."}, {"note": "Concordance: Kashmir 13.21 = vulgate 13.20."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Rāmakantha pāṭha: Rāmakantha: kārya-kāraṇa (vs kārya-karaṇa)."}, {"note": "Concordance: KSTS 13.20 = vulgate 13.21."}],
     "translation": "Prakriti is declared the cause of effect-instrument-agency, purusha of experiencing pleasure and pain.",
     "commentary": "Division of kartrtva and bhoktrtva. Ramakantha patha  (karya-karana, effect-cause) stresses sharira-indriya as karya-karana, correcting .",
     "keyPoints": ["prakriti=kartrtva-hetu", "purusha=bhokta"]
@@ -260,7 +260,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.22 = vulgate 13.21."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.21 = vulgate 13.22."}],
     "translation": "Purusha seated in prakriti enjoys prakriti-born gunas; attachment to gunas causes good and evil births.",
     "commentary": "Bondage is sanga, not svarupa. Ramakantha: guna-sanga is mala, removable by jnana-karma-shuddhi.",
     "keyPoints": ["guna-sanga", "yoni-karana"]
@@ -272,7 +272,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.23 = vulgate 13.22."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.22 = vulgate 13.23."}],
     "translation": "In this body the supreme Purusha is witness, approver, supporter, enjoyer, great Lord and supreme Self.",
     "commentary": "Sixfold maheshvara-linga. Ramakantha highlights Maheshvara nama as Shaiva pratyabhijna.",
     "keyPoints": ["upadrashtri etc.", "Maheshvara"]
@@ -284,7 +284,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.24 = vulgate 13.23."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.23 = vulgate 13.24."}],
     "translation": "Who knows purusha and prakriti with gunas is not reborn however he lives.",
     "commentary": "Jivanmukti assurance. Ramakantha: sarvatha vartamano'pi = samuccaya-yukta grihastha also liberated.",
     "keyPoints": ["tattva-viveka", "apunarjanma"]
@@ -296,7 +296,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.25 = vulgate 13.24."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.24 = vulgate 13.25."}],
     "translation": "Some see the Self by meditation, others by Samkhya-yoga, others by karma-yoga.",
     "commentary": "Adhikari-bheda with same lakshya. Ramakantha harmonizes them as samuccaya stages, not exclusive alternatives.",
     "keyPoints": ["dhyana-samkhya-karma", "adhikari-bheda"]
@@ -308,7 +308,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.26 = vulgate 13.25."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.25 = vulgate 13.26."}],
     "translation": "Others unknowing worship after hearing from others; they too cross death through devotion to hearing.",
     "commentary": "Shruti-parayana as valid path for manda. Ramakantha validates agama-shravana for unlettered.",
     "keyPoints": ["shrutva-upasana", "manda-adhikara"]
@@ -320,7 +320,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.27 = vulgate 13.26."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.26 = vulgate 13.27."}],
     "translation": "Whatever existent, moving or unmoving, arises from union of kshetra and kshetrajna.",
     "commentary": "All srishti is samyoga. Ramakantha: samyoga is Shakti-sparsha, not real mixture.",
     "keyPoints": ["kshetra-kshetrajna-samyoga", "sarva-utpatti"]
@@ -332,7 +332,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.28 = vulgate 13.27."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.27 = vulgate 13.28."}],
     "translation": "Who sees the supreme Lord equally abiding in all beings, imperishable in the perishing, truly sees.",
     "commentary": "Sama-darshana is true vision. Ramakantha: Parameshvara-darshana dissolves bheda-buddhi.",
     "keyPoints": ["sama-darshana", "avinashyan"]
@@ -344,7 +344,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.29 = vulgate 13.28."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.28 = vulgate 13.29."}],
     "translation": "Seeing the Lord equally everywhere, one does not injure the self by the self and attains the supreme goal.",
     "commentary": "Non-himsa follows from equality. Ramakantha: atma-himsa is guna-sanga; avoidance is moksha-marga.",
     "keyPoints": ["a-himsa", "param gati"]
@@ -356,7 +356,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.30 = vulgate 13.29."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.29 = vulgate 13.30."}],
     "translation": "Who sees all actions done by prakriti alone and the Self as non-doer truly sees.",
     "commentary": "Akartrtva-darshana. Ramakantha: Shiva as akarta witnesses maya-karma; jnana-karma union preserves this.",
     "keyPoints": ["prakriti-kartrtva", "atma-akartrtva"]
@@ -368,7 +368,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.31 = vulgate 13.30."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.30 = vulgate 13.31."}],
     "translation": "When one sees manifold beings grounded in One and expanding from It, one attains Brahman.",
     "commentary": "Ekastha-darshana leads to Brahma-sampatti. Ramakantha: eka is samvit, vistara its sphuratta.",
     "keyPoints": ["eka-stha", "Brahma-sampatti"]
@@ -380,7 +380,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.32 = vulgate 13.31."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.31 = vulgate 13.32."}],
     "translation": "Beginningless and attributeless, this imperishable supreme Self though in body neither acts nor is tainted.",
     "commentary": "Asanga despite deha-sthiti. Ramakantha: nirgunatva does not deny svatantrya-shakti.",
     "keyPoints": ["anadi-nirguna", "a-lipyamana"]
@@ -392,7 +392,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.33 = vulgate 13.32."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.32 = vulgate 13.33."}],
     "translation": "As all-pervading ether is unstained by subtlety, so the Self everywhere in body is unstained.",
     "commentary": "Akasha-drishtanta for asanga. Ramakantha uses it to defend embodied liberation.",
     "keyPoints": ["akasha-drishtanta", "asanga"]
@@ -404,7 +404,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.34 = vulgate 13.33."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.33 = vulgate 13.34."}],
     "translation": "As one sun illumines this whole world, so the field-knower illumines the whole field.",
     "commentary": "Prakasha is bodha. Ramakantha: kshetri as prakasha, kshetra as prakashya-vimarsha.",
     "keyPoints": ["surya-drishtanta", "prakasha"]
@@ -416,7 +416,7 @@ export const gitaEnPart5: any[] = [
     "devanagari": "",
     "iast": "",
     "conceptIds": ["gita-ksetra"],
-    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: Kashmir 13.35 = vulgate 13.34."}],
+    "interpretiveNotes": [{"note": "Kashmir Series of Texts and Studies No. LXIV (1943): Bhagavadgītā with Sarvatobhadra of Rājānaka Rāmakantha, ed. Madhusudan Kaul Shastri; Sanskrit-only source, English rendering original to this project."}, {"note": "Concordance: KSTS 13.34 = vulgate 13.35."}],
     "translation": "Those who know by wisdom-eye the distinction of field and knower and liberation from elemental prakriti reach the Supreme.",
     "commentary": "Phala: jnana-cakshu gives moksha. Ramakantha closes kshetra-adhyaya as samuccaya-purva.",
     "keyPoints": ["jnana-cakshu", "prakriti-moksha"]

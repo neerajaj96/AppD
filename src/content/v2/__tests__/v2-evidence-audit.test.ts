@@ -48,12 +48,12 @@ describe('evidence audit corpus totals', () => {
     expect(audit.textsWithSources).toBe(6);
     expect(audit.sourceRecords).toBe(8);
     expect(audit.sourcesWithRoles).toBe(4);
-    expect(audit.sourceLinkedUnits).toBe(896);
-    expect(audit.evidenceLinkedUnits).toBe(896);
-    expect(audit.locatorUnits).toBe(182);
+    expect(audit.sourceLinkedUnits).toBe(909);
+    expect(audit.evidenceLinkedUnits).toBe(909);
+    expect(audit.locatorUnits).toBe(894);
     expect(audit.locatorOnlyUnits).toBe(182);
-    expect(audit.fullyLinkedUnits).toBe(896);
-    expect(audit.unresolvedUnits).toBe(2982);
+    expect(audit.fullyLinkedUnits).toBe(909);
+    expect(audit.unresolvedUnits).toBe(2969);
     const byId = new Map(audit.perText.map((t) => [t.textId, t]));
     expect(byId.get('yoga-sutras')).toMatchObject({
       unitCount: 195,
@@ -63,8 +63,10 @@ describe('evidence audit corpus totals', () => {
     });
     expect(byId.get('bhagavad-gita')).toMatchObject({
       unitCount: 714,
-      sourceLinkedUnits: 701,
-      unresolvedUnits: 13,
+      sourceLinkedUnits: 714,
+      evidenceLinkedUnits: 714,
+      locatorUnits: 712,
+      unresolvedUnits: 0,
     });
     expect(byId.get('devi-mahatmya')).toMatchObject({
       unitCount: 184,
@@ -111,7 +113,7 @@ describe('evidence audit roles and relations', () => {
       commentary: 2,
       unclassified: 4,
     });
-    expect(audit.evidenceRelationCounts).toEqual({ commentary: 388, text: 896 });
+    expect(audit.evidenceRelationCounts).toEqual({ commentary: 388, text: 909 });
   });
 });
 
@@ -120,12 +122,10 @@ describe('evidence audit unresolved reasons', () => {
     const audit = buildEvidenceAudit(curatedCorpus());
     // 4,060 − 1,655 units in the six sourced texts.
     expect(audit.unresolvedReasons['no-source-record']).toBe(2405);
-    expect(audit.unresolvedReasons['notes-without-deterministic-mapping']).toBe(15);
+    expect(audit.unresolvedReasons['notes-without-deterministic-mapping']).toBe(2);
     expect(audit.unresolvedReasons['no-unit-association']).toBe(335 + 144 + 83);
-    const gita = audit.unresolved.find(
-      (r) => r.textId === 'bhagavad-gita' && r.reason === 'notes-without-deterministic-mapping',
-    );
-    expect(gita?.units).toBe(13);
+    const gita = audit.unresolved.find((r) => r.textId === 'bhagavad-gita');
+    expect(gita).toBeUndefined();
     const devi = audit.unresolved.find(
       (r) => r.textId === 'devi-mahatmya' && r.reason === 'notes-without-deterministic-mapping',
     );

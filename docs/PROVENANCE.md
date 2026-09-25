@@ -141,8 +141,8 @@ records their own notes invoke.
 
 - devi-mahatmya: 182/184 units with locators (2 near-misses unresolved)
 - yoga-sutras: 195/195 attach sources (193 × 3 records, IV.17/IV.18 × 2)
-- bhagavad-gita: 701/714 attach the KSTS record (13 adhika appendix units unresolved)
-- Corpus provenance-bearing units: 1078/4060 (26.6%); source records exist for 6/17 texts
+- bhagavad-gita: 714/714 attach the KSTS record (13 adhika units through the appendix prefix); 712 carry printed-folio locators from the Phase-2 source backbone (13.1 and 11.46 are vulgate-only with no KSTS location)
+- Corpus provenance-bearing units: 1091/4060 (26.9%); source records exist for 6/17 texts
 - Validation: 0 errors; warnings unchanged (no new codes fired)
 
 ## Evidence Audit (`npm run content:audit`)
@@ -161,9 +161,9 @@ then counts. Human output by default, machine-readable matrix with
   `no-source-record` (registry empty), `no-unit-association`
   (records exist but the unit offered no notes to match),
   `notes-without-deterministic-mapping` (notes exist, nothing matched),
-  `unclassified` (reserved; currently zero). Causal readings — the
-  gita adhika appendix, the two devi near-misses — live in prose here
-  and in code comments, never as machine claims.
+  `unclassified` (reserved; currently zero). Causal readings — the two
+  devi near-misses — live in prose here and in code comments, never as
+  machine claims.
 - **Absence of structured evidence is not proof that no historical
   source exists** — only that none is represented in this repository.
   Likewise, unresolved does not mean incorrect.

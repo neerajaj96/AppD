@@ -1,7 +1,7 @@
 import { FetchChunkLoader } from '../chunks';
 import { V2Repository } from '../repository';
 import { validateCorpus } from '../validate';
-import { buildTextSource, extractLocatorStems, formatSourceTable, joinSourceNotes, matchUnitLocator, matchUnitSources } from '../textSources';
+import { buildTextSource, extractLocatorStems, formatSourceTable, joinSourceNotes, matchUnitEvidence, matchUnitLocator, matchUnitSources } from '../textSources';
 import { CURATED_SOURCES_BY_TEXT, SOURCE_NOTE_PREFIXES } from '../curatedSources';
 import { adaptSystemsToV2 } from '../adapters';
 import { systems } from '../../../content/index';
@@ -308,6 +308,10 @@ describe('scaled curation (Class A texts)', () => {
         if (ids.length > 0) {
           unit.sourceIds = ids;
           counts[ids.length] = (counts[ids.length] || 0) + 1;
+          // Mirror curate.ts: precise links ride along with the match.
+          unit.evidenceLinks = matchUnitEvidence(notes, candidates).filter((link) =>
+            ids.includes(link.sourceId),
+          );
         }
       }
       // Every attached id resolves in the text registry (validator re-checks).
@@ -320,10 +324,17 @@ describe('scaled curation (Class A texts)', () => {
         expect(counts).toEqual({ 3: 193, 2: 2 });
       }
       if (textId === 'bhagavad-gita') {
-        expect(counts).toEqual({ 1: 701 });
+        expect(counts).toEqual({ 1: 714 });
         const bare = text.units.filter((u) => !(u.sourceIds || []).length);
-        expect(bare).toHaveLength(13);
-        expect(bare.every((u) => u.id.startsWith('adhika.'))).toBe(true);
+        expect(bare).toHaveLength(0);
+        // Adhika appendix units attach the same KSTS record through
+        // their appendix prefix, with the text relation.
+        for (const u of text.units.filter((u) => u.id.startsWith('adhika.'))) {
+          expect(u.sourceIds).toEqual(['bhagavad-gita-source-ksts-64']);
+          expect(u.evidenceLinks).toEqual([
+            { sourceId: 'bhagavad-gita-source-ksts-64', relation: 'text' },
+          ]);
+        }
       }
     }
     expect(validateCorpus(corpus).errors).toEqual([]);

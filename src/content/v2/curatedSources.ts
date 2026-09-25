@@ -84,7 +84,8 @@ export const CURATED_SOURCES_BY_TEXT: Record<string, CuratedSource[]> = {
  * Note prefixes identifying which curated source a unit's interpretive
  * note invokes, in stable registry order. A unit attaches exactly the
  * records whose notes it carries — 193 yoga units attach all three,
- * IV.17/IV.18 attach two, gita adhika units attach none.
+ * IV.17/IV.18 attach two, gita adhika units attach the KSTS record
+ * through their appendix prefix.
  */
 export interface SourceNotePrefix {
   textId: string;
@@ -94,6 +95,9 @@ export interface SourceNotePrefix {
    * Precise layer this source supports for matching units, stated only
    * where the unit notes say so explicitly:
    * - Kashi/KSTS notes name the edition the Sanskrit text comes from.
+   * - The adhika `KSTS LXIV p.431:` prefix names the same edition's
+   *   appendix as the source of the extra verses — hence `text`, the
+   *   same layer as the mūla links, not a weaker association.
    * - Vivekananda/Satyananda notes say the work was consulted for a
    *   gloss *in the commentary* — hence commentary, not interpretation.
    */
@@ -105,4 +109,5 @@ export const SOURCE_NOTE_PREFIXES: Array<SourceNotePrefix> = [
   { textId: 'yoga-sutras', sourceId: 'yoga-sutras-source-vivekananda-raja-yoga', prefix: 'Swami Vivekananda, Raja-Yoga', relation: 'commentary' },
   { textId: 'yoga-sutras', sourceId: 'yoga-sutras-source-satyananda-four-chapters', prefix: 'Swami Satyananda Saraswati, Four Chapters on Freedom', relation: 'commentary' },
   { textId: 'bhagavad-gita', sourceId: 'bhagavad-gita-source-ksts-64', prefix: 'Kashmir Series of Texts and Studies No. LXIV', relation: 'text' },
+  { textId: 'bhagavad-gita', sourceId: 'bhagavad-gita-source-ksts-64', prefix: 'KSTS LXIV p.431:', relation: 'text' },
 ];
