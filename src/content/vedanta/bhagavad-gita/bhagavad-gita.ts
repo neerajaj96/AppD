@@ -1,6 +1,6 @@
 // Bhagavad Gītā with the Sarvatobhadra of Rājānaka Rāmakantha (KSTS LXIV, 1943).
 // One compiled text: 701 mūla verses (Kashmir recension: 700 + the extra 13.1
-// opening question) + 13 adhika-padyāni appendix verses, 25 concepts, 18 thread steps.
+// opening question) + 13 adhika-padyāni appendix verses, 25 concepts + 7 Rāmakaṇṭha-grounded pilot concepts, 18 thread steps.
 // English complete; Malayalam verses follow (concepts/thread already bilingual).
 import { ClassicalText, ThreadStep } from '../../../types/content';
 import { buildClassicalText, buildSystemThread } from '../../factory';
@@ -20,6 +20,7 @@ import { gitaMlPart6 } from './gita-ml-part6';
 import { gitaMlAdhika } from './gita-ml-adhika';
 import { gitaConceptsEn } from './gita-concepts-en';
 import { gitaConceptsMl } from './gita-concepts-ml';
+import { gitaRamakanthaConcepts } from './gita-ramakantha-concepts';
 import { gitaThreadEn } from './gita-thread-en';
 import { gitaThreadMl } from './gita-thread-ml';
 
@@ -60,7 +61,7 @@ export const bhagavadGitaText: ClassicalText = buildClassicalText(
     ml: allMlVerses,
   },
   {
-    en: gitaConceptsEn,
+    en: [...gitaConceptsEn, ...gitaRamakanthaConcepts],
     ml: gitaConceptsMl,
   }
 );

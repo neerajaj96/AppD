@@ -166,6 +166,120 @@ export interface V2Concept {
   localisations: Partial<Record<SupportedV2Language, UnitLocalisation>>;
   provenance?: SourceProvenance;
   editorial?: EditorialStatus;
+  /**
+   * Scholarly provenance of the concept record itself. `legacy-project`
+   * marks records authored from project commentary before source
+   * grounding existed; `source-grounded` marks records whose terms and
+   * occurrences trace to the source edition. Absent stays absent (older
+   * records predate the distinction); curation backfills Gītā records.
+   */
+  status?: ConceptProvenanceStatus;
+  /** Source terms (Layer A) with normalised scholarly labels (Layer B). */
+  sourceTerms?: V2SourceTerm[];
+  /** Evidence-backed occurrences; replaces bare unit-id lists. */
+  occurrences?: V2ConceptOccurrence[];
+  /** Typed relationships; each carries its own evidence. */
+  conceptLinks?: V2ConceptLink[];
+}
+
+/**
+ * Concept-record provenance. Only these two states exist: a record is
+ * either project-authored (`legacy-project`) or source-traced
+ * (`source-grounded`). Interpretive claims (Layer C) live in occurrence
+ * notes and link evidence, never in this flag.
+ */
+export const CONCEPT_PROVENANCE_STATUSES = ['legacy-project', 'source-grounded'] as const;
+
+export type ConceptProvenanceStatus = (typeof CONCEPT_PROVENANCE_STATUSES)[number];
+
+export function isConceptProvenanceStatus(value: unknown): value is ConceptProvenanceStatus {
+  return typeof value === 'string' && (CONCEPT_PROVENANCE_STATUSES as readonly string[]).includes(value);
+}
+
+/**
+ * How a concept label relates to the source. `attested` (verbatim
+ * Devanagari form found in print), `normalised` (editorial IAST head
+ * form), `translated` (rendered into another language),
+ * `inferred` (analytical label — never presented as a quotation).
+ */
+export const CONCEPT_TERM_KINDS = ['attested', 'normalised', 'translated', 'inferred'] as const;
+
+export type ConceptTermKind = (typeof CONCEPT_TERM_KINDS)[number];
+
+export function isConceptTermKind(value: unknown): value is ConceptTermKind {
+  return typeof value === 'string' && (CONCEPT_TERM_KINDS as readonly string[]).includes(value);
+}
+
+export interface V2SourceTerm {
+  /** Exact form (`कर्म`, `Karman`, `action`). */
+  form: string;
+  kind: ConceptTermKind;
+  /** Script/language of the form where not obvious. */
+  language?: 'sa' | 'en' | 'ml';
+  note?: string;
+}
+
+/**
+ * One evidence-backed occurrence: the full chain from concept to
+ * source. Folio and KSTS number resolve through the text's page map
+ * (e.g. `gitaPageMap`) at validation/render time; an explicit `folio`
+ * is carried only when the evidence sits off the verse page
+ * (avataraṇikā, front matter), and then `unmappedReason` is required.
+ * Commentary-span precision stays pending until segmentation exists —
+ * the `context` field says what granularity this row actually has.
+ */
+export interface V2ConceptOccurrence {
+  /** Canonical unit carrying the occurrence. */
+  unitId: string;
+  /** Exact printed source term at this occurrence, where distinctive. */
+  sourceTerm?: string;
+  /** Which layer establishes it (`text` for mūla terms, `commentary` for glosses). */
+  relation?: V2EvidenceRelation;
+  /** Granularity/role, e.g. `pratīka gloss`, `nanu resolution`, `avataraṇikā`. */
+  context?: string;
+  /** Explicit folio when the evidence sits off the verse page. */
+  folio?: number;
+  /** Required when the unit has no KSTS row (front/chapter-opening matter). */
+  unmappedReason?: string;
+  /** Brief verbatim fragment (Devanāgarī only — enforced). */
+  quote?: string;
+  note?: string;
+}
+
+/**
+ * Typed concept relationships. Only these types exist; each link
+ * carries evidence (supporting units and/or a note) — co-occurrence
+ * alone never justifies a link.
+ */
+export const CONCEPT_LINK_TYPES = [
+  'synonymous-with',
+  'variant-of',
+  'broader-than',
+  'narrower-than',
+  'presupposes',
+  'contrasts-with',
+  'explains',
+  'qualified-by',
+  'leads-to',
+  'inseparable-from',
+  'distinguished-from',
+  'identified-with',
+] as const;
+
+export type ConceptLinkType = (typeof CONCEPT_LINK_TYPES)[number];
+
+export function isConceptLinkType(value: unknown): value is ConceptLinkType {
+  return typeof value === 'string' && (CONCEPT_LINK_TYPES as readonly string[]).includes(value);
+}
+
+export interface V2ConceptLink {
+  /** Target concept id (same text unless evidence says otherwise). */
+  to: string;
+  type: ConceptLinkType;
+  /** Supporting canonical units. */
+  units?: string[];
+  /** Why the link holds, with source grounding. */
+  note?: string;
 }
 
 export interface V2ThreadStep {

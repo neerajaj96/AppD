@@ -161,5 +161,20 @@ export function applyProvenanceCuration(corpus: V2Corpus): CurationResult {
     }
   }
 
+  // Gītā concept layer (Phase 3): backfill provenance status on the
+  // twenty-five legacy project concepts (they predate source grounding
+  // and must never masquerade as Rāmakaṇṭha-derived). Pilot concepts
+  // arrive through the content pipeline with status already set;
+  // legacy files stay untouched and the status lives where validation
+  // observes it.
+  {
+    const gita = corpus.texts.find((t) => t.id === 'bhagavad-gita');
+    if (gita) {
+      for (const concept of gita.concepts) {
+        if (!concept.status) concept.status = 'legacy-project';
+      }
+    }
+  }
+
   return { stats };
 }

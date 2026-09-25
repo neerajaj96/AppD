@@ -27,6 +27,41 @@ export interface Concept {
   relatedConceptIds?: ConceptId[];
   category?: string;
   content: Partial<Record<SupportedLanguage, LocalizedContent>>;
+  /**
+   * Scholarly provenance of the record (Phase 3 Gītā ontology).
+   * `legacy-project`: authored from project commentary before source
+   * grounding existed. `source-grounded`: terms and occurrences trace
+   * to the source edition. Canonical vocabularies live in
+   * `src/content/v2/schema.ts` (`ConceptProvenanceStatus`,
+   * `ConceptTermKind`, `ConceptLinkType`); these inline literals mirror
+   * them so the base type stays dependency-free.
+   */
+  status?: 'legacy-project' | 'source-grounded';
+  /** Source terms with per-form layer kinds (Layer A vs Layer B). */
+  sourceTerms?: Array<{
+    form: string;
+    kind: 'attested' | 'normalised' | 'translated' | 'inferred';
+    language?: 'sa' | 'en' | 'ml';
+    note?: string;
+  }>;
+  /** Evidence-backed occurrences (canonical unit + commentary context). */
+  occurrences?: Array<{
+    unitId: string;
+    sourceTerm?: string;
+    relation?: 'text' | 'translation' | 'commentary' | 'interpretation' | 'provenance';
+    context?: string;
+    folio?: number;
+    unmappedReason?: string;
+    quote?: string;
+    note?: string;
+  }>;
+  /** Typed relationships, each carrying its own evidence. */
+  conceptLinks?: Array<{
+    to: string;
+    type: 'synonymous-with' | 'variant-of' | 'broader-than' | 'narrower-than' | 'presupposes' | 'contrasts-with' | 'explains' | 'qualified-by' | 'leads-to' | 'inseparable-from' | 'distinguished-from' | 'identified-with';
+    units?: string[];
+    note?: string;
+  }>;
 }
 
 type BaseThreadStep = {

@@ -3,10 +3,12 @@ import { useParams, Link, useNavigate } from 'react-router';
 import { ChevronRight, ChevronLeft, ArrowLeft, BookOpen, Globe2, Network } from 'lucide-react';
 import { getSystemAccent } from '../utils/theme';
 import { useLanguage } from '../context/LanguageContext';
-import { t } from '../i18n/ui';
+import { t, type UIKey } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
 import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
+import { gitaMapForUnit } from '../content/v2/gitaPageMap';
+import type { ConceptLinkType, ConceptTermKind } from '../content/v2/schema';
 import { getRepository } from '../content/v2/repository';
 import { buildConceptGraph } from '../content/v2/conceptGraph';
 import type { ConceptOccurrence } from '../content/v2/occurrences';
@@ -30,7 +32,55 @@ import ConceptExplorer from './concept-graph/ConceptExplorer';
  * cross-text occurrences, thread appearances, related traditions and
  * provenance. Data arrives through the V2 repository; cross-text
  * discovery uses the lightweight occurrence index, never full chunks.
+ *
+ * Scholarly provenance (Phase 3): source-grounded records show their
+ * Sanskrit terms, evidence occurrences (unit → KSTS → folio) and typed
+ * relationships; legacy project records carry an explicit badge so they
+ * never masquerade as source-derived scholarship.
  */
+
+const TERM_KIND_LABEL: Record<ConceptTermKind, UIKey> = {
+  attested: 'termAttested',
+  normalised: 'termNormalised',
+  translated: 'termTranslated',
+  inferred: 'termInferred',
+};
+
+const LINK_TYPE_LABEL: Record<ConceptLinkType, UIKey> = {
+  'synonymous-with': 'relSynonymousWith',
+  'variant-of': 'relVariantOf',
+  'broader-than': 'relBroaderThan',
+  'narrower-than': 'relNarrowerThan',
+  presupposes: 'relPresupposes',
+  'contrasts-with': 'relContrastsWith',
+  explains: 'relExplains',
+  'qualified-by': 'relQualifiedBy',
+  'leads-to': 'relLeadsTo',
+  'inseparable-from': 'relInseparableFrom',
+  'distinguished-from': 'relDistinguishedFrom',
+  'identified-with': 'relIdentifiedWith',
+};
+
+/** KSTS number + folio for an occurrence, resolved through the text's page map. */
+function occurrenceLocator(
+  textId: string | undefined,
+  unitId: string,
+  occ: { folio?: number; unmappedReason?: string },
+): { ksts?: string; folio?: number } {
+  // Opening-matter evidence (avataraṇikā, front matter) has a folio but
+  // deliberately no verse number — never borrow the unit's number.
+  if (occ.unmappedReason) return occ.folio !== undefined ? { folio: occ.folio } : {};
+  if (textId === 'bhagavad-gita') {
+    const row = gitaMapForUnit(unitId);
+    if (!row) return occ.folio !== undefined ? { folio: occ.folio } : {};
+    const nums = row.ksts.map((k) => (k.includes('.') ? k.split('.')[1] : k));
+    return {
+      ksts: nums.length > 1 ? `${nums[0]}-${nums[nums.length - 1]}` : nums[0],
+      folio: occ.folio ?? row.folio,
+    };
+  }
+  return occ.folio !== undefined ? { folio: occ.folio } : {};
+}
 export default function ConceptDetail() {
   const { systemId, textId, conceptId } = useParams();
   const { language } = useLanguage();
@@ -226,6 +276,49 @@ export default function ConceptDetail() {
     return Array.from(groups.entries());
   }, [occurrences, systemId]);
 
+  // Scholarly layer (Phase 3): evidence occurrences with resolved
+  // locators, and typed relationships with target titles.
+  const evidenceRows = useMemo(() => {
+    if (!v2Concept || !systemId || !textId) return [];
+    const byId = new Map(units.map((u) => [u.id, u]));
+    return (v2Concept.occurrences || []).map((occ, i) => {
+      const unit = byId.get(occ.unitId);
+      const loc = occurrenceLocator(textId, occ.unitId, occ);
+      return {
+        key: `${occ.unitId}-${i}`,
+        unitId: occ.unitId,
+        number: unit ? v2UnitToVerse(unit).number : occ.unitId,
+        loc,
+        sourceTerm: occ.sourceTerm,
+        context: occ.context,
+        note: occ.note,
+        quote: occ.quote,
+        unmappedReason: occ.unmappedReason,
+      };
+    });
+  }, [v2Concept, systemId, textId, units]);
+
+  const typedLinks = useMemo(() => {
+    if (!v2Concept) return [];
+    const byId = new Map(v2Concepts.map((c) => [c.id, c]));
+    const unitsById = new Map(units.map((u) => [u.id, u]));
+    return (v2Concept.conceptLinks || []).flatMap((link) => {
+      const target = byId.get(link.to);
+      if (!target) return [];
+      const title =
+        target.localisations[language]?.title || target.localisations.en?.title || link.to;
+      return [{
+        ...link,
+        targetId: link.to,
+        targetTitle: title as string,
+        unitNumbers: (link.units || []).map((uid) => {
+          const u = unitsById.get(uid);
+          return { id: uid, number: u ? v2UnitToVerse(u).number : uid };
+        }),
+      }];
+    });
+  }, [v2Concept, v2Concepts, language, units]);
+
   if (catalog.status === 'loading' || textData.status === 'loading') {
     return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
   }
@@ -288,6 +381,19 @@ export default function ConceptDetail() {
                 {concept.category}
               </span>
             )}
+            {v2Concept.status === 'source-grounded' && (
+              <span
+                title={t(language, 'statusGroundedNote')}
+                className="inline-block px-2.5 py-0.5 text-xs rounded-full border border-sattva/30 text-sattva font-medium"
+              >
+                {t(language, 'statusGrounded')}
+              </span>
+            )}
+            {v2Concept.status === 'legacy-project' && (
+              <p className="text-xs text-tamas">
+                {t(language, 'statusLegacy')} · {t(language, 'statusLegacyNote')}
+              </p>
+            )}
             {alsoFoundAs.length > 0 && (
               <p className="text-sm text-tamas">
                 {t(language, 'aliasAlsoFound')}: {alsoFoundAs.join(' · ')}
@@ -298,6 +404,105 @@ export default function ConceptDetail() {
           {summaryText && (
             <div className="text-lg md:text-xl text-sattva leading-relaxed font-serif">
               <RichText text={summaryText} systemId={systemId} textId={textId} knownConcepts={knownConceptIds} />
+            </div>
+          )}
+
+          {v2Concept.sourceTerms && v2Concept.sourceTerms.length > 0 && (
+            <div className="pt-6 border-t border-tamas">
+              <SectionTitle className="mb-3">{t(language, 'sourceTermsTitle')}</SectionTitle>
+              <ul className="flex flex-wrap gap-2">
+                {v2Concept.sourceTerms.map((term, i) => (
+                  <li
+                    key={`${term.form}-${i}`}
+                    title={term.note}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-avyakta-3 text-sm text-sattva"
+                  >
+                    <span lang={term.language === 'en' ? 'en' : term.language === 'ml' ? 'ml' : 'sa'}>
+                      {term.form}
+                    </span>
+                    <span className="text-xs text-tamas">
+                      {(TERM_KIND_LABEL as Record<string, UIKey>)[term.kind]
+                        ? t(language, (TERM_KIND_LABEL as Record<string, UIKey>)[term.kind])
+                        : term.kind}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {evidenceRows.length > 0 && (
+            <div className="pt-6 border-t border-tamas">
+              <SectionTitle className="mb-4">
+                {t(language, 'evidenceTitle')} ({evidenceRows.length})
+              </SectionTitle>
+              <ul className="space-y-2">
+                {evidenceRows.map((row) => (
+                  <li key={row.key} className="rounded-xl bg-avyakta-3/50 p-4">
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                      <Link
+                        to={`/system/${systemId}/text/${textId}/verse/${row.unitId}`}
+                        className="text-sm font-semibold text-rajas hover:underline hover:decoration-rajas/40 hover:underline-offset-4 transition-colors motion-reduce:transition-none"
+                      >
+                        {verseTermSingular} {row.number}
+                      </Link>
+                      {row.loc.ksts && (
+                        <span className="text-xs tabular-nums text-sattva-dim">KSTS {row.loc.ksts}</span>
+                      )}
+                      {row.loc.folio !== undefined && (
+                        <span className="text-xs tabular-nums text-sattva-dim">p. {row.loc.folio}</span>
+                      )}
+                      {row.sourceTerm && (
+                        <span lang="sa" className="text-sm text-sattva">{row.sourceTerm}</span>
+                      )}
+                    </div>
+                    {row.quote && (
+                      <blockquote lang="sa" className="mt-1.5 text-sm text-sattva-dim italic break-words">
+                        {row.quote}
+                      </blockquote>
+                    )}
+                    {row.context && (
+                      <p className="mt-1 text-xs font-medium uppercase tracking-wider text-tamas">
+                        {row.context}
+                      </p>
+                    )}
+                    {row.note && <p className="mt-1 text-sm text-sattva-dim">{row.note}</p>}
+                    {row.unmappedReason && (
+                      <p className="mt-1 text-xs text-tamas">{row.unmappedReason}</p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {typedLinks.length > 0 && (
+            <div className="pt-6 border-t border-tamas">
+              <SectionTitle className="mb-3">{t(language, 'relationshipsTitle')}</SectionTitle>
+              <ul className="space-y-2">
+                {typedLinks.map((link) => (
+                  <li key={link.targetId} className="rounded-xl bg-avyakta-3/50 p-4">
+                    <p className="text-sm text-sattva">
+                      <span className="text-sattva-dim">{title} </span>
+                      {(LINK_TYPE_LABEL as Record<string, UIKey>)[link.type]
+                        ? t(language, (LINK_TYPE_LABEL as Record<string, UIKey>)[link.type])
+                        : link.type}{' '}
+                      <Link
+                        to={`/system/${systemId}/text/${textId}/concept/${link.targetId}`}
+                        className="font-semibold text-rajas hover:underline hover:decoration-rajas/40 hover:underline-offset-4 transition-colors motion-reduce:transition-none"
+                      >
+                        {link.targetTitle}
+                      </Link>
+                    </p>
+                    {link.unitNumbers.length > 0 && (
+                      <p className="mt-1 text-xs tabular-nums text-sattva-dim">
+                        {link.unitNumbers.map((u) => u.number).join(' · ')}
+                      </p>
+                    )}
+                    {link.note && <p className="mt-1 text-sm text-sattva-dim">{link.note}</p>}
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
 

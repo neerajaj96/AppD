@@ -98,6 +98,10 @@ function adaptConcept(concept: Concept): V2Concept {
     diagramIds: concept.diagramId ? [concept.diagramId] : [],
     relatedUnitIds: (concept.relatedVerseIds || []).map(String),
     relatedConceptIds: (concept.relatedConceptIds || []).map(String),
+    status: concept.status,
+    sourceTerms: concept.sourceTerms?.map((t) => ({ ...t })),
+    occurrences: concept.occurrences?.map((o) => ({ ...o })),
+    conceptLinks: concept.conceptLinks?.map((l) => ({ ...l, units: l.units ? [...l.units] : undefined })),
     localisations: {
       en: concept.content.en
         ? { title: concept.content.en.title, summary: concept.content.en.summary }

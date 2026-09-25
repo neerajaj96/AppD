@@ -38,6 +38,11 @@ export interface RawConcept {
   relatedConceptIds?: string[];
   /** Legacy alias used by Brahma Sūtra concept sources. */
   relatedConcepts?: string[];
+  /** Scholarly concept layer (Phase 3 Gītā ontology); carried verbatim. */
+  status?: 'legacy-project' | 'source-grounded';
+  sourceTerms?: Array<{ form: string; kind: 'attested' | 'normalised' | 'translated' | 'inferred'; language?: 'sa' | 'en' | 'ml'; note?: string }>;
+  occurrences?: Array<{ unitId: string; sourceTerm?: string; relation?: 'text' | 'translation' | 'commentary' | 'interpretation' | 'provenance'; context?: string; folio?: number; unmappedReason?: string; quote?: string; note?: string }>;
+  conceptLinks?: Array<{ to: string; type: 'synonymous-with' | 'variant-of' | 'broader-than' | 'narrower-than' | 'presupposes' | 'contrasts-with' | 'explains' | 'qualified-by' | 'leads-to' | 'inseparable-from' | 'distinguished-from' | 'identified-with'; units?: string[]; note?: string }>;
 }
 
 export interface RawThreadStep {
@@ -180,6 +185,10 @@ export function buildClassicalText(
       category: base.category,
       relatedVerseIds: (base.relatedVerseIds || []) as VerseId[],
       relatedConceptIds: ((base.relatedConceptIds ?? base.relatedConcepts) || []) as ConceptId[],
+      status: base.status,
+      sourceTerms: base.sourceTerms,
+      occurrences: base.occurrences,
+      conceptLinks: base.conceptLinks,
       content: {}
     };
 

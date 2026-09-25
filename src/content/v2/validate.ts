@@ -1,5 +1,10 @@
-import { SCHEMA_VERSION, isEvidenceRelation, isSourceRecordRole, type V2Corpus, type V2Text } from './schema';
+import { SCHEMA_VERSION, isConceptLinkType, isConceptProvenanceStatus, isConceptTermKind, isEvidenceRelation, isSourceRecordRole, type V2Corpus, type V2Text } from './schema';
 import { isCanonicalId, normaliseId, parseCanonicalConceptId, validateLocator } from './ids';
+
+/** Devanagari block plus digits and common prose punctuation. */
+function isDevanagariText(value: string): boolean {
+  return /^[\u0900-\u097F\s\d.,;:'"()\-–—॥।]+$/.test(value.trim()) && /[\u0900-\u097F]/.test(value);
+}
 
 /**
  * V2 content validator — pure functions over a V2 corpus snapshot.
@@ -309,6 +314,54 @@ function validateText(
     for (const cid of concept.relatedConceptIds || []) {
       if (!conceptIds.has(cid) && !isCanonicalId(cid)) {
         push({ severity: 'warning', code: 'dangling-concept-ref', message: `Concept ${concept.id} points at unknown concept ${cid}`, textId: text.id, entityId: concept.id });
+      }
+    }
+  }
+
+  // Second pass: scholarly concept layer. Runs after all concept ids are
+  // known so forward links between concepts validate correctly.
+  for (const concept of text.concepts) {
+    if (!concept.id || !conceptIds.has(concept.id)) continue;
+    // Scholarly concept layer: status vocabulary, source-term honesty,
+    // occurrence integrity and evidenced typed links.
+    if (concept.status !== undefined && !isConceptProvenanceStatus(concept.status)) {
+      push({ severity: 'error', code: 'invalid-concept-status', message: `Concept ${concept.id} has unknown status ${concept.status}`, textId: text.id, entityId: concept.id });
+    }
+    for (const term of concept.sourceTerms || []) {
+      if (!isConceptTermKind(term.kind)) {
+        push({ severity: 'error', code: 'invalid-term-kind', message: `Concept ${concept.id} term ${term.form} has unknown kind`, textId: text.id, entityId: concept.id });
+      } else if (term.kind === 'attested' && !isDevanagariText(term.form)) {
+        push({ severity: 'error', code: 'attested-term-not-devanagari', message: `Concept ${concept.id} attested term ${term.form} is not Devanagari source text`, textId: text.id, entityId: concept.id });
+      }
+      if (!term.form || !term.form.trim()) {
+        push({ severity: 'error', code: 'malformed-source-term', message: `Concept ${concept.id} has an empty source term`, textId: text.id, entityId: concept.id });
+      }
+    }
+    for (const occ of concept.occurrences || []) {
+      if (!occ.unitId || !unitIds.has(occ.unitId)) {
+        push({ severity: 'error', code: 'dangling-occurrence-unit', message: `Concept ${concept.id} occurrence points at missing unit ${occ.unitId}`, textId: text.id, entityId: concept.id });
+      }
+      if (occ.relation !== undefined && !isEvidenceRelation(occ.relation)) {
+        push({ severity: 'error', code: 'invalid-occurrence-relation', message: `Concept ${concept.id} occurrence at ${occ.unitId} has unknown relation`, textId: text.id, entityId: concept.id });
+      }
+      if (occ.quote !== undefined && !isDevanagariText(occ.quote)) {
+        push({ severity: 'error', code: 'occurrence-quote-not-source-script', message: `Concept ${concept.id} occurrence quote at ${occ.unitId} is not Devanagari source text`, textId: text.id, entityId: concept.id });
+      }
+    }
+    for (const link of concept.conceptLinks || []) {
+      if (!link.to || !conceptIds.has(link.to)) {
+        push({ severity: 'error', code: 'dangling-concept-link', message: `Concept ${concept.id} links to missing concept ${link.to}`, textId: text.id, entityId: concept.id });
+      }
+      if (!isConceptLinkType(link.type)) {
+        push({ severity: 'error', code: 'invalid-concept-link-type', message: `Concept ${concept.id} link to ${link.to} has unknown type`, textId: text.id, entityId: concept.id });
+      }
+      if ((link.units || []).length === 0 && !(link.note || '').trim()) {
+        push({ severity: 'error', code: 'concept-link-without-evidence', message: `Concept ${concept.id} link to ${link.to} carries no evidence`, textId: text.id, entityId: concept.id });
+      }
+      for (const uid of link.units || []) {
+        if (!unitIds.has(uid)) {
+          push({ severity: 'error', code: 'dangling-link-unit', message: `Concept ${concept.id} link to ${link.to} cites missing unit ${uid}`, textId: text.id, entityId: concept.id });
+        }
       }
     }
   }

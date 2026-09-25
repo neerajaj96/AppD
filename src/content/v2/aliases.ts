@@ -93,6 +93,88 @@ export const EDITORIAL_ALIASES: EditorialAlias[] = [
     status: 'review',
     note: 'Candidate: several purusha-* articles exist across traditions. Needs scholarship — do not resolve yet.',
   },
+  // Rāmakaṇṭha-grounded Gītā pilot concepts (Phase 3). Verified
+  // search spellings for the seven source-grounded records; each note
+  // states the Sanskrit term so a spelling never silently equates
+  // distinct notions (karma-action vs karman-result stay separate rows).
+  {
+    alias: 'karma',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-karman',
+    status: 'verified',
+    note: 'Enjoined action (karman) in Rāmakaṇṭha; result/impression senses stay unmerged.',
+  },
+  {
+    alias: 'karman',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-karman',
+    status: 'verified',
+    note: 'IAST head form of the Rāmakaṇṭha karman record.',
+  },
+  {
+    alias: 'jnana',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-jnana',
+    status: 'verified',
+    note: 'Discriminative Self-knowledge (jñāna) in Rāmakaṇṭha.',
+  },
+  {
+    alias: 'samuccaya',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-samuccaya',
+    status: 'verified',
+    note: 'Knowledge-action conjunction (samuccaya) as Rāmakaṇṭha states it.',
+  },
+  {
+    alias: 'jnana-karma-samuccaya',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-samuccaya',
+    status: 'verified',
+    note: 'Full thesis phrase converging on the samuccaya record.',
+  },
+  {
+    alias: 'prakriti',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-prakriti',
+    status: 'verified',
+    note: 'Objective field-principle (prakṛti) in Rāmakaṇṭha; Sāṅkhya mūlaprakṛti stays a distinct article.',
+  },
+  {
+    alias: 'prakrti',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-prakriti',
+    status: 'verified',
+    note: 'ASCII spelling without diacritic.',
+  },
+  {
+    alias: 'purusha',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-purusa',
+    status: 'verified',
+    note: 'Conscious principle (puruṣa) in Rāmakaṇṭha. Distinct article — ambiguous by design with the review-row Sāṅkhya candidate.',
+  },
+  {
+    alias: 'purusa',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-purusa',
+    status: 'verified',
+    note: 'ASCII spelling without diacritics.',
+  },
+  {
+    alias: 'maya',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-maya',
+    status: 'verified',
+    note: 'The Lord’s own power (māyā-śakti) in Rāmakaṇṭha. Distinct article — ambiguous by design with the review-row Tantrāloka candidate.',
+  },
+  {
+    alias: 'moksha',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-moksa',
+    status: 'verified',
+    note: 'Release (mokṣa/apavarga) in Rāmakaṇṭha.',
+  },
+  {
+    alias: 'moksa',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-moksa',
+    status: 'verified',
+    note: 'ASCII spelling without diacritic.',
+  },
+  {
+    alias: 'apavarga',
+    canonicalId: 'vedanta/bhagavad-gita/gita-rk-moksa',
+    status: 'verified',
+    note: 'Highest human end (apavarga) as the upodghāta states it.',
+  },
 ];
 
 /** Rows safe for resolution (verified only — review rows stay inert). */
