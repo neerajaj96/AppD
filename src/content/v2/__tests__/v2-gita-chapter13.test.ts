@@ -23,6 +23,14 @@ import {
   buildChapter13EvidenceMap,
   formatChapter13Audit,
 } from '../gitaChapter13';
+import {
+  CHAPTER13_APPARATUS,
+  CHAPTER13_COMMENTARY_INVENTORY,
+  apparatusCounts,
+  chapter13CoverageGaps,
+  inventoryForKsts,
+  validateChapter13Inventory,
+} from '../gitaChapter13Inventory';
 import { auditCommentary } from '../commentaryAudit';
 import { formatCitation, threadStepUrl, unitCanonicalUrl } from '../citation';
 import { buildSearchIndex } from '../search-index';
@@ -30,10 +38,11 @@ import { rankEntries } from '../../../search/rank';
 import { resolveThreadPosition } from '../../../utils/threadNav';
 import { uiStrings, type UIKey } from '../../../i18n/ui';
 
-// Phase-7 Chapter-13 reference-edition tests: mapping, locators,
-// segments, passages, verification honesty, concepts, threads, xrefs,
-// quotations, variants, citations, lazy loading, search, parity and the
-// corrected-architecture regressions. Deterministic throughout.
+// Phase-8 Chapter-13 reference-edition tests: mapping, locators,
+// segments, passages, verification honesty, inventory, apparatus,
+// concepts, threads, xrefs, quotations, variants, citations, lazy
+// loading, search, parity and the corrected-architecture regressions.
+// Deterministic throughout.
 
 function curatedGita() {
   const corpus = adaptSystemsToV2(systems);
@@ -138,7 +147,7 @@ describe('chapter-13 commentary to source consistency', () => {
     const { text } = curatedGita();
     const unitIds = new Set(text.units.map((u) => u.id));
     const ch13 = GITA_COMMENTARY_TEXTS.filter((p) => p.unitIds.some((u) => u.startsWith('13.')));
-    expect(ch13.length).toBe(14);
+    expect(ch13.length).toBe(76);
     for (const p of ch13) {
       for (const uid of p.unitIds) expect(unitIds.has(uid)).toBe(true);
       expect(p.folio).toBe(p.pdf - 10);
@@ -407,13 +416,30 @@ describe('chapter-13 scholarly audit', () => {
     expect(coverage.units).toEqual({
       total: 35,
       withLocator: 34,
-      withSegment: 11,
-      withSourceText: 11,
+      withSegment: 34,
+      withSourceText: 34,
     });
     expect(coverage.commentary.pageImageCollated).toBe(0);
-    expect(coverage.commentary.verifiedSource + coverage.commentary.textLayerReviewed).toBe(14);
+    expect(coverage.commentary.verifiedSource + coverage.commentary.textLayerReviewed).toBe(76);
+    // Phase-8 inventory, gaps, arguments and apparatus reconcile exactly.
+    expect(coverage.inventory).toEqual({ verses: 34, transcribed: 34, untranscribed: 0 });
+    expect(coverage.gaps).toEqual(['13.1']);
+    expect(coverage.commentary.locatorOnlyUnits).toBe(1);
+    expect(coverage.arguments.total).toBe(CHAPTER13_ARGUMENTS.length);
+    expect(coverage.arguments.sourceBacked + coverage.arguments.unresolved).toBe(
+      coverage.arguments.total,
+    );
+    expect(coverage.arguments.unresolved).toBe(1);
+    expect(coverage.apparatus).toEqual({ observed: 39, mapped: 0, unresolved: 39 });
+    expect(coverage.xrefs.unresolved).toBe(11);
+    expect(coverage.threads).toMatchObject({
+      steps: 7,
+      sourceTextGrounded: 6,
+      segmentGrounded: 1,
+      locatorOnly: 0,
+    });
     const rendered = formatChapter13Audit(coverage);
-    for (const line of ['Chapter 13 Scholarly Audit', 'Units:', 'Commentary:', 'Concepts:', 'Threads:', 'Cross-references:']) {
+    for (const line of ['Chapter 13 Scholarly Audit', 'Units:', 'Commentary:', 'Inventory:', 'Concepts:', 'Threads:', 'Cross-references:', 'Arguments:', 'Apparatus:']) {
       expect(rendered).toContain(line);
     }
     expect(rendered).not.toMatch(/%/);
@@ -424,5 +450,95 @@ describe('chapter-13 scholarly audit', () => {
       passages: GITA_COMMENTARY_TEXTS,
     });
     expect(audit.danglingSpanRefs).toBe(0);
+  });
+});
+
+describe('chapter-13 commentary inventory', () => {
+  it('covers all 34 KSTS verses with source-grounded regions', () => {
+    expect(CHAPTER13_COMMENTARY_INVENTORY).toHaveLength(34);
+    expect(CHAPTER13_COMMENTARY_INVENTORY.map((r) => r.ksts)).toEqual(
+      Array.from({ length: 34 }, (_, i) => `13.${i + 1}`),
+    );
+    for (const row of CHAPTER13_COMMENTARY_INVENTORY) {
+      expect(row.folio).toBe(row.pdf - 10);
+      expect(row.spanIds.length).toBeGreaterThan(0);
+      expect(row.passageIds.length).toBeGreaterThan(0);
+      expect(row.commentaryStart.trim().length).toBeGreaterThan(0);
+      expect(row.commentaryEnd.trim().length).toBeGreaterThan(0);
+      expect(row.remaining.trim().length).toBeGreaterThan(0);
+    }
+    expect(inventoryForKsts('13.25')?.repoUnit).toBe('13.26');
+    expect(inventoryForKsts('13.34')?.repoUnit).toBe('13.35');
+    expect(inventoryForKsts('13.99')).toBeUndefined();
+  });
+
+  it('reconciles inventory, spans and passages without orphans', () => {
+    expect(validateChapter13Inventory()).toEqual([]);
+    expect(chapter13CoverageGaps()).toEqual([]);
+  });
+
+  it('keeps the jñeya objection and the (13.5) disagreement unresolved', () => {
+    const jneya = inventoryForKsts('13.12');
+    expect(jneya?.unresolved.some((u) => u.includes('gita-arg-13.13-jneya-obj'))).toBe(true);
+    const upasamhara = inventoryForKsts('13.18');
+    expect(upasamhara?.unresolved.some((u) => u.startsWith('xref:') && u.includes('(१३।५)'))).toBe(true);
+    expect(GITA_QUOTATION_EDGES.filter((e) => e.locator === '(१३।५)')).toEqual([]);
+  });
+});
+
+describe('chapter-13 apparatus inventory', () => {
+  it('records page-level apparatus without verse attribution', () => {
+    expect(CHAPTER13_APPARATUS.length).toBeGreaterThan(30);
+    expect(apparatusCounts()).toEqual({
+      observed: CHAPTER13_APPARATUS.length,
+      mapped: 0,
+      unresolved: CHAPTER13_APPARATUS.length,
+    });
+    const ids = CHAPTER13_APPARATUS.map((i) => i.id);
+    expect(new Set(ids).size).toBe(ids.length);
+    for (const item of CHAPTER13_APPARATUS) {
+      expect(item.raw.trim().length).toBeGreaterThan(0);
+      expect(item.attribution).toBe('ambiguous');
+      expect(item.status).toBe('unresolved');
+      expect(item.folio).toBe(item.pdf - 10);
+    }
+    // Sigla preserved exactly, never expanded.
+    const serialised = JSON.stringify(CHAPTER13_APPARATUS);
+    expect(serialised).not.toMatch(/पुस्तक/);
+  });
+
+  it('keeps the Phase-8 samuccaya quotation edge deterministic', () => {
+    const edge = GITA_QUOTATION_EDGES.find((e) => e.id === 'gita-xref-058');
+    expect(edge).toMatchObject({
+      fromUnitId: '13.7',
+      toUnitId: '13.13',
+      locator: '(१३।१२)',
+      kind: 'commentary-quotes-unit',
+    });
+  });
+});
+
+describe('chapter-13 phase-8 search regression', () => {
+  it('finds the closed samuccaya and mokṣa gaps by exact Devanagari terms', () => {
+    const { corpus } = curatedGita();
+    const index = buildSearchIndex(corpus);
+    const gita = index.entries.filter((e) => e.textId === 'bhagavad-gita');
+    const samuccaya = rankEntries(gita, 'समुच्चयात्मकत्व', 50);
+    expect(samuccaya.some((h) => h.entry.unitId === '13.26')).toBe(true);
+    const moksa = rankEntries(gita, 'भूतप्रकृतिमोक्ष', 50);
+    expect(moksa.some((h) => h.entry.unitId === '13.35')).toBe(true);
+  });
+
+  it('ships new passages in the built lazy chunk and keeps them out of unit chunks', () => {
+    const file = path.join(__dirname, '..', '..', '..', '..', 'public', 'content', 'bhagavad-gita', 'passages.json');
+    if (!fs.existsSync(file)) {
+      console.warn('public/content passages.json missing (run content:chunks); skipping');
+      return;
+    }
+    const data = JSON.parse(fs.readFileSync(file, 'utf8')) as Array<{ id: string }>;
+    for (const id of ['gita-tx-13.25-samuccaya', 'gita-tx-13.34-moksa', 'gita-tx-13.34-prasasti', 'gita-tx-13.27-sama']) {
+      expect(data.map((r) => r.id)).toContain(id);
+    }
+    expect(data).toHaveLength(84);
   });
 });

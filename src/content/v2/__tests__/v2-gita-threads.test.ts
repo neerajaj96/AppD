@@ -170,11 +170,14 @@ describe('thread audit helper', () => {
       'gita-rk-samuccaya-marga',
       'gita-rk-maya-marga',
     ]);
+    const byId = new Map(rows.map((r) => [r.threadId, r]));
+    // Thread A unchanged (5 steps); samuccaya gains the Chapter-13
+    // ārurukṣu stage step (Phase 8); māyā keeps 5 steps with the
+    // 13.3 differentiator now span-grounded.
+    expect(byId.get('gita-rk-kshetra')).toMatchObject({ steps: 5, sourceBackedSteps: 5, editorialSteps: 0, transitions: 4 });
+    expect(byId.get('gita-rk-samuccaya-marga')).toMatchObject({ steps: 6, sourceBackedSteps: 6, editorialSteps: 0, transitions: 5 });
+    expect(byId.get('gita-rk-maya-marga')).toMatchObject({ steps: 5, sourceBackedSteps: 5, editorialSteps: 0, transitions: 4 });
     for (const row of rows) {
-      expect(row.steps).toBe(5);
-      expect(row.sourceBackedSteps).toBe(5);
-      expect(row.editorialSteps).toBe(0);
-      expect(row.transitions).toBe(4);
       expect(row.distinctUnits).toBeGreaterThan(0);
       expect(row.distinctConcepts).toBeGreaterThan(0);
     }

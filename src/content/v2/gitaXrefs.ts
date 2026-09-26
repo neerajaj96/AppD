@@ -72,6 +72,7 @@ export const GITA_QUOTATION_EDGES: GitaReference[] = [
   { id: 'gita-xref-055', fromKsts: { chapter: 13, verse: 11 }, fromUnitId: '13.12', toKsts: { chapter: 7, verse: 18 }, toUnitId: '7.18', quotedText: 'ज्ञानी त्वात्मैव मे मतः ।', locator: '(७।१८)', kind: 'commentary-quotes-unit', note: 'host KSTS 13.11 (jñāna-taru-phala bhakti; printed p.286)' },
   { id: 'gita-xref-056', fromKsts: { chapter: 13, verse: 24 }, fromUnitId: '13.25', toKsts: { chapter: 6, verse: 3 }, toUnitId: '6.3', quotedText: 'योगारूढस्य तस्यैव शमः कारणमुच्यते ।', locator: '(६।३)', kind: 'commentary-quotes-unit', note: 'host KSTS 13.24 (dhyāna vs karma-yoga stages; printed p.294)' },
   { id: 'gita-xref-057', fromKsts: { chapter: 13, verse: 29 }, fromUnitId: '13.30', toKsts: { chapter: 7, verse: 6 }, toUnitId: '7.6', quotedText: 'एतद्योनीनि भूतानि सर्वाणीत्युपधारय ।', locator: '(७।६)', kind: 'commentary-quotes-unit', note: 'host KSTS 13.29 (prakṛti as sarva-jagat-citra cause; printed p.297)' },
+  { id: 'gita-xref-058', fromKsts: { chapter: 13, verse: 6 }, fromUnitId: '13.7', toKsts: { chapter: 13, verse: 12 }, toUnitId: '13.13', quotedText: 'ज्ञेयं यत्तत्प्रवक्ष्यामि ।', locator: '(१३।१२)', kind: 'commentary-quotes-unit', note: 'host KSTS 13.6 close (virtue-section bridge; printed p.282; distinct print event from gita-xref-037)' },
 ];
 
 /** Edges quoting one KSTS verse, keyed by target. */

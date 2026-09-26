@@ -1,4 +1,4 @@
-# Bhagavad Gītā Chapter 13 Rāmakaṇṭha Critical Scholarly Edition (Phase 7)
+# Bhagavad Gītā Chapter 13 Rāmakaṇṭha Critical Scholarly Edition (Phases 7–8)
 
 The first complete, deeply evidenced Rāmakaṇṭha scholarly chapter. Chapter 13
 becomes the reference implementation for the rest of the Gītā. Categories
@@ -474,3 +474,134 @@ no Rāmakaṇṭha–Śaṅkara comparison was imported; no later doctrinal
 interpretations were added; no missing passages were fabricated; no difficult
 Sanskrit was normalised without evidence; no source text was replaced with
 generated summaries.
+
+## 20. Phase 8 — Chapter-13 commentary corpus completion
+
+**[SOURCE]** Phase 8 continues from the eleven Phase-7 passages without
+rewriting any verified record. Sixty-two new bounded passages (sixty-two new
+spans) transcribe the remaining Chapter-13 commentary in sequential source
+order across Blocks A–F, from the same inspected text layer of
+`Gitasarvatobhadrarajanka.pdf` (KSTS No. LXIV, 1943). No other edition was
+consulted; no Sanskrit was fabricated, reconstructed, normalised, translated
+as source, or borrowed from another commentator.
+
+**[SOURCE]** Coverage is complete within the available text-layer evidence:
+all 34 KSTS verses (13.1–13.34) now carry transcribed commentary, and all
+repository units 13.2–13.35 carry source text. Only vulgate-only 13.1
+(Arjuna's question, absent from KSTS) remains locator-only — honestly, by
+policy. Both Phase-7 locator-only gaps are closed as source-text evidence:
+`समुच्चयात्मकत्व` (KSTS 13.25, printed p.295) and `भूतप्रकृतिमोक्ष`
+(KSTS 13.34, printed p.301).
+
+**[EDITORIAL]** Inventory methodology
+(`src/content/v2/gitaChapter13Inventory.ts`): one machine-readable row per
+KSTS verse records repository unit, vulgate number, PDF/printed-folio,
+commentary start/end words, page-crossing, verse-boundary crossing, content
+flags (gloss / objection / response / quotation / cross-reference / variant /
+summary / closing), span and passage IDs, what prose remains, and unresolved
+issues. `validateChapter13Inventory` reconciles inventory against spans and
+passages with no orphans (chapter-opening avataraṇikā matter, which carries
+no KSTS number, is chapter-level and exempt by design). Tests enforce it.
+
+**[SOURCE]** Passage boundaries follow print markers only: pratīka openings,
+verse markers, `ननु` / `अत्र आह` / `उच्यते` / `सत्यं` shifts, `इति तात्पर्यम्`
+and `निर्णीतः` closes, and chapter transitions. Unmarked prose stays
+unmarked (no role). Where the local mūla falls between a turn and its gloss
+(KSTS 13.27: the yogī turn and the sarveṣu gloss), turn and gloss are
+transcribed as one passage with the verse excluded and the boundary marked.
+Mūla verses, verse-number markers, running heads, folio fragments and
+footnotes never enter transcription fields.
+
+**[SOURCE]** Verification state: all sixty-two new records use the explicit
+`text-layer-reviewed` status. Page images were unavailable, so no record
+claims `page-image-collated` or `partially-collated` (tests enforce the
+absence). Verbatim retentions with documented uncertainty (अहकार,
+साक्षाकुर्वन्ति, विद्धि, भुते and the praśasti readings) follow the Phase-7
+precedent: retained, never corrected, uncollated. No `[?]` was needed beyond
+the existing resolution passage.
+
+**[UNRESOLVED]** Genuine remaining gaps, each explicit:
+
+1. Mūla verses (all 34 KSTS verses): excluded by policy, as before.
+2. `gita-seg-13.2-verse` (verse introduction): segment-only, mūla excluded.
+3. `gita-seg-13.34-closing` (closing apparatus): locator-only by design;
+   the praśasti and colophon are transcribed instead under the distinct
+   span `gita-seg-13.34-prasasti`, whose readings stay uncollated.
+4. Full nanu wording on jñeya (printed p.287): extraction-noisy, retained
+   verbatim in the pratijñā passage; the objection argument
+   (`gita-arg-13.13-jneya-obj`) stays unresolved.
+5. The printed `(१३।५)` disagreement (printed p.290): retained unresolved,
+   no edge — a false attribution is worse than a gap.
+6. Eleven printed quotations without determinable work/locator stay in
+   passage text as unresolved source evidence with no edges
+   (Mahābhārata verse, mṛtyupada, prajñāprāsāda, bījāni, amṛta, anyathā,
+   vipascit, ghaṭākāśa, jñāna-dagdha, partial ārurukṣor, and the
+   `(७।१८)` locator whose extraction renders the danda as `/`).
+7. Apparatus (39 items: 35 footnote variants, 3 folio marks, 1
+   variant-table row): inventoried page-level with verbatim strings,
+   sigla preserved (`क`, `ख`, never expanded); no `पु.` rows observed in
+   Chapter 13. Row-to-verse attribution stays ambiguous throughout
+   (call-marks lost in extraction); nothing is mapped to a verse.
+8. Minor extraction disorders documented per passage rather than repaired:
+   the `त्याह` line-misorder around KSTS 13.27 (joined as भवतीत्याह),
+   the corrupt non-Devanagari fragment after `महाभूतानि` (excluded as
+   noise), and bare line-break joins recorded as spaces.
+
+**[SOURCE]** Exact coverage statistics (counts only, reconciled by test):
+
+```text
+Chapter 13 Scholarly Audit (Phase 8)
+Units: total 35, with locator 34, with segment 34, with source text 34
+Commentary: verified-source 11, text-layer-reviewed 73,
+  page-image-collated 0, locator-only 1 (13.1), unresolved passages 1
+Inventory: 34 verses, 34 transcribed, 0 untranscribed; gaps: 13.1
+Concepts: 7 source-grounded pilots with Chapter-13 source-text evidence
+Threads: 7 Chapter-13 steps (6 source-text grounded, 1 segment grounded, 0 locator-only)
+Cross-references: 12 quotation edges touch Chapter 13 (7 hosted within it, 5 recovered from introductory/boundary matter); the disagreeing (१३।५) is recorded, not edged
+Arguments: 68 total (67 source-backed, 1 unresolved)
+Apparatus: 39 observed, 0 mapped, 39 unresolved
+Passages: 84 total (11 verified-source + 73 text-layer-reviewed)
+Spans: 85 total (all source status; spans carry no transcription)
+```
+
+**[EDITORIAL]** Concepts gained only evidence-supported occurrences (10 new,
+0 new concepts, 0 new links): Karman (13.26 karma-yoga), Jñāna (13.28
+jñāna-cakṣuṣ), Samuccaya (13.26 `समुच्चयात्मकत्व`, newly attested term),
+Prakṛti (13.27, 13.30), Puruṣa (13.22, 13.24), Māyā (13.22, 13.30), Mokṣa
+(13.35 `भूतप्रकृतिमोक्ष`, newly attested term). Deferred candidates
+re-evaluated: kṣetra and kṣetrajña stay occurrence-status inside
+Prakṛti/Puruṣa (field-aspect and knower-role, no independent thesis);
+vedaka/pramātṛ and īśvara/maheśvara stay named-next (vocabulary supports
+Puruṣa; own relation studies still needed); jñeya stays inside Jñāna
+(object-correlate); vikāra/guṇa and ahaṅkāra stay rejected this round
+(enumerative or compound-only); bhakti/prapatti stays folded into
+Jñāna/Mokṣa; samuccaya and bhūtaprakṛtimokṣa graduate from locator-only
+gaps to source-text evidence without promotion (single-chapter attestation;
+promotion needs cross-chapter doctrine and concept-level distinction).
+
+**[EDITORIAL]** Threads gained only evidence-supported steps: Thread A keeps
+5 steps with steps 1 and 4 extended by the etat/tātparya and sarvakṣetra
+spans (claims unchanged); Thread B gains a sixth step for the Chapter-13
+ārurukṣu stage (karma-yoga as samuccayātmakatva, 13.26); Thread C grounds
+the anticipated Māyā-4 differentiator step with the resolution span. No
+synthesis was turned into quotation; the verse-introduction step stays
+honestly segment-grounded.
+
+**[EDITORIAL]** Search and reader reuse the existing architecture unchanged:
+new passages fold into unit `devanagari` fields through the lazy tiered
+index (exact-term Devanagari search resolves `समुच्चयात्मकत्व` → 13.26 and
+`भूतप्रकृतिमोक्ष` → 13.35; no invented IAST; commentary stays out of the
+initial bundle), and the Chapter-13 reader renders the longer commentary
+sequences with the same layer separation (source / segment / apparatus /
+concepts / threads / citation). Locator-only 13.1 renders its honest state.
+
+**[EDITORIAL]** Files changed (Phase 8 only): `gitaSpans.ts` (+62 spans),
+`gitaCommentaryText.ts` (+62 passages), `gitaChapter13Inventory.ts` (new:
+34-row inventory, 39-row apparatus, validators), `gitaChapter13.ts`
+(+53 arguments; audit extended with inventory, gaps, arguments,
+apparatus), `gitaXrefs.ts` (+1 edge: `gita-xref-058`),
+`gita-ramakantha-concepts.ts` (+9 occurrences, +2 attested terms, two
+summary clauses in EN/ML), `gitaThreads.ts` (Māyā-4 grounding, Thread-A
+span extensions, Thread-B sixth step), five test suites updated with
+Phase-8 regression tests, and this document. No other Gītā chapter was
+mass-modified; no architecture was redesigned; no dependency was added.

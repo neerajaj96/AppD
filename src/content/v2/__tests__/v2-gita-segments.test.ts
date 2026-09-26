@@ -36,18 +36,80 @@ const EXPECTED_SPANS = [
   'gita-ps-7-avat',
   'gita-ps-18.61-maya',
   'gita-seg-13.1-glosa',
+  'gita-seg-13.1-etat',
+  'gita-seg-13.1-tatparya',
   'gita-seg-13.2-verse',
   'gita-seg-13.2-resolution',
+  'gita-seg-13.2-sarvaksetra',
   'gita-seg-13.3-gloss',
+  'gita-seg-13.3-intro',
+  'gita-seg-13.3-tat',
+  'gita-seg-13.4-rsibhi',
+  'gita-seg-13.4-upasamhara',
   'gita-seg-13.5-gloss',
+  'gita-seg-13.5-tattva',
+  'gita-seg-13.5-karana',
+  'gita-seg-13.5-karya',
   'gita-seg-13.6-iccha',
+  'gita-seg-13.6-darsanantara',
+  'gita-seg-13.6-upasamhara',
+  'gita-seg-13.6-siddhanta',
+  'gita-seg-13.7-intro',
+  'gita-seg-13.7-mana',
+  'gita-seg-13.7-adambha',
+  'gita-seg-13.7-arjava',
+  'gita-seg-13.7-acarya',
+  'gita-seg-13.8-sthairya',
+  'gita-seg-13.9-asakti',
+  'gita-seg-13.10-vivikta',
   'gita-seg-13.11-ajnana',
   'gita-seg-13.12-jneya-resp',
   'gita-seg-13.12-anadi',
+  'gita-seg-13.12-pratijna',
+  'gita-seg-13.12-pratyavamarsa',
+  'gita-seg-13.12-samjna',
+  'gita-seg-13.12-nasat',
+  'gita-seg-13.13-sarvendriya',
+  'gita-seg-13.14-asakta',
+  'gita-seg-13.15-bahiranta',
+  'gita-seg-13.15-avibhakta',
+  'gita-seg-13.16-bhutabhartr',
+  'gita-seg-13.17-jnanagamya',
+  'gita-seg-13.18-upasamhara',
   'gita-seg-13.19-prakrti',
+  'gita-seg-13.19-anaditva',
+  'gita-seg-13.19-samanya',
   'gita-seg-13.20-karya',
+  'gita-seg-13.20-prakrtihetu',
+  'gita-seg-13.21-gunasanga-a',
+  'gita-seg-13.21-gunasanga-b',
   'gita-seg-13.22-mahesvara',
+  'gita-seg-13.22-dvividha',
+  'gita-seg-13.22-upadrastra',
+  'gita-seg-13.22-viveka',
+  'gita-seg-13.23-phala-intro',
+  'gita-seg-13.23-yogi',
+  'gita-seg-13.24-dhyana',
+  'gita-seg-13.24-sankhya',
+  'gita-seg-13.25-samuccaya',
+  'gita-seg-13.25-sruta',
+  'gita-seg-13.26-samyoga',
+  'gita-seg-13.27-sama',
+  'gita-seg-13.27-samapasya',
+  'gita-seg-13.28-atmahimsa',
+  'gita-seg-13.29-prakrtya',
+  'gita-seg-13.29-akartra',
+  'gita-seg-13.30-ekatva',
+  'gita-seg-13.30-vistara',
+  'gita-seg-13.31-avyaya-a',
+  'gita-seg-13.31-avyaya-b',
+  'gita-seg-13.32-akasa',
+  'gita-seg-13.33-ravi',
+  'gita-seg-13.33-janaka',
   'gita-seg-13.34-synthesis',
+  'gita-seg-13.34-moksa',
+  'gita-seg-13.34-para',
+  'gita-seg-13.34-prasasti',
   'gita-seg-13.34-closing',
   'gita-seg-2.39-tail',
   'gita-seg-7.14-q2',
@@ -55,7 +117,7 @@ const EXPECTED_SPANS = [
 ];
 
 describe('segment identity and stability', () => {
-  it('keeps the twenty-three passage spans, no renames, no silent additions', () => {
+  it('keeps the eighty-five passage spans, no renames, no silent additions', () => {
     expect(GITA_PASSAGE_SPANS.map((s) => s.id).sort()).toEqual([...EXPECTED_SPANS].sort());
   });
 
@@ -177,14 +239,14 @@ describe('commentary audit', () => {
       threads: GITA_SCHOLARLY_THREADS,
       concepts: gitaConcepts(),
     });
-    expect(audit.segments).toEqual({ total: 23, source: 23, editorial: 0, unresolved: 0 });
-    expect(audit.evidencePrecision.exactFolio).toBe(23);
+    expect(audit.segments).toEqual({ total: 85, source: 85, editorial: 0, unresolved: 0 });
+    expect(audit.evidencePrecision.exactFolio).toBe(85);
     expect(audit.danglingSpanRefs).toBe(0);
     const byId = new Map(audit.threads.map((t) => [t.threadId, t]));
     expect(byId.get('gita-rk-kshetra')).toMatchObject({ steps: 5, stepsWithSegments: 5 });
-    expect(byId.get('gita-rk-samuccaya-marga')).toMatchObject({ steps: 5, stepsWithSegments: 3 });
-    expect(byId.get('gita-rk-maya-marga')).toMatchObject({ steps: 5, stepsWithSegments: 3 });
-    expect(audit.conceptsWithSegments).toBe(5);
+    expect(byId.get('gita-rk-samuccaya-marga')).toMatchObject({ steps: 6, stepsWithSegments: 4 });
+    expect(byId.get('gita-rk-maya-marga')).toMatchObject({ steps: 5, stepsWithSegments: 4 });
+    expect(audit.conceptsWithSegments).toBe(7);
     expect(audit.conceptsTotal).toBe(32);
   });
 
