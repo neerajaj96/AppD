@@ -566,7 +566,7 @@ export default function ThreadView() {
                   </ul>
                   {stepPassages !== null &&
                     stepPassages.map((passage) =>
-                      passage.status === 'verified-source' ? (
+                      passage.status === 'verified-source' || passage.status === 'text-layer-reviewed' ? (
                         <details
                           key={passage.id}
                           className="mt-1.5 rounded-lg bg-avyakta-2 px-3 py-2"

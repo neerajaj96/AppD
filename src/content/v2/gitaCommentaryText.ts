@@ -1,13 +1,20 @@
 import { parseGitaVerseRef } from './gitaDocument';
 
 /**
- * Rāmakaṇṭha commentary passages (Phase 6 pilot: eleven bounded excerpts).
+ * Rāmakaṇṭha commentary passages (Phase 6 pilot: eleven bounded excerpts;
+ * Phase 7 Chapter-13 edition: eleven further bounded excerpts).
  *
- * Transcription policy (see docs/scholarly/bhagavad-gita-ramakantha-source-text.md):
+ * Transcription policy (see docs/scholarly/bhagavad-gita-ramakantha-source-text.md
+ * and docs/scholarly/bhagavad-gita-chapter-13-rama-kantha-edition.md):
  * - Source: the inspected file's text layer (`Gitasarvatobhadrarajanka.pdf`,
  *   Drive ID 10InuCi5WpCHkDWzT3_iZcybksGDs4_so), human-reviewed token by
  *   token against extraction in this session. NOT collated against page
  *   images — recorded as a limitation, not hidden.
+ * - Verification levels: Phase-6 records use `verified-source` (which means
+ *   text-layer-reviewed, never page-image-collated); Phase-7 Chapter-13
+ *   records use the explicit `text-layer-reviewed` status. No record claims
+ *   `page-image-collated` or `partially-collated`: page images were
+ *   unavailable, so collation remains future work.
  * - Joined only unambiguous end-of-line hyphens (print layout, not
  *   content); stripped zero-width format chars (U+200C/200D/FEFF).
  * - Retained verbatim: spaces, variant spellings (गुणमय, सेवे-class),
@@ -22,7 +29,13 @@ import { parseGitaVerseRef } from './gitaDocument';
  *   never overwritten, and normalization was not justified.
  */
 
-export type PassageStatus = 'verified-source' | 'extraction-unreviewed' | 'partially-verified';
+export type PassageStatus =
+  | 'verified-source'
+  | 'text-layer-reviewed'
+  | 'page-image-collated'
+  | 'partially-collated'
+  | 'extraction-unreviewed'
+  | 'partially-verified';
 
 export interface GitaCommentaryText {
   id: string;
@@ -175,6 +188,138 @@ export const GITA_COMMENTARY_TEXTS: GitaCommentaryText[] = [
     text: '‘एष’ प्रबन्धतः पुनः पुनः प्रतिपादित ‘ईश्वरः’ परमात्मा सर्वभूतानां समस्तप्राणिनां ‘हृदि’ हृदये सर्वसंविद्धिकरणभूते देशे ‘वसति’ नित्यं प्रतिष्ठति । किं कुर्वन् । यत् किञ्चिदेषां सर्वभूतानां ज्ञानात्मकं क्रियात्मकं वा परिस्पन्दितं, तत् सर्व स एव एकः परमार्थतः कुर्वन्नपि मायाशक्त्यवभासित परस्पर विभिन्ननानारूपाणि तानि ‘सर्वभूतानि’ प्रत्येकमहंकरोमीति सिध्याभिमाननिवेशनेन ‘भ्रामयन्’ व्यामोहयन् ।',
     note: 'Bounded: gloss core through the bhrāmayan close (कथमिव-question excluded). Hyphens joined (प्रत्येकम-हंकरोमीति, सिध्या-भिमान); quote-glyph mix ("सर्वभूतानां’) retained as extraction noise class; spaces retained.',
   },
+  {
+    id: 'gita-tx-13-avat',
+    spanId: 'gita-ps-13-avat',
+    unitIds: ['13.2'],
+    ksts: [],
+    pdf: 286,
+    folio: 276,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'इदानीं शरीरशरीरिभावेन व्यवस्थितायास्तस्या उद्वेष्टनोपायभूतत्वेन ज्ञानस्य निर्णयार्थ समनन्तरमध्यायमारभते ।',
+    note: 'Bounded: chapter-gateway purpose sentence (excludes following tayoh exposition). No hyphens; no [?]. Mūla excluded by policy.',
+  },
+  {
+    id: 'gita-tx-13.3-gloss',
+    spanId: 'gita-seg-13.3-gloss',
+    unitIds: ['13.4'],
+    ksts: ['13.3'],
+    pdf: 289,
+    folio: 279,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'तस्मिश्च क्षेत्रे ‘यत्’ वस्तु ‘विकारि’ विशिष्टकार्यकारणत्वात् विकारवत् विकारसंयुक्तं, तदपि ‘शृणु’ ।',
+    note: 'Bounded: vikāri gloss sentence (excludes preceding tat-definition and following yataśca exposition). No hyphens; no [?].',
+  },
+  {
+    id: 'gita-tx-13.5-gloss',
+    spanId: 'gita-seg-13.5-gloss',
+    unitIds: ['13.6'],
+    ksts: ['13.5'],
+    pdf: 290,
+    folio: 280,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '‘एतत्’ महाभूतादिवस्तुसमुदायात्मकं ‘क्षेत्र’ विकारसंयुक्तं विकारग्रहणात् प्रकृतिभूतसंयुक्तमपि संक्षेपेण कथितम् ।',
+    note: 'Bounded: kṣetra-saṅgraha sentence (excludes preceding mahābhūta analysis and following ṣoḍaśaka exposition). No hyphens; no [?].',
+  },
+  {
+    id: 'gita-tx-13.6-iccha',
+    spanId: 'gita-seg-13.6-iccha',
+    unitIds: ['13.7'],
+    ksts: ['13.6'],
+    pdf: 291,
+    folio: 281,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'कैश्चिदिच्छाद्वेषसुखदुःखादय आत्मधर्मत्वेन अभ्युपगतास्ते वेद्यत्वात्क्षेत्रमेव । तथा शरीरिन्द्रियादिसमुदायः ‘संघातः’ । ‘चेतना’ चेत्यतेऽनयेति कृत्वा ज्ञानं बुद्धिवृत्तिः । ‘धृतिः’ प्राणादिधारणानिबन्धनमहंप्रत्ययः ।',
+    note: 'Bounded: icchā-ādi definitions through the dhṛti close (excludes following pramātṛ puzzle). Hyphens joined (सुखदुःखा-दय, शरीरे-न्द्रियादि). No [?].',
+  },
+  {
+    id: 'gita-tx-13.11-ajnana',
+    spanId: 'gita-seg-13.11-ajnana',
+    unitIds: ['13.12'],
+    ksts: ['13.11'],
+    pdf: 296,
+    folio: 286,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'अत उक्तात् गुणसमूहात् ‘अन्यथा’ अन्येन विपरीतेन प्रकारेण मानित्वदम्भित्वादिना यत्स्थितं, तत्सर्व ‘अज्ञानं’ ज्ञानविपरीतं वेदितव्यम् ।',
+    note: 'Bounded: ajñāna close (excludes preceding jñānam-iti-proktam sentence and following devāsura promise). No hyphens; no [?].',
+  },
+  {
+    id: 'gita-tx-13.12-jneya-resp',
+    spanId: 'gita-seg-13.12-jneya-resp',
+    unitIds: ['13.13'],
+    ksts: ['13.12'],
+    pdf: 297,
+    folio: 287,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'सत्यं, न तस्य वस्तुनः परमार्थतो ज्ञेयता संभवति । किन्तु आरुरुक्षावस्थायां ज्ञातृज्ञानज्ञेय विभागात्मकत्वादुपचारेण ज्ञेयशब्दस्तत्र प्रवर्तते, नतु वास्तवेन रूपेण तस्य ज्ञेयता विवक्षिता ।',
+    note: 'Bounded: satyam response (excludes preceding nanu question on ananya-saṃvedya and following tadviśeṣaṇa introduction). Hyphen joined (आरुरुक्षा-वस्थायां). Spaces retained as extracted (ज्ञातृज्ञानज्ञेय विभागात्मकत्वात्, नतु). No [?].',
+  },
+  {
+    id: 'gita-tx-13.12-anadi',
+    spanId: 'gita-seg-13.12-anadi',
+    unitIds: ['13.13'],
+    ksts: ['13.12'],
+    pdf: 298,
+    folio: 288,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'तद्विपरीतं तु कारणान्तरनिरपेक्षसद्भावं ‘अनादिमत् परं ब्रह्म’ इत्युक्तम् ।',
+    note: 'Bounded: anādimat sentence (excludes preceding ādimat analysis and following na-sat exposition). Hyphen joined (‘अनादि-मत्). No [?].',
+  },
+  {
+    id: 'gita-tx-13.19-prakrti',
+    spanId: 'gita-seg-13.19-prakrti',
+    unitIds: ['13.20'],
+    ksts: ['13.19'],
+    pdf: 301,
+    folio: 291,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'यैषा ‘प्रकृतिः’ सप्तमेऽध्याये विषयभावेन, संप्रति शरीरभावेन विभज्य प्रतिपादितस्वरूपा, तथैव यः ‘पुरुषः’ विषयित्वेन शरीरित्वेन प्रतिपादितः, एतावेव अन्योन्यसंबद्धत्वेन ‘अनादी विद्धि’ जानीहि ।',
+    note: 'Bounded: prakṛti-puruṣa recall sentence (excludes preceding saṅgraha introduction and following anāditva-tātparya). Hyphen joined (शरीरभा-वेन). ‘अनादी विद्धि’ retained verbatim. No [?].',
+  },
+  {
+    id: 'gita-tx-13.20-karya',
+    spanId: 'gita-seg-13.20-karya',
+    unitIds: ['13.21'],
+    ksts: ['13.20'],
+    pdf: 301,
+    folio: 291,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'कार्य महाभूताद्यात्मकं, कारणानि बाह्याभ्यन्तराणि इन्द्रियाणि, इति शरीराद्यात्मकः समूहः कार्यकारणशब्देन उच्यते ।',
+    note: 'Bounded: kārya-kāraṇa definition sentence (excludes following kartṛtve-hetu exposition). Hyphen joined (इन्द्रि-याणि). No [?].',
+  },
+  {
+    id: 'gita-tx-13.22-mahesvara',
+    spanId: 'gita-seg-13.22-mahesvara',
+    unitIds: ['13.23'],
+    ksts: ['13.22'],
+    pdf: 303,
+    folio: 293,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '‘महेश्वरः’ सर्वपुरुषैश्वर्यापेक्षया महानत्युत्कृष्ट ईश्वरः प्रभुः परब्रह्मशब्दापरपर्यायः स्वमायोद्भावितपुरुषव्यपेक्षया देहेऽस्मिन्नुपद्रष्टा भर्ता अनुमन्ता भोक्ता च’ इति व्यवस्थितः ।',
+    note: 'Bounded: maheśvara sentence through the vyavasthitaḥ close (excludes following upadraṣṭā analysis). Hyphen joined (देहेऽस्मि-नुपद्रष्टा). No [?].',
+  },
+  {
+    id: 'gita-tx-13.34-synthesis',
+    spanId: 'gita-seg-13.34-synthesis',
+    unitIds: ['13.35'],
+    ksts: ['13.34'],
+    pdf: 311,
+    folio: 301,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '‘ये’ योगिनः ‘एवं’ उक्तेन प्रकारेण क्षेत्रस्य शरीरभावेन परिणताया अपरायाः प्रकृतेः, तथा क्षेत्रज्ञस्य नानाक्षेत्राहकारावष्टम्भेन अवस्थिताया जीवरूपायाः परायाः प्रकृतेः ‘अन्तरं विशेषं परस्पर विविक्तं स्वरूपं ‘विदुः’ जानते ।',
+    note: 'Bounded: antara gloss sentence (excludes following kena/jñāna-cakṣuṣā exposition and bhūtaprakṛtimokṣa close). Hyphen joined (नानाक्षेत्राहका-रावष्टम्भेन). अहकार for expected अहङ्कार retained verbatim (ṅ may be extraction loss; uncollated against page images). Spaces retained (परस्पर विविक्तं). No [?].',
+  },
 ];
 
 /** Devanagari source text plus print punctuation, digits, brackets and whitespace. */
@@ -202,7 +347,7 @@ export function validatePassages(records: GitaCommentaryText[]): string[] {
     }
     if (seen.has(record.id)) errors.push(`duplicate passage id ${record.id}`);
     seen.add(record.id);
-    if (!['verified-source', 'extraction-unreviewed', 'partially-verified'].includes(record.status)) {
+    if (!['verified-source', 'text-layer-reviewed', 'page-image-collated', 'partially-collated', 'extraction-unreviewed', 'partially-verified'].includes(record.status)) {
       errors.push(`${record.id}: unknown status ${String(record.status)}`);
     }
     if (!record.sourceId || !record.sourceId.trim()) {

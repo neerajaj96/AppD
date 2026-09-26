@@ -48,7 +48,15 @@ export interface CommentaryAudit {
   conceptsWithSegments: number;
   conceptsTotal: number;
   danglingSpanRefs: number;
-  texts: { total: number; verifiedSource: number; extractionUnreviewed: number; partiallyVerified: number };
+  texts: {
+    total: number;
+    verifiedSource: number;
+    textLayerReviewed: number;
+    pageImageCollated: number;
+    partiallyCollated: number;
+    extractionUnreviewed: number;
+    partiallyVerified: number;
+  };
   stepsWithText: number;
   conceptsWithText: number;
 }
@@ -135,10 +143,16 @@ export function auditCommentary(input: {
     (s) => s.folio === undefined && (s.unitIds || []).length === 0,
   ).length;
   let verifiedSource = 0;
+  let textLayerReviewed = 0;
+  let pageImageCollated = 0;
+  let partiallyCollated = 0;
   let extractionUnreviewed = 0;
   let partiallyVerified = 0;
   for (const passage of passages) {
     if (passage.status === 'verified-source') verifiedSource += 1;
+    else if (passage.status === 'text-layer-reviewed') textLayerReviewed += 1;
+    else if (passage.status === 'page-image-collated') pageImageCollated += 1;
+    else if (passage.status === 'partially-collated') partiallyCollated += 1;
     else if (passage.status === 'extraction-unreviewed') extractionUnreviewed += 1;
     else if (passage.status === 'partially-verified') partiallyVerified += 1;
   }
@@ -156,6 +170,9 @@ export function auditCommentary(input: {
     texts: {
       total: passages.length,
       verifiedSource,
+      textLayerReviewed,
+      pageImageCollated,
+      partiallyCollated,
       extractionUnreviewed,
       partiallyVerified,
     },
@@ -191,6 +208,9 @@ export function formatCommentaryAudit(audit: CommentaryAudit): string {
     'Commentary:',
     `  total segments: ${audit.texts.total}`,
     `  source-transcribed: ${audit.texts.verifiedSource}`,
+    `  text-layer reviewed: ${audit.texts.textLayerReviewed}`,
+    `  page-image collated: ${audit.texts.pageImageCollated}`,
+    `  partially collated: ${audit.texts.partiallyCollated}`,
     `  OCR-unverified: ${audit.texts.extractionUnreviewed}`,
     `  partially verified: ${audit.texts.partiallyVerified}`,
     `Steps with exact source text: ${audit.stepsWithText}`,

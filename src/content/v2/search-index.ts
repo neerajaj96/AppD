@@ -1,5 +1,6 @@
 import type { V2Corpus, V2Thread } from './schema';
 import { normaliseId } from './ids';
+import { GITA_COMMENTARY_TEXTS } from './gitaCommentaryText';
 
 /**
  * Build-time search-index generation (foundation).
@@ -9,6 +10,14 @@ import { normaliseId } from './ids';
  * (English, Malayalam, Devanagari, IAST, ASCII-normalised Sanskrit, unit
  * numbers, concepts, text and tradition names, thread steps) can later
  * move into a Web Worker without changing the data shape.
+ *
+ * Rāmakaṇṭha commentary passages enrich Gītā unit entries: each unit's
+ * `devanagari` field carries its passages' diplomatic text (in addition
+ * to any root-verse Sanskrit), so Devanagari term search, exact
+ * source-term search and Chapter-13 filtering resolve to verses through
+ * the existing lazy tiered layout (discovery heads + per-text shards).
+ * No transliteration is manufactured: Latin discovery for passages runs
+ * through concept/thread English, never through invented IAST.
  */
 
 export interface SearchIndexEntry {
@@ -102,7 +111,13 @@ export function buildSearchIndex(corpus: V2Corpus, traditionThreads?: V2Thread[]
         section: unit.section,
         en,
         ml,
-        devanagari: unit.devanagari || '',
+        devanagari:
+          text.id === 'bhagavad-gita'
+            ? fold(
+              unit.devanagari || '',
+              ...GITA_COMMENTARY_TEXTS.filter((p) => (p.unitIds || []).includes(unit.id)).map((p) => p.text),
+            )
+            : unit.devanagari || '',
         iast: unit.iast || '',
         normalised: normaliseId(fold(en, unit.iast, unit.number)),
       });

@@ -68,6 +68,10 @@ export const GITA_QUOTATION_EDGES: GitaReference[] = [
   { id: 'gita-xref-051', fromKsts: { chapter: 18, verse: 41 }, fromUnitId: '18.41', toKsts: { chapter: 4, verse: 13 }, toUnitId: '4.13', quotedText: 'चातुर्वर्ण्य मया सृष्टं गुणकर्मविभागशः । तस्य कतीरमपि मां विद्ध्यकर्तारमव्ययम् ॥', locator: '(४।१३)', kind: 'commentary-quotes-unit' },
   { id: 'gita-xref-052', fromKsts: { chapter: 18, verse: 47 }, fromUnitId: '18.47', toKsts: { chapter: 16, verse: 1 }, toUnitId: '16.1', quotedText: 'अभयं सत्त्वसंशुद्धि नियोगव्यवस्थितिः ।', locator: '(१६।१)', kind: 'commentary-quotes-unit' },
   { id: 'gita-xref-053', fromKsts: { chapter: 18, verse: 67 }, fromUnitId: '18.67', toKsts: { chapter: 18, verse: 46 }, toUnitId: '18.46', quotedText: 'यतः प्रवृत्तिर्भूतानाम् ।', locator: '(१८४६)', kind: 'commentary-quotes-unit' },
+  { id: 'gita-xref-054', fromKsts: null, fromUnitId: null, toKsts: { chapter: 7, verse: 6 }, toUnitId: '7.6', quotedText: 'अहं कृत्नस्य जगतः प्रभवः प्रलयस्तथा ।', locator: '(७।६)', kind: 'commentary-quotes-unit', note: 'host verse indeterminate from print order (chapter-13 avatāraṇikā, printed p.276)' },
+  { id: 'gita-xref-055', fromKsts: { chapter: 13, verse: 11 }, fromUnitId: '13.12', toKsts: { chapter: 7, verse: 18 }, toUnitId: '7.18', quotedText: 'ज्ञानी त्वात्मैव मे मतः ।', locator: '(७।१८)', kind: 'commentary-quotes-unit', note: 'host KSTS 13.11 (jñāna-taru-phala bhakti; printed p.286)' },
+  { id: 'gita-xref-056', fromKsts: { chapter: 13, verse: 24 }, fromUnitId: '13.25', toKsts: { chapter: 6, verse: 3 }, toUnitId: '6.3', quotedText: 'योगारूढस्य तस्यैव शमः कारणमुच्यते ।', locator: '(६।३)', kind: 'commentary-quotes-unit', note: 'host KSTS 13.24 (dhyāna vs karma-yoga stages; printed p.294)' },
+  { id: 'gita-xref-057', fromKsts: { chapter: 13, verse: 29 }, fromUnitId: '13.30', toKsts: { chapter: 7, verse: 6 }, toUnitId: '7.6', quotedText: 'एतद्योनीनि भूतानि सर्वाणीत्युपधारय ।', locator: '(७।६)', kind: 'commentary-quotes-unit', note: 'host KSTS 13.29 (prakṛti as sarva-jagat-citra cause; printed p.297)' },
 ];
 
 /** Edges quoting one KSTS verse, keyed by target. */

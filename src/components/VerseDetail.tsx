@@ -8,7 +8,7 @@ import { CitationButton, CitationText, EditorialRows, EvidenceList, ProvRows, ed
 import { formatCitation, selectCitationSource, unitCanonicalUrl } from '../content/v2/citation';
 import type { V2Source } from '../content/v2/schema';
 import { useReading } from '../context/ReadingContext';
-import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell, SwipeHint, ActionButton } from './Primitives';
+import { Breadcrumb, BottomBar, Notice, CollapsibleSection, Card, CardBody, PageShell, SwipeHint, ActionButton, ChipLink } from './Primitives';
 import {
   RelatedConceptRows,
   RelatedVersesSection,
@@ -22,9 +22,12 @@ import { isBookmarked, toggleBookmark } from '../utils/bookmarks';
 import { useLanguage } from '../context/LanguageContext';
 import { t } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
-import { useCatalog, useV2Text, useTraditionThread, useTextSources } from '../content/v2/hooks';
+import { useCatalog, useV2Text, useTraditionThread, useTextSources, useTextPassages } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
 import { getAdjacentUnits, pickLocalisation } from '../content/v2/select';
+import { gitaMapForUnit } from '../content/v2/gitaPageMap';
+import { GITA_PASSAGE_SPANS } from '../content/v2/gitaSpans';
+import { GITA_QUOTATION_EDGES } from '../content/v2/gitaXrefs';
 import type { CanonicalUnit } from '../content/v2/schema';
 import type { TextManifestFile } from '../content/v2/chunks';
 
@@ -120,6 +123,127 @@ function UnitSourceArea({
         {ed.length > 0 && (
           <section aria-label={t(language, 'edTitle')}>
             <EditorialRows rows={ed} />
+          </section>
+        )}
+      </div>
+    </CollapsibleSection>
+  );
+}
+
+/**
+ * Rāmakaṇṭha source layer for one Gītā unit (Phase 7, Chapter 13 reference).
+ *
+ * Reading order inside: source locator (KSTS + folio) → commentary
+ * structure (print-demarcated segments) → Devanagari source passages
+ * (verified, lazy-loaded) → explicit printed cross-references. Project
+ * English commentary lives in its own section above — the two are never
+ * presented as the same thing. Locator-only units state their gap openly.
+ */
+function GitaRamakanthaArea({
+  textId,
+  verseId,
+  systemId,
+}: {
+  textId: string;
+  verseId: string;
+  systemId: string;
+}) {
+  const { language } = useLanguage();
+  const passagesState = useTextPassages(textId === 'bhagavad-gita' ? textId : undefined);
+  if (textId !== 'bhagavad-gita') return null;
+  const row = gitaMapForUnit(verseId);
+  const spans = GITA_PASSAGE_SPANS.filter((s) => (s.unitIds || []).includes(verseId));
+  const passages =
+    passagesState.status === 'ok'
+      ? passagesState.data.filter((p) => (p.unitIds || []).includes(verseId))
+      : [];
+  const outgoing = GITA_QUOTATION_EDGES.filter((e) => e.fromUnitId === verseId);
+  const incoming = GITA_QUOTATION_EDGES.filter((e) => e.toUnitId === verseId && e.fromUnitId !== verseId);
+  if (!row && spans.length === 0 && passages.length === 0 && outgoing.length === 0 && incoming.length === 0) {
+    return null;
+  }
+  const kstsLabel =
+    row && row.ksts.length > 0
+      ? `KSTS ${row.ksts.join(', ')}${row.folio !== undefined ? ` · p. ${row.folio}` : ''}`
+      : undefined;
+  const coveredSpans = new Set(passages.flatMap((p) => (p.spanId !== undefined ? [p.spanId] : [])));
+  return (
+    <CollapsibleSection title={t(language, 'ramakanthaSource')} defaultOpen={false}>
+      <div className="space-y-4">
+        {kstsLabel && (
+          <p className="text-xs tabular-nums text-tamas">
+            {kstsLabel}
+          </p>
+        )}
+        {spans.length > 0 && (
+          <section aria-label={t(language, 'commentarySegment')}>
+            <h4 className="t-label text-tamas mb-2">{t(language, 'commentarySegment')}</h4>
+            <ul className="space-y-1.5">
+              {spans.map((span) => (
+                <li key={span.id} className="text-xs text-sattva-dim break-words">
+                  {span.note || span.id}
+                  {span.folio !== undefined && (
+                    <span className="tabular-nums"> · p. {span.folio}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
+            {passagesState.status === 'ok' && spans.some((s) => !coveredSpans.has(s.id)) && (
+              <p className="mt-1.5 text-xs text-tamas">{t(language, 'transcriptionAbsent')}</p>
+            )}
+          </section>
+        )}
+        {passagesState.status === 'loading' && (
+          <p className="text-xs text-tamas animate-pulse">{t(language, 'loading')}</p>
+        )}
+        {passagesState.status === 'ok' &&
+          passages.map((passage) =>
+            passage.status === 'verified-source' || passage.status === 'text-layer-reviewed' ? (
+              <details key={passage.id} className="rounded-lg bg-avyakta-2 px-3 py-2 animate-fade-in">
+                <summary className="cursor-pointer text-xs font-semibold text-sattva">
+                  {t(language, 'ramakanthaSource')}
+                  {passage.folio !== undefined && (
+                    <span className="tabular-nums font-normal text-sattva-dim"> · p. {passage.folio}</span>
+                  )}{' '}
+                  <span className="ml-1 inline-flex items-center rounded-full border border-sattva/30 px-2 py-0.5 text-xs font-semibold text-sattva">
+                    {t(language, 'passageVerified')}
+                  </span>
+                </summary>
+                <p lang="sa" className="mt-1.5 text-sm leading-relaxed text-sattva break-words">
+                  {passage.text}
+                </p>
+              </details>
+            ) : (
+              <p key={passage.id} className="text-xs text-tamas">
+                {t(language, 'passageUnverified')}
+              </p>
+            ),
+          )}
+        {passagesState.status === 'ok' && passages.length === 0 && spans.length === 0 && (
+          <p className="text-xs text-tamas">{t(language, 'transcriptionAbsent')}</p>
+        )}
+        {(outgoing.length > 0 || incoming.length > 0) && (
+          <section aria-label={t(language, 'relatedVerses')}>
+            {outgoing.length > 0 && (
+              <ul className="flex flex-wrap gap-2">
+                {outgoing.map((edge) => (
+                  <li key={edge.id}>
+                    {edge.toUnitId ? (
+                      <ChipLink to={`/system/${systemId}/text/${textId}/verse/${edge.toUnitId}`}>
+                        {edge.locator}
+                      </ChipLink>
+                    ) : (
+                      <span className="text-xs text-sattva-dim tabular-nums">{edge.locator}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {incoming.length > 0 && (
+              <p className="mt-1.5 text-xs text-tamas">
+                {incoming.map((edge) => edge.locator).join(' · ')}
+              </p>
+            )}
           </section>
         )}
       </div>
@@ -543,6 +667,10 @@ export default function VerseDetail() {
                 />
               </div>
             </CollapsibleSection>
+          )}
+
+          {systemId && textId && verseId && (
+            <GitaRamakanthaArea textId={textId} verseId={verseId} systemId={systemId} />
           )}
 
           {layersHidden && (translation || commentary) && (

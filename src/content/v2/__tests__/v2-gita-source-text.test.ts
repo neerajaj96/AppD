@@ -23,9 +23,20 @@ import { uiStrings, type UIKey } from '../../../i18n/ui';
 // where units matter; the passage table itself otherwise.
 
 const EXPECTED_IDS = [
+  'gita-tx-13-avat',
   'gita-tx-13.1-glosa',
   'gita-tx-13.2-nanu',
   'gita-tx-13.2-resolution',
+  'gita-tx-13.3-gloss',
+  'gita-tx-13.5-gloss',
+  'gita-tx-13.6-iccha',
+  'gita-tx-13.11-ajnana',
+  'gita-tx-13.12-anadi',
+  'gita-tx-13.12-jneya-resp',
+  'gita-tx-13.19-prakrti',
+  'gita-tx-13.20-karya',
+  'gita-tx-13.22-mahesvara',
+  'gita-tx-13.34-synthesis',
   'gita-tx-2.39-tail',
   'gita-tx-3-avat',
   'gita-tx-4-avat',
@@ -45,7 +56,7 @@ function curatedGita() {
 }
 
 describe('passage identity and preservation', () => {
-  it('ships exactly the eleven reviewed pilot passages', () => {
+  it('ships exactly the twenty-two reviewed passages (eleven pilot + eleven Chapter-13)', () => {
     expect(GITA_COMMENTARY_TEXTS.map((p) => p.id).sort()).toEqual([...EXPECTED_IDS].sort());
     expect(passageById('gita-tx-13.2-nanu')?.spanId).toBe('gita-ps-13.2-nanu');
     expect(passageById('gita-tx-nope')).toBeUndefined();
@@ -87,7 +98,22 @@ describe('passage mapping and states', () => {
       for (const uid of p.unitIds) expect(unitIds.has(uid)).toBe(true);
       expect(p.folio).toBe(p.pdf - 10);
       expect(p.sourceId).toBe(KSTS_SOURCE_ID);
-      expect(p.status).toBe('verified-source');
+      expect(['verified-source', 'text-layer-reviewed']).toContain(p.status);
+    }
+  });
+
+  it('keeps Phase-6 verified-source distinct from Phase-7 text-layer-reviewed, never collated', () => {
+    const pilot = GITA_COMMENTARY_TEXTS.filter((p) =>
+      ['gita-tx-13.1-glosa', 'gita-tx-13.2-nanu', 'gita-tx-13.2-resolution'].includes(p.id),
+    );
+    for (const p of pilot) expect(p.status).toBe('verified-source');
+    const ch13 = GITA_COMMENTARY_TEXTS.filter((p) => p.id.startsWith('gita-tx-13-') || p.id.startsWith('gita-tx-13.'));
+    const phase7 = ch13.filter((p) => !['gita-tx-13.1-glosa', 'gita-tx-13.2-nanu', 'gita-tx-13.2-resolution'].includes(p.id));
+    expect(phase7.length).toBeGreaterThan(0);
+    for (const p of phase7) expect(p.status).toBe('text-layer-reviewed');
+    for (const p of GITA_COMMENTARY_TEXTS) {
+      expect(p.status).not.toBe('page-image-collated');
+      expect(p.status).not.toBe('partially-collated');
     }
   });
 
@@ -161,6 +187,29 @@ describe('passage evidence resolution', () => {
       expect(bySpan.get(sid)).toBeGreaterThan(0);
     }
   });
+
+  it('covers every new Chapter-13 span with exact text except the closing apparatus', () => {
+    const bySpan = new Map<string, number>();
+    for (const p of GITA_COMMENTARY_TEXTS) {
+      if (p.spanId !== undefined) bySpan.set(p.spanId, (bySpan.get(p.spanId) || 0) + 1);
+    }
+    for (const sid of [
+      'gita-ps-13-avat',
+      'gita-seg-13.3-gloss',
+      'gita-seg-13.5-gloss',
+      'gita-seg-13.6-iccha',
+      'gita-seg-13.11-ajnana',
+      'gita-seg-13.12-jneya-resp',
+      'gita-seg-13.12-anadi',
+      'gita-seg-13.19-prakrti',
+      'gita-seg-13.20-karya',
+      'gita-seg-13.22-mahesvara',
+      'gita-seg-13.34-synthesis',
+    ]) {
+      expect(bySpan.get(sid)).toBeGreaterThan(0);
+    }
+    expect(bySpan.get('gita-seg-13.34-closing') || 0).toBe(0);
+  });
 });
 
 describe('passages lazy loading', () => {
@@ -231,8 +280,11 @@ describe('commentary audit with source text', () => {
       passages: GITA_COMMENTARY_TEXTS,
     });
     expect(audit.texts).toEqual({
-      total: 11,
+      total: 22,
       verifiedSource: 11,
+      textLayerReviewed: 11,
+      pageImageCollated: 0,
+      partiallyCollated: 0,
       extractionUnreviewed: 0,
       partiallyVerified: 0,
     });
