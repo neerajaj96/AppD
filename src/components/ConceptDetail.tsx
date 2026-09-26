@@ -8,6 +8,7 @@ import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catal
 import { useCatalog, useV2Text, useTraditionThread } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
 import { gitaMapForUnit } from '../content/v2/gitaPageMap';
+import { passageSpanById } from '../content/v2/gitaSpans';
 import type { ConceptLinkType, ConceptTermKind } from '../content/v2/schema';
 import { getRepository } from '../content/v2/repository';
 import { buildConceptGraph } from '../content/v2/conceptGraph';
@@ -284,6 +285,8 @@ export default function ConceptDetail() {
     return (v2Concept.occurrences || []).map((occ, i) => {
       const unit = byId.get(occ.unitId);
       const loc = occurrenceLocator(textId, occ.unitId, occ);
+      const span =
+        occ.spanId && textId === 'bhagavad-gita' ? passageSpanById(occ.spanId) : undefined;
       return {
         key: `${occ.unitId}-${i}`,
         unitId: occ.unitId,
@@ -294,6 +297,7 @@ export default function ConceptDetail() {
         note: occ.note,
         quote: occ.quote,
         unmappedReason: occ.unmappedReason,
+        spanNote: span?.note,
       };
     });
   }, [v2Concept, systemId, textId, units]);
@@ -467,6 +471,12 @@ export default function ConceptDetail() {
                       </p>
                     )}
                     {row.note && <p className="mt-1 text-sm text-sattva-dim">{row.note}</p>}
+                    {row.spanNote && (
+                      <p className="mt-1 text-xs text-sattva-dim">
+                        <span className="font-medium">{t(language, 'commentarySegment')}: </span>
+                        {row.spanNote}
+                      </p>
+                    )}
                     {row.unmappedReason && (
                       <p className="mt-1 text-xs text-tamas">{row.unmappedReason}</p>
                     )}

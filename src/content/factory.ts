@@ -41,7 +41,7 @@ export interface RawConcept {
   /** Scholarly concept layer (Phase 3 Gītā ontology); carried verbatim. */
   status?: 'legacy-project' | 'source-grounded';
   sourceTerms?: Array<{ form: string; kind: 'attested' | 'normalised' | 'translated' | 'inferred'; language?: 'sa' | 'en' | 'ml'; note?: string }>;
-  occurrences?: Array<{ unitId: string; sourceTerm?: string; relation?: 'text' | 'translation' | 'commentary' | 'interpretation' | 'provenance'; context?: string; folio?: number; unmappedReason?: string; quote?: string; note?: string }>;
+  occurrences?: Array<{ unitId: string; sourceTerm?: string; relation?: 'text' | 'translation' | 'commentary' | 'interpretation' | 'provenance'; context?: string; folio?: number; unmappedReason?: string; spanId?: string; quote?: string; note?: string }>;
   conceptLinks?: Array<{ to: string; type: 'synonymous-with' | 'variant-of' | 'broader-than' | 'narrower-than' | 'presupposes' | 'contrasts-with' | 'explains' | 'qualified-by' | 'leads-to' | 'inseparable-from' | 'distinguished-from' | 'identified-with'; units?: string[]; note?: string }>;
 }
 

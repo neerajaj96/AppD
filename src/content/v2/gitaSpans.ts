@@ -62,12 +62,25 @@ export interface GitaPassageSpan {
   id: string;
   /** Canonical units the passage belongs to (often one). */
   unitIds: string[];
-  /** KSTS refs, fully qualified. */
+  /** KSTS refs, fully qualified; empty for unnumbered opening matter. */
   ksts: string[];
   pdf?: number;
   folio?: number;
   anchor: PassageSpanAnchor;
   role?: PassageSpanRole;
+  /**
+   * Source vs editorial accounting. `source` = print-demarcated region
+   * (nanu, avataraṇikā, verse-adjacent gloss bounded by markers);
+   * `editorial` = Darśana grouping, explicitly marked; `unresolved` =
+   * insufficient evidence for a stronger claim. Required on every span.
+   */
+  status: 'source' | 'editorial' | 'unresolved';
+  /**
+   * Reserved for future verified transcription. ABSENT throughout Phase
+   * 5 by design: no Sanskrit has been imported, and tests enforce the
+   * absence so commentary text can never be fabricated here.
+   */
+  transcription?: string;
   note?: string;
 }
 
@@ -80,6 +93,7 @@ export const GITA_PASSAGE_SPANS: GitaPassageSpan[] = [
     folio: 277,
     anchor: 'commentary-tail',
     role: 'objection',
+    status: 'source',
     note: 'ननु passage between KSTS 13.1 close and 13.2: one pramātṛ vs many knowers (printed pp.287–288).',
   },
   {
@@ -89,6 +103,7 @@ export const GITA_PASSAGE_SPANS: GitaPassageSpan[] = [
     pdf: 71,
     folio: 61,
     anchor: 'avataraṇikā',
+    status: 'source',
     note: 'Chapter-3 gateway: Arjuna asks from non-ascertainment of the samuccaya object.',
   },
   {
@@ -98,6 +113,7 @@ export const GITA_PASSAGE_SPANS: GitaPassageSpan[] = [
     pdf: 102,
     folio: 92,
     anchor: 'avataraṇikā',
+    status: 'source',
     note: 'Chapter-4 gateway: samuccaya as abhidheya, paramātma-samāpatti as prayojana.',
   },
   {
@@ -107,6 +123,7 @@ export const GITA_PASSAGE_SPANS: GitaPassageSpan[] = [
     pdf: 168,
     folio: 158,
     anchor: 'avataraṇikā',
+    status: 'source',
     note: 'Chapter-7 gateway: the unsurpassed yoga of samuccaya form.',
   },
   {
@@ -117,7 +134,71 @@ export const GITA_PASSAGE_SPANS: GitaPassageSpan[] = [
     folio: 396,
     anchor: 'commentary',
     role: 'gloss',
+    status: 'source',
     note: 'Gloss on the unnumbered भ्रामयन् half: all stirrings done through māyā-śakti-avabhāsa.',
+  },
+  {
+    id: 'gita-seg-13.1-glosa',
+    unitIds: ['13.2'],
+    ksts: ['13.1'],
+    pdf: 287,
+    folio: 277,
+    anchor: 'commentary',
+    role: 'gloss',
+    status: 'source',
+    note: 'Śarīra pratīka gloss region of KSTS 13.1 (bounded by the verse marker and the nanu).',
+  },
+  {
+    id: 'gita-seg-13.2-verse',
+    unitIds: ['13.3'],
+    ksts: ['13.2'],
+    pdf: 288,
+    folio: 278,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'Verse introduction (parihartum + āha) with KSTS 13.2 itself.',
+  },
+  {
+    id: 'gita-seg-13.2-resolution',
+    unitIds: ['13.3'],
+    ksts: ['13.2'],
+    pdf: 288,
+    folio: 278,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'Vedakaika distinction and māyāśakti ground (shared by distinction and conclusion claims; retained whole — no inner boundary in print).',
+  },
+  {
+    id: 'gita-seg-2.39-tail',
+    unitIds: ['2.38'],
+    ksts: ['2.39'],
+    pdf: 48,
+    folio: 38,
+    anchor: 'commentary-tail',
+    status: 'source',
+    note: 'Closing sentence ascertaining jñāna-kriyā-samuccaya as the teachable.',
+  },
+  {
+    id: 'gita-seg-7.14-q2',
+    unitIds: ['7.14'],
+    ksts: ['7.14'],
+    pdf: 176,
+    folio: 166,
+    anchor: 'commentary',
+    role: 'objection',
+    status: 'source',
+    note: 'Second nanu (vain-teaching objection) within the 7.14 gloss.',
+  },
+  {
+    id: 'gita-seg-7.14-response',
+    unitIds: ['7.14'],
+    ksts: ['7.14'],
+    pdf: 176,
+    folio: 166,
+    anchor: 'commentary',
+    role: 'response',
+    status: 'source',
+    note: 'atrāha prapatti resolution following the second nanu.',
   },
 ];
 

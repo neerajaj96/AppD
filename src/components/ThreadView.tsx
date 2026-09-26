@@ -9,8 +9,11 @@ import { useLanguage } from '../context/LanguageContext';
 import { t, type UIKey } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
 import { useCatalog, useTraditionThread, useV2Text } from '../content/v2/hooks';
-import { v2ConceptToConcept, threadStepTitle } from '../content/v2/compat';
+import { v2ConceptToConcept, threadStepTitle, v2UnitToVerse } from '../content/v2/compat';
 import { gitaMapForUnit } from '../content/v2/gitaPageMap';
+import { passageSpanById } from '../content/v2/gitaSpans';
+import { formatCitation, threadStepUrl } from '../content/v2/citation';
+import { CitationButton } from './Provenance';
 import type { ScholarlyThreadType, ThreadEvidenceKind, ThreadStepRole } from '../content/v2/schema';
 import { getSystemAccent } from '../utils/theme';
 import { getThreadProgress, setThreadProgress } from '../utils/threadProgress';
@@ -226,6 +229,46 @@ export default function ThreadView() {
     const found = stepText.data.concepts.find((c) => c.id === step.conceptId);
     return found ? v2ConceptToConcept(found) : null;
   }, [step, stepText]);
+
+  // Segment-grounded citation for the current step: smallest verified
+  // locator (KSTS + folio + span notes) with a thread-step URL. Units
+  // without verified data cite at unit level; nothing is invented.
+  const stepCitation = useMemo(() => {
+    if (!step || !systemId || !thread) return null;
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const textTitle =
+      stepText.status === 'ok' ? stepText.data.manifest.transliteratedTitle : '';
+    let unitNumber = '';
+    const locators: string[] = [];
+    if (stepText.status === 'ok') {
+      const first = (step.unitIds || [])
+        .map((uid) => stepText.data.units.find((u) => u.id === uid))
+        .find(Boolean);
+      if (first) unitNumber = v2UnitToVerse(first).number;
+      if (targetTextId === 'bhagavad-gita') {
+        for (const uid of step.unitIds || []) {
+          const row = gitaMapForUnit(uid);
+          if (!row || row.ksts.length === 0) continue;
+          const nums = row.ksts.map((k) => (k.includes('.') ? k.split('.')[1] : k));
+          const ksts = nums.length > 1 ? `${nums[0]}-${nums[nums.length - 1]}` : nums[0];
+          locators.push(`KSTS ${ksts}${row.folio !== undefined ? `, p. ${row.folio}` : ''}`);
+        }
+      }
+    }
+    const segments = (step.spanIds || []).flatMap((sid) => {
+      const span = passageSpanById(sid);
+      return span?.note ? [`${sid}: ${span.note}`] : [];
+    });
+    const idx = thread.steps.findIndex((s) => s.id === step.id);
+    const safeIdx = thread.steps.length > 0 ? Math.min(Math.max(idx, 0), thread.steps.length - 1) : 0;
+    return formatCitation({
+      textTitle,
+      unitNumber,
+      locator: locators.join('; ') || undefined,
+      segment: segments.join('; ') || undefined,
+      url: threadStepUrl(origin, systemId, thread.id, safeIdx),
+    });
+  }, [step, systemId, thread, stepText, targetTextId]);
 
   if (catalog.status === 'loading' || traditionThread.status === 'loading') {
     return <div className="py-16 text-center text-tamas text-sm animate-pulse">{t(language, 'loading')}</div>;
@@ -479,6 +522,33 @@ export default function ThreadView() {
                     .filter(Boolean)
                     .join('   ')}
                 </p>
+              )}
+              {(step.spanIds || []).length > 0 && (
+                <div className="mt-2">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-tamas">
+                    {t(language, 'commentarySegment')}
+                  </p>
+                  <ul className="mt-1 space-y-1">
+                    {(step.spanIds || []).map((sid) => {
+                      const span = passageSpanById(sid);
+                      if (!span) return null;
+                      return (
+                        <li key={sid} className="text-xs text-sattva-dim break-words">
+                          {span.note || sid}
+                          {span.folio !== undefined && (
+                            <span className="tabular-nums"> · p. {span.folio}</span>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <p className="mt-1 text-xs text-tamas">{t(language, 'transcriptionAbsent')}</p>
+                </div>
+              )}
+              {stepCitation && (
+                <div className="mt-2.5">
+                  <CitationButton citation={stepCitation} />
+                </div>
               )}
             </div>
           )}

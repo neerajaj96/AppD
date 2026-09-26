@@ -17,6 +17,12 @@ export interface CitationInput {
   year?: string | number;
   locator?: string;
   page?: string;
+  /**
+   * Finer-than-unit precision, appended to the locator clause only when
+   * verified (e.g. a commentary-span note with folio). Never invented:
+   * absent means cite at unit level.
+   */
+  segment?: string;
   url: string;
 }
 
@@ -30,6 +36,12 @@ export function unitCanonicalUrl(origin: string, systemId: string, textId: strin
   return `${base}/#/system/${systemId}/text/${textId}/verse/${unitId}`;
 }
 
+/** Guided-thread step URL: thread id plus local step number. */
+export function threadStepUrl(origin: string, systemId: string, threadId: string, stepIndex: number): string {
+  const base = origin.endsWith('/') ? origin.slice(0, -1) : origin;
+  return `${base}/#/system/${systemId}/thread?thread=${threadId}&step=${stepIndex + 1}`;
+}
+
 /** Format a citation from available metadata only. Never throws. */
 export function formatCitation(input: CitationInput): string {
   const head = `${clean(input.textTitle) || 'Untitled text'}, ${clean(input.unitNumber) || '?'}.`;
@@ -40,9 +52,13 @@ export function formatCitation(input: CitationInput): string {
     .filter(Boolean)
     .join(', ');
   if (edition) parts.push(`${edition}.`);
-  const locator = [clean(input.locator), clean(input.page)].filter(Boolean).join(', ');
+  const locator = [clean(input.locator), clean(input.page), clean(input.segment)].filter(Boolean).join(', ');
   if (locator) parts.push(`${locator}.`);
-  parts.push(`Darśana canonical unit: ${clean(input.url) || '?'}.`);
+  // Segment citations address thread steps, not canonical units — the
+  // trailing label says which. Unit-only citations render byte-identical
+  // to before.
+  const refLabel = clean(input.segment) ? 'Darśana scholarly reference' : 'Darśana canonical unit';
+  parts.push(`${refLabel}: ${clean(input.url) || '?'}.`);
   return parts.join(' ');
 }
 

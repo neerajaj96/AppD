@@ -252,6 +252,8 @@ export interface V2ConceptOccurrence {
   folio?: number;
   /** Required when the unit has no KSTS row (front/chapter-opening matter). */
   unmappedReason?: string;
+  /** Commentary-span id for sub-unit precision (resolves in the span registry). */
+  spanId?: string;
   /** Brief verbatim fragment (Devanāgarī only — enforced). */
   quote?: string;
   note?: string;

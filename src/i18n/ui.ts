@@ -285,6 +285,8 @@ const en = {
   claimEditorial: 'Editorial',
   claimLabel: 'Establishes',
   transitionLabel: 'Why next',
+  commentarySegment: 'Commentary segment',
+  transcriptionAbsent: 'Locator-grounded; Sanskrit transcription not currently present.',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -564,6 +566,8 @@ const ml: Record<keyof typeof en, string> = {
   claimEditorial: 'സമ്പാദകീയം',
   claimLabel: 'സ്ഥാപിക്കുന്നു',
   transitionLabel: 'എന്തുകൊണ്ട് അടുത്തത്',
+  commentarySegment: 'വ്യാഖ്യാനഭാഗം',
+  transcriptionAbsent: 'സ്ഥാനം രേഖപ്പെടുത്തി; സംസ്കൃതപാഠം ഇപ്പോൾ ലഭ്യമല്ല.',
 };
 
 export type UIKey = keyof typeof en;

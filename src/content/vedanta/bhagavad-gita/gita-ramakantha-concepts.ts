@@ -87,10 +87,10 @@ export const gitaRamakanthaConcepts: any[] = [
       'അറിവും പ്രവൃത്തിയും ചേർന്ന സമുച്ചയം ഉപദേശവിഷയമാണ് (2.38). പ്രകരണത്തിന്റെ അഭിധേയവും പരമാത്മസമാപത്തി പ്രയോജനവുമാണ് (അദ്ധ്യായം 4 മുഖവുര). സമുച്ചയാർത്ഥം നിശ്ചയിക്കാത്തതിനാലാണ് അർജ്ജുനൻ ചോദിക്കുന്നത് (അദ്ധ്യായം 3 മുഖവുര). പ്രവർത്തിച്ചുകൊണ്ടും സമുച്ചയാനുഷ്ഠാതാവ് നിത്യസന്നാസിയാണ് (5.3).',
     ),
     occurrences: [
-      { unitId: '2.38', sourceTerm: 'ज्ञानक्रियासमुच्चय', relation: 'commentary', context: 'closing gloss (samuccaya ascertained as the teachable)', folio: 38, quote: 'ज्ञानक्रियासमुच्चयमेव', note: 'KSTS 2.39 commentary tail, printed p.48.' },
-      { unitId: '3.1', sourceTerm: 'समुच्चय', relation: 'commentary', context: 'avataraṇikā (Arjuna asks from non-ascertainment of the samuccaya object)', folio: 61, unmappedReason: 'chapter avataraṇikā (no verse number); folio of opening page' },
-      { unitId: '4.1', sourceTerm: 'ज्ञानकर्मसमुच्चय', relation: 'commentary', context: 'avataraṇikā (samuccaya as abhidheya; paramātma-samāpatti as prayojana)', folio: 92, unmappedReason: 'chapter avataraṇikā (no verse number); folio of opening page' },
-      { unitId: '7.1', sourceTerm: 'ज्ञानकर्मसमुच्चयरूप', relation: 'commentary', context: 'avataraṇikā (the unsurpassed yoga of samuccaya form)', folio: 158, unmappedReason: 'chapter avataraṇikā (no verse number); folio of opening page' },
+      { unitId: '2.38', sourceTerm: 'ज्ञानक्रियासमुच्चय', spanId: 'gita-seg-2.39-tail', relation: 'commentary', context: 'closing gloss (samuccaya ascertained as the teachable)', folio: 38, quote: 'ज्ञानक्रियासमुच्चयमेव', note: 'KSTS 2.39 commentary tail, printed p.48.' },
+      { unitId: '3.1', sourceTerm: 'समुच्चय', spanId: 'gita-ps-3-avat', relation: 'commentary', context: 'avataraṇikā (Arjuna asks from non-ascertainment of the samuccaya object)', folio: 61, unmappedReason: 'chapter avataraṇikā (no verse number); folio of opening page' },
+      { unitId: '4.1', sourceTerm: 'ज्ञानकर्मसमुच्चय', spanId: 'gita-ps-4-avat', relation: 'commentary', context: 'avataraṇikā (samuccaya as abhidheya; paramātma-samāpatti as prayojana)', folio: 92, unmappedReason: 'chapter avataraṇikā (no verse number); folio of opening page' },
+      { unitId: '7.1', sourceTerm: 'ज्ञानकर्मसमुच्चयरूप', spanId: 'gita-ps-7-avat', relation: 'commentary', context: 'avataraṇikā (the unsurpassed yoga of samuccaya form)', folio: 158, unmappedReason: 'chapter avataraṇikā (no verse number); folio of opening page' },
       { unitId: '5.3', sourceTerm: 'समुच्चयानुष्ठातृ', relation: 'commentary', context: 'gloss (the practitioner ever-renounced while acting)', folio: 117, note: 'KSTS 5.3. Samuccaya as a practitioner category, not only a thesis.' },
     ],
     conceptLinks: [
@@ -115,7 +115,7 @@ export const gitaRamakanthaConcepts: any[] = [
       'ജ്ഞാതാവിൽനിന്ന് വേർതിരിച്ചറിയേണ്ട ജ്ഞേയവസ്തു. ശരീരം ക്ഷേത്രമാണ് (13.2). അഷ്ടധാ അപരാപ്രകൃതിയും ജീവഭൂതമായ പരാപ്രകൃതിയും (7.4–5).',
     ),
     occurrences: [
-      { unitId: '13.2', sourceTerm: 'क्षेत्रम्', relation: 'commentary', context: 'pratīka gloss (śarīra identified as kṣetra)', folio: 277, note: 'KSTS 13.1. The field establisher for the whole adhyāya.' },
+      { unitId: '13.2', sourceTerm: 'क्षेत्रम्', spanId: 'gita-seg-13.1-glosa', relation: 'commentary', context: 'pratīka gloss (śarīra identified as kṣetra)', folio: 277, note: 'KSTS 13.1. The field establisher for the whole adhyāya.' },
       { unitId: '7.4', sourceTerm: 'प्रकृतिः', relation: 'commentary', context: 'verse teaching + gloss (eightfold aparā nature)', folio: 159, note: 'KSTS 7.4.' },
       { unitId: '7.5', sourceTerm: 'जीवभूता', relation: 'commentary', context: 'verse teaching + gloss (parā nature; twofold self-display through māyā-śakti)', folio: 159, note: 'KSTS 7.5. Links prakṛti to māyā-śakti and krīḍā.' },
     ],
@@ -143,7 +143,7 @@ export const gitaRamakanthaConcepts: any[] = [
       'ചേതനതത്ത്വം — എല്ലാ ക്ഷേത്രങ്ങളിലുമുള്ള ഏക വേദകൻ (13.3). ക്ഷരാക്ഷരവിവേകം; ഇവയ്ക്കതീതനായ ഉത്തമപുരുഷൻ (15.16–18).',
     ),
     occurrences: [
-      { unitId: '13.3', sourceTerm: 'वेदक', relation: 'commentary', context: 'nanu-objection resolution (eka vedaka vs manifold vedya; pramātṛ vocabulary)', folio: 278, note: 'KSTS 13.2 gloss. Knowership alone (vedakatvamātra) as the distinctive mark of ātman.' },
+      { unitId: '13.3', sourceTerm: 'वेदक', spanId: 'gita-seg-13.2-resolution', relation: 'commentary', context: 'nanu-objection resolution (eka vedaka vs manifold vedya; pramātṛ vocabulary)', folio: 278, note: 'KSTS 13.2 gloss. Knowership alone (vedakatvamātra) as the distinctive mark of ātman.' },
       { unitId: '15.16', sourceTerm: 'पुरुषौ', relation: 'commentary', context: 'verse teaching (kṣara/akṣara discrimination)', folio: 331, note: 'KSTS 15.16.' },
       { unitId: '15.17', sourceTerm: 'उत्तमः पुरुषः', relation: 'commentary', context: 'verse teaching (the supreme person beyond both)', folio: 332, note: 'KSTS 15.17.' },
       { unitId: '15.18', sourceTerm: 'पुरुषोत्तमः', relation: 'commentary', context: 'verse teaching ( famed as puruṣottama)', folio: 332, note: 'KSTS 15.18.' },
@@ -168,8 +168,8 @@ export const gitaRamakanthaConcepts: any[] = [
     ),
     occurrences: [
       { unitId: '7.14', sourceTerm: 'माया', relation: 'commentary', context: 'double-nanu exposition (devanāt/krīḍanāt; duratyayā; prapatti resolution)', folio: 165, quote: 'असती अपि सत्यवदाभासयन्ती', note: 'KSTS 7.14. Māyā identified with śakti; second objection defends the apavarga teaching.' },
-      { unitId: '13.3', sourceTerm: 'मायाशक्ति', relation: 'commentary', context: 'resolution gloss (per-body difference as acintyeśvara-māyāśakti play)', folio: 278, note: 'KSTS 13.2 gloss. Links māyā to the puruṣa question.' },
-      { unitId: '18.61', sourceTerm: 'मायया', relation: 'commentary', context: 'gloss on the unnumbered half (yantra machine-power)', folio: 396, note: 'KSTS 18.61 span. Māyā as the medium of Īśvara moving beings.' },
+      { unitId: '13.3', spanId: 'gita-seg-13.2-resolution', sourceTerm: 'मायाशक्ति', relation: 'commentary', context: 'resolution gloss (per-body difference as acintyeśvara-māyāśakti play)', folio: 278, note: 'KSTS 13.2 gloss. Links māyā to the puruṣa question.' },
+      { unitId: '18.61', sourceTerm: 'मायया', spanId: 'gita-ps-18.61-maya', relation: 'commentary', context: 'gloss on the unnumbered half (yantra machine-power)', folio: 396, note: 'KSTS 18.61 span. Māyā as the medium of Īśvara moving beings.' },
     ],
     conceptLinks: [],
   },

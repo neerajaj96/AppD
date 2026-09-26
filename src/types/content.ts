@@ -52,6 +52,7 @@ export interface Concept {
     context?: string;
     folio?: number;
     unmappedReason?: string;
+    spanId?: string;
     quote?: string;
     note?: string;
   }>;
