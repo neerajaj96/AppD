@@ -17,6 +17,7 @@ import { buildManifest } from '../src/content/v2/chunks.ts';
 import { buildSearchIndex, splitSearchIndex } from '../src/content/v2/search-index.ts';
 import { buildConceptOccurrenceIndex } from '../src/content/v2/occurrences.ts';
 import { applyProvenanceCuration } from '../src/content/v2/curate.ts';
+import { GITA_COMMENTARY_TEXTS } from '../src/content/v2/gitaCommentaryText.ts';
 import type { System } from '../src/types/content.ts';
 import type {
   ConceptIndexFile,
@@ -197,6 +198,11 @@ for (const text of corpus.texts) {
   track(path.join(OUT, text.id, 'meta.json'), file);
   track(path.join(OUT, text.id, 'threads.json'), text.threads || []);
   track(path.join(OUT, text.id, 'sources.json'), text.sources || []);
+  // Lazy commentary passages (Gītā pilot only; other texts ship none and
+  // loaders treat a missing file as legitimately empty).
+  if (text.id === 'bhagavad-gita') {
+    track(path.join(OUT, text.id, 'passages.json'), GITA_COMMENTARY_TEXTS);
+  }
 
   const units = chunkUnits(text.units);
   const unitIndex: UnitIndexFile = {

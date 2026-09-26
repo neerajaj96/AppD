@@ -27,6 +27,13 @@ export interface CommentaryAuditConcept {
   occurrences?: CommentaryAuditOccurrence[];
 }
 
+export interface CommentaryAuditPassage {
+  id: string;
+  status?: string;
+  spanId?: string;
+  unitIds?: string[];
+}
+
 export interface ThreadCoverage {
   threadId: string;
   steps: number;
@@ -41,12 +48,16 @@ export interface CommentaryAudit {
   conceptsWithSegments: number;
   conceptsTotal: number;
   danglingSpanRefs: number;
+  texts: { total: number; verifiedSource: number; extractionUnreviewed: number; partiallyVerified: number };
+  stepsWithText: number;
+  conceptsWithText: number;
 }
 
 export function auditCommentary(input: {
   spans: CommentaryAuditSpan[];
   threads: V2Thread[];
   concepts: CommentaryAuditConcept[];
+  passages?: CommentaryAuditPassage[];
 }): CommentaryAudit {
   const known = new Set(input.spans.map((s) => s.id));
   let source = 0;
@@ -91,12 +102,46 @@ export function auditCommentary(input: {
     }
     if (hit) conceptsWithSegments += 1;
   }
+  const passages = input.passages || [];
+  const bySpan = new Map<string, number>();
+  for (const passage of passages) {
+    if (passage.spanId !== undefined) {
+      bySpan.set(passage.spanId, (bySpan.get(passage.spanId) || 0) + 1);
+    }
+  }
+  let stepsWithText = 0;
+  for (const thread of input.threads) {
+    for (const step of thread.steps) {
+      const units = new Set(step.unitIds || []);
+      const covered = (step.spanIds || []).some((sid) => bySpan.has(sid)) ||
+        passages.some((p) => p.spanId === undefined && (p.unitIds || []).some((u) => units.has(u)));
+      if (covered) stepsWithText += 1;
+    }
+  }
+  const conceptsWithText = input.concepts.filter((concept) =>
+    (concept.occurrences || []).some((occ) =>
+      passages.some(
+        (p) =>
+          (occ.spanId !== undefined && p.spanId === occ.spanId) ||
+          (occ.spanId === undefined &&
+            (p.unitIds || []).includes(occ.unitId)),
+      ),
+    ),
+  ).length;
   const unitOnly = input.spans.filter(
     (s) => s.folio === undefined && (s.unitIds || []).length > 0,
   ).length;
   const precisionUnresolved = input.spans.filter(
     (s) => s.folio === undefined && (s.unitIds || []).length === 0,
   ).length;
+  let verifiedSource = 0;
+  let extractionUnreviewed = 0;
+  let partiallyVerified = 0;
+  for (const passage of passages) {
+    if (passage.status === 'verified-source') verifiedSource += 1;
+    else if (passage.status === 'extraction-unreviewed') extractionUnreviewed += 1;
+    else if (passage.status === 'partially-verified') partiallyVerified += 1;
+  }
   return {
     segments: { total: input.spans.length, source, editorial, unresolved },
     evidencePrecision: {
@@ -108,6 +153,14 @@ export function auditCommentary(input: {
     conceptsWithSegments,
     conceptsTotal: input.concepts.length,
     danglingSpanRefs,
+    texts: {
+      total: passages.length,
+      verifiedSource,
+      extractionUnreviewed,
+      partiallyVerified,
+    },
+    stepsWithText,
+    conceptsWithText,
   };
 }
 
@@ -134,6 +187,14 @@ export function formatCommentaryAudit(audit: CommentaryAudit): string {
   lines.push(
     `Concepts with segment evidence: ${audit.conceptsWithSegments}/${audit.conceptsTotal}`,
     `Dangling span references: ${audit.danglingSpanRefs}`,
+    'Source-text Audit',
+    'Commentary:',
+    `  total segments: ${audit.texts.total}`,
+    `  source-transcribed: ${audit.texts.verifiedSource}`,
+    `  OCR-unverified: ${audit.texts.extractionUnreviewed}`,
+    `  partially verified: ${audit.texts.partiallyVerified}`,
+    `Steps with exact source text: ${audit.stepsWithText}`,
+    `Concepts with exact source text: ${audit.conceptsWithText}`,
   );
   return lines.join('\n');
 }

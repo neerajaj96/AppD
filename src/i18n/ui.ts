@@ -287,6 +287,9 @@ const en = {
   transitionLabel: 'Why next',
   commentarySegment: 'Commentary segment',
   transcriptionAbsent: 'Locator-grounded; Sanskrit transcription not currently present.',
+  ramakanthaSource: 'Rāmakaṇṭha source',
+  passageVerified: 'Verified source',
+  passageUnverified: 'Source transcription requires verification.',
 } as const;
 
 const ml: Record<keyof typeof en, string> = {
@@ -568,6 +571,9 @@ const ml: Record<keyof typeof en, string> = {
   transitionLabel: 'എന്തുകൊണ്ട് അടുത്തത്',
   commentarySegment: 'വ്യാഖ്യാനഭാഗം',
   transcriptionAbsent: 'സ്ഥാനം രേഖപ്പെടുത്തി; സംസ്കൃതപാഠം ഇപ്പോൾ ലഭ്യമല്ല.',
+  ramakanthaSource: 'രാമകണ്ഠമൂലം',
+  passageVerified: 'പരിശോധിച്ച മൂലം',
+  passageUnverified: 'മൂലപാഠപകർപ്പിന് പരിശോധന ആവശ്യമാണ്.',
 };
 
 export type UIKey = keyof typeof en;

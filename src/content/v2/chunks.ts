@@ -10,6 +10,7 @@ import {
   type V2TextManifest,
   type V2Thread,
 } from './schema';
+import type { GitaCommentaryText } from './gitaCommentaryText';
 
 import type { ConceptOccurrenceIndex } from './occurrences';
 import type { AliasFile } from './aliases';
@@ -63,6 +64,10 @@ export function textThreadsUrl(textId: string): string {
 
 export function textSourcesUrl(textId: string): string {
   return `${contentBase()}/${encodeURIComponent(textId)}/sources.json`;
+}
+
+export function textPassagesUrl(textId: string): string {
+  return `${contentBase()}/${encodeURIComponent(textId)}/passages.json`;
 }
 
 export function traditionThreadUrl(traditionId: string): string {
@@ -316,6 +321,16 @@ export class FetchChunkLoader {
       return { status: 'error', message: `Malformed sources for ${textId}: expected an array` };
     }
     return { status: 'ok', data: result.data as V2Source[] };
+  }
+
+  /** Per-text commentary passages. Missing file means none transcribed. */
+  async loadTextPassages(textId: string): Promise<LoadResult<GitaCommentaryText[]>> {
+    const result = await this.getJson<unknown>(textPassagesUrl(textId));
+    if (result.status !== 'ok') return result;
+    if (!Array.isArray(result.data)) {
+      return { status: 'error', message: `Malformed passages for ${textId}: expected an array` };
+    }
+    return { status: 'ok', data: result.data as GitaCommentaryText[] };
   }
 
   loadTraditionThread(traditionId: string): Promise<LoadResult<V2Thread[]>> {

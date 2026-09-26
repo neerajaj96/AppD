@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getRepository } from './repository';
 import type { GlobalManifest, TextManifestFile } from './chunks';
 import type { CanonicalUnit, V2Concept, V2Source, V2Thread } from './schema';
+import type { GitaCommentaryText } from './gitaCommentaryText';
 
 export type AsyncState<T> =
   | { status: 'loading' }
@@ -127,6 +128,29 @@ export function useTextSources(textId: string | undefined): AsyncState<V2Source[
     setState({ status: 'loading' });
     getRepository()
       .getSources(textId)
+      .then((result) => {
+        if (!live) return;
+        setState(result.status === 'ok' ? { status: 'ok', data: result.data } : result);
+      });
+    return () => {
+      live = false;
+    };
+  }, [textId]);
+  return state;
+}
+
+/** Per-text commentary passages. Missing file means none transcribed. */
+export function useTextPassages(textId: string | undefined): AsyncState<GitaCommentaryText[]> {
+  const [state, setState] = useState<AsyncState<GitaCommentaryText[]>>({ status: 'loading' });
+  useEffect(() => {
+    if (!textId) {
+      setState({ status: 'missing', message: 'No text id' });
+      return;
+    }
+    let live = true;
+    setState({ status: 'loading' });
+    getRepository()
+      .getPassages(textId)
       .then((result) => {
         if (!live) return;
         setState(result.status === 'ok' ? { status: 'ok', data: result.data } : result);

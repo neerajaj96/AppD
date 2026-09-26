@@ -7,6 +7,7 @@ import {
   type TraditionSummary,
 } from './chunks';
 import type { CanonicalUnit, V2Concept, V2Source, V2Thread } from './schema';
+import type { GitaCommentaryText } from './gitaCommentaryText';
 import { buildAliasTable, normaliseId, parseCanonicalConceptId, resolveAlias, type AliasResolution } from './ids';
 import { verifiedAliases } from './aliases';
 import type { AliasFile } from './aliases';
@@ -110,6 +111,14 @@ export class V2Repository {
    */
   getSources(textId: string): Promise<LoadResult<V2Source[]>> {
     return this.loader.loadTextSources(textId);
+  }
+
+  /**
+   * Per-text commentary passages. Small JSON, fetched lazily and cached —
+   * thread steps never load commentary text merely to discover it.
+   */
+  getPassages(textId: string): Promise<LoadResult<GitaCommentaryText[]>> {
+    return this.loader.loadTextPassages(textId);
   }
 
   /** One source record by stable id, or missing when unrecorded. */

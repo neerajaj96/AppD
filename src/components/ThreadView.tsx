@@ -8,7 +8,7 @@ import { BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle, B
 import { useLanguage } from '../context/LanguageContext';
 import { t, type UIKey } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
-import { useCatalog, useTraditionThread, useV2Text } from '../content/v2/hooks';
+import { useCatalog, useTraditionThread, useV2Text, useTextPassages } from '../content/v2/hooks';
 import { v2ConceptToConcept, threadStepTitle, v2UnitToVerse } from '../content/v2/compat';
 import { gitaMapForUnit } from '../content/v2/gitaPageMap';
 import { passageSpanById } from '../content/v2/gitaSpans';
@@ -224,11 +224,33 @@ export default function ThreadView() {
   const step = totalSteps > 0 ? steps[clampedIndex] : undefined;
   const targetTextId = step?.textId;
   const stepText = useV2Text(targetTextId);
+  const passagesState = useTextPassages(targetTextId);
+  // Rāmakaṇṭha source passages for this step, matched by span id or —
+  // for unspanned excerpts — by unit. Lazy-loaded; unit chunks never
+  // carry transcription. Unverified text is never shown as authoritative.
   const stepConcept = useMemo(() => {
     if (!step?.conceptId || stepText.status !== 'ok') return null;
     const found = stepText.data.concepts.find((c) => c.id === step.conceptId);
     return found ? v2ConceptToConcept(found) : null;
   }, [step, stepText]);
+  const stepPassages = useMemo(() => {
+    if (!step || passagesState.status !== 'ok') return null;
+    const stepSpans = new Set(step.spanIds || []);
+    const stepUnits = new Set(step.unitIds || []);
+    return passagesState.data.filter(
+      (p) =>
+        (p.spanId !== undefined && stepSpans.has(p.spanId)) ||
+        (p.spanId === undefined && (p.unitIds || []).some((u) => stepUnits.has(u))),
+    );
+  }, [step, passagesState]);
+
+  const coveredSpans = useMemo(
+    () =>
+      new Set(
+        (stepPassages || []).flatMap((p) => (p.spanId !== undefined ? [p.spanId] : [])),
+      ),
+    [stepPassages],
+  );
 
   // Segment-grounded citation for the current step: smallest verified
   // locator (KSTS + folio + span notes) with a thread-step URL. Units
@@ -542,7 +564,37 @@ export default function ThreadView() {
                       );
                     })}
                   </ul>
-                  <p className="mt-1 text-xs text-tamas">{t(language, 'transcriptionAbsent')}</p>
+                  {stepPassages !== null &&
+                    stepPassages.map((passage) =>
+                      passage.status === 'verified-source' ? (
+                        <details
+                          key={passage.id}
+                          className="mt-1.5 rounded-lg bg-avyakta-2 px-3 py-2"
+                        >
+                          <summary className="cursor-pointer text-xs font-semibold text-sattva">
+                            {t(language, 'ramakanthaSource')}
+                            {passage.folio !== undefined && (
+                              <span className="tabular-nums font-normal text-sattva-dim"> · p. {passage.folio}</span>
+                            )}{' '}
+                            <span className="ml-1 inline-flex items-center rounded-full border border-sattva/30 px-2 py-0.5 text-xs font-semibold text-sattva">
+                              {t(language, 'passageVerified')}
+                            </span>
+                          </summary>
+                          <p lang="sa" className="mt-1.5 text-sm leading-relaxed text-sattva break-words">
+                            {passage.text}
+                          </p>
+                        </details>
+                      ) : (
+                        <p key={passage.id} className="mt-1 text-xs text-tamas">
+                          {t(language, 'passageUnverified')}
+                        </p>
+                      ),
+                    )}
+                  {(stepPassages === null
+                    ? (step.spanIds || []).length > 0
+                    : (step.spanIds || []).some((sid) => !coveredSpans.has(sid))) && (
+                    <p className="mt-1 text-xs text-tamas">{t(language, 'transcriptionAbsent')}</p>
+                  )}
                 </div>
               )}
               {stepCitation && (
