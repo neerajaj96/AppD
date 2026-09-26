@@ -74,6 +74,17 @@ export interface UnitLocalisation {
   beginnerExplanation?: string;
   advancedExplanation?: string;
   misconceptions?: string[];
+  /**
+   * Thread-step claim: what the passage establishes (Phase 4). Lives
+   * in localisations so both languages carry it; never a free-form AI
+   * summary — traceable to the step's evidence.
+   */
+  claim?: string;
+  /**
+   * Thread-step transition: why the reader proceeds here from the
+   * previous step. First steps carry none.
+   */
+  transition?: string;
 }
 
 export type RightsStatus = 'public-domain' | 'original' | 'licensed' | 'unknown';
@@ -287,8 +298,70 @@ export interface V2ThreadStep {
   /** Owning text for steps in a multi-text tradition thread. */
   textId?: string;
   conceptId?: string;
+  /** All involved concepts (Phase 4); conceptId stays the primary for legacy readers. */
+  conceptIds?: string[];
   unitIds?: string[];
+  /**
+   * Rhetorical role of the step (Phase 4 scholarly threads).
+   * Optional and never forced; unmarked steps stay unmarked.
+   */
+  role?: ThreadStepRole;
+  /**
+   * How the step is evidenced: direct passage, printed cross-reference,
+   * structural (chapter opening/closing), or editorial synthesis.
+   * Synthesis must never render as quotation.
+   */
+  evidenceKind?: ThreadEvidenceKind;
+  /**
+   * Whether the step's claim is source-backed or editorial. Required
+   * wherever a claim is present on a scholarly thread.
+   */
+  claimStatus?: ThreadClaimStatus;
+  /** Commentary-span ids grounding sub-unit precision (Gītā sidecar). */
+  spanIds?: string[];
   localisations: Partial<Record<SupportedV2Language, UnitLocalisation>>;
+}
+
+/**
+ * ThreadStep rhetorical roles (closed vocabulary). `context` covers
+ * gateway/background matter such as avatāraṇikās; `unresolved` marks
+ * a step that ends in an open question rather than a conclusion.
+ */
+export const THREAD_STEP_ROLES = [
+  'question',
+  'premise',
+  'objection',
+  'response',
+  'distinction',
+  'definition',
+  'example',
+  'inference',
+  'consequence',
+  'conclusion',
+  'context',
+  'unresolved',
+] as const;
+
+export type ThreadStepRole = (typeof THREAD_STEP_ROLES)[number];
+
+export function isThreadStepRole(value: unknown): value is ThreadStepRole {
+  return typeof value === 'string' && (THREAD_STEP_ROLES as readonly string[]).includes(value);
+}
+
+export const THREAD_EVIDENCE_KINDS = ['direct', 'cross-reference', 'structural', 'synthesis'] as const;
+
+export type ThreadEvidenceKind = (typeof THREAD_EVIDENCE_KINDS)[number];
+
+export function isThreadEvidenceKind(value: unknown): value is ThreadEvidenceKind {
+  return typeof value === 'string' && (THREAD_EVIDENCE_KINDS as readonly string[]).includes(value);
+}
+
+export const THREAD_CLAIM_STATUSES = ['source-backed', 'editorial'] as const;
+
+export type ThreadClaimStatus = (typeof THREAD_CLAIM_STATUSES)[number];
+
+export function isThreadClaimStatus(value: unknown): value is ThreadClaimStatus {
+  return typeof value === 'string' && (THREAD_CLAIM_STATUSES as readonly string[]).includes(value);
 }
 
 export interface V2Thread {
@@ -296,7 +369,40 @@ export interface V2Thread {
   traditionId: string;
   textId?: string;
   title?: string;
+  /**
+   * Orientation threads navigate; scholarly threads argue from
+   * evidence. Absent means orientation (all records predate the
+   * distinction).
+   */
+  kind?: ThreadKind;
+  /** Scholarly subtype; only meaningful with kind `scholarly`. */
+  scholarlyType?: ScholarlyThreadType;
+  /** Localised title/summary for switchers and headers. */
+  localisations?: Partial<Record<SupportedV2Language, UnitLocalisation>>;
   steps: V2ThreadStep[];
+}
+
+export const THREAD_KINDS = ['orientation', 'scholarly'] as const;
+
+export type ThreadKind = (typeof THREAD_KINDS)[number];
+
+export function isThreadKind(value: unknown): value is ThreadKind {
+  return typeof value === 'string' && (THREAD_KINDS as readonly string[]).includes(value);
+}
+
+export const SCHOLARLY_THREAD_TYPES = [
+  'concept',
+  'argument',
+  'cross-verse',
+  'chapter',
+  'doctrinal',
+  'recensional',
+] as const;
+
+export type ScholarlyThreadType = (typeof SCHOLARLY_THREAD_TYPES)[number];
+
+export function isScholarlyThreadType(value: unknown): value is ScholarlyThreadType {
+  return typeof value === 'string' && (SCHOLARLY_THREAD_TYPES as readonly string[]).includes(value);
 }
 
 /** Typed reference kinds. Prefer these over free-form strings. */

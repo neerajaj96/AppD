@@ -6,18 +6,58 @@ import RichText from './RichText';
 import ReadingControls from './ReadingControls';
 import { BottomBar, Notice, Card, CardBody, ChipLink, PageShell, SectionTitle, Breadcrumb, CountBadge, SwipeHint, accentTint } from './Primitives';
 import { useLanguage } from '../context/LanguageContext';
-import { t } from '../i18n/ui';
+import { t, type UIKey } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
 import { useCatalog, useTraditionThread, useV2Text } from '../content/v2/hooks';
 import { v2ConceptToConcept, threadStepTitle } from '../content/v2/compat';
+import { gitaMapForUnit } from '../content/v2/gitaPageMap';
+import type { ScholarlyThreadType, ThreadEvidenceKind, ThreadStepRole } from '../content/v2/schema';
 import { getSystemAccent } from '../utils/theme';
 import { getThreadProgress, setThreadProgress } from '../utils/threadProgress';
+import { resolveThreadPosition } from '../utils/threadNav';
 import { usePagerKeys } from '../utils/pagerKeys';
 import { SWIPE_SURFACE_STYLE, useDismissSwipe, useSwipeNav } from '../utils/useSwipeNav';
 
 // Thread reading via the V2 repository: the full tradition thread loads as
 // one small chunk, while each step's concept card resolves from that step's
 // own text chunks on demand. Visual behaviour is unchanged.
+const THREAD_TYPE_LABEL: Record<ScholarlyThreadType, UIKey> = {
+  concept: 'threadTypeConcept',
+  argument: 'threadTypeArgument',
+  'cross-verse': 'threadTypeCrossVerse',
+  chapter: 'threadTypeChapter',
+  doctrinal: 'threadTypeDoctrinal',
+  recensional: 'threadTypeRecensional',
+};
+
+const STEP_ROLE_LABEL: Record<ThreadStepRole, UIKey> = {
+  question: 'roleQuestion',
+  premise: 'rolePremise',
+  objection: 'roleObjection',
+  response: 'roleResponse',
+  distinction: 'roleDistinction',
+  definition: 'roleDefinition',
+  example: 'roleExample',
+  inference: 'roleInference',
+  consequence: 'roleConsequence',
+  conclusion: 'roleConclusion',
+  context: 'roleContext',
+  unresolved: 'roleUnresolved',
+};
+
+const EVIDENCE_KIND_LABEL: Record<ThreadEvidenceKind, UIKey> = {
+  direct: 'evDirect',
+  'cross-reference': 'evCrossRef',
+  structural: 'evStructural',
+  synthesis: 'evSynthesis',
+};
+
+/**
+ * Resolve which thread and step a URL means. `?thread=<id>&step=<k>`
+ * addresses scholarly threads directly; a bare legacy `?step=<n>` walks
+ * the concatenated threads so every existing deep link keeps working.
+ * Implemented in `utils/threadNav` (framework-free, unit-tested).
+ */
 export default function ThreadView() {
   const { systemId } = useParams();
   const { language } = useLanguage();
@@ -25,11 +65,37 @@ export default function ThreadView() {
   const traditionThread = useTraditionThread(systemId);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const steps = useMemo(
-    () => (traditionThread.status === 'ok' ? traditionThread.data.flatMap((t) => t.steps) : []),
+  const threads = useMemo(
+    () => (traditionThread.status === 'ok' ? traditionThread.data : []),
     [traditionThread],
   );
+  const [threadIndex, setThreadIndex] = useState(0);
+  const [stepIndex, setStepIndex] = useState(0);
+  const thread = threads.length > 0 ? threads[Math.min(threadIndex, threads.length - 1)] : undefined;
+  const steps = useMemo(() => thread?.steps || [], [thread]);
   const totalSteps = steps.length;
+
+  // URL is the source of truth: ?thread=<id>&step=<k> addresses a
+  // scholarly thread directly, while a bare legacy ?step=<n> walks the
+  // concatenated threads so every existing deep link keeps working.
+  // With neither param, the first (orientation) thread restores saved
+  // progress exactly as before.
+  useEffect(() => {
+    if (threads.length === 0) return;
+    const hasThread = searchParams.get('thread') !== null;
+    const hasStep = searchParams.get('step') !== null;
+    if (!hasThread && !hasStep) {
+      const stored = getThreadProgress(systemId || '');
+      if (stored !== null) {
+        setThreadIndex(0);
+        setStepIndex(Math.min(stored, Math.max(threads[0].steps.length - 1, 0)));
+      }
+      return;
+    }
+    const pos = resolveThreadPosition(threads, searchParams.get('thread'), searchParams.get('step'));
+    setThreadIndex((p) => (p === pos.threadIndex ? p : pos.threadIndex));
+    setStepIndex((p) => (p === pos.stepIndex ? p : pos.stepIndex));
+  }, [threads, searchParams, systemId]);
 
   const tradition = catalog.status === 'ok'
     ? catalog.data.traditions.find((t) => t.id === systemId)
@@ -39,26 +105,6 @@ export default function ThreadView() {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  const [stepIndex, setStepIndex] = useState(() => {
-    // Explicit deep link wins; otherwise restore the furthest visited step
-    // so a returning reader continues where they left off, not at Step 1.
-    if (searchParams.get('step') !== null) {
-      const raw = Number(searchParams.get('step') ?? 1);
-      if (!Number.isFinite(raw)) return 0;
-      return Math.min(Math.max(Math.floor(raw) - 1, 0), Math.max(totalSteps - 1, 0));
-    }
-    const stored = getThreadProgress(systemId || '');
-    if (stored !== null) return Math.min(stored, Math.max(totalSteps - 1, 0));
-    return 0;
-  });
-
-  useEffect(() => {
-    if (searchParams.get('step') === null) return;
-    const raw = Number(searchParams.get('step') ?? 1);
-    if (!Number.isFinite(raw)) return;
-    const idx = Math.min(Math.max(Math.floor(raw) - 1, 0), Math.max(totalSteps - 1, 0));
-    setStepIndex((prev) => (prev === idx ? prev : idx));
-  }, [searchParams, totalSteps]);
 
   useEffect(() => {
     setStepIndex((prev) => Math.min(prev, Math.max(totalSteps - 1, 0)));
@@ -125,11 +171,20 @@ export default function ThreadView() {
   // null when there is nothing to page through; the real step handlers
   // below reuse the same clamped index once the thread resolves.
   const clampedSafe = totalSteps > 0 ? Math.min(stepIndex, totalSteps - 1) : 0;
+  // Orientation (first thread) keeps bare legacy ?step= URLs; scholarly
+  // threads address ?thread=<id>&step=<k> so paging never loses context.
+  const writeStepParams = (clamped: number) => {
+    if (thread && threadIndex > 0) {
+      setSearchParams({ thread: thread.id, step: String(clamped + 1) });
+    } else {
+      setSearchParams({ step: String(clamped + 1) });
+    }
+  };
   const goToStepSafe = (next: number) => {
     if (totalSteps === 0) return;
     const clamped = Math.min(Math.max(next, 0), totalSteps - 1);
     setStepIndex(clamped);
-    setSearchParams({ step: String(clamped + 1) });
+    writeStepParams(clamped);
   };
   const canPrevSafe = totalSteps > 0 && clampedSafe > 0;
   const canNextSafe = totalSteps > 0 && clampedSafe < totalSteps - 1;
@@ -187,7 +242,7 @@ export default function ThreadView() {
     // Push (not replace) so browser Back/Forward steps through visited
     // steps as readers expect. ScrollToTop + focus reset listen to search
     // changes, so history traversal re-orients exactly like button taps.
-    setSearchParams({ step: String(clamped + 1) });
+    writeStepParams(clamped);
   };
   const handleNext = () => goToStep(clampedIndex + 1);
   const handlePrev = () => goToStep(clampedIndex - 1);
@@ -255,6 +310,65 @@ export default function ThreadView() {
         <Notice tone="amber">{t(language, 'mlFallbackThread')}</Notice>
       )}
 
+      {(thread?.kind === 'scholarly' || threads.length > 1) && (
+        <div className="rounded-2xl border border-tamas-deep bg-avyakta-2 px-5 py-4">
+          <div className="flex flex-wrap items-center gap-2">
+            <span
+              className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                thread?.kind === 'scholarly'
+                  ? 'border border-sattva/30 text-sattva'
+                  : 'bg-avyakta-3 text-sattva-dim'
+              }`}
+            >
+              {thread?.kind === 'scholarly' ? t(language, 'threadScholarly') : t(language, 'threadOrientation')}
+            </span>
+            {thread?.kind === 'scholarly' && thread?.scholarlyType && (
+              <span className="inline-flex items-center rounded-full bg-avyakta-3 px-2.5 py-0.5 text-xs font-semibold text-sattva-dim">
+                {t(language, THREAD_TYPE_LABEL[thread.scholarlyType])}
+              </span>
+            )}
+            <span className="min-w-0 flex-1 truncate font-serif text-lg font-bold text-sattva">
+              {thread?.localisations?.[language]?.title ||
+                thread?.localisations?.en?.title ||
+                thread?.title ||
+                t(language, 'threadLabel')}
+            </span>
+          </div>
+          {(thread?.localisations?.[language]?.summary || thread?.localisations?.en?.summary) && (
+            <p className="t-body-sans text-sattva-dim mt-1.5">
+              {thread?.localisations?.[language]?.summary || thread?.localisations?.en?.summary}
+            </p>
+          )}
+          {threads.length > 1 && (
+            <nav aria-label={t(language, 'threadsTitle')} className="mt-3 flex flex-wrap gap-2">
+              {threads.map((th, ti) => (
+                <button
+                  key={th.id}
+                  type="button"
+                  onClick={() => {
+                    setThreadIndex(ti);
+                    setStepIndex(0);
+                    if (ti > 0) setSearchParams({ thread: th.id, step: '1' });
+                    else setSearchParams({ step: '1' });
+                  }}
+                  aria-current={ti === threadIndex ? 'page' : undefined}
+                  className={`inline-flex min-h-11 items-center rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors motion-reduce:transition-none ${
+                    ti === threadIndex
+                      ? 'bg-avyakta-4 text-sattva shadow-xs'
+                      : 'bg-avyakta-3 text-sattva-dim hover:text-sattva'
+                  }`}
+                >
+                  {th.localisations?.[language]?.title ||
+                    th.localisations?.en?.title ||
+                    th.title ||
+                    t(language, 'threadLabel')}
+                </button>
+              ))}
+            </nav>
+          )}
+        </div>
+      )}
+
       <div ref={swipeRef} style={SWIPE_SURFACE_STYLE}>
       <Card>
         {/* Progress bar doubles as the accessible progress indicator. */}
@@ -289,6 +403,83 @@ export default function ThreadView() {
                 textId={targetTextId}
                 knownConcepts={knownConceptIds}
               />
+            </div>
+          )}
+
+          {(step.role !== undefined ||
+            content?.claim !== undefined ||
+            content?.transition !== undefined ||
+            step.evidenceKind !== undefined ||
+            (step.conceptIds || []).length > 0) && (
+            <div className="rounded-xl border border-tamas-deep bg-avyakta-3/50 p-4">
+              <div className="flex flex-wrap items-center gap-2">
+                {step.role !== undefined && (
+                  <span className="inline-flex items-center rounded-full border border-tamas-deep bg-avyakta-3 px-2 py-0.5 text-xs font-semibold text-sattva-dim">
+                    {t(language, STEP_ROLE_LABEL[step.role])}
+                  </span>
+                )}
+                {step.evidenceKind !== undefined && (
+                  <span className="text-xs text-tamas">
+                    {t(language, EVIDENCE_KIND_LABEL[step.evidenceKind])}
+                  </span>
+                )}
+                {step.claimStatus !== undefined && (
+                  <span className="text-xs text-tamas">
+                    {step.claimStatus === 'source-backed'
+                      ? t(language, 'claimSourceBacked')
+                      : t(language, 'claimEditorial')}
+                  </span>
+                )}
+              </div>
+              {content?.claim && (
+                <p className="mt-2 text-sm text-sattva">
+                  <span className="font-semibold">{t(language, 'claimLabel')}: </span>
+                  {content.claim}
+                </p>
+              )}
+              {content?.transition && (
+                <p className="mt-1.5 text-sm text-sattva-dim">
+                  <span className="font-semibold">{t(language, 'transitionLabel')}: </span>
+                  {content.transition}
+                </p>
+              )}
+              {(step.conceptIds || []).length > 0 && (
+                <div className="mt-2.5 flex flex-wrap gap-2">
+                  {(step.conceptIds || []).map((cid) => {
+                    const found =
+                      stepText.status === 'ok'
+                        ? stepText.data.concepts.find((c) => c.id === cid)
+                        : undefined;
+                    const label =
+                      found?.localisations[language]?.title ||
+                      found?.localisations.en?.title ||
+                      cid;
+                    return (
+                      <Link
+                        key={cid}
+                        to={`/system/${systemId}/text/${targetTextId}/concept/${cid}`}
+                        className="inline-flex min-h-9 items-center rounded-full bg-avyakta-3 px-3 py-1 text-xs font-medium text-sattva-dim hover:text-sattva transition-colors motion-reduce:transition-none"
+                      >
+                        {label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+              {step.unitIds && step.unitIds.length > 0 && targetTextId === 'bhagavad-gita' && (
+                <p className="mt-2 text-xs tabular-nums text-tamas">
+                  {step.unitIds
+                    .map((uid) => {
+                      const row = gitaMapForUnit(uid);
+                      if (!row || row.ksts.length === 0) return null;
+                      const nums = row.ksts.map((k) => (k.includes('.') ? k.split('.')[1] : k));
+                      const ksts = nums.length > 1 ? `${nums[0]}-${nums[nums.length - 1]}` : nums[0];
+                      return `${uid} · KSTS ${ksts}${row.folio !== undefined ? ` · p. ${row.folio}` : ''}`;
+                    })
+                    .filter(Boolean)
+                    .join('   ')}
+                </p>
+              )}
             </div>
           )}
 

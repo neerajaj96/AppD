@@ -48,6 +48,8 @@ export interface ThreadStepHit {
   systemId: string;
   stepIndex: number;
   step: ThreadStep;
+  /** Owning thread for ?thread= deep links; absent means legacy global indexing. */
+  threadId?: string;
 }
 
 /** Normalise an id for fuzzy matching: strip diacritics, lowercase, unify separators. */

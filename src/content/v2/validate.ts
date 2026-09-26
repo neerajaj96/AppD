@@ -1,4 +1,4 @@
-import { SCHEMA_VERSION, isConceptLinkType, isConceptProvenanceStatus, isConceptTermKind, isEvidenceRelation, isSourceRecordRole, type V2Corpus, type V2Text } from './schema';
+import { SCHEMA_VERSION, isConceptLinkType, isConceptProvenanceStatus, isConceptTermKind, isEvidenceRelation, isSourceRecordRole, isThreadClaimStatus, isThreadEvidenceKind, isThreadStepRole, type V2Corpus, type V2Text, type V2Thread, type V2ThreadStep } from './schema';
 import { isCanonicalId, normaliseId, parseCanonicalConceptId, validateLocator } from './ids';
 
 /** Devanagari block plus digits and common prose punctuation. */
@@ -385,29 +385,9 @@ function validateText(
 
   // Thread references must resolve; canonical locators must be well formed.
   for (const thread of text.threads || []) {
-    for (const step of thread.steps) {
-      if (!step.id) {
-        push({ severity: 'error', code: 'missing-thread-step-id', message: `Thread ${thread.id} has a step without id`, textId: text.id });
-      }
-      if (step.conceptId && !conceptIds.has(step.conceptId)) {
-        push({ severity: 'error', code: 'dangling-thread-concept', message: `Thread step ${step.id} points at missing concept ${step.conceptId}`, textId: text.id, entityId: step.id });
-      }
-      for (const uid of step.unitIds || []) {
-        if (uid.includes('/')) {
-          const locatorError = validateLocator(uid);
-          if (locatorError) {
-            push({ severity: 'error', code: 'malformed-locator', message: `Thread step ${step.id}: ${locatorError}`, textId: text.id, entityId: step.id });
-          }
-          continue;
-        }
-        if (!unitIds.has(uid)) {
-          push({ severity: 'error', code: 'dangling-thread-unit', message: `Thread step ${step.id} points at missing unit ${uid}`, textId: text.id, entityId: step.id });
-        }
-      }
-      if (!step.localisations.en?.title && !step.localisations.en?.narrative) {
-        push({ severity: 'warning', code: 'thin-thread-step', message: `Thread step ${step.id} has no English title/narrative`, textId: text.id, entityId: step.id });
-      }
-    }
+    thread.steps.forEach((step, stepIndex) => {
+      validateThreadStep(thread, step, { unitIds, conceptIds }, push, text.id, stepIndex);
+    });
   }
 
   if (!isNonEmpty(text.title) || !isNonEmpty(text.transliteratedTitle)) {
@@ -417,3 +397,73 @@ function validateText(
     push({ severity: 'error', code: 'invalid-tradition-id', message: `Text ${text.id} has no tradition`, textId: text.id });
   }
 }
+
+
+/**
+ * Step-level thread validation shared by the corpus validator and the
+ * scholarly-thread tests (tradition threads never enter `text.threads`,
+ * so tests run this helper over them directly with the same lookups).
+ * Orientation records predate the scholarly model: vocabulary checks
+ * fire only on present fields, and transition/claim rules apply to
+ * scholarly threads alone — legacy output stays byte-identical.
+ */
+export function validateThreadStep(
+  thread: Pick<V2Thread, 'id' | 'kind'>,
+  step: V2ThreadStep,
+  lookups: { unitIds: Set<string>; conceptIds: Set<string> },
+  push: (issue: ContentIssue) => void,
+  textId: string,
+  stepIndex?: number,
+): void {
+  const { unitIds, conceptIds } = lookups;
+  if (!step.id) {
+    push({ severity: 'error', code: 'missing-thread-step-id', message: `Thread ${thread.id} has a step without id`, textId });
+  }
+  for (const cid of [step.conceptId, ...(step.conceptIds || [])].filter((c): c is string => !!c)) {
+    if (!conceptIds.has(cid)) {
+      push({ severity: 'error', code: 'dangling-thread-concept', message: `Thread step ${step.id} points at missing concept ${cid}`, textId, entityId: step.id });
+    }
+  }
+  for (const uid of step.unitIds || []) {
+    if (uid.includes('/')) {
+      const locatorError = validateLocator(uid);
+      if (locatorError) {
+        push({ severity: 'error', code: 'malformed-locator', message: `Thread step ${step.id}: ${locatorError}`, textId, entityId: step.id });
+      }
+      continue;
+    }
+    if (!unitIds.has(uid)) {
+      push({ severity: 'error', code: 'dangling-thread-unit', message: `Thread step ${step.id} points at missing unit ${uid}`, textId, entityId: step.id });
+    }
+  }
+  if (!step.localisations.en?.title && !step.localisations.en?.narrative) {
+    push({ severity: 'warning', code: 'thin-thread-step', message: `Thread step ${step.id} has no English title/narrative`, textId, entityId: step.id });
+  }
+  if (step.role !== undefined && !isThreadStepRole(step.role)) {
+    push({ severity: 'error', code: 'invalid-thread-role', message: `Thread step ${step.id} has unknown role ${step.role}`, textId, entityId: step.id });
+  }
+  if (step.evidenceKind !== undefined && !isThreadEvidenceKind(step.evidenceKind)) {
+    push({ severity: 'error', code: 'invalid-thread-evidence-kind', message: `Thread step ${step.id} has unknown evidence kind ${step.evidenceKind}`, textId, entityId: step.id });
+  }
+  if (step.claimStatus !== undefined && !isThreadClaimStatus(step.claimStatus)) {
+    push({ severity: 'error', code: 'invalid-thread-claim-status', message: `Thread step ${step.id} has unknown claim status ${step.claimStatus}`, textId, entityId: step.id });
+  }
+  for (const spanId of step.spanIds || []) {
+    if (!spanId || !spanId.trim()) {
+      push({ severity: 'error', code: 'malformed-span-ref', message: `Thread step ${step.id} has an empty span reference`, textId, entityId: step.id });
+    }
+  }
+  if (thread.kind === 'scholarly') {
+    const hasClaim = !!(step.localisations.en?.claim || step.localisations.ml?.claim);
+    if (hasClaim && step.claimStatus === undefined) {
+      push({ severity: 'error', code: 'thread-claim-without-status', message: `Thread step ${step.id} states a claim without source-backed/editorial status`, textId, entityId: step.id });
+    }
+    if (stepIndex !== undefined && stepIndex > 0) {
+      const transition = step.localisations.en?.transition || step.localisations.ml?.transition;
+      if (!transition || !transition.trim()) {
+        push({ severity: 'error', code: 'thread-step-without-transition', message: `Thread step ${step.id} gives no reason to proceed from the previous step`, textId, entityId: step.id });
+      }
+    }
+  }
+}
+

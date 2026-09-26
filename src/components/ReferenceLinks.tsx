@@ -114,10 +114,12 @@ export function ThreadStepLinks({ steps }: { steps: ThreadStepHit[] }) {
   const stepLabel = language === 'ml' ? 'ഘട്ടം' : 'Step';
   return (
     <div className="flex flex-wrap gap-2">
-      {steps.map(({ systemId, stepIndex, step }) => (
+      {steps.map(({ systemId, stepIndex, step, threadId }) => (
         <Link
           key={`${systemId}:${step.id}:thread`}
-          to={`/system/${systemId}/thread?step=${stepIndex + 1}`}
+          to={threadId
+            ? `/system/${systemId}/thread?thread=${threadId}&step=${stepIndex + 1}`
+            : `/system/${systemId}/thread?step=${stepIndex + 1}`}
           className={chipBase}
         >
           {stepLabel} {stepIndex + 1}: {stepTitleOf(step, language).slice(0, 42)}

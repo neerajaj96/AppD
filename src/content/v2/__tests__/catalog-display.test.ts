@@ -75,6 +75,8 @@ describe('no legacy-corpus imports in runtime code', () => {
     'src/content/v2/gitaChapters.ts',
     'src/content/v2/gitaSpans.ts',
     'src/content/v2/gitaXrefs.ts',
+    'src/content/v2/gitaThreads.ts',
+    'src/content/v2/threadAudit.ts',
     'src/content/v2/evidenceSummary.ts',
     'src/content/v2/citation.ts',
     'src/content/v2/aliases.ts',

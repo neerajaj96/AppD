@@ -173,18 +173,18 @@ export default function ConceptDetail() {
   const threadSteps = useMemo(() => {
     if (!systemId || !textId || !conceptId || traditionThread.status !== 'ok' || !v2Concept) return [];
     const unitSet = new Set(v2Concept.relatedUnitIds || []);
-    const direct: Array<{ systemId: string; stepIndex: number; step: ReturnType<typeof v2StepToThreadStep> }> = [];
-    const viaUnit: Array<{ systemId: string; stepIndex: number; step: ReturnType<typeof v2StepToThreadStep> }> = [];
+    const direct: Array<{ systemId: string; stepIndex: number; step: ReturnType<typeof v2StepToThreadStep>; threadId: string }> = [];
+    const viaUnit: Array<{ systemId: string; stepIndex: number; step: ReturnType<typeof v2StepToThreadStep>; threadId: string }> = [];
     traditionThread.data.forEach((thread) => {
       thread.steps.forEach((step, stepIndex) => {
         if ((step.textId || thread.textId) !== textId) return;
         const legacy = v2StepToThreadStep(step, textId);
-        if (step.conceptId === conceptId) {
-          direct.push({ systemId, stepIndex, step: legacy });
+        if (step.conceptId === conceptId || (step.conceptIds || []).includes(conceptId)) {
+          direct.push({ systemId, stepIndex, step: legacy, threadId: thread.id });
           return;
         }
         if (unitSet.size > 0 && (step.unitIds || []).some((u) => unitSet.has(u))) {
-          viaUnit.push({ systemId, stepIndex, step: legacy });
+          viaUnit.push({ systemId, stepIndex, step: legacy, threadId: thread.id });
         }
       });
     });

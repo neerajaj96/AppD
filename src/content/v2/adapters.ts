@@ -17,6 +17,7 @@ import {
 } from './schema';
 import { TRADITIONS } from './tradition';
 import { EDITORIAL_ALIASES } from './aliases';
+import { EXTRA_TRADITION_THREADS } from './gitaThreads';
 
 /**
  * Temporary compatibility path: legacy content → V2 canonical model.
@@ -165,8 +166,10 @@ export function adaptSystemThread(system: System): V2Thread[] {
       id: `${system.id}-thread`,
       traditionId: system.id as string,
       title: `${system.title} thread`,
+      kind: 'orientation' as const,
       steps,
     },
+    ...(EXTRA_TRADITION_THREADS[system.id as string] || []),
   ];
 }
 

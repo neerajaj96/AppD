@@ -244,7 +244,7 @@ export default function VerseDetail() {
       thread.steps.forEach((step, stepIndex) => {
         if ((step.textId || thread.textId) !== textId) return;
         if ((step.unitIds || []).includes(verseId)) {
-          out.push({ systemId, stepIndex, step: v2StepToThreadStep(step, textId) });
+          out.push({ systemId, stepIndex, step: v2StepToThreadStep(step, textId), threadId: thread.id });
         }
       });
     });
