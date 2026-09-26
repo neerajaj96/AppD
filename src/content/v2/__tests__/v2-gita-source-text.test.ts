@@ -128,17 +128,21 @@ describe('passage identity and preservation', () => {
   it('preserves reviewed wording (spot checks against inspection)', () => {
     const nanu = passageById('gita-tx-13.2-nanu');
     expect(nanu?.text).toContain('ननु परमार्थत एक एव प्रमाता प्रतिपादितः');
-    expect(nanu?.text).toContain('परिहर्तुमाह -');
+    expect(nanu?.text).toContain('परिहर्तुमाह—');
     const samuccaya = passageById('gita-tx-2.39-tail');
     expect(samuccaya?.text).toContain('ज्ञानक्रियासमुच्चयमेव');
     const maya = passageById('gita-tx-18.61-maya');
     expect(maya?.text).toContain('मायाशक्त्यवभासित');
   });
 
-  it('retains uncertainty explicitly instead of fixing it', () => {
+  it('resolves uncertainty against the printed page instead of fixing it silently', () => {
     const resolution = passageById('gita-tx-13.2-resolution');
-    expect(resolution?.text).toContain('[?]');
-    expect(resolution?.note).toBeDefined();
+    // Phase-9 image collation established तदुदासार्थम्; the extraction
+    // reading is preserved in the note, never erased.
+    expect(resolution?.text).toContain('अतस्तदुदासार्थमेव');
+    expect(resolution?.text).not.toContain('[?]');
+    expect(resolution?.note).toContain('अतस्तयुदासार्थमेव');
+    expect(resolution?.status).toBe('page-image-collated');
   });
 
   it('keeps every passage Unicode-clean Devanagari with no Latin', () => {
@@ -160,23 +164,26 @@ describe('passage mapping and states', () => {
       for (const uid of p.unitIds) expect(unitIds.has(uid)).toBe(true);
       expect(p.folio).toBe(p.pdf - 10);
       expect(p.sourceId).toBe(KSTS_SOURCE_ID);
-      expect(['verified-source', 'text-layer-reviewed']).toContain(p.status);
+      expect(['verified-source', 'text-layer-reviewed', 'page-image-collated', 'partially-collated']).toContain(p.status);
     }
   });
 
-  it('keeps Phase-6 verified-source distinct from Phase-7 text-layer-reviewed, never collated', () => {
-    const pilot = GITA_COMMENTARY_TEXTS.filter((p) =>
-      ['gita-tx-13.1-glosa', 'gita-tx-13.2-nanu', 'gita-tx-13.2-resolution'].includes(p.id),
-    );
-    for (const p of pilot) expect(p.status).toBe('verified-source');
-    const ch13 = GITA_COMMENTARY_TEXTS.filter((p) => p.id.startsWith('gita-tx-13-') || p.id.startsWith('gita-tx-13.'));
-    const phase7 = ch13.filter((p) => !['gita-tx-13.1-glosa', 'gita-tx-13.2-nanu', 'gita-tx-13.2-resolution'].includes(p.id));
-    expect(phase7.length).toBeGreaterThan(0);
-    for (const p of phase7) expect(p.status).toBe('text-layer-reviewed');
+  it('upgrades verification only through page-image inspection (Phase 9)', () => {
+    // Collated status is honest only with documented page inspection.
     for (const p of GITA_COMMENTARY_TEXTS) {
-      expect(p.status).not.toBe('page-image-collated');
-      expect(p.status).not.toBe('partially-collated');
+      if (p.status === 'page-image-collated' || p.status === 'partially-collated') {
+        expect(p.note || '').toMatch(/Image-collated|PDF p\./);
+      } else {
+        expect(p.status).not.toBe('page-image-collated');
+        expect(p.status).not.toBe('partially-collated');
+      }
     }
+    // Non-Chapter-13 pilot records stay untouched at verified-source.
+    const nonCh13 = GITA_COMMENTARY_TEXTS.filter(
+      (p) => !(p.unitIds || []).some((u) => u.startsWith('13.')),
+    );
+    expect(nonCh13.length).toBe(8);
+    for (const p of nonCh13) expect(p.status).toBe('verified-source');
   });
 
   it('links spanned passages to resolving spans', () => {
@@ -411,9 +418,9 @@ describe('commentary audit with source text', () => {
     });
     expect(audit.texts).toEqual({
       total: 84,
-      verifiedSource: 11,
-      textLayerReviewed: 73,
-      pageImageCollated: 0,
+      verifiedSource: 8,
+      textLayerReviewed: 65,
+      pageImageCollated: 11,
       partiallyCollated: 0,
       extractionUnreviewed: 0,
       partiallyVerified: 0,

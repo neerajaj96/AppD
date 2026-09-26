@@ -174,19 +174,22 @@ describe('chapter-13 commentary to source consistency', () => {
     }
     expect(JSON.stringify(GITA_COMMENTARY_TEXTS)).not.toMatch(/normali[sz]ed/i);
     const resolution = passageById('gita-tx-13.2-resolution');
-    expect(resolution?.text).toContain('[?]');
+    expect(resolution?.text).toContain('अतस्तदुदासार्थमेव');
+    expect(resolution?.text).not.toContain('[?]');
     expect(resolution?.note?.trim().length).toBeGreaterThan(0);
   });
 
-  it('keeps verification states honest (never collated without collation)', () => {
-    for (const p of GITA_COMMENTARY_TEXTS) {
-      expect(p.status).not.toBe('page-image-collated');
-      expect(p.status).not.toBe('partially-collated');
+  it('keeps verification states honest (collated only after inspection)', () => {
+    for (const p of GITA_COMMENTARY_TEXTS.filter((q) => (q.unitIds || []).some((u) => u.startsWith('13.')))) {
+      expect(['text-layer-reviewed', 'page-image-collated', 'partially-collated']).toContain(p.status);
+      if (p.status !== 'text-layer-reviewed') {
+        expect(p.note || '').toMatch(/Image-collated|PDF p\./);
+      }
     }
     const map = buildChapter13EvidenceMap();
     for (const row of map) {
       if (row.passageIds.length === 0) expect(row.verification).toBe('locator-only');
-      else expect(row.verification).toBe('text-layer-reviewed');
+      else expect(['text-layer-reviewed', 'page-image-collated', 'partially-collated']).toContain(row.verification);
     }
     expect(map.find((r) => r.unitId === '13.1')?.evidenceStatus).toBe('locator-only');
   });
@@ -419,8 +422,12 @@ describe('chapter-13 scholarly audit', () => {
       withSegment: 34,
       withSourceText: 34,
     });
-    expect(coverage.commentary.pageImageCollated).toBe(0);
-    expect(coverage.commentary.verifiedSource + coverage.commentary.textLayerReviewed).toBe(76);
+    expect(coverage.commentary.pageImageCollated).toBe(11);
+    expect(
+      coverage.commentary.verifiedSource +
+        coverage.commentary.textLayerReviewed +
+        coverage.commentary.pageImageCollated,
+    ).toBe(76);
     // Phase-8 inventory, gaps, arguments and apparatus reconcile exactly.
     expect(coverage.inventory).toEqual({ verses: 34, transcribed: 34, untranscribed: 0 });
     expect(coverage.gaps).toEqual(['13.1']);
