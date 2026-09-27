@@ -10,6 +10,14 @@ import type { SupportedLanguage } from '../../types/i18n';
  * V2 chunks only.
  */
 
+/** Core-text presence: a unit carries its mūla only through Devanagari
+ * or IAST source fields. Shared by every reader surface so a missing mūla
+ * is reported honestly in one place instead of rendering as a bare heading.
+ * Blank strings count as missing. */
+export function hasCoreText(unit: Pick<CanonicalUnit, 'devanagari' | 'iast'>): boolean {
+  return Boolean(unit.devanagari?.trim() || unit.iast?.trim());
+}
+
 /** Localised payload with English fallback (Malayalam pending → English). */
 export function pickLocalisation<T extends { translation?: string; commentary?: string; title?: string; summary?: string; narrative?: string }>(
   localisations: Partial<Record<SupportedLanguage, T>>,

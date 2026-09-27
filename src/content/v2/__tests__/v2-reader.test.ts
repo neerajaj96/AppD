@@ -1,4 +1,4 @@
-import { getAdjacentUnits, pickLocalisation } from '../select';
+import { getAdjacentUnits, hasCoreText, pickLocalisation } from '../select';
 import { DEFAULT_DISPLAY_PREFS, loadDisplayPrefs, saveDisplayPrefs } from '../../../context/readingPrefs';
 import { editorialRows, provenanceRows } from '../../../components/Provenance';
 import { adaptText } from '../adapters';
@@ -261,5 +261,23 @@ describe('repository relationship navigation', () => {
       // c2 has no direct step, but its units (u1, u2) appear in step s1.
       expect(result.data).toHaveLength(1);
     }
+  });
+});
+
+describe('core-text presence gate', () => {
+  const unit = (devanagari?: string, iast?: string) =>
+    ({ id: 'u', devanagari, iast }) as CanonicalUnit;
+  it('accepts Devanagari-only units', () => {
+    expect(hasCoreText(unit('धर्म', ''))).toBe(true);
+  });
+  it('accepts IAST-only units', () => {
+    expect(hasCoreText(unit('', 'dharma'))).toBe(true);
+  });
+  it('rejects units with neither script', () => {
+    expect(hasCoreText(unit('', ''))).toBe(false);
+    expect(hasCoreText(unit(undefined, undefined))).toBe(false);
+  });
+  it('treats blank strings as missing', () => {
+    expect(hasCoreText(unit('   ', '\n'))).toBe(false);
   });
 });

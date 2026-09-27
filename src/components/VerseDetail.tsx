@@ -24,7 +24,7 @@ import { t } from '../i18n/ui';
 import { getTraditionDisplay, getVerseTermForSummary } from '../content/v2/catalog';
 import { useCatalog, useV2Text, useTraditionThread, useTextSources, useTextPassages } from '../content/v2/hooks';
 import { v2ConceptToConcept, v2StepToThreadStep, v2UnitToVerse } from '../content/v2/compat';
-import { getAdjacentUnits, pickLocalisation } from '../content/v2/select';
+import { getAdjacentUnits, hasCoreText, pickLocalisation } from '../content/v2/select';
 import { gitaMapForUnit } from '../content/v2/gitaPageMap';
 import { GITA_PASSAGE_SPANS } from '../content/v2/gitaSpans';
 import { GITA_QUOTATION_EDGES } from '../content/v2/gitaXrefs';
@@ -421,6 +421,10 @@ export default function VerseDetail() {
 
   const isShowingFallback = isFallback && language === 'ml' && !!enLoc;
   const layersHidden = !display.showTranslation && !display.showCommentary;
+  // Shared core-text gate: when the unit carries no mūla in either script,
+  // the reader states the gap openly instead of rendering a bare heading.
+  // Translation, commentary, provenance and navigation below are unaffected.
+  const unitHasCoreText = unit ? hasCoreText(unit) : false;
 
   // Interlink sections above (kept with the other hooks so hook order is
   // stable); the narrowed system/text/verse below are safe to dereference.
@@ -595,7 +599,7 @@ export default function VerseDetail() {
           {/* The Sanskrit source is the primary textual object: centred,
               set large in the Devanagari and transliteration faces, with
               word-wrap guards for narrow viewports. */}
-          {display.showSanskrit && (verse.devanagari || verse.iast) && (
+          {display.showSanskrit && unitHasCoreText && (
             <div className="text-center space-y-6">
               <div>
                 {verse.section && (
@@ -623,7 +627,20 @@ export default function VerseDetail() {
               )}
             </div>
           )}
-          {(!display.showSanskrit || (!verse.devanagari && !verse.iast)) && (
+          {display.showSanskrit && !unitHasCoreText && (
+            <div className="text-center space-y-4">
+              {verse.section && (
+                <p className="t-eyebrow text-tamas mb-2">{verse.section}</p>
+              )}
+              <h1 className="t-display2 text-sattva">
+                {verseTerm} {verse.number}
+              </h1>
+              <div className="text-left">
+                <Notice tone="neutral">{t(language, 'mulaMissingNotice')}</Notice>
+              </div>
+            </div>
+          )}
+          {!display.showSanskrit && (
             <div className="text-center">
               {verse.section && (
                 <p className="t-eyebrow text-tamas mb-2">{verse.section}</p>
