@@ -1459,6 +1459,62 @@ export const GITA_COMMENTARY_TEXTS: GitaCommentaryText[] = [
     text: 'विज्ञानतस्वतपनी[?] यगुण प्रकर्षप्रख्यापनैकनिकषो निजकर्मयोगः । अस्मि श्रृणां प्रकटितः परमार्थ सिज्यै सोऽध्याय एष विवृतो विधिवत्तृतीयः',
     note: 'Bounded: authorial praśasti verse without its danda close (excludes the fixed colophon after, which stays locator-only in the closing inventory). Hyphen joined (प्रकर्ष-प्रख्यापन). [?]: विज्ञानतस्वतपनी is unrecovered in extraction (possibly विज्ञानतत्त्वतपनीय); retained verbatim, never reconstructed. यगुण, श्रृणां and परमार्थ सिज्यै retained verbatim with spaces as extracted; uncollated.',
   },
+  // Phase-13 Chapter-4 corpus (four bounded excerpts, all
+  // `text-layer-reviewed`: page images genuinely unavailable, so no
+  // record claims collation). Only the chapter-entry joint gloss (KSTS
+  // 4.1–3), the cāturvarṇya nanu/satyam gloss (KSTS 4.13) and the
+  // chapter close (KSTS 4.42 gloss + praśasti) are transcribed here.
+  // Mūla verses, verse-number markers, running heads, folio fragments
+  // and footnotes excluded throughout (apparatus lives in the
+  // inventory).
+  {
+    id: 'gita-tx-4.1-3-joint',
+    spanId: 'gita-seg-4.1-3-joint',
+    unitIds: ['4.1', '4.2', '4.3'],
+    ksts: ['4.1', '4.2', '4.3'],
+    pdf: 102,
+    folio: 92,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '‘एवम्’ अनेन प्रकारेणैव यथा तुभ्यं प्रोक्तो यो योगस्तथैव ‘विवस्वते’ महायोगीश्वराय सवित्रे ‘योगम्’ एनम् ‘अहं’ परमेश्वर एव कस्मिश्चित् काले निजयोगेश्वर्यपरिकल्पितनिरतिशयप्रभावमयविग्रहः ‘प्रोक्तवान्’ उपदिष्टवान् । कीदृशं योगम् । ‘अव्यय’ परमकारणवत् न कदाचित् व्येति क्षीयते यः । स हि जगत्सर्गदिलक्षणं कर्म अनुतिष्ठन्नपि परमेश्वरः प्राप्रतिपादिताद्वयचिन्मात्रैकलक्षणस्वभावविमर्शेकनिष्ठतया ज्ञानकर्मसमुच्चयानुष्ठानात्मकस्य अस्य योगस्य प्रथमोऽनुष्ठाता, इति तद्वत् योगस्य अस्य अव्ययत्वमुक्तम् । अनेन परमकारणादेव प्रवृत्तेरस्य योगस्य प्राधान्येन सम्बन्धमुक्त्वा क्रमेण अनुष्ठानसम्प्रदायतया तमेव सम्बन्धं विवृणोति ‘विवस्वान्मनवे प्राह’ इति स विवस्वान् पुत्राय मनुसंज्ञाय आदिराजाय प्राह प्रोवाच । प्राहेति लिटरछान्दसम् आहादेशः । सोऽपि मनुरिक्ष्वाकुसंज्ञाय पुत्रायैव ‘अब्रवीत्। एवं परमेश्वरादेव प्रभृति परम्परया योग्यपुत्रादिशिष्यरूपप्रबन्धप्रवृत्त्या ख्यातं लोके प्रथितं सन्तमन्ये जनकप्रभृतयो राजर्षयो’ राज्यलक्षणं कर्म कुर्वाणा अपि यथोक्तज्ञाननिष्ठत्वादृषयो मुनयः ‘इम’ यथोक्तं ‘विदुः’ विदांचक्रुरिति अस्मिन्नर्थे च्छान्दसः प्रयोगः । महता कालेन युगसहस्रादिसंख्येन लोकस्य क्रमापचीयमानप्रज्ञादिसर्वगुणत्वात् योग्यप्रतिपत्त्रभावात् ‘नष्टः’ अन्तर्धानमागतः परमकारणे एव व्यवस्थितः इत्यर्थः । ‘स एव’ अभ्रष्टस्वरूपः ‘अद्य’ अस्मिन् काले ‘मया’ परमेश्वरेणैव जगदुपकाराय यादवकुलावतीर्णेन ‘ते’ तुभ्यं ‘पुरातनो’ नित्यो ‘योगः प्रोक्तः’ यतो मम ‘भक्तोऽसि’ शुश्रूषुस्त्वं तथा ‘सखा’ सुहृत् । अतो भक्तिसौहार्दलक्षणमुख्यशिष्यगुणसम्पन्नाय मया तुभ्यमुपदिष्टम् । यत ‘उत्तमं’ सर्वरहस्यानां प्रकृष्टमेतद्रहस्यम्',
+    note: 'Bounded: evam pratīka through the rahasyam close (verses and the ॥ ३ ॥ marker excluded; runs to printed p.93). Hyphen joined (जगत्स-गदिलक्षणं); the 818 running-head fragment excluded as running matter. कस्मिश्चित् (for कस्मिंश्चित्), योगेश्वर्य, अव्यय (for अव्ययम्), जगत्सर्गदिलक्षणं (for सर्गादि), प्राप्रतिपादित (doubled प्रा), परम्पर या, इम (for इमम्), विदांचक्रुः, प्रतिपत्त्रभावात् and यत (clipped) retained verbatim with spaces as extracted; uncollated. अब्रवीत्। एवं joins the gloss pratīka to its danda as extracted. No danda supplied where the marker is excluded. No [?].',
+  },
+  {
+    id: 'gita-tx-4.13-gloss',
+    spanId: 'gita-seg-4.13-gloss',
+    unitIds: ['4.13'],
+    ksts: ['4.13'],
+    pdf: 108,
+    folio: 98,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'ननु त्वमेव चे कः कर्ता, तत् क्षेत्रज्ञभावेन कृतैः कर्मभिस्त्वमेव तत्फलेन सम्बध्यसे, ततश्च क्षेत्रज्ञवत् सुखादिसम्बन्धस्तव अपि प्रसक्त इति अर्जुनशंकां परिहर्तुकाम आह ‘सत्यं’ गुणविभागेन अयं सात्त्विकोऽयं राजसोऽयं तामसम् इत्येवरूपेण सर्गभेदमूलेन तथा कर्मविभागेन ब्राह्मणेन अध्येतव्यं यष्टव्यं दातव्यमित्येवमादिरूपेण ‘मया’ यथोक्तस्वरूपेण एकेन कर्त्रा ‘चातुर्व सृष्टं[?]’ चत्वारो वर्णा ब्राह्मणादयो निर्मिताः । ‘तस्य’ एवंविधस्य चातुर्वर्ण्यस्य स्वगुणकर्मविभागसमुचितकर्मानुरूपतत्तत्फलभाजः ‘कर्तारं’ निर्मातारमपि ‘मामकर्तारं’ तद्वत् तादृक्कर्मफलसम्बन्धाभावात् कर्तृधर्मरहितं जानीहि । कुत इति हेतुगर्भविशेषणमाह कीदृशं सन्तमकर्तारं विद्धि । ‘अव्ययं’ नित्यमेकस्मात् स्वरूपात् यतोऽहं न व्येमि न व्यपगच्छामि अद्वयचिन्मात्रस्वभावतामेव न जहामि । एवं च अव्ययं सन्तं मामकर्तारं ‘विद्धि’ । क्षेत्रज्ञा हि मन्मायोद्भाविता नित्य देहाद्यहंकारमयास्त्रिगुणाः संकल्पकारिणः सुखादिभिः फलैर्युज्यन्ते, नतु अहं गुणातीतस्वभावस्तैर्जातु युज्ये',
+    note: 'Bounded: kartṛ nanu through the yujye close (verse and verse-number marker excluded; the mūla exclusion seams nanu to satyam, recorded here). [?]: the join region yields चातुर्व सृष्टं while चातुर्वर्ण्यं सृष्टं is expected (र्ण्यं unrecovered in extraction); retained verbatim, never reconstructed. चे कः (for चैकः), अर्जुनशंकां, तामसम् (for तामसः), मामकर्तारं (for मामकर्तारम्), न व्येमि, चिन्मात्रस्वभावतामेव (ख for expected क्भ) and नित्य देहाद्यहंकारमयास्त्रिगुणाः retained verbatim with spaces as extracted; नित्यमेकस्मात् joins the bare break without hyphen. Uncollated. No danda supplied where the marker is excluded.',
+  },
+  {
+    id: 'gita-tx-4.42-gloss',
+    spanId: 'gita-seg-4.42-gloss',
+    unitIds: ['4.42'],
+    ksts: ['4.42'],
+    pdf: 125,
+    folio: 115,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '‘तस्मात्’ प्रबन्धप्रतिपादितात् कारणात् ‘योगं’ शास्त्रविहितेषु कर्मसु यथोक्तज्ञानसंस्कृतेषु समाधिं यथोक्तम् ‘आतिष्ठ’ समाचर अत्र ‘उत्तिष्ठ’ प्रोयुक्तो भव । किं कृत्वा । ‘एवं’ सर्वदोषैकहेतुं ‘संशयं’ यथोक्तेन ज्ञानखङ्गेन ‘च्छित्वा’ मूलादेव निपाट्य । कीदृशं संशयम् । ‘हृत्स्थ’ हृदयगतम् ‘अज्ञानसम्भूतं’ मोहप्रभवम् । अनेन हृदयगतत्वेन मोहप्रभवत्वेन च अदूरवर्तित्वमसारमूलत्वं च सुच्छेदत्वप्रतिपादनार्थमुक्तमिति ओम्',
+    note: 'Bounded: tasmāt pratīka through the iti-om close (verse and its ॥ ४२ ॥ marker excluded). आतिष्ठ (for आतिष्ठ), अत्र, उत्तिष्ठ (for उत्तिष्ठ), प्रोयुक्तो (for प्रयुक्तो), एवं, निपाट्य (for निपात्य), सुच्छेदत्व (for सुच्छेद्यत्व) and ओम् retained verbatim; uncollated. No hyphens; no [?]. No danda supplied where the marker is excluded.',
+  },
+  {
+    id: 'gita-tx-4-prasasti',
+    spanId: 'gita-ps-4-prasasti',
+    unitIds: ['4.42'],
+    ksts: [],
+    pdf: 125,
+    folio: 115,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'कल्याणकनिकेतनस्य जगत घोराधविध्वंसिनो धर्मस्यास्य सुरापगाम्भस इव ब्रह्मात्मकस्योद्भवम् । आख्यायात्मन एव यत्र भगवान् पार्थाय सर्वातिगं खं[?] माहात्म्यमसूचयत्स विवृतोऽध्यायश्चतुर्थः क्रमात्',
+    note: 'Bounded: authorial praśasti verse without its danda close (excludes the fixed colophon after, which stays locator-only in the closing inventory). [?]: खं is unrecovered in extraction (possibly स्वं); retained verbatim, never reconstructed. जगत घोराधविध्वंसिनो, सुरापगाम्भस (for -म्भसः), सर्वातिगं and असूचयत्स retained verbatim with spaces as extracted; uncollated.',
+  },
 ];
 
 /** Devanagari source text plus print punctuation, digits, brackets and whitespace. */

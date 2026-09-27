@@ -108,6 +108,12 @@ export const GITA_QUOTATION_EDGES: GitaReference[] = [
   { id: 'gita-xref-075', fromKsts: { chapter: 3, verse: 3 }, fromUnitId: '3.3', toKsts: { chapter: 2, verse: 66 }, toUnitId: '2.64', quotedText: 'रागद्वेषविमुक्तस्तु विषयानिन्द्रियैश्चरन् । आत्मवश्यैर्विधेयात्मा प्रसादमधिगच्छति ॥', locator: '(२।६६)', kind: 'commentary-quotes-unit', note: 'host KSTS 3.3 samuccaya-nirvacana (printed p.63)' },
   { id: 'gita-xref-076', fromKsts: { chapter: 3, verse: 7 }, fromUnitId: '3.7', toKsts: { chapter: 2, verse: 66 }, toUnitId: '2.64', quotedText: 'रागद्वेषविमुक्तस्तु विषयानिन्द्रियैश्चरन् ।', locator: '(२।६६)', kind: 'commentary-quotes-unit', note: 'host KSTS 3.7 viśeṣa bridge (printed p.66; distinct print event from gita-xref-075)' },
   { id: 'gita-xref-077', fromKsts: { chapter: 3, verse: 9 }, fromUnitId: '3.9', toKsts: { chapter: 18, verse: 46 }, toUnitId: '18.46', quotedText: 'यतः प्रवृत्तिर्भूतानां येन सर्वमिदं ततम् । स्वकर्मणा तमेवार्थ्य सिद्धिं विन्दति मानवः ॥', locator: '(१८४६)', kind: 'commentary-quotes-unit', note: 'host KSTS 3.9 yajña gloss (tathā-ca-vakṣyati; printed p.68; fused locator retained; distinct print event from gita-xref-053)' },
+  // Chapter-4 quotation edges (Phase 13). Hosts are the KSTS gloss
+  // regions carrying the quotation; targets identified from the
+  // quotation itself, never from digits alone.
+  { id: 'gita-xref-078', fromKsts: { chapter: 4, verse: 24 }, fromUnitId: '4.24', toKsts: { chapter: 4, verse: 23 }, toUnitId: '4.23', quotedText: 'गतसंगस्य मुक्तस्य ज्ञानावस्थितचेतसः । यज्ञायारभतः कर्म समग्रं प्रविलीयते ॥', locator: '(४।२३)', kind: 'commentary-quotes-unit', note: 'host KSTS 4.24 brahmārpaṇa close (self-recall; printed p.104)' },
+  { id: 'gita-xref-079', fromKsts: { chapter: 4, verse: 24 }, fromUnitId: '4.24', toKsts: { chapter: 5, verse: 8 }, toUnitId: '5.8', quotedText: 'पश्य शृण्वन्स्पृशञ्जिघन्।', locator: '(५।८)', kind: 'commentary-quotes-unit', note: 'host KSTS 4.24 brahmārpaṇa close (printed p.104; partial pāda; स्पृशञ्जिघन् for स्पृशञ्जिघ्रन् retained)' },
+  { id: 'gita-xref-080', fromKsts: { chapter: 4, verse: 28 }, fromUnitId: '4.28', toKsts: { chapter: 9, verse: 33 }, toUnitId: '9.32', quotedText: 'मां हि पार्थ व्यपाश्रित्य येऽपि स्युः पापयोनयः । स्त्रियो वैश्यास्तथा शूद्रास्तेऽपि यांति परां गतिम् ॥', locator: '(९३३)', kind: 'commentary-quotes-unit', note: 'host KSTS 4.28–30 exposition (jñāna-yajña adhikāra; printed p.108; KSTS-numbered locator for the repo-9.32 verse; यांति retained)' },
 ];
 
 /** Edges quoting one KSTS verse, keyed by target. */

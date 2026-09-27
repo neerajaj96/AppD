@@ -1313,6 +1313,51 @@ export const GITA_PASSAGE_SPANS: GitaPassageSpan[] = [
     status: 'source',
     note: 'Authorial praśasti verse (vijñāna-tattva-tapanīya; the fixed colophon stays locator-only).',
   },
+  // Chapter-4 spans (Phase 13). Only the chapter-entry joint gloss
+  // (KSTS 4.1–3), the cāturvarṇya nanu/satyam gloss (KSTS 4.13) and the
+  // chapter close (KSTS 4.42 gloss + praśasti) are segmented here; the
+  // remaining word-by-word gloss stays in the untranscribed inventory
+  // until reviewed. No span carries transcription, ever.
+  {
+    id: 'gita-seg-4.1-3-joint',
+    unitIds: ['4.1', '4.2', '4.3'],
+    ksts: ['4.1', '4.2', '4.3'],
+    pdf: 102,
+    folio: 92,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 4.1–3 joint paramparā gloss through the rahasyam close (runs to printed p.93).',
+  },
+  {
+    id: 'gita-seg-4.13-gloss',
+    unitIds: ['4.13'],
+    ksts: ['4.13'],
+    pdf: 108,
+    folio: 98,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 4.13 gloss: kartṛ/akartṛ nanu with the satyam response (printed p.98).',
+  },
+  {
+    id: 'gita-seg-4.42-gloss',
+    unitIds: ['4.42'],
+    ksts: ['4.42'],
+    pdf: 125,
+    folio: 115,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 4.42 saṃśaya-ccheda gloss through the iti-om close (printed p.115).',
+  },
+  {
+    id: 'gita-ps-4-prasasti',
+    unitIds: ['4.42'],
+    ksts: [],
+    pdf: 125,
+    folio: 115,
+    anchor: 'closing',
+    status: 'source',
+    note: 'Authorial praśasti verse (kalyāṇaka-niketana; the fixed colophon stays locator-only).',
+  },
 ];
 
 export function passageSpanById(id: string): GitaPassageSpan | undefined {
