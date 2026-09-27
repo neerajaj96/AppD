@@ -252,7 +252,7 @@ describe('chapter-4 evidence map and audit', () => {
     // the avataraṇikā. Phase 13 grounds nothing new.
     expect(coverage.concepts).toEqual({ sourceGrounded: 1, exactTextGrounded: 1, locatorOnly: 0 });
     expect(coverage.threads).toEqual({ steps: 1, sourceTextGrounded: 1, segmentGrounded: 0, locatorOnly: 0 });
-    expect(coverage.xrefs).toEqual({ explicit: 11, quotation: 11, unresolved: 3 });
+    expect(coverage.xrefs).toEqual({ explicit: 12, quotation: 12, unresolved: 3 });
     expect(coverage.arguments).toEqual({ total: 4, sourceBacked: 4, unresolved: 0 });
     expect(coverage.apparatus).toEqual({ observed: 3, mapped: 0, unresolved: 3 });
     const rendered = formatChapter4Audit(coverage);
@@ -371,7 +371,7 @@ describe('chapter-4 reader access', () => {
     for (const id of ['gita-tx-4.1-3-joint', 'gita-tx-4.13-gloss', 'gita-tx-4-prasasti']) {
       expect(data.map((r) => r.id)).toContain(id);
     }
-    expect(data).toHaveLength(118);
+    expect(data).toHaveLength(123);
   });
 
   it('keeps the commentary-wide span audit clean after the Chapter-4 growth', () => {

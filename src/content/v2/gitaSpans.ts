@@ -1358,6 +1358,62 @@ export const GITA_PASSAGE_SPANS: GitaPassageSpan[] = [
     status: 'source',
     note: 'Authorial praśasti verse (kalyāṇaka-niketana; the fixed colophon stays locator-only).',
   },
+  // Chapter-5 spans (Phase 14). Only the chapter-entry run (opening +
+  // KSTS 5.1–2 glosses) and the chapter close (KSTS 5.28 gloss +
+  // praśasti) are segmented here; the remaining word-by-word gloss
+  // stays in the untranscribed inventory until reviewed. The
+  // pre-existing 5.3 sentence carries no print-demarcated sub-span by
+  // design. No span carries transcription, ever.
+  {
+    id: 'gita-ps-5-avat',
+    unitIds: ['5.1'],
+    ksts: [],
+    pdf: 126,
+    folio: 116,
+    anchor: 'avataraṇikā',
+    status: 'source',
+    note: 'Chapter-5 gateway: renewed saṃśaya turn with the 3.1/4.41 recalls, introducing Arjuna’s question (printed p.116).',
+  },
+  {
+    id: 'gita-seg-5.1-gloss',
+    unitIds: ['5.1'],
+    ksts: ['5.1'],
+    pdf: 126,
+    folio: 116,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 5.1 tyāga/svīkāra dilemma gloss through the brūhi close (printed p.116).',
+  },
+  {
+    id: 'gita-seg-5.2-gloss',
+    unitIds: ['5.2'],
+    ksts: ['5.2'],
+    pdf: 126,
+    folio: 116,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 5.2 satyam gloss with the kevalajñāna/samuccaya phalaśruti (runs to printed p.117).',
+  },
+  {
+    id: 'gita-seg-5.28-gloss',
+    unitIds: ['5.29'],
+    ksts: ['5.28'],
+    pdf: 144,
+    folio: 134,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 5.28 (repo 5.29) bhoktṛ/maheśvara/suhṛt gloss through the iti close (printed p.134).',
+  },
+  {
+    id: 'gita-ps-5-prasasti',
+    unitIds: ['5.29'],
+    ksts: [],
+    pdf: 144,
+    folio: 134,
+    anchor: 'closing',
+    status: 'source',
+    note: 'Authorial praśasti verse (yatraikatā yamunayā; the fixed colophon stays locator-only).',
+  },
 ];
 
 export function passageSpanById(id: string): GitaPassageSpan | undefined {

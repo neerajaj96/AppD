@@ -411,7 +411,7 @@ describe('chapter-2 reader access', () => {
     for (const id of ['gita-tx-2-avat', 'gita-tx-2.9-10-joint', 'gita-tx-2-prasasti']) {
       expect(data.map((r) => r.id)).toContain(id);
     }
-    expect(data).toHaveLength(118);
+    expect(data).toHaveLength(123);
   });
 
   it('keeps the commentary-wide span audit clean after the Chapter-2 growth', () => {

@@ -114,6 +114,11 @@ export const GITA_QUOTATION_EDGES: GitaReference[] = [
   { id: 'gita-xref-078', fromKsts: { chapter: 4, verse: 24 }, fromUnitId: '4.24', toKsts: { chapter: 4, verse: 23 }, toUnitId: '4.23', quotedText: 'गतसंगस्य मुक्तस्य ज्ञानावस्थितचेतसः । यज्ञायारभतः कर्म समग्रं प्रविलीयते ॥', locator: '(४।२३)', kind: 'commentary-quotes-unit', note: 'host KSTS 4.24 brahmārpaṇa close (self-recall; printed p.104)' },
   { id: 'gita-xref-079', fromKsts: { chapter: 4, verse: 24 }, fromUnitId: '4.24', toKsts: { chapter: 5, verse: 8 }, toUnitId: '5.8', quotedText: 'पश्य शृण्वन्स्पृशञ्जिघन्।', locator: '(५।८)', kind: 'commentary-quotes-unit', note: 'host KSTS 4.24 brahmārpaṇa close (printed p.104; partial pāda; स्पृशञ्जिघन् for स्पृशञ्जिघ्रन् retained)' },
   { id: 'gita-xref-080', fromKsts: { chapter: 4, verse: 28 }, fromUnitId: '4.28', toKsts: { chapter: 9, verse: 33 }, toUnitId: '9.32', quotedText: 'मां हि पार्थ व्यपाश्रित्य येऽपि स्युः पापयोनयः । स्त्रियो वैश्यास्तथा शूद्रास्तेऽपि यांति परां गतिम् ॥', locator: '(९३३)', kind: 'commentary-quotes-unit', note: 'host KSTS 4.28–30 exposition (jñāna-yajña adhikāra; printed p.108; KSTS-numbered locator for the repo-9.32 verse; यांति retained)' },
+  // Chapter-5 quotation edges (Phase 14). Both sit in the chapter
+  // avataraṇikā, which precedes every verse marker: hosts stay null by
+  // design, as with the Chapter-1 upodghāta edges.
+  { id: 'gita-xref-081', fromKsts: null, fromUnitId: null, toKsts: { chapter: 3, verse: 1 }, toUnitId: '3.1', quotedText: 'ज्यायसी चैत्कर्मणस्ते मता बुद्धिर्जनार्दन', locator: '(३।१)', kind: 'commentary-quotes-unit', note: 'Chapter-5 avataraṇikā (renewed saṃśaya; printed p.116; partial pāda)' },
+  { id: 'gita-xref-082', fromKsts: null, fromUnitId: null, toKsts: { chapter: 4, verse: 41 }, toUnitId: '4.41', quotedText: 'योगसंन्यस्तकर्माणं ज्ञानसंच्छिन्नसंशयम्', locator: '(४।४१)', kind: 'commentary-quotes-unit', note: 'Chapter-5 avataraṇikā (yoga/saṃnyāsa-śabda occasion; printed p.116; partial verse)' },
 ];
 
 /** Edges quoting one KSTS verse, keyed by target. */

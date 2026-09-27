@@ -1515,6 +1515,74 @@ export const GITA_COMMENTARY_TEXTS: GitaCommentaryText[] = [
     text: 'कल्याणकनिकेतनस्य जगत घोराधविध्वंसिनो धर्मस्यास्य सुरापगाम्भस इव ब्रह्मात्मकस्योद्भवम् । आख्यायात्मन एव यत्र भगवान् पार्थाय सर्वातिगं खं[?] माहात्म्यमसूचयत्स विवृतोऽध्यायश्चतुर्थः क्रमात्',
     note: 'Bounded: authorial praśasti verse without its danda close (excludes the fixed colophon after, which stays locator-only in the closing inventory). [?]: खं is unrecovered in extraction (possibly स्वं); retained verbatim, never reconstructed. जगत घोराधविध्वंसिनो, सुरापगाम्भस (for -म्भसः), सर्वातिगं and असूचयत्स retained verbatim with spaces as extracted; uncollated.',
   },
+  // Phase-14 Chapter-5 corpus (five bounded excerpts, all
+  // `text-layer-reviewed`: page images genuinely unavailable, so no
+  // record claims collation). Only the chapter-entry run (opening +
+  // KSTS 5.1–2 glosses) and the chapter close (KSTS 5.28 gloss +
+  // praśasti) are transcribed here. Mūla verses, verse-number markers,
+  // running heads, folio fragments and footnotes excluded throughout
+  // (apparatus lives in the inventory); print locators inside
+  // commentary retained verbatim (separately edged).
+  {
+    id: 'gita-tx-5-avat',
+    spanId: 'gita-ps-5-avat',
+    unitIds: ['5.1'],
+    ksts: [],
+    pdf: 126,
+    folio: 116,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'अथ पञ्चमोऽध्यायः । अथ द्वितीयाध्यायपरिसमाप्तौ बुद्धिप्रशंसावाक्यानि प्राक् च कर्मयोगवचनानि श्रुत्वा तेषां च परस्परविरुद्धत्वं मन्यमानेन अर्जुनेन ‘ज्यायसी चैत्कर्मणस्ते मता बुद्धिर्जनार्दन’ (३।१) इत्यादिना प्रश्नो यः कृतोऽभूत्, स भगवता यद्यपि निर्णीत एव तृतीये; तथापि चतुर्थाध्यायपरिसमाप्तौ ‘योगसंन्यस्तकर्माणं ज्ञानसंच्छिन्नसंशयम् (४।४१) इत्यत्र योगसंन्यासशब्दौ श्रुत्वा संन्यासं त्यागं मन्यमानः पुनरुत्पन्नसंशयोऽर्जुन उवाच',
+    note: 'Bounded: chapter opening through the speaker label (verse 5.1 excluded). The [५२ running-head fragment excluded as running matter. Both print locators retained verbatim inside the text (separately edged as gita-xref-081/082). प्राक् च retained verbatim with the space as extracted; uncollated. No hyphens; no [?].',
+  },
+  {
+    id: 'gita-tx-5.1-gloss',
+    spanId: 'gita-seg-5.1-gloss',
+    unitIds: ['5.1'],
+    ksts: ['5.1'],
+    pdf: 126,
+    folio: 116,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'हे ‘कृष्ण’ ‘कर्मणा’ त्यागं ‘प्रशंससि’ स्तोषि, पुनश्च तेषामेव ‘योगम्’ अनुष्ठानेन स्वीकारं स्तौषि । तदेतयोर्विरुद्धयोः कर्मत्यागस्वीकारयोः संन्यासयोगशब्देन उक्तयोर्योगपद्येन अनुष्ठानं तावत् न संभवति । अतो द्वयोर्मध्यात् ‘एकः’ संन्यासो वा योगो वा ‘यः’ एव ‘श्रेयान्’ प्रशस्यतरः ‘तं मे’ निःसन्देहतया ‘ब्रूहि',
+    note: 'Bounded: tyāga/svīkāra dilemma gloss through the brūhi close (verse and verse-number marker excluded). कृष्ण कर्मणा (anusvāra unrecovered; possibly कर्मणां) and उक्तयोर्योगपद्येन (possibly उक्तयोर्यौगपद्येन) retained verbatim with spaces as extracted; uncollated. No danda supplied where the marker is excluded. No [?].',
+  },
+  {
+    id: 'gita-tx-5.2-gloss',
+    spanId: 'gita-seg-5.2-gloss',
+    unitIds: ['5.2'],
+    ksts: ['5.2'],
+    pdf: 126,
+    folio: 116,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '‘सत्यं’ द्वावपि एतौ कर्मणां संन्यासयोगौ त्यागस्वीकारौ भिन्नानुष्ठातृपुरुषानुष्ठीयमानापवर्गलक्षणाभ्युदयसंपादकौ भवतः । यतः केवलज्ञानवादिनः सर्वात्मना कर्मणां त्यागेन अपवर्गमिच्छन्ति, समुच्चयवादिनस्तु कर्मणामत्यागेन अनुष्ठानेनेति द्वयोरपि फलश्रुतिरस्ति; किन्तु ‘तयोः’ संन्यासयोगयो ध्यात्[?] ‘संन्यासात्’ त्यागात् तमपेक्ष्य ‘कर्मयोगो’ विहितकर्माचरणं ‘विशिष्यते’ उक्तवक्ष्यमाणहेतुपर्यालोचनया प्रकृष्यते',
+    note: 'Bounded: satyam gloss through the prakṛṣyate close (verse and verse-number marker excluded; runs to printed p.117). Hyphen joined (उक्तवक्ष्यमा-णहेतु). [?]: संन्यासयोगयो ध्यात् is unrecovered in extraction (possibly संन्यासयोगयोर्मध्यात्); retained verbatim with the space, never reconstructed. द्वावपि एतौ, समुच्चयवादिनस्तु and उक्तवक्ष्यमाणहेतुपर्यालोचनया retained verbatim with spaces as extracted; uncollated. No danda supplied where the marker is excluded.',
+  },
+  {
+    id: 'gita-tx-5.28-gloss',
+    spanId: 'gita-seg-5.28-gloss',
+    unitIds: ['5.29'],
+    ksts: ['5.28'],
+    pdf: 144,
+    folio: 134,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '‘मां’ निर्वाणं ब्रह्मशब्देन उक्तमनुत्तरमुपेयं परमात्मानं ‘ज्ञात्वा’ आत्मत्वेन प्रतिपद्य ‘शान्तिं’ निःशेषविकल्पक्षोभविरतिलक्षणां निर्वृतिम् ‘ऋच्छति’ गच्छति मत्स्वरूपज्ञानादेव मुच्यत इत्यर्थः । कीदृशं मां ज्ञात्वा । ‘यज्ञतपसां भोक्तारम्’ इह नानायज्ञतपःप्रभृतयः क्रियाः शास्त्रेण अनुष्ठेयतया चोदिताः । तासामज्ञानमोहिता अनुष्ठातारः परस्परभिन्नमात्मानं तत्तत्फलभोक्तारं मन्यन्ते, परमार्थविदस्तु कर्तृभेदाभावात् सर्वक्रियाफलानामहमेवैकः कर्ता च भोक्ता चेति यज्ञतपसां भोक्तारम् । तथा ‘सर्वलोकमहेश्वरं’ सर्वस्य कस्यचित् जन्तुजातस्य क्रीडामात्रप्रयोजनतया स्वेच्छामात्रेणैव नानात्वेन अवभासितस्य महेश्वरं तासु तासु क्रियासु एकविनियोक्तृत्वात् परमं प्रभुः, तथा परमार्थतो भेदाभावात् सर्वेषां भूतानां ‘सुहृदं’ सर्वदा निसर्गनिर्दोषस्वात्ममात्रप्रतिष्ठितत्वात् न कस्यचित् द्विष्टं, नापि अनुरक्तम् । एवंविधं मां ज्ञात्वा मदेव कर्म प्रवर्तमानः कर्मयोगी शान्तिं मुक्तिमाप्नोतीति पूर्वस्मात् योगिनो विशिष्टत्वमेव अस्य प्रतिपादितमिति',
+    note: 'Bounded: māṃ pratīka through the iti close (verse and its ॥ २८ ॥ marker excluded; the gloss opens without bridge directly on the page, recorded here). उक्तमनुत्तरमुपेयं, ऋच्छति, मत्स्वरूपज्ञानादेव, प्रभृतयः, अनुष्ठेयतया, अहमेवैकः, एकविनियोक्तृत्वात्, परमं प्रभुः (for प्रभुम्), द्विष्टं (for द्विष्टः) and मदेव retained verbatim with spaces as extracted; uncollated. No hyphens; no [?]. No danda supplied where the marker is excluded.',
+  },
+  {
+    id: 'gita-tx-5-prasasti',
+    spanId: 'gita-ps-5-prasasti',
+    unitIds: ['5.29'],
+    ksts: [],
+    pdf: 144,
+    folio: 134,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'यत्रैकता यमुनया गगनापगेव संन्यासधीरुपगता सह योगबुद्ध्या । अध्यायमेनमभिगच्छत सर्वतीर्थसारं प्रयागमिव पञ्चममात्मसिद्ध्यै',
+    note: 'Bounded: authorial praśasti verse without its danda close (excludes the fixed colophon after, which stays locator-only in the closing inventory). Hyphen joined (सर्वतीर्थ-सारं). No [?].',
+  },
 ];
 
 /** Devanagari source text plus print punctuation, digits, brackets and whitespace. */

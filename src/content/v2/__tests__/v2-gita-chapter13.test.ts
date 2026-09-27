@@ -546,6 +546,6 @@ describe('chapter-13 phase-8 search regression', () => {
     for (const id of ['gita-tx-13.25-samuccaya', 'gita-tx-13.34-moksa', 'gita-tx-13.34-prasasti', 'gita-tx-13.27-sama']) {
       expect(data.map((r) => r.id)).toContain(id);
     }
-    expect(data).toHaveLength(118);
+    expect(data).toHaveLength(123);
   });
 });

@@ -273,7 +273,7 @@ describe('chapter-3 evidence map and audit', () => {
     // grounds nothing new.
     expect(coverage.concepts).toEqual({ sourceGrounded: 2, exactTextGrounded: 1, locatorOnly: 1 });
     expect(coverage.threads).toEqual({ steps: 1, sourceTextGrounded: 1, segmentGrounded: 0, locatorOnly: 0 });
-    expect(coverage.xrefs).toEqual({ explicit: 16, quotation: 16, unresolved: 7 });
+    expect(coverage.xrefs).toEqual({ explicit: 17, quotation: 17, unresolved: 7 });
     expect(coverage.arguments).toEqual({ total: 5, sourceBacked: 5, unresolved: 0 });
     expect(coverage.apparatus).toEqual({ observed: 4, mapped: 0, unresolved: 4 });
     const rendered = formatChapter3Audit(coverage);
@@ -392,7 +392,7 @@ describe('chapter-3 reader access', () => {
     for (const id of ['gita-tx-3.1-2-joint', 'gita-tx-3.3-gloss', 'gita-tx-3-prasasti']) {
       expect(data.map((r) => r.id)).toContain(id);
     }
-    expect(data).toHaveLength(118);
+    expect(data).toHaveLength(123);
   });
 
   it('keeps the commentary-wide span audit clean after the Chapter-3 growth', () => {
