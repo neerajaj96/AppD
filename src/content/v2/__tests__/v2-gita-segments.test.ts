@@ -136,13 +136,18 @@ const EXPECTED_SPANS = [
   'gita-ps-2-upasamhara',
   'gita-seg-2.74-gloss',
   'gita-ps-2-prasasti',
+  'gita-seg-3.1-2-joint',
+  'gita-seg-3.3-gloss',
+  'gita-seg-3.22-gloss',
+  'gita-seg-3.48-gloss',
+  'gita-ps-3-prasasti',
   'gita-seg-2.39-tail',
   'gita-seg-7.14-q2',
   'gita-seg-7.14-response',
 ];
 
 describe('segment identity and stability', () => {
-  it('keeps the one-hundred-ten passage spans, no renames, no silent additions', () => {
+  it('keeps the one-hundred-fifteen passage spans, no renames, no silent additions', () => {
     expect(GITA_PASSAGE_SPANS.map((s) => s.id).sort()).toEqual([...EXPECTED_SPANS].sort());
   });
 
@@ -264,8 +269,8 @@ describe('commentary audit', () => {
       threads: GITA_SCHOLARLY_THREADS,
       concepts: gitaConcepts(),
     });
-    expect(audit.segments).toEqual({ total: 110, source: 110, editorial: 0, unresolved: 0 });
-    expect(audit.evidencePrecision.exactFolio).toBe(110);
+    expect(audit.segments).toEqual({ total: 115, source: 115, editorial: 0, unresolved: 0 });
+    expect(audit.evidencePrecision.exactFolio).toBe(115);
     expect(audit.danglingSpanRefs).toBe(0);
     const byId = new Map(audit.threads.map((t) => [t.threadId, t]));
     expect(byId.get('gita-rk-kshetra')).toMatchObject({ steps: 5, stepsWithSegments: 5 });

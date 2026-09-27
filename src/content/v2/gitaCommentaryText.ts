@@ -1389,6 +1389,76 @@ export const GITA_COMMENTARY_TEXTS: GitaCommentaryText[] = [
     text: 'द्वितीयेऽध्यायेऽस्मिन् हृदय इव गम्भीर विमले गृहीते गीतानां विबुधदयितानां प्रणयतः । तदाश्लेषानन्दामृतरसमपूर्व रसयत सदा वः पुम्भावो भवतु कृतकृत्यः कृतधियाम् ॥',
     note: 'Bounded: authorial praśasti verse through its danda close (excludes the fixed colophon after, which stays locator-only in the closing inventory). गम्भीर विमले and रसमपूर्व रसयत retained verbatim with spaces as extracted; uncollated. No [?].',
   },
+  // Phase-12 Chapter-3 corpus (five bounded excerpts, all
+  // `text-layer-reviewed`: page images genuinely unavailable, so no
+  // record claims collation). Only the chapter-entry joint gloss (KSTS
+  // 3.1–2), the samuccaya-nirvacana gloss (KSTS 3.3), the
+  // upakramya-recall gloss (KSTS 3.22) and the chapter close (KSTS 3.48
+  // gloss + praśasti) are transcribed here. Mūla verses, verse-number
+  // markers, running heads, folio fragments and footnotes excluded
+  // throughout (apparatus lives in the inventory); print locators
+  // inside commentary retained verbatim, even where they disagree
+  // (disagreements are inventoried as unresolved, never emended).
+  {
+    id: 'gita-tx-3.1-2-joint',
+    spanId: 'gita-seg-3.1-2-joint',
+    unitIds: ['3.1', '3.2'],
+    ksts: ['3.1', '3.2'],
+    pdf: 71,
+    folio: 61,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '"दूरेण ह्यवरं कर्म बुद्धियोगात् ....." (२५१) इत्यादि वदतस्तव ‘कर्मणः’ सकाशात् यदि ‘बुद्धियसी,’ ‘मता’ ज्ञानं प्रकृष्टतरत्वेन अभिप्रेतं, ‘तत्’ ‘किं’ केन हेतुना बन्धहेतुत्वात् सर्वस्मिन् ‘कर्मणि’ दारुणविपाकत्वात् ‘घोरे’ विशेषतोऽस्मिन् गुरुज्ञातिघातादिमहापातकहेतौ संग्रामरूपे ‘मां’ "कर्मण्यस्त्वधिकारस्ते" (२।४८) इत्यादिना ‘नियोजयसि’ प्रवर्तयसि । इत्थंच परस्पर विरुद्धज्ञानकर्मप्रशंसारूपत्वात् ‘व्यामिश्रेण’ संकीर्णेन ‘वाक्येन’ मम ‘बुद्धिं’ प्रज्ञां ‘मोहयसीव’ निश्चयोपदेशेन प्रबोधनमिच्छन् संशयापादकवचनप्रणयनात् वैचित्त्यमिव मां प्रापयसीत्यर्थः । तस्मात् कारणादेतयोर्ज्ञानकर्मणोर्मध्यात् ‘एकं’ ज्ञानं कर्म वा इदमेव अनुष्ठेयमिति ‘निश्चित्य’ निर्णीय ब्रूहि, येन एकतरेण सुगृहीतेन सता ‘श्रेयः’ अपवर्गलक्षणमभ्युदयम् ‘अहं प्राप्नुयां लभेयेति',
+    note: 'Bounded: joint dilemma gloss through the labheyeti close (verses and the ॥ १-२ ॥ marker excluded). Hyphens joined (विशे-षतोऽस्मिन्, लभे-येति). Print double quotes, the ..... ellipsis and both fused/Devanagari locators retained verbatim (the 2.51/2.48 recalls are separately edged). बुद्धियसी, इत्थंच and परस्पर विरुद्ध retained verbatim with the space as extracted; the trailing space inside the second quotation is dropped as insignificant whitespace (recorded here). No danda supplied where the marker is excluded. No [?].',
+  },
+  {
+    id: 'gita-tx-3.3-gloss',
+    spanId: 'gita-seg-3.3-gloss',
+    unitIds: ['3.3'],
+    ksts: ['3.3'],
+    pdf: 72,
+    folio: 62,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'अथ अन्यथैव मयोक्तमन्यथैव त्वया प्रतिपन्न मिति अर्जुन प्रति उपालम्भमिव आविष्कुर्वन् तत्संशयव्युदासाय भगवानुवाच संख्या यथाप्रतिपादितलक्षणशरी रिशरीराद्युपादेय हेयपदार्थसंख्यानं, तद्विदो मुख्यतया सांख्या उच्यन्ते । योगो यथोक्तसांख्यनिश्चितार्थसाक्षात्कारकरणं क्रिया विशेषः, स विद्यते येषां, तेऽपि मुख्यतया योगिना, कपिलादयो हैरण्यगर्भादयश्च गौण्या वृत्त्या सांख्या योगिनश्च उच्यन्ते । यथोक्तलक्षणस्य आत्मादेरर्थस्य तेषामनिश्चयादसाक्षात्काराच तदेवंविधानां सांख्यानां योगिनां च ‘पुरा’ अस्मादध्यायात् पूर्व द्वितीयेऽध्याये ‘मया’ एकैव ‘निष्ठा’ ‘उक्ता’ निश्चयसिद्धान्तः प्रतिपादितः । कीदृशी निष्ठा । द्विविधा द्वे एकानुष्ठातृपुरुषनिष्ठे युगपत्प्रयोज्ये विधे विधाने प्रकारी यस्याः, सा तथोक्ता । केन प्रकारेण द्विविधा, इत्याह ‘ज्ञानयोगेन सांख्यानां कर्मयोगेन योगिनाम्’ इति । यथाप्रतिपादिताद्वयचिन्मात्रस्वरूपस्य आत्मतत्वस्य प्रत्यभिज्ञानलक्षणा प्रतिपत्तिरिह ज्ञानमुच्यते, तद्विषयो योगः समाधिः कर्मण्यपि सति यथोक्तस्वरूपाप्रच्युतिलक्षणं प्रणिधानम् । तेन ‘ज्ञानयोगेन’ यथोक्तानां ‘मुख्यानां’ सांख्यानां निष्ठा मया उक्ता । ते हि नैष्टिकाः सांख्या येषां कर्मणि प्रवृत्तानामपि यथोक्तात्मज्ञानविषयः समाचिरविष्ठतः[?] । कर्म यथावर्ण यथाश्रमं शास्त्रचोदिता सा सा क्रिया, तत्र योगः समाधिर्यथोक्तज्ञानापरित्यागेन तदनुष्ठाननिष्ठता । तेन ‘कर्मयोगेन’ मुख्यानां ‘योगिनां’ निष्ठा उक्ता । एवं ज्ञानयोगस्य कर्मविनाभावात् कर्मयोगस्य च ज्ञानाविनाभावादे कैव प्रकारद्वयनि[?]र्षत्यो निष्ठा मया पूर्वमुक्ता । तत्प्रतिपादकश्च ग्रन्थस्तत्र उक्तः कथं विस्मृतो भवतः । तथाच "दूरेण ह्यावरं कर्म " (२०५१) इत्यादिना ज्ञानस्य प्रकर्षप्रतिपादनमुपक्रम्य तत्समाधिप्रतिपादनाय उक्तं ‘तस्माद्योगाय युज्यस्व’ कर्मनिष्ठो भव यतः कर्मसु यो योगस्तत् कौशलं सा बुद्धिमत्ता ज्ञानित्वमिति । अनैन ज्ञानयोगेन सांख्यानां ‘निष्ठेति’ तत्र उक्तम् । तथा "कर्मण्यस्त्वधिकार ते" इत्यादिना कर्मणोऽवश्यकरणीयत्वं व्यवस्थाप्य तत्समाधिप्रतिपादनाय उक्तं तथा "कर्मजं बुद्धियुक्ता हि फलं त्यक्त्वा मनीषिणः । कर्मबन्धविनिर्मुक्ताः पदं गच्छन्त्यनामयम् ॥" (३१५३) "रागद्वेषविमुक्तस्तु विषयानिन्द्रियैश्चरन् । आत्मवश्यैर्विधेयात्मा प्रसादमधिगच्छति ॥" (२१६६) इति । अनेनापि कर्मयोगेन योगिनां निष्ठा तत्र उक्ता । किं बहुना "दूरेण ह्यावरं कर्म ।" (३।५१) इत्यतः प्रभृति अध्यायपरिसमाप्ति यावदेकपुरुषानुष्टेयद्विविधनिष्ठाप्रतिपादनपरत्वेन सर्वो मन्थस्तत्र व्याख्यातः । तत् का मे व्यामिश्रवचनता यया एवं ते बुद्धिमोह उत्पन्नः',
+    note: 'Bounded: upālambha turn with the speaker label through the buddhimoha close (verse and the ॥ ३ ॥ marker excluded; runs to printed p.63). Hyphens joined (पदार्थसं-ख्यानं, यथोक्तसांख्य-निश्चित, प्रतिपाद-नाय, व्यव-स्थाप्य, अनुष्ठेयद्विविधनिष्ठा-प्रतिपादन). The print asterisk before सांख्या is excluded as ornament matter outside the diplomatic set (recorded here). प्रतिपन्न मिति, अर्जुन प्रति, शरी रि, उपादेय हेय, क्रिया विशेषः, गौण्या वृत्त्या, पूर्व द्वितीये, ह्यावरं (twice), अनैन, निष्ठेति, ए कैव and मन्थस्तत्र retained verbatim with spaces as extracted; योगिना (for योगिनो), हैरण्यगर्भादयश्च, आत्मतत्वस्य and यथावर्ण (without anusvāra) retained verbatim. [?]: two page-region joins unrecoverable in extraction — समाचिरविष्ठतः (sense unclear) and प्रकारद्वयनिर्षत्यो (possibly प्रकारद्वयनिष्ठा); retained verbatim, never reconstructed. The disagreeing locators (३१५३) and (३।५१) retained verbatim inside the text and inventoried as unresolved, no edges. No danda supplied where the marker is excluded.',
+  },
+  {
+    id: 'gita-tx-3.22-gloss',
+    spanId: 'gita-seg-3.22-gloss',
+    unitIds: ['3.22'],
+    ksts: ['3.22'],
+    pdf: 85,
+    folio: 75,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'हे ‘पार्थ’ मम स्वार्थसाधनतया ‘कर्तव्यं’ कार्य ‘न’ किञ्चित् ‘अस्ति’ यस्मात् ‘त्रिषु लोकेषु’ समस्ते जगति ‘अनवाप्त’ पूर्वमनासादितमिदानीम् ‘अवाप्तव्यं’ स्वेच्छापूरणाय लब्धव्यं न किञ्जिदस्ति । अलब्धलाभार्थो हि सर्वः कश्चित् स्वकार्यमारभते, मम तु यथाप्रतिपादिततत्त्वज्ञाननिष्ठाप्रतिष्ठितप्रज्ञस्य न किञ्चित् प्राध्यमस्ति । अतश्च तादृशोऽपि सन् लोकवत् ‘कर्मणि’ शास्त्रविहिते ‘प्रवर्ते’ सततमुद्युक्तो भवामि । अनेन ‘यस्त्वात्मरतिरेव स्यात्.... ............ तस्य कार्य न विद्यते ।’ (३।१७) इति उपक्रम्य ‘तस्मादसक्तः सततं कार्य कर्म समाचर ।’ (३।१९) इति यत् प्रागुक्तं, तदेकानुष्ठापुरुषविषयमेवेति निःसंशयतया प्रतिपादितवान्',
+    note: 'Bounded: ātma-udāharaṇa gloss through the pratipāditavān close (verse and verse-number marker excluded). Hyphen joined (प्राध्य-मस्ति). The 3.17/3.19 recalls with their locators retained verbatim inside the text (separately edged as gita-xref-019/020). कर्तव्यं कार्य, किञ्जिदस्ति and प्राध्यमस्ति retained verbatim; uncollated. No danda supplied where the marker is excluded. No [?].',
+  },
+  {
+    id: 'gita-tx-3.48-gloss',
+    spanId: 'gita-seg-3.48-gloss',
+    unitIds: ['3.43'],
+    ksts: ['3.48'],
+    pdf: 101,
+    folio: 91,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: '‘एवं’ यथोक्तप्रकारेण ‘बुद्धेः परम्’ एनं शत्रु ‘बुद्धा’ सुदुर्लक्ष्यत्वात् परमदुर्जयं मत्वा अत एव ‘आत्मनैव आत्मानं संस्तभ्य’ धैर्यं लम्बयित्वा ‘दुरासदं’ दुःखेन आसादयितुं परिभवितुं शक्यमेनं ‘जहि’ घातय । कीदृशम् । ‘कामरूप’ कामो विषयेषु अभिलाषो रूपं यस्य, स तथाविधः । पूर्व हि कामक्रोधाद्यात्मना अस्य अवस्थितिरुक्ता । तेन यद्यपि अयं सुसूक्ष्मत्वात् दुर्जयः, तथापि अस्य पूर्वोक्तेन प्रकारेण कामात्मिकामवस्थितिं निघ्नन् तद्विहनने समर्थो भविष्यस्येवेत्यर्थः । एवं भगवता क्षत्रियोचितेनैव प्रकारेण अर्जुनः प्रस्तुतोपदेशफलप्राप्तित्रतिद्वन्द्विनोऽहंकारस्य निवर्हणे समुत्साहितः । त्वया हि महेन्द्रेण अपि दुर्जया बहवः शत्रवः सहायनिरपेक्षेण बहुशो निपातिताः, तदेनमपि शत्रुमात्मैकसहायो निपातयितुमर्हसीति ओम्',
+    note: 'Bounded: evaṃ pratīka through the iti-om close (verse and its ॥ ४८ ॥ marker excluded). बुद्धा (for बुद्ध्वा), आत्मनैव आत्मानं, लम्बयित्वा, कामात्मिकामवस्थितिं, भविष्यस्येवेत्यर्थः, प्राप्तित्रतिद्वन्द्विनोऽहंकारस्य, महेन्द्रेण and ओम् retained verbatim; uncollated. No hyphens; no [?]. No danda supplied where the marker is excluded.',
+  },
+  {
+    id: 'gita-tx-3-prasasti',
+    spanId: 'gita-ps-3-prasasti',
+    unitIds: ['3.43'],
+    ksts: [],
+    pdf: 101,
+    folio: 91,
+    sourceId: KSTS_SOURCE_ID,
+    status: 'text-layer-reviewed',
+    text: 'विज्ञानतस्वतपनी[?] यगुण प्रकर्षप्रख्यापनैकनिकषो निजकर्मयोगः । अस्मि श्रृणां प्रकटितः परमार्थ सिज्यै सोऽध्याय एष विवृतो विधिवत्तृतीयः',
+    note: 'Bounded: authorial praśasti verse without its danda close (excludes the fixed colophon after, which stays locator-only in the closing inventory). Hyphen joined (प्रकर्ष-प्रख्यापन). [?]: विज्ञानतस्वतपनी is unrecovered in extraction (possibly विज्ञानतत्त्वतपनीय); retained verbatim, never reconstructed. यगुण, श्रृणां and परमार्थ सिज्यै retained verbatim with spaces as extracted; uncollated.',
+  },
 ];
 
 /** Devanagari source text plus print punctuation, digits, brackets and whitespace. */

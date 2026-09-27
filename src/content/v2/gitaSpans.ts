@@ -1257,6 +1257,62 @@ export const GITA_PASSAGE_SPANS: GitaPassageSpan[] = [
     status: 'source',
     note: 'Authorial praśasti verse (hṛdaya iva gambhīra; the fixed colophon stays locator-only).',
   },
+  // Chapter-3 spans (Phase 12). Only the chapter-entry joint gloss
+  // (KSTS 3.1–2), the samuccaya-nirvacana gloss (KSTS 3.3), the
+  // upakramya-recall gloss (KSTS 3.22) and the chapter close (KSTS 3.48
+  // gloss + praśasti) are segmented here; the remaining joint
+  // expositions stay in the untranscribed inventory until reviewed.
+  // No span carries transcription, ever.
+  {
+    id: 'gita-seg-3.1-2-joint',
+    unitIds: ['3.1', '3.2'],
+    ksts: ['3.1', '3.2'],
+    pdf: 71,
+    folio: 61,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 3.1–2 joint gloss: Arjuna’s dilemma with the 2.51/2.48 recalls, closed ॥ १-२ ॥ (printed p.61).',
+  },
+  {
+    id: 'gita-seg-3.3-gloss',
+    unitIds: ['3.3'],
+    ksts: ['3.3'],
+    pdf: 72,
+    folio: 62,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 3.3 gloss: upālambha turn with the sāṅkhya/yoga nirvacana and the 2.51/2.66 recalls (runs to printed p.63).',
+  },
+  {
+    id: 'gita-seg-3.22-gloss',
+    unitIds: ['3.22'],
+    ksts: ['3.22'],
+    pdf: 85,
+    folio: 75,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 3.22 gloss: ātma-udāharaṇa with the 3.17/3.19 upakramya recall (printed p.75).',
+  },
+  {
+    id: 'gita-seg-3.48-gloss',
+    unitIds: ['3.43'],
+    ksts: ['3.48'],
+    pdf: 101,
+    folio: 91,
+    anchor: 'commentary',
+    status: 'source',
+    note: 'KSTS 3.48 (repo 3.43) kāma-vadha gloss through the iti-om close (printed p.91).',
+  },
+  {
+    id: 'gita-ps-3-prasasti',
+    unitIds: ['3.43'],
+    ksts: [],
+    pdf: 101,
+    folio: 91,
+    anchor: 'closing',
+    status: 'source',
+    note: 'Authorial praśasti verse (vijñāna-tattva-tapanīya; the fixed colophon stays locator-only).',
+  },
 ];
 
 export function passageSpanById(id: string): GitaPassageSpan | undefined {
