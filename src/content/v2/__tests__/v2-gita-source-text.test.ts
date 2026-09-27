@@ -99,6 +99,18 @@ const EXPECTED_IDS = [
   'gita-tx-13.34-moksa',
   'gita-tx-13.34-para',
   'gita-tx-13.34-prasasti',
+  'gita-tx-1-upodghata-open',
+  'gita-tx-1-upodghata-close',
+  'gita-tx-1-upakrama',
+  'gita-tx-1.1-prasna',
+  'gita-tx-1.2-19-sainya',
+  'gita-tx-1.20-23-nirupana',
+  'gita-tx-1.24-25-sphuta',
+  'gita-tx-1.26-28-darsana',
+  'gita-tx-1.29-46-mithyajnana',
+  'gita-tx-1.47-gatartha',
+  'gita-tx-1-upasamhara',
+  'gita-tx-1-prasasti',
   'gita-tx-2.39-tail',
   'gita-tx-3-avat',
   'gita-tx-4-avat',
@@ -118,7 +130,7 @@ function curatedGita() {
 }
 
 describe('passage identity and preservation', () => {
-  it('ships exactly the eighty-four reviewed passages (eleven Phase-6 + eleven Phase-7 + sixty-two Phase-8)', () => {
+  it('ships exactly the ninety-six reviewed passages (eleven Phase-6 + eleven Phase-7 + sixty-two Phase-8 + twelve Phase-10 Chapter-1)', () => {
     expect(GITA_COMMENTARY_TEXTS.map((p) => p.id).sort()).toEqual([...EXPECTED_IDS].sort());
     expect(passageById('gita-tx-13.2-nanu')?.spanId).toBe('gita-ps-13.2-nanu');
     expect(passageById('gita-tx-nope')).toBeUndefined();
@@ -178,12 +190,18 @@ describe('passage mapping and states', () => {
         expect(p.status).not.toBe('partially-collated');
       }
     }
-    // Non-Chapter-13 pilot records stay untouched at verified-source.
+    // Non-Chapter-13 pilot records stay untouched at verified-source; the
+    // twelve Phase-10 Chapter-1 records are text-layer-reviewed.
     const nonCh13 = GITA_COMMENTARY_TEXTS.filter(
       (p) => !(p.unitIds || []).some((u) => u.startsWith('13.')),
     );
-    expect(nonCh13.length).toBe(8);
-    for (const p of nonCh13) expect(p.status).toBe('verified-source');
+    expect(nonCh13).toHaveLength(20);
+    const pilot = nonCh13.filter((p) => !(p.unitIds || []).some((u) => u.startsWith('1.')));
+    expect(pilot).toHaveLength(8);
+    for (const p of pilot) expect(p.status).toBe('verified-source');
+    const ch1 = nonCh13.filter((p) => (p.unitIds || []).some((u) => u.startsWith('1.')));
+    expect(ch1).toHaveLength(12);
+    for (const p of ch1) expect(p.status).toBe('text-layer-reviewed');
   });
 
   it('links spanned passages to resolving spans', () => {
@@ -417,9 +435,9 @@ describe('commentary audit with source text', () => {
       passages: GITA_COMMENTARY_TEXTS,
     });
     expect(audit.texts).toEqual({
-      total: 84,
+      total: 96,
       verifiedSource: 8,
-      textLayerReviewed: 65,
+      textLayerReviewed: 77,
       pageImageCollated: 11,
       partiallyCollated: 0,
       extractionUnreviewed: 0,

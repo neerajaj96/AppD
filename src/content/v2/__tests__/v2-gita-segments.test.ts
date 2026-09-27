@@ -111,13 +111,25 @@ const EXPECTED_SPANS = [
   'gita-seg-13.34-para',
   'gita-seg-13.34-prasasti',
   'gita-seg-13.34-closing',
+  'gita-ps-1-upodghata-open',
+  'gita-ps-1-upodghata-close',
+  'gita-ps-1-upakrama',
+  'gita-seg-1.1-prasna',
+  'gita-seg-1.2-19-sainya',
+  'gita-seg-1.20-23-nirupana',
+  'gita-seg-1.24-25-sphuta',
+  'gita-seg-1.26-28-darsana',
+  'gita-seg-1.29-46-mithyajnana',
+  'gita-seg-1.47-gatartha',
+  'gita-ps-1-upasamhara',
+  'gita-ps-1-prasasti',
   'gita-seg-2.39-tail',
   'gita-seg-7.14-q2',
   'gita-seg-7.14-response',
 ];
 
 describe('segment identity and stability', () => {
-  it('keeps the eighty-five passage spans, no renames, no silent additions', () => {
+  it('keeps the ninety-seven passage spans, no renames, no silent additions', () => {
     expect(GITA_PASSAGE_SPANS.map((s) => s.id).sort()).toEqual([...EXPECTED_SPANS].sort());
   });
 
@@ -239,8 +251,8 @@ describe('commentary audit', () => {
       threads: GITA_SCHOLARLY_THREADS,
       concepts: gitaConcepts(),
     });
-    expect(audit.segments).toEqual({ total: 85, source: 85, editorial: 0, unresolved: 0 });
-    expect(audit.evidencePrecision.exactFolio).toBe(85);
+    expect(audit.segments).toEqual({ total: 97, source: 97, editorial: 0, unresolved: 0 });
+    expect(audit.evidencePrecision.exactFolio).toBe(97);
     expect(audit.danglingSpanRefs).toBe(0);
     const byId = new Map(audit.threads.map((t) => [t.threadId, t]));
     expect(byId.get('gita-rk-kshetra')).toMatchObject({ steps: 5, stepsWithSegments: 5 });
