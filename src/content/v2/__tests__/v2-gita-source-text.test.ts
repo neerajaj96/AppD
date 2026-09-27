@@ -111,6 +111,19 @@ const EXPECTED_IDS = [
   'gita-tx-1.47-gatartha',
   'gita-tx-1-upasamhara',
   'gita-tx-1-prasasti',
+  'gita-tx-2-avat',
+  'gita-tx-2.1-sphuta',
+  'gita-tx-2.2-gloss',
+  'gita-tx-2.3-gloss',
+  'gita-tx-2.4-gloss',
+  'gita-tx-2.5-gloss',
+  'gita-tx-2.6-gloss',
+  'gita-tx-2.7-gloss',
+  'gita-tx-2.8-gloss',
+  'gita-tx-2.9-10-joint',
+  'gita-tx-2-upasamhara',
+  'gita-tx-2.74-gloss',
+  'gita-tx-2-prasasti',
   'gita-tx-2.39-tail',
   'gita-tx-3-avat',
   'gita-tx-4-avat',
@@ -130,7 +143,7 @@ function curatedGita() {
 }
 
 describe('passage identity and preservation', () => {
-  it('ships exactly the ninety-six reviewed passages (eleven Phase-6 + eleven Phase-7 + sixty-two Phase-8 + twelve Phase-10 Chapter-1)', () => {
+  it('ships exactly the one-hundred-nine reviewed passages (eleven Phase-6 + eleven Phase-7 + sixty-two Phase-8 + twelve Phase-10 Chapter-1 + thirteen Phase-11 Chapter-2)', () => {
     expect(GITA_COMMENTARY_TEXTS.map((p) => p.id).sort()).toEqual([...EXPECTED_IDS].sort());
     expect(passageById('gita-tx-13.2-nanu')?.spanId).toBe('gita-ps-13.2-nanu');
     expect(passageById('gita-tx-nope')).toBeUndefined();
@@ -191,17 +204,28 @@ describe('passage mapping and states', () => {
       }
     }
     // Non-Chapter-13 pilot records stay untouched at verified-source; the
-    // twelve Phase-10 Chapter-1 records are text-layer-reviewed.
+    // Phase-10 Chapter-1 and Phase-11 Chapter-2 records are
+    // text-layer-reviewed (the pre-existing 2.39 tail stays verified-source).
     const nonCh13 = GITA_COMMENTARY_TEXTS.filter(
       (p) => !(p.unitIds || []).some((u) => u.startsWith('13.')),
     );
-    expect(nonCh13).toHaveLength(20);
-    const pilot = nonCh13.filter((p) => !(p.unitIds || []).some((u) => u.startsWith('1.')));
-    expect(pilot).toHaveLength(8);
+    expect(nonCh13).toHaveLength(33);
+    const pilot = nonCh13.filter(
+      (p) => !(p.unitIds || []).some((u) => u.startsWith('1.') || u.startsWith('2.')),
+    );
+    expect(pilot).toHaveLength(7);
     for (const p of pilot) expect(p.status).toBe('verified-source');
     const ch1 = nonCh13.filter((p) => (p.unitIds || []).some((u) => u.startsWith('1.')));
     expect(ch1).toHaveLength(12);
     for (const p of ch1) expect(p.status).toBe('text-layer-reviewed');
+    const ch2 = nonCh13.filter((p) => (p.unitIds || []).some((u) => u.startsWith('2.')));
+    expect(ch2).toHaveLength(14);
+    expect(ch2.filter((p) => p.status === 'verified-source').map((p) => p.id)).toEqual([
+      'gita-tx-2.39-tail',
+    ]);
+    for (const p of ch2.filter((p) => p.id !== 'gita-tx-2.39-tail')) {
+      expect(p.status).toBe('text-layer-reviewed');
+    }
   });
 
   it('links spanned passages to resolving spans', () => {
@@ -435,9 +459,9 @@ describe('commentary audit with source text', () => {
       passages: GITA_COMMENTARY_TEXTS,
     });
     expect(audit.texts).toEqual({
-      total: 96,
+      total: 109,
       verifiedSource: 8,
-      textLayerReviewed: 77,
+      textLayerReviewed: 90,
       pageImageCollated: 11,
       partiallyCollated: 0,
       extractionUnreviewed: 0,

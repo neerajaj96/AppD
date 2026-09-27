@@ -417,7 +417,7 @@ describe('chapter-1 reader access', () => {
     for (const id of ['gita-tx-1-upakrama', 'gita-tx-1.29-46-mithyajnana', 'gita-tx-1-prasasti']) {
       expect(data.map((r) => r.id)).toContain(id);
     }
-    expect(data).toHaveLength(96);
+    expect(data).toHaveLength(109);
   });
 
   it('keeps the commentary-wide span audit clean after the Chapter-1 growth', () => {
